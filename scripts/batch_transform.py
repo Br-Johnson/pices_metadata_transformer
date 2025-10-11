@@ -17,7 +17,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.fgdc_to_zenodo import transform_fgdc_file
 from scripts.logger import initialize_logger, get_logger
-from scripts.validate_zenodo import validate_zenodo_directory
+from scripts.validate_zenodo import validate_zenodo_directory, validate_zenodo_file
 
 
 class BatchTransformer:
@@ -99,7 +99,6 @@ class BatchTransformer:
                     
                     # Validate the file to get detailed analysis
                     try:
-                        from validate_zenodo import validate_zenodo_file
                         validation_result = validate_zenodo_file(json_file)
                         field_coverage = validation_result.get('field_coverage', {})
                         # Use character analysis from transformation result if available
