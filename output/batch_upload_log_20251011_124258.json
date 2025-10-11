@@ -1,0 +1,25 @@
+{
+  "total_uploaded": 0,
+  "total_failed": 1,
+  "batches": [
+    {
+      "batch_number": 1,
+      "batch_size": 1,
+      "successful_uploads": 0,
+      "failed_uploads": 1,
+      "start_time": "2025-10-11T12:42:59.023989",
+      "end_time": "2025-10-11T12:43:01.379042",
+      "duration_seconds": 2.355053,
+      "uploads": [],
+      "errors": [
+        {
+          "json_file": "output/zenodo_json/FGDC-1765.json",
+          "success": false,
+          "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+          "timestamp": "2025-10-11T12:43:01.267480"
+        }
+      ]
+    }
+  ],
+  "last_updated": "2025-10-11T12:43:01.379410"
+}

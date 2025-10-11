@@ -153,7 +153,7 @@ class UploadAuditor:
         }
     
     def _check_data_integrity(self, uploads: List[Dict]) -> Dict[str, Any]:
-        """Check for data integrity issues in successful uploads."""
+        """Check for data integrity issues in successful uploads by reading actual JSON files."""
         issues = {
             'missing_titles': [],
             'missing_creators': [],
@@ -166,27 +166,37 @@ class UploadAuditor:
             if not upload.get('success', False):
                 continue
                 
-            metadata = upload.get('metadata', {})
-            file_name = upload.get('json_file', 'Unknown')
+            json_file_path = upload.get('json_file', '')
+            if not json_file_path or not os.path.exists(json_file_path):
+                continue
+                
+            try:
+                # Read the actual transformed JSON file
+                with open(json_file_path, 'r', encoding='utf-8') as f:
+                    json_data = json.load(f)
+                    metadata = json_data.get('metadata', {})
+            except (json.JSONDecodeError, IOError) as e:
+                print(f"Warning: Could not read {json_file_path}: {e}")
+                continue
             
             # Check required fields
             if not metadata.get('title'):
-                issues['missing_titles'].append(file_name)
+                issues['missing_titles'].append(json_file_path)
             
             if not metadata.get('creators') or len(metadata.get('creators', [])) == 0:
-                issues['missing_creators'].append(file_name)
+                issues['missing_creators'].append(json_file_path)
             
             if not metadata.get('description'):
-                issues['missing_descriptions'].append(file_name)
+                issues['missing_descriptions'].append(json_file_path)
             
             # Check date format
             pub_date = metadata.get('publication_date', '')
             if pub_date and not self._is_valid_date(pub_date):
-                issues['invalid_dates'].append(file_name)
+                issues['invalid_dates'].append(json_file_path)
             
             # Check license for open access
             if metadata.get('access_right') == 'open' and not metadata.get('license'):
-                issues['missing_licenses'].append(file_name)
+                issues['missing_licenses'].append(json_file_path)
         
         return {
             'missing_titles_count': len(issues['missing_titles']),

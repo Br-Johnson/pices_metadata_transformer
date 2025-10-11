@@ -144,8 +144,30 @@ Options:
   --sandbox        Use Zenodo sandbox (default: True)
   --production     Use Zenodo production (overrides --sandbox)
   --batch-size N   Number of files per batch (default: 1000)
+  --limit N        Limit number of files to process (for testing)
+  --interactive    Interactive mode: stop between batches for review (recommended for production)
   --output-dir DIR Output directory for logs (default: output)
 ```
+
+### Interactive Mode (Recommended for Production)
+
+For production uploads, use interactive mode to review each batch before proceeding:
+
+```bash
+# Production upload with interactive review
+python scripts/batch_upload.py --production --interactive --batch-size 50
+
+# Sandbox testing with interactive review
+python scripts/batch_upload.py --sandbox --interactive --batch-size 10
+```
+
+Interactive mode provides:
+
+- **Batch-by-batch review**: Stop after each batch to review results
+- **Built-in tools**: Run duplicate checks and audits directly from the interface
+- **Quality control**: Ensure each batch is successful before proceeding
+- **Manual validation**: Review logs, reports, and individual records
+- **Safe stopping**: Exit cleanly at any point with progress saved
 
 ### Duplicate Detection
 

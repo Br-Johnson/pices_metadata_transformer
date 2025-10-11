@@ -159,12 +159,17 @@ class MetricsAnalyzer:
             for field in coverage.get('missing_important_fields', []):
                 missing_important[field] += 1
         
+        # Convert to Counter to use most_common
+        from collections import Counter
+        missing_critical_counter = Counter(missing_critical)
+        missing_important_counter = Counter(missing_important)
+        
         return {
             'avg_critical_coverage': round(sum(c['critical_fields_percentage'] for c in coverage_data) / len(coverage_data), 1),
             'avg_important_coverage': round(sum(c['important_fields_percentage'] for c in coverage_data) / len(coverage_data), 1),
             'avg_optional_coverage': round(sum(c['optional_fields_percentage'] for c in coverage_data) / len(coverage_data), 1),
-            'most_missing_critical_fields': dict(missing_critical.most_common(5)),
-            'most_missing_important_fields': dict(missing_important.most_common(5)),
+            'most_missing_critical_fields': dict(missing_critical_counter.most_common(5)),
+            'most_missing_important_fields': dict(missing_important_counter.most_common(5)),
             'complete_coverage_records': sum(1 for c in coverage_data if c['overall_coverage_percentage'] == 100.0)
         }
     
@@ -193,12 +198,65 @@ class MetricsAnalyzer:
         
         effectiveness_data = [m['transformation_effectiveness'] for m in metrics_list]
         
+        # Calculate field mapping breakdown averages
+        field_mapping_breakdowns = [e.get('field_mapping_breakdown', {}) for e in effectiveness_data]
+        valid_breakdowns = [b for b in field_mapping_breakdowns if b]
+        
+        field_mapping_summary = {}
+        if valid_breakdowns:
+            # Analyze unmapped field patterns
+            unmapped_field_analysis = self._analyze_unmapped_fields(valid_breakdowns)
+            
+            field_mapping_summary = {
+                'avg_total_fgdc_fields': round(sum(b.get('total_fgdc_fields', 0) for b in valid_breakdowns) / len(valid_breakdowns), 1),
+                'avg_directly_mapped_fields': round(sum(b.get('directly_mapped_fields', 0) for b in valid_breakdowns) / len(valid_breakdowns), 1),
+                'avg_fields_in_notes': round(sum(b.get('fields_in_notes', 0) for b in valid_breakdowns) / len(valid_breakdowns), 1),
+                'avg_unmapped_fields': round(sum(b.get('unmapped_fields', 0) for b in valid_breakdowns) / len(valid_breakdowns), 1),
+                'avg_direct_mapping_percentage': round(sum(b.get('direct_mapping_percentage', 0) for b in valid_breakdowns) / len(valid_breakdowns), 1),
+                'avg_notes_mapping_percentage': round(sum(b.get('notes_mapping_percentage', 0) for b in valid_breakdowns) / len(valid_breakdowns), 1),
+                'avg_total_preservation_percentage': round(sum(b.get('total_preservation_percentage', 0) for b in valid_breakdowns) / len(valid_breakdowns), 1),
+                'records_with_unmapped_fields': sum(1 for b in valid_breakdowns if b.get('unmapped_fields', 0) > 0),
+                'records_with_perfect_preservation': sum(1 for b in valid_breakdowns if b.get('total_preservation_percentage', 0) == 100.0),
+                'unmapped_field_analysis': unmapped_field_analysis
+            }
+        
         return {
             'avg_mapping_completeness': round(sum(e['mapping_completeness'] for e in effectiveness_data) / len(effectiveness_data), 1),
             'avg_data_enrichment': round(sum(e['data_enrichment_score'] for e in effectiveness_data) / len(effectiveness_data), 1),
             'avg_format_compliance': round(sum(e['format_compliance'] for e in effectiveness_data) / len(effectiveness_data), 1),
             'avg_semantic_accuracy': round(sum(e['semantic_accuracy'] for e in effectiveness_data) / len(effectiveness_data), 1),
-            'high_effectiveness_records': sum(1 for e in effectiveness_data if e['overall_effectiveness_score'] >= 90)
+            'high_effectiveness_records': sum(1 for e in effectiveness_data if e['overall_effectiveness_score'] >= 90),
+            'field_mapping_summary': field_mapping_summary
+        }
+    
+    def _analyze_unmapped_fields(self, field_mapping_breakdowns: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Analyze patterns in unmapped fields."""
+        
+        # Collect all unmapped field details
+        all_unmapped_fields = []
+        unmapped_reasons = defaultdict(int)
+        unmapped_field_counts = defaultdict(int)
+        
+        for breakdown in field_mapping_breakdowns:
+            mapping_details = breakdown.get('mapping_details', {})
+            unmapped_details = mapping_details.get('unmapped', [])
+            
+            for unmapped_field in unmapped_details:
+                all_unmapped_fields.append(unmapped_field)
+                unmapped_reasons[unmapped_field['reason']] += 1
+                unmapped_field_counts[unmapped_field['fgdc_field']] += 1
+        
+        # Convert to Counter for most_common
+        from collections import Counter
+        unmapped_reasons_counter = Counter(unmapped_reasons)
+        unmapped_field_counts_counter = Counter(unmapped_field_counts)
+        
+        return {
+            'total_unmapped_instances': len(all_unmapped_fields),
+            'unique_unmapped_fields': len(unmapped_field_counts),
+            'most_common_unmapped_fields': dict(unmapped_field_counts_counter.most_common(10)),
+            'unmapped_reasons': dict(unmapped_reasons_counter.most_common()),
+            'sample_unmapped_fields': all_unmapped_fields[:5]  # First 5 for inspection
         }
     
     def _generate_recommendations(self, metrics_list: List[Dict[str, Any]]) -> List[str]:

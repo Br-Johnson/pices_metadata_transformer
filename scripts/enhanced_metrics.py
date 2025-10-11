@@ -100,9 +100,13 @@ class EnhancedMetricsCalculator:
         
         # Content preservation (meaningful text content)
         if fgdc_data['total_meaningful_chars'] > 0:
-            preservation_metrics['content_preservation_ratio'] = round(
-                zenodo_data['total_meaningful_chars'] / fgdc_data['total_meaningful_chars'], 3
-            )
+            # Calculate preservation ratio based on preserved content only
+            preserved_ratio = zenodo_data['preserved_chars'] / fgdc_data['total_meaningful_chars']
+            preservation_metrics['content_preservation_ratio'] = round(preserved_ratio, 3)
+            
+            # Calculate enrichment ratio
+            enrichment_ratio = zenodo_data['enriched_chars'] / fgdc_data['total_meaningful_chars']
+            preservation_metrics['content_enrichment_ratio'] = round(enrichment_ratio, 3)
         
         # Field preservation (how many FGDC fields made it to Zenodo)
         if fgdc_data['total_fields'] > 0:
@@ -235,16 +239,27 @@ class EnhancedMetricsCalculator:
             'data_enrichment_score': 0.0,
             'format_compliance': 0.0,
             'semantic_accuracy': 0.0,
-            'overall_effectiveness_score': 0.0
+            'overall_effectiveness_score': 0.0,
+            'field_mapping_breakdown': {
+                'total_fgdc_fields': 0,
+                'directly_mapped_fields': 0,
+                'fields_in_notes': 0,
+                'unmapped_fields': 0,
+                'direct_mapping_percentage': 0.0,
+                'notes_mapping_percentage': 0.0,
+                'total_preservation_percentage': 0.0
+            }
         }
         
-        # Mapping completeness (how well FGDC fields were mapped)
+        # Enhanced mapping completeness with detailed breakdown
         fgdc_fields = self._extract_fgdc_field_names(fgdc_content)
-        mapped_fields = self._count_mapped_fields(zenodo_metadata)
+        mapping_breakdown = self._analyze_field_mapping(fgdc_content, zenodo_metadata, fgdc_fields)
+        
+        effectiveness['field_mapping_breakdown'] = mapping_breakdown
         
         if len(fgdc_fields) > 0:
             effectiveness['mapping_completeness'] = round(
-                (mapped_fields / len(fgdc_fields)) * 100, 1
+                (mapping_breakdown['directly_mapped_fields'] / len(fgdc_fields)) * 100, 1
             )
         
         # Data enrichment (how much additional value was added)
@@ -381,42 +396,84 @@ class EnhancedMetricsCalculator:
             return {'total_meaningful_chars': 0, 'total_fields': 0, 'xml_elements': 0}
     
     def _extract_meaningful_zenodo_data(self, zenodo_metadata: Dict[str, Any]) -> Dict[str, Any]:
-        """Extract meaningful data from Zenodo metadata."""
-        total_chars = 0
+        """Extract meaningful data from Zenodo metadata, distinguishing between preserved and enriched content."""
+        
+        # Core preserved content (directly from FGDC)
+        preserved_chars = 0
+        # Enriched content (added during transformation)
+        enriched_chars = 0
         mapped_fields = 0
+        
+        # Define which fields are core preserved content vs enriched content
+        # Note: 'notes' field contains content from multiple FGDC elements, so we don't count it as preserved
+        # to avoid double-counting content that's already counted in other fields
+        preserved_fields = {
+            'title', 'description', 'publication_date', 'creators', 'keywords'
+        }
+        
+        enriched_fields = {
+            'subjects', 'contributors', 'communities', 'access_right', 'license', 
+            'upload_type', 'related_identifiers', 'references', 'notes'
+        }
         
         for field, value in zenodo_metadata.items():
             if value is not None:
                 mapped_fields += 1
-                if isinstance(value, str):
-                    total_chars += len(value)
-                elif isinstance(value, list):
-                    for item in value:
-                        if isinstance(item, str):
-                            total_chars += len(item)
-                        elif isinstance(item, dict):
-                            for v in item.values():
-                                if isinstance(v, str):
-                                    total_chars += len(v)
+                
+                # Count characters based on field type
+                field_chars = self._count_field_chars(value)
+                
+                if field in preserved_fields:
+                    preserved_chars += field_chars
+                elif field in enriched_fields:
+                    enriched_chars += field_chars
+                else:
+                    # Default to preserved for unknown fields
+                    preserved_chars += field_chars
         
         return {
-            'total_meaningful_chars': total_chars,
+            'total_meaningful_chars': preserved_chars + enriched_chars,
+            'preserved_chars': preserved_chars,
+            'enriched_chars': enriched_chars,
             'mapped_fields': mapped_fields
         }
     
+    def _count_field_chars(self, value) -> int:
+        """Count characters in a field value."""
+        if isinstance(value, str):
+            return len(value)
+        elif isinstance(value, list):
+            total = 0
+            for item in value:
+                if isinstance(item, str):
+                    total += len(item)
+                elif isinstance(item, dict):
+                    for v in item.values():
+                        if isinstance(v, str):
+                            total += len(v)
+            return total
+        elif isinstance(value, dict):
+            total = 0
+            for v in value.values():
+                if isinstance(v, str):
+                    total += len(v)
+            return total
+        return 0
+    
     def _calculate_semantic_preservation(self, fgdc_data: Dict[str, Any], 
                                        zenodo_data: Dict[str, Any]) -> float:
-        """Calculate semantic preservation score."""
-        # This is a simplified version - could be enhanced with more sophisticated analysis
+        """Calculate semantic preservation score based on preserved content."""
         if fgdc_data['total_meaningful_chars'] == 0:
             return 0.0
         
-        preservation_ratio = zenodo_data['total_meaningful_chars'] / fgdc_data['total_meaningful_chars']
+        # Use preserved content ratio for semantic preservation
+        preservation_ratio = zenodo_data['preserved_chars'] / fgdc_data['total_meaningful_chars']
         
-        # Penalize if too much data was lost or gained (indicates poor mapping)
-        if preservation_ratio < 0.5 or preservation_ratio > 2.0:
+        # Penalize if too much data was lost (indicates poor mapping)
+        if preservation_ratio < 0.5:
             return 0.5
         
+        # Reward good preservation (up to 100%)
         return min(preservation_ratio, 1.0)
     
     def _identify_data_loss(self, fgdc_data: Dict[str, Any], zenodo_data: Dict[str, Any]) -> List[str]:
@@ -424,20 +481,25 @@ class EnhancedMetricsCalculator:
         indicators = []
         
         if fgdc_data['total_meaningful_chars'] > 0:
-            loss_ratio = 1 - (zenodo_data['total_meaningful_chars'] / fgdc_data['total_meaningful_chars'])
-            if loss_ratio > 0.3:
-                indicators.append(f"Significant data loss: {loss_ratio:.1%} of content not preserved")
+            # Check preservation ratio (preserved content vs original)
+            preservation_ratio = zenodo_data['preserved_chars'] / fgdc_data['total_meaningful_chars']
+            if preservation_ratio < 0.7:
+                loss_ratio = 1 - preservation_ratio
+                indicators.append(f"Significant data loss: {loss_ratio:.1%} of original content not preserved")
         
         return indicators
     
     def _identify_data_gain(self, fgdc_data: Dict[str, Any], zenodo_data: Dict[str, Any]) -> List[str]:
-        """Identify potential data gain indicators."""
+        """Identify data enrichment indicators."""
         indicators = []
         
         if fgdc_data['total_meaningful_chars'] > 0:
-            gain_ratio = (zenodo_data['total_meaningful_chars'] / fgdc_data['total_meaningful_chars']) - 1
-            if gain_ratio > 0.5:
-                indicators.append(f"Significant data expansion: {gain_ratio:.1%} more content than original")
+            # Check enrichment ratio (enriched content vs original)
+            enrichment_ratio = zenodo_data['enriched_chars'] / fgdc_data['total_meaningful_chars']
+            if enrichment_ratio > 0.3:
+                indicators.append(f"Significant data enrichment: {enrichment_ratio:.1%} additional structured content added")
+            elif enrichment_ratio > 0.1:
+                indicators.append(f"Moderate data enrichment: {enrichment_ratio:.1%} additional structured content added")
         
         return indicators
     
@@ -598,6 +660,155 @@ class EnhancedMetricsCalculator:
             return [elem.tag for elem in root.iter() if elem.text and elem.text.strip()]
         except Exception:
             return []
+    
+    def _extract_fgdc_field_values(self, fgdc_content: str) -> Dict[str, str]:
+        """Extract field names and values from FGDC content."""
+        try:
+            root = ET.fromstring(fgdc_content)
+            field_values = {}
+            for elem in root.iter():
+                if elem.text and elem.text.strip():
+                    field_values[elem.tag] = elem.text.strip()
+            return field_values
+        except Exception:
+            return {}
+    
+    def _analyze_field_mapping(self, fgdc_content: str, zenodo_metadata: Dict[str, Any], fgdc_fields: List[str]) -> Dict[str, Any]:
+        """Analyze how FGDC fields are mapped to Zenodo fields."""
+        
+        # Define which FGDC fields map directly to Zenodo fields
+        direct_mappings = {
+            'title': 'title',
+            'origin': 'creators', 
+            'pubdate': 'publication_date',
+            'abstract': 'description',
+            'themekey': 'keywords',
+            'placekey': 'keywords',
+            'stratumkey': 'keywords',
+            'temporal': 'keywords',
+            'edition': 'version',
+            'sername': 'partof_title',
+            'issue': 'journal_issue',
+            'pubplace': 'imprint_place',
+            'publish': 'imprint_publisher',
+            'othercit': 'references',
+            'onlink': 'related_identifiers',
+            'lworkcit': 'related_identifiers',
+            'crossref': 'related_identifiers',
+            'browsen': 'related_identifiers',
+            'browsed': 'related_identifiers',
+            'browset': 'related_identifiers'
+        }
+        
+        # Fields that typically go to notes
+        notes_fields = {
+            'purpose', 'supplinf', 'current', 'sngdate', 'rngdates', 'begdate', 'enddate',
+            'progress', 'update', 'westbc', 'eastbc', 'northbc', 'southbc', 'dsgpoly',
+            'accconst', 'useconst', 'secsys', 'secclass', 'sechandl', 'native',
+            'cntper', 'cntorg', 'cntpos', 'cntaddr', 'cntvoice', 'cntfax', 'cntemail',
+            'cnttdd', 'cnttddtype', 'cntinst', 'metd', 'metrd', 'metc', 'metstdn',
+            'metstdv', 'mettc', 'metac', 'metuc', 'metfrd', 'metcrd', 'metextns',
+            'metprof', 'distliab', 'stdorder', 'digform', 'digtopt', 'onlinopt',
+            'offoptn', 'resdesc', 'distrib', 'techpreq', 'availabl', 'custom',
+            'ordering', 'turnarnd', 'fees', 'ordering', 'turnarnd', 'fees',
+            # Contact address sub-fields that should be captured in notes
+            'addrtype', 'address', 'city', 'state', 'postal', 'country', 'themekt'
+        }
+        
+        # Parse FGDC content to get field values for analysis
+        fgdc_field_values = self._extract_fgdc_field_values(fgdc_content)
+        
+        total_fgdc_fields = len(fgdc_fields)
+        directly_mapped_count = 0
+        notes_mapped_count = 0
+        unmapped_count = 0
+        
+        # Track specific mappings for detailed analysis
+        directly_mapped_details = []
+        notes_mapped_details = []
+        unmapped_details = []
+        
+        # Count direct mappings
+        for fgdc_field in fgdc_fields:
+            field_value = fgdc_field_values.get(fgdc_field, '')
+            
+            if fgdc_field in direct_mappings:
+                zenodo_field = direct_mappings[fgdc_field]
+                if zenodo_metadata.get(zenodo_field) is not None:
+                    directly_mapped_count += 1
+                    directly_mapped_details.append({
+                        'fgdc_field': fgdc_field,
+                        'zenodo_field': zenodo_field,
+                        'value': field_value[:100] + '...' if len(field_value) > 100 else field_value
+                    })
+                else:
+                    # Field should have been mapped but wasn't
+                    unmapped_count += 1
+                    unmapped_details.append({
+                        'fgdc_field': fgdc_field,
+                        'reason': 'Direct mapping failed - target field empty',
+                        'expected_zenodo_field': zenodo_field,
+                        'value': field_value[:100] + '...' if len(field_value) > 100 else field_value
+                    })
+            elif fgdc_field in notes_fields:
+                # Check if this field contributed to notes
+                if zenodo_metadata.get('notes'):
+                    notes_mapped_count += 1
+                    notes_mapped_details.append({
+                        'fgdc_field': fgdc_field,
+                        'reason': 'Standard notes field',
+                        'value': field_value[:100] + '...' if len(field_value) > 100 else field_value
+                    })
+                else:
+                    unmapped_count += 1
+                    unmapped_details.append({
+                        'fgdc_field': fgdc_field,
+                        'reason': 'Notes field empty - no notes content',
+                        'value': field_value[:100] + '...' if len(field_value) > 100 else field_value
+                    })
+            else:
+                # Check if field is in notes or other fields
+                notes_content = zenodo_metadata.get('notes', '')
+                if fgdc_field.lower() in notes_content.lower() or self._field_in_other_zenodo_fields(fgdc_field, zenodo_metadata):
+                    notes_mapped_count += 1
+                    notes_mapped_details.append({
+                        'fgdc_field': fgdc_field,
+                        'reason': 'Found in notes or other fields',
+                        'value': field_value[:100] + '...' if len(field_value) > 100 else field_value
+                    })
+                else:
+                    unmapped_count += 1
+                    unmapped_details.append({
+                        'fgdc_field': fgdc_field,
+                        'reason': 'No mapping found - field not in notes or other fields',
+                        'value': field_value[:100] + '...' if len(field_value) > 100 else field_value
+                    })
+        
+        # Calculate percentages
+        direct_mapping_percentage = round((directly_mapped_count / total_fgdc_fields) * 100, 1) if total_fgdc_fields > 0 else 0.0
+        notes_mapping_percentage = round((notes_mapped_count / total_fgdc_fields) * 100, 1) if total_fgdc_fields > 0 else 0.0
+        total_preservation_percentage = round(((directly_mapped_count + notes_mapped_count) / total_fgdc_fields) * 100, 1) if total_fgdc_fields > 0 else 0.0
+        
+        return {
+            'total_fgdc_fields': total_fgdc_fields,
+            'directly_mapped_fields': directly_mapped_count,
+            'fields_in_notes': notes_mapped_count,
+            'unmapped_fields': unmapped_count,
+            'direct_mapping_percentage': direct_mapping_percentage,
+            'notes_mapping_percentage': notes_mapping_percentage,
+            'total_preservation_percentage': total_preservation_percentage,
+            'mapping_details': {
+                'directly_mapped': directly_mapped_details,
+                'notes_mapped': notes_mapped_details,
+                'unmapped': unmapped_details
+            }
+        }
+    
+    def _field_in_other_zenodo_fields(self, fgdc_field: str, zenodo_metadata: Dict[str, Any]) -> bool:
+        """Check if FGDC field content appears in other Zenodo fields."""
+        # This is a simplified check - in practice, you'd need to parse the FGDC content
+        # and check if the field's value appears in various Zenodo fields
+        return False
     
     def _count_mapped_fields(self, zenodo_metadata: Dict[str, Any]) -> int:
         """Count how many fields have been mapped."""

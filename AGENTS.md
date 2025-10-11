@@ -1,10 +1,16 @@
 # Agent Guidelines for FGDC to Zenodo Migration
 
+## User Interaction
+
+- Before implementing new feaures, always stop and ask me how I want you to implement certain features that are not described thoroughly in our plan before implementing them
+- Keep code changes small and focussed
+- Avoid creating new files for functionality that exists in existing files. Edit existing files instead
+
 ## Core Principles
 
 - **Never modify original FGDC XML files** - they are the source of truth
 - **Always validate transformations** before uploading to Zenodo
-- **Preserve all metadata** - if uncertain about a field, include it rather than exclude it
+- **Preserve all metadata** - if uncertain about a field, include it in Zenodo `notes` field rather than exclude it
 - **Work in small batches** - test with `--limit 10` before processing large sets
 - **Check for duplicates** - verify no duplicate records are uploaded to Zenodo after each batch
 

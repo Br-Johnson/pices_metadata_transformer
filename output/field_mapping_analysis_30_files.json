@@ -1,0 +1,124 @@
+{
+  "timestamp": "2025-10-11T13:15:31.500365",
+  "total_records_analyzed": 30,
+  "failed_analyses": [],
+  "summary_statistics": {
+    "total_records": 30,
+    "overall_scores": {
+      "average": 88.2,
+      "median": 89.9,
+      "min": 81.2,
+      "max": 92.1,
+      "std_dev": 88.3
+    },
+    "quality_distribution": {
+      "excellent": 30,
+      "good": 0,
+      "fair": 0,
+      "poor": 0
+    },
+    "field_coverage_stats": {
+      "avg_critical_fields": 100.0,
+      "avg_important_fields": 100.0,
+      "avg_optional_fields": 66.7,
+      "avg_overall_coverage": 85.7
+    },
+    "compliance_stats": {
+      "zenodo_required_avg": 100.0,
+      "zenodo_recommended_avg": 100.0,
+      "pices_community_present": 30,
+      "open_access_compliant": 30,
+      "license_compliant": 30
+    }
+  },
+  "detailed_analysis": {
+    "data_preservation_stats": {
+      "avg_preservation_ratio": 0.884,
+      "min_preservation_ratio": 0.569,
+      "max_preservation_ratio": 0.984,
+      "records_with_data_loss": 7,
+      "records_with_data_gain": 0
+    },
+    "quality_scores": {
+      "average_quality_score": 96.3,
+      "min_quality_score": 92.5,
+      "max_quality_score": 100.0,
+      "high_quality_records": 30,
+      "low_quality_records": 0
+    },
+    "file_size_analysis": {
+      "avg_fgdc_size_kb": 4.78,
+      "avg_zenodo_size_kb": 3.16,
+      "size_compression_ratio": 0.661,
+      "largest_fgdc_file": 5.95,
+      "smallest_fgdc_file": 3.43
+    },
+    "issue_patterns": {}
+  },
+  "quality_distribution": {
+    "A": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "B": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "C": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "D": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "F": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "field_coverage_analysis": {
+    "avg_critical_coverage": 100.0,
+    "avg_important_coverage": 100.0,
+    "avg_optional_coverage": 66.7,
+    "most_missing_critical_fields": {},
+    "most_missing_important_fields": {},
+    "complete_coverage_records": 0
+  },
+  "compliance_analysis": {
+    "avg_zenodo_required_compliance": 100.0,
+    "avg_zenodo_recommended_compliance": 100.0,
+    "pices_community_compliance": 100.0,
+    "open_access_compliance": 100.0,
+    "license_compliance": 100.0,
+    "fully_compliant_records": 30
+  },
+  "transformation_effectiveness": {
+    "avg_mapping_completeness": 12.8,
+    "avg_data_enrichment": 50.0,
+    "avg_format_compliance": 100.0,
+    "avg_semantic_accuracy": 85.0,
+    "high_effectiveness_records": 0,
+    "field_mapping_summary": {
+      "avg_total_fgdc_fields": 51.6,
+      "avg_directly_mapped_fields": 6.7,
+      "avg_fields_in_notes": 44.9,
+      "avg_unmapped_fields": 0.0,
+      "avg_direct_mapping_percentage": 12.8,
+      "avg_notes_mapping_percentage": 87.2,
+      "avg_total_preservation_percentage": 100.0,
+      "records_with_unmapped_fields": 0,
+      "records_with_perfect_preservation": 30,
+      "unmapped_field_analysis": {
+        "total_unmapped_instances": 0,
+        "unique_unmapped_fields": 0,
+        "most_common_unmapped_fields": {},
+        "unmapped_reasons": {},
+        "sample_unmapped_fields": []
+      }
+    }
+  },
+  "recommendations": [
+    "Significant data loss detected in multiple records. Review field mapping completeness."
+  ]
+}

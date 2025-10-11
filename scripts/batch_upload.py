@@ -20,10 +20,12 @@ from scripts.zenodo_api import create_zenodo_client
 class BatchUploader:
     """Handles batched uploads with proper resource management and error recovery."""
     
-    def __init__(self, output_dir: str = "output", sandbox: bool = True, batch_size: int = 1000):
+    def __init__(self, output_dir: str = "output", sandbox: bool = True, batch_size: int = 1000, limit: Optional[int] = None, interactive: bool = False):
         self.output_dir = output_dir
         self.sandbox = sandbox
         self.batch_size = batch_size
+        self.limit = limit
+        self.interactive = interactive
         self.batch_log_file = os.path.join(output_dir, f"batch_upload_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
         self.batch_errors_file = os.path.join(output_dir, f"batch_upload_errors_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
         
@@ -106,10 +108,16 @@ class BatchUploader:
             filename = os.path.basename(json_file).replace('.json', '')
             if filename not in uploaded_files:
                 remaining_files.append(json_file)
-        
+
+        # Apply limit if specified
+        if self.limit is not None:
+            remaining_files = remaining_files[:self.limit]
+
         print(f"Found {len(uploaded_files)} already uploaded files")
         print(f"Found {len(remaining_files)} remaining files to upload")
-        
+        if self.limit is not None:
+            print(f"Limited to {self.limit} files for testing")
+
         return remaining_files
     
     def upload_batch(self, batch_files: List[str], batch_number: int) -> Dict[str, Any]:
@@ -239,6 +247,193 @@ class BatchUploader:
             except Exception as e:
                 print(f"Warning: Could not save registry: {e}")
     
+    def _interactive_batch_review(self, current_batch: int, total_batches: int):
+        """Interactive review between batches for production uploads."""
+        print(f"\n{'='*80}")
+        print(f"BATCH {current_batch}/{total_batches} COMPLETED - INTERACTIVE REVIEW")
+        print(f"{'='*80}")
+        
+        # Show batch summary
+        print(f"Batch {current_batch} Summary:")
+        print(f"  Files processed: {self.batch_size}")
+        print(f"  Successful uploads: {self.total_uploaded}")
+        print(f"  Failed uploads: {self.total_failed}")
+        print(f"  Success rate: {(self.total_uploaded / (self.total_uploaded + self.total_failed) * 100):.1f}%" if (self.total_uploaded + self.total_failed) > 0 else "N/A")
+        
+        # Show recent logs
+        print(f"\nRecent upload logs:")
+        print(f"  Batch log: {self.batch_log_file}")
+        print(f"  Error log: {self.batch_errors_file}")
+        
+        # Show registry status
+        registry_path = os.path.join(self.output_dir, 'uploads_registry.json')
+        if os.path.exists(registry_path):
+            try:
+                with open(registry_path, 'r') as f:
+                    registry = json.load(f)
+                    total_entries = registry.get('_metadata', {}).get('total_entries', 0)
+                    print(f"  Registry entries: {total_entries}")
+            except Exception:
+                pass
+        
+        # Display recent logs and reports
+        self._display_recent_logs()
+        
+        print(f"\nNext steps:")
+        print(f"  1. Review the logs and reports above")
+        print(f"  2. Run duplicate check: python scripts/deduplicate_check.py {'--sandbox' if self.sandbox else '--production'}")
+        print(f"  3. Run audit: python scripts/upload_audit.py")
+        print(f"  4. Review individual records: python scripts/record_review.py <filename>")
+        
+        # Interactive prompt
+        while True:
+            print(f"\nOptions:")
+            print(f"  [c]ontinue to next batch")
+            print(f"  [s]top here and exit")
+            print(f"  [r]un duplicate check now")
+            print(f"  [a]udit current uploads")
+            print(f"  [h]elp - show more commands")
+            
+            try:
+                print(f"\n⏸️  WAITING FOR YOUR INPUT...")
+                choice = input(f"What would you like to do? [c/s/r/a/h]: ").lower().strip()
+            except (EOFError, KeyboardInterrupt):
+                print(f"\nInput interrupted. Stopping upload process.")
+                self.shutdown_requested = True
+                break
+            
+            if choice in ['c', 'continue']:
+                print(f"Continuing to batch {current_batch + 1}...")
+                break
+            elif choice in ['s', 'stop', 'exit', 'quit']:
+                print(f"Stopping upload process. Progress saved.")
+                self.shutdown_requested = True
+                break
+            elif choice in ['r', 'duplicate', 'check']:
+                print(f"Running duplicate check...")
+                self._run_duplicate_check()
+            elif choice in ['a', 'audit']:
+                print(f"Running upload audit...")
+                self._run_upload_audit()
+            elif choice in ['h', 'help']:
+                self._show_interactive_help()
+            else:
+                print(f"Invalid choice. Please try again.")
+    
+    def _run_duplicate_check(self):
+        """Run duplicate check script."""
+        import subprocess
+        try:
+            # Get the project root directory
+            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            cmd = ['python3', 'scripts/deduplicate_check.py']
+            if self.sandbox:
+                cmd.append('--sandbox')
+            else:
+                cmd.append('--production')
+            cmd.extend(['--output-dir', self.output_dir])
+            
+            result = subprocess.run(cmd, capture_output=True, text=True, cwd=project_root)
+            print(result.stdout)
+            if result.stderr:
+                print("Errors:", result.stderr)
+        except Exception as e:
+            print(f"Error running duplicate check: {e}")
+    
+    def _run_upload_audit(self):
+        """Run upload audit script."""
+        import subprocess
+        try:
+            # Get the project root directory
+            project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            cmd = ['python3', 'scripts/upload_audit.py', '--output-dir', self.output_dir]
+            result = subprocess.run(cmd, capture_output=True, text=True, cwd=project_root)
+            print(result.stdout)
+            if result.stderr:
+                print("Errors:", result.stderr)
+        except Exception as e:
+            print(f"Error running upload audit: {e}")
+    
+    def _display_recent_logs(self):
+        """Display recent logs and reports in the terminal."""
+        print(f"\n" + "="*80)
+        print(f"RECENT LOGS AND REPORTS")
+        print(f"="*80)
+        
+        # Display batch log summary
+        if os.path.exists(self.batch_log_file):
+            try:
+                with open(self.batch_log_file, 'r') as f:
+                    batch_data = json.load(f)
+                    print(f"\n📊 BATCH LOG SUMMARY:")
+                    print(f"  Total uploaded: {batch_data.get('total_uploaded', 0)}")
+                    print(f"  Total failed: {batch_data.get('total_failed', 0)}")
+                    print(f"  Batches completed: {len(batch_data.get('batches', []))}")
+                    
+                    # Show last batch details
+                    if batch_data.get('batches'):
+                        last_batch = batch_data['batches'][-1]
+                        print(f"\n  Last batch ({last_batch.get('batch_number', 'N/A')}):")
+                        print(f"    Successful: {last_batch.get('successful_uploads', 0)}")
+                        print(f"    Failed: {last_batch.get('failed_uploads', 0)}")
+                        print(f"    Duration: {last_batch.get('duration_seconds', 0):.1f}s")
+                        
+                        # Show recent uploads
+                        if last_batch.get('uploads'):
+                            print(f"    Recent uploads:")
+                            for upload in last_batch['uploads'][-3:]:  # Last 3 uploads
+                                status = "✅" if upload.get('success') else "❌"
+                                title = upload.get('metadata', {}).get('title', 'Unknown')[:50]
+                                print(f"      {status} {title}...")
+            except Exception as e:
+                print(f"  Error reading batch log: {e}")
+        
+        # Display error log summary
+        if os.path.exists(self.batch_errors_file):
+            try:
+                with open(self.batch_errors_file, 'r') as f:
+                    errors = json.load(f)
+                    if errors:
+                        print(f"\n❌ RECENT ERRORS ({len(errors)} total):")
+                        for error in errors[-3:]:  # Last 3 errors
+                            filename = os.path.basename(error.get('json_file', 'Unknown'))
+                            error_msg = error.get('error', 'Unknown error')[:60]
+                            print(f"  • {filename}: {error_msg}...")
+                    else:
+                        print(f"\n✅ NO RECENT ERRORS")
+            except Exception as e:
+                print(f"  Error reading error log: {e}")
+        
+        # Display registry summary
+        registry_path = os.path.join(self.output_dir, 'uploads_registry.json')
+        if os.path.exists(registry_path):
+            try:
+                with open(registry_path, 'r') as f:
+                    registry = json.load(f)
+                    total_entries = registry.get('_metadata', {}).get('total_entries', 0)
+                    last_updated = registry.get('_metadata', {}).get('last_updated', 'Unknown')
+                    print(f"\n📋 REGISTRY SUMMARY:")
+                    print(f"  Total entries: {total_entries}")
+                    print(f"  Last updated: {last_updated}")
+            except Exception as e:
+                print(f"  Error reading registry: {e}")
+        
+        print(f"\n" + "="*80)
+
+    def _show_interactive_help(self):
+        """Show help for interactive mode."""
+        print(f"\nInteractive Mode Help:")
+        print(f"  [c]ontinue - Proceed to the next batch")
+        print(f"  [s]top - Stop the upload process and exit")
+        print(f"  [r]un duplicate check - Check for duplicate records")
+        print(f"  [a]udit - Run comprehensive upload audit")
+        print(f"  [h]elp - Show this help message")
+        print(f"\nAdditional commands you can run manually:")
+        print(f"  python scripts/record_review.py <filename> - Review specific record")
+        print(f"  python scripts/deduplicate_check.py {'--sandbox' if self.sandbox else '--production'} - Check duplicates")
+        print(f"  python scripts/upload_audit.py - Audit all uploads")
+        print(f"  python scripts/metrics_analysis.py - Analyze transformation metrics")
+    
     def _save_progress(self):
         """Save current progress to files."""
         # Save batch log
@@ -281,8 +476,11 @@ class BatchUploader:
             try:
                 self.upload_batch(batch_files, i)
                 
-                # Longer pause between batches to be gentle on the API
-                if i < len(batches) and not self.shutdown_requested:
+                # Interactive mode: stop between batches for review
+                if self.interactive and i < len(batches) and not self.shutdown_requested:
+                    self._interactive_batch_review(i, len(batches))
+                elif i < len(batches) and not self.shutdown_requested:
+                    # Non-interactive mode: pause between batches to respect rate limits
                     print(f"Pausing 30 seconds before next batch...")
                     time.sleep(30)
                     
@@ -315,6 +513,10 @@ def main():
                        help='Use Zenodo production (overrides --sandbox)')
     parser.add_argument('--batch-size', type=int, default=1000,
                        help='Number of files per batch (default: 1000)')
+    parser.add_argument('--limit', type=int,
+                       help='Limit number of files to process (for testing)')
+    parser.add_argument('--interactive', action='store_true',
+                       help='Interactive mode: stop between batches for review (recommended for production)')
     parser.add_argument('--output-dir', default='output',
                        help='Output directory for logs (default: output)')
     
@@ -325,12 +527,20 @@ def main():
     
     print(f"Starting batch upload to {'sandbox' if sandbox else 'production'} Zenodo")
     print(f"Batch size: {args.batch_size}")
+    print(f"Interactive mode: {'ON' if args.interactive else 'OFF'}")
     print(f"Output directory: {args.output_dir}")
+    
+    if args.interactive:
+        print(f"\n🔍 INTERACTIVE MODE ENABLED")
+        print(f"This will stop between each batch for review and validation.")
+        print(f"Use this mode for production uploads to ensure quality control.")
     
     uploader = BatchUploader(
         output_dir=args.output_dir,
         sandbox=sandbox,
-        batch_size=args.batch_size
+        batch_size=args.batch_size,
+        limit=args.limit,
+        interactive=args.interactive
     )
     
     try:

@@ -1100,23 +1100,8 @@ class FGDCToZenodoTransformer:
         if useconst is not None and useconst.text:
             notes_parts.append(f"Use constraints: {useconst.text.strip()}")
         
-        # Distribution liability
-        distliab = root.find('.//distliab')
-        if distliab is not None and distliab.text:
-            notes_parts.append(f"Distribution liability: {distliab.text.strip()}")
-        
-        # FGDC metadata information
-        metd = root.find('.//metd')
-        if metd is not None and metd.text:
-            notes_parts.append(f"FGDC metadata date: {metd.text.strip()}")
-        
-        metstdn = root.find('.//metstdn')
-        if metstdn is not None and metstdn.text:
-            notes_parts.append(f"FGDC metadata standard: {metstdn.text.strip()}")
-        
-        metstdv = root.find('.//metstdv')
-        if metstdv is not None and metstdv.text:
-            notes_parts.append(f"FGDC metadata version: {metstdv.text.strip()}")
+        # Note: Distribution liability and FGDC metadata information are handled in 
+        # _extract_distribution_info and _extract_metadata_info respectively to avoid duplication
         
         return "\n\n".join(notes_parts)
     
@@ -1576,12 +1561,20 @@ class FGDCToZenodoTransformer:
             notes_parts.append(standard_info)
         
         # Metadata Access/Use Constraints (row 59)
+        # Note: Access/Use constraints are already handled in _build_notes to avoid duplication
         metac = metainfo.find('.//metac')
-        metuc = metainfo.find('.//metuc')
         if metac is not None and metac.text:
-            notes_parts.append(f"FGDC metadata access constraints: {metac.text.strip()}")
+            # Only add if different from main access constraints
+            accconst = root.find('.//accconst')
+            if accconst is None or accconst.text != metac.text:
+                notes_parts.append(f"FGDC metadata access constraints: {metac.text.strip()}")
+        
+        metuc = metainfo.find('.//metuc')
         if metuc is not None and metuc.text:
-            notes_parts.append(f"FGDC metadata use constraints: {metuc.text.strip()}")
+            # Only add if different from main use constraints
+            useconst = root.find('.//useconst')
+            if useconst is None or useconst.text != metuc.text:
+                notes_parts.append(f"FGDC metadata use constraints: {metuc.text.strip()}")
         
         # Add to notes
         if notes_parts:
