@@ -1,0 +1,118 @@
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>University of Alaska Fairbanks (UAF)</origin>
+        <pubdate>Unknown</pubdate>
+        <title>Coastal Gulf of Alaska Circulation Model (3-km grid)</title>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The SALMON Project is currently utilizing the Arctic Region Supercomputing Center (ARSC) to run numerical simulations of the circulation of the coastal Gulf of Alaska. The model in use is called the Regional Ocean Modeling System (ROMS), developed jointly by researchers at the University of California at Los Angeles and Rutgers University. It is run at a resolution of three kilometers and aligned in a nested grid configuration with Al Hermann's North East Pacific (NEP) domain. Open boundary conditions are provided by the NEP model and COADS monthly mean wind fields are used for the surface forcing. Tidal forcings are computed from Mike Foreman's northeast Pacific Ocean high-resolution assimilating tide model and are applied along the open boundaries of the model domain. Fresh water inputs consist of a continuous line source of monthly mean values computed by Tom Royer's hydrologic model. The latest ROMS model run simulated three idealized years of circulation in the northern Gulf of Alaska. 
+
+  There are thirty vertical levels using a nonlinear stretching to improve the surface resolution in deep water. The vertical mixing scheme is KPP with both surface and bottom boundary layers. The open boundary conditions are Flather/Chapman for the barotropic fields; these provide the tidal elevation and currents added to the barotropic fields from the NEP model. The baroclinic fields have a modified radiation condition where the direction of the phase velocity determines the strength of the nudging to the NEP fields. There is also a ten-point wide nudging band on temperature and salinity along the open boundaries, again using the NEP fields.
+
+  Our future plans include coupled ecosystem models and the use of NCEP daily winds, making sure that all the nested models use common forcing fields. We will be running for specific years, such as 2000 and 2001.
+
+
+  A Sea-Air-Land Modeling and Observing Network (SALMON) Project.</abstract>
+      <purpose>To simulate the coastal Gulf of Alaska circulation.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo />
+      <current>Ground Condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Unknown</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-164</westbc>
+        <eastbc>-132</eastbc>
+        <northbc>60</northbc>
+        <southbc>47</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>North Pacific Ecosystem Metadatabase</themekt>
+        <themekey>Oceanography</themekey>
+      </theme>
+      <theme>
+        <themekt>Other</themekt>
+        <themekey>Coastal Gulf of Alaska</themekey>
+        <themekey>Ocean Circulation</themekey>
+        <themekey>North Pacific Ocean</themekey>
+      </theme>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>Check with Source.</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Musgrave, David L.</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing Address</addrtype>
+          <address>Attn: Dave Musgrace at the SALMON Project Headquarters
+P.O. Box 757220</address>
+          <city>Fairbanks</city>
+          <state>AK</state>
+          <postal>99775-7220</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>907-474-7837</cntvoice>
+        <cntfax>907-474-7204</cntfax>
+        <cntemail>musgrave@ims.uaf.edu</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>Musgrave, David L.</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing Address</addrtype>
+          <address>Attn: Dave Musgrace at the SALMON Project Headquarters
+P.O. Box 757220</address>
+          <city>Fairbanks</city>
+          <state>AK</state>
+          <postal>99775-7220</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>907-474-7837</cntvoice>
+        <cntfax>907-474-7204</cntfax>
+        <cntemail>musgrave@ims.uaf.edu</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>20040908</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Kimberly Bahl</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-4314</cntvoice>
+        <cntfax>206-526-6485</cntfax>
+        <cntemail>kimberly.bahl@noaa.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metac>None</metac>
+    <metuc>Check with Source.</metuc>
+  </metainfo>
+</metadata>

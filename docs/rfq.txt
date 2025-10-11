@@ -1,0 +1,58 @@
+Request for Quote (RFQ)
+Project Title: Transfer of PICES Metadata Records to a Zenodo Community Collection
+Background
+The North Pacific Marine Science Organization (PICES) maintains a metadata catalogue that documents scientific datasets and research activities. The previous metadata catalogue, hosted in a Geonetwork-based system, is no longer accessible. However, a backup of metadata records exists in FGDC XML format, stored in Google Drive.
+The objective of this project is to transfer these metadata records into a new metadata catalogue, which will be implemented as a Zenodo Community Collection(https://zenodo.org/communities/pices/records).
+Objective
+The selected contractor will be responsible for transforming, validating, and migrating metadata records to ensure compliance with Zenodo’s metadata schema. This includes:
+Parsing existing FGDC XML metadata.
+Mapping fields to Zenodo’s schema.
+Performing necessary transformations.
+Bulk uploading records to the Zenodo repository.
+Identifying and recovering missing or unarchived metadata records by engaging with PICES Expert Group Leads.
+Alternative Approaches Considered
+Several approaches were assessed to determine the most efficient and reliable way to migrate metadata records to the Zenodo platform:
+Manual Entry Approach: Each record would be manually entered into Zenodo. This was deemed impractical due to the high number of records (~4,206) and the risk of transcription errors.
+Automated Bulk Processing with API Integration: This approach involves programmatically transforming FGDC XML metadata into Zenodo’s required schema and automating uploads via Zenodo’s API. This is the preferred method for its efficiency and scalability.
+Hybrid Approach (Manual Validation + Automation): A combination of automated transformation followed by manual validation before upload. This ensures data quality while maintaining efficiency.
+The contractor is welcome to propose alternative approaches that meet the project’s objectives while ensuring metadata integrity and compliance with Zenodo’s schema.
+Scope of Work
+The project will be executed in three distinct phases:
+Phase 1: Metadata Extraction and Transformation
+Review FGDC XML metadata schema.
+Develop and implement code to parse and extract metadata from FGDC XML files.
+Handle variations and edge cases in XML structure.
+Analyze the metadata schema of the new catalogue.
+Create a mapping template script from FGDC to Zenodo’s schema
+Create a mapping template script from Zenodo’s schema to valid schema.org markup used by the Ocean Info Hub’s Ocean Data Information System (ODIS)
+Phase 2: Bulk Processing and Upload to Zenodo
+Automate the processing and transformation of 4,206 metadata records from FGDC XML format to Zenodo’s schema.
+Implement error handling, logging, and testing procedures.
+Write and test code to interact with Zenodo’s API.
+Handle authentication, upload processes, and error responses.
+Conduct test uploads and finalize the process.
+Phase 3: Transform Zenodo Records to Ocean Info Hub Ocean Data Information System schema.org markup
+Pull records from Zenodo using API into PICES GitHub Repo
+Transform Zenodo to valid schema.org markup and host on GitHub Pages
+Coordinate with Ocean Data Information System developers to ensure that schema.org records can be harvested by Ocean Info Hub
+Automate updating of GitHub Pages with updated records
+Phase 4: Stakeholder Engagement and Missing Records Integration
+Review and assess recently entered records not included in the archived backup.
+Identify and fill gaps in metadata through direct engagement with stakeholders (e.g., PICES Expert Group Leads).
+Develop a process for integrating missing records into the new catalogue.
+Conduct validation checks and finalize metadata records in consultation with stakeholders.
+Expected Deliverables
+Transformed and validated metadata records published to the PICES Community on Zenodo.
+A documented mapping strategy detailing how FGDC metadata fields align with Zenodo’s schema.
+A summary report identifying challenges, missing metadata records, and engagement outcomes with stakeholders.
+Timeframe
+The estimated timeline may vary depending on metadata complexities and stakeholder engagement requirements. A phased approach will be followed, with iterative testing and validation at each stage.
+Submission Requirements
+Interested contractors should submit a detailed quote including:
+Experience with metadata transformation and integration.
+Proposed methodology (especially if deviating from the outlined approach).
+Estimated time commitment and cost for each phase.
+References or examples of similar work.
+Submission Deadline
+Responses should be submitted to secretariat@pices.int as soon as possible. Shortlisted candidates may be invited for further discussion.
+

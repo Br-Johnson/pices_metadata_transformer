@@ -1,0 +1,115 @@
+playbook & gotchas (hard-won tips)
+
+1) Names → Zenodo creators[] format
+
+FGDC origin can be orgs or people. Zenodo wants Family, Given. Do a tidy format step (split on comma, otherwise last token as family). If multiple origin, emit multiple creators in order. Capture affiliation when it’s nearby (often in citeinfo or contacts). (Your sample XMLs show typical patterns.) 
+
+FGDC-998
+
+ 
+
+FGDC-855
+
+2) Dates are messy
+
+FGDC pubdate may be YYYY, YYYYMM, or YYYYMMDD, and sometimes vague like “Varies.” Normalize to ISO YYYY-MM-DD; if only a year, use YYYY-01-01 and append “precision: year” in notes. (Zenodo requires publication_date.) 
+
+zenodo_api_docs
+
+3) Temporal coverage is not a top-level field
+
+FGDC timeperd (sngdate/rngdates/mdattim) has no direct Zenodo slot. Serialize a clean “Temporal coverage” line in notes, e.g., 1958-01-01 to 1999-12-31 (Currentness: Ground Condition). 
+
+FDGC-STD-001-1998v2
+
+4) Bounding boxes & 0–360 vs −180–180
+
+Your samples mix longitudes (e.g., westbc 172, eastbc −130). Normalize longitudes to −180..180 when summarizing; if source uses 0–360, convert carefully. No native bbox field in legacy Zenodo, so include in notes (and consider attaching a footprint GeoJSON). 
+
+FGDC-855
+
+ 
+
+zenodo-schema
+
+5) Projection soup
+
+FGDC can specify dozens of projection parameterizations (planar/grids/geodetic model). Don’t try to force these into Zenodo fields — summarize succinctly (projection name, datum, EPSG if you can infer), and attach .prj/WKT. It’s both human-friendly and machine-recoverable. 
+
+FDGC-STD-001-1998v2
+
+6) Keywords: flatten + preserve vocab
+
+Flatten theme/place/stratum/temporal into keywords[]. If a thesaurus is given (e.g., GNIS, custom), also include in subjects[] with scheme and term. Deduplicate aggressively. 
+
+FDGC-STD-001-1998v2
+
+7) Constraints → access/conditions/license
+
+Heuristics:
+
+If accconst has “None/Open”, set access_right: open.
+
+If it says “Restricted/By request/Registration required”, set access_right: restricted and put exact text into access_conditions.
+
+Map recognizable licenses in useconst (e.g., “CC-BY-4.0”) to a Zenodo license ID; if not recognizable, keep the text in notes. Zenodo enforces a license choice for open/embargoed. 
+
+zenodo_api_docs
+
+8) POC & Distributor → contributors[]
+
+ptcontac becomes a ContactPerson in contributors[]. Distributor contact becomes Distributor. Preserve email/phones in notes only if you can’t place them (Zenodo contributor object does not have explicit email field). 
+
+FGDC-85
+
+9) Lineage and sources
+
+Turn each procstep into bullet points under a “Lineage” subsection in notes. Move any srcinfo citations into references[] (free-text) or related_identifiers[] if there’s a DOI/URL. Order matters — keep process steps in given sequence. 
+
+FDGC-STD-001-1998v2
+
+10) Distribution block: decode & don’t overfit
+
+Map “Format Name/Version/Spec/Decompression/Size” to a compact “Distribution formats” paragraph in notes.
+
+“Online Option / Network Resource Name” → related_identifiers[] with url and relation (isSupplementedBy, isAlternateIdentifier, or isReferencedBy depending on context).
+
+“Fees/Ordering/Turnaround” → access_conditions (if restricted) or just notes. 
+
+FDGC-STD-001-1998v2
+
+ 
+
+FDGC-STD-001-1998v2
+
+11) Entity & Attribute
+
+Do not jam full attribute schemas into description; summarize in notes and attach a proper data dictionary (CSV/HTML/PDF) as a file. If there’s a public dictionary URL, use related_identifiers with isDocumentedBy. 
+
+FDGC-STD-001-1998v2
+
+12) Series / imprint
+
+FGDC “Publication/Series/Issue/Publisher/Place” fields map to partof_title, journal_issue (when publication-type), and the imprint fields (imprint_publisher, imprint_place). If the record is a dataset, prefer notes for series/issue and reserve imprint fields when meaningful. 
+
+zenodo-schema
+
+ 
+
+FDGC-STD-001-1998v2
+
+13) Metadata-about-metadata
+
+Keep metainfo (metadata date/contact/standard) separate from the dataset’s own access/use; put it in notes under an “FGDC metadata” heading. Don’t let it overwrite your dataset access policy. 
+
+FGDC-4002
+
+14) API practicality
+
+Zenodo JSON is strict: POST/PUT JSON only; wrong content type → 415. Fill the required fields before publish; use sandbox and prereserve_doi if you want to stamp the DOI into files pre-publish. 
+
+zenodo_api_docs
+
+ 
+
+zenodo_api_docs

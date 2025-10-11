@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "title": "DMSP-F11 Monthly Sea Ice Concentration Grids for the Polar Regions",
+    "upload_type": "dataset",
+    "publication_date": "1995-09-15",
+    "creators": [
+      {
+        "name": "Snow, National"
+      },
+      {
+        "name": "(NSIDC), Ice Data Center"
+      }
+    ],
+    "description": "DMSP F11 monthly averaged sea ice concentration grids in the polar \nstereographic projection are produced based on daily sea ice concentration \ngrids generated using the NASA Team algorithm. Processing is continuous \nbeginning 3 December 1991,  and continues the series begun with F8 monthly \naveraged data. Although a high degree of correlation exists between F8 and F11 \ndata (Abdalati et al. 1995), regression coefficients (NSIDC 1995) have been \napplied in deriving F11 daily ice concentrations, which form the basis for \nthis data set. Monthly averaged data files contain ice concentration in \npercent ranging from 0% to 100%. Then, ice concentrations are delineated \nusing 0%, 5%, 10% and 15% as the minimum concentrations included in the \naverages (e.g.: a 5% cutoff sets all data values between 1% and 5% to 0%). \nThese four thresholds accommodate as many potential applications as possible. \nGrids are 8-bit raster images stored in HDF.  Data in compressed tar files are \ndistributed via ftp, on sidads.colorado.edu (IP address 128.138.135.20).",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Sea Ice",
+      "Arctic",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To report on the Monthly Sea Ice Concentration Grids for the Polar Regions\n\nStatus: Complete\n\nMaintenance frequency: None Planned\n\nAccess constraints: Check with Contributor\n\nUse constraints: Check with Contributor\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990208\n\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata\n\nFGDC metadata version: FGDC-STD-001-1998\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990208\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\nFGDC metadata access constraints: Check with Contributor\nFGDC metadata use constraints: Check with Contributor",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Services, NSIDC User",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Services, NSIDC User",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-80.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4697,
+    "fgdc_data_chars": 1470,
+    "zenodo_total_chars": 3345,
+    "zenodo_data_chars": 2760,
+    "char_difference": 1290,
+    "char_ratio": 1.8775510204081634,
+    "data_preservation_ratio": 1.8775510204081634
+  }
+}

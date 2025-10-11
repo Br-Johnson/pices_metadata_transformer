@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "DMSP SSM/I Environmental Data Records",
+    "upload_type": "dataset",
+    "publication_date": "2004-09-01",
+    "creators": [
+      {
+        "name": "Oceanic, National"
+      },
+      {
+        "name": "Atmospheric Administration (NOAA), National Environmental Satellite, Data"
+      },
+      {
+        "name": "Information Service (NESDIS), Satellite Active Archive (SAA)"
+      }
+    ],
+    "description": "The Defense Meteorological Satellite Program (DMSP) is a Department of Defense program which is responsible for designing, building, launching and operating polar orbiting meteorological satellites. The satellites can broadcast visual,\ninfrared and microwave imagery directly to transportable tactical sites around the world. The data is also stored for transmission to the Navy's Fleet Numerical Meteorology and Oceanography Center (FNMOC) and to the Air Force\nGlobal Weather Central (AFGWC).\n  \n  Each of the DMSP satellites flies in a sun-synchronous, near-polar orbit. For a satellite in sun synchronous orbit, the ascending equatorial crossing time remains relatively constant with respect to the local time throughout the lifetime of the satellite.\n  \n  The SSM/I is a seven channel, four frequency, linearly-polarized passive microwave radiometric system which measures atmospheric, ocean and terrain microwave brightness temperatures at 19.35, 22.235, 37.0 and 85.5 GHz. SSM/I's\noutput voltages are transmitted to the FNMOC in Monterey, California, where they are converted to sensor counts. FNMOC then converts the sensor counts into antenna temperatures (Temperature Data Records - TDR), brightness temperatures (Sensor Data Records - SDR) and derived geophysical parameters (Environmental Data Records -EDR). SSM/I TDRs are sent to NOAA-SAA for their on-line database. The SSM/I rotates continuously about an axis parallel to the local spacecraft vertical at 31.6 rpm and measures the upwelling scene brightness temperatures over an angular sector of 102.4 degrees about the subsatellite track. This results in a swath width of approximately 1400 km.\n\n  The EDR data are derived from TDRs and SDRs, and measure various parameters over the ocean, ice and land surfaces. There are five oceanic parameters: surface wind speed, cloud water content, water vapor content, rainfall intensity and liquid water content. There are four ice parameters: ice concentration, ice age, ice edge and cloud water content over ice. There are eight land parameters: rain intensity, liquid water content, surface moisture, cloud water content, snow water content, surface character, surface temperature and cloud amount. Not all parameters are simultaneously possible.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Atmosphere",
+      "Special Sensor Microwave/Imager (SSM/I)",
+      "Precipitation",
+      "Radiance",
+      "Sea Ice",
+      "Clouds",
+      "Surface Wind",
+      "Water Vapor",
+      "Air Temperature",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To collect atmospheric, ocean and terrain microwave brightness temperatures and environmental data.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: None\n\nUse constraints: Check with Source.\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040901\n\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata\n\nFGDC metadata version: FGDC-STD-001-1998\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040901\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\nFGDC metadata access constraints: None\nFGDC metadata use constraints: Check with Source.",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "NOAA-SAA User Assistance",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "NOAA-SAA User Assistance",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-3573.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 6393,
+    "fgdc_data_chars": 2893,
+    "zenodo_total_chars": 4810,
+    "zenodo_data_chars": 4143,
+    "char_difference": 1250,
+    "char_ratio": 1.432077428275147,
+    "data_preservation_ratio": 1.432077428275147
+  }
+}

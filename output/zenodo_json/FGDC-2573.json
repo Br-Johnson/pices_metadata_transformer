@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "title": "Regression Coefficient File",
+    "upload_type": "dataset",
+    "publication_date": "1998-10-16",
+    "creators": [
+      {
+        "name": "Oceanic, National"
+      },
+      {
+        "name": "Atmospheric Administration (NOAA), National Environmental Satellite, Data"
+      },
+      {
+        "name": "Information Service (NESDIS), Office of Satellite Data Processing"
+      },
+      {
+        "name": "(OSDPD), Distribution"
+      }
+    ],
+    "description": "The regression coefficients file contains regression coefficients which are applied in the equations for the computation of Multichannel Sea Surface Temperature (MCSST). Coefficients are derived by regression using satellite SSTs spatially and temporally matched with a quality controlled set of drifting buoys. The first record of the file is a directory which identifies the satellites (up to 20) for which the regression data is stored and the starting record location of the regression data for each satellite. The second record is a blank. Following the directory are up to 800 regression data records, and each regression equation (up to 20 per satellite) has 2 data records associated with it. The first record lists the features (up to 20) which are included in the equation.  The second record contains the values of the regression coefficients which apply to the corresponding features.  Each record consists of 80 bytes.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Oceanography",
+      "Sea Surface Temperature (SST)",
+      "Satellite",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To provide parameters for determining sea surface temperature from satellite observations.\n\nStatus: Complete\n\nMaintenance frequency: Unknown\n\nAccess constraints: Check with Source  about how to obtain data.\n\nUse constraints: Check with Source\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19981016\n\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata\n\nFGDC metadata version: FGDC-STD-001-1998\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19981016\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\nFGDC metadata access constraints: Check with Source  about how to obtain data.\nFGDC metadata use constraints: Check with Source",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Sapper, John F.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Sapper, John F.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-2573.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4917,
+    "fgdc_data_chars": 1527,
+    "zenodo_total_chars": 3449,
+    "zenodo_data_chars": 2809,
+    "char_difference": 1282,
+    "char_ratio": 1.839554682383759,
+    "data_preservation_ratio": 1.839554682383759
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "title": "Linearized Long Wave, Numerical Model of the Hawaiian Islands",
+    "upload_type": "dataset",
+    "publication_date": "1975-01-01",
+    "creators": [
+      {
+        "name": "Oceanic, National"
+      },
+      {
+        "name": "Atmospheric Administration (NOAA), Office of Oceanic"
+      },
+      {
+        "name": "Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)"
+      }
+    ],
+    "description": "A numerical model simulating linearized long waves interacting with the seven major Hawaiian Islands is presented. A spline interpolation scheme is utilized to\nconvert the actual soundings of the island bathymetry to a 5.6-km-square grid closely approximating the topography of the islands. A time marching, central\ndifference, explicit scheme is used to evaluate the wave field by the linear, Eulerian equations of motion and continuity in Cartesian coordinates for a frictionless\nhomogeneous fluid. The condition of nonnormal flow is employed at the island shorelines and a localized interpolation technique is utilized at the outer boundary to simulate a free-flow boundary. Verification of the numerical procedure is accomplished by agreement with analytic solutions of steady-state problems involving wave interaction with geometric islands in both constant and variable depth cases. At test run from the north is illustrated and selected wave records are shown.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "North Pacific Ocean"
+    ],
+    "notes": "Status: Complete\n\nMaintenance frequency: None Planned\n\nAccess constraints: Check with Contributor\n\nUse constraints: Check with Contributor\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20010307\n\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata\n\nFGDC metadata version: FGDC-STD-001-1998\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20010307\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\nFGDC metadata access constraints: Check with Contributor\nFGDC metadata use constraints: Check with Contributor",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Bernard, Eddie N.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Bernard, Eddie N.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-1058.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4423,
+    "fgdc_data_chars": 1423,
+    "zenodo_total_chars": 3257,
+    "zenodo_data_chars": 2670,
+    "char_difference": 1247,
+    "char_ratio": 1.876317638791286,
+    "data_preservation_ratio": 1.876317638791286
+  }
+}

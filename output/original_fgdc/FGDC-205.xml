@@ -1,0 +1,134 @@
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Department of Fisheries and Oceans, Institute of Ocean Sciences</origin>
+        <pubdate>Unknown</pubdate>
+        <title>Global Air Temperature Anomalies</title>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>Measurement Details
+"Global and Hemispheric temperature anomalies; land and marine instrumental records. This dataset is a combination of land air temperature anomalies (Jones, 1994) and sea surface temperature anomalies (Parker et al., 1995) on a 5° x 5° grid-box basis. The merging of the two datasets is discussed in Parker et al. (1994). Both components of the dataset are expressed as anomalies from 1961-90, as this makes computation much easier. The dataset has been extensively used in the various IPCC reports (see, e.g., Nicholls et al., 1996). An absolute temperature Climatology is being developed. 
+The grid-box data is available, together with the average hemispheric (Northern, Southern) and global time series. Annual values for these three series are plotted. The standard error is due to sampling of the individual annual values since 1951 is estimated to be 0.05°C (see Jones et al., 1997 for details)."
+
+Publication
+"Jones, P.D., 1994: Hemispheric surface air temperature variations: a reanalysis and an update to 1993. J. Climate 7, 1794-1802. 
+Jones, P.D., Osborn, T.J. and Briffa, K.R., 1997: Estimating sampling errors in large-scale temperature averages. J. Climate 10, 2548-2568. 
+Nicholls, N., Gruza, G.V., Jouzel, J., Karl, T.R., Ogallo, L.A. and Parker, D.E., 1996: Observed climate variability and change. In (J.T. Houghton, L.G. Meira Filho, B.A. Callander, N. Harris, A. Kattenberg and K. Maskell, Eds.) Climate Change 1995: The IPCC Second Assessment, Cambridge University Press, Cambridge, 133-192. 
+Parker, D.E., Jones, P.D., Bevan, A. and Folland, C.K., 1994: Interdecadal changes of surface temperature since the late 19th century. Journal of Geophysical Research 99, 14373-14399. 
+Parker, D.E., Folland, C.K. and Jackson, M., 1995: Marine surface temperature: observed variations and data requirements. Climatic Change 31, 559-600."
+
+Data Distribution
+graphics, tabular summaries and gridded data available from web site.
+
+IOSPBS Data Distribution
+"This is a research dataset computed for the use of the custodian, however, he is generous and allows distribution. We recommend that potential users ask his permission to use these data and be sure to acknowledge him in any publications. Howard Freeland maintains a continuing file of the data and the monthly series are available in the ""lighthouse archive"" (CCS$PHYSICS:[LIGHTHOUSE.ARCHIVE.MONTHLY]) - files : N_HEM.TAS (Land Air Temperature anomalies) and N_HEM_LM.TAS (Land and Marine Air temperature anomalies)"
+
+PSARC_Utility
+There are two types of time series for each of the N. and S. hemisphere. These represent land and marine air temperature averages (one value/month/hemisphere) and land only observations.  This is the standard dataset for monitoring the effects of global warming.
+
+Improvements
+We could make this available on the IOS WWW site, similar the lighthouse time series files. Some alternative formats (IOS HEADER, CSV/spreadsheet format) would be useful.
+
+Base Internet/URL -- ( http://www.cru.uea.ac.uk/cru/ )  ( http://www.cru.uea.ac.uk/cru/data/temperature/ )
+
+[ A TCODE project ]</abstract>
+      <purpose />
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>18540101</begdate>
+          <enddate />
+        </rngdates>
+      </timeinfo>
+      <current>Sample Date</current>
+    </timeperd>
+    <status>
+      <progress>In Progress</progress>
+      <update>Annually</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>163</westbc>
+        <eastbc>-157</eastbc>
+        <northbc>65.5</northbc>
+        <southbc>52</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>Other</themekt>
+        <themekey>Air Temperature</themekey>
+        <themekey>North Pacific Ocean</themekey>
+      </theme>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Brown, Robin</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>P.O. Box 6000</address>
+          <city>Sidney</city>
+          <state>BC</state>
+          <postal>V81 4B2</postal>
+          <country>Canada</country>
+        </cntaddr>
+        <cntvoice>604-363-6584</cntvoice>
+        <cntfax>604-363-6690</cntfax>
+        <cntemail>rmbrown@ios.bc.ca</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>Brown, Robin</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>P.O. Box 6000</address>
+          <city>Sidney</city>
+          <state>BC</state>
+          <postal>V81 4B2</postal>
+          <country>Canada</country>
+        </cntaddr>
+        <cntvoice>604-363-6584</cntvoice>
+        <cntfax>604-363-6690</cntfax>
+        <cntemail>rmbrown@ios.bc.ca</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>19990719</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Kimberly Bahl</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-4314</cntvoice>
+        <cntfax>206-526-6485</cntfax>
+        <cntemail>kimberly.bahl@noaa.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metac>None</metac>
+    <metuc>None</metuc>
+  </metainfo>
+</metadata>

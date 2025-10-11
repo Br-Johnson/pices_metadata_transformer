@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "title": "Sea Surface Temperature 14 Km Analysis (Local-Scale) from NOAA Series AVHRR Data",
+    "upload_type": "dataset",
+    "publication_date": "1999-03-17",
+    "creators": [
+      {
+        "name": "National Climate Data Center (NCDC), National Environmental Satellite, Data"
+      },
+      {
+        "name": "Information Service (NESDIS), National Oceanic"
+      },
+      {
+        "name": "(NOAA), Atmospheric Administration"
+      }
+    ],
+    "description": "All resolution field files consist of a Directory Record, a Field Documentation Record and Field Data Records.  Each file (except the Header File) begins with a Directory Record which points to the Field Documentation Record for each field in the file.\n\nThe fields will generally be arranged in chronological order.  A field for a particular day may be missing or repeated so one should examine the Field Documentation Record for each field in the file to find that field spanning the time of interest.  Generally, a new field is produced once each day using all satellites SST observations for the previous 24 hours.  The Field Documentation Record (the first record of each field) should be used in referencing the data record for the field since it provides information concerning the organization, size and time period of the field.\n\nAfter the Directory Record, there are NFIELDS fields.  The first record of each field is a Field Documentation Record which is followed by NRECS Field Data Records, one for each latitudinal row in the field.  Each row consists of 28 bytes of information for each longitude or column forming a grid intersection plus 28 bytes at the end of the record (the Latitudinal Row Identifier) containing the row number identification and the date and time of the last analysis made for the field.\n\nThe 14-km gridded SST fields (Local-Scale Analyses) are archived monthly on two\ntapes.  There are eight 0.125 degrees resolution fields over the following areas:\n\nRegion 2: 18N through 23N latitude X -80W through -98W longitude\n\nRegion 4: 39N through 52N latitude X -123W through -136W longitude\n\nRegion 5: 28N through 41N latitude X -114W through -136W longitude\n\nRegion 6: 30N through 46N latitude X -82W through -60W longitude\n\nRegion 7: 18N through 32N latitude X -85W through -70W longitude\n\nRegion 10: 50N through 62N latitude (Seasonal) X -126W through -160W longitude\n\nRegion 11: 50N through 70N latitude (Seasonal) X -157W through -180W longitude\n\nRegion 12: 20N through 32N latitude X -105W through -136W longitude\n\nThe first tape of the 14-km gridded SST field data contains Regions 2, 4, 5, 6\nand 7 which cover the Gulf of Mexico, Northwest Pacific Coast, Southwest\nPacific Coast, Northeast Atlantic Coast and Southeast Atlantic Coast,\nrespectively.  This tape contains six file, the first file being the Header\nFile.  The second file contains the 14-km field data for Region 2.  There are\ntwelve weekly fields organized chronologically.  The first record of each field\ndata file is a Directory Record which points to the beginning of each of the\ntwelve fields.  Each field consists of 1273 logical records of 4060 bytes\nblocked into 12,180-byte physical records.  There are 1273 logical records\nblocked into 426 physical records in this file.  The third file contains 14-km\nfield data for Region 4.  Each field in the third file consists of 1273 logical\nrecords of 2968 bytes blocked into 11,872-byte physical records.  There are a\ntotal of 1273 logical records blocked into 321 physical records in the file.\nThe fourth file contains 14-km field data for Region 5.  Each field consists of\n1273 logical records of 4984 bytes blocked into 9968-byte physical records.\nThere are 1273 logical records blocked into 640 physical records in this file.\nThe fifth file contains 14-km field data for Region 6.  Each field consists of\n1561 logical records of 4984 bytes blocked into 9968-byte physical records.\nThere are a total of 1561 logical records blocked into 784 physical records in\nthis file.  The sixth file contains 14-km field data for Region 7.  Each field\nconsists of 1369 logical records of 3416 bytes blocked into 10,248- byte\nphysical records.  There are a total of 1369 logical records blocked into 460\nphysical records in this file.\n\nThe second tape of the 14-km gridded SST data contains Regions 10,11 and 12\nwhich cover the Gulf of Alaska, Bering Sea and the Gulf of California,\nrespectively.  This tape contains four files, the first file being the Header\nFile which has already been described.  The second file contains the 14-km\nfield data for Region 10.  This file contains twelve weekly fields organized\nchronologically.  The first record in each field data file is a Directory\nRecord which points to the beginning of each of the twelve fields.  Each field\nconsists of 1177 records of 7672 bytes each.  The third file contains 14-km\nfield data for Region 11 and has the same format as the second file except each\nfield consists of 1945 records of 5208 bytes each.  The fourth file contains\n14-km data for Region 12 and is identical to the second file in organization\nexcept the record size is 7000 bytes.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Atlantic Ocean",
+      "Bering Sea",
+      "Epicontinental Shelves",
+      "Gulf of Alaska",
+      "Gulf of Mexico",
+      "Pacific Ocean",
+      "Sea Surface",
+      "U.S.A.",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To report on the Sea Surface Temperature 14 Km Analysis (Local-Scale) from NOAA Series AVHRR Data\n\nStatus: Complete\n\nMaintenance frequency: None Planned\n\nAccess constraints: None\n\nUse constraints: None\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990317\n\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata\n\nFGDC metadata version: FGDC-STD-001-1998\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990317\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\nFGDC metadata access constraints: None\nFGDC metadata use constraints: None",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Propest, William",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Propest, William",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-126.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 8564,
+    "fgdc_data_chars": 5250,
+    "zenodo_total_chars": 7238,
+    "zenodo_data_chars": 6528,
+    "char_difference": 1278,
+    "char_ratio": 1.2434285714285713,
+    "data_preservation_ratio": 1.2434285714285713
+  }
+}

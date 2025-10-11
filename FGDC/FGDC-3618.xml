@@ -1,0 +1,152 @@
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>National Snow and Ice Data Center (NSIDC)</origin>
+        <pubdate>19940518</pubdate>
+        <title>Monthly Averaged Sea Ice Concentration Grids</title>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>
+        <p>Defense Meteorological Satellite Program Satellites (DMSP) F8 Special Sensor Microwave Imager (SSM/I) monthly averaged sea ice concentration for the polar regions for July 1987 through December 1991. Data were produced by NSIDC using the daily sea ice concentration grids that were generated using the NASATEAM algorithm (Cavalieri, et al. 1986, JGR 91(C1), p. 975-994) and distributed on CD-ROM by NSIDC.  The monthly sea ice grids are available on request via ftp (see access instructions below), and may eventually be distributed on CD-ROM with other SSM/I products.  The monthly sea ice grids can be used as a mask to block out ice-covered areas for various applications.  To accommodate as many  potential applications as possible, the monthly averaged ice extent was delineated using four concentration values (0%, 5%, 10%, and 15%) for the minimum concentrations included in the averages.  The grids are 8-bit raster images containing 448 lines of 304 pixels (304x by 448y) for the northern hemisphere and 332 lines of 316 pixels (316x by 332y) for the southern.  IDL procedures were used to calculate monthly averages from the daily-averaged SSM/I grids.  The data were then put into Hierarchical Data Format (HDF).  Utilities to read and manipulate HDF data are available via ftp from the National Center for Supercomputing Applications (NCSA).  The NCSA ftp server address is ftp.ncsa.uiuc.edu; help is available from helphdf@ncsa.uiuc.edu.</p>
+        <p>
+          The SSM/I monthly averaged sea ice concentration data from NSIDC can be obtained using anonymous ftp:
+          <br />
+          sidads.colorado.edu
+          <br />
+          (login as 'anonymous')
+          <br />
+          (type your email address as password)
+          <br />
+          cd pub/DATA_SETS/DATA/SSMI  monthly averaged data and documentation are in this subdirectory
+        </p>
+        <p>Assistance can be obtained by contacting NSIDC User Services at nsidc@kryos.colorado.edu; phone 303-492-6199.</p>
+        <p>
+          References:
+          <br />
+          Cavalieri, D.J., P. Gloersen and W.J. Campbell, Determination of sea ice parameters with the NIMBUS-7 SMMR. J. Geophys. Res., 89(D4), p. 5355-5369, 1984.
+          <br />
+          Comiso, J.C., Characteristics of Arctic winter sea ice from satellite multispectral microwave observations. J. Geophys. Res., 91(C1), p.975-994, 1986.
+          <br />
+          Gloersen, P. and D.J. Cavalieri, Reduction of weather effects in the calculation of sea ice concentration from microwave radiances, J. Geophys. Res., 91(C3), 3913-3919, 1986.
+          <br />
+          Grenfell, T.C., Surface-based passive microwave observations of sea ice in the Bering and Greenland Seas. IEEE Trans. Geosci. Rem. Sens., GD-24(3), p. 378-382, 1986.
+          <br />
+          National Snow and Ice Data Center, DMSP SSM/I Brightness Temperature and Ice Concentration Grids for the Polar Regions. User's Guide. National Snow and Ice Data Center. Special Publication NSIDC SP-1.  Boulder, Colorado, looseleaf,
+1990, rev. 1994 in preparation.
+          <br />
+          Steffen, K.; A.J. Schweiger, Multisensor approach to sea ice classification for the validation of DSMP-SSM/I passive microwave derived sea ice products. Photogram. Eng. Rem. Sens., 56(1), p. 75-82, 1990.
+          <br />
+          Svendsen, E.; C. Matzler; T.C. Grenfell, Model for retrieving total sea ice concentration from a spaceborne dual-polarized passive microwave instrument operating near 90 GHz. Int. J. Rem. Sens., 8(10), p.1479-1487, 1987.
+          <br />
+          Swift, C.T.; D.J. Cavalieri, Passive microwave remote sensing for sea ice research. EOS 66(49), p. 1210-1212, 1985.
+        </p>
+      </abstract>
+      <purpose>Compute monthly sea ice concentration grids</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>19870709</begdate>
+          <enddate>19911231</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>Ground Condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>As Needed</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>163</westbc>
+        <eastbc>-157</eastbc>
+        <northbc>65.5</northbc>
+        <southbc>52</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>North Pacific Ecosystem Metadatabase</themekt>
+        <themekey>Ice Physics</themekey>
+      </theme>
+      <theme>
+        <themekt>Other</themekt>
+        <themekey>Drifting Ice Boundary</themekey>
+        <themekey>Ocean Currents</themekey>
+        <themekey>Greenland</themekey>
+        <themekey>Reflection Profiles</themekey>
+        <themekey>Gridded Data</themekey>
+        <themekey>Sea Ice</themekey>
+        <themekey>North Pacific Ocean</themekey>
+      </theme>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>NSIDC User Services</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>Campus Box 449 - CIRES</address>
+          <city>Boulder</city>
+          <state>CO</state>
+          <postal>80309-0449</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>303-492-6199</cntvoice>
+        <cntfax>303-492-2468</cntfax>
+        <cntemail>nsidc@nsidc.org</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>NSIDC User Services</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>Campus Box 449 - CIRES</address>
+          <city>Boulder</city>
+          <state>CO</state>
+          <postal>80309-0449</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>303-492-6199</cntvoice>
+        <cntfax>303-492-2468</cntfax>
+        <cntemail>nsidc@nsidc.org</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>19940518</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Kimberly Bahl</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-4314</cntvoice>
+        <cntfax>206-526-6485</cntfax>
+        <cntemail>kimberly.bahl@noaa.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metac>None</metac>
+    <metuc>None</metuc>
+  </metainfo>
+</metadata>

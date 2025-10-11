@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "title": "Independent SST Monthly Storage File",
+    "upload_type": "dataset",
+    "publication_date": "2004-08-27",
+    "creators": [
+      {
+        "name": "Oceanic, National"
+      },
+      {
+        "name": "Atmospheric Administration (NOAA), National Environmental Satellite, Data"
+      },
+      {
+        "name": "Information Service (NESDIS), Office of Satellite Data Processing"
+      },
+      {
+        "name": "(OSDPD), Distributing"
+      }
+    ],
+    "description": "This file is the reservoir for independent SST observations. From this file they are written each day to the current-day observation file and to a monthly archive tape. The file is a string of logical records, each 6 words long, arranged in physical records of 13008 bytes. Each logical record is the length of one independent SST observation. New observations are entered serially as they arrive, into the next available record on the file. The file is long enough for approximately 40 days worth of data. No sorting or other operations are done before writing to the file.\n\n  The first 2 records of the file are reserved for a directory. Observations are added to the file by checking the directory to determine the next available record number. When the file becomes full, it is recycled, beginning with the first record (#3) available for observation storage.\n\n  The Office of Satellite Data Processing and Distribution (OSDPC) keeps this data for a month, then sends it to the National Climatic Data Center (NCDC) for archiving.  For current data, contact John Sapper at OSDPC,  telephone 301-457-0914 ext.148, e-mail: john.sapper@noaa.gov.  For archived data contact Thomas Ross at NCDC, telephone 828-271-4499, e-mail: tom.ross@noaa.gov.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Oceanography",
+      "Advanced Very High Resolution Radiometer (AVHRR)",
+      "Physical Oceanography",
+      "Sea Surface Temperature (SST)",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To archive heat budget data.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: Contact Source.\n\nUse constraints: Check with Source.\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040827\n\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata\n\nFGDC metadata version: FGDC-STD-001-1998\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040827\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\nFGDC metadata access constraints: Contact Source.\nFGDC metadata use constraints: Check with Source.",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Sapper, John F.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Sapper, John F.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-3559.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5176,
+    "fgdc_data_chars": 1827,
+    "zenodo_total_chars": 3728,
+    "zenodo_data_chars": 3076,
+    "char_difference": 1249,
+    "char_ratio": 1.6836343732895458,
+    "data_preservation_ratio": 1.6836343732895458
+  }
+}

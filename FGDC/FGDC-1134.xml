@@ -1,0 +1,113 @@
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)</origin>
+        <pubdate>1999</pubdate>
+        <title>A Unified Browse Environment for NOAA's Data using Distributed Objects</title>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The objective of the NOAAServer project is to develop a framework that will provide a unified view of NOAA's environmental information databases to the Web
+user. To accomplish these goals NOAAServer provides a Web-based interface that allows the user to search, preview, and download NOAA's data holdings. This
+paper focuses on the problem of data distribution from NOAA data servers to clients. This problem is complicated by the nature of NOAA's data holdings: the
+datasets are geographically distributed and in a wide range of formats. Our solution is to use a four-tier distributed object approach, using the Common Object
+Request Broker Architecture (CORBA). The four tiers include a client, the mirror site Web server, a local data server, and legacy applications. The client provides a
+user interface that allows the user to select and display subsets of NOAA's data library. The client communicates with the Web server using the hypertext transfer
+protocol (HTTP). The mirror site Web server and local data server communicate via the CORBA Internet Inter-Orb Protocol (IIOP), which supports distributed
+objects. These objects provide a consistent model for issuing data requests and representing the data. The local data server's responsibilities include passing requests
+for data to the legacy application, retrieving data from the legacy application, and translating this data representation to the distributed object data model. The legacy
+application will access the local data files or database and return the results of data requests to the local data server. The four-tier design using a distributed object
+data model to unify the components ensures that the user sees a unified view of NOAA's environmental databases.</abstract>
+      <purpose />
+    </descript>
+    <timeperd>
+      <timeinfo />
+      <current>Publication Date</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>None Planned</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>0</westbc>
+        <eastbc>0</eastbc>
+        <northbc>0</northbc>
+        <southbc>0</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>Other</themekt>
+        <themekey>North Pacific Ocean</themekey>
+      </theme>
+    </keywords>
+    <accconst>Check with Contributor</accconst>
+    <useconst>Check with Contributor</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Denbo, Donald W.</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-6449</cntvoice>
+        <cntfax />
+        <cntemail>Donald.W.Denbo@noaa.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>Denbo, Donald W.</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-6449</cntvoice>
+        <cntfax />
+        <cntemail>Donald.W.Denbo@noaa.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>20010308</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Kimberly Bahl</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-4314</cntvoice>
+        <cntfax>206-526-6485</cntfax>
+        <cntemail>kimberly.bahl@noaa.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metac>Check with Contributor</metac>
+    <metuc>Check with Contributor</metuc>
+  </metainfo>
+</metadata>

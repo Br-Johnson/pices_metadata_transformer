@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "title": "Coastal Gulf of Alaska Circulation Model (3-km grid)",
+    "upload_type": "dataset",
+    "publication_date": "2004-09-08",
+    "creators": [
+      {
+        "name": "University of Alaska Fairbanks (UAF)",
+        "type": "Organization"
+      }
+    ],
+    "description": "The SALMON Project is currently utilizing the Arctic Region Supercomputing Center (ARSC) to run numerical simulations of the circulation of the coastal Gulf of Alaska. The model in use is called the Regional Ocean Modeling System (ROMS), developed jointly by researchers at the University of California at Los Angeles and Rutgers University. It is run at a resolution of three kilometers and aligned in a nested grid configuration with Al Hermann's North East Pacific (NEP) domain. Open boundary conditions are provided by the NEP model and COADS monthly mean wind fields are used for the surface forcing. Tidal forcings are computed from Mike Foreman's northeast Pacific Ocean high-resolution assimilating tide model and are applied along the open boundaries of the model domain. Fresh water inputs consist of a continuous line source of monthly mean values computed by Tom Royer's hydrologic model. The latest ROMS model run simulated three idealized years of circulation in the northern Gulf of Alaska. \n\n  There are thirty vertical levels using a nonlinear stretching to improve the surface resolution in deep water. The vertical mixing scheme is KPP with both surface and bottom boundary layers. The open boundary conditions are Flather/Chapman for the barotropic fields; these provide the tidal elevation and currents added to the barotropic fields from the NEP model. The baroclinic fields have a modified radiation condition where the direction of the phase velocity determines the strength of the nudging to the NEP fields. There is also a ten-point wide nudging band on temperature and salinity along the open boundaries, again using the NEP fields.\n\n  Our future plans include coupled ecosystem models and the use of NCEP daily winds, making sure that all the nested models use common forcing fields. We will be running for specific years, such as 2000 and 2001.\n\n\n  A Sea-Air-Land Modeling and Observing Network (SALMON) Project.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Oceanography",
+      "Coastal Gulf of Alaska",
+      "Ocean Circulation",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To simulate the coastal Gulf of Alaska circulation.\n\nStatus: Complete\n\nMaintenance frequency: Unknown\n\nAccess constraints: None\n\nUse constraints: Check with Source.\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040908\n\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata\n\nFGDC metadata version: FGDC-STD-001-1998\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040908\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\nFGDC metadata access constraints: None\nFGDC metadata use constraints: Check with Source.",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Musgrave, David L.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Musgrave, David L.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-3582.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5620,
+    "fgdc_data_chars": 2338,
+    "zenodo_total_chars": 4181,
+    "zenodo_data_chars": 3594,
+    "char_difference": 1256,
+    "char_ratio": 1.5372112917023097,
+    "data_preservation_ratio": 1.5372112917023097
+  }
+}

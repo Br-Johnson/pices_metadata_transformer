@@ -1,0 +1,114 @@
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>National Oceanic and Atmospheric Administration (NOAA), National Environmental Satellite, Data and Information Service (NESDIS), Office of Satellite Data Processing and Distribution (OSDPD)</origin>
+        <pubdate>Unknown</pubdate>
+        <title>Regression Coefficient File</title>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>The regression coefficients file contains regression coefficients which are applied in the equations for the computation of Multichannel Sea Surface Temperature (MCSST). Coefficients are derived by regression using satellite SSTs spatially and temporally matched with a quality controlled set of drifting buoys. The first record of the file is a directory which identifies the satellites (up to 20) for which the regression data is stored and the starting record location of the regression data for each satellite. The second record is a blank. Following the directory are up to 800 regression data records, and each regression equation (up to 20 per satellite) has 2 data records associated with it. The first record lists the features (up to 20) which are included in the equation.  The second record contains the values of the regression coefficients which apply to the corresponding features.  Each record consists of 80 bytes.</abstract>
+      <purpose>To provide parameters for determining sea surface temperature from satellite observations.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>19790101</begdate>
+          <enddate />
+        </rngdates>
+      </timeinfo>
+      <current>Ground Condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Unknown</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-180</westbc>
+        <eastbc>180</eastbc>
+        <northbc>90</northbc>
+        <southbc>-90</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>North Pacific Ecosystem Metadatabase</themekt>
+        <themekey>Oceanography</themekey>
+      </theme>
+      <theme>
+        <themekt>Other</themekt>
+        <themekey>Sea Surface Temperature (SST)</themekey>
+        <themekey>Satellite</themekey>
+        <themekey>North Pacific Ocean</themekey>
+      </theme>
+    </keywords>
+    <accconst>Check with Source  about how to obtain data.</accconst>
+    <useconst>Check with Source</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Sapper, John F.</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>Federal Building #4 RM 2039, OA E/ SP 13</address>
+          <city>Suitland</city>
+          <state>MD</state>
+          <postal>20233</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>301-457-5195</cntvoice>
+        <cntfax>301-713-4598</cntfax>
+        <cntemail>John.Sapper@noaa.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>Sapper, John F.</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>Federal Building #4 RM 2039, OA E/ SP 13</address>
+          <city>Suitland</city>
+          <state>MD</state>
+          <postal>20233</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>301-457-5195</cntvoice>
+        <cntfax>301-713-4598</cntfax>
+        <cntemail>John.Sapper@noaa.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>19981016</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Kimberly Bahl</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-4314</cntvoice>
+        <cntfax>206-526-6485</cntfax>
+        <cntemail>kimberly.bahl@noaa.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metac>Check with Source  about how to obtain data.</metac>
+    <metuc>Check with Source</metuc>
+  </metainfo>
+</metadata>

@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "title": "SST Matchup Data Base",
+    "upload_type": "dataset",
+    "publication_date": "2004-08-27",
+    "creators": [
+      {
+        "name": "Oceanic, National"
+      },
+      {
+        "name": "Atmospheric Administration (NOAA), National Environmental Satellite, Data"
+      },
+      {
+        "name": "Information Service (NESDIS), Office of Satellite Data Processing"
+      },
+      {
+        "name": "(OSDPD), Distributing"
+      }
+    ],
+    "description": "This file is a geographically organized data base of satellite SST observation matched with coincident buoy, wx ship, and perhaps XBT data and the SST field data which have been quality controlled. The file generally contains all previous matched observations within the last 30 days. The file contains 5 X 5 degree latitude/longitude blocks which in turn are\nsubdivided into 1 degree blocks.\n\nThe coincident buoy, wx ship and/or XBT data will occupy the first 32 bytes, followed by the field data in the next 32 bytes and the satellite observation which can be of variable size, in which the first 19 halfwords are of fixed format (i.e. contain the core information) and the remainder will have up to a maximum size of 120 bytes. Within the observation no odd full word may be negative except the first full word which must be negative. The access routine COAR2 should be used to reference data in this data set.\n\nThe file has overflow records and as such expands and decreases as data are available. The file holds 1 month worth of data. The physical records are one track (13024 bytes) long as are the logical records. The first record is a directory, containing the block directory. Each succeeding record contains a subdirectory followed by the observations.\n\n  The Office of Satellite Data Processing and Distribution (OSDPC) keeps this data for a month, then sends it to the National Climatic Data Center (NCDC) for archiving.  For current data, contact John Sapper at OSDPC,  telephone 301-457-0914 ext.148, e-mail: john.sapper@noaa.gov.  For archived data contact Thomas Ross at NCDC, telephone 828-271-4499, e-mail: tom.ross@noaa.gov.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Oceanography",
+      "Advanced Very High Resolution Radiometer (AVHRR)",
+      "Physical Oceanography",
+      "Sea Surface Temperature (SST)",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To archive satellite SST observations.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: Contact Source.\n\nUse constraints: Check with Source.\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040827\n\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata\n\nFGDC metadata version: FGDC-STD-001-1998\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040827\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\nFGDC metadata access constraints: Contact Source.\nFGDC metadata use constraints: Check with Source.",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Sapper, John F.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Sapper, John F.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-3567.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5571,
+    "fgdc_data_chars": 2222,
+    "zenodo_total_chars": 4126,
+    "zenodo_data_chars": 3471,
+    "char_difference": 1249,
+    "char_ratio": 1.5621062106210621,
+    "data_preservation_ratio": 1.5621062106210621
+  }
+}
