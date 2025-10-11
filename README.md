@@ -98,6 +98,73 @@ python scripts/deduplicate_check.py --sandbox --report-only
 python scripts/upload_audit.py --output-dir output
 ```
 
+## ⚠️ Common Issues and Solutions
+
+### Date Field Warnings (Normal Behavior)
+
+**Issue**: You may see warnings like:
+
+```
+WARNING - date_normalization: complex_date_range. Found: 72-88 thru 87-98
+WARNING - date_normalization: date_range. Found: 1988 - Present
+```
+
+**Solution**: These are **NOT errors** - they're informational warnings. The system is correctly:
+
+- Detecting complex FGDC date formats
+- Converting them to valid ISO dates (e.g., "1972-01-01")
+- Logging the conversion for transparency
+
+**Action Required**: None. This is expected behavior.
+
+### Function Signature Errors
+
+**Issue**: Error like `transform_fgdc_file() takes 1 positional argument but 2 were given`
+
+**Solution**: Always use the correct function signature:
+
+```python
+# ✅ Correct
+result = transform_fgdc_file("path/to/file.xml")
+
+# ❌ Incorrect
+result = transform_fgdc_file("path/to/file.xml", "output/path")
+```
+
+### License Field Issues
+
+**Issue**: Files rejected with invalid license "none"
+
+**Solution**: The system now correctly defaults to "cc-zero" license. If you encounter this:
+
+1. Regenerate the JSON files: `python scripts/batch_transform.py --input FGDC --output output --limit N`
+2. The license will be correctly set to "cc-zero"
+
+### Command Line Usage
+
+**Issue**: Incorrect script arguments
+
+**Solution**: Use the correct command format:
+
+```bash
+# ✅ Correct
+python scripts/batch_transform.py --input FGDC --output output --limit 30
+
+# ❌ Incorrect
+python scripts/batch_transform.py --limit 30 --output-dir output
+```
+
+### Environment Setup
+
+**Issue**: Missing API tokens
+
+**Solution**: Ensure `.env` file exists with:
+
+```
+ZENODO_SANDBOX_TOKEN=your_sandbox_token_here
+ZENODO_PRODUCTION_TOKEN=your_production_token_here
+```
+
 ## 📋 Detailed Usage
 
 ### Transformation Process
@@ -122,6 +189,40 @@ Options:
   --input DIR      Input directory containing FGDC XML files (required)
   --output DIR     Output directory for transformed files (required)
   --verbose        Enable verbose logging
+```
+
+### Enhanced Field Mapping Analysis
+
+Each transformed record includes comprehensive field mapping metrics to ensure **100% data preservation**:
+
+```json
+"field_mapping_breakdown": {
+  "total_fgdc_fields": 62,
+  "directly_mapped_fields": 12,
+  "fields_in_notes": 50,
+  "unmapped_fields": 0,
+  "direct_mapping_percentage": 19.4,
+  "notes_mapping_percentage": 80.6,
+  "total_preservation_percentage": 100.0
+}
+```
+
+**Key Metrics:**
+
+- **Total FGDC Fields**: All fields found in the original FGDC XML
+- **Directly Mapped**: Fields mapped directly to Zenodo schema (title, creators, description, keywords)
+- **Fields in Notes**: Fields preserved in the notes field (purpose, constraints, contact info, etc.)
+- **Unmapped Fields**: Fields not accounted for (should always be 0)
+- **Total Preservation**: Percentage of FGDC fields preserved (should always be 100%)
+
+**Analysis Commands:**
+
+```bash
+# Analyze field mapping across all transformed records
+python scripts/metrics_analysis.py --output-dir output --save-report
+
+# Generate enhanced metrics for specific files
+python scripts/enhanced_metrics.py --input output/zenodo_json --output analysis.json
 ```
 
 ### Upload Process

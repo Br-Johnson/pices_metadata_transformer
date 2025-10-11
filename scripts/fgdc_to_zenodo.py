@@ -33,8 +33,8 @@ class FGDCToZenodoTransformer:
             'mit': [r'mit.?license', r'massachusetts.?institute.?of.?technology'],
             'apache-2.0': [r'apache.?2', r'apache.?license'],
             'gpl-3.0': [r'gpl.?3', r'gnu.?general.?public.?license.?3'],
-            'open': [r'open.?access', r'freely.?available', r'no.?restrictions'],
-            'none': [r'none', r'no.?license', r'unrestricted']
+            'open': [r'open.?access', r'freely.?available', r'no.?restrictions']
+            # Note: Removed 'none' pattern to prevent invalid license values
         }
         
         # Organization patterns for creator detection
