@@ -40,6 +40,7 @@
 - CI must test critical paths, migrations, and contract validations.
 - Maintain sample payloads and schemas in `contracts/examples/`.
 - Use automated dependency updates (e.g., Dependabot/Renovate) when available.
+- Use context7 when you need to get access to the most recent documentation for any given ccoding framework or tech
 
 ## Documentation
 

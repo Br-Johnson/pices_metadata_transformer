@@ -27,13 +27,19 @@ class FGDCToZenodoTransformer:
         
         # Common license patterns
         self.license_patterns = {
-            'cc-zero': [r'cc.?zero', r'public.?domain', r'no.?rights.?reserved', r'public.?domain'],
+            'cc-zero': [
+                r'cc.?zero',
+                r'public.?domain',
+                r'no.?rights.?reserved',
+                r'open.?access',
+                r'freely.?available',
+                r'no.?restrictions'
+            ],
             'cc-by-4.0': [r'cc.?by.?4', r'creative.?commons.?attribution', r'cc.?by'],
             'cc-by-sa-4.0': [r'cc.?by.?sa.?4', r'creative.?commons.?sharealike', r'cc.?by.?sa'],
             'mit': [r'mit.?license', r'massachusetts.?institute.?of.?technology'],
             'apache-2.0': [r'apache.?2', r'apache.?license'],
             'gpl-3.0': [r'gpl.?3', r'gnu.?general.?public.?license.?3'],
-            'open': [r'open.?access', r'freely.?available', r'no.?restrictions']
             # Note: Removed 'none' pattern to prevent invalid license values
         }
         

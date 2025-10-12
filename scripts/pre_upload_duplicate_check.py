@@ -25,6 +25,7 @@ class PreUploadDuplicateChecker:
         self.output_dir = output_dir
         self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
+        self.community_identifier = "pices"
         
         # Initialize Zenodo client
         self.client = create_zenodo_client(sandbox)
@@ -48,42 +49,35 @@ class PreUploadDuplicateChecker:
         existing_records = {
             'titles': set(),
             'records': [],
-            'title_to_record': {}  # Map title to record for easy lookup
+            'title_to_record': {}
         }
         
         try:
-            # Get all depositions from Zenodo, scoped to PICES community for accuracy
-            depositions = self.client.get_all_my_depositions(query="communities.identifier:pices")
+            # Fetch published records in the target community
+            published_hits = self.client.get_records_by_query(q=f"communities:{self.community_identifier}", size=200)
+            self.logger.log_info(f"🔍 Retrieved {len(published_hits)} published records from community search")
+            for hit in published_hits:
+                metadata = hit.get('metadata', {})
+                title = metadata.get('title', '').strip()
+                if not title:
+                    continue
+                title_lower = title.lower()
+                if title_lower in existing_records['title_to_record']:
+                    continue
+                communities = metadata.get('communities', [])
+                record_info = {
+                    'id': hit.get('id'),
+                    'title': title,
+                    'state': 'published',
+                    'created': hit.get('created'),
+                    'modified': hit.get('updated'),
+                    'communities': [{'identifier': c.get('identifier')} for c in communities if c.get('identifier')]
+                }
+                existing_records['records'].append(record_info)
+                existing_records['titles'].add(title_lower)
+                existing_records['title_to_record'][title_lower] = record_info
             
-            if depositions:
-                for deposition in depositions:
-                    metadata = deposition.get('metadata', {})
-                    title = metadata.get('title', '').strip()
-                    
-                    # Filter by PICES community
-                    communities = metadata.get('communities', [])
-                    is_pices_community = any(
-                        community.get('identifier') == 'pices' 
-                        for community in communities
-                    )
-                    
-                    if title and is_pices_community:
-                        title_lower = title.lower()
-                        existing_records['titles'].add(title_lower)
-                        
-                        record_info = {
-                            'id': deposition.get('id'),
-                            'title': title,
-                            'state': deposition.get('state'),
-                            'created': deposition.get('created'),
-                            'modified': deposition.get('modified'),
-                            'communities': communities
-                        }
-                        
-                        existing_records['records'].append(record_info)
-                        existing_records['title_to_record'][title_lower] = record_info
-            
-            print(f"✅ Found {len(existing_records['records'])} existing records in PICES community on Zenodo")
+            print(f"✅ Total existing records tracked: {len(existing_records['records'])}")
             return existing_records
             
         except ZenodoAPIError as e:
@@ -130,24 +124,6 @@ class PreUploadDuplicateChecker:
                 }
             
             # Check for similar titles (fuzzy matching)
-            similar_titles = self._find_similar_titles(title_lower, existing_records['titles'])
-            if similar_titles:
-                # Get the similar records
-                similar_records = []
-                for similar_title in similar_titles:
-                    if similar_title in existing_records['title_to_record']:
-                        similar_records.append(existing_records['title_to_record'][similar_title])
-                
-                return {
-                    'file': filename,
-                    'safe_to_upload': False,
-                    'reason': f'Similar title found on Zenodo',
-                    'duplicate_type': 'similar_title',
-                    'similar_titles': similar_titles,
-                    'similar_records': similar_records,
-                    'title': title
-                }
-            
             # Safe to upload
             return {
                 'file': filename,

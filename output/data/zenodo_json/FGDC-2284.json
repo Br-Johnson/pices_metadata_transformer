@@ -11,7 +11,7 @@
     ],
     "description": "During summer 1975, the Arctic Ice Dynamics Joint Experiment (AIDJEX) maintained 4 manned camps on ice floes in the Arctic Ocean.  Instrumentation recorded surface and geostrophic winds, ocean current velocity at 2 and 30 meter depths, and camp (floe) position.  Data available are daily average values for each parameter at each camp, as well as ice velocity and smoothed position data.  Surface pressure and geostrophic wind data at 6-hourly intervals are also available.",
     "access_right": "open",
-    "license": "open",
+    "license": "cc-zero",
     "keywords": [
       "Ice Physics",
       "Oceanography",
@@ -31,6 +31,10 @@
       },
       {
         "name": "Services, NSIDC User",
+        "type": "Distributor"
+      },
+      {
+        "name": "North Pacific Marine Science Organization (PICES)",
         "type": "Distributor"
       }
     ],
@@ -81,36 +85,37 @@
         "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
         "scheme": "thesaurus"
       }
-    ]
+    ],
+    "publisher": "North Pacific Marine Science Organization"
   },
   "original_fgdc_file": "FGDC-2284.xml",
   "character_analysis": {
     "fgdc_total_chars": 4532,
     "fgdc_data_chars": 1032,
-    "zenodo_total_chars": 3408,
-    "zenodo_data_chars": 1625,
-    "char_difference": 593,
-    "char_ratio": 1.574612403100775,
-    "data_preservation_ratio": 1.574612403100775
+    "zenodo_total_chars": 3579,
+    "zenodo_data_chars": 1674,
+    "char_difference": 642,
+    "char_ratio": 1.622093023255814,
+    "data_preservation_ratio": 1.622093023255814
   },
   "enhanced_metrics": {
     "file_info": {
       "fgdc_size_bytes": 4532,
       "fgdc_size_kb": 4.43,
-      "zenodo_size_bytes": 3408,
-      "zenodo_size_kb": 3.33,
+      "zenodo_size_bytes": 3579,
+      "zenodo_size_kb": 3.5,
       "filename": "FGDC-2284.xml",
-      "timestamp": "2025-10-11T19:55:05.149196"
+      "timestamp": "2025-10-11T22:14:09.720853"
     },
     "data_preservation": {
-      "content_preservation_ratio": 0.778,
-      "field_preservation_ratio": 0.933,
-      "semantic_preservation_score": 0.7777777777777778,
+      "content_preservation_ratio": 0.824,
+      "field_preservation_ratio": 1.0,
+      "semantic_preservation_score": 0.8242630385487528,
       "data_loss_indicators": [],
       "data_gain_indicators": [
-        "Significant data enrichment: 178.8% additional structured content added"
+        "Significant data enrichment: 185.9% additional structured content added"
       ],
-      "content_enrichment_ratio": 1.788
+      "content_enrichment_ratio": 1.859
     },
     "field_coverage": {
       "critical_fields_present": 4,
@@ -162,13 +167,11 @@
         "grade": "A"
       },
       "license_quality": {
-        "score": 50,
-        "issues": [
-          "Unrecognized license: open"
-        ],
-        "grade": "C"
+        "score": 100,
+        "issues": [],
+        "grade": "A"
       },
-      "overall_quality_score": 91.7,
+      "overall_quality_score": 100.0,
       "quality_grade": "EXCELLENT"
     },
     "transformation_effectiveness": {
@@ -513,10 +516,10 @@
       "zenodo_recommended_percentage": 100.0,
       "pices_community_present": true,
       "open_access_compliant": true,
-      "license_compliant": false,
-      "overall_compliance_score": 80.0
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
     },
-    "overall_score": 82.7
+    "overall_score": 88.0
   },
   "files": [
     {

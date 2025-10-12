@@ -231,12 +231,15 @@ class BatchUploader:
                         print(f"  ✓ {os.path.basename(json_file)} -> {result['doi']}")
                         # Update registry for successful uploads
                         self._update_registry(result, batch_number=batch_number)
+                        # Mirror entry in legacy upload log for downstream tooling
+                        self._append_to_upload_log(result)
                     else:
                         batch_errors.append(result)
                         self.total_failed += 1
                         print(f"  ✗ {os.path.basename(json_file)} -> {result.get('error', 'Unknown error')}")
                         # Update registry for failed uploads too
                         self._update_registry(result, batch_number=batch_number)
+                        self._append_to_upload_log(result)
 
                 except Exception as e:
                     error_result = {
@@ -251,6 +254,7 @@ class BatchUploader:
                     print(f"  ✗ {os.path.basename(json_file)} -> {str(e)}")
                     # Update registry for failed uploads too
                     self._update_registry(error_result, batch_number=batch_number)
+                    self._append_to_upload_log(error_result)
                 # Small delay between files to be gentle on the API
                 time.sleep(0.1)
         

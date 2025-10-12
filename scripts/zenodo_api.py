@@ -316,6 +316,35 @@ class ZenodoAPIClient:
         response = self._make_request('GET', 'records/', params=params)
         return response.json()
     
+    def get_records_by_query(self, **params) -> List[Dict[str, Any]]:
+        """Fetch all record hits for a given query with pagination support."""
+        aggregated_hits: List[Dict[str, Any]] = []
+        params = params.copy()
+        size = params.get('size', 100)
+        page = 1
+        
+        while True:
+            params['page'] = page
+            params['size'] = size
+            response = self.search_records(**params)
+            hits = response.get('hits', {}).get('hits', [])
+            if not hits:
+                break
+            
+            aggregated_hits.extend(hits)
+            
+            # Stop if fewer hits than requested (last page)
+            if len(hits) < size:
+                break
+            
+            # If response provides explicit next link, use it; otherwise increment page
+            links = response.get('links', {})
+            if 'next' not in links:
+                break
+            page += 1
+        
+        return aggregated_hits
+    
     def get_record(self, record_id: int) -> Dict[str, Any]:
         """Get a published record by ID."""
         response = self._make_request('GET', f'records/{record_id}')

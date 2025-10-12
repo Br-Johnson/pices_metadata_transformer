@@ -135,7 +135,11 @@ class ZenodoUploader:
                 raise ValueError("JSON file missing 'metadata' key")
             
             metadata = data['metadata']
-            original_fgdc_file = data.get('original_fgdc_file', '')
+            metadata.setdefault('notes', '')
+            note = "Record is migrated FGDC metadata from the archived PICES GeoNetwork metadata catalogue; dataset is metadata-only."
+            if note not in metadata['notes']:
+                metadata['notes'] = (metadata['notes'] + "\n\n" if metadata['notes'] else "") + note
+            original_fgdc_file = None
             
             # Get base filename
             base_name = os.path.splitext(os.path.basename(json_file))[0]
@@ -149,20 +153,19 @@ class ZenodoUploader:
             deposition = self.client.create_deposition()
             deposition_id = deposition['id']
             
-            # Upload original FGDC XML file if available
-            if fgdc_file:
-                try:
-                    self.client.upload_file(deposition_id, fgdc_file, f"{base_name}.xml")
-                except Exception as e:
-                    self.logger.log_warning(
-                        json_file, "file_upload", "fgdc_upload_failed",
-                        str(e), "Successful FGDC file upload",
-                        f"Failed to upload FGDC file: {str(e)}",
-                        "Check file permissions and size limits"
-                    )
-            
             # Update metadata
             updated_deposition = self.client.update_deposition_metadata(deposition_id, metadata)
+            try:
+                self.client.update_deposition_metadata(deposition_id, {
+                    "files": {"enabled": False}
+                })
+            except Exception as e:
+                self.logger.log_warning(
+                    json_file, "metadata_only", "disable_files_failed",
+                    str(e), "Depositions marked as metadata-only",
+                    "Unable to disable files on deposition",
+                    "Check Zenodo API permissions"
+                )
             
             # Get DOI if reserved
             doi = None

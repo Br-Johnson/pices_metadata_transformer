@@ -44,13 +44,20 @@ class EnhancedMetricsCalculator:
             }
         }
         
-        # Define data quality thresholds
-        self.quality_thresholds = {
-            'excellent': 90,
-            'good': 75,
-            'fair': 60,
-            'poor': 0
-        }
+        # Define data quality thresholds (higher bar after sandbox assessments)
+        self.quality_thresholds = [
+            ('excellent', 95),
+            ('good', 85),
+            ('fair', 72),
+            ('poor', 0)
+        ]
+        # Overall grade thresholds applied to combined score
+        self.overall_grade_thresholds = [
+            ('EXCELLENT', 95),
+            ('GOOD', 85),
+            ('FAIR', 75),
+            ('POOR', 0)
+        ]
     
     def calculate_comprehensive_metrics(self, fgdc_content: str, zenodo_metadata: Dict[str, Any], 
                                       file_path: str) -> Dict[str, Any]:
@@ -68,6 +75,7 @@ class EnhancedMetricsCalculator:
         
         # Calculate overall score
         metrics['overall_score'] = self._calculate_overall_score(metrics)
+        metrics['overall_grade'] = self._assign_overall_grade(metrics['overall_score'])
         
         return metrics
     
@@ -225,7 +233,7 @@ class EnhancedMetricsCalculator:
         quality['overall_quality_score'] = round(sum(quality_scores) / len(quality_scores), 1)
         
         # Assign quality grade
-        for grade, threshold in self.quality_thresholds.items():
+        for grade, threshold in self.quality_thresholds:
             if quality['overall_quality_score'] >= threshold:
                 quality['quality_grade'] = grade.upper()
                 break
@@ -349,11 +357,11 @@ class EnhancedMetricsCalculator:
         
         # Weighted combination of different metric categories
         weights = {
-            'data_preservation': 0.25,
+            'data_preservation': 0.35,
             'field_coverage': 0.20,
             'data_quality': 0.25,
-            'transformation_effectiveness': 0.20,
-            'compliance': 0.10
+            'transformation_effectiveness': 0.15,
+            'compliance': 0.05
         }
         
         scores = {
@@ -367,11 +375,38 @@ class EnhancedMetricsCalculator:
         overall_score = sum(scores[category] * weight for category, weight in weights.items())
         return round(overall_score, 1)
     
+    def _assign_overall_grade(self, overall_score: float) -> str:
+        """Assign overall grade based on combined score thresholds."""
+        for grade, threshold in self.overall_grade_thresholds:
+            if overall_score >= threshold:
+                return grade
+        return 'POOR'
+    
+    def _parse_fgdc_root(self, fgdc_content: str) -> Optional[ET.Element]:
+        """Parse FGDC XML, tolerating trailing content after </metadata>."""
+        if not fgdc_content:
+            return None
+        try:
+            return ET.fromstring(fgdc_content)
+        except ET.ParseError:
+            closing_tag = '</metadata>'
+            lower_content = fgdc_content.lower()
+            idx = lower_content.find(closing_tag)
+            if idx != -1:
+                snippet = fgdc_content[:idx + len(closing_tag)]
+                try:
+                    return ET.fromstring(snippet)
+                except ET.ParseError:
+                    return None
+            return None
+    
     # Helper methods for detailed analysis
     def _extract_meaningful_fgdc_data(self, fgdc_content: str) -> Dict[str, Any]:
         """Extract meaningful data from FGDC content."""
         try:
-            root = ET.fromstring(fgdc_content)
+            root = self._parse_fgdc_root(fgdc_content)
+            if root is None:
+                raise ValueError("Unable to parse FGDC content")
             
             # Count meaningful text content
             meaningful_elements = [
@@ -658,7 +693,9 @@ class EnhancedMetricsCalculator:
     def _extract_fgdc_field_names(self, fgdc_content: str) -> List[str]:
         """Extract field names from FGDC content."""
         try:
-            root = ET.fromstring(fgdc_content)
+            root = self._parse_fgdc_root(fgdc_content)
+            if root is None:
+                raise ValueError("Unable to parse FGDC content")
             return [elem.tag for elem in root.iter() if elem.text and elem.text.strip()]
         except Exception:
             return []
@@ -666,7 +703,9 @@ class EnhancedMetricsCalculator:
     def _extract_fgdc_field_values(self, fgdc_content: str) -> Dict[str, str]:
         """Extract field names and values from FGDC content."""
         try:
-            root = ET.fromstring(fgdc_content)
+            root = self._parse_fgdc_root(fgdc_content)
+            if root is None:
+                raise ValueError("Unable to parse FGDC content")
             field_values = {}
             for elem in root.iter():
                 if elem.text and elem.text.strip():
@@ -866,13 +905,49 @@ class EnhancedMetricsCalculator:
                 
                 zenodo_metadata = zenodo_data['metadata']
                 
-                # For now, we'll use empty FGDC content since we don't have the original
-                # In a real implementation, you'd load the corresponding FGDC file
+                # Attempt to load corresponding FGDC source
                 fgdc_content = ""
+                fgdc_path = None
+                
+                files_section = zenodo_data.get('files', [])
+                if isinstance(files_section, list):
+                    for attachment in files_section:
+                        if isinstance(attachment, dict):
+                            candidate = attachment.get('path')
+                            attachment_type = attachment.get('type', '')
+                            if candidate and os.path.exists(candidate):
+                                if attachment_type == 'fgdc_xml' or candidate.lower().endswith('.xml'):
+                                    fgdc_path = candidate
+                                    break
+                
+                if not fgdc_path:
+                    original_name = zenodo_data.get('original_fgdc_file')
+                    if original_name:
+                        candidate = os.path.join(
+                            os.path.dirname(directory_path),
+                            'original_fgdc',
+                            original_name
+                        )
+                        if os.path.exists(candidate):
+                            fgdc_path = candidate
+                
+                if fgdc_path:
+                    try:
+                        with open(fgdc_path, 'r', encoding='utf-8', errors='ignore') as fgdc_file:
+                            fgdc_content = fgdc_file.read()
+                    except Exception as fgdc_error:
+                        print(f"Warning: Could not read FGDC source for {json_file}: {fgdc_error}")
+                        fgdc_path = None
                 
                 # Calculate comprehensive metrics
-                metrics = self.calculate_comprehensive_metrics(fgdc_content, zenodo_metadata)
+                metrics = self.calculate_comprehensive_metrics(
+                    fgdc_content,
+                    zenodo_metadata,
+                    fgdc_path or json_path
+                )
                 metrics['file'] = json_file
+                if fgdc_path:
+                    metrics['fgdc_file'] = os.path.basename(fgdc_path)
                 metrics_list.append(metrics)
                 
             except Exception as e:
@@ -927,44 +1002,53 @@ def generate_metrics_summary(metrics_list: List[Dict[str, Any]]) -> Dict[str, An
     
     # Calculate overall scores
     scores = [m['overall_score'] for m in metrics_list]
+    sorted_scores = sorted(scores)
+    avg_score = sum(scores) / len(scores)
+    if len(scores) % 2 == 0:
+        median_score = (sorted_scores[len(scores) // 2 - 1] + sorted_scores[len(scores) // 2]) / 2
+    else:
+        median_score = sorted_scores[len(scores) // 2]
+    std_dev = (sum((s - avg_score) ** 2 for s in scores) / len(scores)) ** 0.5 if len(scores) > 1 else 0.0
     summary['overall_scores'] = {
-        'average': round(sum(scores) / len(scores), 1),
-        'median': round(sorted(scores)[len(scores) // 2], 1),
-        'min': min(scores),
-        'max': max(scores),
-        'std_dev': round((sum((s - summary['overall_scores']['average']) ** 2 for s in scores) / len(scores)) ** 0.5, 1)
+        'average': round(avg_score, 1),
+        'median': round(median_score, 1),
+        'min': round(min(scores), 1),
+        'max': round(max(scores), 1),
+        'std_dev': round(std_dev, 1)
     }
     
-    # Quality distribution
+    # Quality distribution (overall grades)
+    grade_counts = {'EXCELLENT': 0, 'GOOD': 0, 'FAIR': 0, 'POOR': 0}
     for metrics in metrics_list:
-        grade = metrics['data_quality']['quality_grade']
-        if grade == 'EXCELLENT':
-            summary['quality_distribution']['excellent'] += 1
-        elif grade == 'GOOD':
-            summary['quality_distribution']['good'] += 1
-        elif grade == 'FAIR':
-            summary['quality_distribution']['fair'] += 1
-        else:
-            summary['quality_distribution']['poor'] += 1
+        grade = metrics.get('overall_grade', 'POOR')
+        grade_counts[grade] = grade_counts.get(grade, 0) + 1
+    summary['quality_distribution'] = {
+        'excellent': grade_counts.get('EXCELLENT', 0),
+        'good': grade_counts.get('GOOD', 0),
+        'fair': grade_counts.get('FAIR', 0),
+        'poor': grade_counts.get('POOR', 0)
+    }
     
     # Field coverage stats
     coverage_data = [m['field_coverage'] for m in metrics_list]
-    summary['field_coverage_stats'] = {
-        'avg_critical_fields': round(sum(c['critical_fields_percentage'] for c in coverage_data) / len(coverage_data), 1),
-        'avg_important_fields': round(sum(c['important_fields_percentage'] for c in coverage_data) / len(coverage_data), 1),
-        'avg_optional_fields': round(sum(c['optional_fields_percentage'] for c in coverage_data) / len(coverage_data), 1),
-        'avg_overall_coverage': round(sum(c['overall_coverage_percentage'] for c in coverage_data) / len(coverage_data), 1)
-    }
+    if coverage_data:
+        summary['field_coverage_stats'] = {
+            'avg_critical_fields': round(sum(c['critical_fields_percentage'] for c in coverage_data) / len(coverage_data), 1),
+            'avg_important_fields': round(sum(c['important_fields_percentage'] for c in coverage_data) / len(coverage_data), 1),
+            'avg_optional_fields': round(sum(c['optional_fields_percentage'] for c in coverage_data) / len(coverage_data), 1),
+            'avg_overall_coverage': round(sum(c['overall_coverage_percentage'] for c in coverage_data) / len(coverage_data), 1)
+        }
     
     # Compliance stats
     compliance_data = [m['compliance'] for m in metrics_list]
-    summary['compliance_stats'] = {
-        'zenodo_required_avg': round(sum(c['zenodo_required_percentage'] for c in compliance_data) / len(compliance_data), 1),
-        'zenodo_recommended_avg': round(sum(c['zenodo_recommended_percentage'] for c in compliance_data) / len(compliance_data), 1),
-        'pices_community_present': sum(1 for c in compliance_data if c['pices_community_present']),
-        'open_access_compliant': sum(1 for c in compliance_data if c['open_access_compliant']),
-        'license_compliant': sum(1 for c in compliance_data if c['license_compliant'])
-    }
+    if compliance_data:
+        summary['compliance_stats'] = {
+            'zenodo_required_avg': round(sum(c['zenodo_required_percentage'] for c in compliance_data) / len(compliance_data), 1),
+            'zenodo_recommended_avg': round(sum(c['zenodo_recommended_percentage'] for c in compliance_data) / len(compliance_data), 1),
+            'pices_community_present': sum(1 for c in compliance_data if c['pices_community_present']),
+            'open_access_compliant': sum(1 for c in compliance_data if c['open_access_compliant']),
+            'license_compliant': sum(1 for c in compliance_data if c['license_compliant'])
+        }
     
     return summary
 
@@ -1021,9 +1105,9 @@ def main():
         if 'summary' in metrics:
             summary = metrics['summary']
             print(f"\nEnhanced Metrics Summary:")
-            print(f"  Files processed: {summary.get('total_files', 0)}")
-            print(f"  Average quality score: {summary.get('quality_stats', {}).get('avg_quality_score', 0):.1f}")
-            print(f"  Average field coverage: {summary.get('coverage_stats', {}).get('avg_overall_coverage', 0):.1f}%")
+            print(f"  Files processed: {summary.get('total_records', 0)}")
+            print(f"  Average quality score: {summary.get('overall_scores', {}).get('average', 0):.1f}")
+            print(f"  Average field coverage: {summary.get('field_coverage_stats', {}).get('avg_overall_coverage', 0):.1f}%")
             print(f"  Compliance rate: {summary.get('compliance_stats', {}).get('zenodo_required_avg', 0):.1f}%")
         
         return 0
