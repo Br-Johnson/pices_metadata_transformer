@@ -351,16 +351,18 @@ def main():
     logger = get_logger()
     
     try:
-        # Create uploader
-        uploader = ZenodoUploader(sandbox, args.output)
-        
-        # Discover JSON files
-        json_files = uploader.discover_json_files()
-        
-        # Upload files
-        logger.log_info(f"Starting upload to {'sandbox' if sandbox else 'production'} Zenodo...")
-        summary = uploader.upload_files(json_files, args.limit)
-        
+        with create_zenodo_client(sandbox) as client:
+            # Create uploader
+            uploader = ZenodoUploader(sandbox, args.output)
+            uploader.client = client
+
+            # Discover JSON files
+            json_files = uploader.discover_json_files()
+
+            # Upload files
+            logger.log_info(f"Starting upload to {'sandbox' if sandbox else 'production'} Zenodo...")
+            summary = uploader.upload_files(json_files, args.limit)
+
         # Generate report
         upload_report = uploader.generate_upload_report(summary)
         
