@@ -43,6 +43,11 @@ class FGDCToZenodoTransformer:
             r'center', r'lab', r'department', r'ministry', r'agency',
             r'corporation', r'inc\.', r'ltd\.', r'corp\.', r'commission', r'office'
         ]
+        self.pices_publisher = "North Pacific Marine Science Organization"
+        self.pices_contributor = {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+        }
     
     def transform_file(self, xml_path: str) -> Optional[Dict[str, Any]]:
         """Transform a single FGDC XML file to Zenodo JSON format."""
@@ -186,6 +191,16 @@ class FGDCToZenodoTransformer:
             
             # Optional fields
             self._add_optional_fields(metadata, root, file_path)
+
+            # Ensure publisher is set to PICES when not supplied by source data
+            if not metadata.get('publisher'):
+                metadata['publisher'] = self.pices_publisher
+
+            # Ensure PICES contributor is present
+            contributors = metadata.get('contributors') or []
+            if not any(c.get('name') == self.pices_contributor['name'] for c in contributors):
+                contributors.append(dict(self.pices_contributor))
+            metadata['contributors'] = contributors
             
             return metadata
             

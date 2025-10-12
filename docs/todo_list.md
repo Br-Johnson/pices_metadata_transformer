@@ -34,8 +34,20 @@ This checklist tracks everything required to shepherd FGDC metadata through the 
 - [x] Remove the limit for a full transformation when the sample passes; archive metric snapshots (e.g., `output/reports/transform/transformation_summary.txt`).
 - [x] Review the failed transformation/validation file lists in the latest `transformation_summary.txt` and schedule remediation.
   - Remaining blockers: `FGDC-3373.xml` and `FGDC-3484.xml` are entirely null bytes and require fresh source files before they can be transformed.
-- [ ] Document any new warnings that require mapping or policy decisions.
-- [] Add Publisher = 'North Pacific Marine Science Oorganization' to all records
+- [x] Document any new warnings that require mapping or policy decisions.
+- [x] **Comprehensive API Analysis Complete** - Tested both Legacy and InvenioRDM APIs
+  - **Hybrid Setup Confirmed**: Zenodo uses a hybrid API approach
+    - Legacy API: `/api/deposit/depositions` (for creating/managing records) ✅ Available
+    - Newer API: `/api/records/` (for reading published records) ✅ Available
+    - Vocabularies: `/api/vocabularies/*` (controlled vocabularies) ✅ Available
+  - **ROR Support**: Limited in current setup
+    - Legacy API strips ROR fields during creation ❌
+    - Newer API structure supports ROR but creation endpoint not available ❌
+    - PICES ROR: `https://ror.org/04q8xer47` (can include in metadata but won't be preserved)
+  - **Recommendation**: Continue with legacy API - it's stable and production-ready
+  - **Future**: Full ROR support will require waiting for Zenodo's complete InvenioRDM migration
+- [x] Add Publisher = 'North Pacific Marine Science Organization' to all records
+  - Transformer now injects the PICES publisher and distributor contributor when the source metadata does not provide them.
 
 ### 3. Pre-Upload Screening
 

@@ -1,10 +1,61 @@
-# Agent Guidelines for FGDC to Zenodo Migration
+# AGENTS.md — Operational Ruleset for Agentic Coding Assistants
 
-## User Interaction
+## Global Principles
 
-- Before implementing new feaures, always stop and ask me how I want you to implement certain features that are not described thoroughly in our plan before implementing them
-- Keep code changes small and focussed
-- Avoid creating new files for functionality that exists in existing files. Edit existing files instead
+- Plan before coding. Execute in atomic, reversible increments.
+- Explain reasoning and request confirmation before implementation.
+- Maintain reproducibility, determinism, and traceability.
+- Avoid technical debt and unbounded complexity.
+- Prefer simplicity, composability, and transparency over cleverness.
+
+## Agent Protocol
+
+1. **Plan:** Outline the system shape, data models, endpoints, dependencies, and risks.
+2. **Ask:** Confirm design assumptions or key uncertainties before writing code.
+3. **Code:** Implement minimal, self-contained diffs with meaningful commit messages.
+4. **Test:** Run smoke + contract tests; verify invariants and side effects.
+5. **Doc:** Update README, `.env.example`, and contracts as needed.
+6. **Teach:** Summarize what was learned — theoretical insight, design trade-off, or best practice — in a concise note or comment.
+7. **Reflect:** Log design rationale and unresolved questions to `/docs/tech-debt.md`.
+
+## System Integrity
+
+- **Contracts-first:** Freeze endpoint definitions and example payloads before implementation.
+- **Schema versioning:** Every schema or model change includes forward/backward migrations.
+- **12-Factor Config:** No secrets in code; `.env.example` must remain accurate.
+- **Versioning discipline:** Never break a public API without `/v2` and a documented migration path.
+- **Definition of Done:** All tests pass; docs and examples updated; no untracked or orphaned files.
+
+## Reliability & Safety
+
+- Validate all inputs and sanitize all outputs.
+- Use context-appropriate authentication (CSRF for browsers, JWT/Bearer for services).
+- Log structured events or metrics relevant to the project context (e.g., latency, error rates, resource usage, accuracy).
+- Never log secrets or PII; enforce least privilege for credentials, databases, and APIs.
+- Treat timeouts, retries, and failures as first-class design concerns; include graceful degradation or fallbacks when applicable.
+
+## Tooling
+
+- Enforce type safety and linting before commit (`mypy`, `ruff`, `black`, `ESLint`, `Prettier`, etc.).
+- CI must test critical paths, migrations, and contract validations.
+- Maintain sample payloads and schemas in `contracts/examples/`.
+- Use automated dependency updates (e.g., Dependabot/Renovate) when available.
+
+## Documentation
+
+- Each module begins with a short header: purpose, invariants, and assumptions.
+- Major design or architecture changes require an ADR (`/docs/adr/XXXX-title.md`).
+- Keep a running `docs/tech-debt.md` ledger with rationale, impact, and remediation notes.
+- Update or regenerate reference documentation when interfaces or schemas change.
+
+## Notes for Agents
+
+- When uncertain, ask for clarification rather than guessing.
+- When confident, act deterministically and document reasoning.
+- Prefer small, composable contributions that others (human or agent) can review easily.
+- Maintain internal consistency — code, docs, and tests must always reflect the same truth.
+
+# Project Specific Rules
 
 ## Core Principles
 
@@ -31,66 +82,9 @@
 - **Check validation reports** in `output/validation_report.json`
 - **Consult the active checklist** in `docs/todo_list.md` and update it before and after each significant action
 
-### During Processing
-
-- **Log everything** - every issue, warning, and success should be documented
-- **Handle edge cases gracefully** - log warnings rather than failing
-- **Use sandbox tokens** for testing (never production without explicit instruction)
-- **Respect rate limits** - Zenodo has strict limits: 5000 per hour and 100 per minute
-
-### After Each Upload Batch
-
-- **Check for duplicates** - run `python scripts/deduplicate_check.py --sandbox` to verify no duplicate records exist
-- **Review duplicate report** - examine `output/duplicate_check_report_*.txt` for any issues
-- **Review new log entries** for any issues introduced
-- **Update progress metrics** in `logs/progress.csv`
-- **Clean up temporary files** after operations
-
 ## Code Modification Rules
 
 - **Test changes incrementally** - use `--limit 10` to test modifications
 - **Preserve existing mappings** - only modify if you have a clear improvement
 - **Add new validation rules** when you discover new issues
 - **Comment complex transformations** with reasoning
-- **Update README.md** if you change command-line options
-- **Keep documentation current** - update `docs/todo_list.md` alongside code/operational changes so the plan reflects actual state
-
-## Common Issues and Solutions
-
-### Date Field Warnings (Normal Behavior)
-
-- **Issue**: Warnings like `date_normalization: complex_date_range. Found: 72-88 thru 87-98`
-- **Solution**: These are **NOT errors** - they're informational warnings showing the system is correctly converting complex FGDC date formats to valid ISO dates
-- **Action**: None required - this is expected behavior
-
-### Function Signature Errors
-
-- **Issue**: `transform_fgdc_file() takes 1 positional argument but 2 were given`
-- **Solution**: Always use `transform_fgdc_file(xml_path)` with only one argument
-- **Correct Usage**: `result = transform_fgdc_file("path/to/file.xml")`
-
-### License Field Issues
-
-- **Issue**: Files rejected with invalid license "none"
-- **Solution**: The system now correctly defaults to "cc-zero" license
-- **Fix**: Regenerate JSON files with `python scripts/batch_transform.py --input FGDC --output output --limit N`
-
-### Command Line Usage
-
-- **Issue**: Incorrect script arguments
-- **Solution**: Use `python scripts/batch_transform.py --input FGDC --output output --limit 30`
-- **Avoid**: `python scripts/batch_transform.py --limit 30 --output-dir output`
-
-### Environment Setup
-
-- **Issue**: Missing API tokens
-- **Solution**: Ensure `.env` file exists with `ZENODO_SANDBOX_TOKEN=your_token`
-
-## Quality Assurance
-
-- **Compare before/after metrics** in progress logs
-- **Ensure no regression** in successful transformation rates
-- **Generate analysis reports** after significant runs
-- **Identify patterns** in errors and warnings for systematic improvements
-- **Verify 100% field preservation** using enhanced metrics analysis
-- **Check unmapped fields** - should always be 0 for proper data preservation
