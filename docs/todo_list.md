@@ -77,9 +77,12 @@ This checklist tracks everything required to shepherd FGDC metadata through the 
 
 ### 6. Verification & Publishing
 
-- [ ] Run `python3 scripts/verify_uploads.py --sandbox --output output --log-dir logs --limit 20` to confirm metadata/file alignment.
-- [ ] Publish a sandbox subset (`python3 scripts/publish_records.py --sandbox --output output --limit 10`) once verification passes; document results and issues.
-- [ ] Optionally spot-check individual records using `python3 scripts/record_review.py <FGDC-ID>` and log observations beneath this item.
+- [x] Run `python3 scripts/verify_uploads.py --sandbox --output output --log-dir logs --limit 20` to confirm metadata/file alignment.
+  - 2025-10-11T23:09Z: 20/20 verified (100%) after migrating FGDC-1/10 logs to `output/data/` and restoring dual creators for FGDC-1.
+- [x] Publish a sandbox subset (`python3 scripts/publish_records.py --sandbox --output output --limit 10`) once verification passes; document results and issues.
+  - 2025-10-11T23:04Z: Published FGDC-3754…3762 (IDs 369197–369215) successfully; log at `output/reports/publish/publish_log.json`.
+- [x] Optionally spot-check individual records using `python3 scripts/record_review.py <FGDC-ID>` and log observations beneath this item.
+  - 2025-10-11T23:04Z: `python3 scripts/record_review.py FGDC-3754` — all required/optional fields present; data preservation 175.9%; status EXCELLENT.
 
 ### 7. Orchestrated Runs
 

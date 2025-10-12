@@ -452,7 +452,7 @@ class FGDCToZenodoTransformer:
                     creator = self._parse_single_creator(part.strip(), file_path)
                     if creator:
                         creators.append(creator)
-                return creators[0] if len(creators) == 1 else None  # Return first for now
+                return creators if creators else None
             
             # Try to parse as single person name
             return self._parse_single_creator(origin_text, file_path)
