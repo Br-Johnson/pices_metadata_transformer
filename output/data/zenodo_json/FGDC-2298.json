@@ -1,0 +1,560 @@
+{
+  "metadata": {
+    "title": "NOAA Digital AVHRR Satellite Data",
+    "upload_type": "dataset",
+    "publication_date": "1998-08-03",
+    "creators": [
+      {
+        "name": "(USGS), U. S. Geological Survey"
+      },
+      {
+        "name": "Alaska Biological Science Center",
+        "type": "Organization"
+      },
+      {
+        "name": "Marine"
+      },
+      {
+        "name": "Branch, Freshwater Ecology"
+      }
+    ],
+    "description": "This digital data set contains selected NOAA 6, 7, 8 and 9 Advanced Very High Resolution Radiometer (AVHRR) imagery of Alaska; AVHRR is carried on NOAA's polar orbiting satellites.  Spatial referencing is 1.1 km at nadir.  Data source is National Oceanic and Atmospheric Administration (NOAA).   The data set includes 47 records with estimated growth rate of 100 records per year.  Storage required varies by storage medium and selected scene.   The file structure is sequential.   Data are available on 9-track, 800 bpi, 1600 bpi, 6250 bpi, unlabeled, unblocked, BCD, fixed record length tape.  Subsets and customs formats are available.  Limited documentation is available.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Meteorology",
+      "Ice Physics",
+      "Weather",
+      "Snow",
+      "Sea Ice",
+      "Satellite Data",
+      "Alaska",
+      "Climate",
+      "Arctic",
+      "Alaska Directory",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: Create a digital data set contains selected NOAA 6, 7, 8 and 9 Advanced Very High Resolution Radiometer (AVHRR) imagery of Alaska; AVHRR is carried on NOAA's polar orbiting satellites.  Uses include fuel mapping, vegetation monitoring, large area mosaic, and monitoring of ice/snow dynamics.\n\nStatus: Complete\n\nMaintenance frequency: Unknown\n\nAccess constraints: None\n\nUse constraints: None\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19980803\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Fleming, Michael",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Fleming, Michael",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Meteorology",
+        "identifier": "North Pacific Ecosystem Metadatabase:Meteorology",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Ice Physics",
+        "identifier": "North Pacific Ecosystem Metadatabase:Ice Physics",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Weather",
+        "identifier": "North Pacific Ecosystem Metadatabase:Weather",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Snow",
+        "identifier": "North Pacific Ecosystem Metadatabase:Snow",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Sea Ice",
+        "identifier": "North Pacific Ecosystem Metadatabase:Sea Ice",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Satellite Data",
+        "identifier": "North Pacific Ecosystem Metadatabase:Satellite Data",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Alaska",
+        "identifier": "North Pacific Ecosystem Metadatabase:Alaska",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Climate",
+        "identifier": "North Pacific Ecosystem Metadatabase:Climate",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Arctic",
+        "identifier": "North Pacific Ecosystem Metadatabase:Arctic",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Alaska Directory",
+        "identifier": "North Pacific Ecosystem Metadatabase:Alaska Directory",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-2298.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4859,
+    "fgdc_data_chars": 1370,
+    "zenodo_total_chars": 4224,
+    "zenodo_data_chars": 1952,
+    "char_difference": 582,
+    "char_ratio": 1.4248175182481753,
+    "data_preservation_ratio": 1.4248175182481753
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 4859,
+      "fgdc_size_kb": 4.75,
+      "zenodo_size_bytes": 4224,
+      "zenodo_size_kb": 4.12,
+      "filename": "FGDC-2298.xml",
+      "timestamp": "2025-10-11T19:55:05.225430"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.762,
+      "field_preservation_ratio": 0.778,
+      "semantic_preservation_score": 0.7622549019607843,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 147.9% additional structured content added"
+      ],
+      "content_enrichment_ratio": 1.479
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 95,
+        "issues": [
+          "Creator 3 name format unclear"
+        ],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 99.2,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 23.8,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 64.7,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 63,
+        "directly_mapped_fields": 15,
+        "fields_in_notes": 48,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 23.8,
+        "notes_mapping_percentage": 76.2,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "U. S. Geological Survey (USGS), Alaska Biological Science Center, Marine and Freshwater Ecology Bran..."
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "NOAA Digital AVHRR Satellite Data"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "This digital data set contains selected NOAA 6, 7, 8 and 9 Advanced Very High Resolution Radiometer ..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Create a digital data set contains selected NOAA 6, 7, 8 and 9 Advanced Very High Resolution Radiome..."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19840101"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "19981231"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Ground Condition"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "-172"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-30"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "72"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "50"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "19980803"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "None"
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 86.4
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-2298.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

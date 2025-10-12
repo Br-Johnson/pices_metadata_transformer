@@ -1,0 +1,490 @@
+{
+  "metadata": {
+    "title": "Southcentral - Regional Database",
+    "upload_type": "dataset",
+    "publication_date": "1982-01-01",
+    "creators": [
+      {
+        "name": "Alaska Department",
+        "type": "Organization"
+      }
+    ],
+    "description": "Data Type: Multi-Resources;   The datasets included in this database were compiled as part of the Alaska Land and Resource Mapping Program (ALARM). This program involved the systematic preparation, mapping, and automation of natural resource data in a standardized approach for data classification and resolution. ESRI of Redlands California was involved in the automation of the datasets in this database. Database compiled at 1:250,000 scale. Intended to support State of Alaska, Dept. of Natural Resources, management decision making processes.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Geology",
+      "Management",
+      "Alaska Land and Resource Mapping Program (ALARM)",
+      "Maps",
+      "Alaska",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: Unknown\n\nStatus: Complete\n\nMaintenance frequency: Unknown\n\nAccess constraints: Unknown\n\nUse constraints: Unknown\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20020429\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Oakley, Karen",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Oakley, Karen",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Geology",
+        "identifier": "North Pacific Ecosystem Metadatabase:Geology",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Management",
+        "identifier": "North Pacific Ecosystem Metadatabase:Management",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Alaska Land and Resource Mapping Program (ALARM)",
+        "identifier": "North Pacific Ecosystem Metadatabase:Alaska Land and Resource Mapping Program (ALARM)",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Maps",
+        "identifier": "North Pacific Ecosystem Metadatabase:Maps",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Alaska",
+        "identifier": "North Pacific Ecosystem Metadatabase:Alaska",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-731.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4266,
+    "fgdc_data_chars": 963,
+    "zenodo_total_chars": 2961,
+    "zenodo_data_chars": 1447,
+    "char_difference": 484,
+    "char_ratio": 1.502596053997923,
+    "data_preservation_ratio": 1.502596053997923
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 4266,
+      "fgdc_size_kb": 4.17,
+      "zenodo_size_bytes": 2961,
+      "zenodo_size_kb": 2.89,
+      "filename": "FGDC-731.xml",
+      "timestamp": "2025-10-11T19:55:18.728885"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.875,
+      "field_preservation_ratio": 1.077,
+      "semantic_preservation_score": 0.8746928746928747,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 155.8% additional structured content added"
+      ],
+      "content_enrichment_ratio": 1.558
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 100.0,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 17.5,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 63.1,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 57,
+        "directly_mapped_fields": 10,
+        "fields_in_notes": 46,
+        "unmapped_fields": 1,
+        "direct_mapping_percentage": 17.5,
+        "notes_mapping_percentage": 80.7,
+        "total_preservation_percentage": 98.2,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "Alaska Department of Natural Resources (DNR), Geological and Geophysical Surveys Division, Resource ..."
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "1982"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Southcentral - Regional Database"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Data Type: Multi-Resources;   The datasets included in this database were compiled as part of the Al..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Ground Condition"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "-153"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-141"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "63"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "59"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20020429"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            }
+          ],
+          "unmapped": [
+            {
+              "fgdc_field": "caldate",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "19820101"
+            }
+          ]
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 89.1
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-731.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

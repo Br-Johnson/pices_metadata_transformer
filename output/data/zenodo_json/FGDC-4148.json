@@ -1,0 +1,615 @@
+{
+  "metadata": {
+    "title": "North American West Coast Temperature logger (TPOD) data (supports acoustic data), 1997-present",
+    "upload_type": "dataset",
+    "publication_date": "2025-01-01",
+    "creators": [
+      {
+        "name": "Fisheries"
+      },
+      {
+        "name": "Pacific"
+      }
+    ],
+    "description": "Data from temperature loggers (TPODS) deployed at various locations along west coast North America for 1 to 2 weeks` duration, 4 to 70m, at various times of the year.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Earth Science",
+      "Oceans",
+      "Ocean Temperature",
+      "Water Temperature",
+      "oceans",
+      "North Pacific Ocean",
+      "South Outer Coast (West Coast VI)"
+    ],
+    "notes": "Purpose: Data collected in support of acoustical  research data.\n\nSupplemental Information: Risk Justification: Data not well documented and requires knowledge to interpret.\nRisk of Loss: High\nImpact Justification: Data used for one time analysis.\nImpact of Loss: Low\nRecommended Action: Bring data to archives\n\nStatus: In work\n\nMaintenance frequency: None planned\n\nAccess constraints: Private\n\nUse constraints: Data not completely processed; some data experimental.\n\nNative data set environment: Expected Growth Rate: Null\n\nData quality - Logical consistency: Calibrated at IOS.\nData quality - Completeness: Dataset Complications: Data will have to be formatted to include position and depth, in order to be useful to others.\nElectronic Data Complications: Null\nLineage - Process steps:\n  1. Null\n\nDistribution liability: [unknown]\nNon-digital ordering: Hardcopy Original Exists: N\nPhysical Sample Exists: N\nFees: Ask Custodian\n\nFGDC metadata date: 20080205\nFGDC metadata standard: FGDC Content Standard for Digital Geospatial Metadata (version: FGDC-STD-1998-1)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Vagle, Svein",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Vagle, Svein",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Earth Science",
+        "identifier": "NASA/GCMD Earth Science Keywords:Earth Science",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Oceans",
+        "identifier": "NASA/GCMD Earth Science Keywords:Oceans",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Ocean Temperature",
+        "identifier": "NASA/GCMD Earth Science Keywords:Ocean Temperature",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Water Temperature",
+        "identifier": "NASA/GCMD Earth Science Keywords:Water Temperature",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "oceans",
+        "identifier": "NASA/GCMD Earth Science Keywords:oceans",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-4148.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5585,
+    "fgdc_data_chars": 1110,
+    "zenodo_total_chars": 2803,
+    "zenodo_data_chars": 1475,
+    "char_difference": 365,
+    "char_ratio": 1.3288288288288288,
+    "data_preservation_ratio": 1.3288288288288288
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 5585,
+      "fgdc_size_kb": 5.45,
+      "zenodo_size_bytes": 2803,
+      "zenodo_size_kb": 2.74,
+      "filename": "FGDC-4148.xml",
+      "timestamp": "2025-10-11T19:55:16.559003"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.501,
+      "field_preservation_ratio": 0.933,
+      "semantic_preservation_score": 0.5006289308176101,
+      "data_loss_indicators": [
+        "Significant data loss: 49.9% of original content not preserved"
+      ],
+      "data_gain_indicators": [
+        "Significant data enrichment: 183.9% additional structured content added"
+      ],
+      "content_enrichment_ratio": 1.839
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 90,
+        "issues": [
+          "Creator 1 name format unclear",
+          "Creator 2 name format unclear"
+        ],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 85,
+        "issues": [
+          "Description should have multiple sentences"
+        ],
+        "grade": "B"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 95.8,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 13.6,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 62.1,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 81,
+        "directly_mapped_fields": 11,
+        "fields_in_notes": 60,
+        "unmapped_fields": 10,
+        "direct_mapping_percentage": 13.6,
+        "notes_mapping_percentage": 74.1,
+        "total_preservation_percentage": 87.7,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unpublished material"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "North American West Coast Temperature logger (TPOD) data (supports acoustic data), 1997-present"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Data from temperature loggers (TPODS) deployed at various locations along west coast North America f..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Data collected in support of acoustical  research data."
+            },
+            {
+              "fgdc_field": "supplinf",
+              "reason": "Standard notes field",
+              "value": "Risk Justification: Data not well documented and requires knowledge to interpret.\nRisk of Loss: High..."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "1997"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "present"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "ground condition"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "In work"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "None planned"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "-128.5"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-122.5"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "51"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "48"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Private"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Data not completely processed; some data experimental."
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Chelsea Stanley and Matt McCormick"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada\nCanadian Hydrographic Service"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "Institute of Ocean Sciences\nP.O. Box 6000\n9860 West Saanich Road"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "British Columbia"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6358"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6823"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "ChartSales@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "native",
+              "reason": "Standard notes field",
+              "value": "Expected Growth Rate: Null"
+            },
+            {
+              "fgdc_field": "logic",
+              "reason": "Found in notes or other fields",
+              "value": "Calibrated at IOS."
+            },
+            {
+              "fgdc_field": "complete",
+              "reason": "Found in notes or other fields",
+              "value": "Dataset Complications: Data will have to be formatted to include position and depth, in order to be ..."
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Chelsea Stanley and Matt McCormick"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada\nCanadian Hydrographic Service"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "Institute of Ocean Sciences\nP.O. Box 6000\n9860 West Saanich Road"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "British Columbia"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6358"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6823"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "ChartSales@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "resdesc",
+              "reason": "Standard notes field",
+              "value": "PAC-OSAP-408-6967"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "[unknown]"
+            },
+            {
+              "fgdc_field": "fees",
+              "reason": "Standard notes field",
+              "value": "Ask Custodian"
+            },
+            {
+              "fgdc_field": "ordering",
+              "reason": "Standard notes field",
+              "value": "Electronic Data Doc Locations: Null\nDataset Locations: Custodian"
+            },
+            {
+              "fgdc_field": "fees",
+              "reason": "Standard notes field",
+              "value": "Ask Custodian"
+            },
+            {
+              "fgdc_field": "ordering",
+              "reason": "Standard notes field",
+              "value": "Electronic Data Doc Locations: Null\nDataset Locations: Custodian"
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20080205"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada\nCanadian Hydrographic Service"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Chelsea Stanley and Matt McCormick"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "Institute of Ocean Sciences\nP.O. Box 6000\n9860 West Saanich Road"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "British Columbia"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6358"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6823"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "ChartSales@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "FGDC Content Standard for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-1998-1"
+            }
+          ],
+          "unmapped": [
+            {
+              "fgdc_field": "placekt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "DFO Areas"
+            },
+            {
+              "fgdc_field": "procdesc",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "Null"
+            },
+            {
+              "fgdc_field": "procdate",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "1997"
+            },
+            {
+              "fgdc_field": "nondig",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "Hardcopy Original Exists: N\nPhysical Sample Exists: N"
+            },
+            {
+              "fgdc_field": "formname",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "ASCII files"
+            },
+            {
+              "fgdc_field": "formcont",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "Null"
+            },
+            {
+              "fgdc_field": "transize",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "10"
+            },
+            {
+              "fgdc_field": "offmedia",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "TRY tapes"
+            },
+            {
+              "fgdc_field": "recfmt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "unknown"
+            },
+            {
+              "fgdc_field": "hours",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "M-F, 08:30-16:30 Pacific Time"
+            }
+          ]
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 78.5
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-4148.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

@@ -1,0 +1,464 @@
+{
+  "metadata": {
+    "title": "Bathymetric Map of the Chukchi Sea and Arctic Ocean & Bathymetric Map of the Aleutian Trench and Bering Sea",
+    "upload_type": "dataset",
+    "publication_date": "1976-01-01",
+    "creators": [
+      {
+        "name": "(USGS), U.S. Geological Survey"
+      },
+      {
+        "name": "Division, Biological Resources"
+      },
+      {
+        "name": "Alaska Science Center (ASC)",
+        "type": "Organization"
+      }
+    ],
+    "description": "Two bathymetric maps were developed by the U.S. Geological Survey, one for the Chukchi Sea and Arctic Ocean, and one for the Aleutian Trench and Bering Sea. The 2 maps overlap near the Bering Strait. Bathymetric contours were generated from several published sources. It is unclear whether new soundings were collected for these maps. The northern map extends from Wrangel Island, Russia to MacKenzie Bay, Canada, and north to 76 N latitude. The southern map extends from Shelikof Bay, Russia, to the western tip of the Alaska Peninsula, USA, and south to 48 N latitude. Bathymetric contours are at 400 meter intervals with 20, 30, 40, 50, 100, and 200 meter contours added. Contours above 50 meters are rare, and never along the Russian coast. In digital format the 2 maps have been connected where they overlap in the Bering Strait.  Completed coverage stored on ASC workstation GULO in the following directory: /gulo1/ecosys/bathy/final.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Bathymetry",
+      "Chukchi Sea",
+      "Arctic Ocean",
+      "Aleutian Trench",
+      "Bering Sea",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: The maps were produced to aid in geophysical research and exploration in the Bering and Chukchi Seas.\n\nStatus: Complete\n\nMaintenance frequency: None Planned\n\nAccess constraints: None\n\nUse constraints: None\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040430\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Jay, Chad V.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Jay, Chad V.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": []
+  },
+  "original_fgdc_file": "FGDC-1837.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4626,
+    "fgdc_data_chars": 1466,
+    "zenodo_total_chars": 2723,
+    "zenodo_data_chars": 2059,
+    "char_difference": 593,
+    "char_ratio": 1.4045020463847204,
+    "data_preservation_ratio": 1.4045020463847204
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 4626,
+      "fgdc_size_kb": 4.52,
+      "zenodo_size_bytes": 2723,
+      "zenodo_size_kb": 2.66,
+      "filename": "FGDC-1837.xml",
+      "timestamp": "2025-10-11T19:55:02.575229"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.93,
+      "field_preservation_ratio": 1.077,
+      "semantic_preservation_score": 0.9298642533936652,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 67.5% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.675
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 100.0,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 17.5,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 63.1,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 57,
+        "directly_mapped_fields": 10,
+        "fields_in_notes": 47,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 17.5,
+        "notes_mapping_percentage": 82.5,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "U.S. Geological Survey (USGS), Biological Resources Division, Alaska Science Center (ASC)"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "1976"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Bathymetric Map of the Chukchi Sea and Arctic Ocean & Bathymetric Map of the Aleutian Trench and Ber..."
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Two bathymetric maps were developed by the U.S. Geological Survey, one for the Chukchi Sea and Arcti..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "The maps were produced to aid in geophysical research and exploration in the Bering and Chukchi Seas..."
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Publication Date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "None Planned"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "154"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-130"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "76"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "48"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20040430"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "None"
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 90.5
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-1837.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

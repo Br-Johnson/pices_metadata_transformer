@@ -1,0 +1,202 @@
+{
+  "total_uploaded": 8,
+  "total_failed": 1,
+  "batches": [
+    {
+      "batch_number": 1,
+      "batch_size": 3,
+      "successful_uploads": 2,
+      "failed_uploads": 1,
+      "start_time": "2025-10-11T12:34:54.447194",
+      "end_time": "2025-10-11T12:35:00.806731",
+      "duration_seconds": 6.359537,
+      "uploads": [
+        {
+          "json_file": "output/zenodo_json/FGDC-197.json",
+          "fgdc_file": null,
+          "deposition_id": 354117,
+          "doi": "10.5281/zenodo.354117",
+          "success": true,
+          "timestamp": "2025-10-11T12:34:59.287955",
+          "metadata": {
+            "title": "Sea Level Heights (Canada -West Coast)",
+            "upload_type": "dataset",
+            "creators_count": 2,
+            "keywords_count": 3,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        },
+        {
+          "json_file": "output/zenodo_json/FGDC-1971.json",
+          "fgdc_file": null,
+          "deposition_id": 354119,
+          "doi": "10.5281/zenodo.354119",
+          "success": true,
+          "timestamp": "2025-10-11T12:35:00.700353",
+          "metadata": {
+            "title": "Natives Help Scientists - Alaska Sea Grant Radio Show",
+            "upload_type": "dataset",
+            "creators_count": 1,
+            "keywords_count": 7,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        }
+      ],
+      "errors": [
+        {
+          "json_file": "output/zenodo_json/FGDC-1765.json",
+          "success": false,
+          "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+          "timestamp": "2025-10-11T12:34:57.572564"
+        }
+      ]
+    },
+    {
+      "batch_number": 2,
+      "batch_size": 3,
+      "successful_uploads": 3,
+      "failed_uploads": 0,
+      "start_time": "2025-10-11T12:35:00.807832",
+      "end_time": "2025-10-11T12:35:08.276043",
+      "duration_seconds": 7.468211,
+      "uploads": [
+        {
+          "json_file": "output/zenodo_json/FGDC-1972.json",
+          "fgdc_file": null,
+          "deposition_id": 354121,
+          "doi": "10.5281/zenodo.354121",
+          "success": true,
+          "timestamp": "2025-10-11T12:35:05.580279",
+          "metadata": {
+            "title": "Fish Food - Alaska Sea Grant Radio Show",
+            "upload_type": "dataset",
+            "creators_count": 1,
+            "keywords_count": 4,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        },
+        {
+          "json_file": "output/zenodo_json/FGDC-1973.json",
+          "fgdc_file": null,
+          "deposition_id": 354123,
+          "doi": "10.5281/zenodo.354123",
+          "success": true,
+          "timestamp": "2025-10-11T12:35:06.772054",
+          "metadata": {
+            "title": "Feeding the Bering Sea - Alaska Sea Grant Radio Show",
+            "upload_type": "dataset",
+            "creators_count": 1,
+            "keywords_count": 7,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        },
+        {
+          "json_file": "output/zenodo_json/FGDC-1974.json",
+          "fgdc_file": null,
+          "deposition_id": 354127,
+          "doi": "10.5281/zenodo.354127",
+          "success": true,
+          "timestamp": "2025-10-11T12:35:08.166831",
+          "metadata": {
+            "title": "Satellites See Sea Changes - Alaska Sea Grant Radio Show",
+            "upload_type": "dataset",
+            "creators_count": 1,
+            "keywords_count": 3,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "batch_number": 3,
+      "batch_size": 3,
+      "successful_uploads": 3,
+      "failed_uploads": 0,
+      "start_time": "2025-10-11T12:35:08.277564",
+      "end_time": "2025-10-11T12:35:14.372833",
+      "duration_seconds": 6.095269,
+      "uploads": [
+        {
+          "json_file": "output/zenodo_json/FGDC-1975.json",
+          "fgdc_file": null,
+          "deposition_id": 354133,
+          "doi": "10.5281/zenodo.354133",
+          "success": true,
+          "timestamp": "2025-10-11T12:35:11.408409",
+          "metadata": {
+            "title": "SEBSCC: Altimeter Geophysical Data Records",
+            "upload_type": "dataset",
+            "creators_count": 1,
+            "keywords_count": 5,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        },
+        {
+          "json_file": "output/zenodo_json/FGDC-1976.json",
+          "fgdc_file": null,
+          "deposition_id": 354137,
+          "doi": "10.5281/zenodo.354137",
+          "success": true,
+          "timestamp": "2025-10-11T12:35:12.777025",
+          "metadata": {
+            "title": "No. 088 - Bristol Bay salmon (Oncorhynchus sp.) - 1978. A compilation of catch and escapement data.  Compiled and edited by  Henry J. Yuen and Michael L. Nelson  April  1983  119 pp.",
+            "upload_type": "dataset",
+            "creators_count": 3,
+            "keywords_count": 5,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        },
+        {
+          "json_file": "output/zenodo_json/FGDC-1977.json",
+          "fgdc_file": null,
+          "deposition_id": 354141,
+          "doi": "10.5281/zenodo.354141",
+          "success": true,
+          "timestamp": "2025-10-11T12:35:14.268863",
+          "metadata": {
+            "title": "Orcas and Sea Lion Decline - Alaska Sea Grant Radio Show",
+            "upload_type": "dataset",
+            "creators_count": 1,
+            "keywords_count": 5,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "last_updated": "2025-10-11T12:35:14.373227"
+}

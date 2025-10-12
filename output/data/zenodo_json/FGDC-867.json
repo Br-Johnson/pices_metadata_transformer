@@ -1,0 +1,486 @@
+{
+  "metadata": {
+    "title": "USGS Topographic 1:25,000 Maps",
+    "upload_type": "dataset",
+    "publication_date": "1979-01-01",
+    "creators": [
+      {
+        "name": "(USGS), U.S. Geological Survey"
+      },
+      {
+        "name": "Earth Sciences Information Center (ESIC)",
+        "type": "Organization"
+      }
+    ],
+    "description": "Data Type: Base Maps;   Topographic quadrangle maps at 1:25,000 scale. Terrain is portrayed by contour lines and features such as roads, towns, water areas, and vegetation are shown by map symbols and colors. Contours are in 5, 10, or 20 meter intervals. Maps were produced from aerial photos taken between 1972-1986. Available as hard-copy paper or mylar maps. It is possible to order a separate, full-scale film negative or positive that shows in black and white all the features printed in a given color on a particular map.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Geology",
+      "Management",
+      "Maps",
+      "Alaska",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: Unknown\n\nStatus: Complete\n\nMaintenance frequency: Unknown\n\nAccess constraints: None, cost per paper map is $2.50\n\nUse constraints: None, request that USGS be noted as data source.\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20020503\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Oakley, Karen",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Oakley, Karen",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Geology",
+        "identifier": "North Pacific Ecosystem Metadatabase:Geology",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Management",
+        "identifier": "North Pacific Ecosystem Metadatabase:Management",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Maps",
+        "identifier": "North Pacific Ecosystem Metadatabase:Maps",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Alaska",
+        "identifier": "North Pacific Ecosystem Metadatabase:Alaska",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-867.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4302,
+    "fgdc_data_chars": 922,
+    "zenodo_total_chars": 2817,
+    "zenodo_data_chars": 1497,
+    "char_difference": 575,
+    "char_ratio": 1.623644251626898,
+    "data_preservation_ratio": 1.623644251626898
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 4302,
+      "fgdc_size_kb": 4.2,
+      "zenodo_size_bytes": 2817,
+      "zenodo_size_kb": 2.75,
+      "filename": "FGDC-867.xml",
+      "timestamp": "2025-10-11T19:55:19.620265"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.901,
+      "field_preservation_ratio": 1.167,
+      "semantic_preservation_score": 0.9014267185473411,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 154.7% additional structured content added"
+      ],
+      "content_enrichment_ratio": 1.547
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 100.0,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 15.8,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 62.7,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 57,
+        "directly_mapped_fields": 9,
+        "fields_in_notes": 48,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 15.8,
+        "notes_mapping_percentage": 84.2,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "U.S. Geological Survey (USGS), Earth Sciences Information Center (ESIC)"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "1979-1987"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "USGS Topographic 1:25,000 Maps"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Data Type: Base Maps;   Topographic quadrangle maps at 1:25,000 scale. Terrain is portrayed by conto..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19790101"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "19871231"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Ground Condition"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "172"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-130"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "71.24"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "51"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "None, cost per paper map is $2.50"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "None, request that USGS be noted as data source."
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20020503"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "None, cost per paper map is $2.50"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "None, request that USGS be noted as data source."
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 89.7
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-867.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

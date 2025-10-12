@@ -1,0 +1,76 @@
+{
+  "total_uploaded": 2,
+  "total_failed": 1,
+  "batches": [
+    {
+      "batch_number": 1,
+      "batch_size": 2,
+      "successful_uploads": 1,
+      "failed_uploads": 1,
+      "start_time": "2025-10-11T12:31:22.848955",
+      "end_time": "2025-10-11T12:31:26.898059",
+      "duration_seconds": 4.049104,
+      "uploads": [
+        {
+          "json_file": "output/zenodo_json/FGDC-1889.json",
+          "fgdc_file": null,
+          "deposition_id": 353909,
+          "doi": "10.5281/zenodo.353909",
+          "success": true,
+          "timestamp": "2025-10-11T12:31:26.776477",
+          "metadata": {
+            "title": "Japanese Cormorants of the Teuri Island, Hokkaido, Japan",
+            "upload_type": "dataset",
+            "creators_count": 1,
+            "keywords_count": 4,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        }
+      ],
+      "errors": [
+        {
+          "json_file": "output/zenodo_json/FGDC-1765.json",
+          "success": false,
+          "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+          "timestamp": "2025-10-11T12:31:25.354846"
+        }
+      ]
+    },
+    {
+      "batch_number": 2,
+      "batch_size": 1,
+      "successful_uploads": 1,
+      "failed_uploads": 0,
+      "start_time": "2025-10-11T12:31:26.900962",
+      "end_time": "2025-10-11T12:31:29.431688",
+      "duration_seconds": 2.530726,
+      "uploads": [
+        {
+          "json_file": "output/zenodo_json/FGDC-189.json",
+          "fgdc_file": null,
+          "deposition_id": 353917,
+          "doi": "10.5281/zenodo.353917",
+          "success": true,
+          "timestamp": "2025-10-11T12:31:29.313884",
+          "metadata": {
+            "title": "91-04 Bristol Bay Staff Meeting Minutes February 5-7,  1991 Anchorage Regional Office Anchorage, Alaska.  Drew L. Crawford.  July  1991",
+            "upload_type": "dataset",
+            "creators_count": 3,
+            "keywords_count": 6,
+            "communities": [
+              {
+                "identifier": "pices"
+              }
+            ]
+          }
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "last_updated": "2025-10-11T12:31:29.431958"
+}

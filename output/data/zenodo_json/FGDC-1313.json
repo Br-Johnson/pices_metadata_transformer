@@ -1,0 +1,499 @@
+{
+  "metadata": {
+    "title": "REFM Observer Program Database",
+    "upload_type": "dataset",
+    "publication_date": "2025-01-01",
+    "creators": [
+      {
+        "name": "National Oceanic",
+        "type": "Organization"
+      },
+      {
+        "name": "Atmospheric Administration (NOAA)",
+        "type": "Organization"
+      },
+      {
+        "name": "(NMFS), National Marine Fisheries Service"
+      },
+      {
+        "name": "Alaska Fisheries Science Center (AFSC)",
+        "type": "Organization"
+      }
+    ],
+    "description": "The REFM Observer Program database consists of a suite of various data collected while deployed on board commercial fishing vessels or at shoreside processing plants participating in the Bering Sea and Gulf of Alaska groundfish fisheries. These data have been collected from 1977 and they continue to date. While deployed at their assignments, observers collect data on the catch size, fishing locations, catch composition, length frequencies, age structures, marine mammal interactions, and a variety of special projects. The specific data components collected are outlined in the Groundfish Observer Manual. Once received by NMFS, these data are extensively checked for quality and are then entered onto an Oracle database and made available to authorized staff. \n\nBecause the data are collected cooperatively from private commercial fishing interests, the data are protected from general release by confidentiality statutes. This protects the private business interests of industry while still providing NMFS the detailed information necessary to effectively manage. The staff authorized to use these data include NMFS scientists and managers participating in a broad range of activities including stock assessments, marine mammal interactions, food habits, fish age analyses, economic analyses, fishery management plan development, and in-season fishery management. The data are shared with other authorized users in the Alaska Department of Fish and Game (ADF&G) and North Pacific Fishery Management Council staff with similar responsibilities. \n\nAggregations of observer data which protect confidentiality are periodically developed and released to the public. As well, observer data serve as essential building blocks for numerous public analyses, reports, and scientific documents.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Fish",
+      "Management",
+      "Bering Sea",
+      "Gulf of Alaska",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To assist scientists and managers with fisheries management.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: Only available to authorized agencies and staff\n\nUse constraints: Check with Source.\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20030522\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Karp, William A.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Karp, William A.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Fish",
+        "identifier": "North Pacific Ecosystem Metadatabase:Fish",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Management",
+        "identifier": "North Pacific Ecosystem Metadatabase:Management",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Bering Sea",
+        "identifier": "North Pacific Ecosystem Metadatabase:Bering Sea",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Gulf of Alaska",
+        "identifier": "North Pacific Ecosystem Metadatabase:Gulf of Alaska",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-1313.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5678,
+    "fgdc_data_chars": 2307,
+    "zenodo_total_chars": 4340,
+    "zenodo_data_chars": 2874,
+    "char_difference": 567,
+    "char_ratio": 1.2457737321196358,
+    "data_preservation_ratio": 1.2457737321196358
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 5678,
+      "fgdc_size_kb": 5.54,
+      "zenodo_size_bytes": 4340,
+      "zenodo_size_kb": 4.24,
+      "filename": "FGDC-1313.xml",
+      "timestamp": "2025-10-11T19:54:59.212518"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.95,
+      "field_preservation_ratio": 1.167,
+      "semantic_preservation_score": 0.9503940658321743,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 58.5% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.585
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 100.0,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 15.5,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 62.6,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 58,
+        "directly_mapped_fields": 9,
+        "fields_in_notes": 49,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 15.5,
+        "notes_mapping_percentage": 84.5,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "National Oceanic and Atmospheric Administration (NOAA), National Marine Fisheries Service (NMFS), Al..."
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unpublished Material"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "REFM Observer Program Database"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "The REFM Observer Program database consists of a suite of various data collected while deployed on b..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "To assist scientists and managers with fisheries management."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19770101"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Ground Condition"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "In Progress"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "163"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-130"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "65"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "50"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Only available to authorized agencies and staff"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Check with Source."
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20030522"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "Only available to authorized agencies and staff"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "Check with Source."
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 90.9
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-1313.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

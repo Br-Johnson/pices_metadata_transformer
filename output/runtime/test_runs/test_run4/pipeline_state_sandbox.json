@@ -1,0 +1,24 @@
+{
+  "start_time": "2025-10-11T16:09:55.870346",
+  "steps_completed": [
+    "transform",
+    "pre_upload_duplicate_check",
+    "upload",
+    "audit_upload",
+    "audit_metrics",
+    "audit_enhanced"
+  ],
+  "current_step": "audit_enhanced",
+  "errors": [],
+  "warnings": [],
+  "config": {
+    "sandbox": true,
+    "production": false,
+    "interactive": false,
+    "batch_size": 5,
+    "limit": 10,
+    "output_dir": "output/test_run4",
+    "debug": false,
+    "environment": "sandbox"
+  }
+}

@@ -1,0 +1,603 @@
+{
+  "metadata": {
+    "title": "Moored Sediment Trap Data: Alaska Gyre",
+    "upload_type": "dataset",
+    "publication_date": "2004-06-10",
+    "creators": [
+      {
+        "name": "Staff, DFO"
+      }
+    ],
+    "description": "Time-series data from sediment traps moored along Z line.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Alaska Gyre Ecosystem",
+      "Sediments",
+      "Time-Series Data",
+      "oceans",
+      "Earth Science",
+      "Oceans",
+      "Marine Sediments",
+      "Sediment Composition",
+      "Northern Hemisphere",
+      "Western Hemisphere",
+      "North America",
+      "United States",
+      "Alaska",
+      "Aleutian Islands",
+      "North Pacific Ocean",
+      "North Outer Coast (West Coast QCI)",
+      "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+    ],
+    "notes": "Purpose: Supports scientific and environmental research.\n\nSupplemental Information: Physical samples exist for this dataset.\n\nStatus: Complete\n\nMaintenance frequency: None planned\n\nAccess constraints: Departmental\n\nUse constraints: None\n\nDistribution liability: These data are provided \"as-is\".\n\nFGDC metadata date: 20040610\nFGDC metadata standard: FGDC Content Standard for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Wong, Chi Shing",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Wong, Chi Shing",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": []
+  },
+  "original_fgdc_file": "FGDC-4142.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4841,
+    "fgdc_data_chars": 1007,
+    "zenodo_total_chars": 1533,
+    "zenodo_data_chars": 868,
+    "char_difference": -139,
+    "char_ratio": 0.8619662363455809,
+    "data_preservation_ratio": 0.8619662363455809
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 4841,
+      "fgdc_size_kb": 4.73,
+      "zenodo_size_bytes": 1533,
+      "zenodo_size_kb": 1.5,
+      "filename": "FGDC-4142.xml",
+      "timestamp": "2025-10-11T19:55:16.523579"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.799,
+      "field_preservation_ratio": 0.538,
+      "semantic_preservation_score": 0.7988505747126436,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 97.3% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.973
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 85,
+        "issues": [
+          "Description should have multiple sentences"
+        ],
+        "grade": "B"
+      },
+      "keyword_quality": {
+        "score": 95,
+        "issues": [
+          "Keyword too long: \"North Inner Coast (QCS, Hecate, Dixon Inlet and passages)\""
+        ],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 96.7,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 26.5,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 65.4,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 83,
+        "directly_mapped_fields": 22,
+        "fields_in_notes": 58,
+        "unmapped_fields": 3,
+        "direct_mapping_percentage": 26.5,
+        "notes_mapping_percentage": 69.9,
+        "total_preservation_percentage": 96.4,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "DFO Staff"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Moored Sediment Trap Data: Alaska Gyre"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Time-series data from sediment traps moored along Z line."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Supports scientific and environmental research."
+            },
+            {
+              "fgdc_field": "supplinf",
+              "reason": "Standard notes field",
+              "value": "Physical samples exist for this dataset."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "1990"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "1993"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "publication date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "None planned"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "170"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-141"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "60"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "45"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Departmental"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Chi Shing Wong"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Institute of Ocean Sciences, Science Branch"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Research Scientist"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6407"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "wongcs@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "cntinst",
+              "reason": "Standard notes field",
+              "value": "Janet Barwell-Clarke"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Institute of Ocean Sciences, Science Branch"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Chi Shing Wong"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Research Scientist"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6407"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "wongcs@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "resdesc",
+              "reason": "Standard notes field",
+              "value": "PAC-OSAP-003"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "These data are provided \"as-is\"."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20040610"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Institute of Ocean Sciences, Science Branch"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Chi Shing Wong"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Research Scientist"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6407"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "wongcs@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "FGDC Content Standard for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            }
+          ],
+          "unmapped": [
+            {
+              "fgdc_field": "geoform",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "Hardcopy; Tabular digital data; Digital document"
+            },
+            {
+              "fgdc_field": "placekt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "DFO Areas"
+            },
+            {
+              "fgdc_field": "placekt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "DFO Areas"
+            }
+          ]
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 86.9
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-4142.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

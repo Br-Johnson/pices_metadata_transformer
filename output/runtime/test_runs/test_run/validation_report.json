@@ -1,0 +1,1996 @@
+{
+  "summary": {
+    "total_files": 10,
+    "valid_files": 10,
+    "invalid_files": 0,
+    "total_issues": 0,
+    "total_warnings": 1,
+    "validation_rate": 100.0
+  },
+  "issue_types": {},
+  "field_coverage_stats": {
+    "average_coverage_percentage": 28.5,
+    "field_coverage_percentages": {
+      "title": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": true
+      },
+      "upload_type": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": true
+      },
+      "publication_date": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": true
+      },
+      "creators": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": true
+      },
+      "description": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": true
+      },
+      "access_right": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": true
+      },
+      "license": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": false
+      },
+      "communities": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": false
+      },
+      "keywords": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": false
+      },
+      "notes": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": false
+      },
+      "related_identifiers": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "contributors": {
+        "count": 10,
+        "percentage": 100.0,
+        "is_required": false
+      },
+      "references": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "subjects": {
+        "count": 4,
+        "percentage": 40.0,
+        "is_required": false
+      },
+      "grants": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "locations": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "dates": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "method": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "access_conditions": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "embargo_date": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "version": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "language": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "imprint_publisher": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "imprint_place": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "imprint_isbn": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "partof_title": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "partof_pages": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "journal_title": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "journal_volume": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "journal_issue": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "journal_pages": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "conference_title": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "conference_acronym": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "conference_dates": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "conference_place": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "conference_url": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "conference_session": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "conference_session_part": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "thesis_supervisors": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      },
+      "thesis_university": {
+        "count": 0,
+        "percentage": 0.0,
+        "is_required": false
+      }
+    },
+    "most_common_fields": [
+      [
+        "title",
+        10
+      ],
+      [
+        "upload_type",
+        10
+      ],
+      [
+        "publication_date",
+        10
+      ],
+      [
+        "creators",
+        10
+      ],
+      [
+        "description",
+        10
+      ],
+      [
+        "access_right",
+        10
+      ],
+      [
+        "license",
+        10
+      ],
+      [
+        "communities",
+        10
+      ],
+      [
+        "keywords",
+        10
+      ],
+      [
+        "notes",
+        10
+      ]
+    ],
+    "least_common_fields": [
+      [
+        "subjects",
+        4
+      ],
+      [
+        "title",
+        10
+      ],
+      [
+        "upload_type",
+        10
+      ],
+      [
+        "publication_date",
+        10
+      ],
+      [
+        "creators",
+        10
+      ],
+      [
+        "description",
+        10
+      ],
+      [
+        "access_right",
+        10
+      ],
+      [
+        "license",
+        10
+      ],
+      [
+        "communities",
+        10
+      ],
+      [
+        "keywords",
+        10
+      ]
+    ]
+  },
+  "character_stats": {
+    "total_characters_across_all_files": 26433,
+    "average_characters_per_file": 2643.3,
+    "files_with_fields_over_limit": 0,
+    "field_character_totals": {
+      "title": 1037,
+      "upload_type": 70,
+      "publication_date": 100,
+      "creators": 1181,
+      "description": 12460,
+      "access_right": 40,
+      "license": 70,
+      "keywords": 541,
+      "notes": 8302,
+      "contributors": 538,
+      "communities": 50,
+      "subjects": 2044
+    },
+    "largest_fields_overall": [
+      [
+        "description",
+        12460
+      ],
+      [
+        "notes",
+        8302
+      ],
+      [
+        "subjects",
+        2044
+      ],
+      [
+        "creators",
+        1181
+      ],
+      [
+        "title",
+        1037
+      ],
+      [
+        "keywords",
+        541
+      ],
+      [
+        "contributors",
+        538
+      ],
+      [
+        "publication_date",
+        100
+      ],
+      [
+        "upload_type",
+        70
+      ],
+      [
+        "license",
+        70
+      ]
+    ]
+  },
+  "results": [
+    {
+      "file": "FGDC-1.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-1.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 0 warnings",
+      "issues": [],
+      "warnings": [],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors",
+          "subjects"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 30.0,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 6,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 2051,
+        "field_character_counts": {
+          "title": 71,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 32,
+          "description": 201,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 98,
+          "notes": 1002,
+          "contributors": 50,
+          "communities": 5,
+          "subjects": 564
+        },
+        "largest_fields": [
+          [
+            "notes",
+            1002
+          ],
+          [
+            "subjects",
+            564
+          ],
+          [
+            "description",
+            201
+          ],
+          [
+            "keywords",
+            98
+          ],
+          [
+            "title",
+            71
+          ],
+          [
+            "contributors",
+            50
+          ],
+          [
+            "creators",
+            32
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 170.91666666666666,
+          "fields_with_high_density": [
+            [
+              "notes",
+              1002
+            ],
+            [
+              "subjects",
+              564
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.340878"
+    },
+    {
+      "file": "FGDC-10.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-10.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 1 warnings",
+      "issues": [],
+      "warnings": [
+        "Title is very long (242 characters)"
+      ],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 27.500000000000004,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 5,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 3349,
+        "field_character_counts": {
+          "title": 242,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 16,
+          "description": 1924,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 68,
+          "notes": 1016,
+          "contributors": 50,
+          "communities": 5
+        },
+        "largest_fields": [
+          [
+            "description",
+            1924
+          ],
+          [
+            "notes",
+            1016
+          ],
+          [
+            "title",
+            242
+          ],
+          [
+            "keywords",
+            68
+          ],
+          [
+            "contributors",
+            50
+          ],
+          [
+            "creators",
+            16
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ],
+          [
+            "communities",
+            5
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 304.45454545454544,
+          "fields_with_high_density": [
+            [
+              "description",
+              1924
+            ],
+            [
+              "notes",
+              1016
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.342626"
+    },
+    {
+      "file": "FGDC-100.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-100.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 0 warnings",
+      "issues": [],
+      "warnings": [],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors",
+          "subjects"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 30.0,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 6,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 3740,
+        "field_character_counts": {
+          "title": 102,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 132,
+          "description": 2198,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 52,
+          "notes": 843,
+          "contributors": 46,
+          "communities": 5,
+          "subjects": 334
+        },
+        "largest_fields": [
+          [
+            "description",
+            2198
+          ],
+          [
+            "notes",
+            843
+          ],
+          [
+            "subjects",
+            334
+          ],
+          [
+            "creators",
+            132
+          ],
+          [
+            "title",
+            102
+          ],
+          [
+            "keywords",
+            52
+          ],
+          [
+            "contributors",
+            46
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 311.6666666666667,
+          "fields_with_high_density": [
+            [
+              "description",
+              2198
+            ],
+            [
+              "notes",
+              843
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.344780"
+    },
+    {
+      "file": "FGDC-1000.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-1000.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 0 warnings",
+      "issues": [],
+      "warnings": [],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 27.500000000000004,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 5,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 2164,
+        "field_character_counts": {
+          "title": 87,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 143,
+          "description": 1078,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 19,
+          "notes": 748,
+          "contributors": 56,
+          "communities": 5
+        },
+        "largest_fields": [
+          [
+            "description",
+            1078
+          ],
+          [
+            "notes",
+            748
+          ],
+          [
+            "creators",
+            143
+          ],
+          [
+            "title",
+            87
+          ],
+          [
+            "contributors",
+            56
+          ],
+          [
+            "keywords",
+            19
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ],
+          [
+            "communities",
+            5
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 196.72727272727272,
+          "fields_with_high_density": [
+            [
+              "description",
+              1078
+            ],
+            [
+              "notes",
+              748
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.346337"
+    },
+    {
+      "file": "FGDC-1001.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-1001.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 0 warnings",
+      "issues": [],
+      "warnings": [],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 27.500000000000004,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 5,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 1197,
+        "field_character_counts": {
+          "title": 65,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 143,
+          "description": 61,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 19,
+          "notes": 820,
+          "contributors": 56,
+          "communities": 5
+        },
+        "largest_fields": [
+          [
+            "notes",
+            820
+          ],
+          [
+            "creators",
+            143
+          ],
+          [
+            "title",
+            65
+          ],
+          [
+            "description",
+            61
+          ],
+          [
+            "contributors",
+            56
+          ],
+          [
+            "keywords",
+            19
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ],
+          [
+            "communities",
+            5
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 108.81818181818181,
+          "fields_with_high_density": [
+            [
+              "notes",
+              820
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.347786"
+    },
+    {
+      "file": "FGDC-1002.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-1002.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 0 warnings",
+      "issues": [],
+      "warnings": [],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 27.500000000000004,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 5,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 3154,
+        "field_character_counts": {
+          "title": 123,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 143,
+          "description": 2032,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 19,
+          "notes": 748,
+          "contributors": 56,
+          "communities": 5
+        },
+        "largest_fields": [
+          [
+            "description",
+            2032
+          ],
+          [
+            "notes",
+            748
+          ],
+          [
+            "creators",
+            143
+          ],
+          [
+            "title",
+            123
+          ],
+          [
+            "contributors",
+            56
+          ],
+          [
+            "keywords",
+            19
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ],
+          [
+            "communities",
+            5
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 286.72727272727275,
+          "fields_with_high_density": [
+            [
+              "description",
+              2032
+            ],
+            [
+              "notes",
+              748
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.349021"
+    },
+    {
+      "file": "FGDC-1003.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-1003.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 0 warnings",
+      "issues": [],
+      "warnings": [],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 27.500000000000004,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 5,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 3066,
+        "field_character_counts": {
+          "title": 88,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 143,
+          "description": 1979,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 19,
+          "notes": 748,
+          "contributors": 56,
+          "communities": 5
+        },
+        "largest_fields": [
+          [
+            "description",
+            1979
+          ],
+          [
+            "notes",
+            748
+          ],
+          [
+            "creators",
+            143
+          ],
+          [
+            "title",
+            88
+          ],
+          [
+            "contributors",
+            56
+          ],
+          [
+            "keywords",
+            19
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ],
+          [
+            "communities",
+            5
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 278.72727272727275,
+          "fields_with_high_density": [
+            [
+              "description",
+              1979
+            ],
+            [
+              "notes",
+              748
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.350169"
+    },
+    {
+      "file": "FGDC-1004.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-1004.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 0 warnings",
+      "issues": [],
+      "warnings": [],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors",
+          "subjects"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 30.0,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 6,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 2123,
+        "field_character_counts": {
+          "title": 55,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 143,
+          "description": 670,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 49,
+          "notes": 881,
+          "contributors": 56,
+          "communities": 5,
+          "subjects": 236
+        },
+        "largest_fields": [
+          [
+            "notes",
+            881
+          ],
+          [
+            "description",
+            670
+          ],
+          [
+            "subjects",
+            236
+          ],
+          [
+            "creators",
+            143
+          ],
+          [
+            "contributors",
+            56
+          ],
+          [
+            "title",
+            55
+          ],
+          [
+            "keywords",
+            49
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 176.91666666666666,
+          "fields_with_high_density": [
+            [
+              "description",
+              670
+            ],
+            [
+              "notes",
+              881
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.351284"
+    },
+    {
+      "file": "FGDC-1005.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-1005.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 0 warnings",
+      "issues": [],
+      "warnings": [],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors",
+          "subjects"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 30.0,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 6,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 3739,
+        "field_character_counts": {
+          "title": 110,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 143,
+          "description": 1560,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 179,
+          "notes": 748,
+          "contributors": 56,
+          "communities": 5,
+          "subjects": 910
+        },
+        "largest_fields": [
+          [
+            "description",
+            1560
+          ],
+          [
+            "subjects",
+            910
+          ],
+          [
+            "notes",
+            748
+          ],
+          [
+            "keywords",
+            179
+          ],
+          [
+            "creators",
+            143
+          ],
+          [
+            "title",
+            110
+          ],
+          [
+            "contributors",
+            56
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 311.5833333333333,
+          "fields_with_high_density": [
+            [
+              "description",
+              1560
+            ],
+            [
+              "notes",
+              748
+            ],
+            [
+              "subjects",
+              910
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.352446"
+    },
+    {
+      "file": "FGDC-1006.json",
+      "file_path": "output/test_run/zenodo_json/FGDC-1006.json",
+      "is_valid": true,
+      "message": "Found 0 errors and 0 warnings",
+      "issues": [],
+      "warnings": [],
+      "field_coverage": {
+        "total_possible_fields": 40,
+        "fields_present": [
+          "title",
+          "upload_type",
+          "publication_date",
+          "creators",
+          "description",
+          "access_right",
+          "license",
+          "communities",
+          "keywords",
+          "notes",
+          "contributors"
+        ],
+        "fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ],
+        "coverage_percentage": 27.500000000000004,
+        "required_fields_present": 6,
+        "required_fields_missing": [],
+        "optional_fields_present": 5,
+        "optional_fields_missing": [
+          "related_identifiers",
+          "references",
+          "subjects",
+          "grants",
+          "locations",
+          "dates",
+          "method",
+          "access_conditions",
+          "embargo_date",
+          "version",
+          "language",
+          "imprint_publisher",
+          "imprint_place",
+          "imprint_isbn",
+          "partof_title",
+          "partof_pages",
+          "journal_title",
+          "journal_volume",
+          "journal_issue",
+          "journal_pages",
+          "conference_title",
+          "conference_acronym",
+          "conference_dates",
+          "conference_place",
+          "conference_url",
+          "conference_session",
+          "conference_session_part",
+          "thesis_supervisors",
+          "thesis_university"
+        ]
+      },
+      "character_analysis": {
+        "total_characters": 1850,
+        "field_character_counts": {
+          "title": 94,
+          "upload_type": 7,
+          "publication_date": 10,
+          "creators": 143,
+          "description": 757,
+          "access_right": 4,
+          "license": 7,
+          "keywords": 19,
+          "notes": 748,
+          "contributors": 56,
+          "communities": 5
+        },
+        "largest_fields": [
+          [
+            "description",
+            757
+          ],
+          [
+            "notes",
+            748
+          ],
+          [
+            "creators",
+            143
+          ],
+          [
+            "title",
+            94
+          ],
+          [
+            "contributors",
+            56
+          ],
+          [
+            "keywords",
+            19
+          ],
+          [
+            "publication_date",
+            10
+          ],
+          [
+            "upload_type",
+            7
+          ],
+          [
+            "license",
+            7
+          ],
+          [
+            "communities",
+            5
+          ]
+        ],
+        "fields_over_limit": [],
+        "text_density": {
+          "average_chars_per_field": 168.1818181818182,
+          "fields_with_high_density": [
+            [
+              "description",
+              757
+            ],
+            [
+              "notes",
+              748
+            ]
+          ]
+        }
+      },
+      "timestamp": "2025-10-11T15:50:12.353807"
+    }
+  ],
+  "timestamp": "2025-10-11T15:50:12.354295"
+}

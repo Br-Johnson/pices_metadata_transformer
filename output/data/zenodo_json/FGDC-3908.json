@@ -1,0 +1,528 @@
+{
+  "metadata": {
+    "title": "Coastal Station Data from Station Nai Ji, China in China Real Time Data Base (RTDB) for NEAR-GOOS",
+    "upload_type": "dataset",
+    "publication_date": "2005-04-18",
+    "creators": [
+      {
+        "name": "Republic, People's"
+      }
+    ],
+    "description": "The National Marine Data and Information Service of China (NMDIS) has developed and maintained China Delayed Mode Data Base for NEAR-GOOS (CDMDB) to offer  basic data service to NEAR-GOOS and GOOS communities.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Oceanography",
+      "Sea Temperature",
+      "Sea Salinity",
+      "Waves",
+      "Wind",
+      "China",
+      "East China Sea",
+      "Nai Ji, China",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: The National Marine Data and Information Service of China (NMDIS) has developed and maintained China Delayed Mode Data Base for NEAR-GOOS (CDMDB) to offer  basic data service to NEAR-GOOS and GOOS communities.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: First time users must register to gain database access.\n\nUse constraints: None\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20050418\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Wang, Hong",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Wang, Hong",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Oceanography",
+        "identifier": "North Pacific Ecosystem Metadatabase:Oceanography",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Sea Temperature",
+        "identifier": "North Pacific Ecosystem Metadatabase:Sea Temperature",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Sea Salinity",
+        "identifier": "North Pacific Ecosystem Metadatabase:Sea Salinity",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Waves",
+        "identifier": "North Pacific Ecosystem Metadatabase:Waves",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Wind",
+        "identifier": "North Pacific Ecosystem Metadatabase:Wind",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "China",
+        "identifier": "North Pacific Ecosystem Metadatabase:China",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "East China Sea",
+        "identifier": "North Pacific Ecosystem Metadatabase:East China Sea",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Nai Ji, China",
+        "identifier": "North Pacific Ecosystem Metadatabase:Nai Ji, China",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-3908.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4751,
+    "fgdc_data_chars": 701,
+    "zenodo_total_chars": 3302,
+    "zenodo_data_chars": 1424,
+    "char_difference": 723,
+    "char_ratio": 2.0313837375178316,
+    "data_preservation_ratio": 2.0313837375178316
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 4751,
+      "fgdc_size_kb": 4.64,
+      "zenodo_size_bytes": 3302,
+      "zenodo_size_kb": 3.22,
+      "filename": "FGDC-3908.xml",
+      "timestamp": "2025-10-11T19:55:14.985864"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.823,
+      "field_preservation_ratio": 1.0,
+      "semantic_preservation_score": 0.8231939163498099,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 315.6% additional structured content added"
+      ],
+      "content_enrichment_ratio": 3.156
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 85,
+        "issues": [
+          "Description should have multiple sentences"
+        ],
+        "grade": "B"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 97.5,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 18.0,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 63.2,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 61,
+        "directly_mapped_fields": 11,
+        "fields_in_notes": 50,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 18.0,
+        "notes_mapping_percentage": 82.0,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "People's Republic of China, State Oceanic Administration (SOA)"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Coastal Station Data from Station Nai Ji, China in China Real Time Data Base (RTDB) for NEAR-GOOS"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "Data can be downloaded from the China Real Time Data Base for NEAR-GOOS.  First time users must regi..."
+            },
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "Data can be downloaded from the China Real Time Data Base for NEAR-GOOS.  First time users must regi..."
+            },
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "The National Marine Data and Information Service of China (NMDIS) has developed and maintained China..."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19960101"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "20040731"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Ground Condition"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "In Progress"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "121.1"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "121.1"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "27.5"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "27.5"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "First time users must register to gain database access."
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20050418"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "First time users must register to gain database access."
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "None"
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 87.2
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-3908.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

@@ -1,0 +1,556 @@
+{
+  "metadata": {
+    "title": "JAMSTEC Crustal Structural Database",
+    "upload_type": "dataset",
+    "publication_date": "2005-09-26",
+    "creators": [
+      {
+        "name": "Japan Agency",
+        "type": "Organization"
+      }
+    ],
+    "description": "Crustal structural data based on the research programs of Frontier Research Program of Subduction Dynamics (1997-2001), the first phase of IFREE (Institute for Frontier Research on Earth Evolution, 2002-2004), and the second phase of IFREE (Institute For Research on Earth Evolution, 2004-).",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Geology",
+      "Magnetics",
+      "Gravity",
+      "Seismology",
+      "North Pacific Ocean",
+      "Izu-Bonin-Mariana",
+      "Japan",
+      "Sea of Japan/East Sea",
+      "Nankai Trough",
+      "Japan/Kuril Trench",
+      "Ocean Floor"
+    ],
+    "notes": "Purpose: Crustal structural data based on the research programs of Frontier Research Program of Subduction Dynamics (1997-2001), the first phase of IFREE (Institute for Frontier Research on Earth Evolution, 2002-2004), and the second phase of IFREE (Institute For Research on Earth Evolution, 2004-).\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: None\n\nUse constraints: Review http://www.jamstec.go.jp/site_policy_e.html\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20050926\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "JAMSTEC",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "JAMSTEC",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Geology",
+        "identifier": "North Pacific Ecosystem Metadatabase:Geology",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Magnetics",
+        "identifier": "North Pacific Ecosystem Metadatabase:Magnetics",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Gravity",
+        "identifier": "North Pacific Ecosystem Metadatabase:Gravity",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Seismology",
+        "identifier": "North Pacific Ecosystem Metadatabase:Seismology",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Izu-Bonin-Mariana",
+        "identifier": "North Pacific Ecosystem Metadatabase:Izu-Bonin-Mariana",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Japan",
+        "identifier": "North Pacific Ecosystem Metadatabase:Japan",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Sea of Japan/East Sea",
+        "identifier": "North Pacific Ecosystem Metadatabase:Sea of Japan/East Sea",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Nankai Trough",
+        "identifier": "North Pacific Ecosystem Metadatabase:Nankai Trough",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Japan/Kuril Trench",
+        "identifier": "North Pacific Ecosystem Metadatabase:Japan/Kuril Trench",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Ocean Floor",
+        "identifier": "North Pacific Ecosystem Metadatabase:Ocean Floor",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-4038.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4515,
+    "fgdc_data_chars": 738,
+    "zenodo_total_chars": 3787,
+    "zenodo_data_chars": 1547,
+    "char_difference": 809,
+    "char_ratio": 2.0962059620596207,
+    "data_preservation_ratio": 2.0962059620596207
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 4515,
+      "fgdc_size_kb": 4.41,
+      "zenodo_size_bytes": 3787,
+      "zenodo_size_kb": 3.7,
+      "filename": "FGDC-4038.xml",
+      "timestamp": "2025-10-11T19:55:15.887873"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.848,
+      "field_preservation_ratio": 0.824,
+      "semantic_preservation_score": 0.8481228668941979,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 324.1% additional structured content added"
+      ],
+      "content_enrichment_ratio": 3.241
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 85,
+        "issues": [
+          "Description should have multiple sentences"
+        ],
+        "grade": "B"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 97.5,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 21.9,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 64.2,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 64,
+        "directly_mapped_fields": 14,
+        "fields_in_notes": 50,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 21.9,
+        "notes_mapping_percentage": 78.1,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "Japan Agency for Marine-Earth Science and Technology (JAMSTEC)"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "JAMSTEC Crustal Structural Database"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Ocean Floor"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "Categories of accessible data are Multi-Channel Seismic reflection data (MCS), refraction and wide-a..."
+            },
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Crustal structural data based on the research programs of Frontier Research Program of Subduction Dy..."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19970502"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Ground Condition"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "In Progress"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "131.5"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "147.75"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "47"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "17.2"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Review http://www.jamstec.go.jp/site_policy_e.html"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20050926"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "Review http://www.jamstec.go.jp/site_policy_e.html"
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 88.1
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-4038.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

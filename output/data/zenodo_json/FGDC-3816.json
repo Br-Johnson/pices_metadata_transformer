@@ -1,0 +1,621 @@
+{
+  "metadata": {
+    "title": "Midwater Rope Trawl Fish Data Collected from the Eastern Bering Sea During Fall 2002",
+    "upload_type": "dataset",
+    "publication_date": "2003-05-01",
+    "creators": [
+      {
+        "name": "Farley, Edward V."
+      },
+      {
+        "name": "Jr."
+      },
+      {
+        "name": "Wing, Bruce"
+      },
+      {
+        "name": "Middleton, Angela"
+      },
+      {
+        "name": "Pohl, John"
+      },
+      {
+        "name": "Hulbert, Lee"
+      },
+      {
+        "name": "Moss, Jamal"
+      },
+      {
+        "name": "Trudel, Marc"
+      },
+      {
+        "name": "Lagoudakis, Cynthia"
+      },
+      {
+        "name": "McCallum, Danielle"
+      },
+      {
+        "name": "North Pacific Anadromous Fish Commission",
+        "type": "Organization"
+      }
+    ],
+    "description": "Dataset: Midwater Rope Trawl Fish Data Collected from the Eastern Bering Sea During Fall 2002",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Fish",
+      "Trawl",
+      "Salmon",
+      "Eastern Bering Sea",
+      "Biomass",
+      "Distribution",
+      "Catch",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: \n\nStatus: Complete\n\nMaintenance frequency: Unknown\n\nAccess constraints: None\n\nUse constraints: Contact Source.\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20050225\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Secretariat, NPAFC",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Secretariat, NPAFC",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Fish",
+        "identifier": "North Pacific Ecosystem Metadatabase:Fish",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Trawl",
+        "identifier": "North Pacific Ecosystem Metadatabase:Trawl",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Salmon",
+        "identifier": "North Pacific Ecosystem Metadatabase:Salmon",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Eastern Bering Sea",
+        "identifier": "North Pacific Ecosystem Metadatabase:Eastern Bering Sea",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Biomass",
+        "identifier": "North Pacific Ecosystem Metadatabase:Biomass",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Distribution",
+        "identifier": "North Pacific Ecosystem Metadatabase:Distribution",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Catch",
+        "identifier": "North Pacific Ecosystem Metadatabase:Catch",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-3816.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 7861,
+    "fgdc_data_chars": 349,
+    "zenodo_total_chars": 3222,
+    "zenodo_data_chars": 1188,
+    "char_difference": 839,
+    "char_ratio": 3.4040114613180514,
+    "data_preservation_ratio": 3.4040114613180514
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 7861,
+      "fgdc_size_kb": 7.68,
+      "zenodo_size_bytes": 3222,
+      "zenodo_size_kb": 3.15,
+      "filename": "FGDC-3816.xml",
+      "timestamp": "2025-10-11T19:55:14.426270"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 2.38,
+      "field_preservation_ratio": 1.167,
+      "semantic_preservation_score": 1.0,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 712.3% additional structured content added"
+      ],
+      "content_enrichment_ratio": 7.123
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 75,
+        "issues": [
+          "Too many creators",
+          "Creator 2 name format unclear"
+        ],
+        "grade": "C"
+      },
+      "description_quality": {
+        "score": 85,
+        "issues": [
+          "Description should have multiple sentences"
+        ],
+        "grade": "B"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 93.3,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 13.5,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 62.1,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 74,
+        "directly_mapped_fields": 10,
+        "fields_in_notes": 64,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 13.5,
+        "notes_mapping_percentage": 86.5,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "20030501"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Midwater Rope Trawl Fish Data Collected from the Eastern Bering Sea During Fall 2002"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "li",
+              "reason": "Found in notes or other fields",
+              "value": "North Pacific Anadromous Fish Commission"
+            },
+            {
+              "fgdc_field": "li",
+              "reason": "Found in notes or other fields",
+              "value": "North Pacific Anadromous Fish Commission"
+            },
+            {
+              "fgdc_field": "li",
+              "reason": "Found in notes or other fields",
+              "value": "North Pacific Anadromous Fish Commission"
+            },
+            {
+              "fgdc_field": "li",
+              "reason": "Found in notes or other fields",
+              "value": "North Pacific Anadromous Fish Commission"
+            },
+            {
+              "fgdc_field": "li",
+              "reason": "Found in notes or other fields",
+              "value": "North Pacific Anadromous Fish Commission"
+            },
+            {
+              "fgdc_field": "li",
+              "reason": "Found in notes or other fields",
+              "value": "North Pacific Anadromous Fish Commission"
+            },
+            {
+              "fgdc_field": "li",
+              "reason": "Found in notes or other fields",
+              "value": "North Pacific Anadromous Fish Commission"
+            },
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "To understand mechanisms underlying the effects of environment on distribution, migration, and growt..."
+            },
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "To understand mechanisms underlying the effects of environment on distribution, migration, and growt..."
+            },
+            {
+              "fgdc_field": "em",
+              "reason": "Found in notes or other fields",
+              "value": "O. gorbuscha"
+            },
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "To understand mechanisms underlying the effects of environment on distribution, migration, and growt..."
+            },
+            {
+              "fgdc_field": "em",
+              "reason": "Found in notes or other fields",
+              "value": "O. gorbuscha"
+            },
+            {
+              "fgdc_field": "em",
+              "reason": "Found in notes or other fields",
+              "value": "O. gorbuscha"
+            },
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "To understand mechanisms underlying the effects of environment on distribution, migration, and growt..."
+            },
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "To understand mechanisms underlying the effects of environment on distribution, migration, and growt..."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "20020820"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "20021011"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Sample Date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "172.5"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-161"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "65"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "54.5"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Contact Source."
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20050225"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "Contact Source."
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 124.9
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-3816.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

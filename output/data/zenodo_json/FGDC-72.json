@@ -1,0 +1,422 @@
+{
+  "metadata": {
+    "title": "Modeling Sea Ice as a Granular Material, Including  the Dilatancy Effect",
+    "upload_type": "dataset",
+    "publication_date": "1997-04-01",
+    "creators": [
+      {
+        "name": "University, McGill"
+      },
+      {
+        "name": "Department",
+        "type": "Organization"
+      }
+    ],
+    "description": "A dynamic sea ice model based on granular material rheology is\n     presented. The sea ice model is coupled to both a mixed layer ocean model\n     and a one-layer thermodynamic atmospheric model, which allows for an ice\n     albedo feedback. Land is represented by a 6-m thick layer with a constant\n     base temperature. A 10-year integration including both thermodynamic and\n     dynamic effects and incorporating prescribed climatological wind stress and\n     ocean current data was performed in order for the model to reach a stable\n     periodic seasonal cycle. The commonly observed lead complexes, along\n     which sliding and opening of adjacent ice floes occur in the Arctic sea ice\n     cover, are well reproduced in this simulation. In particular, shear lines\n     extending from the western Canadian Archipelago toward the central Arctic,\n     often observed in winter satellite images, are present. The ice edge is well\n     positioned both in winter and summer using this thermodynamically coupled\n     oceanﾖiceﾖatmosphere model. The results also yield a sea ice circulation and\n     thickness distribution over the Arctic, which are in good agreement with\n     observations. The model also produces an increase in ice formation\n     associated with the dilatation of the ice medium along sliding lines. In this\n     model, incident energy absorbed by the ocean melts ice laterally and warms\n     the mixed layer, causing a smaller ice retreat in the summer. This cures a\n     problem common to many existing thermodynamicﾖdynamic sea ice models",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Sea Ice",
+      "Models",
+      "Chukchi Sea",
+      "Alaska",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To show the modeling Sea Ice as a Granular Material, Including  the Dilatancy Effect\n\nStatus: Complete\n\nMaintenance frequency: None Planned\n\nAccess constraints: Check with Contributor\n\nUse constraints: Check with Contributor\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990205\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Tremblay, L.B.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Tremblay, L.B.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": []
+  },
+  "original_fgdc_file": "FGDC-72.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5223,
+    "fgdc_data_chars": 2020,
+    "zenodo_total_chars": 3240,
+    "zenodo_data_chars": 2580,
+    "char_difference": 560,
+    "char_ratio": 1.2772277227722773,
+    "data_preservation_ratio": 1.2772277227722773
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 5223,
+      "fgdc_size_kb": 5.1,
+      "zenodo_size_bytes": 3240,
+      "zenodo_size_kb": 3.16,
+      "filename": "FGDC-72.xml",
+      "timestamp": "2025-10-11T19:55:18.663989"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.896,
+      "field_preservation_ratio": 1.167,
+      "semantic_preservation_score": 0.8959627329192547,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 47.5% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.475
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 95,
+        "issues": [
+          "Creator 2 name format unclear"
+        ],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 99.2,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 18.4,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 63.4,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 49,
+        "directly_mapped_fields": 9,
+        "fields_in_notes": 40,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 18.4,
+        "notes_mapping_percentage": 81.6,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "McGill University, Department of Atmospheric and Oceanic Sciences and Centre for Climate and Global ..."
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "19970401"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Modeling Sea Ice as a Granular Material, Including  the Dilatancy Effect"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "A dynamic sea ice model based on granular material rheology is\n     presented. The sea ice model is ..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "To show the modeling Sea Ice as a Granular Material, Including  the Dilatancy Effect"
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19970401"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Publication Date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "None Planned"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "178"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-168"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "67.5"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "52"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "19990205"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 89.5
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-72.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

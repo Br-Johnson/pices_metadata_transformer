@@ -1,0 +1,585 @@
+{
+  "metadata": {
+    "title": "Marine Ecosystem Observatories (MEOS)",
+    "upload_type": "dataset",
+    "publication_date": "2004-06-09",
+    "creators": [
+      {
+        "name": "Staff, DFO"
+      }
+    ],
+    "description": "Fisheries and Oceans Canada and Environment Canada jointly maintain a network of weather buoys in the coastal and offshore waters of British Columbia. The existing weather buoys offer a geographically widespread network for observing the state of B.C.'s coastal ocean and any changes in marine ecosystems resulting from changing climate. The two departments are now working towards the concept of Marine Ecosystem ObServatories (MEOS) , adding new instruments to the buoys for measurements of ocean water properties and key biological fields.The first MEOS buoy has been placed in Saanich Inlet, near the Institute of Ocean Sciences, with easy access for testing and calibrating new sensors and methods. As resources become available, the instruments tested in Saanich Inlet may be added to other buoys in the existing AES/FOC network, or in other specialized locations such as Marine Protected Areas.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Climatology",
+      "Weather Buoys",
+      "climatologyMeteorologyAtmosphere",
+      "Earth Science",
+      "Atmosphere",
+      "Atmospheric Temperature",
+      "Air Temperature",
+      "Climatology/Meteotology/Atmosphere",
+      "Northern Hemisphere",
+      "Western Hemisphere",
+      "North America",
+      "Northeast Pacific",
+      "Canada",
+      "British Columbia",
+      "North Pacific Ocean",
+      "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)"
+    ],
+    "notes": "Purpose: Supports scientific and environmental research.\n\nStatus: In Work\n\nMaintenance frequency: As needed\n\nAccess constraints: Public\n\nUse constraints: None\n\nDistribution liability: These data are provided \"as-is\".\n\nFGDC metadata date: 20040609\nFGDC metadata standard: FGDC Content Standard for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Gower, Jim",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Linguanti, Joseph",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": []
+  },
+  "original_fgdc_file": "FGDC-4137.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5603,
+    "fgdc_data_chars": 1894,
+    "zenodo_total_chars": 2306,
+    "zenodo_data_chars": 1651,
+    "char_difference": -243,
+    "char_ratio": 0.8717001055966209,
+    "data_preservation_ratio": 0.8717001055966209
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 5603,
+      "fgdc_size_kb": 5.47,
+      "zenodo_size_bytes": 2306,
+      "zenodo_size_kb": 2.25,
+      "filename": "FGDC-4137.xml",
+      "timestamp": "2025-10-11T19:55:16.487064"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.96,
+      "field_preservation_ratio": 0.609,
+      "semantic_preservation_score": 0.9602698650674663,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 32.0% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.32
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 95,
+        "issues": [
+          "Keyword too long: \"South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)\""
+        ],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 99.2,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 25.0,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 65.0,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 80,
+        "directly_mapped_fields": 20,
+        "fields_in_notes": 57,
+        "unmapped_fields": 3,
+        "direct_mapping_percentage": 25.0,
+        "notes_mapping_percentage": 71.2,
+        "total_preservation_percentage": 96.2,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "DFO Staff"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Marine Ecosystem Observatories (MEOS)"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Fisheries and Oceans Canada and Environment Canada jointly maintain a network of weather buoys in th..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Climatology/Meteotology/Atmosphere"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Climatology/Meteotology/Atmosphere"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Climatology/Meteotology/Atmosphere"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Climatology/Meteotology/Atmosphere"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Climatology/Meteotology/Atmosphere"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Climatology/Meteotology/Atmosphere"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Climatology/Meteotology/Atmosphere"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "Climatology/Meteotology/Atmosphere"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Supports scientific and environmental research."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "1982"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "Present"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "publication date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "In Work"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "As needed"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "-123.56"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-123.45"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "48.65"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "48.55"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Public"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Joseph Linguanti"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Institute of Ocean Sciences, Science Branch"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Senior Analyst"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6586"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "linguantij@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "cntinst",
+              "reason": "Standard notes field",
+              "value": "John Wallace"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Institute of Ocean Sciences, Science Branch"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Joseph Linguanti"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Senior Analyst"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6586"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "linguantij@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "resdesc",
+              "reason": "Standard notes field",
+              "value": "PAC-OSAP-226"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "These data are provided \"as-is\"."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20040609"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Institute of Ocean Sciences, Science Branch"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Joseph Linguanti"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Senior Analyst"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6586"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "linguantij@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "FGDC Content Standard for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            }
+          ],
+          "unmapped": [
+            {
+              "fgdc_field": "geoform",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "Tabular digital data"
+            },
+            {
+              "fgdc_field": "placekt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "DFO Areas"
+            },
+            {
+              "fgdc_field": "placekt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "DFO Areas"
+            }
+          ]
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 91.4
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-4137.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

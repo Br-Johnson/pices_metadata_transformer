@@ -1,0 +1,494 @@
+{
+  "metadata": {
+    "title": "Synthetic Aperture Radar (SAR)",
+    "upload_type": "dataset",
+    "publication_date": "1991-01-01",
+    "creators": [
+      {
+        "name": "National Oceanic and Atmospheric Administration (NOAA)",
+        "type": "Organization"
+      }
+    ],
+    "description": "Data Type: Remotely Sensed Data;   The data set consists of European Remote Sensing Satellite #1 (ERS)-1 and Japanese Earth Resource Satellite (JERS)-1 SAR data acquired by the ASF operated by the Geophysical Institute of University of Alaska Fairbanks. Data within the station mask of ASF, approximated by a 3000 km radius circle centered on Fairbanks has been acquired since September 1991 for ERS and May 1992 for JERS. Approval by NASA or ESA is required to obtain the data. Please contact ASF user services to become a NASA approved investigator. A variety of products are available on a variety of photographic and digital media. Available products include: *Full-res images are 4-look SAR images with 30 m resolution and 12.5 m pixel spacing over a 100 km x 100 km area. These are 8192 pixel 8192 pixel by 8 bit (64MB) images. The data is corrected to the GEM06 geoid model. *Low-res images are produced 8x8 averaging the full-res data. The resulting image is 1024x1024 pixels x8 bits (1 MB). *Geocoded images are produced from either a full-res or lo-res image upon request. Geocoded  images have been processed so they align with the Universal Transverse Mercator (UTM) or Polar-Stereographic (PS) map projections. Projection attributes and the center latitude and longitude used for processing can be set by the user. *Complex images, created on request, are 1-look data with approximately 10 resolution covering an area of 30x50 km. Data is formatted as 12,888 pixel x 2048 pixel x 32 bit complex integer (16I, 16Q-~100MB). The data contains backscatter amplitude and phase useful for interferometry studies of topography and feature motion. *Computer compatible signal data is spacecraft signal data represented as complex integers in byte aligned 8 bit bytes. Only 5 bits of each byte is significant. Each file is ~160 MB. The user must perform their own signal correlation.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Management",
+      "Geology",
+      "Synthetic Aperture Radar (SAR)",
+      "Alaska",
+      "Remotely Sensed Data",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: Unknown\n\nStatus: Complete\n\nMaintenance frequency: Unknown\n\nAccess constraints: Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.\n\nUse constraints: Unknown\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20020502\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Oakley, Karen",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Oakley, Karen",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Management",
+        "identifier": "North Pacific Ecosystem Metadatabase:Management",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Geology",
+        "identifier": "North Pacific Ecosystem Metadatabase:Geology",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Synthetic Aperture Radar (SAR)",
+        "identifier": "North Pacific Ecosystem Metadatabase:Synthetic Aperture Radar (SAR)",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Alaska",
+        "identifier": "North Pacific Ecosystem Metadatabase:Alaska",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Remotely Sensed Data",
+        "identifier": "North Pacific Ecosystem Metadatabase:Remotely Sensed Data",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-860.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5928,
+    "fgdc_data_chars": 2416,
+    "zenodo_total_chars": 4499,
+    "zenodo_data_chars": 2989,
+    "char_difference": 573,
+    "char_ratio": 1.2371688741721854,
+    "data_preservation_ratio": 1.2371688741721854
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 5928,
+      "fgdc_size_kb": 5.79,
+      "zenodo_size_bytes": 4499,
+      "zenodo_size_kb": 4.39,
+      "filename": "FGDC-860.xml",
+      "timestamp": "2025-10-11T19:55:19.583712"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.92,
+      "field_preservation_ratio": 1.077,
+      "semantic_preservation_score": 0.9197176885752095,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 63.2% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.632
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 100.0,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 17.2,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 63.0,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 58,
+        "directly_mapped_fields": 10,
+        "fields_in_notes": 48,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 17.2,
+        "notes_mapping_percentage": 82.8,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "National Oceanic and Atmospheric Administration (NOAA)"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "1991 - Present"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Synthetic Aperture Radar (SAR)"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Data Type: Remotely Sensed Data;   The data set consists of European Remote Sensing Satellite #1 (ER..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19910101"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "20021231"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Ground Condition"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "-180"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-130"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "85"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "40"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form ..."
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20020502"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form ..."
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 90.2
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-860.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

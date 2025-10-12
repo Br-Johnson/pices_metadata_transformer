@@ -1,0 +1,60 @@
+{
+  "summary": {
+    "total_files_checked": 5,
+    "safe_to_upload": 4,
+    "duplicates_found": 1,
+    "check_errors": 0,
+    "duplicate_rate": 20.0,
+    "environment": "sandbox"
+  },
+  "duplicate_types": {
+    "similar_title": 1
+  },
+  "safe_to_upload_files": [
+    "FGDC-1.json",
+    "FGDC-10.json",
+    "FGDC-100.json",
+    "FGDC-1000.json"
+  ],
+  "duplicate_files": [
+    {
+      "file": "FGDC-1001.json",
+      "safe_to_upload": false,
+      "reason": "Similar title found on Zenodo",
+      "duplicate_type": "similar_title",
+      "similar_titles": [
+        "research aircraft observations of the mesoscale and microscale structure of a cold front over the eastern pacific ocean",
+        "ageostrophic modifications to landfalling storms in southeast alaska"
+      ],
+      "similar_records": [
+        {
+          "id": 369091,
+          "title": "Research Aircraft Observations of the Mesoscale and Microscale Structure of a Cold Front over the Eastern Pacific Ocean",
+          "state": "unsubmitted",
+          "created": "2025-10-11T21:40:00.697133+00:00",
+          "modified": "2025-10-11T21:40:01.448692+00:00",
+          "communities": [
+            {
+              "identifier": "pices"
+            }
+          ]
+        },
+        {
+          "id": 369087,
+          "title": "Ageostrophic modifications to landfalling storms in southeast Alaska",
+          "state": "unsubmitted",
+          "created": "2025-10-11T21:39:59.303335+00:00",
+          "modified": "2025-10-11T21:40:00.183076+00:00",
+          "communities": [
+            {
+              "identifier": "pices"
+            }
+          ]
+        }
+      ],
+      "title": "Hydrothermal Particle Plumes over the Southern Juan de Fuca Ridge"
+    }
+  ],
+  "check_errors": [],
+  "timestamp": "2025-10-11T15:30:47.014659"
+}

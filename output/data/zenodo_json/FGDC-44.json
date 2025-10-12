@@ -1,0 +1,428 @@
+{
+  "metadata": {
+    "title": "An Elastic-Viscous-Plastic Model for Sea Ice Dynamics",
+    "upload_type": "dataset",
+    "publication_date": "1997-01-22",
+    "creators": [
+      {
+        "name": "Group T-3 and the Center",
+        "type": "Organization"
+      }
+    ],
+    "description": "The standard model for sea ice dynamics treats the ice pack as a viscoﾖplastic\nmaterial that flows plastically under typical stress conditions but behaves as a linear\nviscous fluid where strain rates are small and the ice becomes nearly rigid. Because of\nlarge viscosities in these regions, implicit numerical methods are necessary for time\nsteps larger than a few seconds. Current solution methods for these equations use\niterative relaxation methods, which are time consuming, scale poorly with mesh\nresolution, and are not well adapted to parallel computation. To remedy this, the\nauthors developed and tested two separate methods. First, by demonstrating that the\nviscous-plastic rheology can be represented by a symmetric, negative definite matrix\noperator, the much faster and better behaved preconditioned conjugate gradient\nmethod was implemented. Second, realizing that only the response of the ice on\ntimescales associated with wind forcing need be accurately resolved, the model was\nmodified so that it reduces to the viscous-plastic model at these timescales, whereas\nat shorter timescales the adjustment process takes place by a numerically more\nefficient elastic wave mechanism. This modification leads to a fully explicit numerical\nscheme that further improves the modelﾒs computational efficiency and is a great\nadvantage for implementations on parallel machines.\n\nFurthermore, it is observed that the standard viscous-plastic model has poor\ndynamic response to forcing on a daily timescale, given the standard time step (1 day)\nused by the ice modeling community. In contrast, the explicit discretization of the\nelastic wave mechanism allows the elastic-viscous-plastic model to capture the ice\nresponse to variations in the imposed stress more accurately. Thus, the\nelastic-viscous-plastic model provides more accurate results for shorter timescales\nassociated with physical forcing, reproduces viscous-plastic model behavior on longer\ntimescales, and is computationally more efficient overall.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Models",
+      "Sea Ice",
+      "Bering Sea",
+      "Alaska",
+      "El Ni￱o",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To show an Elastic-Viscous-Plastic Model for Sea Ice Dynamics\n\nStatus: Complete\n\nMaintenance frequency: None Planned\n\nAccess constraints: Check with Contributor\n\nUse constraints: Check with Contributor\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990205\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Hunke, E.C.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Hunke, E.C.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": []
+  },
+  "original_fgdc_file": "FGDC-44.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5682,
+    "fgdc_data_chars": 2421,
+    "zenodo_total_chars": 3630,
+    "zenodo_data_chars": 2986,
+    "char_difference": 565,
+    "char_ratio": 1.2333746385790996,
+    "data_preservation_ratio": 1.2333746385790996
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 5682,
+      "fgdc_size_kb": 5.55,
+      "zenodo_size_bytes": 3630,
+      "zenodo_size_kb": 3.54,
+      "filename": "FGDC-44.xml",
+      "timestamp": "2025-10-11T19:55:17.018562"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.926,
+      "field_preservation_ratio": 1.0,
+      "semantic_preservation_score": 0.9260367678495084,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 38.0% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.38
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 100.0,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 21.6,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 64.2,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 51,
+        "directly_mapped_fields": 11,
+        "fields_in_notes": 40,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 21.6,
+        "notes_mapping_percentage": 78.4,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "Group T-3 and the Center for Nonlinear Studies, Theoretical Division, Los Alamos National Laboratory"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "19970122"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "An Elastic-Viscous-Plastic Model for Sea Ice Dynamics"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "The standard model for sea ice dynamics treats the ice pack as a viscoﾖplastic\nmaterial that flows p..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "To show an Elastic-Viscous-Plastic Model for Sea Ice Dynamics"
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19960122"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Publication Date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "None Planned"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "178"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-168"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "67.5"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "52"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "19990205"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 90.6
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-44.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

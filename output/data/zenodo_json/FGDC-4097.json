@@ -1,0 +1,649 @@
+{
+  "metadata": {
+    "title": "Acoustic Doppler current profiler data from CCGS J.P. Tully/Parizeau",
+    "upload_type": "dataset",
+    "publication_date": "2025-01-01",
+    "creators": [
+      {
+        "name": "Staff, DFO"
+      }
+    ],
+    "description": "Acoustic Doppler current profiler data and backscatter data from unit mounted on the CSS Parizeau from 1988-1992, and on the CCGS J.P. Tully after 1992. Various cruise tracks.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Oceanography",
+      "Physical Oceanography",
+      "Turbulence",
+      "Waves",
+      "Acoustic Doppler Current Profiler",
+      "Backscatter Date",
+      "Cruises",
+      "oceans",
+      "Earth Science",
+      "Oceans",
+      "Ocean Circulation",
+      "Ocean Currents",
+      "Northern Hemisphere",
+      "Western Hemisphere",
+      "North America",
+      "Northeast Pacific",
+      "Canada",
+      "British Columbia",
+      "North Pacific Ocean",
+      "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)",
+      "South Outer Coast (West Coast VI)",
+      "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)",
+      "North Outer Coast (West Coast QCI)"
+    ],
+    "notes": "Purpose: Supports scientific and environmental research.\n\nSupplemental Information: Custom software is available for use with this dataset.\n\nStatus: In Work\n\nMaintenance frequency: Annually\n\nAccess constraints: Departmental\n\nUse constraints: None\n\nDistribution liability: These data are provided \"as-is\".\n\nFGDC metadata date: 20040614\nFGDC metadata standard: FGDC Content Standard for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Yelland, Doug",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Yelland, Doug",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": []
+  },
+  "original_fgdc_file": "FGDC-4097.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5443,
+    "fgdc_data_chars": 1426,
+    "zenodo_total_chars": 1889,
+    "zenodo_data_chars": 1176,
+    "char_difference": -250,
+    "char_ratio": 0.8246844319775596,
+    "data_preservation_ratio": 0.8246844319775596
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 5443,
+      "fgdc_size_kb": 5.32,
+      "zenodo_size_bytes": 1889,
+      "zenodo_size_kb": 1.84,
+      "filename": "FGDC-4097.xml",
+      "timestamp": "2025-10-11T19:55:16.232837"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.801,
+      "field_preservation_ratio": 0.389,
+      "semantic_preservation_score": 0.8006681514476615,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 57.2% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.572
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 70,
+        "issues": [
+          "Too many keywords",
+          "Keyword too long: \"South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)\"",
+          "Keyword too long: \"North Inner Coast (QCS, Hecate, Dixon Inlet and passages)\""
+        ],
+        "grade": "C"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 95.0,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 35.2,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 67.5,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 91,
+        "directly_mapped_fields": 32,
+        "fields_in_notes": 55,
+        "unmapped_fields": 4,
+        "direct_mapping_percentage": 35.2,
+        "notes_mapping_percentage": 60.4,
+        "total_preservation_percentage": 95.6,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "DFO Staff"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unpublished material"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Acoustic Doppler current profiler data from CCGS J.P. Tully/Parizeau"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Acoustic Doppler current profiler data and backscatter data from unit mounted on the CSS Parizeau fr..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "oceans"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "North Outer Coast (West Coast QCI)"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Supports scientific and environmental research."
+            },
+            {
+              "fgdc_field": "supplinf",
+              "reason": "Standard notes field",
+              "value": "Custom software is available for use with this dataset."
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "publication date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "In Work"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Annually"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "-136"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-123"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "55"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "48.25"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Departmental"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Doug Yelland"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Institute of Ocean Sciences, Science Branch"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Multidisciplinary Oceanographer"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6321"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "yellandd@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Institute of Ocean Sciences, Science Branch"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Doug Yelland"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Multidisciplinary Oceanographer"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6321"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "yellandd@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "resdesc",
+              "reason": "Standard notes field",
+              "value": "PAC-OSAP-106"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "These data are provided \"as-is\"."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20040614"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Institute of Ocean Sciences, Science Branch"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Doug Yelland"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Multidisciplinary Oceanographer"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "PO Box 6000"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Sidney"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V8L 4B2"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(250) 363-6321"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "yellandd@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "FGDC Content Standard for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            }
+          ],
+          "unmapped": [
+            {
+              "fgdc_field": "geoform",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "Tabular digital data"
+            },
+            {
+              "fgdc_field": "caldate",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "1988"
+            },
+            {
+              "fgdc_field": "placekt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "DFO Areas"
+            },
+            {
+              "fgdc_field": "placekt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "DFO Areas"
+            }
+          ]
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 86.9
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-4097.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

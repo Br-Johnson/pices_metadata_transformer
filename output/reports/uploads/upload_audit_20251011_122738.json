@@ -1,0 +1,116 @@
+{
+  "audit_timestamp": "2025-10-11T12:27:38.501197",
+  "summary": {
+    "total_files_processed": 982,
+    "successful_uploads": 980,
+    "failed_uploads": 2,
+    "success_rate_percent": 99.8,
+    "total_batches": 7
+  },
+  "error_analysis": {
+    "error_types": {
+      "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}": 2
+    },
+    "error_files": [
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:25:46.041845"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:25:24.770677"
+      }
+    ],
+    "total_error_types": 1
+  },
+  "content_analysis": {
+    "upload_types": {
+      "dataset": 980
+    },
+    "communities": {
+      "pices": 980
+    },
+    "avg_creators_per_record": 2.28,
+    "creators_distribution": {
+      "min": 1,
+      "max": 4,
+      "total_records": 980
+    }
+  },
+  "performance_analysis": {
+    "batch_statistics": [
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      }
+    ],
+    "avg_batch_duration_seconds": 0.0,
+    "avg_files_per_batch": 0.0
+  },
+  "data_integrity": {
+    "missing_titles_count": 0,
+    "missing_creators_count": 0,
+    "missing_descriptions_count": 0,
+    "invalid_dates_count": 0,
+    "missing_licenses_count": 0,
+    "sample_issues": {}
+  },
+  "recommendations": [
+    "Most common error: 'Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}' (2 occurrences). Consider addressing this issue.",
+    "Batch success rates are low. Consider reducing batch size or improving error handling."
+  ]
+}

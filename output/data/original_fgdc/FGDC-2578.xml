@@ -1,0 +1,117 @@
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>National Climatic Data Center (NCDC), National Environmental Satellite, Data and Information Service (NESDIS), National Oceanic and Atmospheric Administration (NOAA)</origin>
+        <pubdate>Unknown</pubdate>
+        <title>High Resolution (10 km) Land/Sea Tags</title>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>
+        <p>The 'high resolution' land/sea tag data base provides high density coverage of the worlds 'coastal interfaces', i.e. its shorelines. The search radius about each grid point is 5 km, providing 10 km resolution. The file is organized into blocks of data for areas 10 degrees on a side. Areas which are all land or all sea have a directory entry but no data record. If a circular area of 5 km radius about a grid point has any land in it whatsover, it is designated land. Grid points are spaced 1/16 degree apart so that 1 degree's worth of information in longitude can be exactly packed in 2 bytes, A 10 degree square therefore uses 25,600 bits or 3200 bytes of storage.</p>
+        <p>At the equator, grid points are spaced about 6.96 km apart. A 5 km search radius encompasses all the area which can be assigned to any given grid point.  The maximum number of 10 degree square areas on the Earth is 648, but far fewer should be needed. Fitting 3 3200-byte areas onto a track calls for a maximum of 217 tracks, including the directory record.</p>
+      </abstract>
+      <purpose />
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>19790101</begdate>
+          <enddate />
+        </rngdates>
+      </timeinfo>
+      <current>Ground Condition</current>
+    </timeperd>
+    <status>
+      <progress>In Progress</progress>
+      <update>Unknown</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-180</westbc>
+        <eastbc>180</eastbc>
+        <northbc>90</northbc>
+        <southbc>-90</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>Other</themekt>
+        <themekey>Coastal Interfaces</themekey>
+        <themekey>Coast Lines</themekey>
+        <themekey>Landforms</themekey>
+        <themekey>Land/Sea Tags</themekey>
+        <themekey>Satellite</themekey>
+        <themekey>Remote Sensing</themekey>
+        <themekey>North Pacific Ocean</themekey>
+      </theme>
+    </keywords>
+    <accconst>Check with Source about how to obtain data.</accconst>
+    <useconst>Check with Source</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>Sapper, John F.</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>5200 AUTH RD</address>
+          <city>Suitland</city>
+          <state>MD</state>
+          <postal>20233-0001</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>301-457-0914x148</cntvoice>
+        <cntfax>301-457-0918</cntfax>
+        <cntemail>John.Sapper@noaa.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>Sapper, John F.</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>5200 AUTH RD</address>
+          <city>Suitland</city>
+          <state>MD</state>
+          <postal>20233-0001</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>301-457-0914x148</cntvoice>
+        <cntfax>301-457-0918</cntfax>
+        <cntemail>John.Sapper@noaa.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>19981016</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Kimberly Bahl</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-4314</cntvoice>
+        <cntfax>206-526-6485</cntfax>
+        <cntemail>kimberly.bahl@noaa.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metac>Check with Source about how to obtain data.</metac>
+    <metuc>Check with Source</metuc>
+  </metainfo>
+</metadata>

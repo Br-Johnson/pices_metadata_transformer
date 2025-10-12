@@ -1,0 +1,133 @@
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>National Snow and Ice Data Center (NSIDC)</origin>
+        <pubdate>19950912</pubdate>
+        <title>Special Sensor Microwave/Imager (SSM/I) Sea Ice Concentration</title>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>
+        <p>Summary Defense Meteorological Satellite Program Satellites (DMSP) Special Sensor Microwave Imager (SSM/I) F11 daily, total and multi-year sea ice concentration grids are derived from the SSM/I daily brightness temperatures.  With a resolution of 25X25 km, these sea ice concentrations are presented as raster images (HDF raster image sets, RIS) mapped to polar stereographic projections depicting north and south polar regions.</p>
+        <p>Data are stored in HDF and packaged in compressed tar format. These ice concentrations continue the series begun with DMSP-F8 SSM/I coverage, generated using the NASA Team algorithm. Processing is continuous on the F11 data, beginning 3 December 1991.  The DMSP-F8 and -F11 data demonstrate a high degree of correlation (Abdalati et al. 1995) although regression coefficients are applied in the development of F11 ice concentrations in order to maintain consistency of the data set (NSIDC 1995). Data are available via ftp (sidads.colorado.edu, IP address 128.138.135.20). End_group Group: Quality</p>
+        <p>Data are routinely inspected and undergo extensive quality control procedures. Please see DMSP SSM/I Brightness Temperatures and Sea Ice Concentration Grids for the Polar Regions, User's Guide, (NSIDC 1995) for details on data set correlation, geo-location n errors and antenna pattern correction procedures performed on the data, and for more information on the NASA Team algorithm and weather filter.</p>
+        <p>
+          References:
+          <br />
+          Abdalati, W., K. Steffen, C. Otto and K. C. Jezek. 1995. Comparison of brightness temperatures from SSM/I instruments on the DMSP F8 and F11 satellites for Antarctic and the Greenland Ice Sheet. International Journal of Remote Sensing. In press.
+          <br />
+          Cavalieri, D.J., P. Gloersen and W.J. Campbell, Determination of sea ice parameters with the NIMBUS-7 SMMR. J. Geophys. Res., 89(D4), p. 5355-5369, 1984.
+          <br />
+          National Snow and Ice Data Center, DMSP SSM/I Brightness Temperature and Ice Concentration Grids for the Polar Regions. User's Guide. National Snow and Ice Data Center. Special Publication NSIDC SP-1.  Boulder, Colorado, looseleaf, 1990, rev. 1994 in preparation.
+        </p>
+      </abstract>
+      <purpose>Compute daily, total and multi-year sea ice concentration grids.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>19911203</begdate>
+          <enddate>19980522</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>Ground Condition</current>
+    </timeperd>
+    <status>
+      <progress>In Progress</progress>
+      <update>Monthly</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>163</westbc>
+        <eastbc>-157</eastbc>
+        <northbc>65.5</northbc>
+        <southbc>52</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>North Pacific Ecosystem Metadatabase</themekt>
+        <themekey>Ice Physics</themekey>
+      </theme>
+      <theme>
+        <themekt>Other</themekt>
+        <themekey>Satellite and Grids</themekey>
+        <themekey>Sea Ice</themekey>
+        <themekey>Environmental Characterization</themekey>
+        <themekey>Remote Sensing</themekey>
+        <themekey>Gridded Data</themekey>
+        <themekey>Passive Microwave</themekey>
+        <themekey>Earth Radiative Processes</themekey>
+        <themekey>Ocean Dynamics</themekey>
+        <themekey>North Pacific Ocean</themekey>
+      </theme>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>None</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>NSIDC User Services</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>Campus Box 449 - CIRES</address>
+          <city>Boulder</city>
+          <state>CO</state>
+          <postal>80309-0449</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>303-492-6199</cntvoice>
+        <cntfax>303-492-2468</cntfax>
+        <cntemail>nsidc@nsidc.org</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>NSIDC User Services</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>Campus Box 449 - CIRES</address>
+          <city>Boulder</city>
+          <state>CO</state>
+          <postal>80309-0449</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>303-492-6199</cntvoice>
+        <cntfax>303-492-2468</cntfax>
+        <cntemail>nsidc@nsidc.org</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>19950912</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Kimberly Bahl</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-4314</cntvoice>
+        <cntfax>206-526-6485</cntfax>
+        <cntemail>kimberly.bahl@noaa.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metac>None</metac>
+    <metuc>None</metuc>
+  </metainfo>
+</metadata>

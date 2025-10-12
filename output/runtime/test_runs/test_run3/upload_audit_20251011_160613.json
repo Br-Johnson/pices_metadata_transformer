@@ -1,0 +1,54 @@
+{
+  "audit_timestamp": "2025-10-11T16:06:13.666926",
+  "summary": {
+    "total_files_processed": 18,
+    "successful_uploads": 18,
+    "failed_uploads": 0,
+    "success_rate_percent": 100.0,
+    "total_batches": 1
+  },
+  "error_analysis": {
+    "error_types": {},
+    "error_files": [],
+    "total_error_types": 0
+  },
+  "content_analysis": {
+    "upload_types": {
+      "dataset": 18
+    },
+    "communities": {
+      "pices": 18
+    },
+    "avg_creators_per_record": 0.0,
+    "creators_distribution": {
+      "min": 0,
+      "max": 0,
+      "total_records": 18
+    }
+  },
+  "performance_analysis": {
+    "batch_statistics": [
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      }
+    ],
+    "avg_batch_duration_seconds": 0.0,
+    "avg_files_per_batch": 0.0
+  },
+  "data_integrity": {
+    "missing_titles_count": 0,
+    "missing_creators_count": 0,
+    "missing_descriptions_count": 0,
+    "invalid_dates_count": 0,
+    "missing_licenses_count": 0,
+    "sample_issues": {}
+  },
+  "recommendations": [
+    "Batch success rates are low. Consider reducing batch size or improving error handling."
+  ]
+}

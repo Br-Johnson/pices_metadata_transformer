@@ -1,0 +1,438 @@
+{
+  "metadata": {
+    "title": "Global Air Temperature Anomalies",
+    "upload_type": "dataset",
+    "publication_date": "1999-07-19",
+    "creators": [
+      {
+        "name": "Department",
+        "type": "Organization"
+      }
+    ],
+    "description": "Measurement Details\n\"Global and Hemispheric temperature anomalies; land and marine instrumental records. This dataset is a combination of land air temperature anomalies (Jones, 1994) and sea surface temperature anomalies (Parker et al., 1995) on a 5° x 5° grid-box basis. The merging of the two datasets is discussed in Parker et al. (1994). Both components of the dataset are expressed as anomalies from 1961-90, as this makes computation much easier. The dataset has been extensively used in the various IPCC reports (see, e.g., Nicholls et al., 1996). An absolute temperature Climatology is being developed. \nThe grid-box data is available, together with the average hemispheric (Northern, Southern) and global time series. Annual values for these three series are plotted. The standard error is due to sampling of the individual annual values since 1951 is estimated to be 0.05°C (see Jones et al., 1997 for details).\"\n\nPublication\n\"Jones, P.D., 1994: Hemispheric surface air temperature variations: a reanalysis and an update to 1993. J. Climate 7, 1794-1802. \nJones, P.D., Osborn, T.J. and Briffa, K.R., 1997: Estimating sampling errors in large-scale temperature averages. J. Climate 10, 2548-2568. \nNicholls, N., Gruza, G.V., Jouzel, J., Karl, T.R., Ogallo, L.A. and Parker, D.E., 1996: Observed climate variability and change. In (J.T. Houghton, L.G. Meira Filho, B.A. Callander, N. Harris, A. Kattenberg and K. Maskell, Eds.) Climate Change 1995: The IPCC Second Assessment, Cambridge University Press, Cambridge, 133-192. \nParker, D.E., Jones, P.D., Bevan, A. and Folland, C.K., 1994: Interdecadal changes of surface temperature since the late 19th century. Journal of Geophysical Research 99, 14373-14399. \nParker, D.E., Folland, C.K. and Jackson, M., 1995: Marine surface temperature: observed variations and data requirements. Climatic Change 31, 559-600.\"\n\nData Distribution\ngraphics, tabular summaries and gridded data available from web site.\n\nIOSPBS Data Distribution\n\"This is a research dataset computed for the use of the custodian, however, he is generous and allows distribution. We recommend that potential users ask his permission to use these data and be sure to acknowledge him in any publications. Howard Freeland maintains a continuing file of the data and the monthly series are available in the \"\"lighthouse archive\"\" (CCS$PHYSICS:[LIGHTHOUSE.ARCHIVE.MONTHLY]) - files : N_HEM.TAS (Land Air Temperature anomalies) and N_HEM_LM.TAS (Land and Marine Air temperature anomalies)\"\n\nPSARC_Utility\nThere are two types of time series for each of the N. and S. hemisphere. These represent land and marine air temperature averages (one value/month/hemisphere) and land only observations.  This is the standard dataset for monitoring the effects of global warming.\n\nImprovements\nWe could make this available on the IOS WWW site, similar the lighthouse time series files. Some alternative formats (IOS HEADER, CSV/spreadsheet format) would be useful.\n\nBase Internet/URL -- ( http://www.cru.uea.ac.uk/cru/ )  ( http://www.cru.uea.ac.uk/cru/data/temperature/ )\n\n[ A TCODE project ]",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Air Temperature",
+      "North Pacific Ocean"
+    ],
+    "notes": "Status: In Progress\n\nMaintenance frequency: Annually\n\nAccess constraints: None\n\nUse constraints: None\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990719\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Brown, Robin",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Brown, Robin",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": []
+  },
+  "original_fgdc_file": "FGDC-205.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 6510,
+    "fgdc_data_chars": 3383,
+    "zenodo_total_chars": 4528,
+    "zenodo_data_chars": 3908,
+    "char_difference": 525,
+    "char_ratio": 1.1551877032219924,
+    "data_preservation_ratio": 1.1551877032219924
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 6510,
+      "fgdc_size_kb": 6.36,
+      "zenodo_size_bytes": 4528,
+      "zenodo_size_kb": 4.42,
+      "filename": "FGDC-205.xml",
+      "timestamp": "2025-10-11T19:55:03.897381"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.986,
+      "field_preservation_ratio": 1.75,
+      "semantic_preservation_score": 0.9858068497377352,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Moderate data enrichment: 24.1% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.241
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 95,
+        "issues": [
+          "Creator 1 name format unclear"
+        ],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 70,
+        "issues": [
+          "Too few keywords"
+        ],
+        "grade": "C"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 94.2,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 11.3,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 61.6,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 53,
+        "directly_mapped_fields": 6,
+        "fields_in_notes": 47,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 11.3,
+        "notes_mapping_percentage": 88.7,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "Department of Fisheries and Oceans, Institute of Ocean Sciences"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Global Air Temperature Anomalies"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Measurement Details\n\"Global and Hemispheric temperature anomalies; land and marine instrumental reco..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "18540101"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Sample Date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "In Progress"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Annually"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "163"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-157"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "65.5"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "52"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "19990719"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "None"
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 90.2
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-205.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

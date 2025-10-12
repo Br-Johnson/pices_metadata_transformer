@@ -1,0 +1,589 @@
+{
+  "metadata": {
+    "title": "Ballast Water (Invertebrate fauna identified) from 5 BC Ports 1995-97",
+    "upload_type": "dataset",
+    "publication_date": "2004-06-09",
+    "creators": [
+      {
+        "name": "Staff, DFO"
+      }
+    ],
+    "description": "Data are presented on the invertebrate fauna identified from the ballast water of 63 vessels arriving at 5 B.C.ports between December, 1995 and January, 1997.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Shipping",
+      "Vessels",
+      "Ballast",
+      "Marine Invertebrates",
+      "biota",
+      "Earth Science",
+      "Biological Classification",
+      "Animals/Invertebrates",
+      "Northern Hemisphere",
+      "Western Hemisphere",
+      "North America",
+      "Northeast Pacific",
+      "Canada",
+      "British Columbia",
+      "North Pacific Ocean",
+      "North Inner Coast (QCS, Hecate, Dixon Inlet and passages)",
+      "North Outer Coast (West Coast QCI)",
+      "South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)",
+      "South Outer Coast (West Coast VI)"
+    ],
+    "notes": "Purpose: Supports scientific and environmental research.\n\nStatus: Complete\n\nMaintenance frequency: None planned\n\nAccess constraints: Public\n\nUse constraints: None\n\nDistribution liability: These data are provided \"as-is\".\n\nFGDC metadata date: 20040609\nFGDC metadata standard: FGDC Content Standard for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Levings, Colin D.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Piercey, Beth",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": []
+  },
+  "original_fgdc_file": "FGDC-4093.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 4978,
+    "fgdc_data_chars": 1292,
+    "zenodo_total_chars": 1705,
+    "zenodo_data_chars": 1026,
+    "char_difference": -266,
+    "char_ratio": 0.7941176470588235,
+    "data_preservation_ratio": 0.7941176470588235
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 4978,
+      "fgdc_size_kb": 4.86,
+      "zenodo_size_bytes": 1705,
+      "zenodo_size_kb": 1.67,
+      "filename": "FGDC-4093.xml",
+      "timestamp": "2025-10-11T19:55:16.210590"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.918,
+      "field_preservation_ratio": 0.519,
+      "semantic_preservation_score": 0.917963224893918,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 61.4% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.614
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 90,
+        "issues": [
+          "Keyword too long: \"North Inner Coast (QCS, Hecate, Dixon Inlet and passages)\"",
+          "Keyword too long: \"South Inner Coast (Johnstone, Georgia, JDF, inlets and passages)\""
+        ],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 98.3,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 30.0,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 66.2,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 80,
+        "directly_mapped_fields": 24,
+        "fields_in_notes": 53,
+        "unmapped_fields": 3,
+        "direct_mapping_percentage": 30.0,
+        "notes_mapping_percentage": 66.2,
+        "total_preservation_percentage": 96.2,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "DFO Staff"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Ballast Water (Invertebrate fauna identified) from 5 BC Ports 1995-97"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "Data are presented on the invertebrate fauna identified from the ballast water of 63 vessels arrivin..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "biota"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "biota"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "biota"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "biota"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "biota"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "biota"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "biota"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "biota"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "biota"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            },
+            {
+              "fgdc_field": "placekey",
+              "zenodo_field": "keywords",
+              "value": "South Outer Coast (West Coast VI)"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Supports scientific and environmental research."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "1995"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "1997"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "publication date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "None planned"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "-134"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-123"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "55"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "48.25"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "ISO 19115 Topic Category"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Public"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Beth Piercey"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Regional Director' Office, Science Branch"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Research Technician, Coastal and Marine Habitat Science Section"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "4160 Marine Drive"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "West Vancouver"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V7V 1N6"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(604) 666-4806"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "pierceybe@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Regional Director' Office, Science Branch"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Beth Piercey"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Research Technician, Coastal and Marine Habitat Science Section"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "4160 Marine Drive"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "West Vancouver"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V7V 1N6"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(604) 666-4806"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "pierceybe@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "resdesc",
+              "reason": "Standard notes field",
+              "value": "PAC-MEHS-069"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "These data are provided \"as-is\"."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20040609"
+            },
+            {
+              "fgdc_field": "cntorg",
+              "reason": "Standard notes field",
+              "value": "Fisheries and Oceans Canada, Pacific Region, Regional Director' Office, Science Branch"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Beth Piercey"
+            },
+            {
+              "fgdc_field": "cntpos",
+              "reason": "Standard notes field",
+              "value": "Research Technician, Coastal and Marine Habitat Science Section"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Physical and mailing"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "4160 Marine Drive"
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "West Vancouver"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "BC"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "V7V 1N6"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "Canada"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "(604) 666-4806"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "pierceybe@pac.dfo-mpo.gc.ca"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "FGDC Content Standard for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            }
+          ],
+          "unmapped": [
+            {
+              "fgdc_field": "geoform",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "Hardcopy; Tabular digital data"
+            },
+            {
+              "fgdc_field": "placekt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "DFO Areas"
+            },
+            {
+              "fgdc_field": "placekt",
+              "reason": "No mapping found - field not in notes or other fields",
+              "value": "DFO Areas"
+            }
+          ]
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 90.4
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-4093.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

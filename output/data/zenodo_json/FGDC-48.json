@@ -1,0 +1,471 @@
+{
+  "metadata": {
+    "title": "A Global Analysis of Sea Surface Temperature for Numerical Weather Prediction",
+    "upload_type": "dataset",
+    "publication_date": "1996-12-02",
+    "creators": [
+      {
+        "name": "Government"
+      }
+    ],
+    "description": "A global analysis of in situ observations of sea surface temperature (SST)\n     developed for use at the Canadian Meteorological Center is described. The\n     analysis is done on the anomaly, the departure from Climatology. The anomaly\n     plus Climatology, or resulting SST, is used as the lower boundary condition by\n     the numerical weather prediction model. Since there is no ocean model to\n     provide a background or first-guess field for the analysis, and since anomalies\n     are observed to persist over long periods, the background field is obtained\n     essentially by assuming persistence of the previous anomaly. The analysis\n     algorithm is statistical interpolation. Attention is focused on techniques to\n     control the quality of the observations, including a technique to remove\n     systematic errors from ship observations. The analysis resolution is 0.9° and\n     the correlation e-folding distance is 212 km. Verification of the analysis is\n     presented using independent data from buoys and expendable\n     bathy-thermographs for a one-year period. Verification is also presented for\n     the National Centers for Environmental Prediction (NCEP, Washington)\n     weekly analysis and for Climatology. Results indicate that the analysis has skill\n     over Climatology in all regions and skill over the NCEP weekly analysis in the\n     North Atlantic. In the rest of the Northern Hemisphere, analysis error\n     estimates for the two analyses are similar, while in the Southern Hemisphere\n     the NCEP analysis is superior, probably due to its use of satellite data. It is\n     intended that this analysis will be an essential component of a debiasing\n     algorithm for satellite SST observations.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Meteorology",
+      "Sea Surface",
+      "Temperature",
+      "Bering Sea",
+      "Alaska",
+      "Weather",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To show a Global Analysis of Sea Surface Temperature for Numerical Weather Prediction\n\nStatus: Complete\n\nMaintenance frequency: None Planned\n\nAccess constraints: Check with Contributor\n\nUse constraints: Check with Contributor\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990205\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Bransett, Bruce",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Bransett, Bruce",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Meteorology",
+        "identifier": "North Pacific Ecosystem Metadatabase:Meteorology",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Sea Surface",
+        "identifier": "North Pacific Ecosystem Metadatabase:Sea Surface",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Temperature",
+        "identifier": "North Pacific Ecosystem Metadatabase:Temperature",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Bering Sea",
+        "identifier": "North Pacific Ecosystem Metadatabase:Bering Sea",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Alaska",
+        "identifier": "North Pacific Ecosystem Metadatabase:Alaska",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Weather",
+        "identifier": "North Pacific Ecosystem Metadatabase:Weather",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-48.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5580,
+    "fgdc_data_chars": 2220,
+    "zenodo_total_chars": 4365,
+    "zenodo_data_chars": 2765,
+    "char_difference": 545,
+    "char_ratio": 1.2454954954954955,
+    "data_preservation_ratio": 1.2454954954954955
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 5580,
+      "fgdc_size_kb": 5.45,
+      "zenodo_size_bytes": 4365,
+      "zenodo_size_kb": 4.26,
+      "filename": "FGDC-48.xml",
+      "timestamp": "2025-10-11T19:55:17.258948"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.892,
+      "field_preservation_ratio": 1.0,
+      "semantic_preservation_score": 0.8924882629107981,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 65.4% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.654
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 95,
+        "issues": [
+          "Creator 1 name format unclear"
+        ],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 99.2,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 21.2,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 64.0,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 52,
+        "directly_mapped_fields": 11,
+        "fields_in_notes": 41,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 21.2,
+        "notes_mapping_percentage": 78.8,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "Government of Canada, Environment Canada, Meteorological Service of Canada, Canadian Meteorological ..."
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "19961202"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "A Global Analysis of Sea Surface Temperature for Numerical Weather Prediction"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "A global analysis of in situ observations of sea surface temperature (SST)\n     developed for use at..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "To show a Global Analysis of Sea Surface Temperature for Numerical Weather Prediction"
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19961202"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Publication Date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "None Planned"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "178"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-168"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "67.5"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "52"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "19990205"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "Check with Contributor"
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 89.5
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-48.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

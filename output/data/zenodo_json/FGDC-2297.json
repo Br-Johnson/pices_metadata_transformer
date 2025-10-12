@@ -1,0 +1,555 @@
+{
+  "metadata": {
+    "title": "IABP Drifting Buoy, Pressure, Temperature, Position, Interpolated Ice Velocity",
+    "upload_type": "dataset",
+    "publication_date": "1998-08-03",
+    "creators": [
+      {
+        "name": "National Snow and Ice Data Center (NSIDC)",
+        "type": "Organization"
+      }
+    ],
+    "description": "Data are collected and processed as part of the International Arctic Buoy Program at the University of Washington, Polar Science Center.",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Ice Physics",
+      "Arctic",
+      "Buoys",
+      "Vapor Pressure",
+      "Temperature",
+      "Sea Ice",
+      "Prehistoric Indicators of environmental change",
+      "Drifts",
+      "Arctic Ocean",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: Data are collected and processed as part of the International Arctic Buoy Program at the University of Washington, Polar Science Center.\n\nStatus: Complete\n\nMaintenance frequency: Unknown\n\nAccess constraints: None\n\nUse constraints: To correctly cite these data, please see Citing NSIDC Data.\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19980803\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Services, NSIDC User",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Services, NSIDC User",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Ice Physics",
+        "identifier": "North Pacific Ecosystem Metadatabase:Ice Physics",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Arctic",
+        "identifier": "North Pacific Ecosystem Metadatabase:Arctic",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Buoys",
+        "identifier": "North Pacific Ecosystem Metadatabase:Buoys",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Vapor Pressure",
+        "identifier": "North Pacific Ecosystem Metadatabase:Vapor Pressure",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Temperature",
+        "identifier": "North Pacific Ecosystem Metadatabase:Temperature",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Sea Ice",
+        "identifier": "North Pacific Ecosystem Metadatabase:Sea Ice",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Prehistoric Indicators of environmental change",
+        "identifier": "North Pacific Ecosystem Metadatabase:Prehistoric Indicators of environmental change",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Drifts",
+        "identifier": "North Pacific Ecosystem Metadatabase:Drifts",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Arctic Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:Arctic Ocean",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-2297.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 5618,
+    "fgdc_data_chars": 612,
+    "zenodo_total_chars": 3453,
+    "zenodo_data_chars": 1341,
+    "char_difference": 729,
+    "char_ratio": 2.1911764705882355,
+    "data_preservation_ratio": 2.1911764705882355
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 5618,
+      "fgdc_size_kb": 5.49,
+      "zenodo_size_bytes": 3453,
+      "zenodo_size_kb": 3.37,
+      "filename": "FGDC-2297.xml",
+      "timestamp": "2025-10-11T19:55:05.220175"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.896,
+      "field_preservation_ratio": 0.875,
+      "semantic_preservation_score": 0.8961038961038961,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 374.5% additional structured content added"
+      ],
+      "content_enrichment_ratio": 3.745
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 85,
+        "issues": [
+          "Description should have multiple sentences"
+        ],
+        "grade": "B"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 97.5,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 20.0,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 63.8,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 65,
+        "directly_mapped_fields": 13,
+        "fields_in_notes": 52,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 20.0,
+        "notes_mapping_percentage": 80.0,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "National Snow and Ice Data Center (NSIDC)"
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "IABP Drifting Buoy, Pressure, Temperature, Position, Interpolated Ice Velocity"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "Reference:Rigor, I. 2002. IABP Drifting Buoy, Pressure, Temperature, Position, and Interpolated Ice ..."
+            },
+            {
+              "fgdc_field": "p",
+              "reason": "Found in notes or other fields",
+              "value": "Reference:Rigor, I. 2002. IABP Drifting Buoy, Pressure, Temperature, Position, and Interpolated Ice ..."
+            },
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "Data are collected and processed as part of the International Arctic Buoy Program at the University ..."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19790101"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "19961231"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Ground Condition"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "Complete"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "-180"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "180"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "90"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "70"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "To correctly cite these data, please see Citing NSIDC Data."
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "19980803"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "None"
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "To correctly cite these data, please see Citing NSIDC Data."
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 89.2
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-2297.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}

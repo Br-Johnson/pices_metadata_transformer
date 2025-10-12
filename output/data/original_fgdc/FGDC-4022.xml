@@ -1,0 +1,120 @@
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>California Institute of Technology (NASA/JPL PO.DAAC)</origin>
+        <pubdate>Unknown</pubdate>
+        <title>NSCAT Scatterometer Global 25km Sigma-0 and Ocean Winds (Dunbar) by JPL/NASA</title>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>
+        <p>Two data sets from NSCAT, the NASA Scatterometer. The two data sets in this product are the Earth-located radar backscatter (sigma-0), and vector wind measurements, collocated in 25 km x 25 km wind vector cells. The selected wind vector is flagged. Backscatter measurements are provided globally over land, ice and oceans. The derived wind vector solutions (all ambiguities) and the selected wind vector are only available over oceans. The data are organized in a swath-based format, with each record consisting of a cross-track row of 48 wind vector cells (24 on each side of the satellite subtrack). Each record contain a number of variables, sigma-0's and related information, such that investigators can re-retrieve the winds using their own model function should they wish. Each file covers one NSCAT revolution and typically consists of 1624 data records. This product is also referred to as the 'high resolution merged geophysical data product'. The product will be available in late spring 1997 following the reprocessing based on the work of the calibration and validation team. The selected wind vector data will also be made available via FTP however the sigma-0 data are only available on tape owing to the large volumes. This is the only NSCAT data product that contains global sigma-0 data. Scientists interested in ocean winds will probably prefer to obtain product 085 which provides ocean wind products on CD-ROM or to get the data via FTP.</p>
+        <p>PO.DAAC Product Number 084.</p>
+      </abstract>
+      <purpose>To acquire all-weather, high-resolution measurements of near surface winds over the global oceans.</purpose>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <rngdates>
+          <begdate>19960915</begdate>
+          <enddate>19970629</enddate>
+        </rngdates>
+      </timeinfo>
+      <current>Ground Condition</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>Unknown</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-180</westbc>
+        <eastbc>180</eastbc>
+        <northbc>90</northbc>
+        <southbc>-90</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekt>North Pacific Ecosystem Metadatabase</themekt>
+        <themekey>Oceanography</themekey>
+      </theme>
+      <theme>
+        <themekt>Other</themekt>
+        <themekey>North Pacific Ocean</themekey>
+        <themekey>Ocean Surface</themekey>
+        <themekey>Scattermeter</themekey>
+        <themekey>Wind Direction</themekey>
+        <themekey>Wind Speed</themekey>
+        <themekey>Microwave Radar</themekey>
+      </theme>
+    </keywords>
+    <accconst>None</accconst>
+    <useconst>Contact Source</useconst>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntper>User Services Office</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing Address</addrtype>
+          <address>4800 Oak Grove Drive</address>
+          <city>Pasadena</city>
+          <state>CA</state>
+          <postal>91109</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>626-744-5508</cntvoice>
+        <cntfax>626-744-5506</cntfax>
+        <cntemail>podaac@podaac.jpl.nasa.gov</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <distinfo>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntper>User Services Office</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing Address</addrtype>
+          <address>4800 Oak Grove Drive</address>
+          <city>Pasadena</city>
+          <state>CA</state>
+          <postal>91109</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>626-744-5508</cntvoice>
+        <cntfax>626-744-5506</cntfax>
+        <cntemail>podaac@podaac.jpl.nasa.gov</cntemail>
+      </cntinfo>
+    </distrib>
+    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>
+  </distinfo>
+  <metainfo>
+    <metd>20050908</metd>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntper>Kimberly Bahl</cntper>
+        </cntperp>
+        <cntaddr>
+          <addrtype>Mailing and Physical Address</addrtype>
+          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>
+          <city>Seattle</city>
+          <state>WA</state>
+          <postal>98115</postal>
+          <country>USA</country>
+        </cntaddr>
+        <cntvoice>206-526-4314</cntvoice>
+        <cntfax>206-526-6485</cntfax>
+        <cntemail>kimberly.bahl@noaa.gov</cntemail>
+      </cntinfo>
+    </metc>
+    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>
+    <metstdv>FGDC-STD-001-1998</metstdv>
+    <metac>None</metac>
+    <metuc>Contact Source</metuc>
+  </metainfo>
+</metadata>

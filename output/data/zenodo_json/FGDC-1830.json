@@ -1,0 +1,526 @@
+{
+  "metadata": {
+    "title": "Resource Ecology & Ecosystem Modeling (REEM) Resource Ecology Fish Food Habits Database",
+    "upload_type": "dataset",
+    "publication_date": "2004-03-01",
+    "creators": [
+      {
+        "name": "National Oceanic",
+        "type": "Organization"
+      },
+      {
+        "name": "Atmospheric Administration (NOAA)",
+        "type": "Organization"
+      },
+      {
+        "name": "(NMFS), National Marine Fisheries Service"
+      },
+      {
+        "name": "Alaska Fisheries Science Center (AFSC)",
+        "type": "Organization"
+      }
+    ],
+    "description": "The REEM fish food habits database consists of diet data collected from key groundfish throughout the northeast Pacific.  Our samples are primarily collected from trawl caught groundfish by NOAA scientists aboard research surveys.  We also Fishery Observers to collect samples from regions and seasons outside of our survey areas.  Fish stomach samples preserved in the field are returned to the lab for analysis and account for the majority of our database.  A small number of samples are analyzed at sea in a qualitative manner and account for the remainder of our data.  \n\nOur data are split into four regions; Bering Sea, Gulf of Alaska, Aleutian Islands and West Coast with identical data table structure in each regional data set.  The primary diet table is the Predator-Prey (PP) table, which contains data on each stomach analyzed. Within this table are data on the size, weight, sex, stomach fullness and maturity of each predator along with the taxon, number, weight, and state of digestion of each prey within a given predatorﾒs stomach.  Identification information about the vessel, cruise, haul number and specimen number of each predator sampled are also kept in the PP table to allow unique identification of each sample as well as cross-referencing to other tables. The Haul table contains spatial, temporal and physical data for each location at which we have fish stomach samples. Within the Haul table are latitude, longitude, date, bottom and gear depth, surface and gear temperature, gear type as well as vessel, cruise and haul identifiers. The Prey Length (PL) table primarily contains size information of commercially important prey found in the stomach contents that were in adequate condition to allow measurement. In this table we have standard length (mm) of fish prey, carapace width (mm) of brachyuran crabs (snow, Tanner, Dungeness), and carapace length (mm) of anomuran (king) crabs and pandalid shrimps. Along with the prey data, the corresponding predator length as well as the vessel, cruise, haul identifiers and specimen number are maintained. Finally the intestine (Intest) table contains intestine data of those species, primarily small-mouthed flatfishes, from which we examine intestine contents in addition to stomach contents. This table is fundamentally structured the same as the PP table. The combination of these four tables across four regions results in sixteen tables that make up our primary database. Combined, these tables currently account for approximately 500,000 records.  \n\n[ Reference: PICES Scientific Report No. 18 2001, Proceedings of the PICES/CoML/IPRC Workshop on \"Impact of Climate Variability on Observation and Prediction of Ecosystem and Biodiversity Changes in the North Pacific\", http://www.pices.int/publications/scientific_reports/Report18/default.aspx. ]",
+    "access_right": "open",
+    "license": "cc-zero",
+    "keywords": [
+      "Fish",
+      "Food Habits",
+      "Bering Sea",
+      "Gulf of Alaska",
+      "Aleutian Islands",
+      "US West Coast",
+      "North Pacific Ocean"
+    ],
+    "notes": "Purpose: To be incorporated into multispecies and ecosystem models.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: Contact Source.\n\nUse constraints: Contact Source.\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040301\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Livingston, Patricia A.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Livingston, Patricia A.",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [
+      {
+        "identifier": "pices"
+      }
+    ],
+    "subjects": [
+      {
+        "term": "Fish",
+        "identifier": "North Pacific Ecosystem Metadatabase:Fish",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Food Habits",
+        "identifier": "North Pacific Ecosystem Metadatabase:Food Habits",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Bering Sea",
+        "identifier": "North Pacific Ecosystem Metadatabase:Bering Sea",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Gulf of Alaska",
+        "identifier": "North Pacific Ecosystem Metadatabase:Gulf of Alaska",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Aleutian Islands",
+        "identifier": "North Pacific Ecosystem Metadatabase:Aleutian Islands",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "US West Coast",
+        "identifier": "North Pacific Ecosystem Metadatabase:US West Coast",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ]
+  },
+  "original_fgdc_file": "FGDC-1830.xml",
+  "character_analysis": {
+    "fgdc_total_chars": 6816,
+    "fgdc_data_chars": 3407,
+    "zenodo_total_chars": 5766,
+    "zenodo_data_chars": 3977,
+    "char_difference": 570,
+    "char_ratio": 1.1673026122688583,
+    "data_preservation_ratio": 1.1673026122688583
+  },
+  "enhanced_metrics": {
+    "file_info": {
+      "fgdc_size_bytes": 6816,
+      "fgdc_size_kb": 6.66,
+      "zenodo_size_bytes": 5766,
+      "zenodo_size_kb": 5.63,
+      "filename": "FGDC-1830.xml",
+      "timestamp": "2025-10-11T19:55:02.540543"
+    },
+    "data_preservation": {
+      "content_preservation_ratio": 0.982,
+      "field_preservation_ratio": 1.0,
+      "semantic_preservation_score": 0.9823693164243736,
+      "data_loss_indicators": [],
+      "data_gain_indicators": [
+        "Significant data enrichment: 43.0% additional structured content added"
+      ],
+      "content_enrichment_ratio": 0.43
+    },
+    "field_coverage": {
+      "critical_fields_present": 4,
+      "critical_fields_total": 4,
+      "critical_fields_percentage": 100.0,
+      "important_fields_present": 4,
+      "important_fields_total": 4,
+      "important_fields_percentage": 100.0,
+      "optional_fields_present": 4,
+      "optional_fields_total": 6,
+      "optional_fields_percentage": 66.7,
+      "total_fields_present": 12,
+      "total_fields_possible": 14,
+      "overall_coverage_percentage": 85.7,
+      "weighted_coverage_score": 98.2,
+      "missing_critical_fields": [],
+      "missing_important_fields": [],
+      "present_optional_fields": [
+        "notes",
+        "related_identifiers",
+        "contributors",
+        "references"
+      ]
+    },
+    "data_quality": {
+      "title_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "creator_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "description_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "keyword_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "date_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "license_quality": {
+        "score": 100,
+        "issues": [],
+        "grade": "A"
+      },
+      "overall_quality_score": 100.0,
+      "quality_grade": "EXCELLENT"
+    },
+    "transformation_effectiveness": {
+      "mapping_completeness": 18.0,
+      "data_enrichment_score": 50.0,
+      "format_compliance": 100.0,
+      "semantic_accuracy": 85.0,
+      "overall_effectiveness_score": 63.2,
+      "field_mapping_breakdown": {
+        "total_fgdc_fields": 61,
+        "directly_mapped_fields": 11,
+        "fields_in_notes": 50,
+        "unmapped_fields": 0,
+        "direct_mapping_percentage": 18.0,
+        "notes_mapping_percentage": 82.0,
+        "total_preservation_percentage": 100.0,
+        "mapping_details": {
+          "directly_mapped": [
+            {
+              "fgdc_field": "origin",
+              "zenodo_field": "creators",
+              "value": "National Oceanic and Atmospheric Administration (NOAA), National Marine Fisheries Service (NMFS), Al..."
+            },
+            {
+              "fgdc_field": "pubdate",
+              "zenodo_field": "publication_date",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "title",
+              "zenodo_field": "title",
+              "value": "Resource Ecology & Ecosystem Modeling (REEM) Resource Ecology Fish Food Habits Database"
+            },
+            {
+              "fgdc_field": "abstract",
+              "zenodo_field": "description",
+              "value": "The REEM fish food habits database consists of diet data collected from key groundfish throughout th..."
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            },
+            {
+              "fgdc_field": "themekey",
+              "zenodo_field": "keywords",
+              "value": "North Pacific Ocean"
+            }
+          ],
+          "notes_mapped": [
+            {
+              "fgdc_field": "purpose",
+              "reason": "Standard notes field",
+              "value": "To be incorporated into multispecies and ecosystem models."
+            },
+            {
+              "fgdc_field": "begdate",
+              "reason": "Standard notes field",
+              "value": "19800101"
+            },
+            {
+              "fgdc_field": "enddate",
+              "reason": "Standard notes field",
+              "value": "20011231"
+            },
+            {
+              "fgdc_field": "current",
+              "reason": "Standard notes field",
+              "value": "Sample Date"
+            },
+            {
+              "fgdc_field": "progress",
+              "reason": "Standard notes field",
+              "value": "In Progress"
+            },
+            {
+              "fgdc_field": "update",
+              "reason": "Standard notes field",
+              "value": "Unknown"
+            },
+            {
+              "fgdc_field": "westbc",
+              "reason": "Standard notes field",
+              "value": "172"
+            },
+            {
+              "fgdc_field": "eastbc",
+              "reason": "Standard notes field",
+              "value": "-130"
+            },
+            {
+              "fgdc_field": "northbc",
+              "reason": "Standard notes field",
+              "value": "62"
+            },
+            {
+              "fgdc_field": "southbc",
+              "reason": "Standard notes field",
+              "value": "50"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "themekt",
+              "reason": "Standard notes field",
+              "value": "Other"
+            },
+            {
+              "fgdc_field": "accconst",
+              "reason": "Standard notes field",
+              "value": "Contact Source."
+            },
+            {
+              "fgdc_field": "useconst",
+              "reason": "Standard notes field",
+              "value": "Contact Source."
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "distliab",
+              "reason": "Standard notes field",
+              "value": "While every effort has been made to ensure that these data are accurate and reliable within the limi..."
+            },
+            {
+              "fgdc_field": "metd",
+              "reason": "Standard notes field",
+              "value": "20040301"
+            },
+            {
+              "fgdc_field": "cntper",
+              "reason": "Standard notes field",
+              "value": "Kimberly Bahl"
+            },
+            {
+              "fgdc_field": "addrtype",
+              "reason": "Standard notes field",
+              "value": "Mailing and Physical Address"
+            },
+            {
+              "fgdc_field": "address",
+              "reason": "Standard notes field",
+              "value": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+            },
+            {
+              "fgdc_field": "city",
+              "reason": "Standard notes field",
+              "value": "Seattle"
+            },
+            {
+              "fgdc_field": "state",
+              "reason": "Standard notes field",
+              "value": "WA"
+            },
+            {
+              "fgdc_field": "postal",
+              "reason": "Standard notes field",
+              "value": "98115"
+            },
+            {
+              "fgdc_field": "country",
+              "reason": "Standard notes field",
+              "value": "USA"
+            },
+            {
+              "fgdc_field": "cntvoice",
+              "reason": "Standard notes field",
+              "value": "206-526-4314"
+            },
+            {
+              "fgdc_field": "cntfax",
+              "reason": "Standard notes field",
+              "value": "206-526-6485"
+            },
+            {
+              "fgdc_field": "cntemail",
+              "reason": "Standard notes field",
+              "value": "kimberly.bahl@noaa.gov"
+            },
+            {
+              "fgdc_field": "metstdn",
+              "reason": "Standard notes field",
+              "value": "Content Standards for Digital Geospatial Metadata"
+            },
+            {
+              "fgdc_field": "metstdv",
+              "reason": "Standard notes field",
+              "value": "FGDC-STD-001-1998"
+            },
+            {
+              "fgdc_field": "metac",
+              "reason": "Standard notes field",
+              "value": "Contact Source."
+            },
+            {
+              "fgdc_field": "metuc",
+              "reason": "Standard notes field",
+              "value": "Contact Source."
+            }
+          ],
+          "unmapped": []
+        }
+      }
+    },
+    "compliance": {
+      "zenodo_required_fields": 4,
+      "zenodo_required_total": 4,
+      "zenodo_required_percentage": 100.0,
+      "zenodo_recommended_fields": 6,
+      "zenodo_recommended_total": 6,
+      "zenodo_recommended_percentage": 100.0,
+      "pices_community_present": true,
+      "open_access_compliant": true,
+      "license_compliant": true,
+      "overall_compliance_score": 100.0
+    },
+    "overall_score": 91.8
+  },
+  "files": [
+    {
+      "path": "output/data/original_fgdc/FGDC-1830.xml",
+      "description": "Original FGDC metadata XML",
+      "type": "fgdc_xml"
+    }
+  ]
+}
