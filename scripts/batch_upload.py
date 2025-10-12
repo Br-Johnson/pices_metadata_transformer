@@ -14,7 +14,7 @@ from typing import List, Dict, Any, Optional
 from datetime import datetime
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from scripts.upload_to_zenodo import ZenodoUploader
+# ZenodoUploader functionality is now integrated into this script
 from scripts.zenodo_api import create_zenodo_client
 
 class BatchUploader:
@@ -26,8 +26,10 @@ class BatchUploader:
         self.batch_size = batch_size
         self.limit = limit
         self.interactive = interactive
+        self.shutdown_requested = False
         self.batch_log_file = os.path.join(output_dir, f"batch_upload_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
         self.batch_errors_file = os.path.join(output_dir, f"batch_upload_errors_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
+        self.upload_log_path = os.path.join(output_dir, "upload_log.json")
         
         # Track progress across batches
         self.total_uploaded = 0
@@ -38,8 +40,56 @@ class BatchUploader:
         # Setup signal handlers for graceful shutdown
         signal.signal(signal.SIGINT, self._signal_handler)
         signal.signal(signal.SIGTERM, self._signal_handler)
-        
-        self.shutdown_requested = False
+    
+    def _upload_single_file(self, json_file: str, client) -> Dict[str, Any]:
+        """Upload a single JSON file to Zenodo."""
+        metadata = {}
+        timestamp = datetime.now().isoformat()
+        try:
+            # Load the JSON file
+            with open(json_file, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+
+            metadata = data.get('metadata', {})
+            
+            # Create deposition
+            deposition = client.create_deposition(metadata)
+            
+            if not deposition:
+                return {
+                    'success': False,
+                    'json_file': json_file,
+                    'error': 'Failed to create deposition'
+                }
+            
+            # Upload files if they exist
+            if 'files' in data and data['files']:
+                for file_info in data['files']:
+                    file_path = file_info.get('path')
+                    if file_path and os.path.exists(file_path):
+                        client.upload_file(deposition['id'], file_path)
+            
+            # Get the DOI
+            doi = f"10.5281/zenodo.{deposition['id']}"
+            
+            return {
+                'success': True,
+                'json_file': json_file,
+                'deposition_id': deposition['id'],
+                'doi': doi,
+                'zenodo_url': f"{client.base_url}/deposit/{deposition['id']}",
+                'metadata': metadata,
+                'timestamp': timestamp
+            }
+            
+        except Exception as e:
+            return {
+                'success': False,
+                'json_file': json_file,
+                'error': str(e),
+                'metadata': metadata,
+                'timestamp': timestamp
+            }
     
     def _signal_handler(self, signum, frame):
         """Handle shutdown signals gracefully."""
@@ -48,10 +98,38 @@ class BatchUploader:
     
     def get_remaining_files(self) -> List[str]:
         """Get list of files that haven't been uploaded yet."""
-        # Get all JSON files
-        json_pattern = os.path.join(self.output_dir, "zenodo_json/*.json")
-        all_json_files = glob.glob(json_pattern)
-        all_json_files.sort()
+        # First, check if we have a safe-to-upload list from pre-upload duplicate check
+        safe_files_path = os.path.join(self.output_dir, "safe_to_upload.json")
+        if os.path.exists(safe_files_path):
+            print("📋 Using safe-to-upload list from pre-upload duplicate check...")
+            try:
+                with open(safe_files_path, 'r') as f:
+                    safe_files = json.load(f)
+                
+                # Convert to full paths
+                safe_json_files = []
+                for filename in safe_files:
+                    full_path = os.path.join(self.output_dir, "zenodo_json", filename)
+                    if os.path.exists(full_path):
+                        safe_json_files.append(full_path)
+                
+                print(f"✅ Found {len(safe_json_files)} files safe to upload (pre-filtered for duplicates)")
+                all_json_files = safe_json_files
+                
+            except Exception as e:
+                print(f"⚠️  Could not load safe-to-upload list: {e}")
+                print("   Falling back to checking all files...")
+                # Fall back to getting all JSON files
+                json_pattern = os.path.join(self.output_dir, "zenodo_json/*.json")
+                all_json_files = glob.glob(json_pattern)
+                all_json_files.sort()
+        else:
+            print("⚠️  No safe-to-upload list found. Checking all files...")
+            print("   Consider running pre-upload duplicate check first.")
+            # Get all JSON files
+            json_pattern = os.path.join(self.output_dir, "zenodo_json/*.json")
+            all_json_files = glob.glob(json_pattern)
+            all_json_files.sort()
         
         # Get already uploaded files from centralized registry first
         uploaded_files = set()
@@ -131,9 +209,6 @@ class BatchUploader:
         
         # Use context manager for proper resource cleanup
         with create_zenodo_client(self.sandbox) as client:
-            uploader = ZenodoUploader(self.sandbox, self.output_dir)
-            uploader.client = client  # Use our managed client
-            
             for i, json_file in enumerate(batch_files):
                 if self.shutdown_requested:
                     print(f"Shutdown requested. Stopping batch {batch_number} at file {i+1}/{len(batch_files)}")
@@ -141,32 +216,35 @@ class BatchUploader:
                 
                 try:
                     # Upload single file
-                    result = uploader._upload_single_file(json_file)
-                    
+                    result = self._upload_single_file(json_file, client)
+                    result['batch_number'] = batch_number
+
                     if result['success']:
                         batch_uploads.append(result)
                         self.total_uploaded += 1
                         print(f"  ✓ {os.path.basename(json_file)} -> {result['doi']}")
                         # Update registry for successful uploads
-                        self._update_registry(result)
+                        self._update_registry(result, batch_number=batch_number)
                     else:
                         batch_errors.append(result)
                         self.total_failed += 1
                         print(f"  ✗ {os.path.basename(json_file)} -> {result.get('error', 'Unknown error')}")
                         # Update registry for failed uploads too
-                        self._update_registry(result)
-                
+                        self._update_registry(result, batch_number=batch_number)
+
                 except Exception as e:
                     error_result = {
                         'json_file': json_file,
                         'success': False,
                         'error': str(e),
-                        'timestamp': datetime.now().isoformat()
+                        'timestamp': datetime.now().isoformat(),
+                        'batch_number': batch_number
                     }
                     batch_errors.append(error_result)
                     self.total_failed += 1
                     print(f"  ✗ {os.path.basename(json_file)} -> {str(e)}")
-                
+                    # Update registry for failed uploads too
+                    self._update_registry(error_result, batch_number=batch_number)
                 # Small delay between files to be gentle on the API
                 time.sleep(0.1)
         
@@ -197,7 +275,7 @@ class BatchUploader:
         
         return batch_result
     
-    def _update_registry(self, upload_result: Dict[str, Any]):
+    def _update_registry(self, upload_result: Dict[str, Any], batch_number: Optional[int] = None):
         """Update centralized uploads registry."""
         registry_path = os.path.join(self.output_dir, 'uploads_registry.json')
         
@@ -223,7 +301,7 @@ class BatchUploader:
                 'title': upload_result.get('metadata', {}).get('title', ''),
                 'uploaded_at': upload_result.get('timestamp'),
                 'upload_status': 'success' if upload_result.get('success', False) else 'failed',
-                'batch_number': upload_result.get('batch_number'),
+                'batch_number': batch_number if batch_number is not None else upload_result.get('batch_number'),
                 'error_message': upload_result.get('error') if not upload_result.get('success', False) else None
             }
             
@@ -434,6 +512,48 @@ class BatchUploader:
         print(f"  python scripts/upload_audit.py - Audit all uploads")
         print(f"  python scripts/metrics_analysis.py - Analyze transformation metrics")
     
+    def _append_to_upload_log(self, upload_result: Dict[str, Any]):
+        """Append an entry to the legacy upload log for downstream verification."""
+        json_path = upload_result.get('json_file')
+        if not json_path:
+            return
+        
+        # Derive the copied FGDC path if it exists
+        fgdc_path = None
+        base_name = os.path.splitext(os.path.basename(json_path))[0]
+        candidate_fgdc = os.path.join(self.output_dir, 'original_fgdc', f"{base_name}.xml")
+        if os.path.exists(candidate_fgdc):
+            fgdc_path = candidate_fgdc
+        
+        log_entry = {
+            'json_file': json_path,
+            'fgdc_file': fgdc_path,
+            'deposition_id': upload_result.get('deposition_id'),
+            'doi': upload_result.get('doi'),
+            'success': upload_result.get('success', False),
+            'timestamp': upload_result.get('timestamp'),
+            'metadata': upload_result.get('metadata', {}),
+            'batch_number': upload_result.get('batch_number')
+        }
+        
+        if upload_result.get('zenodo_url'):
+            log_entry['zenodo_url'] = upload_result['zenodo_url']
+        if upload_result.get('error'):
+            log_entry['error'] = upload_result['error']
+        
+        try:
+            existing_entries = []
+            if os.path.exists(self.upload_log_path):
+                with open(self.upload_log_path, 'r', encoding='utf-8') as f:
+                    existing_entries = json.load(f)
+                    if not isinstance(existing_entries, list):
+                        existing_entries = []
+            existing_entries.append(log_entry)
+            with open(self.upload_log_path, 'w', encoding='utf-8') as f:
+                json.dump(existing_entries, f, indent=2)
+        except Exception as e:
+            print(f"Warning: Could not update upload log: {e}")
+    
     def _save_progress(self):
         """Save current progress to files."""
         # Save batch log
@@ -455,6 +575,10 @@ class BatchUploader:
         
         if not remaining_files:
             print("No files remaining to upload!")
+            # Ensure verification step finds an upload log, even when nothing was uploaded
+            if not os.path.exists(self.upload_log_path):
+                with open(self.upload_log_path, 'w', encoding='utf-8') as f:
+                    json.dump([], f, indent=2)
             return
         
         print(f"Found {len(remaining_files)} files remaining to upload")

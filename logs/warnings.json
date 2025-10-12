@@ -8,7 +8,7 @@
     "expected": "west < east",
     "context": "Bounding box crosses dateline",
     "suggestion": "Consider splitting into two bounding boxes or using a different representation",
-    "timestamp": "2025-10-11T13:15:28.863721"
+    "timestamp": "2025-10-11T16:09:56.081956"
   },
   {
     "file": "FGDC/FGDC-100.xml",
@@ -19,7 +19,7 @@
     "expected": "Valid license identifier",
     "context": "Invalid license 'None' detected, using default cc-zero",
     "suggestion": "",
-    "timestamp": "2025-10-11T13:15:28.868533"
+    "timestamp": "2025-10-11T16:09:56.086856"
   },
   {
     "file": "FGDC/FGDC-100.xml",
@@ -30,61 +30,6 @@
     "expected": "west < east",
     "context": "Bounding box crosses dateline",
     "suggestion": "Consider splitting into two bounding boxes or using a different representation",
-    "timestamp": "2025-10-11T13:15:28.868941"
-  },
-  {
-    "file": "FGDC/FGDC-1007.xml",
-    "field": "date_normalization",
-    "issue_type": "complex_date_range",
-    "severity": "warning",
-    "value_found": "72-88  thru  87-98",
-    "expected": "Single date (YYYY-MM-DD)",
-    "context": "Complex date range: 72-88  thru  87-98",
-    "suggestion": "Using first year 1972 from range",
-    "timestamp": "2025-10-11T13:15:28.915658"
-  },
-  {
-    "file": "FGDC/FGDC-101.xml",
-    "field": "date_normalization",
-    "issue_type": "date_range",
-    "severity": "warning",
-    "value_found": "1988 - Present",
-    "expected": "Single date (YYYY-MM-DD)",
-    "context": "Date range encountered: 1988 - Present",
-    "suggestion": "Using first year 1988 from range",
-    "timestamp": "2025-10-11T13:15:28.938364"
-  },
-  {
-    "file": "FGDC/FGDC-1018.xml",
-    "field": "date_normalization",
-    "issue_type": "complex_date_range",
-    "severity": "warning",
-    "value_found": "72-88  thru  87-98",
-    "expected": "Single date (YYYY-MM-DD)",
-    "context": "Complex date range: 72-88  thru  87-98",
-    "suggestion": "Using first year 1972 from range",
-    "timestamp": "2025-10-11T13:15:29.013273"
-  },
-  {
-    "file": "FGDC/FGDC-102.xml",
-    "field": "idinfo.useconst",
-    "issue_type": "invalid_license_detected",
-    "severity": "warning",
-    "value_found": "None",
-    "expected": "Valid license identifier",
-    "context": "Invalid license 'None' detected, using default cc-zero",
-    "suggestion": "",
-    "timestamp": "2025-10-11T13:15:29.035538"
-  },
-  {
-    "file": "FGDC/FGDC-102.xml",
-    "field": "spdom.bounding",
-    "issue_type": "dateline_crossing",
-    "severity": "warning",
-    "value_found": "west=178.0, east=-168.0",
-    "expected": "west < east",
-    "context": "Bounding box crosses dateline",
-    "suggestion": "Consider splitting into two bounding boxes or using a different representation",
-    "timestamp": "2025-10-11T13:15:29.035955"
+    "timestamp": "2025-10-11T16:09:56.087056"
   }
 ]

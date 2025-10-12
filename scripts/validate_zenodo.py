@@ -624,6 +624,22 @@ def validate_zenodo_file(json_path: str) -> Dict[str, Any]:
     return validator.validate_file(json_path)
 
 
+def validate_zenodo_files(json_files: List[str], output_path: str = None):
+    """Validate specific JSON files."""
+    validator = ZenodoValidator()
+    
+    for json_file in json_files:
+        validator.validate_file(json_file)
+    
+    summary = validator._generate_validation_summary()
+    
+    if output_path:
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(summary, f, indent=2, ensure_ascii=False)
+    
+    return summary
+
+
 def validate_zenodo_directory(directory_path: str, output_path: str = None):
     """Validate all JSON files in a directory."""
     validator = ZenodoValidator()
@@ -635,28 +651,91 @@ def validate_zenodo_directory(directory_path: str, output_path: str = None):
     return summary
 
 
+def main():
+    """Main function for command-line usage."""
+    import argparse
+    
+    parser = argparse.ArgumentParser(
+        description="Validate Zenodo JSON metadata files"
+    )
+    parser.add_argument(
+        '--input', '-i',
+        required=True,
+        help='Input directory containing Zenodo JSON files'
+    )
+    parser.add_argument(
+        '--output', '-o',
+        required=True,
+        help='Output file for validation report JSON'
+    )
+    parser.add_argument(
+        '--limit', '-l',
+        type=int,
+        help='Limit number of files to process (for testing)'
+    )
+    parser.add_argument(
+        '--log-dir',
+        default='logs',
+        help='Directory for log files (default: logs)'
+    )
+    
+    args = parser.parse_args()
+    
+    try:
+        # Initialize logger
+        from logger import initialize_logger
+        initialize_logger(args.log_dir)
+        
+        # Validate directory
+        print(f"Validating JSON files in {args.input}...")
+        summary = validate_zenodo_directory(args.input, args.output)
+        
+        # Print summary
+        print(f"\nValidation Summary:")
+        print(f"  Total files: {summary['summary']['total_files']}")
+        print(f"  Valid files: {summary['summary']['valid_files']}")
+        print(f"  Invalid files: {summary['summary']['invalid_files']}")
+        print(f"  Validation rate: {summary['summary']['validation_rate']:.1f}%")
+        print(f"  Total issues: {summary['summary']['total_issues']}")
+        print(f"  Total warnings: {summary['summary']['total_warnings']}")
+        
+        if summary['issue_types']:
+            print(f"\nTop issues:")
+            for issue_type, count in sorted(summary['issue_types'].items(), 
+                                          key=lambda x: x[1], reverse=True)[:10]:
+                print(f"  {issue_type}: {count}")
+        
+        return 0 if summary['summary']['invalid_files'] == 0 else 1
+        
+    except Exception as e:
+        print(f"Error during validation: {e}")
+        return 1
+
+
 if __name__ == "__main__":
     import sys
     
-    if len(sys.argv) < 2:
-        print("Usage: python validate_zenodo.py <json_file_or_directory> [output_report.json]")
-        sys.exit(1)
-    
-    input_path = sys.argv[1]
-    output_path = sys.argv[2] if len(sys.argv) > 2 else None
-    
-    if os.path.isfile(input_path):
-        result = validate_zenodo_file(input_path)
-        print(f"File: {result['file']}")
-        print(f"Valid: {result['is_valid']}")
-        print(f"Message: {result['message']}")
-        if result['issues']:
-            print("Issues:")
-            for issue in result['issues']:
-                print(f"  - {issue}")
-        if result['warnings']:
-            print("Warnings:")
-            for warning in result['warnings']:
-                print(f"  - {warning}")
+    # Check for legacy usage
+    if len(sys.argv) >= 2 and not sys.argv[1].startswith('--'):
+        # Legacy usage: python validate_zenodo.py <json_file_or_directory> [output_report.json]
+        input_path = sys.argv[1]
+        output_path = sys.argv[2] if len(sys.argv) > 2 else None
+        
+        if os.path.isfile(input_path):
+            result = validate_zenodo_file(input_path)
+            print(f"File: {result['file']}")
+            print(f"Valid: {result['is_valid']}")
+            print(f"Message: {result['message']}")
+            if result['issues']:
+                print("Issues:")
+                for issue in result['issues']:
+                    print(f"  - {issue}")
+            if result['warnings']:
+                print("Warnings:")
+                for warning in result['warnings']:
+                    print(f"  - {warning}")
+        else:
+            validate_zenodo_directory(input_path, output_path)
     else:
-        validate_zenodo_directory(input_path, output_path)
+        # New usage with argparse
+        exit(main())

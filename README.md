@@ -7,17 +7,21 @@ This project transforms 4,206 FGDC XML metadata records to Zenodo JSON format an
 ```
 pices_md_2/
 ├── scripts/                    # All Python scripts
+│   ├── orchestrate_pipeline.py # 🚀 Complete pipeline orchestration (RECOMMENDED)
 │   ├── fgdc_to_zenodo.py      # Core transformation logic
 │   ├── validate_zenodo.py     # Validation script
+│   ├── pre_upload_duplicate_check.py # Pre-upload duplicate prevention
 │   ├── batch_transform.py     # Batch transformation processor
-│   ├── zenodo_api.py          # Zenodo API client
-│   ├── upload_to_zenodo.py    # Legacy upload script
-│   ├── batch_upload.py        # New batched upload system
-│   ├── test_batch_upload.py   # Test script for batch uploads
+│   ├── batch_upload.py        # Batched upload system with resume capability
 │   ├── upload_audit.py        # Audit and verification system
 │   ├── verify_uploads.py      # Post-upload verification
-│   ├── resume_upload.py       # Resume interrupted uploads
+│   ├── deduplicate_check.py   # Duplicate detection and removal
+│   ├── metrics_analysis.py    # Metrics analysis and reporting
+│   ├── enhanced_metrics.py    # Enhanced metrics calculation
+│   ├── record_review.py       # Individual record review tool
+│   ├── publish_records.py     # Publish uploaded records
 │   ├── generate_exclusion_lists.py # Generate exclusion lists
+│   ├── zenodo_api.py          # Zenodo API client
 │   └── logger.py              # Logging infrastructure
 ├── docs/                      # Documentation and reference files
 │   ├── rfq.txt               # Request for Quote document
@@ -35,6 +39,31 @@ pices_md_2/
 ```
 
 ## 🚀 Quick Start
+
+### 🎯 Recommended Approach: Use the Orchestration Pipeline
+
+The **orchestrate_pipeline.py** script provides a complete, automated pipeline that handles all aspects of the migration:
+
+```bash
+# Run complete pipeline in sandbox (recommended for testing)
+python3 scripts/orchestrate_pipeline.py --debug --limit 10
+
+# Run complete pipeline in production
+python3 scripts/orchestrate_pipeline.py --production --interactive
+
+# Resume from previous run
+python3 scripts/orchestrate_pipeline.py --resume
+```
+
+**Key Features:**
+
+- ✅ **Complete automation** - Handles all steps from transformation to verification
+- ✅ **Debug mode** - Test with minimal data and verbose output
+- ✅ **Resume capability** - Continue from where you left off
+- ✅ **Interactive mode** - Pause between steps for review
+- ✅ **Comprehensive logging** - Full audit trail of all operations
+- ✅ **Error recovery** - Graceful handling of failures
+- ✅ **State management** - Tracks progress and prevents duplicate work
 
 ### 1. Setup Environment
 
@@ -55,46 +84,146 @@ cp .env.example .env
 # Edit .env with your Zenodo API tokens
 ```
 
-### 2. Transform Metadata
+### 2. Run Complete Pipeline (Recommended)
+
+The orchestration script runs the entire migration pipeline in logical order:
 
 ```bash
-# Test with small sample
+# Run complete pipeline in sandbox (default)
+python scripts/orchestrate_pipeline.py
+
+# Run in production with interactive mode
+python scripts/orchestrate_pipeline.py --production --interactive
+
+# Test with limited files
+python scripts/orchestrate_pipeline.py --limit 10 --interactive
+
+# Resume from previous run
+python scripts/orchestrate_pipeline.py --resume
+
+# Dry run to see what would be executed
+python scripts/orchestrate_pipeline.py --dry-run
+```
+
+**Pipeline Steps:**
+
+1. **Transform** FGDC XML files to Zenodo JSON (includes validation of newly transformed files)
+2. **Pre-Upload Duplicate Check** - Check for existing records on Zenodo before upload
+3. **Upload** to Zenodo (sandbox or production) - only safe-to-upload files
+4. **Generate audit reports** and metrics
+5. **Verify uploads** and data integrity
+6. **Generate comprehensive reports**
+
+## 🚫 Duplicate Prevention
+
+### Pre-Upload Duplicate Check
+
+The pipeline now includes a **pre-upload duplicate check** that prevents uploading records that already exist on Zenodo:
+
+- **Checks existing records** on Zenodo before attempting upload
+- **Identifies duplicates** by title similarity and DOI matching
+- **Generates safe-to-upload list** containing only non-duplicate files
+- **Saves API calls** by avoiding duplicate upload attempts
+- **Prevents data pollution** in Zenodo repository
+
+```bash
+# Run pre-upload duplicate check manually
+python scripts/pre_upload_duplicate_check.py --sandbox --limit 10
+
+# The upload process automatically uses the safe-to-upload list
+python scripts/batch_upload.py --sandbox
+```
+
+**Duplicate Detection Methods:**
+
+- **Exact title match** - Identical titles (case-insensitive)
+- **Similar title detection** - Fuzzy matching for similar titles
+- **Comprehensive reporting** - Detailed duplicate analysis with existing record details
+
+**Generated Files:**
+
+- `safe_to_upload.json` - List of files safe to upload (no duplicates found)
+- `already_uploaded_to_zenodo.json` - Complete list of existing records on Zenodo for filtering
+- `pre_filter_already_uploaded.json` - Pre-filter list for transformation to skip already uploaded files
+- `pre_upload_duplicate_check_*.json` - Detailed duplicate analysis report
+
+**Pre-Filter Functionality:**
+The duplicate check now generates a pre-filter list that can be used to skip transformation of files already uploaded to the PICES community. This prevents unnecessary processing and saves time:
+
+```bash
+# The batch transform automatically uses the pre-filter list
+python scripts/batch_transform.py --input FGDC --output output --limit 100
+
+# Files with titles matching already uploaded records will be skipped
+# Check the transformation summary for "Skipped transformations" count
+```
+
+## 🐛 Debug Mode and Testing
+
+### Debug Mode Features
+
+The orchestration pipeline includes a comprehensive debug mode for testing and troubleshooting:
+
+```bash
+# Enable debug mode (automatically sets limit=5, interactive=True, verbose output)
+python3 scripts/orchestrate_pipeline.py --debug
+
+# Debug mode with dry run (see what would be executed)
+python3 scripts/orchestrate_pipeline.py --debug --dry-run
+
+# Debug specific steps
+python3 scripts/orchestrate_pipeline.py --debug --skip-upload --skip-duplicates
+```
+
+**Debug Mode Automatically:**
+
+- Sets limit to 5 files for testing
+- Enables interactive mode
+- Provides verbose output for all commands
+- Shows detailed error information
+- Validates all prerequisites
+- Creates sample .env file if missing
+
+### Testing Workflow
+
+1. **Start with debug mode:**
+
+   ```bash
+   python3 scripts/orchestrate_pipeline.py --debug --dry-run
+   ```
+
+2. **Test with small dataset:**
+
+   ```bash
+   python3 scripts/orchestrate_pipeline.py --debug --limit 10
+   ```
+
+3. **Test individual steps:**
+
+   ```bash
+   python3 scripts/orchestrate_pipeline.py --debug --skip-upload --skip-duplicates
+   ```
+
+4. **Full test run:**
+   ```bash
+   python3 scripts/orchestrate_pipeline.py --debug
+   ```
+
+### 3. Individual Script Usage (Alternative)
+
+If you prefer to run individual steps:
+
+```bash
+# Transform metadata
 python scripts/batch_transform.py FGDC output --limit 10
 
-# Transform all files
-python scripts/batch_transform.py FGDC output
-```
-
-### 3. Upload to Zenodo
-
-```bash
-# Test batch upload (5 files)
-python scripts/test_batch_upload.py
-
-# Upload in batches of 100 (recommended)
+# Upload to Zenodo
 python scripts/batch_upload.py --sandbox --batch-size 100
 
-# Upload all files in batches of 1000
-python scripts/batch_upload.py --sandbox --batch-size 1000
-```
-
-### 4. Check for Duplicates
-
-```bash
-# Check for duplicates across all sources
+# Check for duplicates
 python scripts/deduplicate_check.py --sandbox
 
-# Check specific files
-python scripts/deduplicate_check.py --sandbox --check-files FGDC-1,FGDC-2
-
-# Generate report only (no deletions)
-python scripts/deduplicate_check.py --sandbox --report-only
-```
-
-### 5. Audit Results
-
-```bash
-# Generate comprehensive audit report
+# Audit results
 python scripts/upload_audit.py --output-dir output
 ```
 
@@ -166,6 +295,188 @@ ZENODO_PRODUCTION_TOKEN=your_production_token_here
 ```
 
 ## 📋 Detailed Usage
+
+### Orchestration Script
+
+The `orchestrate_pipeline.py` script provides a comprehensive solution for running the entire migration pipeline with a single command. It handles all steps in logical order with proper error handling, progress tracking, and resume capability.
+
+#### Command Options
+
+```bash
+python scripts/orchestrate_pipeline.py [options]
+
+Environment Options:
+  --sandbox          Use Zenodo sandbox (default: True)
+  --production       Use Zenodo production (overrides --sandbox)
+
+Mode Options:
+  --interactive      Interactive mode: pause between major steps (default: False)
+  --dry-run          Show what would be done without executing
+
+Processing Options:
+  --batch-size N     Upload batch size (default: 100)
+  --limit N          Limit number of files to process (for testing)
+  --output-dir DIR   Output directory (default: output)
+
+Skip Options:
+  --skip-transform   Skip transformation step (assume already done)
+  --skip-upload      Skip upload step (assume already done)
+  --skip-validation  Skip validation step
+  --skip-duplicates  Skip duplicate checking
+  --skip-audit       Skip audit and metrics generation
+
+Resume Option:
+  --resume           Resume from last successful step
+```
+
+#### Usage Examples
+
+```bash
+# Basic usage - run complete pipeline in sandbox
+python scripts/orchestrate_pipeline.py
+
+# Production run with interactive mode (recommended for production)
+python scripts/orchestrate_pipeline.py --production --interactive
+
+# Test run with limited files
+python scripts/orchestrate_pipeline.py --limit 10 --interactive
+
+# Resume interrupted pipeline
+python scripts/orchestrate_pipeline.py --resume
+
+# Skip transformation (if already done)
+python scripts/orchestrate_pipeline.py --skip-transform
+
+# Dry run to preview commands
+python scripts/orchestrate_pipeline.py --dry-run
+
+# Custom batch size and output directory
+python scripts/orchestrate_pipeline.py --batch-size 50 --output-dir custom_output
+```
+
+#### Pipeline Steps
+
+The orchestration script runs these steps in order:
+
+1. **Prerequisites Check**
+
+   - Verifies .env file exists
+   - Checks FGDC directory
+   - Ensures output directory is writable
+   - Validates virtual environment
+
+2. **Transform** (`--skip-transform` to skip)
+
+   - Converts FGDC XML files to Zenodo JSON format
+   - Handles all 4,206 files or limited subset
+   - Generates transformation logs and metrics
+
+3. **Validate** (`--skip-validation` to skip)
+
+   - Validates transformed JSON files against Zenodo schema
+   - Generates validation report
+   - Identifies any transformation issues
+
+4. **Upload** (`--skip-upload` to skip)
+
+   - Uploads files to Zenodo (sandbox or production)
+   - Uses configurable batch sizes
+   - Handles rate limiting and error recovery
+   - Supports interactive mode for review
+
+5. **Check Duplicates** (`--skip-duplicates` to skip)
+
+   - Scans for duplicate records
+   - Compares local logs with Zenodo API
+   - Generates duplicate detection report
+
+6. **Audit** (`--skip-audit` to skip)
+
+   - Generates comprehensive upload audit
+   - Runs metrics analysis
+   - Creates enhanced metrics report
+   - Analyzes data quality and preservation
+
+7. **Verify** (always runs)
+
+   - Verifies uploads against Zenodo API
+   - Checks data integrity
+   - Validates record completeness
+
+8. **Generate Reports** (always runs)
+   - Creates comprehensive pipeline summary
+   - Generates field analysis reports
+   - Provides final statistics and recommendations
+
+#### Interactive Mode
+
+When `--interactive` is enabled, the script pauses between major steps:
+
+```
+⏸️  INTERACTIVE PAUSE: Upload files to Zenodo sandbox
+   Step: upload
+   Environment: sandbox
+   Completed steps: transform, validate
+
+   Continue? (y/n/s for skip):
+```
+
+- **y/yes**: Continue to next step
+- **n/no**: Stop pipeline and exit
+- **s/skip**: Skip current step and continue
+
+#### Resume Capability
+
+The script automatically saves progress to `output/pipeline_state_{environment}.json`. If interrupted:
+
+```bash
+# Resume from where it left off
+python scripts/orchestrate_pipeline.py --resume
+```
+
+The script will:
+
+- Load previous state
+- Skip completed steps
+- Continue from the last successful step
+- Preserve all logs and reports
+
+#### State Management
+
+The orchestration script maintains detailed state information:
+
+```json
+{
+  "start_time": "2025-01-11T12:00:00",
+  "steps_completed": ["transform", "validate", "upload"],
+  "current_step": "duplicates",
+  "errors": [],
+  "warnings": [],
+  "config": {
+    "environment": "sandbox",
+    "interactive": true,
+    "batch_size": 100
+  }
+}
+```
+
+#### Error Handling
+
+The script provides robust error handling:
+
+- **Command failures**: Logged and reported, pipeline can continue
+- **Prerequisite failures**: Pipeline stops with clear error messages
+- **User interruption**: State saved, can resume later
+- **Unexpected errors**: Full error logging and graceful exit
+
+#### Output Files
+
+The orchestration script generates:
+
+- `pipeline_state_{environment}.json` - Progress tracking
+- `pipeline_summary_{environment}.json` - Final summary
+- All standard output files from individual scripts
+- Comprehensive logs and reports
 
 ### Transformation Process
 
@@ -557,10 +868,16 @@ Focuses on **meaningful content preservation**:
    - The system processes files one at a time to minimize memory usage
 
 5. **Duplicate Records**
+
    - Run duplicate check: `python scripts/deduplicate_check.py --sandbox`
    - Review the report for title duplicates and registry mismatches
    - Use `--check-files` to verify specific files
    - The system now prevents duplicates automatically during upload
+
+6. **Pipeline Interruption**
+   - Use the orchestration script with `--resume` to continue from where it left off
+   - Check `output/pipeline_state_{environment}.json` for progress
+   - Individual scripts can be run separately if needed
 
 ### Recovery
 
@@ -570,6 +887,30 @@ If an upload is interrupted:
 # The system automatically resumes from where it left off
 python scripts/batch_upload.py --sandbox --batch-size 100
 ```
+
+## 🔄 Recent Improvements
+
+### Pipeline Orchestration
+
+- ✅ **Complete automation** - Single command runs entire migration
+- ✅ **Debug mode** - Comprehensive testing and troubleshooting
+- ✅ **Resume capability** - Continue from interruptions
+- ✅ **State management** - Tracks progress and prevents duplicate work
+- ✅ **Error recovery** - Graceful handling of failures
+
+### Code Cleanup
+
+- ✅ **Removed redundant scripts** - Consolidated functionality
+- ✅ **Standardized interfaces** - Consistent command-line arguments
+- ✅ **Enhanced logging** - Comprehensive audit trails
+- ✅ **Improved error handling** - Better error messages and recovery
+
+### Quality Assurance
+
+- ✅ **Comprehensive validation** - Multi-layer validation system
+- ✅ **Duplicate detection** - Prevents duplicate uploads
+- ✅ **Audit reporting** - Detailed analysis and metrics
+- ✅ **Verification system** - Post-upload validation
 
 ## 📈 Performance Metrics
 

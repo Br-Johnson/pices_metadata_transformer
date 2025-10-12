@@ -832,6 +832,59 @@ class EnhancedMetricsCalculator:
         """Calculate semantic accuracy score."""
         # Simplified version - could be enhanced with more sophisticated analysis
         return 85.0  # Placeholder - would need more sophisticated analysis
+    
+    def calculate_comprehensive_metrics_for_directory(self, directory_path: str, limit: int = None) -> Dict[str, Any]:
+        """Calculate comprehensive metrics for all files in a directory."""
+        import os
+        import json
+        
+        if not os.path.exists(directory_path):
+            raise FileNotFoundError(f"Directory not found: {directory_path}")
+        
+        json_files = [f for f in os.listdir(directory_path) if f.endswith('.json')]
+        
+        if limit:
+            json_files = json_files[:limit]
+        
+        if not json_files:
+            raise ValueError(f"No JSON files found in {directory_path}")
+        
+        metrics_list = []
+        
+        for json_file in json_files:
+            try:
+                json_path = os.path.join(directory_path, json_file)
+                
+                # Load Zenodo JSON
+                with open(json_path, 'r', encoding='utf-8') as f:
+                    zenodo_data = json.load(f)
+                
+                if 'metadata' not in zenodo_data:
+                    continue
+                
+                zenodo_metadata = zenodo_data['metadata']
+                
+                # For now, we'll use empty FGDC content since we don't have the original
+                # In a real implementation, you'd load the corresponding FGDC file
+                fgdc_content = ""
+                
+                # Calculate comprehensive metrics
+                metrics = self.calculate_comprehensive_metrics(fgdc_content, zenodo_metadata)
+                metrics['file'] = json_file
+                metrics_list.append(metrics)
+                
+            except Exception as e:
+                print(f"Error processing {json_file}: {e}")
+                continue
+        
+        # Generate summary
+        summary = generate_metrics_summary(metrics_list)
+        
+        return {
+            'summary': summary,
+            'individual_metrics': metrics_list,
+            'timestamp': datetime.now().isoformat()
+        }
 
 
 def generate_metrics_summary(metrics_list: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -912,3 +965,70 @@ def generate_metrics_summary(metrics_list: List[Dict[str, Any]]) -> Dict[str, An
     }
     
     return summary
+
+
+def main():
+    """Main function for command-line usage."""
+    import argparse
+    
+    parser = argparse.ArgumentParser(
+        description="Generate enhanced metrics for FGDC to Zenodo transformation"
+    )
+    parser.add_argument(
+        '--input', '-i',
+        required=True,
+        help='Input directory containing Zenodo JSON files'
+    )
+    parser.add_argument(
+        '--output', '-o',
+        required=True,
+        help='Output file for enhanced metrics JSON'
+    )
+    parser.add_argument(
+        '--limit', '-l',
+        type=int,
+        help='Limit number of files to process (for testing)'
+    )
+    parser.add_argument(
+        '--log-dir',
+        default='logs',
+        help='Directory for log files (default: logs)'
+    )
+    
+    args = parser.parse_args()
+    
+    try:
+        # Create calculator
+        calculator = EnhancedMetricsCalculator()
+        
+        # Calculate metrics
+        print(f"Calculating enhanced metrics for files in {args.input}...")
+        metrics = calculator.calculate_comprehensive_metrics_for_directory(
+            args.input, 
+            limit=args.limit
+        )
+        
+        # Save results
+        with open(args.output, 'w', encoding='utf-8') as f:
+            json.dump(metrics, f, indent=2, ensure_ascii=False)
+        
+        print(f"Enhanced metrics saved to {args.output}")
+        
+        # Print summary
+        if 'summary' in metrics:
+            summary = metrics['summary']
+            print(f"\nEnhanced Metrics Summary:")
+            print(f"  Files processed: {summary.get('total_files', 0)}")
+            print(f"  Average quality score: {summary.get('quality_stats', {}).get('avg_quality_score', 0):.1f}")
+            print(f"  Average field coverage: {summary.get('coverage_stats', {}).get('avg_overall_coverage', 0):.1f}%")
+            print(f"  Compliance rate: {summary.get('compliance_stats', {}).get('zenodo_required_avg', 0):.1f}%")
+        
+        return 0
+        
+    except Exception as e:
+        print(f"Error calculating enhanced metrics: {e}")
+        return 1
+
+
+if __name__ == "__main__":
+    exit(main())

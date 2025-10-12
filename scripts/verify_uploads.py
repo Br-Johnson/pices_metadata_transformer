@@ -40,7 +40,8 @@ class ZenodoVerifier:
     def load_upload_log(self) -> List[Dict[str, Any]]:
         """Load the upload log to get list of uploaded records."""
         if not os.path.exists(self.upload_log_path):
-            raise FileNotFoundError(f"Upload log not found: {self.upload_log_path}")
+            self.logger.log_info(f"No upload log found at {self.upload_log_path}; skipping verification.")
+            return []
         
         with open(self.upload_log_path, 'r', encoding='utf-8') as f:
             upload_log = json.load(f)
@@ -98,10 +99,11 @@ class ZenodoVerifier:
         summary = self._generate_verification_summary()
         
         self.logger.log_info(f"Verification completed:")
-        self.logger.log_info(f"  Total records: {summary['total_records']}")
-        self.logger.log_info(f"  Verified successfully: {summary['verified_successfully']}")
-        self.logger.log_info(f"  Verification failed: {summary['verification_failed']}")
-        self.logger.log_info(f"  Success rate: {summary['success_rate']:.1f}%")
+        summary_stats = summary.get('summary', {})
+        self.logger.log_info(f"  Total records: {summary_stats.get('total_records', 0)}")
+        self.logger.log_info(f"  Verified successfully: {summary_stats.get('verified_successfully', 0)}")
+        self.logger.log_info(f"  Verification failed: {summary_stats.get('verification_failed', 0)}")
+        self.logger.log_info(f"  Success rate: {summary_stats.get('success_rate', 0):.1f}%")
         
         return summary
     

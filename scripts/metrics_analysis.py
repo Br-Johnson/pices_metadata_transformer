@@ -392,11 +392,16 @@ def main():
         '--report-file',
         help='Custom report file path (requires --save-report)'
     )
+    parser.add_argument(
+        '--log-dir',
+        default='logs',
+        help='Directory for log files (default: logs)'
+    )
     
     args = parser.parse_args()
     
     # Initialize logger
-    initialize_logger(os.path.join(args.output_dir, 'logs'))
+    initialize_logger(args.log_dir)
     
     try:
         # Create analyzer

@@ -17,7 +17,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.fgdc_to_zenodo import transform_fgdc_file
 from scripts.logger import initialize_logger, get_logger
-from scripts.validate_zenodo import validate_zenodo_directory, validate_zenodo_file
+from scripts.validate_zenodo import validate_zenodo_directory, validate_zenodo_files
 
 
 class BatchTransformer:
@@ -50,18 +50,80 @@ class BatchTransformer:
         self.logger.log_info(f"Discovered {len(xml_files)} XML files in {self.input_dir}")
         return xml_files
     
+    def load_pre_filter_list(self) -> set:
+        """Load pre-filter list of already uploaded titles to skip transformation."""
+        pre_filter_path = os.path.join(self.output_dir, "pre_filter_already_uploaded.json")
+        
+        if not os.path.exists(pre_filter_path):
+            self.logger.log_info("No pre-filter list found - will process all files")
+            return set()
+        
+        try:
+            with open(pre_filter_path, 'r', encoding='utf-8') as f:
+                pre_filter_data = json.load(f)
+            
+            already_uploaded_titles = set(pre_filter_data.get('already_uploaded_titles', []))
+            total_records = pre_filter_data.get('total_records', 0)
+            environment = pre_filter_data.get('environment', 'unknown')
+            
+            self.logger.log_info(f"Loaded pre-filter list: {total_records} already uploaded titles from {environment} environment")
+            return already_uploaded_titles
+            
+        except Exception as e:
+            self.logger.log_error("batch_transform", "load_pre_filter", "load_failed", str(e), "Successful pre-filter loading", "Check pre-filter file format")
+            return set()
+    
+    def should_skip_file(self, xml_file: str, already_uploaded_titles: set) -> bool:
+        """Check if a file should be skipped based on pre-filter list."""
+        if not already_uploaded_titles:
+            return False
+        
+        try:
+            # Load the XML file and extract title
+            import xml.etree.ElementTree as ET
+            tree = ET.parse(xml_file)
+            root = tree.getroot()
+            
+            # Find the title element (assuming FGDC format)
+            title_elem = root.find('.//title')
+            if title_elem is not None and title_elem.text:
+                title = title_elem.text.strip().lower()
+                if title in already_uploaded_titles:
+                    return True
+            
+            return False
+            
+        except Exception as e:
+            # If we can't parse the file, don't skip it
+            self.logger.log_error("batch_transform", "check_skip", "parse_error", str(e), "Successful file parsing", f"Could not parse {xml_file} for pre-filtering")
+            return False
+    
     def transform_files(self, xml_files: List[str], limit: int = None) -> Dict[str, Any]:
         """Transform XML files to Zenodo JSON format."""
         if limit:
             xml_files = xml_files[:limit]
             self.logger.log_info(f"Processing limited to {limit} files")
         
+        # Load pre-filter list to skip already uploaded files
+        already_uploaded_titles = self.load_pre_filter_list()
+        
         successful_transforms = 0
         failed_transforms = 0
+        skipped_transforms = 0
         files_processed = []
+        newly_transformed_files = []  # Track newly transformed files for validation
         
         # Process files with progress bar
         for xml_file in tqdm(xml_files, desc="Transforming FGDC files"):
+            # Check if file should be skipped based on pre-filter
+            if self.should_skip_file(xml_file, already_uploaded_titles):
+                skipped_transforms += 1
+                files_processed.append({
+                    'xml_file': xml_file,
+                    'status': 'skipped',
+                    'reason': 'Already uploaded to Zenodo'
+                })
+                continue
             try:
                 # Get base filename
                 base_name = os.path.splitext(os.path.basename(xml_file))[0]
@@ -71,15 +133,27 @@ class BatchTransformer:
                 result = transform_fgdc_file(xml_file)
                 
                 if result:
-                    # Save transformed JSON
-                    with open(json_file, 'w', encoding='utf-8') as f:
-                        json.dump(result, f, indent=2, ensure_ascii=False)
-                    
                     # Copy original FGDC XML for upload
                     original_copy = os.path.join(self.original_fgdc_dir, os.path.basename(xml_file))
                     shutil.copy2(xml_file, original_copy)
                     
+                    # Ensure files array includes original FGDC for Zenodo attachments
+                    files_entry = {
+                        'path': original_copy,
+                        'description': 'Original FGDC metadata XML',
+                        'type': 'fgdc_xml'
+                    }
+                    if isinstance(result.get('files'), list):
+                        result['files'].append(files_entry)
+                    else:
+                        result['files'] = [files_entry]
+                    
+                    # Save transformed JSON
+                    with open(json_file, 'w', encoding='utf-8') as f:
+                        json.dump(result, f, indent=2, ensure_ascii=False)
+                    
                     successful_transforms += 1
+                    newly_transformed_files.append(json_file)  # Track for validation
                     files_processed.append({
                         'xml_file': xml_file,
                         'json_file': json_file,
@@ -154,8 +228,10 @@ class BatchTransformer:
             'total_files': len(xml_files),
             'successful_transforms': successful_transforms,
             'failed_transforms': failed_transforms,
+            'skipped_transforms': skipped_transforms,
             'success_rate': (successful_transforms / len(xml_files) * 100) if xml_files else 0,
             'files_processed': files_processed,
+            'newly_transformed_files': newly_transformed_files,
             'timestamp': datetime.now().isoformat()
         }
         
@@ -163,6 +239,7 @@ class BatchTransformer:
         self.logger.log_info(f"  Total files: {summary['total_files']}")
         self.logger.log_info(f"  Successful: {summary['successful_transforms']}")
         self.logger.log_info(f"  Failed: {summary['failed_transforms']}")
+        self.logger.log_info(f"  Skipped: {summary['skipped_transforms']}")
         self.logger.log_info(f"  Success rate: {summary['success_rate']:.1f}%")
         
         return summary
@@ -189,15 +266,25 @@ class BatchTransformer:
         
         return fields
     
-    def validate_transformations(self) -> Dict[str, Any]:
-        """Validate all transformed JSON files."""
+    def validate_transformations(self, transformed_files: List[str] = None) -> Dict[str, Any]:
+        """Validate transformed JSON files."""
         self.logger.log_info("Starting validation of transformed files...")
         
         try:
-            validation_summary = validate_zenodo_directory(
-                self.zenodo_json_dir, 
-                self.validation_report_path
-            )
+            if transformed_files:
+                # Validate only the newly transformed files
+                self.logger.log_info(f"Validating {len(transformed_files)} newly transformed files")
+                validation_summary = validate_zenodo_files(
+                    transformed_files, 
+                    self.validation_report_path
+                )
+            else:
+                # Validate all files (legacy behavior)
+                self.logger.log_info("Validating all JSON files in directory")
+                validation_summary = validate_zenodo_directory(
+                    self.zenodo_json_dir, 
+                    self.validation_report_path
+                )
             
             self.logger.log_info("Validation completed successfully")
             return validation_summary
@@ -223,6 +310,7 @@ class BatchTransformer:
         report_lines.append(f"  Total files processed: {transform_summary['total_files']}")
         report_lines.append(f"  Successful transformations: {transform_summary['successful_transforms']}")
         report_lines.append(f"  Failed transformations: {transform_summary['failed_transforms']}")
+        report_lines.append(f"  Skipped transformations: {transform_summary.get('skipped_transforms', 0)}")
         report_lines.append(f"  Success rate: {transform_summary['success_rate']:.1f}%")
         report_lines.append("")
         
@@ -327,7 +415,9 @@ def main():
         # Validate transformations
         validation_summary = None
         if not args.skip_validation:
-            validation_summary = transformer.validate_transformations()
+            # Pass only the newly transformed files for validation
+            newly_transformed_files = transform_summary.get('newly_transformed_files', [])
+            validation_summary = transformer.validate_transformations(newly_transformed_files)
         
         # Generate summary report
         summary_report = transformer.generate_summary_report(
