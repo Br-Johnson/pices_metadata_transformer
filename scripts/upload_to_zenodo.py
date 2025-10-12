@@ -29,8 +29,8 @@ class ZenodoUploader:
         self.client = None
         
         # File paths - use transformed directory for the main files
-        self.zenodo_json_dir = os.path.join('transformed', 'zenodo_json')
-        self.original_fgdc_dir = os.path.join('transformed', 'original_fgdc')
+        self.zenodo_json_dir = os.path.join(self.output_dir, 'zenodo_json')
+        self.original_fgdc_dir = os.path.join(self.output_dir, 'original_fgdc')
         self.upload_log_path = os.path.join(output_dir, 'upload_log.json')
         self.upload_errors_path = os.path.join(output_dir, 'upload_errors.json')
         
@@ -48,6 +48,12 @@ class ZenodoUploader:
     
     def discover_json_files(self) -> List[str]:
         """Discover all JSON files in the output directory."""
+        if not os.path.isdir(self.zenodo_json_dir):
+            raise FileNotFoundError(
+                f"Zenodo JSON directory not found: {self.zenodo_json_dir}. "
+                "Run the transformation pipeline or update --output to the correct path."
+            )
+
         json_pattern = os.path.join(self.zenodo_json_dir, '*.json')
         json_files = glob.glob(json_pattern)
         
@@ -113,6 +119,12 @@ class ZenodoUploader:
     def _upload_single_file(self, json_file: str) -> Dict[str, Any]:
         """Upload a single JSON file to Zenodo."""
         try:
+            if not os.path.isdir(self.original_fgdc_dir):
+                raise FileNotFoundError(
+                    f"Original FGDC directory not found: {self.original_fgdc_dir}. "
+                    "Ensure transformed FGDC copies exist under the selected output directory."
+                )
+
             # Load JSON data
             with open(json_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
