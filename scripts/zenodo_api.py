@@ -330,14 +330,29 @@ class ZenodoAPIClient:
         response = self._make_request('GET', 'deposit/depositions', params=params)
         return response.json()
     
-    def get_all_my_depositions(self) -> List[Dict[str, Any]]:
-        """Get all depositions for the authenticated user."""
+    def get_all_my_depositions(
+        self,
+        query: Optional[str] = None,
+        modified_since: Optional[datetime] = None,
+        page_size: int = 100,
+    ) -> List[Dict[str, Any]]:
+        """Get depositions for the authenticated user, optionally filtered by query or modification date."""
         all_depositions = []
         page = 1
-        size = 100
+        
+        base_query = query or ""
+        if modified_since:
+            since_str = modified_since.strftime("%Y-%m-%dT%H:%M:%SZ")
+            time_clause = f'modified:[{since_str} TO *]'
+            base_query = f"{base_query} AND {time_clause}" if base_query else time_clause
+        
+        base_params = {}
+        if base_query:
+            base_params["q"] = base_query
         
         while True:
-            params = {'page': page, 'size': size}
+            params = {'page': page, 'size': page_size}
+            params.update(base_params)
             response = self._make_request('GET', 'deposit/depositions', params=params)
             depositions = response.json()
             
@@ -347,7 +362,7 @@ class ZenodoAPIClient:
             all_depositions.extend(depositions)
             
             # If we got fewer than size results, we're on the last page
-            if len(depositions) < size:
+            if len(depositions) < page_size:
                 break
                 
             page += 1

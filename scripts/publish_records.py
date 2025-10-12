@@ -15,6 +15,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
+from scripts.path_config import OutputPaths, default_log_dir
 
 
 class RecordPublisher:
@@ -23,15 +24,16 @@ class RecordPublisher:
     def __init__(self, sandbox: bool = True, output_dir: str = "output"):
         self.sandbox = sandbox
         self.output_dir = output_dir
+        self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
         
         # Initialize Zenodo client
         self.client = create_zenodo_client(sandbox)
         
         # File paths
-        self.upload_log_path = os.path.join(output_dir, 'upload_log.json')
-        self.publish_log_path = os.path.join(output_dir, 'publish_log.json')
-        self.publish_errors_path = os.path.join(output_dir, 'publish_errors.json')
+        self.upload_log_path = self.paths.upload_log_path
+        self.publish_log_path = self.paths.publish_log_path
+        self.publish_errors_path = self.paths.publish_errors_path
         
         # Publishing tracking
         self.publish_log = []
@@ -50,7 +52,7 @@ class RecordPublisher:
         """Load the upload log to get list of uploaded records."""
         # First try to find the most recent batch upload log
         import glob
-        batch_logs = glob.glob(os.path.join(self.output_dir, 'batch_upload_log_*.json'))
+        batch_logs = glob.glob(os.path.join(self.paths.upload_reports_dir, 'batch_upload_log_*.json'))
         
         if batch_logs:
             # Sort by modification time and get the most recent
@@ -233,7 +235,7 @@ class RecordPublisher:
             
             # Look for FGDC file in multiple possible locations
             possible_paths = [
-                os.path.join('output', 'original_fgdc', f"{base_name}.xml"),
+                os.path.join(self.paths.original_fgdc_dir, f"{base_name}.xml"),
                 os.path.join('FGDC', f"{base_name}.xml"),
                 os.path.join('transformed', 'original_fgdc', f"{base_name}.xml")
             ]
@@ -254,7 +256,15 @@ class RecordPublisher:
             return True
             
         except Exception as e:
-            self.logger.log_warning(f"Failed to upload FGDC file for {base_name}: {str(e)}")
+            self.logger.log_warning(
+                json_file,
+                "fgdc_attachment",
+                "fgdc_upload_failed",
+                str(e),
+                "FGDC companion file uploaded alongside Zenodo metadata",
+                f"Attempted FGDC path: {fgdc_file}" if fgdc_file else "FGDC path resolution failed",
+                "Verify FGDC file availability and retry upload"
+            )
             return False
     
     def _mark_as_metadata_only(self, deposition_id: int):
@@ -272,7 +282,15 @@ class RecordPublisher:
             self.logger.log_info(f"Marked deposition {deposition_id} as metadata-only")
             
         except Exception as e:
-            self.logger.log_error(f"Failed to mark deposition {deposition_id} as metadata-only: {str(e)}")
+            self.logger.log_error(
+                f"deposition_{deposition_id}",
+                "metadata_update",
+                "metadata_only_toggle_failed",
+                str(e),
+                "Deposition metadata updated with files.disabled flag",
+                "Zenodo deposition API rejected metadata update",
+                "Inspect deposition state and retry once client connectivity is restored"
+            )
             raise
     
     def _save_publish_results(self):
@@ -387,7 +405,7 @@ def main():
     sandbox = not args.production
     
     # Initialize logging
-    initialize_logger()
+    initialize_logger(default_log_dir("publish"))
     logger = get_logger()
     
     try:

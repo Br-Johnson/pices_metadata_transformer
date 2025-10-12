@@ -15,6 +15,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
+from scripts.path_config import OutputPaths, default_log_dir
 
 
 class RecordReviewer:
@@ -23,17 +24,18 @@ class RecordReviewer:
     def __init__(self, output_dir: str = "output", logs_dir: str = "logs"):
         self.output_dir = output_dir
         self.logs_dir = logs_dir
+        self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
         
         # File paths
         self.fgdc_dir = "FGDC"
-        self.original_fgdc_dir = os.path.join(output_dir, "original_fgdc")
-        self.zenodo_json_dir = os.path.join(output_dir, "zenodo_json")
-        self.upload_log_path = os.path.join(output_dir, "upload_log.json")
-        self.registry_path = os.path.join(output_dir, "uploads_registry.json")
+        self.original_fgdc_dir = self.paths.original_fgdc_dir
+        self.zenodo_json_dir = self.paths.zenodo_json_dir
+        self.upload_log_path = self.paths.upload_log_path
+        self.registry_path = self.paths.uploads_registry_path
         self.warnings_path = os.path.join(logs_dir, "warnings.json")
         self.errors_path = os.path.join(logs_dir, "errors.json")
-        self.validation_report_path = os.path.join(output_dir, "validation_report.json")
+        self.validation_report_path = self.paths.validation_report_path
     
     def review_record(self, record_id: str, check_zenodo: bool = False, 
                      sandbox: bool = True) -> Dict[str, Any]:
@@ -598,10 +600,11 @@ def main():
         default='output',
         help='Output directory (default: output)'
     )
+    default_logs = default_log_dir("review")
     parser.add_argument(
         '--logs-dir',
-        default='logs',
-        help='Logs directory (default: logs)'
+        default=default_logs,
+        help=f'Logs directory (default: {default_logs})'
     )
     
     args = parser.parse_args()

@@ -1,0 +1,33 @@
+=== FGDC to Zenodo Transformation Analysis ===
+Run ID: run_20251011_131355
+Date: 2025-10-11 13:13:55
+
+TOP 10 ISSUES:
+1. [2 files] dateline_crossing
+   Files: FGDC/FGDC-10.xml, FGDC/FGDC-100.xml
+   Fix: Consider splitting into two bounding boxes or using a different representation
+
+2. [1 files] invalid_license_detected
+   Files: FGDC/FGDC-100.xml
+
+FIELD COVERAGE:
+- access_right: 100.0% (3/3)
+- communities: 100.0% (3/3)
+- contributors: 100.0% (3/3)
+- creators: 100.0% (3/3)
+- description: 100.0% (3/3)
+- keywords: 100.0% (3/3)
+- license: 100.0% (3/3)
+- notes: 100.0% (3/3)
+- publication_date: 100.0% (3/3)
+- subjects: 66.7% (2/3) [1 missing]
+- title: 100.0% (3/3)
+- upload_type: 100.0% (3/3)
+
+SUMMARY:
+- Total files: 3
+- Successful: 3
+- Failed: 0
+- Warnings: 3
+- Errors: 0
+- License detection rate: 1/3

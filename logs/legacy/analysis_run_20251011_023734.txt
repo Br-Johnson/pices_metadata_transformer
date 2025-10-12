@@ -1,0 +1,57 @@
+=== FGDC to Zenodo Transformation Analysis ===
+Run ID: run_20251011_023734
+Date: 2025-10-11 02:37:34
+
+TOP 10 ISSUES:
+1. [1141 files] vague_date
+   Files: FGDC/FGDC-103.xml, FGDC/FGDC-1057.xml, FGDC/FGDC-120.xml
+   Fix: Use metadata date or current date as fallback
+
+2. [953 files] missing_publication_date
+   Files: FGDC/FGDC-1094.xml, FGDC/FGDC-1095.xml, FGDC/FGDC-112.xml
+   Fix: Add publication date to citation section
+
+3. [349 files] dateline_crossing
+   Files: FGDC/FGDC-10.xml, FGDC/FGDC-100.xml, FGDC/FGDC-102.xml
+   Fix: Consider splitting into two bounding boxes or using a different representation
+
+4. [232 files] transformation_failed
+
+5. [231 files] missing_required_field
+
+6. [137 files] complex_date_range
+   Files: FGDC/FGDC-1007.xml, FGDC/FGDC-1018.xml, FGDC/FGDC-1029.xml
+   Fix: Using first year 1972 from range
+
+7. [71 files] date_range
+   Files: FGDC/FGDC-101.xml, FGDC/FGDC-113.xml, FGDC/FGDC-124.xml
+   Fix: Using first year 1988 from range
+
+8. [47 files] invalid_date_format
+
+9. [47 files] unparseable_creator_name
+   Files: FGDC/FGDC-1278.xml, FGDC/FGDC-1282.xml, FGDC/FGDC-152.xml
+   Fix: Review name format or add organization detection
+
+10. [1 files] parse_error
+
+FIELD COVERAGE:
+- access_right: 88.3% (1767/2000) [233 missing]
+- communities: 88.3% (1767/2000) [233 missing]
+- contributors: 88.3% (1767/2000) [233 missing]
+- creators: 88.3% (1767/2000) [233 missing]
+- description: 88.3% (1767/2000) [233 missing]
+- keywords: 88.3% (1767/2000) [233 missing]
+- license: 88.3% (1767/2000) [233 missing]
+- notes: 88.3% (1767/2000) [233 missing]
+- publication_date: 88.3% (1767/2000) [233 missing]
+- title: 88.3% (1767/2000) [233 missing]
+- upload_type: 88.3% (1767/2000) [233 missing]
+
+SUMMARY:
+- Total files: 2000
+- Successful: 1767
+- Failed: 233
+- Warnings: 2698
+- Errors: 512
+- License detection rate: 9/2000

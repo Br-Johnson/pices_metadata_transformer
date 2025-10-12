@@ -16,20 +16,28 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # ZenodoUploader functionality is now integrated into this script
 from scripts.zenodo_api import create_zenodo_client
+from scripts.path_config import OutputPaths, default_log_dir
 
 class BatchUploader:
     """Handles batched uploads with proper resource management and error recovery."""
     
     def __init__(self, output_dir: str = "output", sandbox: bool = True, batch_size: int = 1000, limit: Optional[int] = None, interactive: bool = False):
         self.output_dir = output_dir
+        self.paths = OutputPaths(output_dir)
         self.sandbox = sandbox
         self.batch_size = batch_size
         self.limit = limit
         self.interactive = interactive
         self.shutdown_requested = False
-        self.batch_log_file = os.path.join(output_dir, f"batch_upload_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
-        self.batch_errors_file = os.path.join(output_dir, f"batch_upload_errors_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
-        self.upload_log_path = os.path.join(output_dir, "upload_log.json")
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        self.batch_log_file = self.paths.upload_batch_log_path(timestamp)
+        self.batch_errors_file = self.paths.upload_batch_errors_path(timestamp)
+        self.upload_log_path = self.paths.upload_log_path
+        self.safe_to_upload_path = self.paths.safe_to_upload_path
+        self.uploads_registry_path = self.paths.uploads_registry_path
+        self.zenodo_json_dir = self.paths.zenodo_json_dir
+        self.original_fgdc_dir = self.paths.original_fgdc_dir
+        self.upload_reports_dir = self.paths.upload_reports_dir
         
         # Track progress across batches
         self.total_uploaded = 0
@@ -99,7 +107,7 @@ class BatchUploader:
     def get_remaining_files(self) -> List[str]:
         """Get list of files that haven't been uploaded yet."""
         # First, check if we have a safe-to-upload list from pre-upload duplicate check
-        safe_files_path = os.path.join(self.output_dir, "safe_to_upload.json")
+        safe_files_path = self.safe_to_upload_path
         if os.path.exists(safe_files_path):
             print("📋 Using safe-to-upload list from pre-upload duplicate check...")
             try:
@@ -109,7 +117,7 @@ class BatchUploader:
                 # Convert to full paths
                 safe_json_files = []
                 for filename in safe_files:
-                    full_path = os.path.join(self.output_dir, "zenodo_json", filename)
+                    full_path = os.path.join(self.zenodo_json_dir, filename)
                     if os.path.exists(full_path):
                         safe_json_files.append(full_path)
                 
@@ -120,23 +128,22 @@ class BatchUploader:
                 print(f"⚠️  Could not load safe-to-upload list: {e}")
                 print("   Falling back to checking all files...")
                 # Fall back to getting all JSON files
-                json_pattern = os.path.join(self.output_dir, "zenodo_json/*.json")
+                json_pattern = os.path.join(self.zenodo_json_dir, "*.json")
                 all_json_files = glob.glob(json_pattern)
                 all_json_files.sort()
         else:
             print("⚠️  No safe-to-upload list found. Checking all files...")
             print("   Consider running pre-upload duplicate check first.")
             # Get all JSON files
-            json_pattern = os.path.join(self.output_dir, "zenodo_json/*.json")
+            json_pattern = os.path.join(self.zenodo_json_dir, "*.json")
             all_json_files = glob.glob(json_pattern)
             all_json_files.sort()
         
         # Get already uploaded files from centralized registry first
         uploaded_files = set()
-        registry_path = os.path.join(self.output_dir, 'uploads_registry.json')
-        if os.path.exists(registry_path):
+        if os.path.exists(self.uploads_registry_path):
             try:
-                with open(registry_path, 'r') as f:
+                with open(self.uploads_registry_path, 'r') as f:
                     registry = json.load(f)
                     for filename, entry in registry.items():
                         if entry.get('upload_status') == 'success':
@@ -145,7 +152,7 @@ class BatchUploader:
                 print(f"Warning: Could not load registry: {e}")
         
         # Get already uploaded files from all batch logs
-        for log_file in glob.glob(os.path.join(self.output_dir, "batch_upload_log_*.json")):
+        for log_file in glob.glob(os.path.join(self.upload_reports_dir, "batch_upload_log_*.json")):
             if os.path.exists(log_file):
                 try:
                     with open(log_file, 'r') as f:
@@ -167,10 +174,9 @@ class BatchUploader:
                     print(f"Warning: Could not load batch log {log_file}: {e}")
         
         # Get already uploaded files from legacy upload log
-        legacy_log_path = os.path.join(self.output_dir, 'upload_log.json')
-        if os.path.exists(legacy_log_path):
+        if os.path.exists(self.upload_log_path):
             try:
-                with open(legacy_log_path, 'r') as f:
+                with open(self.upload_log_path, 'r') as f:
                     legacy_data = json.load(f)
                     if isinstance(legacy_data, list):
                         for upload in legacy_data:
@@ -277,7 +283,7 @@ class BatchUploader:
     
     def _update_registry(self, upload_result: Dict[str, Any], batch_number: Optional[int] = None):
         """Update centralized uploads registry."""
-        registry_path = os.path.join(self.output_dir, 'uploads_registry.json')
+        registry_path = self.uploads_registry_path
         
         # Load existing registry
         registry = {}
@@ -344,10 +350,9 @@ class BatchUploader:
         print(f"  Error log: {self.batch_errors_file}")
         
         # Show registry status
-        registry_path = os.path.join(self.output_dir, 'uploads_registry.json')
-        if os.path.exists(registry_path):
+        if os.path.exists(self.uploads_registry_path):
             try:
-                with open(registry_path, 'r') as f:
+                with open(self.uploads_registry_path, 'r') as f:
                     registry = json.load(f)
                     total_entries = registry.get('_metadata', {}).get('total_entries', 0)
                     print(f"  Registry entries: {total_entries}")
@@ -483,7 +488,7 @@ class BatchUploader:
                 print(f"  Error reading error log: {e}")
         
         # Display registry summary
-        registry_path = os.path.join(self.output_dir, 'uploads_registry.json')
+        registry_path = self.uploads_registry_path
         if os.path.exists(registry_path):
             try:
                 with open(registry_path, 'r') as f:
@@ -521,7 +526,7 @@ class BatchUploader:
         # Derive the copied FGDC path if it exists
         fgdc_path = None
         base_name = os.path.splitext(os.path.basename(json_path))[0]
-        candidate_fgdc = os.path.join(self.output_dir, 'original_fgdc', f"{base_name}.xml")
+        candidate_fgdc = os.path.join(self.original_fgdc_dir, f"{base_name}.xml")
         if os.path.exists(candidate_fgdc):
             fgdc_path = candidate_fgdc
         

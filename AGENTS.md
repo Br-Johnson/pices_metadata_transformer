@@ -29,6 +29,7 @@
 - **Test with small samples** using `--limit 10`
 - **Review transformation results** in `output/zenodo_json/`
 - **Check validation reports** in `output/validation_report.json`
+- **Consult the active checklist** in `docs/todo_list.md` and update it before and after each significant action
 
 ### During Processing
 
@@ -52,6 +53,7 @@
 - **Add new validation rules** when you discover new issues
 - **Comment complex transformations** with reasoning
 - **Update README.md** if you change command-line options
+- **Keep documentation current** - update `docs/todo_list.md` alongside code/operational changes so the plan reflects actual state
 
 ## Common Issues and Solutions
 

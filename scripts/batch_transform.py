@@ -17,7 +17,12 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.fgdc_to_zenodo import transform_fgdc_file
 from scripts.logger import initialize_logger, get_logger
-from scripts.validate_zenodo import validate_zenodo_directory, validate_zenodo_files
+from scripts.path_config import OutputPaths, default_log_dir
+from scripts.validate_zenodo import (
+    validate_zenodo_directory,
+    validate_zenodo_files,
+    validate_zenodo_file,
+)
 
 
 class BatchTransformer:
@@ -26,15 +31,13 @@ class BatchTransformer:
     def __init__(self, input_dir: str, output_dir: str):
         self.input_dir = input_dir
         self.output_dir = output_dir
+        self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
         
         # Create output directories
-        self.zenodo_json_dir = os.path.join(output_dir, 'zenodo_json')
-        self.original_fgdc_dir = os.path.join(output_dir, 'original_fgdc')
-        self.validation_report_path = os.path.join(output_dir, 'validation_report.json')
-        
-        os.makedirs(self.zenodo_json_dir, exist_ok=True)
-        os.makedirs(self.original_fgdc_dir, exist_ok=True)
+        self.zenodo_json_dir = self.paths.zenodo_json_dir
+        self.original_fgdc_dir = self.paths.original_fgdc_dir
+        self.validation_report_path = self.paths.validation_report_path
     
     def discover_xml_files(self) -> List[str]:
         """Discover all XML files in the input directory."""
@@ -52,7 +55,7 @@ class BatchTransformer:
     
     def load_pre_filter_list(self) -> set:
         """Load pre-filter list of already uploaded titles to skip transformation."""
-        pre_filter_path = os.path.join(self.output_dir, "pre_filter_already_uploaded.json")
+        pre_filter_path = self.paths.pre_filter_path
         
         if not os.path.exists(pre_filter_path):
             self.logger.log_info("No pre-filter list found - will process all files")
@@ -179,7 +182,15 @@ class BatchTransformer:
                         if not character_analysis:
                             character_analysis = validation_result.get('character_analysis', {})
                     except Exception as e:
-                        self.logger.log_warning(f"Could not get detailed analysis for {xml_file}: {e}")
+                        self.logger.log_warning(
+                            xml_file,
+                            "validation",
+                            "analysis_unavailable",
+                            str(e),
+                            "Detailed validation metrics captured",
+                            "Validation step could not provide enhanced coverage",
+                            "Inspect validation logs to restore enhanced metrics"
+                        )
                     
                     self.logger.record_file_processed(
                         os.path.basename(xml_file), True, fields_present, [],
@@ -222,7 +233,22 @@ class BatchTransformer:
         
         # Finalize logging
         self.logger.finalize()
-        
+
+        warnings_by_type: Dict[str, int] = {}
+        for warning in self.logger.warnings:
+            issue = warning.get('issue_type', 'unknown')
+            warnings_by_type[issue] = warnings_by_type.get(issue, 0) + 1
+
+        errors_by_type: Dict[str, int] = {}
+        for error in self.logger.errors:
+            issue = error.get('issue_type', 'unknown')
+            errors_by_type[issue] = errors_by_type.get(issue, 0) + 1
+
+        failed_files = [
+            file_info for file_info in files_processed
+            if file_info.get('status') not in ('success', 'skipped')
+        ]
+
         # Generate summary
         summary = {
             'total_files': len(xml_files),
@@ -231,6 +257,9 @@ class BatchTransformer:
             'skipped_transforms': skipped_transforms,
             'success_rate': (successful_transforms / len(xml_files) * 100) if xml_files else 0,
             'files_processed': files_processed,
+            'warnings_by_type': warnings_by_type,
+            'errors_by_type': errors_by_type,
+            'failed_files': failed_files,
             'newly_transformed_files': newly_transformed_files,
             'timestamp': datetime.now().isoformat()
         }
@@ -313,7 +342,34 @@ class BatchTransformer:
         report_lines.append(f"  Skipped transformations: {transform_summary.get('skipped_transforms', 0)}")
         report_lines.append(f"  Success rate: {transform_summary['success_rate']:.1f}%")
         report_lines.append("")
-        
+
+        warnings_by_type = transform_summary.get('warnings_by_type', {})
+        if warnings_by_type:
+            report_lines.append("WARNING BREAKDOWN:")
+            for issue, count in sorted(warnings_by_type.items(), key=lambda item: item[1], reverse=True):
+                report_lines.append(f"  {issue}: {count}")
+            report_lines.append("")
+
+        errors_by_type = transform_summary.get('errors_by_type', {})
+        if errors_by_type:
+            report_lines.append("ERROR SUMMARY:")
+            for issue, count in sorted(errors_by_type.items(), key=lambda item: item[1], reverse=True):
+                report_lines.append(f"  {issue}: {count}")
+            report_lines.append("")
+
+        failed_files = transform_summary.get('failed_files', [])
+        if failed_files:
+            report_lines.append("FAILED TRANSFORMATIONS:")
+            for failed in failed_files:
+                file_name = os.path.basename(failed.get('xml_file', 'unknown'))
+                status = failed.get('status', 'unknown')
+                error_msg = failed.get('error', '')
+                line = f"  - {file_name} ({status})"
+                if error_msg:
+                    line += f": {error_msg}"
+                report_lines.append(line)
+            report_lines.append("")
+
         # Validation summary
         if validation_summary:
             report_lines.append("VALIDATION SUMMARY:")
@@ -324,13 +380,24 @@ class BatchTransformer:
             report_lines.append(f"  Total issues: {validation_summary['summary']['total_issues']}")
             report_lines.append(f"  Total warnings: {validation_summary['summary']['total_warnings']}")
             report_lines.append("")
-            
+
             # Top issues
             if validation_summary['issue_types']:
                 report_lines.append("TOP VALIDATION ISSUES:")
                 for issue_type, count in sorted(validation_summary['issue_types'].items(), 
                                               key=lambda x: x[1], reverse=True)[:10]:
                     report_lines.append(f"  {issue_type}: {count}")
+                report_lines.append("")
+
+            invalid_files = [
+                result for result in validation_summary.get('results', [])
+                if not result.get('is_valid', False)
+            ]
+            if invalid_files:
+                report_lines.append("VALIDATION FAILURES:")
+                for result in invalid_files:
+                    issues = ", ".join(result.get('issues', [])[:3])
+                    report_lines.append(f"  - {result.get('file')}: {issues if issues else 'See report details'}")
                 report_lines.append("")
         
         # File locations
@@ -356,7 +423,7 @@ class BatchTransformer:
         report_text = "\n".join(report_lines)
         
         # Save report
-        report_path = os.path.join(self.output_dir, 'transformation_summary.txt')
+        report_path = self.paths.transform_summary_path
         with open(report_path, 'w', encoding='utf-8') as f:
             f.write(report_text)
         
@@ -389,10 +456,11 @@ def main():
         action='store_true',
         help='Skip validation step'
     )
+    default_logs = default_log_dir("transform")
     parser.add_argument(
         '--log-dir',
-        default='logs',
-        help='Directory for log files (default: logs)'
+        default=default_logs,
+        help=f'Directory for log files (default: {default_logs})'
     )
     
     args = parser.parse_args()

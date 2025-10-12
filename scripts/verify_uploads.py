@@ -10,6 +10,7 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional
 from zenodo_api import create_zenodo_client, ZenodoAPIError
 from logger import initialize_logger, get_logger
+from path_config import OutputPaths, default_log_dir
 
 
 class ZenodoVerifier:
@@ -18,14 +19,16 @@ class ZenodoVerifier:
     def __init__(self, sandbox: bool = True, output_dir: str = "output"):
         self.sandbox = sandbox
         self.output_dir = output_dir
+        self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
         
         # Initialize Zenodo client
         self.client = create_zenodo_client(sandbox)
         
         # File paths
-        self.upload_log_path = os.path.join(output_dir, 'upload_log.json')
-        self.verification_report_path = os.path.join(output_dir, 'verification_report.json')
+        self.upload_log_path = self.paths.upload_log_path
+        self.verification_report_path = self.paths.verification_report_path
+        self.verification_summary_path = self.paths.verification_summary_path
         
         # Verification results
         self.verification_results = []
@@ -353,7 +356,7 @@ class ZenodoVerifier:
         report_text = "\n".join(report_lines)
         
         # Save report
-        report_path = os.path.join(self.output_dir, 'verification_summary.txt')
+        report_path = self.verification_summary_path
         with open(report_path, 'w', encoding='utf-8') as f:
             f.write(report_text)
         
@@ -387,10 +390,11 @@ def main():
         type=int,
         help='Limit number of records to verify (for testing)'
     )
+    default_logs = default_log_dir("verification")
     parser.add_argument(
         '--log-dir',
-        default='logs',
-        help='Directory for log files (default: logs)'
+        default=default_logs,
+        help=f'Directory for log files (default: {default_logs})'
     )
     
     args = parser.parse_args()

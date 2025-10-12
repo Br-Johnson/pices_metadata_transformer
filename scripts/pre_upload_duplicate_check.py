@@ -14,6 +14,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
+from scripts.path_config import OutputPaths, default_log_dir
 
 
 class PreUploadDuplicateChecker:
@@ -22,14 +23,16 @@ class PreUploadDuplicateChecker:
     def __init__(self, sandbox: bool = True, output_dir: str = "output"):
         self.sandbox = sandbox
         self.output_dir = output_dir
+        self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
         
         # Initialize Zenodo client
         self.client = create_zenodo_client(sandbox)
         
         # File paths
-        self.zenodo_json_dir = os.path.join(output_dir, "zenodo_json")
-        self.duplicate_check_report = os.path.join(output_dir, f"pre_upload_duplicate_check_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
+        self.zenodo_json_dir = self.paths.zenodo_json_dir
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        self.duplicate_check_report = self.paths.pre_upload_report_path(timestamp)
         
         # Results storage
         self.duplicates_found = []
@@ -49,8 +52,8 @@ class PreUploadDuplicateChecker:
         }
         
         try:
-            # Get depositions from Zenodo
-            depositions = self.client.list_depositions()
+            # Get all depositions from Zenodo, scoped to PICES community for accuracy
+            depositions = self.client.get_all_my_depositions(query="communities.identifier:pices")
             
             if depositions:
                 for deposition in depositions:
@@ -283,12 +286,11 @@ class PreUploadDuplicateChecker:
         safe_files = [f['file'] for f in self.safe_to_upload]
         
         # Save safe files list
-        safe_files_path = os.path.join(self.output_dir, "safe_to_upload.json")
-        with open(safe_files_path, 'w', encoding='utf-8') as f:
+        with open(self.paths.safe_to_upload_path, 'w', encoding='utf-8') as f:
             json.dump(safe_files, f, indent=2, ensure_ascii=False)
         
-        print(f"📋 Safe to upload list saved to: {safe_files_path}")
-        return safe_files_path
+        print(f"📋 Safe to upload list saved to: {self.paths.safe_to_upload_path}")
+        return self.paths.safe_to_upload_path
     
     def generate_already_uploaded_list(self, existing_records: Dict[str, Any]) -> str:
         """Generate a list of records already uploaded to Zenodo for filtering."""
@@ -301,12 +303,11 @@ class PreUploadDuplicateChecker:
         }
         
         # Save already uploaded list
-        already_uploaded_path = os.path.join(self.output_dir, "already_uploaded_to_zenodo.json")
-        with open(already_uploaded_path, 'w', encoding='utf-8') as f:
+        with open(self.paths.already_uploaded_path, 'w', encoding='utf-8') as f:
             json.dump(already_uploaded, f, indent=2, ensure_ascii=False)
         
-        print(f"📋 Already uploaded records list saved to: {already_uploaded_path}")
-        return already_uploaded_path
+        print(f"📋 Already uploaded records list saved to: {self.paths.already_uploaded_path}")
+        return self.paths.already_uploaded_path
     
     def generate_pre_filter_list(self, existing_records: Dict[str, Any]) -> str:
         """Generate a pre-filter list for transformation to skip already uploaded files."""
@@ -323,12 +324,11 @@ class PreUploadDuplicateChecker:
         }
         
         # Save pre-filter list
-        pre_filter_path = os.path.join(self.output_dir, "pre_filter_already_uploaded.json")
-        with open(pre_filter_path, 'w', encoding='utf-8') as f:
+        with open(self.paths.pre_filter_path, 'w', encoding='utf-8') as f:
             json.dump(pre_filter, f, indent=2, ensure_ascii=False)
         
-        print(f"📋 Pre-filter list saved to: {pre_filter_path}")
-        return pre_filter_path
+        print(f"📋 Pre-filter list saved to: {self.paths.pre_filter_path}")
+        return self.paths.pre_filter_path
 
 
 def main():
@@ -357,10 +357,11 @@ def main():
         type=int,
         help='Limit number of files to check (for testing)'
     )
+    default_logs = default_log_dir("pre_upload")
     parser.add_argument(
         '--log-dir',
-        default='logs',
-        help='Directory for log files (default: logs)'
+        default=default_logs,
+        help=f'Directory for log files (default: {default_logs})'
     )
     
     args = parser.parse_args()
@@ -399,8 +400,8 @@ def main():
                 print(f"  {dup_type}: {count}")
         
         print(f"\nSafe to upload list: {safe_files_path}")
-        print(f"Already uploaded list: {os.path.join(args.output_dir, 'already_uploaded_to_zenodo.json')}")
-        print(f"Pre-filter list: {os.path.join(args.output_dir, 'pre_filter_already_uploaded.json')}")
+        print(f"Already uploaded list: {checker.paths.already_uploaded_path}")
+        print(f"Pre-filter list: {checker.paths.pre_filter_path}")
         print(f"Duplicate check report: {checker.duplicate_check_report}")
         
         # Exit with appropriate code

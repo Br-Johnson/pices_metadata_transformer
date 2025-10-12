@@ -41,67 +41,36 @@ class FGDCToZenodoTransformer:
         self.org_patterns = [
             r'noaa', r'national.?oceanic', r'university.?of', r'institute',
             r'center', r'lab', r'department', r'ministry', r'agency',
-            r'corporation', r'inc\.', r'ltd\.', r'corp\.'
+            r'corporation', r'inc\.', r'ltd\.', r'corp\.', r'commission', r'office'
         ]
     
     def transform_file(self, xml_path: str) -> Optional[Dict[str, Any]]:
         """Transform a single FGDC XML file to Zenodo JSON format."""
         try:
-            # Read original FGDC file for character count
+            # Read original FGDC file
             with open(xml_path, 'r', encoding='utf-8', errors='ignore') as f:
-                fgdc_content = f.read()
-            fgdc_char_count = len(fgdc_content)
+                raw_content = f.read()
+            
+            sanitized_content = raw_content.lstrip('\ufeff\0')
+            if sanitized_content != raw_content:
+                self.logger.log_warning(
+                    xml_path, "xml_parsing", "sanitized_leading_characters",
+                    "Stripped leading non-XML characters", "Well-formed XML content",
+                    "Removed binary padding or BOM before parsing",
+                    "Clean source file to avoid hidden characters"
+                )
+            
+            fgdc_content = sanitized_content
             
             # Parse XML
-            tree = ET.parse(xml_path)
-            root = tree.getroot()
+            root = ET.fromstring(fgdc_content)
             
-            # Extract metadata
-            zenodo_metadata = self._build_zenodo_metadata(root, xml_path)
-            
-            if zenodo_metadata:
-                # Calculate character counts for actual data content only
-                fgdc_data_chars = self._count_fgdc_data_content(fgdc_content)
-                zenodo_data_chars = self._count_zenodo_data_content(zenodo_metadata)
-                
-                # Also calculate total JSON size for reference
-                zenodo_json = json.dumps(zenodo_metadata, indent=2)
-                zenodo_total_chars = len(zenodo_json)
-                
-                # Calculate enhanced metrics
-                enhanced_metrics = self.metrics_calculator.calculate_comprehensive_metrics(
-                    fgdc_content, zenodo_metadata, xml_path
-                )
-                
-                # Legacy character analysis for backward compatibility
-                char_difference = zenodo_data_chars - fgdc_data_chars
-                char_ratio = zenodo_data_chars / fgdc_data_chars if fgdc_data_chars > 0 else 0
-                
-                self.logger.log_info(f"Successfully transformed {xml_path}")
-                return {
-                    "metadata": zenodo_metadata,
-                    "original_fgdc_file": os.path.basename(xml_path),
-                    "character_analysis": {
-                        "fgdc_total_chars": fgdc_char_count,
-                        "fgdc_data_chars": fgdc_data_chars,
-                        "zenodo_total_chars": zenodo_total_chars,
-                        "zenodo_data_chars": zenodo_data_chars,
-                        "char_difference": char_difference,
-                        "char_ratio": char_ratio,
-                        "data_preservation_ratio": char_ratio
-                    },
-                    "enhanced_metrics": enhanced_metrics
-                }
-            else:
-                self.logger.log_error(
-                    xml_path, "root", "transformation_failed",
-                    "XML parsed but no metadata generated", 
-                    "Valid FGDC metadata structure",
-                    "Check XML structure and required fields"
-                )
-                return None
+            return self._finalize_transformation(root, fgdc_content, xml_path)
                 
         except ET.ParseError as e:
+            recovered = self._recover_from_parse_error(fgdc_content, xml_path)
+            if recovered is not None:
+                return recovered
             self.logger.log_error(
                 xml_path, "xml_parsing", "parse_error",
                 str(e), "Valid XML format",
@@ -115,6 +84,68 @@ class FGDCToZenodoTransformer:
                 "Review error details and fix transformation logic"
             )
             return None
+    
+    def _recover_from_parse_error(self, fgdc_content: str, xml_path: str) -> Optional[Dict[str, Any]]:
+        """Attempt to recover from parse errors by trimming extraneous content."""
+        closing_tag = '</metadata>'
+        if closing_tag in fgdc_content:
+            snippet = fgdc_content.split(closing_tag, 1)[0] + closing_tag
+            try:
+                root = ET.fromstring(snippet)
+                self.logger.log_warning(
+                    xml_path, "xml_parsing", "partial_xml_recovery",
+                    "Recovered first metadata block from malformed FGDC file",
+                    "Well-formed FGDC XML document",
+                    "Trailing content after </metadata> was ignored during recovery",
+                    "Clean the source XML to avoid future parse errors"
+                )
+                return self._finalize_transformation(root, snippet, xml_path)
+            except ET.ParseError:
+                return None
+        return None
+    
+    def _finalize_transformation(self, root: ET.Element, fgdc_content: str, xml_path: str) -> Optional[Dict[str, Any]]:
+        """Finalize metadata extraction and metrics calculation."""
+        zenodo_metadata = self._build_zenodo_metadata(root, xml_path)
+        
+        if zenodo_metadata:
+            fgdc_char_count = len(fgdc_content)
+            fgdc_data_chars = self._count_fgdc_data_content(fgdc_content)
+            zenodo_data_chars = self._count_zenodo_data_content(zenodo_metadata)
+            
+            zenodo_json = json.dumps(zenodo_metadata, indent=2)
+            zenodo_total_chars = len(zenodo_json)
+            
+            enhanced_metrics = self.metrics_calculator.calculate_comprehensive_metrics(
+                fgdc_content, zenodo_metadata, xml_path
+            )
+            
+            char_difference = zenodo_data_chars - fgdc_data_chars
+            char_ratio = zenodo_data_chars / fgdc_data_chars if fgdc_data_chars > 0 else 0
+            
+            self.logger.log_info(f"Successfully transformed {xml_path}")
+            return {
+                "metadata": zenodo_metadata,
+                "original_fgdc_file": os.path.basename(xml_path),
+                "character_analysis": {
+                    "fgdc_total_chars": fgdc_char_count,
+                    "fgdc_data_chars": fgdc_data_chars,
+                    "zenodo_total_chars": zenodo_total_chars,
+                    "zenodo_data_chars": zenodo_data_chars,
+                    "char_difference": char_difference,
+                    "char_ratio": char_ratio,
+                    "data_preservation_ratio": char_ratio
+                },
+                "enhanced_metrics": enhanced_metrics
+            }
+        
+        self.logger.log_error(
+            xml_path, "root", "transformation_failed",
+            "XML parsed but no metadata generated", 
+            "Valid FGDC metadata structure",
+            "Check XML structure and required fields"
+        )
+        return None
     
     def _build_zenodo_metadata(self, root: ET.Element, file_path: str) -> Optional[Dict[str, Any]]:
         """Build Zenodo metadata from FGDC root element."""
@@ -282,22 +313,56 @@ class FGDCToZenodoTransformer:
             return []
         
         for origin_elem in origin_elements:
-            if origin_elem.text:
-                origin_text = origin_elem.text.strip()
-                if origin_text:
-                    # Handle multiple creators in a single origin element
-                    if ' and ' in origin_text.lower():
-                        # Split on "and" and process each creator
-                        parts = re.split(r'\s+and\s+', origin_text, flags=re.IGNORECASE)
-                        for part in parts:
-                            creator = self._parse_single_creator(part.strip(), file_path)
-                            if creator:
-                                creators.append(creator)
-                    else:
-                        # Single creator
-                        creator = self._format_creator_name(origin_text, file_path)
-                        if creator:
-                            creators.append(creator)
+            # Collect textual fragments, preserving line breaks for <br/> or lists
+            fragments = []
+            if list(origin_elem):
+                for child in origin_elem:
+                    text = ' '.join(t.strip() for t in child.itertext() if t.strip())
+                    if text:
+                        fragments.append(text)
+            if not fragments:
+                combined = '\n'.join(t.strip() for t in origin_elem.itertext() if t.strip())
+                if combined:
+                    fragments.append(combined)
+            
+            for fragment in fragments:
+                lines = [seg.strip(' ,;') for seg in re.split(r'[\r\n]+', fragment) if seg.strip()]
+                if not lines:
+                    lines = [fragment.strip()]
+                
+                for line in lines:
+                    if not line:
+                        continue
+                    
+                    # Remove information following colon or affiliation cues
+                    if ':' in line:
+                        line = line.split(':', 1)[0].strip()
+                    line = re.split(r'\bof\b|\bfrom\b|\bfor\b', line, 1)[0].strip(' ,;')
+                    if not line:
+                        continue
+                    
+                    # Normalise trailing "and" to commas when the list uses commas elsewhere
+                    if ',' in line:
+                        line = re.sub(r',?\s+and\s+(?=[A-Z])', ', ', line)
+                    
+                    parts = [line]
+                    if ',' in line:
+                        parts = [p.strip() for p in re.split(r',\s*(?=[A-Z])', line) if p.strip()]
+                    
+                    for part in parts:
+                        part = re.sub(r'^(and|&)\s+', '', part.strip(), flags=re.IGNORECASE)
+                        if not part:
+                            continue
+                        formatted = self._format_creator_name(part, file_path)
+                        if isinstance(formatted, list):
+                            for item in formatted:
+                                if item and item not in creators:
+                                    creators.append(item)
+                        elif formatted and formatted not in creators:
+                            creators.append(formatted)
+        
+        if not creators:
+            creators = self._extract_contact_creators(root, file_path)
         
         if not creators:
             self.logger.log_error(
@@ -308,6 +373,45 @@ class FGDCToZenodoTransformer:
         
         return creators
     
+    def _extract_contact_creators(self, root: ET.Element, file_path: str) -> List[Dict[str, str]]:
+        """Fallback: derive creators from contact information."""
+        creators = []
+        contact_names = root.findall('.//ptcontac//cntinfo//cntperp//cntper')
+        for name_elem in contact_names:
+            if name_elem is None or not name_elem.text:
+                continue
+            name_text = name_elem.text.strip()
+            if not name_text:
+                continue
+            creator = self._parse_single_creator(name_text, file_path)
+            if creator:
+                creators.append(creator)
+        
+        if not creators:
+            contact_orgs = root.findall('.//ptcontac//cntinfo//cntorgp//cntorg')
+            for org_elem in contact_orgs:
+                if org_elem is None or not org_elem.text:
+                    continue
+                org_text = org_elem.text.strip()
+                if not org_text:
+                    continue
+                creators.append({
+                    "name": org_text,
+                    "type": "Organization"
+                })
+                break  # Only need one organization fallback
+        
+        if creators:
+            self.logger.log_warning(
+                file_path, "idinfo.citation.citeinfo.origin", "creators_inferred_from_contact",
+                "Origin lacked usable creators; used contact info instead",
+                "Creators listed in origin",
+                "Falling back to contact names to satisfy Zenodo requirements",
+                "Populate origin elements with creator names for better provenance"
+            )
+        
+        return creators
+
     def _format_creator_name(self, origin_text: str, file_path: str) -> Optional[Dict[str, str]]:
         """Format creator name to Zenodo 'Family, Given' format."""
         try:
@@ -412,6 +516,27 @@ class FGDCToZenodoTransformer:
                         "Add publication date to citation section"
                     )
                     return normalized_date
+        
+        # Try begin dates from time period information
+        date_paths = [
+            './/timeperd//timeinfo//rngdates//begdate',
+            './/timeperd//timeinfo//sngdate//caldate',
+            './/timeperd//timeinfo//mdattim//sngdate//caldate'
+        ]
+        for path in date_paths:
+            elem = root.find(path)
+            if elem is not None and elem.text:
+                date_text = elem.text.strip()
+                if date_text:
+                    normalized_date = self._normalize_date(date_text, file_path)
+                    if normalized_date:
+                        self.logger.log_warning(
+                            file_path, "idinfo.citation.citeinfo.pubdate", "missing_publication_date",
+                            date_text, "Publication date in citation",
+                            "Using time period start date as fallback publication date",
+                            "Add publication date to citation section for clarity"
+                        )
+                        return normalized_date
         
         self.logger.log_error(
             file_path, "idinfo.citation.citeinfo.pubdate", "missing_required_field",
@@ -609,6 +734,39 @@ class FGDCToZenodoTransformer:
                     )
                     return f"{year1}-01-01"
             
+            digits_only = ''.join(re.findall(r'\d', date_str))
+            if digits_only and digits_only != date_str:
+                if len(digits_only) == 4:
+                    year = digits_only
+                    self.logger.log_warning(
+                        file_path, "date_normalization", "partial_date_extracted",
+                        date_str, "Specific date (YYYY-MM-DD)",
+                        f"Extracted year {year} from noisy date value: {date_str}",
+                        "Verify publication date and update if necessary"
+                    )
+                    return f"{year}-01-01"
+                if len(digits_only) == 6:
+                    year = digits_only[:4]
+                    month = digits_only[4:6]
+                    self.logger.log_warning(
+                        file_path, "date_normalization", "partial_date_extracted",
+                        date_str, "Specific date (YYYY-MM-DD)",
+                        f"Extracted year-month {year}-{month} from noisy date value: {date_str}",
+                        "Verify publication date and update if necessary"
+                    )
+                    return f"{year}-{month}-01"
+                if len(digits_only) == 8:
+                    year = digits_only[:4]
+                    month = digits_only[4:6]
+                    day = digits_only[6:8]
+                    self.logger.log_warning(
+                        file_path, "date_normalization", "partial_date_extracted",
+                        date_str, "Specific date (YYYY-MM-DD)",
+                        f"Extracted date {year}-{month}-{day} from noisy value: {date_str}",
+                        "Verify publication date and update if necessary"
+                    )
+                    return f"{year}-{month}-{day}"
+            
             # Try different date formats
             if len(date_str) == 4:  # YYYY
                 return f"{date_str}-01-01"
@@ -627,11 +785,11 @@ class FGDCToZenodoTransformer:
                 return parsed_date.strftime('%Y-%m-%d')
                 
         except Exception as e:
-            self.logger.log_error(
+            self.logger.log_warning(
                 file_path, "date_normalization", "invalid_date_format",
                 date_str, "YYYY, YYYYMM, or YYYYMMDD format",
                 f"Could not parse date: {str(e)}",
-                "Review date format and add parsing logic"
+                "Review date format or rely on fallback metadata dates"
             )
             return None
     

@@ -15,6 +15,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.logger import get_logger
+from scripts.path_config import default_log_dir
 
 
 class ZenodoValidator:
@@ -673,10 +674,11 @@ def main():
         type=int,
         help='Limit number of files to process (for testing)'
     )
+    default_logs = default_log_dir("validation")
     parser.add_argument(
         '--log-dir',
-        default='logs',
-        help='Directory for log files (default: logs)'
+        default=default_logs,
+        help=f'Directory for log files (default: {default_logs})'
     )
     
     args = parser.parse_args()

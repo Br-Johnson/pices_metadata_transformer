@@ -15,6 +15,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
+from scripts.path_config import OutputPaths, default_log_dir
 
 
 class ZenodoUploader:
@@ -23,16 +24,17 @@ class ZenodoUploader:
     def __init__(self, sandbox: bool = True, output_dir: str = "output"):
         self.sandbox = sandbox
         self.output_dir = output_dir
+        self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
         
         # Initialize Zenodo client (will be set by batch uploader)
         self.client = None
         
         # File paths - use transformed directory for the main files
-        self.zenodo_json_dir = os.path.join(self.output_dir, 'zenodo_json')
-        self.original_fgdc_dir = os.path.join(self.output_dir, 'original_fgdc')
-        self.upload_log_path = os.path.join(output_dir, 'upload_log.json')
-        self.upload_errors_path = os.path.join(output_dir, 'upload_errors.json')
+        self.zenodo_json_dir = self.paths.zenodo_json_dir
+        self.original_fgdc_dir = self.paths.original_fgdc_dir
+        self.upload_log_path = self.paths.upload_log_path
+        self.upload_errors_path = os.path.join(self.paths.upload_reports_dir, 'upload_errors.json')
         
         # Upload tracking
         self.upload_log = []
@@ -313,7 +315,7 @@ class ZenodoUploader:
         report_text = "\n".join(report_lines)
         
         # Save report
-        report_path = os.path.join(self.output_dir, 'upload_report.txt')
+        report_path = os.path.join(self.paths.upload_reports_dir, 'upload_report.txt')
         with open(report_path, 'w', encoding='utf-8') as f:
             f.write(report_text)
         
@@ -347,10 +349,11 @@ def main():
         type=int,
         help='Limit number of files to upload (for testing)'
     )
+    default_logs = default_log_dir("upload")
     parser.add_argument(
         '--log-dir',
-        default='logs',
-        help='Directory for log files (default: logs)'
+        default=default_logs,
+        help=f'Directory for log files (default: {default_logs})'
     )
     
     args = parser.parse_args()

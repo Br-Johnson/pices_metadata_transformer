@@ -8,7 +8,7 @@ import os
 import json
 import glob
 import argparse
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Dict, List, Any, Set, Optional
 from collections import defaultdict
 import sys
@@ -16,22 +16,37 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
+from scripts.path_config import OutputPaths, default_log_dir
 
 
 class DuplicateChecker:
     """Comprehensive duplicate detection for Zenodo uploads."""
     
-    def __init__(self, sandbox: bool = True, output_dir: str = "output"):
+    def __init__(
+        self,
+        sandbox: bool = True,
+        output_dir: str = "output",
+        hours_back: int = 6,
+        cache_ttl_minutes: int = 15,
+        use_cache: bool = True,
+    ):
         self.sandbox = sandbox
         self.output_dir = output_dir
+        self.paths = OutputPaths(output_dir)
+        self.hours_back = hours_back
+        self.cache_ttl_minutes = cache_ttl_minutes
+        self.use_cache = use_cache
         self.logger = get_logger()
         
         # Initialize Zenodo client
         self.client = create_zenodo_client(sandbox)
         
         # File paths
-        self.registry_path = os.path.join(output_dir, 'uploads_registry.json')
-        self.legacy_log_path = os.path.join(output_dir, 'upload_log.json')
+        self.registry_path = self.paths.uploads_registry_path
+        self.legacy_log_path = self.paths.upload_log_path
+        self.cache_dir = self.paths.cache_directory
+        self.upload_reports_dir = self.paths.upload_reports_dir
+        self.duplicates_reports_dir = self.paths.duplicates_reports_dir
         
         # Results storage
         self.duplicates_found = []
@@ -63,12 +78,12 @@ class DuplicateChecker:
         uploaded_files = set()
         
         # Load from centralized registry
-        registry = self.load_uploads_registry()
+        registry = self.registry_entries or self.load_uploads_registry()
         for filename in registry.keys():
             uploaded_files.add(filename)
         
         # Load from batch upload logs
-        for log_file in glob.glob(os.path.join(self.output_dir, "batch_upload_log_*.json")):
+        for log_file in glob.glob(os.path.join(self.upload_reports_dir, "batch_upload_log_*.json")):
             if os.path.exists(log_file):
                 try:
                     with open(log_file, 'r') as f:
@@ -116,11 +131,24 @@ class DuplicateChecker:
     
     def load_zenodo_depositions(self) -> List[Dict[str, Any]]:
         """Load all depositions from Zenodo API."""
+        # Attempt to use cached data if enabled and fresh
+        if self.use_cache:
+            cached = self._load_cached_depositions()
+            if cached is not None:
+                self.zenodo_depositions = cached
+                self.logger.log_info(f"Using cached Zenodo depositions ({len(cached)} records)")
+                return cached
+        
         try:
-            self.logger.log_info("Fetching all depositions from Zenodo...")
-            depositions = self.client.get_all_my_depositions()
+            self.logger.log_info(
+                f"Fetching depositions modified in the last {self.hours_back} hour(s) from Zenodo..."
+            )
+            since = datetime.utcnow() - timedelta(hours=self.hours_back)
+            depositions = self.client.get_all_my_depositions(modified_since=since)
             self.zenodo_depositions = depositions
-            self.logger.log_info(f"Found {len(depositions)} depositions in Zenodo")
+            self.logger.log_info(f"Found {len(depositions)} recent depositions in Zenodo")
+            if self.use_cache:
+                self._save_cached_depositions(depositions)
             return depositions
         except ZenodoAPIError as e:
             self.logger.log_error(
@@ -129,6 +157,61 @@ class DuplicateChecker:
                 f"Failed to fetch depositions from Zenodo: {str(e)}"
             )
             return []
+    
+    def _cache_file_path(self) -> str:
+        """Return cache file path scoped to environment."""
+        env = "sandbox" if self.sandbox else "production"
+        return os.path.join(self.cache_dir, f"zenodo_depositions_{env}.json")
+    
+    def _load_cached_depositions(self) -> Optional[List[Dict[str, Any]]]:
+        """Load cached depositions if within TTL."""
+        cache_file = self._cache_file_path()
+        if not os.path.exists(cache_file):
+            return None
+        
+        try:
+            with open(cache_file, "r", encoding="utf-8") as f:
+                payload = json.load(f)
+            fetched_raw = payload.get("fetched_at")
+            if not fetched_raw:
+                return None
+            fetched_at = datetime.fromisoformat(fetched_raw)
+            if datetime.utcnow() - fetched_at > timedelta(minutes=self.cache_ttl_minutes):
+                return None
+            return payload.get("depositions", [])
+        except Exception as e:
+            self.logger.log_warning(
+                cache_file,
+                "cache_load",
+                "cache_unusable",
+                str(e),
+                "Cache file readable and valid JSON",
+                "Removing stale cache entry",
+                "Will refetch from Zenodo on this run"
+            )
+            return None
+    
+    def _save_cached_depositions(self, depositions: List[Dict[str, Any]]):
+        """Persist depositions to cache."""
+        try:
+            os.makedirs(self.cache_dir, exist_ok=True)
+            payload = {
+                "fetched_at": datetime.utcnow().isoformat(),
+                "depositions": depositions,
+                "hours_back": self.hours_back,
+            }
+            with open(self._cache_file_path(), "w", encoding="utf-8") as f:
+                json.dump(payload, f, indent=2)
+        except Exception as e:
+            self.logger.log_warning(
+                self._cache_file_path(),
+                "cache_save",
+                "cache_write_failed",
+                str(e),
+                "Cache directory writable",
+                "Unable to write Zenodo cache",
+                "Check filesystem permissions or available space"
+            )
     
     def find_title_duplicates(self) -> List[Dict[str, Any]]:
         """Find potential duplicates by comparing titles."""
@@ -164,9 +247,30 @@ class DuplicateChecker:
         """Find mismatches between local registry and Zenodo."""
         mismatches = []
         registry = self.load_uploads_registry()
+        cutoff = datetime.utcnow() - timedelta(hours=self.hours_back)
         
-        # Check if registry entries exist in Zenodo
-        for filename, registry_entry in registry.items():
+        def is_recent(entry: Dict[str, Any]) -> bool:
+            uploaded_at = entry.get('uploaded_at')
+            if not uploaded_at:
+                return False
+            try:
+                uploaded_dt = datetime.fromisoformat(uploaded_at)
+                return uploaded_dt >= cutoff
+            except Exception:
+                return False
+        
+        recent_registry_items = {
+            filename: entry
+            for filename, entry in registry.items()
+            if not filename.startswith('_') and is_recent(entry)
+        }
+        
+        self.logger.log_info(
+            f"Registry entries considered within {self.hours_back} hour(s): {len(recent_registry_items)}"
+        )
+        
+        # Check if recent registry entries exist in Zenodo
+        for filename, registry_entry in recent_registry_items.items():
             deposition_id = registry_entry.get('deposition_id')
             if deposition_id:
                 # Check if this deposition exists in Zenodo
@@ -186,7 +290,11 @@ class DuplicateChecker:
         
         # Check if Zenodo depositions are missing from registry
         zenodo_ids = {dep['id'] for dep in self.zenodo_depositions}
-        registry_ids = {entry.get('deposition_id') for entry in registry.values() if entry.get('deposition_id')}
+        registry_ids = {
+            entry.get('deposition_id')
+            for entry in recent_registry_items.values()
+            if entry.get('deposition_id')
+        }
         
         missing_from_registry = zenodo_ids - registry_ids
         for deposition_id in missing_from_registry:
@@ -258,6 +366,10 @@ class DuplicateChecker:
         report_lines.append("-" * 40)
         report_lines.append(f"Local uploads tracked: {len(self.local_uploads)}")
         report_lines.append(f"Zenodo depositions found: {len(self.zenodo_depositions)}")
+        report_lines.append(f"Remote lookback window (hours): {self.hours_back}")
+        report_lines.append(
+            f"Cache TTL (minutes): {self.cache_ttl_minutes if self.use_cache else 'disabled'}"
+        )
         report_lines.append(f"Title duplicates found: {len(duplicates)}")
         report_lines.append(f"Registry mismatches: {len(mismatches)}")
         report_lines.append("")
@@ -316,9 +428,14 @@ class DuplicateChecker:
         """Save report to file."""
         if filename is None:
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            filename = f"duplicate_check_report_{timestamp}.txt"
+            report_path = self.paths.duplicate_report_path(timestamp)
+        else:
+            if os.path.isabs(filename):
+                report_path = filename
+            else:
+                report_path = os.path.join(self.duplicates_reports_dir, filename)
+            os.makedirs(os.path.dirname(report_path), exist_ok=True)
         
-        report_path = os.path.join(self.output_dir, filename)
         with open(report_path, 'w', encoding='utf-8') as f:
             f.write(report)
         
@@ -362,7 +479,9 @@ class DuplicateChecker:
                 'local_uploads': len(self.local_uploads),
                 'zenodo_depositions': len(self.zenodo_depositions),
                 'title_duplicates_count': len(title_duplicates),
-                'registry_mismatches_count': len(registry_mismatches)
+                'registry_mismatches_count': len(registry_mismatches),
+                'hours_back': self.hours_back,
+                'cache_ttl_minutes': self.cache_ttl_minutes if self.use_cache else None,
             }
         }
 
@@ -399,12 +518,37 @@ def main():
         help='Generate report only, do not delete duplicates (default: True)'
     )
     parser.add_argument(
+        '--hours-back',
+        type=int,
+        default=6,
+        help='Limit Zenodo lookup to records modified within the last N hours (default: 6)'
+    )
+    parser.add_argument(
+        '--cache-ttl',
+        type=int,
+        default=15,
+        help='Reuse cached Zenodo responses for N minutes (default: 15)'
+    )
+    parser.add_argument(
+        '--no-cache',
+        action='store_true',
+        help='Disable caching of Zenodo API responses'
+    )
+    default_logs = default_log_dir("duplicates")
+    parser.add_argument(
         '--log-dir',
-        default='logs',
-        help='Directory for log files (default: logs)'
+        default=default_logs,
+        help=f'Directory for log files (default: {default_logs})'
     )
     
     args = parser.parse_args()
+    
+    if args.hours_back <= 0:
+        print("❌ --hours-back must be positive")
+        exit(1)
+    if not args.no_cache and args.cache_ttl <= 0:
+        print("❌ --cache-ttl must be positive when caching is enabled")
+        exit(1)
     
     # Determine environment
     sandbox = not args.production
@@ -415,7 +559,13 @@ def main():
     
     try:
         # Create checker
-        checker = DuplicateChecker(sandbox, args.output_dir)
+        checker = DuplicateChecker(
+            sandbox,
+            args.output_dir,
+            hours_back=args.hours_back,
+            cache_ttl_minutes=args.cache_ttl,
+            use_cache=not args.no_cache,
+        )
         
         # Parse specific files if provided
         specific_files = None

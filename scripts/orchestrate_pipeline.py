@@ -3,12 +3,14 @@
 Comprehensive orchestration script for PICES FGDC to Zenodo migration pipeline.
 
 This script runs the complete migration pipeline in logical order:
-1. Transform FGDC XML files to Zenodo JSON (includes validation of newly transformed files)
-2. Pre-Upload Duplicate Check - Check for existing records on Zenodo
-3. Upload to Zenodo (sandbox or production) - only safe-to-upload files
-4. Generate audit reports and metrics
-5. Verify uploads and data integrity
-6. Generate comprehensive reports
+1. Transform FGDC XML files to Zenodo JSON
+2. Validate transformed JSON for schema compliance
+3. Pre-Upload Duplicate Check - Check for existing records on Zenodo
+4. Upload to Zenodo (sandbox or production) - only safe-to-upload files
+5. Post-upload duplicate verification against Zenodo
+6. Generate audit reports and metrics
+7. Verify uploads and data integrity
+8. Generate comprehensive reports
 
 Usage:
     python scripts/orchestrate_pipeline.py [options]
@@ -44,6 +46,7 @@ from typing import Dict, List, Optional, Any
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from logger import get_logger
+from path_config import OutputPaths, default_log_dir
 
 
 class PipelineOrchestrator:
@@ -52,6 +55,7 @@ class PipelineOrchestrator:
     def __init__(self, args):
         self.args = args
         self.logger = get_logger()
+        self.paths = OutputPaths(args.output_dir)
         self.start_time = datetime.now()
         self.pipeline_state = {
             'start_time': self.start_time.isoformat(),
@@ -75,7 +79,7 @@ class PipelineOrchestrator:
         self.pipeline_state['config']['environment'] = self.environment
         
         # Create state file path
-        self.state_file = os.path.join(args.output_dir, f"pipeline_state_{self.environment}.json")
+        self.state_file = self.paths.pipeline_state_path(self.environment)
         
         # Load existing state if resuming
         if args.resume and os.path.exists(self.state_file):
@@ -90,7 +94,15 @@ class PipelineOrchestrator:
                 self.logger.log_info(f"Resumed pipeline from state file: {self.state_file}")
                 print(f"🔄 Resumed pipeline from previous run")
         except Exception as e:
-            self.logger.log_error("orchestrate", "load_state", "load_failed", str(e))
+            self.logger.log_error(
+                "orchestrate",
+                "load_state",
+                "load_failed",
+                str(e),
+                "Pipeline state file parsed successfully",
+                f"State file path: {self.state_file}",
+                "Validate JSON structure or remove the corrupt state file before resuming"
+            )
             print(f"⚠️  Could not load state file: {e}")
     
     def _save_state(self):
@@ -100,7 +112,15 @@ class PipelineOrchestrator:
             with open(self.state_file, 'w') as f:
                 json.dump(self.pipeline_state, f, indent=2)
         except Exception as e:
-            self.logger.log_error("orchestrate", "save_state", "save_failed", str(e))
+            self.logger.log_error(
+                "orchestrate",
+                "save_state",
+                "save_failed",
+                str(e),
+                "Pipeline state persisted to disk",
+                f"State file path: {self.state_file}",
+                "Check filesystem permissions and available disk space"
+            )
     
     def _run_command(self, command: List[str], description: str, step_name: str) -> bool:
         """Run a command and handle errors."""
@@ -305,22 +325,23 @@ class PipelineOrchestrator:
             return True
         
         # Check if transformations already exist
-        zenodo_json_dir = os.path.join(self.args.output_dir, "zenodo_json")
+        zenodo_json_dir = self.paths.zenodo_json_dir
         if os.path.exists(zenodo_json_dir) and os.listdir(zenodo_json_dir):
             print(f"📁 Found existing transformed files in {zenodo_json_dir}")
-            if not self.args.interactive:
+            if self.args.interactive:
                 response = input("   Transform anyway? (y/n): ").lower().strip()
                 if response not in ['y', 'yes']:
                     print("⏭️  Skipping transformation step")
                     self.pipeline_state['steps_completed'].append('transform_skipped')
                     self._save_state()
                     return True
+            else:
+                print("   Proceeding with transformation (non-interactive mode)")
         
         command = [
             "python3", "scripts/batch_transform.py",
             "--input", "FGDC",
-            "--output", self.args.output_dir,
-            "--log-dir", "logs"
+            "--output", self.args.output_dir
         ]
         
         if self.args.limit:
@@ -339,9 +360,8 @@ class PipelineOrchestrator:
         
         command = [
             "python3", "scripts/validate_zenodo.py",
-            "--input", os.path.join(self.args.output_dir, "zenodo_json"),
-            "--output", os.path.join(self.args.output_dir, "validation_report.json"),
-            "--log-dir", "logs"
+            "--input", self.paths.zenodo_json_dir,
+            "--output", self.paths.validation_report_path
         ]
         
         return self._run_command(command, "Validating transformed JSON files", "validate")
@@ -354,7 +374,6 @@ class PipelineOrchestrator:
         command = [
             "python3", "scripts/pre_upload_duplicate_check.py",
             "--output-dir", self.args.output_dir,
-            "--log-dir", "logs"
         ]
         
         if self.args.production:
@@ -407,7 +426,6 @@ class PipelineOrchestrator:
         command = [
             "python3", "scripts/deduplicate_check.py",
             "--output-dir", self.args.output_dir,
-            "--log-dir", "logs"
         ]
         
         if self.args.production:
@@ -431,7 +449,7 @@ class PipelineOrchestrator:
             "python3", "scripts/upload_audit.py",
             "--output-dir", self.args.output_dir
         ]
-        
+
         if not self._run_command(audit_command, "Generating upload audit report", "audit_upload"):
             return False
         
@@ -439,8 +457,7 @@ class PipelineOrchestrator:
         metrics_command = [
             "python3", "scripts/metrics_analysis.py",
             "--output-dir", self.args.output_dir,
-            "--save-report",
-            "--log-dir", "logs"
+            "--save-report"
         ]
         
         if not self._run_command(metrics_command, "Generating metrics analysis", "audit_metrics"):
@@ -449,9 +466,8 @@ class PipelineOrchestrator:
         # Run enhanced metrics
         enhanced_command = [
             "python3", "scripts/enhanced_metrics.py",
-            "--input", os.path.join(self.args.output_dir, "zenodo_json"),
-            "--output", os.path.join(self.args.output_dir, f"enhanced_metrics_{self.environment}.json"),
-            "--log-dir", "logs"
+            "--input", self.paths.zenodo_json_dir,
+            "--output", self.paths.enhanced_metrics_path(self.environment)
         ]
         
         return self._run_command(enhanced_command, "Generating enhanced metrics", "audit_enhanced")
@@ -493,7 +509,7 @@ class PipelineOrchestrator:
         self._generate_pipeline_summary()
         
         # Generate field analysis summary if it doesn't exist
-        field_analysis_path = os.path.join(self.args.output_dir, "field_analysis_summary.md")
+        field_analysis_path = self.paths.field_analysis_summary_path()
         if not os.path.exists(field_analysis_path):
             print("📋 Generating field analysis summary...")
             # This would typically call a field analysis script if it exists
@@ -523,7 +539,7 @@ class PipelineOrchestrator:
         }
         
         # Save summary
-        summary_file = os.path.join(self.args.output_dir, f"pipeline_summary_{self.environment}.json")
+        summary_file = self.paths.pipeline_summary_path(self.environment)
         with open(summary_file, 'w') as f:
             json.dump(summary, f, indent=2)
         
@@ -565,9 +581,11 @@ class PipelineOrchestrator:
         
         # Run pipeline steps
         steps = [
-            ("Transform", self.step_transform),  # Includes validation of newly transformed files
+            ("Transform", self.step_transform),
+            ("Validate", self.step_validate),
             ("Pre-Upload Duplicate Check", self.step_pre_upload_duplicate_check),
             ("Upload", self.step_upload),
+            ("Check Duplicates", self.step_check_duplicates),
             ("Audit", self.step_audit),
             ("Verify", self.step_verify),
             ("Generate Reports", self.step_generate_reports)
@@ -677,7 +695,7 @@ Examples:
     
     # Initialize logger early
     from logger import initialize_logger
-    initialize_logger("logs")
+    initialize_logger(default_log_dir("orchestrator"))
     
     # Debug mode adjustments
     if args.debug:

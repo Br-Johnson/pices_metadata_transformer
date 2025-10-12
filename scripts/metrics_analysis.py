@@ -16,6 +16,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.enhanced_metrics import generate_metrics_summary
 from scripts.logger import initialize_logger, get_logger
+from scripts.path_config import OutputPaths, default_log_dir
 
 
 class MetricsAnalyzer:
@@ -23,8 +24,9 @@ class MetricsAnalyzer:
     
     def __init__(self, output_dir: str = "output"):
         self.output_dir = output_dir
+        self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
-        self.zenodo_json_dir = os.path.join(output_dir, "zenodo_json")
+        self.zenodo_json_dir = self.paths.zenodo_json_dir
     
     def analyze_all_metrics(self) -> Dict[str, Any]:
         """Analyze enhanced metrics across all transformed records."""
@@ -310,7 +312,10 @@ class MetricsAnalyzer:
         
         if output_file is None:
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            output_file = os.path.join(self.output_dir, f"enhanced_metrics_analysis_{timestamp}.json")
+            output_file = self.paths.enhanced_metrics_analysis_path(timestamp)
+        elif not os.path.isabs(output_file):
+            output_file = os.path.join(self.paths.metrics_reports_dir, output_file)
+            os.makedirs(os.path.dirname(output_file), exist_ok=True)
         
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(analysis, f, indent=2, ensure_ascii=False)
@@ -392,10 +397,11 @@ def main():
         '--report-file',
         help='Custom report file path (requires --save-report)'
     )
+    default_logs = default_log_dir("metrics")
     parser.add_argument(
         '--log-dir',
-        default='logs',
-        help='Directory for log files (default: logs)'
+        default=default_logs,
+        help=f'Directory for log files (default: {default_logs})'
     )
     
     args = parser.parse_args()

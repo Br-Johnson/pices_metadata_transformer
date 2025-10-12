@@ -1,0 +1,64 @@
+=== FGDC to Zenodo Transformation Analysis ===
+Run ID: run_20251011_183436
+Date: 2025-10-11 18:34:36
+
+TOP 10 ISSUES:
+1. [2467 files] vague_date
+   Files: FGDC/FGDC-103.xml, FGDC/FGDC-1057.xml, FGDC/FGDC-120.xml
+   Fix: Use metadata date or current date as fallback
+
+2. [1473 files] missing_publication_date
+   Files: FGDC/FGDC-120.xml, FGDC/FGDC-1208.xml, FGDC/FGDC-1209.xml
+   Fix: Add publication date to citation section
+
+3. [969 files] dateline_crossing
+   Files: FGDC/FGDC-10.xml, FGDC/FGDC-100.xml, FGDC/FGDC-102.xml
+   Fix: Consider splitting into two bounding boxes or using a different representation
+
+4. [815 files] invalid_license_detected
+   Files: FGDC/FGDC-100.xml, FGDC/FGDC-102.xml, FGDC/FGDC-103.xml
+
+5. [519 files] missing_required_field
+   Files: FGDC/FGDC-1041.xml, FGDC/FGDC-1056.xml, FGDC/FGDC-1059.xml
+
+6. [259 files] complex_date_range
+   Files: FGDC/FGDC-1007.xml, FGDC/FGDC-1018.xml, FGDC/FGDC-1029.xml
+   Fix: Using first year 1972 from range
+
+7. [223 files] date_range
+   Files: FGDC/FGDC-101.xml, FGDC/FGDC-113.xml, FGDC/FGDC-124.xml
+   Fix: Using first year 1988 from range
+
+8. [196 files] status_date
+   Files: FGDC/FGDC-1094.xml, FGDC/FGDC-1095.xml, FGDC/FGDC-112.xml
+   Fix: Using current year 2025 for unpublished/planned material
+
+9. [154 files] unparseable_creator_name
+   Files: FGDC/FGDC-1278.xml, FGDC/FGDC-1282.xml, FGDC/FGDC-152.xml
+   Fix: Review name format or add organization detection
+
+10. [53 files] transformation_failed
+
+FIELD COVERAGE:
+- access_right: 98.6% (4147/4206) [59 missing]
+- communities: 98.6% (4147/4206) [59 missing]
+- contributors: 98.6% (4146/4206) [60 missing]
+- creators: 98.6% (4147/4206) [59 missing]
+- description: 98.6% (4147/4206) [59 missing]
+- keywords: 98.6% (4147/4206) [59 missing]
+- license: 98.6% (4147/4206) [59 missing]
+- notes: 98.6% (4147/4206) [59 missing]
+- publication_date: 98.6% (4147/4206) [59 missing]
+- references: 0.1% (6/4206) [4200 missing]
+- related_identifiers: 0.5% (21/4206) [4185 missing]
+- subjects: 74.1% (3117/4206) [1089 missing]
+- title: 98.6% (4147/4206) [59 missing]
+- upload_type: 98.6% (4147/4206) [59 missing]
+
+SUMMARY:
+- Total files: 4206
+- Successful: 4147
+- Failed: 59
+- Warnings: 7130
+- Errors: 118
+- License detection rate: 816/4206

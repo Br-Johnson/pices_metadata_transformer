@@ -14,13 +14,16 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from collections import defaultdict, Counter
+from scripts.path_config import OutputPaths
 
 class UploadAuditor:
     """Audits upload results and provides comprehensive reporting."""
     
     def __init__(self, output_dir: str = "output"):
         self.output_dir = output_dir
-        self.audit_report_file = os.path.join(output_dir, f"upload_audit_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
+        self.paths = OutputPaths(output_dir)
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        self.audit_report_file = self.paths.upload_audit_report_path(timestamp)
     
     def analyze_upload_logs(self) -> Dict[str, Any]:
         """Analyze all upload logs and generate comprehensive audit report."""
@@ -31,7 +34,7 @@ class UploadAuditor:
         batch_summaries = []
         
         # Process batch upload logs
-        for log_file in glob.glob(os.path.join(self.output_dir, "batch_upload_log_*.json")):
+        for log_file in glob.glob(os.path.join(self.paths.upload_reports_dir, "batch_upload_log_*.json")):
             if os.path.exists(log_file):
                 with open(log_file, 'r') as f:
                     batch_data = json.load(f)
@@ -43,7 +46,7 @@ class UploadAuditor:
                         all_errors.extend(batch.get('errors', []))
         
         # Process legacy upload logs
-        legacy_log = os.path.join(self.output_dir, "upload_log.json")
+        legacy_log = self.paths.upload_log_path
         if os.path.exists(legacy_log):
             with open(legacy_log, 'r') as f:
                 legacy_data = json.load(f)
