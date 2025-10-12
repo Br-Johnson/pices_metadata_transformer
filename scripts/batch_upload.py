@@ -142,31 +142,33 @@ class BatchUploader:
                 try:
                     # Upload single file
                     result = uploader._upload_single_file(json_file)
-                    
+                    result['batch_number'] = batch_number
+
                     if result['success']:
                         batch_uploads.append(result)
                         self.total_uploaded += 1
                         print(f"  ✓ {os.path.basename(json_file)} -> {result['doi']}")
                         # Update registry for successful uploads
-                        self._update_registry(result)
+                        self._update_registry(result, batch_number=batch_number)
                     else:
                         batch_errors.append(result)
                         self.total_failed += 1
                         print(f"  ✗ {os.path.basename(json_file)} -> {result.get('error', 'Unknown error')}")
                         # Update registry for failed uploads too
-                        self._update_registry(result)
-                
+                        self._update_registry(result, batch_number=batch_number)
+
                 except Exception as e:
                     error_result = {
                         'json_file': json_file,
                         'success': False,
                         'error': str(e),
-                        'timestamp': datetime.now().isoformat()
+                        'timestamp': datetime.now().isoformat(),
+                        'batch_number': batch_number
                     }
                     batch_errors.append(error_result)
                     self.total_failed += 1
                     print(f"  ✗ {os.path.basename(json_file)} -> {str(e)}")
-                
+
                 # Small delay between files to be gentle on the API
                 time.sleep(0.1)
         
@@ -197,7 +199,7 @@ class BatchUploader:
         
         return batch_result
     
-    def _update_registry(self, upload_result: Dict[str, Any]):
+    def _update_registry(self, upload_result: Dict[str, Any], batch_number: Optional[int] = None):
         """Update centralized uploads registry."""
         registry_path = os.path.join(self.output_dir, 'uploads_registry.json')
         
@@ -223,7 +225,7 @@ class BatchUploader:
                 'title': upload_result.get('metadata', {}).get('title', ''),
                 'uploaded_at': upload_result.get('timestamp'),
                 'upload_status': 'success' if upload_result.get('success', False) else 'failed',
-                'batch_number': upload_result.get('batch_number'),
+                'batch_number': batch_number if batch_number is not None else upload_result.get('batch_number'),
                 'error_message': upload_result.get('error') if not upload_result.get('success', False) else None
             }
             
