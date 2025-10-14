@@ -1,0 +1,57 @@
+{
+  "summary": {
+    "total_files_checked": 10,
+    "safe_to_upload": 8,
+    "duplicates_found": 2,
+    "check_errors": 0,
+    "duplicate_rate": 20.0,
+    "environment": "sandbox"
+  },
+  "duplicate_types": {
+    "exact_title_duplicate": 2
+  },
+  "safe_to_upload_files": [
+    "FGDC-100.json",
+    "FGDC-1000.json",
+    "FGDC-1001.json",
+    "FGDC-1002.json",
+    "FGDC-1003.json",
+    "FGDC-1004.json",
+    "FGDC-1005.json",
+    "FGDC-1006.json"
+  ],
+  "duplicate_files": [
+    {
+      "file": "FGDC-1.json",
+      "safe_to_upload": false,
+      "reason": "Exact title match found on Zenodo",
+      "duplicate_type": "exact_title_duplicate",
+      "existing_record": {
+        "id": 347970,
+        "title": "PROBES: Zooplankton of the Southeastern Bering Sea Shelf, 1980 and 1981",
+        "state": "published",
+        "created": "2025-10-11T20:12:00.594786+00:00",
+        "modified": "2025-10-11T20:12:01.228430+00:00",
+        "communities": []
+      },
+      "title": "PROBES: Zooplankton of the Southeastern Bering Sea Shelf, 1980 and 1981"
+    },
+    {
+      "file": "FGDC-10.json",
+      "safe_to_upload": false,
+      "reason": "Exact title match found on Zenodo",
+      "duplicate_type": "exact_title_duplicate",
+      "existing_record": {
+        "id": 347972,
+        "title": "The Amphipod Superfamily Phoxocephaloidea on the Pacific Coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae,  Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and Distributional Ecology",
+        "state": "published",
+        "created": "2025-10-11T20:12:04.584375+00:00",
+        "modified": "2025-10-11T20:12:05.181202+00:00",
+        "communities": []
+      },
+      "title": "The Amphipod Superfamily Phoxocephaloidea on the Pacific Coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae,  Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and Distributional Ecology"
+    }
+  ],
+  "check_errors": [],
+  "timestamp": "2025-10-11T23:12:58.137773"
+}

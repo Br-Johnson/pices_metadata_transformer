@@ -1,0 +1,163 @@
+{
+  "timestamp": "2025-10-11T23:53:36.151730",
+  "total_records_analyzed": 4204,
+  "failed_analyses": [],
+  "summary_statistics": {
+    "total_records": 4204,
+    "overall_scores": {
+      "average": 88.3,
+      "median": 89.0,
+      "min": 65.9,
+      "max": 166.9,
+      "std_dev": 6.2
+    },
+    "quality_distribution": {
+      "excellent": 280,
+      "good": 3009,
+      "fair": 770,
+      "poor": 145
+    },
+    "field_coverage_stats": {
+      "avg_critical_fields": 100.0,
+      "avg_important_fields": 100.0,
+      "avg_optional_fields": 66.7,
+      "avg_overall_coverage": 85.7
+    },
+    "compliance_stats": {
+      "zenodo_required_avg": 100.0,
+      "zenodo_recommended_avg": 100.0,
+      "pices_community_present": 4204,
+      "open_access_compliant": 4198,
+      "license_compliant": 4204
+    }
+  },
+  "detailed_analysis": {
+    "data_preservation_stats": {
+      "avg_preservation_ratio": 0.853,
+      "min_preservation_ratio": 0.245,
+      "max_preservation_ratio": 3.139,
+      "records_with_data_loss": 1112,
+      "records_with_data_gain": 25
+    },
+    "quality_scores": {
+      "average_quality_score": 97.5,
+      "min_quality_score": 80.0,
+      "max_quality_score": 100.0,
+      "high_quality_records": 4199,
+      "low_quality_records": 0
+    },
+    "file_size_analysis": {
+      "avg_fgdc_size_kb": 4.85,
+      "avg_zenodo_size_kb": 3.41,
+      "size_compression_ratio": 0.703,
+      "largest_fgdc_file": 11.29,
+      "smallest_fgdc_file": 3.27
+    },
+    "issue_patterns": {}
+  },
+  "quality_distribution": {
+    "A": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "B": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "C": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "D": {
+      "count": 0,
+      "percentage": 0.0
+    },
+    "F": {
+      "count": 0,
+      "percentage": 0.0
+    }
+  },
+  "field_coverage_analysis": {
+    "avg_critical_coverage": 100.0,
+    "avg_important_coverage": 100.0,
+    "avg_optional_coverage": 66.7,
+    "most_missing_critical_fields": {},
+    "most_missing_important_fields": {},
+    "complete_coverage_records": 0
+  },
+  "compliance_analysis": {
+    "avg_zenodo_required_compliance": 100.0,
+    "avg_zenodo_recommended_compliance": 100.0,
+    "pices_community_compliance": 100.0,
+    "open_access_compliance": 99.9,
+    "license_compliance": 100.0,
+    "fully_compliant_records": 4198
+  },
+  "transformation_effectiveness": {
+    "avg_mapping_completeness": 16.9,
+    "avg_data_enrichment": 50.2,
+    "avg_format_compliance": 100.0,
+    "avg_semantic_accuracy": 85.0,
+    "high_effectiveness_records": 0,
+    "field_mapping_summary": {
+      "avg_total_fgdc_fields": 58.7,
+      "avg_directly_mapped_fields": 10.1,
+      "avg_fields_in_notes": 48.2,
+      "avg_unmapped_fields": 0.4,
+      "avg_direct_mapping_percentage": 16.9,
+      "avg_notes_mapping_percentage": 82.5,
+      "avg_total_preservation_percentage": 99.4,
+      "records_with_unmapped_fields": 1229,
+      "records_with_perfect_preservation": 2975,
+      "unmapped_field_analysis": {
+        "total_unmapped_instances": 1711,
+        "unique_unmapped_fields": 14,
+        "most_common_unmapped_fields": {
+          "caldate": 1078,
+          "placekt": 196,
+          "geoform": 92,
+          "sub": 55,
+          "nondig": 36,
+          "hours": 36,
+          "formname": 35,
+          "offmedia": 35,
+          "recfmt": 35,
+          "procdesc": 33
+        },
+        "unmapped_reasons": {
+          "No mapping found - field not in notes or other fields": 1711
+        },
+        "sample_unmapped_fields": [
+          {
+            "fgdc_field": "caldate",
+            "reason": "No mapping found - field not in notes or other fields",
+            "value": "20030808"
+          },
+          {
+            "fgdc_field": "caldate",
+            "reason": "No mapping found - field not in notes or other fields",
+            "value": "19820101"
+          },
+          {
+            "fgdc_field": "caldate",
+            "reason": "No mapping found - field not in notes or other fields",
+            "value": "Springs, summers, and falls of 1995 through 1997."
+          },
+          {
+            "fgdc_field": "caldate",
+            "reason": "No mapping found - field not in notes or other fields",
+            "value": "1994-2004"
+          },
+          {
+            "fgdc_field": "caldate",
+            "reason": "No mapping found - field not in notes or other fields",
+            "value": "Winter, spring, and summer of 1978."
+          }
+        ]
+      }
+    }
+  },
+  "recommendations": [
+    "Significant data loss detected in multiple records. Review field mapping completeness."
+  ]
+}

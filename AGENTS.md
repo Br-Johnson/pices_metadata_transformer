@@ -7,6 +7,7 @@
 - Maintain reproducibility, determinism, and traceability.
 - Avoid technical debt and unbounded complexity.
 - Prefer simplicity, composability, and transparency over cleverness.
+- Never edit this AGENTS.md file yourself
 
 ## Agent Protocol
 
@@ -82,6 +83,7 @@
 - **Review transformation results** in `output/zenodo_json/`
 - **Check validation reports** in `output/validation_report.json`
 - **Consult the active checklist** in `docs/todo_list.md` and update it before and after each significant action
+- **Decide publishing mode** – production uploads should pass `--publish-on-upload` to `scripts/batch_upload.py` so Zenodo drafts are auto-submitted to the PICES community. Use `scripts/publish_records.py` only for remediation or backfill.
 
 ## Code Modification Rules
 

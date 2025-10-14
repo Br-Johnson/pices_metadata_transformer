@@ -65,6 +65,8 @@ output/temp/
 output/cache/
 *.tmp
 *.temp
+output/data/original_fgdc/*
+output/data/zenodo_json/*
 
 # Test files
 test_output.json
@@ -93,3 +95,6 @@ coverage.xml
 .mypy_cache/
 .dmypy.json
 dmypy.json
+
+# ignore everything in the output/data folder
+output/data/zenodo_json/*

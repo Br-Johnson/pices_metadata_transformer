@@ -1,6 +1,6 @@
 # FGDC → Zenodo Sandbox TODO List
 
-_Last updated: 2025-10-11_
+_Last updated: 2025-10-12_
 
 This checklist tracks everything required to shepherd FGDC metadata through the Zenodo sandbox pipeline and keep the project healthy. Update it whenever a task is finished, deferred, or newly discovered. Capture timestamps or short notes when changing scope so the team always understands current progress.
 
@@ -86,14 +86,20 @@ This checklist tracks everything required to shepherd FGDC metadata through the 
 
 ### 7. Orchestrated Runs
 
-- [ ] Dry-run the orchestrator (`python3 scripts/orchestrate_pipeline.py --sandbox --limit 10 --interactive`) to validate step sequencing and state persistence.
-- [ ] Execute a full orchestrator pass without limits once satisfied; ensure `output/pipeline_state_sandbox.json` and summary files show completion.
+- [x] Dry-run the orchestrator (`python3 scripts/orchestrate_pipeline.py --sandbox --limit 10 --interactive`) to validate step sequencing and state persistence.
+  - 2025-10-11T23:15Z: Pipeline summary confirms all steps (transform→verify); reports in `output/reports/pipeline/`.
+- [x] Execute a full orchestrator pass without limits once satisfied; ensure `output/pipeline_state_sandbox.json` and summary files show completion.
+  - 2025-10-12T05:20Z: Full sandbox run completed with `--publish-on-upload` disabled (historical run); post-run auto publish now handled inline.
 
 ### 8. Final Review & Cleanup
 
 - [ ] Review random records in the Zenodo sandbox UI to confirm community placement and metadata fidelity.
 - [ ] Clear or refresh `output/cache/` when performing broader duplicate scans; record when cache resets occur.
 - [ ] Capture lessons learned or production-readiness adjustments for inclusion in README/`AGENTS.md`.
+- [ ] Document and socialize production upload + publish strategy (auto publish flag, monitoring, recovery):
+  - Auto-submit using `scripts/batch_upload.py --publish-on-upload` for production runs.
+  - Monitor publish failures via `batch_upload_log_*` (`publish_failures` list) and rerun `scripts/publish_records.py` for recovery.
+  - Track community acceptance and DOI activation through `output/reports/publish/publish_log.json` and Zenodo notifications (no curator approval required for PICES sandbox/community).
 
 ## Commit & PR Guidelines
 

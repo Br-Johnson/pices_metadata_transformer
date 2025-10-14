@@ -1,21 +1,40 @@
 {
   "pipeline_summary": {
-    "start_time": "2025-10-11T17:41:47.604123",
-    "end_time": "2025-10-11T17:41:47.608123",
-    "duration_seconds": 0.004,
-    "duration_human": "0:00:00.004000",
+    "start_time": "2025-10-12T05:20:29.524966",
+    "end_time": "2025-10-12T06:09:56.227667",
+    "duration_seconds": 2966.702701,
+    "duration_human": "0:49:26.702701",
     "environment": "sandbox",
-    "steps_completed": [],
+    "steps_completed": [
+      "validate",
+      "pre_upload_duplicate_check",
+      "pre_upload_duplicate_check",
+      "upload",
+      "duplicates",
+      "pre_upload_duplicate_check",
+      "duplicates",
+      "audit_upload",
+      "audit_metrics",
+      "audit_enhanced",
+      "pre_upload_duplicate_check",
+      "duplicates",
+      "audit_upload",
+      "audit_metrics",
+      "audit_enhanced",
+      "verify"
+    ],
     "errors": [],
     "warnings": [],
     "configuration": {
       "sandbox": true,
       "production": false,
       "interactive": false,
-      "batch_size": 100,
-      "limit": 2,
+      "batch_size": 300,
+      "limit": null,
       "output_dir": "output",
       "debug": false,
+      "duplicates_hours_back": 2,
+      "duplicates_cache_ttl": 60,
       "environment": "sandbox"
     }
   }

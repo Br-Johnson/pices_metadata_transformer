@@ -1,0 +1,452 @@
+{
+  "audit_timestamp": "2025-10-12T00:56:13.048079",
+  "summary": {
+    "total_files_processed": 6006,
+    "successful_uploads": 5964,
+    "failed_uploads": 42,
+    "success_rate_percent": 99.3,
+    "total_batches": 24
+  },
+  "error_analysis": {
+    "error_types": {
+      "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}": 26,
+      "[Errno 32] Broken pipe": 10,
+      "API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: open']}": 2,
+      "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: open']}": 2,
+      "Simulated failure": 1
+    },
+    "error_files": [
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:34:57.572564"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T14:55:57.323692"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2240.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T14:55:58.757559"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:43:07.267776"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-2284.json",
+        "error": "API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: open']}",
+        "timestamp": "2025-10-11T22:04:45.190630"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T14:48:33.760129"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2240.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T14:48:35.166582"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2241.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T14:48:36.592515"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2284.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: open']}",
+        "timestamp": "2025-10-11T14:48:37.989046"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2293.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T14:48:39.383816"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:25:46.041845"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-2284.json",
+        "error": "API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: open']}",
+        "timestamp": "2025-10-11T22:06:17.035945"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:41:24.929963"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:43:01.267480"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:31:25.354846"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:25:24.770677"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2240.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:47:08.214564"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2241.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:47:41.778387"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2284.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: open']}",
+        "timestamp": "2025-10-11T12:49:21.548858"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2293.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:49:36.672574"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2448.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:56:55.547798"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2533.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T13:00:47.518790"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2535.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T13:00:50.693219"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2536.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T13:00:52.096202"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2544.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T13:01:37.652442"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2601.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T13:04:15.662772"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2604.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T13:04:19.877935"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2670.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T13:07:11.029414"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-3452.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-11T13:43:53.730385"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:43:00.331494"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-416.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T00:01:51.243672"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-428.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T00:05:02.667124"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-481.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T00:08:52.554675"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-535.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T00:12:13.267302"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-643.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T00:18:51.018729"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-699.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T00:22:07.745845"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-751.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T00:25:58.526973"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-805.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T00:29:15.091085"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-896.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T00:35:10.280568"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-1765.json",
+        "error": "Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}",
+        "timestamp": "2025-10-11T12:33:20.710029"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2.json",
+        "error": "Simulated failure",
+        "timestamp": "2025-10-11T23:33:04.965150"
+      }
+    ],
+    "total_error_types": 5
+  },
+  "content_analysis": {
+    "upload_types": {
+      "dataset": 5963,
+      "unknown": 1
+    },
+    "communities": {
+      "pices": 5963
+    },
+    "avg_creators_per_record": 1.22,
+    "creators_distribution": {
+      "min": 0,
+      "max": 4,
+      "total_records": 5964
+    }
+  },
+  "performance_analysis": {
+    "batch_statistics": [
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      }
+    ],
+    "avg_batch_duration_seconds": 0.0,
+    "avg_files_per_batch": 0.0
+  },
+  "data_integrity": {
+    "missing_titles_count": 0,
+    "missing_creators_count": 0,
+    "missing_descriptions_count": 0,
+    "invalid_dates_count": 0,
+    "missing_licenses_count": 0,
+    "sample_issues": {}
+  },
+  "recommendations": [
+    "Most common error: 'Zenodo API error: API error: A validation error occurred. - {'field': 'metadata.license', 'messages': ['Invalid license provided: none']}' (26 occurrences). Consider addressing this issue.",
+    "Batch success rates are low. Consider reducing batch size or improving error handling."
+  ]
+}

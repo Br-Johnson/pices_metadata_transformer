@@ -21,13 +21,22 @@ from scripts.path_config import OutputPaths, default_log_dir
 class BatchUploader:
     """Handles batched uploads with proper resource management and error recovery."""
     
-    def __init__(self, output_dir: str = "output", sandbox: bool = True, batch_size: int = 1000, limit: Optional[int] = None, interactive: bool = False):
+    def __init__(
+        self,
+        output_dir: str = "output",
+        sandbox: bool = True,
+        batch_size: int = 1000,
+        limit: Optional[int] = None,
+        interactive: bool = False,
+        publish_on_upload: bool = False
+    ):
         self.output_dir = output_dir
         self.paths = OutputPaths(output_dir)
         self.sandbox = sandbox
         self.batch_size = batch_size
         self.limit = limit
         self.interactive = interactive
+        self.publish_on_upload = publish_on_upload
         self.shutdown_requested = False
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         self.batch_log_file = self.paths.upload_batch_log_path(timestamp)
@@ -42,8 +51,10 @@ class BatchUploader:
         # Track progress across batches
         self.total_uploaded = 0
         self.total_failed = 0
+        self.total_published = 0
         self.batch_log = []
         self.batch_errors = []
+        self.publish_failures = []
         
         # Setup signal handlers for graceful shutdown
         signal.signal(signal.SIGINT, self._signal_handler)
@@ -97,6 +108,56 @@ class BatchUploader:
                 'error': str(e),
                 'metadata': metadata,
                 'timestamp': timestamp
+            }
+
+    def _publish_deposition(self, client, upload_result: Dict[str, Any]) -> Dict[str, Any]:
+        """Publish a deposition immediately after a successful upload."""
+        deposition_id = upload_result.get('deposition_id')
+        json_file = upload_result.get('json_file')
+        publish_timestamp = datetime.now().isoformat()
+
+        if not deposition_id:
+            error_message = 'Missing deposition ID for publishing'
+            self.publish_failures.append({
+                'json_file': json_file,
+                'deposition_id': deposition_id,
+                'error': error_message,
+                'timestamp': publish_timestamp
+            })
+            return {
+                'published': False,
+                'timestamp': publish_timestamp,
+                'communities': [],
+                'state': 'draft',
+                'error': error_message
+            }
+
+        try:
+            response = client.publish_deposition(deposition_id)
+            metadata = response.get('metadata', {}) if isinstance(response, dict) else {}
+            communities = metadata.get('communities', [])
+            state = response.get('state', 'done') if isinstance(response, dict) else 'done'
+            return {
+                'published': True,
+                'timestamp': publish_timestamp,
+                'communities': communities,
+                'state': state,
+                'doi': metadata.get('prereserve_doi', {}).get('doi') or upload_result.get('doi')
+            }
+        except Exception as e:
+            error_message = str(e)
+            self.publish_failures.append({
+                'json_file': json_file,
+                'deposition_id': deposition_id,
+                'error': error_message,
+                'timestamp': publish_timestamp
+            })
+            return {
+                'published': False,
+                'timestamp': publish_timestamp,
+                'communities': [],
+                'state': 'draft',
+                'error': error_message
             }
     
     def _signal_handler(self, signum, frame):
@@ -226,9 +287,27 @@ class BatchUploader:
                     result['batch_number'] = batch_number
 
                     if result['success']:
+                        if self.publish_on_upload:
+                            publication = self._publish_deposition(client, result)
+                            result['publication'] = publication
+                        else:
+                            result['publication'] = {
+                                'published': False,
+                                'timestamp': None,
+                                'communities': [],
+                                'state': 'draft'
+                            }
                         batch_uploads.append(result)
                         self.total_uploaded += 1
-                        print(f"  ✓ {os.path.basename(json_file)} -> {result['doi']}")
+                        if result['publication'].get('published'):
+                            self.total_published += 1
+                            print(f"  ✓ {os.path.basename(json_file)} -> {result['doi']} (published)")
+                        else:
+                            publish_error = result['publication'].get('error')
+                            if self.publish_on_upload and publish_error:
+                                print(f"  ⚠ {os.path.basename(json_file)} uploaded but publish failed: {publish_error}")
+                            else:
+                                print(f"  ✓ {os.path.basename(json_file)} -> {result['doi']}")
                         # Update registry for successful uploads
                         self._update_registry(result, batch_number=batch_number)
                         # Mirror entry in legacy upload log for downstream tooling
@@ -305,6 +384,8 @@ class BatchUploader:
         
         if filename:
             # Update registry entry
+            publication = upload_result.get('publication', {}) if isinstance(upload_result, dict) else {}
+
             registry[filename] = {
                 'deposition_id': upload_result.get('deposition_id'),
                 'doi': upload_result.get('doi'),
@@ -312,7 +393,10 @@ class BatchUploader:
                 'uploaded_at': upload_result.get('timestamp'),
                 'upload_status': 'success' if upload_result.get('success', False) else 'failed',
                 'batch_number': batch_number if batch_number is not None else upload_result.get('batch_number'),
-                'error_message': upload_result.get('error') if not upload_result.get('success', False) else None
+                'error_message': upload_result.get('error') if not upload_result.get('success', False) else None,
+                'publish_status': 'published' if publication.get('published') else 'draft',
+                'published_at': publication.get('timestamp'),
+                'publication_error': publication.get('error')
             }
             
             # Update metadata
@@ -455,6 +539,11 @@ class BatchUploader:
                     print(f"\n📊 BATCH LOG SUMMARY:")
                     print(f"  Total uploaded: {batch_data.get('total_uploaded', 0)}")
                     print(f"  Total failed: {batch_data.get('total_failed', 0)}")
+                    if batch_data.get('publish_on_upload'):
+                        print(f"  Total published: {batch_data.get('total_published', 0)}")
+                        outstanding = len(batch_data.get('publish_failures', []) or [])
+                        if outstanding:
+                            print(f"  Publish failures awaiting retry: {outstanding}")
                     print(f"  Batches completed: {len(batch_data.get('batches', []))}")
                     
                     # Show last batch details
@@ -471,7 +560,12 @@ class BatchUploader:
                             for upload in last_batch['uploads'][-3:]:  # Last 3 uploads
                                 status = "✅" if upload.get('success') else "❌"
                                 title = upload.get('metadata', {}).get('title', 'Unknown')[:50]
-                                print(f"      {status} {title}...")
+                                publish_flag = ""
+                                if upload.get('publication', {}).get('published'):
+                                    publish_flag = " [Published]"
+                                elif upload.get('publication', {}).get('error'):
+                                    publish_flag = " [Publish Failed]"
+                                print(f"      {status} {title}...{publish_flag}")
             except Exception as e:
                 print(f"  Error reading batch log: {e}")
         
@@ -544,6 +638,17 @@ class BatchUploader:
             'metadata': upload_result.get('metadata', {}),
             'batch_number': upload_result.get('batch_number')
         }
+
+        publication = upload_result.get('publication', {})
+        if publication:
+            log_entry['published'] = publication.get('published', False)
+            log_entry['published_at'] = publication.get('timestamp')
+            if publication.get('communities') is not None:
+                log_entry['communities'] = publication.get('communities')
+            if publication.get('state'):
+                log_entry['state'] = publication.get('state')
+            if publication.get('error'):
+                log_entry['publish_error'] = publication.get('error')
         
         if upload_result.get('zenodo_url'):
             log_entry['zenodo_url'] = upload_result['zenodo_url']
@@ -570,8 +675,11 @@ class BatchUploader:
             json.dump({
                 'total_uploaded': self.total_uploaded,
                 'total_failed': self.total_failed,
+                'total_published': self.total_published,
                 'batches': self.batch_log,
-                'last_updated': datetime.now().isoformat()
+                'last_updated': datetime.now().isoformat(),
+                'publish_failures': self.publish_failures,
+                'publish_on_upload': self.publish_on_upload
             }, f, indent=2)
         
         # Save errors
@@ -631,6 +739,10 @@ class BatchUploader:
         print(f"\n=== UPLOAD COMPLETE ===")
         print(f"Total files uploaded: {self.total_uploaded}")
         print(f"Total files failed: {self.total_failed}")
+        if self.publish_on_upload:
+            print(f"Total files published: {self.total_published}")
+            if self.publish_failures:
+                print(f"Publish failures: {len(self.publish_failures)} (see {self.batch_log_file})")
         print(f"Total duration: {total_duration/3600:.1f} hours")
         print(f"Batch log: {self.batch_log_file}")
         print(f"Error log: {self.batch_errors_file}")
@@ -652,6 +764,8 @@ def main():
                        help='Interactive mode: stop between batches for review (recommended for production)')
     parser.add_argument('--output-dir', default='output',
                        help='Output directory for logs (default: output)')
+    parser.add_argument('--publish-on-upload', action='store_true',
+                       help='Publish each record immediately after successful upload')
     
     args = parser.parse_args()
     
@@ -662,6 +776,8 @@ def main():
     print(f"Batch size: {args.batch_size}")
     print(f"Interactive mode: {'ON' if args.interactive else 'OFF'}")
     print(f"Output directory: {args.output_dir}")
+    if args.publish_on_upload:
+        print("Auto-publish: ON (records will be submitted immediately after upload)")
     
     if args.interactive:
         print(f"\n🔍 INTERACTIVE MODE ENABLED")
@@ -673,7 +789,8 @@ def main():
         sandbox=sandbox,
         batch_size=args.batch_size,
         limit=args.limit,
-        interactive=args.interactive
+        interactive=args.interactive,
+        publish_on_upload=args.publish_on_upload
     )
     
     try:

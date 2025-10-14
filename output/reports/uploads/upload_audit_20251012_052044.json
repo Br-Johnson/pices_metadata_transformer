@@ -1,0 +1,144 @@
+{
+  "audit_timestamp": "2025-10-12T05:20:47.828844",
+  "summary": {
+    "total_files_processed": 8395,
+    "successful_uploads": 8383,
+    "failed_uploads": 12,
+    "success_rate_percent": 99.86,
+    "total_batches": 4
+  },
+  "error_analysis": {
+    "error_types": {
+      "[Errno 32] Broken pipe": 11,
+      "Simulated failure": 1
+    },
+    "error_files": [
+      {
+        "file": "output/data/zenodo_json/FGDC-3639.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:09:47.881108"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-3696.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:12:06.347099"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-4126.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:14:24.103519"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-449.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:18:55.401416"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-504.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:21:11.918972"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-560.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:23:33.275318"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-616.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:25:51.828300"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-67.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:28:34.361411"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-725.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:30:54.438178"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-781.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:33:13.849440"
+      },
+      {
+        "file": "output/data/zenodo_json/FGDC-837.json",
+        "error": "[Errno 32] Broken pipe",
+        "timestamp": "2025-10-12T03:35:33.618571"
+      },
+      {
+        "file": "output/zenodo_json/FGDC-2.json",
+        "error": "Simulated failure",
+        "timestamp": "2025-10-11T23:33:04.965150"
+      }
+    ],
+    "total_error_types": 2
+  },
+  "content_analysis": {
+    "upload_types": {
+      "dataset": 8382,
+      "unknown": 1
+    },
+    "communities": {
+      "pices": 8382
+    },
+    "avg_creators_per_record": 0.0,
+    "creators_distribution": {
+      "min": 0,
+      "max": 0,
+      "total_records": 8383
+    }
+  },
+  "performance_analysis": {
+    "batch_statistics": [
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      },
+      {
+        "batch_number": 0,
+        "size": 0,
+        "successful": 0,
+        "failed": 0,
+        "duration": 0,
+        "success_rate": 0.0
+      }
+    ],
+    "avg_batch_duration_seconds": 0.0,
+    "avg_files_per_batch": 0.0
+  },
+  "data_integrity": {
+    "missing_titles_count": 0,
+    "missing_creators_count": 0,
+    "missing_descriptions_count": 0,
+    "invalid_dates_count": 0,
+    "missing_licenses_count": 0,
+    "sample_issues": {}
+  },
+  "recommendations": [
+    "Most common error: '[Errno 32] Broken pipe' (11 occurrences). Consider addressing this issue.",
+    "Batch success rates are low. Consider reducing batch size or improving error handling."
+  ]
+}

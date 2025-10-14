@@ -1,6 +1,22 @@
 {
-  "start_time": "2025-10-11T17:41:47.604123",
+  "start_time": "2025-10-12T01:05:41.035385",
   "steps_completed": [
+    "validate",
+    "pre_upload_duplicate_check",
+    "pre_upload_duplicate_check",
+    "upload",
+    "duplicates",
+    "pre_upload_duplicate_check",
+    "duplicates",
+    "audit_upload",
+    "audit_metrics",
+    "audit_enhanced",
+    "pre_upload_duplicate_check",
+    "duplicates",
+    "audit_upload",
+    "audit_metrics",
+    "audit_enhanced",
+    "verify",
     "reports"
   ],
   "current_step": "verify",
@@ -10,10 +26,12 @@
     "sandbox": true,
     "production": false,
     "interactive": false,
-    "batch_size": 100,
-    "limit": 2,
+    "batch_size": 300,
+    "limit": null,
     "output_dir": "output",
     "debug": false,
+    "duplicates_hours_back": 2,
+    "duplicates_cache_ttl": 60,
     "environment": "sandbox"
   }
 }

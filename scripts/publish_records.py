@@ -49,41 +49,68 @@ class RecordPublisher:
         }
     
     def load_upload_log(self) -> List[Dict[str, Any]]:
-        """Load the upload log to get list of uploaded records."""
-        # First try to find the most recent batch upload log
+        """Load upload metadata and aggregate successful records for publishing."""
         import glob
-        batch_logs = glob.glob(os.path.join(self.paths.upload_reports_dir, 'batch_upload_log_*.json'))
-        
+
+        uploads_by_key: Dict[str, Dict[str, Any]] = {}
+
+        batch_logs = sorted(
+            glob.glob(os.path.join(self.paths.upload_reports_dir, 'batch_upload_log_*.json')),
+            key=os.path.getmtime
+        )
         if batch_logs:
-            # Sort by modification time and get the most recent
-            latest_batch_log = max(batch_logs, key=os.path.getmtime)
-            self.logger.log_info(f"Using batch upload log: {latest_batch_log}")
-            
-            with open(latest_batch_log, 'r', encoding='utf-8') as f:
-                batch_data = json.load(f)
-            
-            # Extract successful uploads from all batches
-            successful_uploads = []
-            for batch in batch_data.get('batches', []):
-                for upload in batch.get('uploads', []):
-                    if upload.get('success', False):
-                        successful_uploads.append(upload)
-            
-            self.logger.log_info(f"Loaded {len(successful_uploads)} successful uploads from batch log")
-            return successful_uploads
-        
-        # Fallback to regular upload log
-        if not os.path.exists(self.upload_log_path):
-            raise FileNotFoundError(f"No upload logs found in {self.output_dir}")
-        
-        with open(self.upload_log_path, 'r', encoding='utf-8') as f:
-            upload_log = json.load(f)
-        
-        # Filter only successful uploads
-        successful_uploads = [upload for upload in upload_log if upload.get('success', False)]
-        
-        self.logger.log_info(f"Loaded {len(successful_uploads)} successful uploads from regular log")
-        return successful_uploads
+            self.logger.log_info(f"Aggregating successful uploads from {len(batch_logs)} batch logs")
+            for batch_log in batch_logs:
+                try:
+                    with open(batch_log, 'r', encoding='utf-8') as f:
+                        batch_data = json.load(f)
+                except (OSError, json.JSONDecodeError):
+                    continue
+
+                for batch in batch_data.get('batches', []):
+                    for upload in batch.get('uploads', []):
+                        if not upload.get('success', False):
+                            continue
+                        deposition_id = upload.get('deposition_id')
+                        if not isinstance(deposition_id, int):
+                            continue
+                        json_path = upload.get('json_file', '')
+                        if json_path and not json_path.startswith('output/data/zenodo_json/'):
+                            continue
+                        key = json_path or str(deposition_id)
+                        if not key:
+                            continue
+                        uploads_by_key[key] = upload
+
+        if os.path.exists(self.upload_log_path):
+            with open(self.upload_log_path, 'r', encoding='utf-8') as f:
+                try:
+                    upload_log = json.load(f)
+                except json.JSONDecodeError:
+                    upload_log = []
+        else:
+            upload_log = []
+
+        for upload in upload_log:
+            if not upload.get('success', False):
+                continue
+            deposition_id = upload.get('deposition_id')
+            if not isinstance(deposition_id, int):
+                continue
+            json_path = upload.get('json_file', '')
+            if json_path and not json_path.startswith('output/data/zenodo_json/'):
+                continue
+            key = json_path or str(deposition_id)
+            if not key:
+                continue
+            uploads_by_key.setdefault(key, upload)
+
+        if not uploads_by_key:
+            raise FileNotFoundError("No successful upload records found in batch logs or upload_log.json")
+
+        uploads = list(uploads_by_key.values())
+        self.logger.log_info(f"Loaded {len(uploads)} successful uploads from aggregated logs")
+        return uploads
     
     def publish_records(self, upload_log: List[Dict[str, Any]], limit: int = None) -> Dict[str, Any]:
         """Publish uploaded records to make them visible in communities."""
@@ -166,13 +193,29 @@ class RecordPublisher:
             
             # Check if already published
             if deposition.get('state') == 'done':
+                metadata_payload = deposition.get('metadata', {})
+                communities = metadata_payload.get('communities', []) or []
+                if not any(comm.get('identifier') == 'pices' for comm in communities):
+                    self.logger.log_warning(
+                        json_file,
+                        "publish",
+                        "missing_pices_community",
+                        "Already-published record is not associated with the PICES community",
+                        "Published record includes the 'pices' community",
+                        "Zenodo deposition metadata lacks 'pices' community",
+                        "Confirm community membership in the Zenodo UI; add manually if required"
+                    )
                 return {
                     'deposition_id': deposition_id,
                     'json_file': json_file,
                     'publish_successful': True,
                     'already_published': True,
-                    'doi': deposition.get('metadata', {}).get('prereserve_doi', {}).get('doi'),
-                    'timestamp': datetime.now().isoformat()
+                    'doi': metadata_payload.get('prereserve_doi', {}).get('doi'),
+                    'timestamp': datetime.now().isoformat(),
+                    'metadata': {
+                        'title': metadata_payload.get('title', ''),
+                        'communities': communities
+                    }
                 }
             
             # Check if files are uploaded, if not, try to upload FGDC file or mark as metadata-only
@@ -187,8 +230,39 @@ class RecordPublisher:
             # Publish the deposition
             published_deposition = self.client.publish_deposition(deposition_id)
             
-            # Get DOI
-            doi = published_deposition.get('metadata', {}).get('prereserve_doi', {}).get('doi')
+            # Re-fetch metadata to ensure communities and final state are captured
+            final_deposition = None
+            try:
+                final_deposition = self.client.get_deposition(deposition_id)
+            except Exception as fetch_error:
+                self.logger.log_warning(
+                    json_file,
+                    "publish",
+                    "post_publish_fetch_failed",
+                    str(fetch_error),
+                    "Published record metadata available for verification",
+                    "Zenodo API returned minimal publish payload; continuing with limited metadata",
+                    "Retry fetching deposition details manually if community membership needs confirmation"
+                )
+            
+            # Prefer the refreshed metadata when available
+            metadata_payload = (final_deposition or published_deposition).get('metadata', {}) if (final_deposition or published_deposition) else {}
+            
+            # Get DOI and communities from the final payload
+            doi = metadata_payload.get('prereserve_doi', {}).get('doi')
+            communities = metadata_payload.get('communities', []) or []
+            
+            # Warn if the PICES community is missing
+            if not any(comm.get('identifier') == 'pices' for comm in communities):
+                self.logger.log_warning(
+                    json_file,
+                    "publish",
+                    "missing_pices_community",
+                    "Published record is not associated with the PICES community",
+                    "Published record includes the 'pices' community",
+                    "Zenodo returned communities list without 'pices'",
+                    "Confirm community membership in the Zenodo UI; add manually if required"
+                )
             
             result = {
                 'deposition_id': deposition_id,
@@ -198,8 +272,8 @@ class RecordPublisher:
                 'state': published_deposition.get('state'),
                 'timestamp': datetime.now().isoformat(),
                 'metadata': {
-                    'title': published_deposition.get('metadata', {}).get('title', ''),
-                    'communities': published_deposition.get('metadata', {}).get('communities', [])
+                    'title': metadata_payload.get('title', ''),
+                    'communities': communities
                 }
             }
             

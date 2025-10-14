@@ -41,6 +41,7 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Any
+from zipfile import ZipFile, ZIP_DEFLATED
 
 # Add scripts directory to path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -57,6 +58,10 @@ class PipelineOrchestrator:
         self.logger = get_logger()
         self.paths = OutputPaths(args.output_dir)
         self.start_time = datetime.now()
+        # Normalise duplicate configuration defaults
+        self.duplicates_hours_back = max(1, getattr(args, 'duplicates_hours_back', 6))
+        self.duplicates_cache_ttl = max(1, getattr(args, 'duplicates_cache_ttl', 15))
+        
         self.pipeline_state = {
             'start_time': self.start_time.isoformat(),
             'steps_completed': [],
@@ -70,7 +75,10 @@ class PipelineOrchestrator:
                 'batch_size': args.batch_size,
                 'limit': args.limit,
                 'output_dir': args.output_dir,
-                'debug': getattr(args, 'debug', False)
+                'debug': getattr(args, 'debug', False),
+                'publish_on_upload': getattr(args, 'publish_on_upload', False),
+                'duplicates_hours_back': self.duplicates_hours_back,
+                'duplicates_cache_ttl': self.duplicates_cache_ttl
             }
         }
         
@@ -405,7 +413,10 @@ class PipelineOrchestrator:
             command.append("--production")
         else:
             command.append("--sandbox")
-        
+
+        if getattr(self.args, 'publish_on_upload', False):
+            command.append("--publish-on-upload")
+
         if self.args.limit:
             command.extend(["--limit", str(self.args.limit)])
         
@@ -426,6 +437,8 @@ class PipelineOrchestrator:
         command = [
             "python3", "scripts/deduplicate_check.py",
             "--output-dir", self.args.output_dir,
+            "--hours-back", str(self.duplicates_hours_back),
+            "--cache-ttl", str(self.duplicates_cache_ttl)
         ]
         
         if self.args.production:
@@ -563,6 +576,57 @@ class PipelineOrchestrator:
             print(f"\n⚠️  WARNINGS:")
             for warning in self.pipeline_state['warnings']:
                 print(f"   - {warning}")
+
+    def _zip_directory(self, source_dir: str, destination_zip: str):
+        """Create a zip archive of the provided directory."""
+        if not os.path.exists(source_dir):
+            raise FileNotFoundError(f"Source directory not found: {source_dir}")
+
+        os.makedirs(os.path.dirname(destination_zip), exist_ok=True)
+        with ZipFile(destination_zip, 'w', ZIP_DEFLATED) as zipf:
+            for root, _, files in os.walk(source_dir):
+                for filename in files:
+                    filepath = os.path.join(root, filename)
+                    arcname = os.path.relpath(filepath, source_dir)
+                    zipf.write(filepath, arcname)
+
+    def step_archive_data(self) -> bool:
+        """Step: archive original FGDC and Zenodo JSON directories."""
+        if not self._interactive_pause("archive", "Archive transformed outputs into zip bundles"):
+            return True
+
+        original_dir = self.paths.original_fgdc_dir
+        zenodo_dir = self.paths.zenodo_json_dir
+        archive_dir = self.paths.data_dir
+        original_zip = os.path.join(archive_dir, "original_fgdc.zip")
+        zenodo_zip = os.path.join(archive_dir, "zenodo_json.zip")
+
+        try:
+            print(f"📦 Creating archive: {original_zip}")
+            self._zip_directory(original_dir, original_zip)
+            print(f"📦 Creating archive: {zenodo_zip}")
+            self._zip_directory(zenodo_dir, zenodo_zip)
+            print("✅ Archives created successfully")
+            self.pipeline_state['steps_completed'].append("archive_data")
+            self._save_state()
+            return True
+        except Exception as exc:
+            error_msg = f"Failed to archive data: {exc}"
+            print(f"❌ {error_msg}")
+            self.pipeline_state['errors'].append({
+                'step': 'archive_data',
+                'error': error_msg,
+                'timestamp': datetime.now().isoformat()
+            })
+            self.logger.log_error(
+                "orchestrate",
+                "archive",
+                "archive_failed",
+                error_msg,
+                "Data directories compressed successfully",
+                "Ensure output/data is accessible and not locked",
+            )
+            return False
     
     def run_pipeline(self) -> bool:
         """Run the complete pipeline."""
@@ -588,6 +652,7 @@ class PipelineOrchestrator:
             ("Check Duplicates", self.step_check_duplicates),
             ("Audit", self.step_audit),
             ("Verify", self.step_verify),
+            ("Archive Data", self.step_archive_data),
             ("Generate Reports", self.step_generate_reports)
         ]
         
@@ -657,6 +722,8 @@ Examples:
                        help='Limit number of files to process (for testing)')
     parser.add_argument('--output-dir', default='output',
                        help='Output directory (default: output)')
+    parser.add_argument('--publish-on-upload', action='store_true',
+                       help='Publish records immediately after successful uploads')
     
     # Skip options
     parser.add_argument('--skip-transform', action='store_true',
@@ -677,6 +744,12 @@ Examples:
     # Resume option
     parser.add_argument('--resume', action='store_true',
                        help='Resume from last successful step')
+    
+    # Duplicate check tuning
+    parser.add_argument('--duplicates-hours-back', type=int, default=2,
+                       help='Hours to look back when checking for duplicates after upload (default: 2)')
+    parser.add_argument('--duplicates-cache-ttl', type=int, default=60,
+                       help='Minutes to retain cached Zenodo deposition results (default: 60)')
     
     args = parser.parse_args()
     
