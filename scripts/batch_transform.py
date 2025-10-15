@@ -16,6 +16,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.fgdc_to_zenodo import transform_fgdc_file
+from scripts.dto import build_canonical_dto, merge_related_identifiers
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
 from scripts.validate_zenodo import (
@@ -37,6 +38,7 @@ class BatchTransformer:
         # Create output directories
         self.zenodo_json_dir = self.paths.zenodo_json_dir
         self.original_fgdc_dir = self.paths.original_fgdc_dir
+        self.dto_dir = self.paths.dto_dir
         self.validation_report_path = self.paths.validation_report_path
     
     def discover_xml_files(self) -> List[str]:
@@ -150,7 +152,36 @@ class BatchTransformer:
                         result['files'].append(files_entry)
                     else:
                         result['files'] = [files_entry]
-                    
+
+                    dto = build_canonical_dto(
+                        source_path=xml_file,
+                        zenodo_metadata=result['metadata'],
+                        character_analysis=result.get('character_analysis'),
+                        enhanced_metrics=result.get('enhanced_metrics'),
+                        attachments=result.get('files'),
+                        audit_trail=result.get('audit_trail'),
+                        extra_metadata={
+                            key: value
+                            for key, value in result.items()
+                            if key
+                            not in {
+                                'metadata',
+                                'character_analysis',
+                                'enhanced_metrics',
+                                'files',
+                                'dto',
+                            }
+                        },
+                    )
+
+                    merge_related_identifiers(result['metadata'], dto.related_identifiers)
+
+                    dto_path = os.path.join(self.dto_dir, f"{base_name}.json")
+                    with open(dto_path, 'w', encoding='utf-8') as dto_file:
+                        json.dump(dto.to_json(), dto_file, indent=2, ensure_ascii=False)
+
+                    result['dto'] = dto.to_json()
+
                     # Save transformed JSON
                     with open(json_file, 'w', encoding='utf-8') as f:
                         json.dump(result, f, indent=2, ensure_ascii=False)
@@ -341,6 +372,7 @@ class BatchTransformer:
         report_lines.append(f"  Failed transformations: {transform_summary['failed_transforms']}")
         report_lines.append(f"  Skipped transformations: {transform_summary.get('skipped_transforms', 0)}")
         report_lines.append(f"  Success rate: {transform_summary['success_rate']:.1f}%")
+        report_lines.append(f"  DTO directory: {self.dto_dir}")
         report_lines.append("")
 
         warnings_by_type = transform_summary.get('warnings_by_type', {})

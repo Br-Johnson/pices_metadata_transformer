@@ -96,6 +96,15 @@ class OutputPaths:
         )
 
     @property
+    def dto_dir(self) -> str:
+        return self._get_cached(
+            "dto_dir",
+            lambda: self._prepare_dir(
+                os.path.join(self.data_dir, "dto"),
+            ),
+        )
+
+    @property
     def cache_directory(self) -> str:
         return self._get_cached(
             "cache_directory",
@@ -126,6 +135,13 @@ class OutputPaths:
                 os.path.join(self.reports_dir, "duplicates"),
                 migrate_patterns=["duplicate_check_report_*.txt"],
             ),
+        )
+
+    @property
+    def review_reports_dir(self) -> str:
+        return self._get_cached(
+            "review_reports_dir",
+            lambda: self._prepare_dir(os.path.join(self.reports_dir, "review")),
         )
 
     def replacement_plan_path(self, environment: str) -> str:
@@ -184,6 +200,13 @@ class OutputPaths:
                 os.path.join(self.reports_dir, "verification"),
                 migrate_patterns=["verification_report.json", "verification_summary.txt"],
             ),
+        )
+
+    @property
+    def odc_reports_dir(self) -> str:
+        return self._get_cached(
+            "odc_reports_dir",
+            lambda: self._prepare_dir(os.path.join(self.reports_dir, "odc")),
         )
 
     @property

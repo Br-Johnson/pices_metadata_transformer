@@ -57,6 +57,9 @@ class PipelineOrchestrator:
         self.args = args
         self.logger = get_logger()
         self.paths = OutputPaths(args.output_dir)
+        self.review_input_path = os.path.join(
+            self.paths.review_reports_dir, "creator_anomalies_input_pipeline.json"
+        )
         self.start_time = datetime.now()
         # Normalise duplicate configuration defaults
         self.duplicates_hours_back = max(1, getattr(args, 'duplicates_hours_back', 6))
@@ -298,7 +301,11 @@ class PipelineOrchestrator:
             'scripts/upload_audit.py',
             'scripts/metrics_analysis.py',
             'scripts/enhanced_metrics.py',
-            'scripts/verify_uploads.py'
+            'scripts/verify_uploads.py',
+            'scripts/bibliographic_linkage.py',
+            'scripts/generate_jsonld_catalogue.py',
+            'scripts/extract_review_set.py',
+            'scripts/review_llm_cli.py'
         ]
         
         for script in required_scripts:
@@ -490,9 +497,96 @@ class PipelineOrchestrator:
             "--input", self.paths.zenodo_json_dir,
             "--output", self.paths.enhanced_metrics_path(self.environment)
         ]
-        
+
         return self._run_command(enhanced_command, "Generating enhanced metrics", "audit_enhanced")
-    
+
+    def step_bibliographic_linkage(self) -> bool:
+        """Step 4b: Run bibliographic linkage checks."""
+        if getattr(self.args, "skip_bibliography", False):
+            print("⏭️  Skipping bibliographic linkage step")
+            return True
+
+        if not self._interactive_pause("bibliography", "Run bibliographic linkage"):
+            return True
+
+        command = [
+            "python3",
+            "scripts/bibliographic_linkage.py",
+            "--dto-dir",
+            self.paths.dto_dir,
+            "--output-dir",
+            self.args.output_dir,
+        ]
+        if self.args.limit:
+            command.extend(["--limit", str(self.args.limit)])
+        if getattr(self.args, "bibliography_offline", False):
+            command.extend(["--skip-datacite", "--skip-crossref"])
+        if getattr(self.args, "bibliography_decisions", None):
+            command.extend(["--decisions", self.args.bibliography_decisions])
+
+        return self._run_command(command, "Running bibliographic linkage", "bibliography")
+
+    def step_jsonld(self) -> bool:
+        """Step 4c: Generate JSON-LD catalogue."""
+        if getattr(self.args, "skip_jsonld", False):
+            print("⏭️  Skipping JSON-LD generation step")
+            return True
+
+        if not self._interactive_pause("jsonld", "Generate JSON-LD catalogue"):
+            return True
+
+        command = [
+            "python3",
+            "scripts/generate_jsonld_catalogue.py",
+            "--dto-dir",
+            self.paths.dto_dir,
+            "--output-dir",
+            "docs/odc/records",
+            "--sitemap",
+            "docs/odc/sitemap.xml",
+        ]
+        if self.args.limit:
+            command.extend(["--limit", str(self.args.limit)])
+
+        return self._run_command(command, "Generating JSON-LD catalogue", "jsonld")
+
+    def step_review(self) -> bool:
+        """Step 4d: Prepare LLM review artefacts."""
+        if getattr(self.args, "skip_review", False):
+            print("⏭️  Skipping LLM review stage")
+            return True
+
+        if not self._interactive_pause("review", "Prepare LLM review artefacts"):
+            return True
+
+        extract_command = [
+            "python3",
+            "scripts/extract_review_set.py",
+            "--dto-dir",
+            self.paths.dto_dir,
+            "--output",
+            self.review_input_path,
+        ]
+        if getattr(self.args, "review_limit", None):
+            extract_command.extend(["--limit", str(self.args.review_limit)])
+
+        if not self._run_command(extract_command, "Preparing review set", "review_extract"):
+            return False
+
+        if getattr(self.args, "auto_review", False):
+            review_command = [
+                "python3",
+                "scripts/review_llm_cli.py",
+                self.review_input_path,
+                "--output-dir",
+                self.args.output_dir,
+                "--auto",
+            ]
+            if not self._run_command(review_command, "Recording automated review observations", "review_observe"):
+                return False
+
+        return True
+
     def step_verify(self) -> bool:
         """Step 5: Verify uploads and data integrity."""
         if self.args.skip_verify:
@@ -667,6 +761,9 @@ class PipelineOrchestrator:
             ("Upload", self.step_upload),
             ("Check Duplicates", self.step_check_duplicates),
             ("Audit", self.step_audit),
+            ("Bibliographic Linkage", self.step_bibliographic_linkage),
+            ("JSON-LD Generation", self.step_jsonld),
+            ("LLM Review", self.step_review),
             ("Verify", self.step_verify),
             ("Archive Data", self.step_archive_data),
             ("Generate Reports", self.step_generate_reports)
@@ -759,6 +856,20 @@ Examples:
                        help='Skip verification step')
     parser.add_argument('--skip-reports', action='store_true',
                        help='Skip final report generation')
+    parser.add_argument('--skip-bibliography', action='store_true',
+                       help='Skip bibliographic linkage stage')
+    parser.add_argument('--bibliography-decisions',
+                       help='Path to curator decisions JSON for bibliographic linkage')
+    parser.add_argument('--bibliography-offline', action='store_true',
+                       help='Skip remote bibliographic queries (use cached data only)')
+    parser.add_argument('--skip-jsonld', action='store_true',
+                       help='Skip JSON-LD catalogue generation stage')
+    parser.add_argument('--skip-review', action='store_true',
+                       help='Skip LLM review preparation stage')
+    parser.add_argument('--review-limit', type=int,
+                       help='Limit number of records when generating review sets')
+    parser.add_argument('--auto-review', action='store_true',
+                       help='Automatically create placeholder review observations')
     
     # Resume option
     parser.add_argument('--resume', action='store_true',

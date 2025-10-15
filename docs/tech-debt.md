@@ -51,3 +51,8 @@
 - **Impact:** Upload registry may reference depositions that never completed or were purged, inflating verification failures and masking real regressions.
 - **Next step:** Audit `upload_log.json` and Zenodo sandbox to reconcile these entries; remove or refresh stale registry records before the next publication pass.
 - **Resolution (2025-10-15T05:24Z):** Purged FGDC-3754–FGDC-3758 from `output/state/uploads/upload_log.json` and `uploads_registry.json`. Re-run verification to ensure the iteration loop exits cleanly.
+
+### Missing sandbox credentials during regression sweeps
+- **Observation (2025-10-15T06:07Z):** `pre_upload_duplicate_check` and `verify_uploads` abort with `Secrets file not found: .env` when run from a clean environment.
+- **Impact:** Regression gate cannot exercise duplicate detection or upload verification without a local `.env`; downstream steps rely on their reports for audit parity.
+- **Next step:** Document the requirement to populate `.env` with sandbox tokens before running the gate; consider adding a guard that emits a clearer message or supports read-only dry runs.
