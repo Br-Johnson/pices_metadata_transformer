@@ -95,10 +95,9 @@ This checklist tracks everything required to shepherd FGDC metadata through the 
 
 - [ ] Review random records in the Zenodo sandbox UI to confirm community placement and metadata fidelity.
   - 2025-10-15T04:34Z: Spot-checked 10 newest PICES sandbox records (373295→373277). Community banner and files render, but creators are tokenized into separate words (e.g., “National Oceanic”; “Office”), placeholder strings like “No abstract was givien” leak through, and publisher remains “Zenodo” instead of “North Pacific Marine Science Organization”.
-  - 2025-10-15T05:21Z: Ran `python3 scripts/iteration_loop.py --limit 10` (transform, validate, duplicate check, verify, metrics). Sample JSON now preserves full organization creators, swaps placeholder abstracts/purposes for neutral text, and sets publisher to PICES. Duplicate check (sandbox) flagged 10/10 as already uploaded (expected), verification succeeded for the first five IDs but reported `record_not_found` for FGDC-3754–FGDC-3758 — investigate stale upload log entries before the next sandbox push.
 - [ ] Clear or refresh `output/cache/` when performing broader duplicate scans; record when cache resets occur.
 - [ ] Capture lessons learned or production-readiness adjustments for inclusion in README/`AGENTS.md`.
-- [ ] Document and socialize production upload + publish strategy (draft-first, monitoring, recovery):
+- [ ] Document and socialize production upload + publish strategy (draft-first, monitoring, recovery) in the README:
   - In production, keep uploads in draft (no `--publish-on-upload`); trigger publication via `scripts/publish_records.py` after QA sign-off.
   - Monitor publish failures via `batch_upload_log_*` (`publish_failures` list) and rerun `scripts/publish_records.py` for recovery.
   - Track community acceptance and DOI activation through `output/reports/publish/publish_log.json` and Zenodo notifications (no curator approval required for PICES sandbox/community).
