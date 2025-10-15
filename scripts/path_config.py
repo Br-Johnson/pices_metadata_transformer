@@ -128,6 +128,15 @@ class OutputPaths:
             ),
         )
 
+    def replacement_plan_path(self, environment: str) -> str:
+        """Path for storing duplicate replacement plans scoped by environment."""
+        filename = f"replacement_plan_{environment}.json"
+        directory = self.duplicates_reports_dir
+        return self._get_cached(
+            f"replacement_plan_{environment}",
+            lambda: self._prepare_file(os.path.join(directory, filename)),
+        )
+
     @property
     def pre_upload_reports_dir(self) -> str:
         return self._get_cached(

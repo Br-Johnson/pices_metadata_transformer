@@ -16,25 +16,38 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.fgdc_utils import load_fgdc_xml, build_metadata_notes
 
 
 class ZenodoUploader:
     """Handles uploading transformed records to Zenodo."""
-    
-    def __init__(self, sandbox: bool = True, output_dir: str = "output"):
+
+    def __init__(self, sandbox: bool = True, output_dir: str = "output", replace_duplicates: bool = False):
         self.sandbox = sandbox
         self.output_dir = output_dir
         self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
-        
+        self.replace_duplicates = replace_duplicates
+        self.environment = 'sandbox' if sandbox else 'production'
+
+        if self.replace_duplicates and not self.sandbox:
+            raise ValueError("Duplicate replacement is only supported in the sandbox environment")
+
         # Initialize Zenodo client (will be set by batch uploader)
         self.client = None
-        
+
         # File paths - use transformed directory for the main files
         self.zenodo_json_dir = self.paths.zenodo_json_dir
         self.original_fgdc_dir = self.paths.original_fgdc_dir
         self.upload_log_path = self.paths.upload_log_path
         self.upload_errors_path = os.path.join(self.paths.upload_reports_dir, 'upload_errors.json')
+        if self.replace_duplicates:
+            self.replacement_plan_path = self.paths.replacement_plan_path(self.environment)
+            self.replacement_plan = self._load_replacement_plan()
+        else:
+            self.replacement_plan_path = None
+            self.replacement_plan = {}
+        self._replacement_attempted = set()
         
         # Upload tracking
         self.upload_log = []
@@ -134,39 +147,50 @@ class ZenodoUploader:
             if 'metadata' not in data:
                 raise ValueError("JSON file missing 'metadata' key")
             
-            metadata = data['metadata']
-            metadata.setdefault('notes', '')
-            note = "Record is migrated FGDC metadata from the archived PICES GeoNetwork metadata catalogue; dataset is metadata-only."
-            if note not in metadata['notes']:
-                metadata['notes'] = (metadata['notes'] + "\n\n" if metadata['notes'] else "") + note
-            original_fgdc_file = None
-            
             # Get base filename
             base_name = os.path.splitext(os.path.basename(json_file))[0]
-            
-            # Find corresponding FGDC XML file
-            fgdc_file = os.path.join(self.original_fgdc_dir, f"{base_name}.xml")
-            if not os.path.exists(fgdc_file):
-                fgdc_file = None
-            
+
+            # Load FGDC XML for notes embedding
+            fgdc_xml, fgdc_file = load_fgdc_xml(base_name, self.paths)
+            metadata = data['metadata']
+            metadata['notes'] = build_metadata_notes(metadata.get('notes', ''), fgdc_xml)
+
+            if not fgdc_xml:
+                self.logger.log_warning(
+                    json_file,
+                    "fgdc_xml",
+                    "fgdc_missing_for_notes",
+                    "FGDC XML not embedded",
+                    "FGDC XML located and embedded into Zenodo notes field",
+                    suggestion="Ensure original FGDC XML is available so the full record is preserved in notes",
+                )
+
+            # Optionally replace existing sandbox record
+            self._maybe_replace_existing(base_name, metadata.get('title', ''))
+
             # Create deposition
             deposition = self.client.create_deposition()
             deposition_id = deposition['id']
-            
+
             # Update metadata
-            updated_deposition = self.client.update_deposition_metadata(deposition_id, metadata)
             try:
-                self.client.update_deposition_metadata(deposition_id, {
-                    "files": {"enabled": False}
-                })
-            except Exception as e:
-                self.logger.log_warning(
-                    json_file, "metadata_only", "disable_files_failed",
-                    str(e), "Depositions marked as metadata-only",
-                    "Unable to disable files on deposition",
-                    "Check Zenodo API permissions"
+                updated_deposition = self.client.update_deposition_metadata(
+                    deposition_id,
+                    metadata,
+                    files={'enabled': False},
                 )
-            
+            except ZenodoAPIError as e:
+                self.logger.log_warning(
+                    json_file,
+                    "metadata_only",
+                    "disable_files_failed",
+                    str(e),
+                    "Depositions marked as metadata-only",
+                    "Zenodo API rejected files.disabled flag",
+                    "Verify token permissions and disable files manually if required",
+                )
+                updated_deposition = self.client.update_deposition_metadata(deposition_id, metadata)
+
             # Get DOI if reserved
             doi = None
             if 'metadata' in updated_deposition and 'prereserve_doi' in updated_deposition['metadata']:
@@ -193,7 +217,7 @@ class ZenodoUploader:
             )
             
             return result
-            
+
         except ZenodoAPIError as e:
             return {
                 'json_file': json_file,
@@ -208,7 +232,7 @@ class ZenodoUploader:
                 'error': f"Upload error: {str(e)}",
                 'timestamp': datetime.now().isoformat()
             }
-    
+
     def _save_upload_logs(self):
         """Save upload logs to JSON files."""
         # Save successful uploads
@@ -325,6 +349,79 @@ class ZenodoUploader:
         self.logger.log_info(f"Upload report saved to {report_path}")
         return report_text
 
+    def _load_replacement_plan(self) -> Dict[str, Any]:
+        """Load replacement plan describing which records should be deleted."""
+        if not self.replace_duplicates:
+            return {}
+        if not os.path.exists(self.replacement_plan_path):
+            self.logger.log_info("No replacement plan found; proceeding without sandbox deletions")
+            return {}
+        try:
+            with open(self.replacement_plan_path, 'r', encoding='utf-8') as fh:
+                payload = json.load(fh)
+            replacements = payload.get('replacements', [])
+            plan = {}
+            for entry in replacements:
+                base_name = entry.get('base_name')
+                if base_name:
+                    plan[base_name] = entry
+            self.logger.log_info(
+                f"Loaded replacement plan with {len(plan)} entrie(s) from {self.replacement_plan_path}"
+            )
+            return plan
+        except Exception as exc:
+            self.logger.log_warning(
+                self.replacement_plan_path,
+                "replacement_plan",
+                "replacement_plan_load_failed",
+                str(exc),
+                "Replacement plan parsed successfully",
+                suggestion="Review replacement plan JSON and regenerate using pre-upload duplicate check",
+            )
+            return {}
+
+    def _maybe_replace_existing(self, base_name: str, title: str):
+        """Delete an existing sandbox deposition when replacement is requested."""
+        if not self.replace_duplicates:
+            return
+        if base_name in self._replacement_attempted:
+            return
+
+        entry = self.replacement_plan.get(base_name)
+        if not entry:
+            return
+
+        deposition_id = entry.get('existing_deposition_id')
+        if not deposition_id:
+            return
+
+        self.logger.log_info(
+            f"Replacing sandbox deposition {deposition_id} for {base_name} ({title or 'untitled'})"
+        )
+        try:
+            self.client.delete_deposition(deposition_id)
+            self.logger.log_info(f"Deleted existing deposition {deposition_id} prior to upload")
+        except ZenodoAPIError as exc:
+            self.logger.log_warning(
+                base_name,
+                "duplicate_replacement",
+                "deposition_delete_failed",
+                str(exc),
+                "Existing sandbox deposition removed before replacement upload",
+                suggestion="Delete the deposition manually in sandbox or ensure it is still in draft state",
+            )
+        except Exception as exc:  # noqa: BLE001
+            self.logger.log_warning(
+                base_name,
+                "duplicate_replacement",
+                "deposition_delete_unexpected_error",
+                str(exc),
+                "Existing sandbox deposition removed before replacement upload",
+                suggestion="Investigate sandbox API availability before retrying",
+            )
+
+        self._replacement_attempted.add(base_name)
+
 
 def main():
     """Main function for command-line usage."""
@@ -352,6 +449,11 @@ def main():
         type=int,
         help='Limit number of files to upload (for testing)'
     )
+    parser.add_argument(
+        '--replace-duplicates',
+        action='store_true',
+        help='Sandbox only: replace existing duplicates before uploading'
+    )
     default_logs = default_log_dir("upload")
     parser.add_argument(
         '--log-dir',
@@ -363,15 +465,19 @@ def main():
     
     # Determine environment
     sandbox = not args.production
-    
+
+    if args.replace_duplicates and not sandbox:
+        print("❌ Duplicate replacement is only supported in the sandbox environment")
+        raise SystemExit(1)
+
     # Initialize logger
     initialize_logger(args.log_dir)
     logger = get_logger()
-    
+
     try:
         with create_zenodo_client(sandbox) as client:
             # Create uploader
-            uploader = ZenodoUploader(sandbox, args.output)
+            uploader = ZenodoUploader(sandbox, args.output, replace_duplicates=args.replace_duplicates)
             uploader.client = client
 
             # Discover JSON files
