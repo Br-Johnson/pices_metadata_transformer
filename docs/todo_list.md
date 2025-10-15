@@ -95,6 +95,9 @@ This checklist tracks everything required to shepherd FGDC metadata through the 
 
 - [ ] Review random records in the Zenodo sandbox UI to confirm community placement and metadata fidelity.
   - 2025-10-15T04:34Z: Spot-checked 10 newest PICES sandbox records (373295→373277). Community banner and files render, but creators are tokenized into separate words (e.g., “National Oceanic”; “Office”), placeholder strings like “No abstract was givien” leak through, and publisher remains “Zenodo” instead of “North Pacific Marine Science Organization”.
+  - 2025-10-15T05:21Z: Ran `python3 scripts/iteration_loop.py --limit 10` (transform, validate, duplicate check, verify, metrics). Sample JSON now preserves full organization creators, swaps placeholder abstracts/purposes for neutral text, and sets publisher to PICES. Duplicate check (sandbox) flagged 10/10 as already uploaded (expected); verification now blocks on `record_not_found` for FGDC-3754–FGDC-3758 entries in the upload registry.
+  - 2025-10-15T05:24Z: Removed FGDC-3754–FGDC-3758 from `output/state/uploads/upload_log.json` and `output/state/uploads/uploads_registry.json`; rerun the iteration loop to confirm verification succeeds before proceeding with new uploads.
+  - 2025-10-15T05:50Z: Iteration loop rerun (`python3 scripts/iteration_loop.py --limit 10`) now completes cleanly—duplicate scan still flags the sample as already uploaded (expected), verification passes 10/10 records, metrics report stored at `output/reports/metrics/iteration_metrics_20251014_224511.json`. Ready for UI spot check follow-up.
 - [ ] Clear or refresh `output/cache/` when performing broader duplicate scans; record when cache resets occur.
 - [ ] Capture lessons learned or production-readiness adjustments for inclusion in README/`AGENTS.md`.
 - [ ] Document and socialize production upload + publish strategy (draft-first, monitoring, recovery) in the README:
