@@ -218,9 +218,16 @@ class ZenodoAPIClient:
         response = self._make_request('GET', f'deposit/depositions/{deposition_id}')
         return response.json()
     
-    def update_deposition_metadata(self, deposition_id: int, metadata: Dict[str, Any]) -> Dict[str, Any]:
-        """Update deposition metadata."""
-        data = {'metadata': metadata}
+    def update_deposition_metadata(
+        self,
+        deposition_id: int,
+        metadata: Dict[str, Any],
+        files: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        """Update deposition metadata, optionally toggling file settings."""
+        data: Dict[str, Any] = {'metadata': metadata}
+        if files is not None:
+            data['files'] = files
         response = self._make_request('PUT', f'deposit/depositions/{deposition_id}', json=data)
         return response.json()
     

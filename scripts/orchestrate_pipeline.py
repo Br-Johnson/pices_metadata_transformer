@@ -77,6 +77,8 @@ class PipelineOrchestrator:
                 'output_dir': args.output_dir,
                 'debug': getattr(args, 'debug', False),
                 'publish_on_upload': getattr(args, 'publish_on_upload', False),
+                'replace_duplicates': getattr(args, 'replace_duplicates', False),
+                'post_upload_dedupe': getattr(args, 'post_upload_dedupe', False),
                 'duplicates_hours_back': self.duplicates_hours_back,
                 'duplicates_cache_ttl': self.duplicates_cache_ttl
             }
@@ -383,15 +385,18 @@ class PipelineOrchestrator:
             "python3", "scripts/pre_upload_duplicate_check.py",
             "--output-dir", self.args.output_dir,
         ]
-        
+
         if self.args.production:
             command.append("--production")
         else:
             command.append("--sandbox")
-        
+
+        if getattr(self.args, 'replace_duplicates', False) and not self.args.production:
+            command.append("--allow-replacements")
+
         if self.args.limit:
             command.extend(["--limit", str(self.args.limit)])
-        
+
         return self._run_command(command, "Checking for existing records on Zenodo", "pre_upload_duplicate_check")
     
     def step_upload(self) -> bool:
@@ -419,15 +424,18 @@ class PipelineOrchestrator:
 
         if self.args.limit:
             command.extend(["--limit", str(self.args.limit)])
-        
+
         if self.args.interactive:
             command.append("--interactive")
-        
+
+        if getattr(self.args, 'replace_duplicates', False) and not self.args.production:
+            command.append("--replace-duplicates")
+
         return self._run_command(command, f"Uploading files to Zenodo {self.environment}", "upload")
-    
+
     def step_check_duplicates(self) -> bool:
         """Step 5: Check for duplicates."""
-        if self.args.skip_duplicates:
+        if self.args.skip_duplicates or not getattr(self.args, 'post_upload_dedupe', False):
             print("⏭️  Skipping duplicate check step")
             return True
         
@@ -637,6 +645,14 @@ class PipelineOrchestrator:
         print(f"   Output directory: {self.args.output_dir}")
         if self.args.limit:
             print(f"   Limit: {self.args.limit} files")
+        if getattr(self.args, 'replace_duplicates', False):
+            print("   Duplicate replacements: ENABLED (sandbox only)")
+        else:
+            print("   Duplicate replacements: disabled")
+        print(
+            "   Post-upload deduplicate check: "
+            + ("ENABLED" if getattr(self.args, 'post_upload_dedupe', False) else "skipped by default")
+        )
         print(f"{'='*80}")
         
         # Check prerequisites
@@ -724,7 +740,8 @@ Examples:
                        help='Output directory (default: output)')
     parser.add_argument('--publish-on-upload', action='store_true',
                        help='Publish records immediately after successful uploads')
-    
+    parser.add_argument('--replace-duplicates', action='store_true',
+                       help='Sandbox only: replace duplicates using pre-upload replacement plan')
     # Skip options
     parser.add_argument('--skip-transform', action='store_true',
                        help='Skip transformation step (assume already done)')
@@ -734,6 +751,8 @@ Examples:
                        help='Skip validation step')
     parser.add_argument('--skip-duplicates', action='store_true',
                        help='Skip duplicate checking')
+    parser.add_argument('--post-upload-dedupe', action='store_true',
+                        help='Run the post-upload duplicate check step')
     parser.add_argument('--skip-audit', action='store_true',
                        help='Skip audit and metrics generation')
     parser.add_argument('--skip-verify', action='store_true',
@@ -761,9 +780,13 @@ Examples:
     if args.batch_size <= 0:
         print("❌ Batch size must be positive")
         sys.exit(1)
-    
+
     if args.limit and args.limit <= 0:
         print("❌ Limit must be positive")
+        sys.exit(1)
+
+    if args.replace_duplicates and args.production:
+        print("❌ Duplicate replacement is restricted to sandbox runs. Remove --replace-duplicates for production uploads.")
         sys.exit(1)
     
     # Initialize logger early

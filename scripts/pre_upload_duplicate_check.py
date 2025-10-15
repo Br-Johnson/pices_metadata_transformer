@@ -19,28 +19,35 @@ from scripts.path_config import OutputPaths, default_log_dir
 
 class PreUploadDuplicateChecker:
     """Checks for existing records on Zenodo before upload to prevent duplicates."""
-    
-    def __init__(self, sandbox: bool = True, output_dir: str = "output"):
+
+    def __init__(self, sandbox: bool = True, output_dir: str = "output", allow_replacements: bool = False):
         self.sandbox = sandbox
         self.output_dir = output_dir
         self.paths = OutputPaths(output_dir)
         self.logger = get_logger()
         self.community_identifier = "pices"
-        
+        self.allow_replacements = allow_replacements
+
+        if self.allow_replacements and not self.sandbox:
+            raise ValueError("Duplicate replacements are only supported in the sandbox environment")
+
         # Initialize Zenodo client
         self.client = create_zenodo_client(sandbox)
-        
+
         # File paths
         self.zenodo_json_dir = self.paths.zenodo_json_dir
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         self.duplicate_check_report = self.paths.pre_upload_report_path(timestamp)
-        
+        environment = 'sandbox' if sandbox else 'production'
+        self.replacement_plan_path = self.paths.replacement_plan_path(environment)
+
         # Results storage
         self.duplicates_found = []
         self.safe_to_upload = []
         self.check_errors = []
         self.existing_titles = set()
         self.existing_dois = set()
+        self.replacement_candidates = []
         
     def load_existing_zenodo_records(self) -> Dict[str, Any]:
         """Load existing records from Zenodo to check against."""
@@ -113,7 +120,29 @@ class PreUploadDuplicateChecker:
             if title_lower in existing_records['titles']:
                 # Get the existing record with this title
                 existing_record = existing_records['title_to_record'].get(title_lower)
-                
+
+                if self.allow_replacements and existing_record:
+                    base_name = os.path.splitext(filename)[0]
+                    replacement_entry = {
+                        'file': filename,
+                        'base_name': base_name,
+                        'title': title,
+                        'existing_deposition_id': existing_record.get('id'),
+                        'existing_record': existing_record,
+                        'timestamp': datetime.now().isoformat()
+                    }
+                    self.replacement_candidates.append(replacement_entry)
+
+                    return {
+                        'file': filename,
+                        'safe_to_upload': True,
+                        'reason': 'Exact title duplicate will be replaced in sandbox',
+                        'duplicate_type': 'exact_title_duplicate',
+                        'existing_record': existing_record,
+                        'title': title,
+                        'replacement_planned': True
+                    }
+
                 return {
                     'file': filename,
                     'safe_to_upload': False,
@@ -221,7 +250,10 @@ class PreUploadDuplicateChecker:
         
         # Generate pre-filter list for transformation
         self.generate_pre_filter_list(existing_records)
-        
+
+        # Persist replacement plan when applicable
+        self.save_replacement_plan()
+
         return summary
     
     def _generate_summary(self) -> Dict[str, Any]:
@@ -241,11 +273,13 @@ class PreUploadDuplicateChecker:
                 'duplicates_found': len(self.duplicates_found),
                 'check_errors': len(self.check_errors),
                 'duplicate_rate': (len(self.duplicates_found) / total_files * 100) if total_files > 0 else 0,
-                'environment': 'sandbox' if self.sandbox else 'production'
+                'environment': 'sandbox' if self.sandbox else 'production',
+                'replacements_planned': len(self.replacement_candidates)
             },
             'duplicate_types': duplicate_types,
             'safe_to_upload_files': [f['file'] for f in self.safe_to_upload],
             'duplicate_files': self.duplicates_found,
+            'replacement_candidates': self.replacement_candidates,
             'check_errors': self.check_errors,
             'timestamp': datetime.now().isoformat()
         }
@@ -256,7 +290,7 @@ class PreUploadDuplicateChecker:
             json.dump(summary, f, indent=2, ensure_ascii=False)
         
         print(f"📄 Duplicate check report saved to: {self.duplicate_check_report}")
-    
+
     def generate_upload_list(self) -> str:
         """Generate a list of files safe to upload."""
         safe_files = [f['file'] for f in self.safe_to_upload]
@@ -306,6 +340,23 @@ class PreUploadDuplicateChecker:
         print(f"📋 Pre-filter list saved to: {self.paths.pre_filter_path}")
         return self.paths.pre_filter_path
 
+    def save_replacement_plan(self) -> Optional[str]:
+        """Persist duplicate replacement plan for downstream upload logic."""
+        if not self.allow_replacements:
+            return None
+
+        plan_payload = {
+            'generated_at': datetime.now().isoformat(),
+            'environment': 'sandbox' if self.sandbox else 'production',
+            'replacements': self.replacement_candidates,
+        }
+
+        with open(self.replacement_plan_path, 'w', encoding='utf-8') as fh:
+            json.dump(plan_payload, fh, indent=2, ensure_ascii=False)
+
+        print(f"📄 Replacement plan saved to: {self.replacement_plan_path}")
+        return self.replacement_plan_path
+
 
 def main():
     """Main function for command-line usage."""
@@ -329,6 +380,11 @@ def main():
         help='Output directory (default: output)'
     )
     parser.add_argument(
+        '--allow-replacements',
+        action='store_true',
+        help='Allow sandbox duplicate replacements and generate replacement plan'
+    )
+    parser.add_argument(
         '--limit', '-l',
         type=int,
         help='Limit number of files to check (for testing)'
@@ -344,14 +400,18 @@ def main():
     
     # Determine environment
     sandbox = not args.production
-    
+
+    if args.allow_replacements and not sandbox:
+        print("❌ Duplicate replacements are only allowed in sandbox runs")
+        return 1
+
     # Initialize logger
     initialize_logger(args.log_dir)
     logger = get_logger()
-    
+
     try:
         # Create checker
-        checker = PreUploadDuplicateChecker(sandbox, args.output_dir)
+        checker = PreUploadDuplicateChecker(sandbox, args.output_dir, allow_replacements=args.allow_replacements)
         
         # Run duplicate check
         logger.log_info(f"Starting pre-upload duplicate check in {'sandbox' if sandbox else 'production'} Zenodo...")
@@ -369,7 +429,9 @@ def main():
         print(f"Duplicates found: {summary['summary']['duplicates_found']}")
         print(f"Check errors: {summary['summary']['check_errors']}")
         print(f"Duplicate rate: {summary['summary']['duplicate_rate']:.1f}%")
-        
+        if summary['summary'].get('replacements_planned'):
+            print(f"Replacements planned (sandbox only): {summary['summary']['replacements_planned']}")
+
         if summary['duplicate_types']:
             print(f"\nDuplicate types:")
             for dup_type, count in summary['duplicate_types'].items():
@@ -379,7 +441,9 @@ def main():
         print(f"Already uploaded list: {checker.paths.already_uploaded_path}")
         print(f"Pre-filter list: {checker.paths.pre_filter_path}")
         print(f"Duplicate check report: {checker.duplicate_check_report}")
-        
+        if checker.allow_replacements:
+            print(f"Replacement plan: {checker.replacement_plan_path}")
+
         # Exit with appropriate code
         if summary['summary']['duplicates_found'] > 0:
             logger.log_info("Duplicate check completed with duplicates found")

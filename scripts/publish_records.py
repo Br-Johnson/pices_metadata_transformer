@@ -218,14 +218,13 @@ class RecordPublisher:
                     }
                 }
             
-            # Check if files are uploaded, if not, try to upload FGDC file or mark as metadata-only
+            # Always enforce metadata-only publishing
             files = deposition.get('files', [])
-            if not files:
-                # Try to upload the FGDC file if it exists
-                fgdc_uploaded = self._try_upload_fgdc_file(deposition_id, json_file)
-                if not fgdc_uploaded:
-                    # If no FGDC file, mark as metadata-only
-                    self._mark_as_metadata_only(deposition_id)
+            if files:
+                self.logger.log_info(
+                    f"Removing {len(files)} attached file(s) from deposition {deposition_id} before publishing"
+                )
+            self._mark_as_metadata_only(deposition_id)
             
             # Publish the deposition
             published_deposition = self.client.publish_deposition(deposition_id)
@@ -301,46 +300,6 @@ class RecordPublisher:
                 'timestamp': datetime.now().isoformat()
             }
     
-    def _try_upload_fgdc_file(self, deposition_id: int, json_file: str) -> bool:
-        """Try to upload the corresponding FGDC XML file."""
-        try:
-            # Get base filename
-            base_name = os.path.splitext(os.path.basename(json_file))[0]
-            
-            # Look for FGDC file in multiple possible locations
-            possible_paths = [
-                os.path.join(self.paths.original_fgdc_dir, f"{base_name}.xml"),
-                os.path.join('FGDC', f"{base_name}.xml"),
-                os.path.join('transformed', 'original_fgdc', f"{base_name}.xml")
-            ]
-            
-            fgdc_file = None
-            for path in possible_paths:
-                if os.path.exists(path):
-                    fgdc_file = path
-                    break
-            
-            if not fgdc_file:
-                self.logger.log_info(f"No FGDC file found for {base_name}")
-                return False
-            
-            # Upload the FGDC file
-            self.client.upload_file(deposition_id, fgdc_file, f"{base_name}.xml")
-            self.logger.log_info(f"Successfully uploaded FGDC file: {fgdc_file}")
-            return True
-            
-        except Exception as e:
-            self.logger.log_warning(
-                json_file,
-                "fgdc_attachment",
-                "fgdc_upload_failed",
-                str(e),
-                "FGDC companion file uploaded alongside Zenodo metadata",
-                f"Attempted FGDC path: {fgdc_file}" if fgdc_file else "FGDC path resolution failed",
-                "Verify FGDC file availability and retry upload"
-            )
-            return False
-    
     def _mark_as_metadata_only(self, deposition_id: int):
         """Mark a deposition as metadata-only (no files)."""
         try:
@@ -348,11 +307,12 @@ class RecordPublisher:
             deposition = self.client.get_deposition(deposition_id)
             metadata = deposition.get('metadata', {}).copy()
             
-            # Add files.enabled = false to mark as metadata-only
-            metadata['files'] = {'enabled': False}
-            
-            # Update the metadata
-            self.client.update_deposition_metadata(deposition_id, metadata)
+            # Update the metadata while disabling files
+            self.client.update_deposition_metadata(
+                deposition_id,
+                metadata,
+                files={'enabled': False},
+            )
             self.logger.log_info(f"Marked deposition {deposition_id} as metadata-only")
             
         except Exception as e:

@@ -15,8 +15,9 @@ from datetime import datetime
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # ZenodoUploader functionality is now integrated into this script
-from scripts.zenodo_api import create_zenodo_client
+from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.fgdc_utils import load_fgdc_xml, build_metadata_notes
 
 class BatchUploader:
     """Handles batched uploads with proper resource management and error recovery."""
@@ -28,7 +29,8 @@ class BatchUploader:
         batch_size: int = 1000,
         limit: Optional[int] = None,
         interactive: bool = False,
-        publish_on_upload: bool = False
+        publish_on_upload: bool = False,
+        replace_duplicates: bool = False
     ):
         self.output_dir = output_dir
         self.paths = OutputPaths(output_dir)
@@ -37,6 +39,7 @@ class BatchUploader:
         self.limit = limit
         self.interactive = interactive
         self.publish_on_upload = publish_on_upload
+        self.replace_duplicates = replace_duplicates
         self.shutdown_requested = False
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         self.batch_log_file = self.paths.upload_batch_log_path(timestamp)
@@ -47,6 +50,10 @@ class BatchUploader:
         self.zenodo_json_dir = self.paths.zenodo_json_dir
         self.original_fgdc_dir = self.paths.original_fgdc_dir
         self.upload_reports_dir = self.paths.upload_reports_dir
+        environment = 'sandbox' if sandbox else 'production'
+        self.replacement_plan_path = self.paths.replacement_plan_path(environment)
+        self.replacement_plan = self._load_replacement_plan()
+        self._replacement_attempted = set()
         
         # Track progress across batches
         self.total_uploaded = 0
@@ -70,37 +77,51 @@ class BatchUploader:
                 data = json.load(f)
 
             metadata = data.get('metadata', {})
-            
-            # Create deposition
-            deposition = client.create_deposition(metadata)
-            
+            base_name = os.path.splitext(os.path.basename(json_file))[0]
+            fgdc_xml, fgdc_file = load_fgdc_xml(base_name, self.paths)
+            metadata['notes'] = build_metadata_notes(metadata.get('notes', ''), fgdc_xml)
+
+            if not fgdc_xml:
+                print(f"⚠️  FGDC XML not found for {base_name}; metadata-only upload will not include raw FGDC content in notes.")
+
+            # Replace existing sandbox record if requested
+            self._maybe_replace_existing(base_name, metadata.get('title'), client)
+
+            # Create deposition without files
+            deposition = client.create_deposition()
+
             if not deposition:
                 return {
                     'success': False,
                     'json_file': json_file,
                     'error': 'Failed to create deposition'
                 }
-            
-            # Upload files if they exist
-            if 'files' in data and data['files']:
-                for file_info in data['files']:
-                    file_path = file_info.get('path')
-                    if file_path and os.path.exists(file_path):
-                        client.upload_file(deposition['id'], file_path)
-            
-            # Get the DOI
-            doi = f"10.5281/zenodo.{deposition['id']}"
-            
+
+            deposition_id = deposition['id']
+
+            try:
+                updated_deposition = client.update_deposition_metadata(
+                    deposition_id,
+                    metadata,
+                    files={'enabled': False},
+                )
+            except ZenodoAPIError as e:
+                print(f"⚠️  Could not disable files for deposition {deposition_id}: {e}")
+                updated_deposition = client.update_deposition_metadata(deposition_id, metadata)
+
+            reserved_doi = updated_deposition.get('metadata', {}).get('prereserve_doi', {}).get('doi')
+
             return {
                 'success': True,
                 'json_file': json_file,
-                'deposition_id': deposition['id'],
-                'doi': doi,
-                'zenodo_url': f"{client.base_url}/deposit/{deposition['id']}",
+                'deposition_id': deposition_id,
+                'doi': reserved_doi,
+                'zenodo_url': f"{client.base_url}/deposit/{deposition_id}",
                 'metadata': metadata,
+                'fgdc_file': fgdc_file,
                 'timestamp': timestamp
             }
-            
+
         except Exception as e:
             return {
                 'success': False,
@@ -159,6 +180,51 @@ class BatchUploader:
                 'state': 'draft',
                 'error': error_message
             }
+
+    def _load_replacement_plan(self) -> Dict[str, Any]:
+        """Load duplicate replacement plan if it exists."""
+        if not os.path.exists(self.replacement_plan_path):
+            return {}
+        try:
+            with open(self.replacement_plan_path, 'r', encoding='utf-8') as fh:
+                payload = json.load(fh)
+            replacements = payload.get('replacements', [])
+            plan = {}
+            for entry in replacements:
+                base_name = entry.get('base_name')
+                if base_name:
+                    plan[base_name] = entry
+            if plan:
+                print(f"📄 Loaded replacement plan with {len(plan)} entrie(s) from {self.replacement_plan_path}")
+            return plan
+        except Exception as exc:
+            print(f"⚠️  Could not load replacement plan {self.replacement_plan_path}: {exc}")
+            return {}
+
+    def _maybe_replace_existing(self, base_name: str, title: Optional[str], client) -> None:
+        """Delete an existing sandbox deposition when replacement is requested."""
+        if not self.replace_duplicates:
+            return
+        if base_name in self._replacement_attempted:
+            return
+        entry = self.replacement_plan.get(base_name)
+        if not entry:
+            return
+
+        existing_id = entry.get('existing_deposition_id')
+        if not existing_id:
+            return
+
+        print(f"🗑️  Replacing existing sandbox record {existing_id} for {base_name} ({title or 'untitled'}).")
+        try:
+            client.delete_deposition(existing_id)
+            print(f"   ✅ Deleted existing deposition {existing_id} before upload.")
+        except ZenodoAPIError as exc:
+            print(f"   ⚠️  Unable to delete deposition {existing_id}: {exc}")
+        except Exception as exc:  # noqa: BLE001
+            print(f"   ⚠️  Unexpected issue deleting deposition {existing_id}: {exc}")
+
+        self._replacement_attempted.add(base_name)
     
     def _signal_handler(self, signum, frame):
         """Handle shutdown signals gracefully."""
@@ -766,18 +832,26 @@ def main():
                        help='Output directory for logs (default: output)')
     parser.add_argument('--publish-on-upload', action='store_true',
                        help='Publish each record immediately after successful upload')
+    parser.add_argument('--replace-duplicates', action='store_true',
+                        help='Sandbox only: delete existing duplicates before upload')
     
     args = parser.parse_args()
     
     # Determine environment
     sandbox = not args.production
-    
+
+    if args.replace_duplicates and not sandbox:
+        print("❌ Duplicate replacement is only available in the sandbox environment")
+        sys.exit(1)
+
     print(f"Starting batch upload to {'sandbox' if sandbox else 'production'} Zenodo")
     print(f"Batch size: {args.batch_size}")
     print(f"Interactive mode: {'ON' if args.interactive else 'OFF'}")
     print(f"Output directory: {args.output_dir}")
     if args.publish_on_upload:
         print("Auto-publish: ON (records will be submitted immediately after upload)")
+    if args.replace_duplicates:
+        print("Sandbox duplicates will be replaced when detected.")
     
     if args.interactive:
         print(f"\n🔍 INTERACTIVE MODE ENABLED")
@@ -790,7 +864,8 @@ def main():
         batch_size=args.batch_size,
         limit=args.limit,
         interactive=args.interactive,
-        publish_on_upload=args.publish_on_upload
+        publish_on_upload=args.publish_on_upload,
+        replace_duplicates=args.replace_duplicates
     )
     
     try:
