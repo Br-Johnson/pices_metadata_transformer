@@ -54,6 +54,10 @@ class BatchUploader:
         self.replacement_plan_path = self.paths.replacement_plan_path(environment)
         self.replacement_plan = self._load_replacement_plan()
         self._replacement_attempted = set()
+
+        if not self.sandbox and self.publish_on_upload:
+            print("⚠️  Auto-publish on upload is disabled in production; continuing with drafts only.")
+            self.publish_on_upload = False
         
         # Track progress across batches
         self.total_uploaded = 0
@@ -843,6 +847,10 @@ def main():
     if args.replace_duplicates and not sandbox:
         print("❌ Duplicate replacement is only available in the sandbox environment")
         sys.exit(1)
+
+    if args.production and args.publish_on_upload:
+        print("⚠️  Auto-publish on upload is not permitted in production. Uploads will remain in draft state.")
+        args.publish_on_upload = False
 
     print(f"Starting batch upload to {'sandbox' if sandbox else 'production'} Zenodo")
     print(f"Batch size: {args.batch_size}")

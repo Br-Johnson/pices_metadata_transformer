@@ -54,6 +54,20 @@ class FGDCToZenodoTransformer:
             "name": "North Pacific Marine Science Organization (PICES)",
             "type": "Distributor"
         }
+        self.placeholder_aliases = {
+            "abstract": {
+                "no abstract was givien contact provider for more information",
+                "no abstract was given contact provider for more information"
+            },
+            "purpose": {
+                "no purpose was givien contact provider for more information",
+                "no purpose was given contact provider for more information"
+            }
+        }
+        self.placeholder_replacements = {
+            "abstract": "Abstract not provided. Contact the contributor for more information.",
+            "purpose": "Purpose not provided. Contact the contributor for more information."
+        }
     
     def transform_file(self, xml_path: str) -> Optional[Dict[str, Any]]:
         """Transform a single FGDC XML file to Zenodo JSON format."""
@@ -198,9 +212,8 @@ class FGDCToZenodoTransformer:
             # Optional fields
             self._add_optional_fields(metadata, root, file_path)
 
-            # Ensure publisher is set to PICES when not supplied by source data
-            if not metadata.get('publisher'):
-                metadata['publisher'] = self.pices_publisher
+            # Force publisher to PICES (original publisher retained in imprint_publisher)
+            metadata['publisher'] = self.pices_publisher
 
             # Ensure PICES contributor is present
             contributors = metadata.get('contributors') or []
@@ -358,16 +371,22 @@ class FGDCToZenodoTransformer:
                     # Remove information following colon or affiliation cues
                     if ':' in line:
                         line = line.split(':', 1)[0].strip()
-                    line = re.split(r'\bof\b|\bfrom\b|\bfor\b', line, 1)[0].strip(' ,;')
+                    line = line.strip()
+                    is_org_line = self._is_organization(line)
+                    if not is_org_line:
+                        line = re.split(r'\bof\b|\bfrom\b|\bfor\b', line, 1)[0].strip(' ,;')
+                    else:
+                        line = line.strip(' ,;')
                     if not line:
                         continue
+                    line = re.sub(r'\s+', ' ', line)
                     
                     # Normalise trailing "and" to commas when the list uses commas elsewhere
-                    if ',' in line:
+                    if not is_org_line and ',' in line:
                         line = re.sub(r',?\s+and\s+(?=[A-Z])', ', ', line)
                     
                     parts = [line]
-                    if ',' in line:
+                    if ',' in line and not is_org_line:
                         parts = [p.strip() for p in re.split(r',\s*(?=[A-Z])', line) if p.strip()]
                     
                     for part in parts:
@@ -512,6 +531,28 @@ class FGDCToZenodoTransformer:
         """Check if text represents an organization."""
         text_lower = text.lower()
         return any(re.search(pattern, text_lower) for pattern in self.org_patterns)
+
+    def _normalise_placeholder_key(self, text: str) -> str:
+        """Normalise text for placeholder comparison."""
+        return re.sub(r'[^a-z]+', ' ', text.lower()).strip()
+
+    def _clean_placeholder_text(self, text: str, field: str) -> Tuple[str, bool]:
+        """Return cleaned text and whether it matched a known placeholder."""
+        if not text:
+            return "", False
+        cleaned = re.sub(r'\s+', ' ', text).strip()
+        normalised = self._normalise_placeholder_key(cleaned)
+        placeholders = self.placeholder_aliases.get(field, set())
+        if normalised in placeholders:
+            replacement = self.placeholder_replacements.get(field)
+            return replacement if replacement else cleaned, True
+        return cleaned, False
+
+    def _get_element_text(self, element: Optional[ET.Element]) -> str:
+        """Extract concatenated text from an XML element."""
+        if element is None:
+            return ""
+        return ' '.join(part.strip() for part in element.itertext() if part and part.strip())
     
     def _extract_publication_date(self, root: ET.Element, file_path: str) -> Optional[str]:
         """Extract and normalize publication date."""
@@ -816,47 +857,68 @@ class FGDCToZenodoTransformer:
     
     def _extract_description(self, root: ET.Element, file_path: str) -> Optional[str]:
         """Extract description from abstract."""
+        placeholder_description = None
+        placeholder_source = None
+
         abstract_elem = root.find('.//abstract')
-        if abstract_elem is not None and abstract_elem.text:
-            abstract = abstract_elem.text.strip()
-            if abstract:
-                return abstract
+        abstract_text = self._get_element_text(abstract_elem)
+        if abstract_text:
+            clean_abstract, abstract_placeholder = self._clean_placeholder_text(abstract_text, "abstract")
+            if clean_abstract and not abstract_placeholder:
+                return clean_abstract
+            if abstract_placeholder:
+                placeholder_description = clean_abstract
+                placeholder_source = "abstract"
         
         # Try alternative description fields if abstract is missing
         purpose_elem = root.find('.//purpose')
-        if purpose_elem is not None and purpose_elem.text:
-            purpose = purpose_elem.text.strip()
-            if purpose:
+        purpose_text = self._get_element_text(purpose_elem)
+        if purpose_text:
+            clean_purpose, purpose_placeholder = self._clean_placeholder_text(purpose_text, "purpose")
+            if clean_purpose and not purpose_placeholder:
                 self.logger.log_warning(
                     file_path, "idinfo.descript.abstract", "missing_required_field",
                     "No abstract found, using purpose", "Non-empty abstract text",
                     "Using purpose as fallback description"
                 )
-                return purpose
+                return clean_purpose
+            if purpose_placeholder and not placeholder_description:
+                placeholder_description = clean_purpose
+                placeholder_source = "purpose"
         
         # Try supplinf (supplemental information) as last resort
         supplinf_elem = root.find('.//supplinf')
-        if supplinf_elem is not None and supplinf_elem.text:
-            supplinf = supplinf_elem.text.strip()
-            if supplinf:
+        supplinf_text = self._get_element_text(supplinf_elem)
+        if supplinf_text:
+            supplinf_clean, _ = self._clean_placeholder_text(supplinf_text, "abstract")
+            if supplinf_clean:
                 self.logger.log_warning(
                     file_path, "idinfo.descript.abstract", "missing_required_field",
                     "No abstract or purpose found, using supplinf", "Non-empty abstract text",
                     "Using supplemental information as fallback description"
                 )
-                return supplinf
+                return supplinf_clean
+
+        if placeholder_description:
+            self.logger.log_warning(
+                file_path, "idinfo.descript.abstract", "placeholder_description_replaced",
+                placeholder_source, "Non-empty abstract text",
+                "FGDC provided placeholder text; substituted neutral message"
+            )
+            return placeholder_description
         
         # If still no description, create a minimal one from title
         title_elem = root.find('.//title')
-        if title_elem is not None and title_elem.text:
-            title = title_elem.text.strip()
-            if title:
+        title_text = self._get_element_text(title_elem)
+        if title_text:
+            title_clean, _ = self._clean_placeholder_text(title_text, "abstract")
+            if title_clean:
                 self.logger.log_warning(
                     file_path, "idinfo.descript.abstract", "missing_required_field",
                     "No description found, using title", "Non-empty abstract text",
                     "Using title as minimal description"
                 )
-                return f"Dataset: {title}"
+                return f"Dataset: {title_clean}"
         
         self.logger.log_error(
             file_path, "idinfo.descript.abstract", "missing_required_field",
@@ -1253,8 +1315,11 @@ class FGDCToZenodoTransformer:
         
         # Purpose
         purpose = root.find('.//purpose')
-        if purpose is not None and purpose.text:
-            notes_parts.append(f"Purpose: {purpose.text.strip()}")
+        purpose_text = self._get_element_text(purpose)
+        if purpose_text:
+            clean_purpose, _ = self._clean_placeholder_text(purpose_text, "purpose")
+            if clean_purpose:
+                notes_parts.append(f"Purpose: {clean_purpose}")
         
         # Supplemental information
         supplinf = root.find('.//supplinf')

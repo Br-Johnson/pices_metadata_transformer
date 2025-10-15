@@ -1,6 +1,6 @@
 # FGDC → Zenodo Sandbox TODO List
 
-_Last updated: 2025-10-12_
+_Last updated: 2025-10-14_
 
 This checklist tracks everything required to shepherd FGDC metadata through the Zenodo sandbox pipeline and keep the project healthy. Update it whenever a task is finished, deferred, or newly discovered. Capture timestamps or short notes when changing scope so the team always understands current progress.
 
@@ -94,12 +94,43 @@ This checklist tracks everything required to shepherd FGDC metadata through the 
 ### 8. Final Review & Cleanup
 
 - [ ] Review random records in the Zenodo sandbox UI to confirm community placement and metadata fidelity.
+  - 2025-10-15T04:34Z: Spot-checked 10 newest PICES sandbox records (373295→373277). Community banner and files render, but creators are tokenized into separate words (e.g., “National Oceanic”; “Office”), placeholder strings like “No abstract was givien” leak through, and publisher remains “Zenodo” instead of “North Pacific Marine Science Organization”.
+  - 2025-10-15T05:21Z: Ran `python3 scripts/iteration_loop.py --limit 10` (transform, validate, duplicate check, verify, metrics). Sample JSON now preserves full organization creators, swaps placeholder abstracts/purposes for neutral text, and sets publisher to PICES. Duplicate check (sandbox) flagged 10/10 as already uploaded (expected), verification succeeded for the first five IDs but reported `record_not_found` for FGDC-3754–FGDC-3758 — investigate stale upload log entries before the next sandbox push.
 - [ ] Clear or refresh `output/cache/` when performing broader duplicate scans; record when cache resets occur.
 - [ ] Capture lessons learned or production-readiness adjustments for inclusion in README/`AGENTS.md`.
-- [ ] Document and socialize production upload + publish strategy (auto publish flag, monitoring, recovery):
-  - Auto-submit using `scripts/batch_upload.py --publish-on-upload` for production runs.
+- [ ] Document and socialize production upload + publish strategy (draft-first, monitoring, recovery):
+  - In production, keep uploads in draft (no `--publish-on-upload`); trigger publication via `scripts/publish_records.py` after QA sign-off.
   - Monitor publish failures via `batch_upload_log_*` (`publish_failures` list) and rerun `scripts/publish_records.py` for recovery.
   - Track community acceptance and DOI activation through `output/reports/publish/publish_log.json` and Zenodo notifications (no curator approval required for PICES sandbox/community).
+
+### 9. Regression Gate & DTO Hardening
+
+- [ ] Re-run post-merge regression sweep (`batch_transform`, `pre_upload_duplicate_check`, `verify_uploads`, `metrics_analysis`) and capture diffs in `logs/` + `output/` before enabling the new generator.
+- [ ] Finalize canonical record DTO schema (document invariants, add unit coverage) and publish 10-sample fixtures under `contracts/examples/odc/` for regression tests.
+- [ ] Capture any new anomalies discovered during regression in `docs/tech-debt.md` and schedule remediation tasks.
+
+### 10. Bibliographic Linkage Enablement
+
+- [ ] Build DataCite search adapter (`scripts/matching/datacite_adapter.py`) with documented rate-limit handling and response normalization.【F:docs/bibliographic_linkage_plan.md†L19-L49】
+- [ ] Implement Crossref adapter and shared fuzzy matching engine (title/abstract/creator scoring) with configurable thresholds and tests.【F:docs/bibliographic_linkage_plan.md†L32-L44】
+- [ ] Create curator review CLI (`scripts/matching/review_matches.py`) that writes decision trails to `output/reports/duplicates/` and supports accept/reject/defer states.【F:docs/bibliographic_linkage_plan.md†L45-L72】
+- [ ] Integrate accepted matches into both Zenodo JSON and Plan B JSON-LD generation (`related_identifiers`, provenance notes) before uploads occur.【F:docs/bibliographic_linkage_plan.md†L52-L84】
+- [ ] Produce linkage metrics + alerts (counts, confidence tiers, overrides) and surface them alongside existing pipeline dashboards.
+
+### 11. Plan B JSON-LD Catalogue
+
+- [ ] Implement JSON-LD generator and persist outputs to `docs/odc/records/` with deterministic filenames (`<zenodo_id>.jsonld`).
+- [ ] Automate sitemap + hosting pipeline (GitHub Pages deploy, optional `w3id` redirects, timestamped `lastmod` values).
+- [ ] Add CI validation gates (JSON Schema, schema.org validator, broken-link scan) and emit nightly health summary (`output/reports/odc/harvest_status.json`).
+- [ ] Integrate JSON-LD generation into the orchestrator after bibliographic enrichment to ensure outputs reflect the latest DTO state.
+
+### 12. LLM-Assisted Human QA
+
+- [ ] Implement `scripts/extract_review_set.py` to package FGDC summaries, enriched DTO snippets, and anomaly rationale (`--limit` for sampling, default full corpus).
+- [ ] Build prompt template + review CLI that logs observations to `output/reports/review/creator_anomalies_<timestamp>.json` without mutating source data.【F:docs/ODIS-plan.md†L90-L99】
+- [ ] Pilot targeted run (≤25 records) post-regression to tune thresholds, then schedule full corpus review once JSON-LD validation passes.
+- [ ] Create curator triage checklist so mapper adjustments and blacklist updates are captured deterministically before re-running the pipeline.
+- [ ] Update orchestrator to include optional LLM review stage and ensure QC artefacts sync with nightly harvest status reports.
 
 ## Commit & PR Guidelines
 

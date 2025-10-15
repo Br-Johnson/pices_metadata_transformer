@@ -85,3 +85,9 @@ When a curator accepts a match:
 
 This plan can be executed incrementally, starting with DataCite (highest value, most structured)
 and expanding to other registries as required.
+
+## Quality-Control Integration Points
+
+- **Entry Criteria:** Run the bibliographic linkage pass immediately after the baseline regression sweep and before JSON-LD generation so the canonical DTO already contains vetted `related_identifiers`. This prevents duplicate manual review once the LLM audit stage begins.【F:docs/ODIS-plan.md†L42-L58】
+- **Review Feedback Loop:** Store curator decisions and rationale alongside the generated review artefacts (`output/reports/review/`). When the LLM QA uncovers creator/organisation anomalies tied to external identifiers, feed those back into the adapter blacklist or matching thresholds before the next full run.
+- **Reporting:** Append linkage metrics (match counts, acceptance rate, false positive overrides) to the nightly QC summary consumed by the JSON-LD validation pipeline, ensuring harvest readiness reflects both deduplication and metadata accuracy.

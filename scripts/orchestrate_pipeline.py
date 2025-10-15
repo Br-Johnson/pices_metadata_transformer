@@ -789,6 +789,10 @@ Examples:
         print("❌ Duplicate replacement is restricted to sandbox runs. Remove --replace-duplicates for production uploads.")
         sys.exit(1)
     
+    if args.production and args.publish_on_upload:
+        print("⚠️  Auto-publish on upload is restricted to sandbox runs. Ignoring --publish-on-upload for production.")
+        args.publish_on_upload = False
+
     # Initialize logger early
     from logger import initialize_logger
     initialize_logger(default_log_dir("orchestrator"))
