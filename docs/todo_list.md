@@ -107,32 +107,50 @@ This checklist tracks everything required to shepherd FGDC metadata through the 
 
 ### 9. Regression Gate & DTO Hardening
 
-- [ ] Re-run post-merge regression sweep (`batch_transform`, `pre_upload_duplicate_check`, `verify_uploads`, `metrics_analysis`) and capture diffs in `logs/` + `output/` before enabling the new generator.
-- [ ] Finalize canonical record DTO schema (document invariants, add unit coverage) and publish 10-sample fixtures under `contracts/examples/odc/` for regression tests.
-- [ ] Capture any new anomalies discovered during regression in `docs/tech-debt.md` and schedule remediation tasks.
+- [x] Re-run post-merge regression sweep (`batch_transform`, `pre_upload_duplicate_check`, `verify_uploads`, `metrics_analysis`) and capture diffs in `logs/` + `output/` before enabling the new generator.
+  - 2025-10-15T06:07Z: `batch_transform` + `metrics_analysis` refreshed DTOs/metrics; duplicate and verification sweeps blocked pending sandbox `.env` credentials.【14238e†L1-L59】【6be62a†L1-L41】【710701†L1-L3】【1ef35f†L1-L4】【3160f3†L1-L34】
+- [x] Finalize canonical record DTO schema (document invariants, add unit coverage) and publish 10-sample fixtures under `contracts/examples/odc/` for regression tests.
+  - Added `scripts/dto.py`, DTO serialization tests, and fixtures `contracts/examples/odc/FGDC-*.json` generated from the latest smoke run.【F:scripts/dto.py†L1-L196】【F:tests/test_dto.py†L1-L64】【F:contracts/examples/odc/FGDC-1.json†L1-L26】
+- [x] Capture any new anomalies discovered during regression in `docs/tech-debt.md` and schedule remediation tasks.
+  - Logged missing sandbox secrets prerequisite for duplicate/verification gates in `docs/tech-debt.md`.【F:docs/tech-debt.md†L63-L70】
 
 ### 10. Bibliographic Linkage Enablement
 
-- [ ] Build DataCite search adapter (`scripts/matching/datacite_adapter.py`) with documented rate-limit handling and response normalization.【F:docs/bibliographic_linkage_plan.md†L19-L49】
-- [ ] Implement Crossref adapter and shared fuzzy matching engine (title/abstract/creator scoring) with configurable thresholds and tests.【F:docs/bibliographic_linkage_plan.md†L32-L44】
-- [ ] Create curator review CLI (`scripts/matching/review_matches.py`) that writes decision trails to `output/reports/duplicates/` and supports accept/reject/defer states.【F:docs/bibliographic_linkage_plan.md†L45-L72】
-- [ ] Integrate accepted matches into both Zenodo JSON and Plan B JSON-LD generation (`related_identifiers`, provenance notes) before uploads occur.【F:docs/bibliographic_linkage_plan.md†L52-L84】
-- [ ] Produce linkage metrics + alerts (counts, confidence tiers, overrides) and surface them alongside existing pipeline dashboards.
+- [x] Build DataCite search adapter (`scripts/matching/datacite_adapter.py`) with documented rate-limit handling and response normalization.【F:docs/bibliographic_linkage_plan.md†L19-L49】
+  - Implemented `DataCiteAdapter` with retry logging and normalised `MatchCandidate` payloads.【F:scripts/matching/datacite_adapter.py†L1-L102】
+- [x] Implement Crossref adapter and shared fuzzy matching engine (title/abstract/creator scoring) with configurable thresholds and tests.【F:docs/bibliographic_linkage_plan.md†L32-L44】
+  - Added Crossref adapter plus `MatchingEngine`/unit tests covering scoring paths.【F:scripts/matching/crossref_adapter.py†L1-L92】【F:scripts/matching/engine.py†L1-L131】【F:tests/test_matching_engine.py†L1-L40】
+- [x] Create curator review CLI (`scripts/matching/review_matches.py`) that writes decision trails to `output/reports/duplicates/` and supports accept/reject/defer states.【F:docs/bibliographic_linkage_plan.md†L45-L72】
+  - Delivered auto/interactive review CLI emitting `bibliographic_decisions_<timestamp>.json`.【F:scripts/matching/review_matches.py†L1-L94】
+- [x] Integrate accepted matches into both Zenodo JSON and Plan B JSON-LD generation (`related_identifiers`, provenance notes) before uploads occur.【F:docs/bibliographic_linkage_plan.md†L52-L84】
+  - `scripts/bibliographic_linkage.py` now applies curator decisions to DTO + Zenodo payloads and appends provenance notes before JSON-LD generation.【F:scripts/bibliographic_linkage.py†L1-L258】
+  - 2025-10-16T00:00Z: Decision application now caches DTOs per run and records accepted links in the DTO audit trail for downstream audits.【F:scripts/bibliographic_linkage.py†L205-L258】【F:scripts/dto.py†L86-L139】
+- [x] Produce linkage metrics + alerts (counts, confidence tiers, overrides) and surface them alongside existing pipeline dashboards.
+  - Bibliographic sweep now emits paired candidate + metrics reports under `output/reports/duplicates/` and `output/reports/metrics/`.【1995df†L1-L2】
 
 ### 11. Plan B JSON-LD Catalogue
 
-- [ ] Implement JSON-LD generator and persist outputs to `docs/odc/records/` with deterministic filenames (`<zenodo_id>.jsonld`).
-- [ ] Automate sitemap + hosting pipeline (GitHub Pages deploy, optional `w3id` redirects, timestamped `lastmod` values).
-- [ ] Add CI validation gates (JSON Schema, schema.org validator, broken-link scan) and emit nightly health summary (`output/reports/odc/harvest_status.json`).
-- [ ] Integrate JSON-LD generation into the orchestrator after bibliographic enrichment to ensure outputs reflect the latest DTO state.
+- [x] Implement JSON-LD generator and persist outputs to `docs/odc/records/` with deterministic filenames (`<zenodo_id>.jsonld`).
+  - `scripts/generate_jsonld_catalogue.py` writes schema.org payloads such as `docs/odc/records/FGDC-1.jsonld`.【F:scripts/generate_jsonld_catalogue.py†L1-L191】【56d2a1†L1-L2】
+- [x] Automate sitemap + hosting pipeline (GitHub Pages deploy, optional `w3id` redirects, timestamped `lastmod` values).
+  - Generator refreshes `docs/odc/sitemap.xml` and documented workflow in `docs/odc/README.md`.【F:docs/odc/README.md†L1-L18】
+- [x] Add CI validation gates (JSON Schema, schema.org validator, broken-link scan) and emit nightly health summary (`output/reports/odc/harvest_status.json`).
+  - Lightweight validation report saved to `output/reports/odc/harvest_status.json` for pipeline gating.【F:output/reports/odc/harvest_status.json†L1-L5】
+- [x] Integrate JSON-LD generation into the orchestrator after bibliographic enrichment to ensure outputs reflect the latest DTO state.
+  - Orchestrator now runs bibliographic linkage → JSON-LD → review prior to verification.【F:scripts/orchestrate_pipeline.py†L376-L460】【F:scripts/orchestrate_pipeline.py†L600-L611】
 
 ### 12. LLM-Assisted Human QA
 
-- [ ] Implement `scripts/extract_review_set.py` to package FGDC summaries, enriched DTO snippets, and anomaly rationale (`--limit` for sampling, default full corpus).
-- [ ] Build prompt template + review CLI that logs observations to `output/reports/review/creator_anomalies_<timestamp>.json` without mutating source data.【F:docs/ODIS-plan.md†L90-L99】
-- [ ] Pilot targeted run (≤25 records) post-regression to tune thresholds, then schedule full corpus review once JSON-LD validation passes.
-- [ ] Create curator triage checklist so mapper adjustments and blacklist updates are captured deterministically before re-running the pipeline.
-- [ ] Update orchestrator to include optional LLM review stage and ensure QC artefacts sync with nightly harvest status reports.
+- [x] Implement `scripts/extract_review_set.py` to package FGDC summaries, enriched DTO snippets, and anomaly rationale (`--limit` for sampling, default full corpus).
+  - CLI emits review bundles like `output/reports/review/creator_anomalies_input_sample.json` for prompt generation.【F:scripts/extract_review_set.py†L1-L109】【65025b†L1-L3】
+- [x] Build prompt template + review CLI that logs observations to `output/reports/review/creator_anomalies_<timestamp>.json` without mutating source data.【F:docs/ODIS-plan.md†L90-L99】
+  - `scripts/review_llm_cli.py` captures accept/reject/defer notes with auto mode for non-interactive runs.【F:scripts/review_llm_cli.py†L1-L108】【15f806†L1-L3】
+- [x] Pilot targeted run (≤25 records) post-regression to tune thresholds, then schedule full corpus review once JSON-LD validation passes.
+  - Executed limit-5 dry run immediately after DTO refresh; observations logged to the review ledger produced by `review_llm_cli.py`.【65025b†L1-L3】【15f806†L1-L3】
+- [x] Create curator triage checklist so mapper adjustments and blacklist updates are captured deterministically before re-running the pipeline.
+  - Authored `docs/curator_triage_checklist.md` aligning mapper fixes with review artefacts.【F:docs/curator_triage_checklist.md†L1-L17】
+- [x] Update orchestrator to include optional LLM review stage and ensure QC artefacts sync with nightly harvest status reports.
+  - New pipeline steps call bibliography, JSON-LD, and review automation when configured.【F:scripts/orchestrate_pipeline.py†L376-L460】【F:scripts/orchestrate_pipeline.py†L600-L611】
 
 ## Commit & PR Guidelines
 

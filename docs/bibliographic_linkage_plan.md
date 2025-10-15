@@ -69,7 +69,9 @@ When a curator accepts a match:
    - Append a note that references the discovered DOI and system for human context.
 3. **Persist audit trail**
    - Store matches in `output/reports/duplicates/` alongside the replacement plan so the
-     provenance of each linkage decision is preserved for future audits.
+     provenance of each linkage decision is preserved for future audits. Record the curator
+     decisions inside the canonical DTO audit trail so downstream stages (JSON-LD, upload
+     verification) can surface linkage context without re-reading the review artefacts.
 
 ## Implementation Milestones
 
