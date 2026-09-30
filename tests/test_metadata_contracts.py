@@ -193,13 +193,28 @@ class HumanQATests(unittest.TestCase):
 
     def test_unrelated_unapproved_draft_does_not_block_bounded_selection(self):
         registry = read_json(self.paths.uploads_registry_path)
-        registry['zzz'] = dict(self.entry, deposition_id=124, zenodo_url='https://zenodo.org/deposit/124')
+        registry['aaa-unapproved'] = dict(self.entry, deposition_id=124, zenodo_url='https://zenodo.org/deposit/124')
         atomic_json(self.paths.uploads_registry_path, registry)
         self.approve()
-        self.assertEqual(self.publisher.load_upload_log()[0]['deposition_id'], 123)
-        self.assertEqual(len(self.publisher.load_upload_log()), 2)
-        with self.assertRaises(ValueError):
-            validate_approval(self.manifest, 'zzz', registry['zzz'], self.paths)
+        pending = dict(self.manifest['records'][0], fgdc_id='aaa-unapproved', qa={'approved': False})
+        self.manifest['records'].insert(0, pending)
+        self.publisher.publish_log, self.publisher.publish_errors = [], []
+        self.publisher.stats = {key: 0 for key in ('total_records', 'successful_publishes', 'failed_publishes', 'already_published', 'not_found')}
+        self.publisher.publish_log_path = self.paths.publish_log_path
+        self.publisher.publish_errors_path = self.paths.publish_errors_path
+        self.publisher._save_publish_results = Mock()
+        done = {'metadata': self.metadata, 'files': [], 'state': 'done'}
+        self.publisher.client.get_deposition.side_effect = [dict(done, state='unsubmitted'), done]
+        self.publisher.client.publish_deposition.return_value = done
+        summary = self.publisher.publish_records(self.publisher.load_upload_log(), limit=1)
+        self.assertEqual(summary['successful_publishes'], 1)
+        self.publisher.client.publish_deposition.assert_called_once_with(123)
+        self.assertEqual([call.args[0] for call in self.publisher.client.get_deposition.call_args_list], [123, 123])
+        self.assertNotIn('publish_status', read_json(self.paths.uploads_registry_path)['aaa-unapproved'])
+        self.manifest['records'][1]['metadata_sha256'] = 'stale'
+        self.publisher.client.reset_mock()
+        self.assertFalse(self.publisher._publish_single_record(self.entry)['publish_successful'])
+        self.publisher.client.publish_deposition.assert_not_called()
 
     def test_already_published_reconciles_ledger_without_new_post(self):
         self.approve()

@@ -68,8 +68,12 @@ class RecordPublisher:
         """Load upload metadata and aggregate successful records for publishing."""
         registry = read_json(self.paths.uploads_registry_path, {})
         uploads = []
+        approved_ids = {record.get('fgdc_id') for record in (self.qa_manifest or {}).get('records', [])
+                        if record.get('qa', {}).get('approved') is True}
         for fgdc_id, entry in sorted(registry.items()):
             if fgdc_id.startswith('_') or entry.get('upload_status') != 'success':
+                continue
+            if not self.sandbox and fgdc_id not in approved_ids:
                 continue
             assert_environment(entry, self.paths.environment)
             uploads.append(dict(entry, success=True))
