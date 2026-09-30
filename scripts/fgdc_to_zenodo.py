@@ -844,7 +844,7 @@ class FGDCToZenodoTransformer:
             return f"cc-{variant}-{version.group(1)}" if version else None
         if re.search(r"\bcc-?0\b|cc-zero|creativecommons.org/publicdomain/zero/1.0", text):
             return "cc-zero"
-        for identifier, pattern in (("mit", r"mit-license"), ("apache-2.0", r"apache-(?:license-)?2(?:\.0)?"), ("gpl-3.0", r"(?:gpl|gnu-general-public-license)-3(?:\.0)?")):
+        for identifier, pattern in (("mit", r"mit-license"), ("apache-2.0", r"apache-(?:license-)?2(?:\.0)?"), ("gpl-3.0", r"(?<![a-z0-9])(?:gpl|gnu-general-public-license)-3(?:\.0)?(?![a-z0-9.])")):
             if re.search(pattern, text):
                 return identifier
         return None

@@ -24,6 +24,12 @@ class RightsTests(unittest.TestCase):
         with patch('scripts.fgdc_to_zenodo.get_logger', return_value=Mock()):
             self.transformer = FGDCToZenodoTransformer()
 
+    def test_gpl_family_does_not_consume_agpl_or_lgpl(self):
+        for text in ('AGPL-3.0', 'LGPL-3.0', 'GNU Affero General Public License 3.0', 'GNU Lesser General Public License 3.0'):
+            with self.subTest(text=text):
+                self.assertIsNone(self.transformer._detect_license(text, 'fixture'))
+        self.assertEqual(self.transformer._detect_license('GPL-3.0', 'fixture'), 'gpl-3.0')
+
     def test_specific_cc_variants_preserve_restrictions_and_version(self):
         for text, expected in [('CC-BY-SA 4.0', 'cc-by-sa-4.0'),
                                ('CC BY-NC 4.0', 'cc-by-nc-4.0'),
@@ -184,3 +190,16 @@ class RetryTests(unittest.TestCase):
         with self.assertRaises(ZenodoAPIError):
             client.create_deposition()
         self.assertEqual(client.session.request.call_count, 1)
+
+class InventoryResponseTests(unittest.TestCase):
+    def test_malformed_and_truncated_inventory_block(self):
+        client = ZenodoAPIClient.__new__(ZenodoAPIClient)
+        for response in ({}, {'hits': {'hits': [], 'total': 1}}, {'hits': {'hits': [{'id': 1}], 'total': 2}}, {'hits': {'hits': [], 'total': {'value': 0, 'relation': 'gte'}}}):
+            client.search_records = Mock(return_value=response)
+            with self.subTest(response=response), self.assertRaises(ValueError):
+                client.get_records_by_query(size=2)
+
+    def test_complete_paginated_inventory(self):
+        client = ZenodoAPIClient.__new__(ZenodoAPIClient)
+        client.search_records = Mock(side_effect=[{'hits': {'hits': [{'id': 1}], 'total': 2}, 'links': {'next': 'next'}}, {'hits': {'hits': [{'id': 2}], 'total': 2}}])
+        self.assertEqual([row['id'] for row in client.get_records_by_query(size=1)], [1, 2])

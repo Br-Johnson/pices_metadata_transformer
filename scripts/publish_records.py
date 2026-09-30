@@ -53,6 +53,17 @@ class RecordPublisher:
             'not_found': 0
         }
     
+    def _record_publication(self, fgdc_id, deposition_id, communities):
+        with ledger_lock(self.paths):
+            registry = read_json(self.paths.uploads_registry_path, {})
+            entry = registry.get(fgdc_id)
+            if not entry or entry.get('deposition_id') != deposition_id:
+                raise ValueError('Upload ledger changed during publication')
+            entry['publish_status'] = 'published'
+            entry['published_at'] = datetime.now().isoformat()
+            entry['community_status'] = 'reported' if any(c.get('identifier') == 'pices' for c in communities) else 'unconfirmed'
+            atomic_json(self.paths.uploads_registry_path, registry)
+
     def load_upload_log(self) -> List[Dict[str, Any]]:
         """Load upload metadata and aggregate successful records for publishing."""
         registry = read_json(self.paths.uploads_registry_path, {})
@@ -61,8 +72,6 @@ class RecordPublisher:
             if fgdc_id.startswith('_') or entry.get('upload_status') != 'success':
                 continue
             assert_environment(entry, self.paths.environment)
-            if not self.sandbox:
-                validate_approval(self.qa_manifest, fgdc_id, entry, self.paths)
             uploads.append(dict(entry, success=True))
         if not uploads:
             raise ValueError('No successful environment-scoped drafts found')
@@ -158,6 +167,8 @@ class RecordPublisher:
 
             # Check if already published
             if deposition.get('state') == 'done':
+                if deposition.get('files'):
+                    raise ValueError('Published record has unexpected attached files')
                 metadata_payload = deposition.get('metadata', {})
                 communities = metadata_payload.get('communities', []) or []
                 if not any(comm.get('identifier') == 'pices' for comm in communities):
@@ -170,6 +181,7 @@ class RecordPublisher:
                         "Zenodo deposition metadata lacks 'pices' community",
                         "Confirm community membership in the Zenodo UI; add manually if required"
                     )
+                self._record_publication(fgdc_id, deposition_id, communities)
                 return {
                     'deposition_id': deposition_id,
                     'json_file': json_file,
@@ -226,15 +238,7 @@ class RecordPublisher:
             final_state = (final_deposition or published_deposition).get('state')
             if final_state != 'done':
                 raise ValueError('Publication state is unconfirmed; reconcile before retry')
-            with ledger_lock(self.paths):
-                registry = read_json(self.paths.uploads_registry_path, {})
-                entry = registry.get(fgdc_id)
-                if not entry or entry.get('deposition_id') != deposition_id:
-                    raise ValueError('Upload ledger changed during publication')
-                entry['publish_status'] = 'published'
-                entry['published_at'] = datetime.now().isoformat()
-                entry['community_status'] = 'reported' if any(c.get('identifier') == 'pices' for c in communities) else 'unconfirmed'
-                atomic_json(self.paths.uploads_registry_path, registry)
+            self._record_publication(fgdc_id, deposition_id, communities)
 
             result = {
                 'deposition_id': deposition_id,

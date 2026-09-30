@@ -326,34 +326,36 @@ class ZenodoAPIClient:
         return response.json()
     
     def get_records_by_query(self, **params) -> List[Dict[str, Any]]:
-        """Fetch all record hits for a given query with pagination support."""
-        aggregated_hits: List[Dict[str, Any]] = []
-        params = params.copy()
+        """Return only a structurally valid, complete exact-total inventory."""
+        aggregated_hits = []
+        params = dict(params)
         size = params.get('size', 100)
-        page = 1
-        
+        page, expected_total = 1, None
         while True:
-            params['page'] = page
-            params['size'] = size
-            response = self.search_records(**params)
-            hits = response.get('hits', {}).get('hits', [])
-            if not hits:
-                break
-            
+            response = self.search_records(**dict(params, page=page, size=size))
+            container = response.get('hits') if isinstance(response, dict) else None
+            if not isinstance(container, dict) or not isinstance(container.get('hits'), list):
+                raise ValueError('Malformed record inventory response')
+            total = container.get('total')
+            if isinstance(total, dict):
+                if total.get('relation', 'eq') != 'eq':
+                    raise ValueError('Inventory total is not exact')
+                total = total.get('value')
+            if type(total) is not int or total < 0:
+                raise ValueError('Inventory lacks exact total')
+            if expected_total is not None and total != expected_total:
+                raise ValueError('Inventory changed during pagination')
+            expected_total = total
+            hits = container['hits']
+            if any(not isinstance(hit, dict) for hit in hits):
+                raise ValueError('Malformed inventory record')
             aggregated_hits.extend(hits)
-            
-            # Stop if fewer hits than requested (last page)
-            if len(hits) < size:
-                break
-            
-            # If response provides explicit next link, use it; otherwise increment page
-            links = response.get('links', {})
-            if 'next' not in links:
-                break
+            if len(aggregated_hits) == total:
+                return aggregated_hits
+            if len(aggregated_hits) > total or not hits or not response.get('links', {}).get('next'):
+                raise ValueError('Incomplete inventory pagination')
             page += 1
-        
-        return aggregated_hits
-    
+
     def get_record(self, record_id: int) -> Dict[str, Any]:
         """Get a published record by ID."""
         response = self._make_request('GET', f'records/{record_id}')

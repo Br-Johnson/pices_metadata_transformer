@@ -17,7 +17,7 @@ from scripts.upload_service import assert_environment, prepare_metadata, read_js
 
 
 def compare_metadata(original, zenodo):
-    """Compare all submitted fields, permitting server additions and list ordering."""
+    """Compare all submitted fields, permitting server additions and explicitly unordered fields."""
     def normalized(value, field=None):
         if field == 'license' and isinstance(value, dict):
             value = value.get('id') or value.get('identifier')
@@ -26,7 +26,11 @@ def compare_metadata(original, zenodo):
             return {key: normalized(item, key) for key, item in value.items()
                     if key != 'type' or value.get('type') != 'Organization'}
         if isinstance(value, list):
-            return sorted((normalized(item) for item in value), key=lambda item: json.dumps(item, sort_keys=True))
+            items = [normalized(item) for item in value]
+            # Authorship and unknown list fields retain submitted order.
+            if field in {'keywords', 'communities', 'related_identifiers'}:
+                return sorted(items, key=lambda item: json.dumps(item, sort_keys=True))
+            return items
         return value
     return [{'field': key, 'original': value, 'zenodo': zenodo.get(key), 'type': 'value_mismatch'}
             for key, value in original.items()

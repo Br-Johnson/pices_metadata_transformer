@@ -191,6 +191,46 @@ class HumanQATests(unittest.TestCase):
             changed = dict(self.metadata, **{field: 'Changed'})
             self.assertTrue(compare_metadata(self.metadata, changed))
 
+    def test_unrelated_unapproved_draft_does_not_block_bounded_selection(self):
+        registry = read_json(self.paths.uploads_registry_path)
+        registry['zzz'] = dict(self.entry, deposition_id=124, zenodo_url='https://zenodo.org/deposit/124')
+        atomic_json(self.paths.uploads_registry_path, registry)
+        self.approve()
+        self.assertEqual(self.publisher.load_upload_log()[0]['deposition_id'], 123)
+        self.assertEqual(len(self.publisher.load_upload_log()), 2)
+        with self.assertRaises(ValueError):
+            validate_approval(self.manifest, 'zzz', registry['zzz'], self.paths)
+
+    def test_already_published_reconciles_ledger_without_new_post(self):
+        self.approve()
+        self.publisher.client.get_deposition.return_value = {'metadata': self.metadata, 'files': [], 'state': 'done'}
+        for _ in range(2):
+            self.assertTrue(self.publisher._publish_single_record(self.entry)['already_published'])
+        self.publisher.client.publish_deposition.assert_not_called()
+        self.assertEqual(read_json(self.paths.uploads_registry_path)['sample']['publish_status'], 'published')
+
+    def test_remote_author_reversal_invalidates_human_approval(self):
+        payload = json.loads(self.file.read_text())
+        payload['metadata']['creators'] = [{'name': 'First, Alice'}, {'name': 'Second, Bob'}]
+        self.file.write_text(json.dumps(payload))
+        self.metadata, _, source_hash = prepare_metadata(str(self.file), self.paths)
+        self.entry.update(metadata_sha256=metadata_hash(self.metadata), source_sha256=source_hash)
+        atomic_json(self.paths.uploads_registry_path, {'sample': self.entry})
+        self.manifest = prepare_manifest(self.paths)
+        self.publisher.qa_manifest = self.manifest
+        self.approve()
+        changed = dict(self.metadata, creators=list(reversed(self.metadata['creators'])))
+        with self.assertRaisesRegex(ValueError, 'Remote draft'):
+            validate_approval(self.manifest, 'sample', self.entry, self.paths, changed)
+        self.publisher.client.get_deposition.return_value = {'metadata': changed, 'files': [], 'state': 'unsubmitted'}
+        self.assertFalse(self.publisher._publish_single_record(self.entry)['publish_successful'])
+        self.publisher.client.publish_deposition.assert_not_called()
+
+    def test_only_explicit_unordered_fields_ignore_order(self):
+        for field in ('creators', 'contributors', 'unknown_list'):
+            self.assertTrue(compare_metadata({field: ['a', 'b']}, {field: ['b', 'a']}))
+        self.assertFalse(compare_metadata({'keywords': ['a', 'b']}, {'keywords': ['b', 'a']}))
+
     def test_same_work_requires_explicit_reference_decision(self):
         self.approve()
         duplicate = self.manifest['records'][0]['duplicate_review']
