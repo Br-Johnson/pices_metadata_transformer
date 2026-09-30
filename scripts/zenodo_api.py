@@ -138,7 +138,9 @@ class ZenodoAPIClient:
         
         url = urljoin(self.api_url, endpoint)
         
-        for attempt in range(self.max_retries + 1):
+        retries = 0 if method.upper() == "POST" else self.max_retries
+        kwargs.setdefault("timeout", 30)
+        for attempt in range(retries + 1):
             try:
                 response = self.session.request(method, url, **kwargs)
                 
@@ -150,7 +152,7 @@ class ZenodoAPIClient:
                 
                 # Handle rate limiting
                 if response.status_code == 429:
-                    if attempt < self.max_retries:
+                    if attempt < retries:
                         retry_after = int(response.headers.get('Retry-After', 60))
                         self.logger.log_info(f"Rate limited, waiting {retry_after} seconds")
                         time.sleep(retry_after)
@@ -161,7 +163,7 @@ class ZenodoAPIClient:
                 # Handle other errors
                 if response.status_code >= 400:
                     error_msg = self._parse_error_response(response)
-                    if attempt < self.max_retries and response.status_code >= 500:
+                    if attempt < retries and response.status_code >= 500:
                         # Retry on server errors
                         delay = self.retry_delay * (self.backoff_factor ** attempt)
                         self.logger.log_info(f"Server error, retrying in {delay} seconds")
@@ -173,7 +175,7 @@ class ZenodoAPIClient:
                 return response
                 
             except requests.exceptions.RequestException as e:
-                if attempt < self.max_retries:
+                if attempt < retries:
                     delay = self.retry_delay * (self.backoff_factor ** attempt)
                     self.logger.log_info(f"Request failed, retrying in {delay} seconds: {str(e)}")
                     time.sleep(delay)

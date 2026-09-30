@@ -7,7 +7,7 @@ before attempting to upload them. This prevents duplicate uploads and saves API 
 import os
 import json
 import argparse
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Any, Set, Optional
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -15,6 +15,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.upload_service import atomic_json, metadata_hash, prepare_metadata
 
 
 class PreUploadDuplicateChecker:
@@ -23,10 +24,12 @@ class PreUploadDuplicateChecker:
     def __init__(self, sandbox: bool = True, output_dir: str = "output", allow_replacements: bool = False):
         self.sandbox = sandbox
         self.output_dir = output_dir
-        self.paths = OutputPaths(output_dir)
+        self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
         self.logger = get_logger()
         self.community_identifier = "pices"
-        self.allow_replacements = allow_replacements
+        if allow_replacements:
+            raise ValueError("Automatic replacement retired; adjudicate duplicates and reconcile draft IDs")
+        self.allow_replacements = False
 
         if self.allow_replacements and not self.sandbox:
             raise ValueError("Duplicate replacements are only supported in the sandbox environment")
@@ -51,51 +54,38 @@ class PreUploadDuplicateChecker:
         
     def load_existing_zenodo_records(self) -> Dict[str, Any]:
         """Load existing records from Zenodo to check against."""
-        print("🔍 Loading existing records from Zenodo...")
-        
-        existing_records = {
-            'titles': set(),
-            'records': [],
-            'title_to_record': {}
-        }
-        
-        try:
-            # Fetch published records in the target community
-            published_hits = self.client.get_records_by_query(q=f"communities:{self.community_identifier}", size=200)
-            self.logger.log_info(f"🔍 Retrieved {len(published_hits)} published records from community search")
-            for hit in published_hits:
-                metadata = hit.get('metadata', {})
-                title = metadata.get('title', '').strip()
-                if not title:
-                    continue
-                title_lower = title.lower()
-                if title_lower in existing_records['title_to_record']:
-                    continue
-                communities = metadata.get('communities', [])
-                record_info = {
-                    'id': hit.get('id'),
-                    'title': title,
-                    'state': 'published',
-                    'created': hit.get('created'),
-                    'modified': hit.get('updated'),
-                    'communities': [{'identifier': c.get('identifier')} for c in communities if c.get('identifier')]
-                }
-                existing_records['records'].append(record_info)
-                existing_records['titles'].add(title_lower)
-                existing_records['title_to_record'][title_lower] = record_info
-            
-            print(f"✅ Total existing records tracked: {len(existing_records['records'])}")
-            return existing_records
-            
-        except ZenodoAPIError as e:
-            print(f"❌ Error loading existing records: {e}")
-            self.logger.log_error("pre_upload_check", "load_existing", "api_error", str(e), "Successful API call", "Check API credentials and network connection")
-            return existing_records
-        except Exception as e:
-            print(f"❌ Unexpected error loading existing records: {e}")
-            self.logger.log_error("pre_upload_check", "load_existing", "unexpected_error", str(e), "Successful record loading", "Review error details and fix issues")
-            return existing_records
-    
+        # Invalidate prior authorization before refreshing: failures must fail closed.
+        atomic_json(self.paths.safe_to_upload_path, {
+            'environment': 'sandbox' if self.sandbox else 'production',
+            'inventory_complete': False, 'files': [], 'metadata_hashes': {},
+        })
+        records = {'titles': set(), 'records': [], 'title_to_record': {}, 'identifiers': set()}
+        published = self.client.get_records_by_query(q=f"communities:{self.community_identifier}", size=200)
+        drafts = self.client.get_all_my_depositions()
+        for hit in published + drafts:
+            metadata = hit.get('metadata', {})
+            title = metadata.get('title', '').strip()
+            if not title:
+                raise ValueError('Remote record lacks title; reconcile identity before upload')
+            info = {'id': hit.get('id'), 'title': title, 'state': hit.get('state', 'published'),
+                    'metadata': metadata}
+            key = title.casefold()
+            records['titles'].add(key)
+            records['title_to_record'].setdefault(key, info)
+            records['records'].append(info)
+            for identifier in self._identifiers(metadata):
+                records['identifiers'].add(identifier)
+        records['inventory_complete'] = True
+        return records
+
+    @staticmethod
+    def _identifiers(metadata):
+        identifiers = [metadata.get('doi'), metadata.get('prereserve_doi', {}).get('doi')]
+        identifiers += [link.get('identifier') for link in metadata.get('related_identifiers', [])
+                        if link.get('relation') in ('isAlternateIdentifier', 'isIdenticalTo')]
+        return {str(value).lower().removeprefix('https://doi.org/').removeprefix('http://doi.org/')
+                for value in identifiers if value}
+
     def check_file_for_duplicates(self, json_file: str, existing_records: Dict[str, Any]) -> Dict[str, Any]:
         """Check a single JSON file for potential duplicates."""
         try:
@@ -116,7 +106,9 @@ class PreUploadDuplicateChecker:
                 }
             
             # Check for exact title duplicates
-            title_lower = title.lower()
+            if not existing_records.get('inventory_complete'):
+                raise ValueError('Duplicate inventory incomplete')
+            title_lower = title.casefold()
             if title_lower in existing_records['titles']:
                 # Get the existing record with this title
                 existing_record = existing_records['title_to_record'].get(title_lower)
@@ -152,6 +144,10 @@ class PreUploadDuplicateChecker:
                     'title': title
                 }
             
+            if self._identifiers(metadata) & existing_records.get('identifiers', set()):
+                return {'file': filename, 'safe_to_upload': False,
+                        'reason': 'Persistent identifier match requires human adjudication',
+                        'duplicate_type': 'identifier_duplicate', 'title': title}
             # Check for similar titles (fuzzy matching)
             # Safe to upload
             return {
@@ -234,6 +230,11 @@ class PreUploadDuplicateChecker:
             
             if result['safe_to_upload']:
                 self.safe_to_upload.append(result)
+                existing_records['titles'].add(result['title'].casefold())
+                existing_records['title_to_record'][result['title'].casefold()] = {'title': result['title'], 'state': 'local_candidate'}
+                with open(json_file, encoding='utf-8') as local_file:
+                    local_metadata = json.load(local_file)['metadata']
+                existing_records['identifiers'].update(self._identifiers(local_metadata))
             else:
                 self.duplicates_found.append(result)
                 if result.get('duplicate_type') == 'check_error':
@@ -297,7 +298,11 @@ class PreUploadDuplicateChecker:
         
         # Save safe files list
         with open(self.paths.safe_to_upload_path, 'w', encoding='utf-8') as f:
-            json.dump(safe_files, f, indent=2, ensure_ascii=False)
+            json.dump({'environment': 'sandbox' if self.sandbox else 'production',
+                       'inventory_complete': True, 'files': safe_files,
+                       'checked_at': datetime.now(timezone.utc).isoformat(),
+                       'valid_until': (datetime.now(timezone.utc) + timedelta(hours=24)).isoformat(),
+                       'metadata_hashes': {name: metadata_hash(prepare_metadata(os.path.join(self.zenodo_json_dir, name), self.paths)[0]) for name in safe_files}}, f, indent=2, ensure_ascii=False)
         
         print(f"📋 Safe to upload list saved to: {self.paths.safe_to_upload_path}")
         return self.paths.safe_to_upload_path
@@ -445,7 +450,7 @@ def main():
             print(f"Replacement plan: {checker.replacement_plan_path}")
 
         # Exit with appropriate code
-        if summary['summary']['duplicates_found'] > 0:
+        if summary['summary']['duplicates_found'] > 0 or summary['summary']['check_errors'] > 0:
             logger.log_info("Duplicate check completed with duplicates found")
             return 1  # Exit code 1 if duplicates found
         else:

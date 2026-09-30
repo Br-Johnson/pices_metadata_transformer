@@ -6,11 +6,31 @@ Validates that uploaded records accurately reflect the transformed metadata.
 import os
 import json
 import argparse
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from datetime import datetime
 from typing import Dict, List, Any, Optional
-from zenodo_api import create_zenodo_client, ZenodoAPIError
-from logger import initialize_logger, get_logger
-from path_config import OutputPaths, default_log_dir
+from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
+from scripts.logger import initialize_logger, get_logger
+from scripts.path_config import OutputPaths, default_log_dir
+from scripts.upload_service import assert_environment, prepare_metadata, read_json
+
+
+def compare_metadata(original, zenodo):
+    """Compare all submitted fields, permitting server additions and list ordering."""
+    def normalized(value, field=None):
+        if field == 'license' and isinstance(value, dict):
+            value = value.get('id') or value.get('identifier')
+        if isinstance(value, dict):
+            # Zenodo may omit explicit Organization hints; preserve name/affiliation comparison.
+            return {key: normalized(item, key) for key, item in value.items()
+                    if key != 'type' or value.get('type') != 'Organization'}
+        if isinstance(value, list):
+            return sorted((normalized(item) for item in value), key=lambda item: json.dumps(item, sort_keys=True))
+        return value
+    return [{'field': key, 'original': value, 'zenodo': zenodo.get(key), 'type': 'value_mismatch'}
+            for key, value in original.items()
+            if normalized(value, key) != normalized(zenodo.get(key), key)]
 
 
 class ZenodoVerifier:
@@ -19,7 +39,7 @@ class ZenodoVerifier:
     def __init__(self, sandbox: bool = True, output_dir: str = "output"):
         self.sandbox = sandbox
         self.output_dir = output_dir
-        self.paths = OutputPaths(output_dir)
+        self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
         self.logger = get_logger()
         
         # Initialize Zenodo client
@@ -42,25 +62,23 @@ class ZenodoVerifier:
     
     def load_upload_log(self) -> List[Dict[str, Any]]:
         """Load the upload log to get list of uploaded records."""
-        if not os.path.exists(self.upload_log_path):
-            self.logger.log_info(f"No upload log found at {self.upload_log_path}; skipping verification.")
-            return []
-        
-        with open(self.upload_log_path, 'r', encoding='utf-8') as f:
-            upload_log = json.load(f)
-        
-        # Filter only successful uploads
-        successful_uploads = [upload for upload in upload_log if upload.get('success', False)]
-        
-        self.logger.log_info(f"Loaded {len(successful_uploads)} successful uploads from log")
-        return successful_uploads
-    
+        registry = read_json(self.paths.uploads_registry_path, {})
+        uploads = []
+        for key, entry in sorted(registry.items()):
+            if key.startswith('_') or entry.get('upload_status') != 'success':
+                continue
+            assert_environment(entry, self.paths.environment)
+            uploads.append(dict(entry, success=True))
+        return uploads
+
     def verify_uploads(self, upload_log: List[Dict[str, Any]], limit: int = None) -> Dict[str, Any]:
         """Verify uploaded records in Zenodo."""
         if limit:
             upload_log = upload_log[:limit]
             self.logger.log_info(f"Verifying limited to {limit} records")
         
+        if not upload_log:
+            raise ValueError('No records verified; migration is unverified')
         self.verification_stats['total_records'] = len(upload_log)
         
         for upload in upload_log:
@@ -73,9 +91,9 @@ class ZenodoVerifier:
                 else:
                     self.verification_stats['verification_failed'] += 1
                     
-                    if result['record_not_found']:
+                    if result.get('record_not_found'):
                         self.verification_stats['records_not_found'] += 1
-                    if result['metadata_mismatches']:
+                    if result.get('metadata_mismatches'):
                         self.verification_stats['metadata_mismatches'] += 1
                 
             except Exception as e:
@@ -116,6 +134,7 @@ class ZenodoVerifier:
         json_file = upload.get('json_file')
         
         try:
+            assert_environment(upload, self.paths.environment)
             # Get deposition from Zenodo
             deposition = self.client.get_deposition(deposition_id)
             
@@ -129,11 +148,8 @@ class ZenodoVerifier:
                     'timestamp': datetime.now().isoformat()
                 }
             
-            # Load original metadata
-            with open(json_file, 'r', encoding='utf-8') as f:
-                original_data = json.load(f)
-            original_metadata = original_data['metadata']
-            
+            original_metadata, _, _ = prepare_metadata(json_file, self.paths)
+
             # Get Zenodo metadata
             zenodo_metadata = deposition.get('metadata', {})
             
@@ -143,7 +159,7 @@ class ZenodoVerifier:
             # Check if files were uploaded
             files_uploaded = len(deposition.get('files', [])) > 0
             
-            verification_successful = len(mismatches) == 0 and files_uploaded
+            verification_successful = len(mismatches) == 0 and not files_uploaded
             
             result = {
                 'deposition_id': deposition_id,
@@ -164,7 +180,7 @@ class ZenodoVerifier:
                 self.logger.log_warning(
                     json_file, "verification", "verification_failed",
                     f"Mismatches: {len(mismatches)}, Files uploaded: {files_uploaded}",
-                    "Perfect match with files uploaded",
+                    "Complete metadata match with no attached files",
                     f"Verification issues for deposition {deposition_id}",
                     "Review mismatches and fix if necessary"
                 )
@@ -191,73 +207,8 @@ class ZenodoVerifier:
     
     def _compare_metadata(self, original: Dict[str, Any], zenodo: Dict[str, Any]) -> List[Dict[str, Any]]:
         """Compare original metadata with Zenodo metadata."""
-        mismatches = []
-        
-        # Key fields to compare
-        key_fields = [
-            'title', 'upload_type', 'publication_date', 'access_right', 'license'
-        ]
-        
-        for field in key_fields:
-            original_value = original.get(field)
-            zenodo_value = zenodo.get(field)
-            
-            if original_value != zenodo_value:
-                mismatches.append({
-                    'field': field,
-                    'original': original_value,
-                    'zenodo': zenodo_value,
-                    'type': 'value_mismatch'
-                })
-        
-        # Compare creators
-        original_creators = original.get('creators', [])
-        zenodo_creators = zenodo.get('creators', [])
-        
-        if len(original_creators) != len(zenodo_creators):
-            mismatches.append({
-                'field': 'creators',
-                'original': f"{len(original_creators)} creators",
-                'zenodo': f"{len(zenodo_creators)} creators",
-                'type': 'count_mismatch'
-            })
-        else:
-            # Compare creator names
-            for i, (orig_creator, zen_creator) in enumerate(zip(original_creators, zenodo_creators)):
-                if orig_creator.get('name') != zen_creator.get('name'):
-                    mismatches.append({
-                        'field': f'creators[{i}].name',
-                        'original': orig_creator.get('name'),
-                        'zenodo': zen_creator.get('name'),
-                        'type': 'value_mismatch'
-                    })
-        
-        # Compare keywords
-        original_keywords = set(original.get('keywords', []))
-        zenodo_keywords = set(zenodo.get('keywords', []))
-        
-        if original_keywords != zenodo_keywords:
-            mismatches.append({
-                'field': 'keywords',
-                'original': list(original_keywords),
-                'zenodo': list(zenodo_keywords),
-                'type': 'set_mismatch'
-            })
-        
-        # Compare communities
-        original_communities = set(c.get('identifier') for c in original.get('communities', []))
-        zenodo_communities = set(c.get('identifier') for c in zenodo.get('communities', []))
-        
-        if original_communities != zenodo_communities:
-            mismatches.append({
-                'field': 'communities',
-                'original': list(original_communities),
-                'zenodo': list(zenodo_communities),
-                'type': 'set_mismatch'
-            })
-        
-        return mismatches
-    
+        return compare_metadata(original, zenodo)
+
     def _save_verification_results(self):
         """Save verification results to JSON file."""
         with open(self.verification_report_path, 'w', encoding='utf-8') as f:

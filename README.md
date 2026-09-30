@@ -38,6 +38,10 @@ pices_md_2/
 └── README.md               # This file
 ```
 
+## Production safety and review
+
+Follow the [draft and human-QA runbook](docs/draft_qa_runbook.md) before using operational commands. Production stays draft until an approved manifest is supplied to the explicit publisher. The [pinned review and offline reproductions](docs/reviews/2026-09-30/README.md) document the original defects.
+
 ## 🚀 Quick Start
 
 ### 🎯 Recommended Approach: Use the Orchestration Pipeline

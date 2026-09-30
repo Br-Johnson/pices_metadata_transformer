@@ -29,7 +29,8 @@ from scripts.validate_zenodo import (
 class BatchTransformer:
     """Handles batch transformation of FGDC XML files."""
     
-    def __init__(self, input_dir: str, output_dir: str):
+    def __init__(self, input_dir: str, output_dir: str, decisions=None):
+        self.decisions = decisions or {}
         self.input_dir = input_dir
         self.output_dir = output_dir
         self.paths = OutputPaths(output_dir)
@@ -110,7 +111,7 @@ class BatchTransformer:
             self.logger.log_info(f"Processing limited to {limit} files")
         
         # Load pre-filter list to skip already uploaded files
-        already_uploaded_titles = self.load_pre_filter_list()
+        already_uploaded_titles = set()  # Transformation depends only on sources, not remote state.
         
         successful_transforms = 0
         failed_transforms = 0
@@ -135,7 +136,7 @@ class BatchTransformer:
                 json_file = os.path.join(self.zenodo_json_dir, f"{base_name}.json")
                 
                 # Transform the file
-                result = transform_fgdc_file(xml_file)
+                result = transform_fgdc_file(xml_file, decisions=self.decisions)
                 
                 if result:
                     # Copy original FGDC XML for upload
@@ -443,7 +444,7 @@ class BatchTransformer:
         
         # Next steps
         report_lines.append("NEXT STEPS:")
-        if transform_summary['failed_transforms'] > 0:
+        if transform_summary['failed_transforms'] > 0 or (validation_summary and validation_summary.get('summary', {}).get('invalid_files', 0) > 0):
             report_lines.append("  1. Review failed transformations in logs/errors.json")
             report_lines.append("  2. Fix transformation logic for common issues")
             report_lines.append("  3. Re-run transformation for failed files")
@@ -495,6 +496,7 @@ def main():
         help=f'Directory for log files (default: {default_logs})'
     )
     
+    parser.add_argument("--decisions", help="Versioned curator overrides keyed by FGDC ID with source SHA256")
     args = parser.parse_args()
     
     # Initialize logger
@@ -503,7 +505,11 @@ def main():
     
     try:
         # Create batch transformer
-        transformer = BatchTransformer(args.input, args.output)
+        decisions = None
+        if args.decisions:
+            with open(args.decisions, encoding='utf-8') as decisions_file:
+                decisions = json.load(decisions_file)
+        transformer = BatchTransformer(args.input, args.output, decisions=decisions)
         
         # Discover XML files
         xml_files = transformer.discover_xml_files()
@@ -528,7 +534,7 @@ def main():
         print("\n" + summary_report)
         
         # Exit with appropriate code
-        if transform_summary['failed_transforms'] > 0:
+        if transform_summary['failed_transforms'] > 0 or (validation_summary and validation_summary.get('summary', {}).get('invalid_files', 0) > 0):
             logger.log_info("Batch transformation completed with some failures")
             exit(1)
         else:

@@ -7,6 +7,7 @@ import xml.etree.ElementTree as ET
 import re
 import json
 import os
+import hashlib
 from datetime import datetime
 from typing import Dict, List, Any, Optional, Tuple
 from urllib.parse import urlparse
@@ -21,7 +22,9 @@ from scripts.enhanced_metrics import EnhancedMetricsCalculator
 class FGDCToZenodoTransformer:
     """Transforms FGDC XML metadata to Zenodo JSON format."""
     
-    def __init__(self):
+    def __init__(self, decisions=None):
+        self.decisions = decisions or {}
+        self.active_decision = {}
         self.logger = get_logger()
         self.metrics_calculator = EnhancedMetricsCalculator()
         
@@ -47,7 +50,9 @@ class FGDCToZenodoTransformer:
         self.org_patterns = [
             r'noaa', r'national.?oceanic', r'university.?of', r'institute',
             r'center', r'lab', r'department', r'ministry', r'agency',
-            r'corporation', r'inc\.', r'ltd\.', r'corp\.', r'commission', r'office'
+            r'corporation', r'inc\.', r'ltd\.', r'corp\.', r'commission', r'office',
+            r'\bservice\b', r'\bcentre\b', r'\bbureau\b', r'\bdept\.?',
+            r'\bcouncil\b', r'\bsurvey\b', r'\buniv\.?', r'\bsociety\b'
         ]
         self.pices_publisher = "North Pacific Marine Science Organization"
         self.pices_contributor = {
@@ -76,6 +81,16 @@ class FGDCToZenodoTransformer:
             with open(xml_path, 'r', encoding='utf-8', errors='ignore') as f:
                 raw_content = f.read()
             
+            decision = self.decisions.get(os.path.splitext(os.path.basename(xml_path))[0], {})
+            if decision:
+                with open(xml_path, 'rb') as source_file:
+                    raw_hash = hashlib.sha256(source_file.read()).hexdigest()
+                if (decision.get('source_sha256') != raw_hash or not decision.get('reviewer')
+                        or not decision.get('rationale') or not decision.get('reviewed_at')):
+                    raise ValueError('Curator decision requires matching source hash and review provenance')
+                if set(decision.get('metadata', {})) - {'publication_date', 'creators', 'license'}:
+                    raise ValueError('Unsupported curator metadata override')
+            self.active_decision = decision
             sanitized_content = raw_content.lstrip('\ufeff\0')
             if sanitized_content != raw_content:
                 self.logger.log_warning(
@@ -180,11 +195,13 @@ class FGDCToZenodoTransformer:
             if not title:
                 return None
             
-            creators = self._extract_creators(root, file_path)
+            overrides = self.active_decision.get('metadata', {})
+            creators = overrides.get('creators') or self._extract_creators(root, file_path)
             if not creators:
                 return None
             
-            publication_date = self._extract_publication_date(root, file_path)
+            publication_date = (self._normalize_date(overrides['publication_date'], file_path)
+                                if overrides.get('publication_date') else self._extract_publication_date(root, file_path))
             if not publication_date:
                 return None
             
@@ -200,7 +217,7 @@ class FGDCToZenodoTransformer:
                 "creators": creators,
                 "description": description,
                 "access_right": "open",  # Default, will be updated based on constraints
-                "license": "cc-zero",    # Default for datasets
+                "license": "",  # Unknown rights must be resolved before upload/publication.
                 "keywords": [],
                 "notes": "",
                 "related_identifiers": [],
@@ -211,6 +228,11 @@ class FGDCToZenodoTransformer:
             
             # Optional fields
             self._add_optional_fields(metadata, root, file_path)
+
+            if 'license' in overrides:
+                metadata['license'] = overrides['license']
+            if self.active_decision:
+                metadata['notes'] += '\n\nCurator decision: ' + json.dumps(self.active_decision, sort_keys=True)
 
             # Force publisher to PICES (original publisher retained in imprint_publisher)
             metadata['publisher'] = self.pices_publisher
@@ -336,83 +358,36 @@ class FGDCToZenodoTransformer:
     def _extract_creators(self, root: ET.Element, file_path: str) -> List[Dict[str, str]]:
         """Extract and format creators from FGDC origin elements."""
         creators = []
-        origin_elements = root.findall('.//origin')
-        
-        if not origin_elements:
-            self.logger.log_error(
-                file_path, "idinfo.citation.citeinfo.origin", "missing_required_field",
-                None, "At least one origin element",
-                "Add origin element to citation section"
-            )
-            return []
-        
-        for origin_elem in origin_elements:
-            # Collect textual fragments, preserving line breaks for <br/> or lists
-            fragments = []
-            if list(origin_elem):
-                for child in origin_elem:
-                    text = ' '.join(t.strip() for t in child.itertext() if t.strip())
-                    if text:
-                        fragments.append(text)
-            if not fragments:
-                combined = '\n'.join(t.strip() for t in origin_elem.itertext() if t.strip())
-                if combined:
-                    fragments.append(combined)
-            
-            for fragment in fragments:
-                lines = [seg.strip(' ,;') for seg in re.split(r'[\r\n]+', fragment) if seg.strip()]
-                if not lines:
-                    lines = [fragment.strip()]
-                
-                for line in lines:
-                    if not line:
-                        continue
-                    
-                    # Remove information following colon or affiliation cues
-                    if ':' in line:
-                        line = line.split(':', 1)[0].strip()
-                    line = line.strip()
-                    is_org_line = self._is_organization(line)
-                    if not is_org_line:
-                        line = re.split(r'\bof\b|\bfrom\b|\bfor\b', line, 1)[0].strip(' ,;')
-                    else:
-                        line = line.strip(' ,;')
-                    if not line:
-                        continue
-                    line = re.sub(r'\s+', ' ', line)
-                    
-                    # Normalise trailing "and" to commas when the list uses commas elsewhere
-                    if not is_org_line and ',' in line:
-                        line = re.sub(r',?\s+and\s+(?=[A-Z])', ', ', line)
-                    
+        origins = root.findall('./idinfo/citation/citeinfo/origin')
+        if not origins:
+            origins = root.findall('./origin')  # Minimal fixture/legacy root layout.
+        for origin in origins:
+            # Preserve mixed XML text and tails; only explicit line breaks delimit names.
+            text = ''.join(origin.itertext()).strip()
+            if list(origin):
+                text = (origin.text or '') + ''.join(
+                    ('\n' if child.tag.lower() == 'br' else '') + ''.join(child.itertext()) + (child.tail or '')
+                    for child in origin)
+            for line in re.split(r'[\r\n]+', text):
+                line = re.sub(r'\s+', ' ', line).strip(' ;')
+                if not line:
+                    continue
+                if self._is_organization(line):
                     parts = [line]
-                    if ',' in line and not is_org_line:
-                        parts = [p.strip() for p in re.split(r',\s*(?=[A-Z])', line) if p.strip()]
-                    
-                    for part in parts:
-                        part = re.sub(r'^(and|&)\s+', '', part.strip(), flags=re.IGNORECASE)
-                        if not part:
-                            continue
-                        formatted = self._format_creator_name(part, file_path)
-                        if isinstance(formatted, list):
-                            for item in formatted:
-                                if item and item not in creators:
-                                    creators.append(item)
-                        elif formatted and formatted not in creators:
-                            creators.append(formatted)
-        
-        if not creators:
-            creators = self._extract_contact_creators(root, file_path)
-        
-        if not creators:
-            self.logger.log_error(
-                file_path, "idinfo.citation.citeinfo.origin", "no_valid_creators",
-                "Empty or invalid origin text", "Valid creator names",
-                "Ensure origin elements contain valid creator information"
-            )
-        
-        return creators
-    
+                else:
+                    comma_parts = [part.strip() for part in line.split(',')]
+                    # Comma between full given-family names is a list. A surname comma is not.
+                    if len(comma_parts) > 1 and all(len(part.split()) >= 2 for part in comma_parts):
+                        parts = comma_parts
+                    else:
+                        parts = [line]
+                for part in parts:
+                    formatted = self._format_creator_name(part, file_path)
+                    for creator in formatted if isinstance(formatted, list) else [formatted]:
+                        if creator and creator not in creators:
+                            creators.append(creator)
+        return creators or self._extract_contact_creators(root, file_path)
+
     def _extract_contact_creators(self, root: ET.Element, file_path: str) -> List[Dict[str, str]]:
         """Fallback: derive creators from contact information."""
         creators = []
@@ -561,8 +536,7 @@ class FGDCToZenodoTransformer:
             date_text = pubdate_elem.text.strip()
             if date_text:
                 normalized_date = self._normalize_date(date_text, file_path)
-                if normalized_date:
-                    return normalized_date
+                return normalized_date
         
         # Try metadata date as fallback
         metd_elem = root.find('.//metd')
@@ -609,252 +583,33 @@ class FGDCToZenodoTransformer:
     
     def _normalize_date(self, date_str: str, file_path: str) -> Optional[str]:
         """Normalize FGDC date to ISO format."""
+        raw = (date_str or '').strip()
+        self.logger.record_date_format(raw, file_path)
         try:
-            date_str = date_str.strip()
-            
-            # Record the date format encountered
-            self.logger.record_date_format(date_str, file_path)
-            
-            # Handle special cases
-            if not date_str or date_str.lower() in ['varies', 'unknown', 'not specified', 'present']:
-                self.logger.log_warning(
-                    file_path, "date_normalization", "vague_date",
-                    date_str or "empty", "Specific date (YYYY-MM-DD)",
-                    f"Vague or empty date encountered: {date_str or 'empty'}",
-                    "Use metadata date or current date as fallback"
-                )
-                return None
-            
-            # Handle common "unpublished" or "planned" cases
-            if date_str.lower() in ['planned', 'unpublished', 'unpublished material', 'unpublished material']:
-                from datetime import datetime
-                current_year = datetime.now().year
-                self.logger.log_warning(
-                    file_path, "date_normalization", "status_date",
-                    date_str, "Specific date (YYYY-MM-DD)",
-                    f"Status date encountered: {date_str}",
-                    f"Using current year {current_year} for unpublished/planned material"
-                )
-                return f"{current_year}-01-01"
-            
-            # Handle YYYY-YYYY ranges (e.g., "1950-1980")
-            if re.match(r'^\d{4}-\d{4}$', date_str):
-                year = int(date_str[:4])
-                self.logger.log_warning(
-                    file_path, "date_normalization", "date_range",
-                    date_str, "Single date (YYYY-MM-DD)",
-                    f"Date range encountered: {date_str}",
-                    f"Using first year {year} from range"
-                )
-                return f"{year}-01-01"
-            
-            # Handle YYYYMMDD-YYYYMMDD ranges (e.g., "19970101-20021231")
-            if re.match(r'^\d{8}-\d{8}$', date_str):
-                year = date_str[:4]
-                month = date_str[4:6]
-                day = date_str[6:8]
-                self.logger.log_warning(
-                    file_path, "date_normalization", "date_range",
-                    date_str, "Single date (YYYY-MM-DD)",
-                    f"Date range encountered: {date_str}",
-                    f"Using first date {year}-{month}-{day} from range"
-                )
-                return f"{year}-{month}-{day}"
-            
-            # Handle comma-separated years (e.g., "1991, 1992", "1988, 1989, 1991")
-            if ',' in date_str and re.search(r'\d{4}', date_str):
-                years = re.findall(r'\d{4}', date_str)
-                if years:
-                    year = int(years[0])
-                    self.logger.log_warning(
-                        file_path, "date_normalization", "multiple_years",
-                        date_str, "Single date (YYYY-MM-DD)",
-                        f"Multiple years encountered: {date_str}",
-                        f"Using first year {year}"
-                    )
-                    return f"{year}-01-01"
-            
-            # Handle YYYY-Present format (e.g., "1992-Present")
-            if date_str.endswith('-Present'):
-                year_match = re.search(r'(\d{4})-Present', date_str)
-                if year_match:
-                    year = int(year_match.group(1))
-                    self.logger.log_warning(
-                        file_path, "date_normalization", "present_range",
-                        date_str, "Single date (YYYY-MM-DD)",
-                        f"Present range encountered: {date_str}",
-                        f"Using year {year}"
-                    )
-                    return f"{year}-01-01"
-            
-            # Handle YYYYMM-YYYYMM format (e.g., "196205-196207")
-            if re.match(r'^\d{6}-\d{6}$', date_str):
-                year = date_str[:4]
-                month = date_str[4:6]
-                self.logger.log_warning(
-                    file_path, "date_normalization", "month_range",
-                    date_str, "Single date (YYYY-MM-DD)",
-                    f"Month range encountered: {date_str}",
-                    f"Using first month {year}-{month}"
-                )
-                return f"{year}-{month}-01"
-            
-            # Handle space-separated years (e.g., "1983 1994")
-            if ' ' in date_str and re.match(r'^\d{4}\s+\d{4}$', date_str):
-                year = int(date_str.split()[0])
-                self.logger.log_warning(
-                    file_path, "date_normalization", "space_separated_years",
-                    date_str, "Single date (YYYY-MM-DD)",
-                    f"Space-separated years: {date_str}",
-                    f"Using first year {year}"
-                )
-                return f"{year}-01-01"
-            
-            # Handle complex formats like "72-88  thru  87-98" FIRST
-            if 'thru' in date_str.lower():
-                # Extract first 2-digit year and convert to 4-digit
-                year_match = re.search(r'(\d{2})', date_str)
-                if year_match:
-                    year = int(year_match.group(1))
-                    # Convert 2-digit years to 4-digit (assume 1900s)
-                    if year < 50:  # Assume 20xx
-                        year += 2000
-                    else:  # Assume 19xx
-                        year += 1900
-                    self.logger.log_warning(
-                        file_path, "date_normalization", "complex_date_range",
-                        date_str, "Single date (YYYY-MM-DD)",
-                        f"Complex date range: {date_str}",
-                        f"Using first year {year} from range"
-                    )
-                    return f"{year}-01-01"
-                else:
-                    # Try to extract any 2-digit number
-                    all_numbers = re.findall(r'\d{2}', date_str)
-                    if all_numbers:
-                        year = int(all_numbers[0])
-                        # Convert 2-digit years to 4-digit (assume 1900s)
-                        if year < 50:  # Assume 20xx
-                            year += 2000
-                        else:  # Assume 19xx
-                            year += 1900
-                        self.logger.log_warning(
-                            file_path, "date_normalization", "complex_date_range",
-                            date_str, "Single date (YYYY-MM-DD)",
-                            f"Complex date range: {date_str}",
-                            f"Using first 2-digit number {year} from range"
-                        )
-                        return f"{year}-01-01"
-                    else:
-                        # Debug: log what we found
-                        self.logger.log_error(
-                            file_path, "date_normalization", "no_numbers_found",
-                            date_str, "Date with extractable numbers",
-                            f"No 2-digit numbers found in: {date_str}",
-                            "Check regex pattern"
-                        )
-            
-            # Handle range dates like "1988 - Present" (but not "thru" which is handled above)
-            if ' - ' in date_str or ' to ' in date_str:
-                # Extract the first year from the range
-                year_match = re.search(r'(\d{4})', date_str)
-                if year_match:
-                    year = year_match.group(1)
-                    self.logger.log_warning(
-                        file_path, "date_normalization", "date_range",
-                        date_str, "Single date (YYYY-MM-DD)",
-                        f"Date range encountered: {date_str}",
-                        f"Using first year {year} from range"
-                    )
-                    return f"{year}-01-01"
-                else:
-                    self.logger.log_error(
-                        file_path, "date_normalization", "invalid_date_range",
-                        date_str, "Date range with extractable year",
-                        f"Could not extract year from range: {date_str}",
-                        "Add parsing logic for date ranges"
-                    )
-                    return None
-            
-            # Handle 2-digit years (assume 1900s)
-            if re.match(r'^\d{2}-\d{2}$', date_str):
-                # Format like "72-88"
-                parts = date_str.split('-')
-                if len(parts) == 2:
-                    year1 = int(parts[0])
-                    year2 = int(parts[1])
-                    # Convert 2-digit years to 4-digit (assume 1900s)
-                    if year1 < 50:  # Assume 20xx
-                        year1 += 2000
-                    else:  # Assume 19xx
-                        year1 += 1900
-                    self.logger.log_warning(
-                        file_path, "date_normalization", "two_digit_year",
-                        date_str, "Four-digit year (YYYY)",
-                        f"Two-digit year range: {date_str}",
-                        f"Converted to {year1}"
-                    )
-                    return f"{year1}-01-01"
-            
-            digits_only = ''.join(re.findall(r'\d', date_str))
-            if digits_only and digits_only != date_str:
-                if len(digits_only) == 4:
-                    year = digits_only
-                    self.logger.log_warning(
-                        file_path, "date_normalization", "partial_date_extracted",
-                        date_str, "Specific date (YYYY-MM-DD)",
-                        f"Extracted year {year} from noisy date value: {date_str}",
-                        "Verify publication date and update if necessary"
-                    )
-                    return f"{year}-01-01"
-                if len(digits_only) == 6:
-                    year = digits_only[:4]
-                    month = digits_only[4:6]
-                    self.logger.log_warning(
-                        file_path, "date_normalization", "partial_date_extracted",
-                        date_str, "Specific date (YYYY-MM-DD)",
-                        f"Extracted year-month {year}-{month} from noisy date value: {date_str}",
-                        "Verify publication date and update if necessary"
-                    )
-                    return f"{year}-{month}-01"
-                if len(digits_only) == 8:
-                    year = digits_only[:4]
-                    month = digits_only[4:6]
-                    day = digits_only[6:8]
-                    self.logger.log_warning(
-                        file_path, "date_normalization", "partial_date_extracted",
-                        date_str, "Specific date (YYYY-MM-DD)",
-                        f"Extracted date {year}-{month}-{day} from noisy value: {date_str}",
-                        "Verify publication date and update if necessary"
-                    )
-                    return f"{year}-{month}-{day}"
-            
-            # Try different date formats
-            if len(date_str) == 4:  # YYYY
-                return f"{date_str}-01-01"
-            elif len(date_str) == 6:  # YYYYMM
-                year = date_str[:4]
-                month = date_str[4:6]
-                return f"{year}-{month}-01"
-            elif len(date_str) == 8:  # YYYYMMDD
-                year = date_str[:4]
-                month = date_str[4:6]
-                day = date_str[6:8]
-                return f"{year}-{month}-{day}"
+            if re.fullmatch(r'\d{4}', raw):
+                year, month, day = int(raw), 1, 1
+            elif re.fullmatch(r'\d{6}', raw):
+                year, month, day = int(raw[:4]), int(raw[4:]), 1
+            elif re.fullmatch(r'\d{8}', raw):
+                year, month, day = int(raw[:4]), int(raw[4:6]), int(raw[6:])
+            elif re.fullmatch(r'\d{4}-\d{2}-\d{2}', raw):
+                year, month, day = map(int, raw.split('-'))
+            elif re.fullmatch(r'\d{4}-\d{4}', raw):
+                year, month, day = int(raw[:4]), 1, 1
+            elif re.fullmatch(r'(?:[A-Za-z]+ \d{1,2},? \d{4}|\d{1,2} [A-Za-z]+ \d{4})', raw):
+                parsed = dateutil.parser.parse(raw, default=datetime(2000, 1, 1))
+                year, month, day = parsed.year, parsed.month, parsed.day
             else:
-                # Try to parse with dateutil
-                parsed_date = dateutil.parser.parse(date_str)
-                return parsed_date.strftime('%Y-%m-%d')
-                
-        except Exception as e:
-            self.logger.log_warning(
-                file_path, "date_normalization", "invalid_date_format",
-                date_str, "YYYY, YYYYMM, or YYYYMMDD format",
-                f"Could not parse date: {str(e)}",
-                "Review date format or rely on fallback metadata dates"
-            )
+                raise ValueError('Ambiguous or incomplete date requires curator decision')
+            if not 1600 <= year <= 2100:
+                raise ValueError('Date outside fixed marine-catalogue review bounds (1600–2100)')
+            return datetime(year, month, day).strftime('%Y-%m-%d')
+        except (ValueError, OverflowError) as exc:
+            self.logger.log_warning(file_path, 'date_normalization', 'unresolved_date',
+                                    raw, 'Unambiguous calendar date', str(exc),
+                                    'Preserve raw source and provide a hashed curator decision')
             return None
-    
+
     def _extract_description(self, root: ET.Element, file_path: str) -> Optional[str]:
         """Extract description from abstract."""
         placeholder_description = None
@@ -940,6 +695,8 @@ class FGDCToZenodoTransformer:
         # Access rights and license
         self._extract_access_constraints(metadata, root, file_path)
         
+        metadata['notes'] = self._build_notes(root, file_path)
+
         # Temporal coverage
         self._extract_temporal_coverage(metadata, root, file_path)
         
@@ -958,9 +715,6 @@ class FGDCToZenodoTransformer:
         references = self._extract_references(root, file_path)
         metadata['references'] = references
         
-        # Notes (combine various fields)
-        notes = self._build_notes(root, file_path)
-        metadata['notes'] = notes
         
         # Extract additional fields from crosswalk
         self._extract_additional_fields(root, metadata, file_path)
@@ -1058,31 +812,43 @@ class FGDCToZenodoTransformer:
             self.logger.record_license_detected()
         elif metadata['access_right'] in ['open', 'embargoed']:
             # Zenodo requires license for open/embargoed records
-            metadata['license'] = 'cc-zero'  # Default for datasets
+            metadata['license'] = ''
+            self.logger.log_warning(file_path, 'idinfo.useconst', 'unresolved_license',
+                                    useconst_text, 'Explicit license grant',
+                                    'License requires human adjudication; source terms retained in notes')
     
     def _detect_license(self, useconst_text: str, file_path: str) -> Optional[str]:
-        """Detect license from use constraints text."""
-        if not useconst_text:
+        """Recognize explicit grants without weakening modifiers or inferring from access."""
+        text = re.sub(r"[\s_]+", "-", (useconst_text or "").lower().strip())
+        if not text:
             return None
-        
-        text_lower = useconst_text.lower().strip()
-        
-        # Skip if the text is just "none" or similar
-        if text_lower in ['none', 'n/a', 'not applicable', 'not specified']:
-            self.logger.log_warning(
-                file_path, "idinfo.useconst", "invalid_license_detected",
-                useconst_text, "Valid license identifier",
-                f"Invalid license '{useconst_text}' detected, using default cc-zero"
-            )
-            return "cc-zero"  # Use default instead of None
-        
-        for license_id, patterns in self.license_patterns.items():
-            for pattern in patterns:
-                if re.search(pattern, text_lower):
-                    return license_id
-        
+        if re.search(r'all-rights-reserved|not-licensed|no-license|permission-required|not-under', text):
+            return None
+        # More restrictive variants must precede the generic attribution grant.
+        for variant in ("by-nc-nd", "by-nc-sa", "by-nc", "by-nd", "by-sa", "by"):
+            match = re.search(r"(?:cc-|creativecommons.org/licenses/)" + variant + r"(?:-|/|$)", text)
+            if match:
+                version = re.match(r"([1-4]\.0)(?:/|$|[^\d])", text[match.end():])
+                if version:
+                    return f"cc-{variant}-{version.group(1)}"
+                return None  # A license version is a curator decision.
+        if "creative-commons-attribution" in text:
+            variant = "by"
+            if "noncommercial" in text or "non-commercial" in text:
+                variant += "-nc"
+            if "noderivatives" in text or "no-derivatives" in text:
+                variant += "-nd"
+            elif "sharealike" in text or "share-alike" in text:
+                variant += "-sa"
+            version = re.search(r"([1-4]\.0)", text)
+            return f"cc-{variant}-{version.group(1)}" if version else None
+        if re.search(r"\bcc-?0\b|cc-zero|creativecommons.org/publicdomain/zero/1.0", text):
+            return "cc-zero"
+        for identifier, pattern in (("mit", r"mit-license"), ("apache-2.0", r"apache-(?:license-)?2(?:\.0)?"), ("gpl-3.0", r"(?:gpl|gnu-general-public-license)-3(?:\.0)?")):
+            if re.search(pattern, text):
+                return identifier
         return None
-    
+
     def _extract_temporal_coverage(self, metadata: Dict[str, Any], root: ET.Element, file_path: str):
         """Extract temporal coverage and add to notes."""
         timeperd = root.find('.//timeperd')
@@ -1116,8 +882,9 @@ class FGDCToZenodoTransformer:
         
         # Single date
         sngdate = timeperd.find('.//sngdate')
-        if sngdate is not None and sngdate.text:
-            single_date = self._normalize_date(sngdate.text.strip(), file_path)
+        caldate = sngdate.find('caldate') if sngdate is not None else None
+        if caldate is not None and caldate.text:
+            single_date = self._normalize_date(caldate.text.strip(), file_path)
             if single_date:
                 temporal_info.append(f"Temporal coverage: {single_date}")
         
@@ -1275,7 +1042,7 @@ class FGDCToZenodoTransformer:
                 for url in urls:
                     related_ids.append({
                         "identifier": url,
-                        "relation": "isRelatedTo"
+                        "relation": "references"
                     })
         
         return related_ids
@@ -1827,9 +1594,9 @@ class FGDCToZenodoTransformer:
             metadata['notes'] += "\n\n" + "\n".join(notes_parts)
 
 
-def transform_fgdc_file(xml_path: str) -> Optional[Dict[str, Any]]:
+def transform_fgdc_file(xml_path: str, decisions=None) -> Optional[Dict[str, Any]]:
     """Transform a single FGDC XML file to Zenodo JSON format."""
-    transformer = FGDCToZenodoTransformer()
+    transformer = FGDCToZenodoTransformer(decisions=decisions)
     return transformer.transform_file(xml_path)
 
 

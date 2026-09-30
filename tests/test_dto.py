@@ -36,6 +36,7 @@ class CanonicalDTOTests(unittest.TestCase):
             relation="isAlternativeIdentifierOf",
             confidence=0.91,
             scheme="doi",
+            status="accepted",
         )
         dto = build_canonical_dto(
             source_path="FGDC/sample.xml",

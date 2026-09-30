@@ -16,7 +16,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
-from scripts.fgdc_utils import load_fgdc_xml, build_metadata_notes
+from scripts.upload_service import DraftUploadService
 
 
 class ZenodoUploader:
@@ -25,9 +25,11 @@ class ZenodoUploader:
     def __init__(self, sandbox: bool = True, output_dir: str = "output", replace_duplicates: bool = False):
         self.sandbox = sandbox
         self.output_dir = output_dir
-        self.paths = OutputPaths(output_dir)
+        self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
         self.logger = get_logger()
-        self.replace_duplicates = replace_duplicates
+        if replace_duplicates:
+            raise ValueError("Automatic replacement is retired; reconcile existing drafts explicitly")
+        self.replace_duplicates = False
         self.environment = 'sandbox' if sandbox else 'production'
 
         if self.replace_duplicates and not self.sandbox:
@@ -89,6 +91,9 @@ class ZenodoUploader:
         
         self.stats['total_files'] = len(json_files)
         
+        pending = set(DraftUploadService(self.paths, self.environment).pending_files())
+        json_files = [path for path in json_files if path in pending]
+
         # Process files with progress bar
         for json_file in tqdm(json_files, desc="Uploading to Zenodo"):
             try:
@@ -133,105 +138,7 @@ class ZenodoUploader:
     
     def _upload_single_file(self, json_file: str) -> Dict[str, Any]:
         """Upload a single JSON file to Zenodo."""
-        try:
-            if not os.path.isdir(self.original_fgdc_dir):
-                raise FileNotFoundError(
-                    f"Original FGDC directory not found: {self.original_fgdc_dir}. "
-                    "Ensure transformed FGDC copies exist under the selected output directory."
-                )
-
-            # Load JSON data
-            with open(json_file, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-            
-            if 'metadata' not in data:
-                raise ValueError("JSON file missing 'metadata' key")
-            
-            # Get base filename
-            base_name = os.path.splitext(os.path.basename(json_file))[0]
-
-            # Load FGDC XML for notes embedding
-            fgdc_xml, fgdc_file = load_fgdc_xml(base_name, self.paths)
-            metadata = data['metadata']
-            metadata['notes'] = build_metadata_notes(metadata.get('notes', ''), fgdc_xml)
-
-            if not fgdc_xml:
-                self.logger.log_warning(
-                    json_file,
-                    "fgdc_xml",
-                    "fgdc_missing_for_notes",
-                    "FGDC XML not embedded",
-                    "FGDC XML located and embedded into Zenodo notes field",
-                    suggestion="Ensure original FGDC XML is available so the full record is preserved in notes",
-                )
-
-            # Optionally replace existing sandbox record
-            self._maybe_replace_existing(base_name, metadata.get('title', ''))
-
-            # Create deposition
-            deposition = self.client.create_deposition()
-            deposition_id = deposition['id']
-
-            # Update metadata
-            try:
-                updated_deposition = self.client.update_deposition_metadata(
-                    deposition_id,
-                    metadata,
-                    files={'enabled': False},
-                )
-            except ZenodoAPIError as e:
-                self.logger.log_warning(
-                    json_file,
-                    "metadata_only",
-                    "disable_files_failed",
-                    str(e),
-                    "Depositions marked as metadata-only",
-                    "Zenodo API rejected files.disabled flag",
-                    "Verify token permissions and disable files manually if required",
-                )
-                updated_deposition = self.client.update_deposition_metadata(deposition_id, metadata)
-
-            # Get DOI if reserved
-            doi = None
-            if 'metadata' in updated_deposition and 'prereserve_doi' in updated_deposition['metadata']:
-                doi = updated_deposition['metadata']['prereserve_doi'].get('doi')
-            
-            result = {
-                'json_file': json_file,
-                'fgdc_file': fgdc_file,
-                'deposition_id': deposition_id,
-                'doi': doi,
-                'success': True,
-                'timestamp': datetime.now().isoformat(),
-                'metadata': {
-                    'title': metadata.get('title', ''),
-                    'upload_type': metadata.get('upload_type', ''),
-                    'creators_count': len(metadata.get('creators', [])),
-                    'keywords_count': len(metadata.get('keywords', [])),
-                    'communities': metadata.get('communities', [])
-                }
-            }
-            
-            self.logger.log_info(
-                f"Successfully uploaded {base_name} - Deposition ID: {deposition_id}, DOI: {doi}"
-            )
-            
-            return result
-
-        except ZenodoAPIError as e:
-            return {
-                'json_file': json_file,
-                'success': False,
-                'error': f"Zenodo API error: {str(e)}",
-                'timestamp': datetime.now().isoformat()
-            }
-        except Exception as e:
-            return {
-                'json_file': json_file,
-                'success': False,
-                'error': f"Upload error: {str(e)}",
-                'timestamp': datetime.now().isoformat()
-            }
+        return DraftUploadService(self.paths, self.environment).upload(json_file, self.client)
 
     def _save_upload_logs(self):
         """Save upload logs to JSON files."""
