@@ -23,9 +23,17 @@ def validate_json_payload(payload, source):
     if source == 'datacite':
         records = payload.get('data')
     elif source == 'crossref':
-        records = payload.get('message', {}).get('items')
+        message = payload.get('message')
+        if not isinstance(message, dict):
+            raise ValueError('Malformed Crossref message')
+        records = message.get('items')
     elif source == 'dspace':
-        records = payload.get('_embedded', {}).get('searchResult', {}).get('_embedded', {}).get('objects')
+        embedded = payload.get('_embedded')
+        result = embedded.get('searchResult') if isinstance(embedded, dict) else None
+        objects = result.get('_embedded') if isinstance(result, dict) else None
+        if not isinstance(objects, dict):
+            raise ValueError('Malformed DSpace search containers')
+        records = objects.get('objects')
     else:
         records = payload.get('records')
     if not isinstance(records, list) or any(not isinstance(record, dict) for record in records):
@@ -82,11 +90,12 @@ def snapshot_inventory(snapshot):
             if format_name == 'datacite':
                 from scripts.matching.datacite_adapter import DataCiteAdapter
                 records = [candidate.__dict__ for candidate in (DataCiteAdapter._normalise_item(item) for item in raw_records) if candidate]
-                complete = complete and not payload.get('links', {}).get('next')
+                complete = complete and isinstance(payload.get('links'), dict) and not payload['links'].get('next') and isinstance(payload.get('meta'), dict) and type(payload['meta'].get('total')) is int and payload['meta']['total'] == len(raw_records)
             elif format_name == 'crossref':
                 from scripts.matching.crossref_adapter import CrossrefAdapter
                 records = [candidate.__dict__ for candidate in (CrossrefAdapter._normalise_item(item) for item in raw_records) if candidate]
-                complete = complete and payload.get('message', {}).get('total-results', len(raw_records)) <= len(raw_records)
+                total = payload['message'].get('total-results')
+                complete = complete and type(total) is int and total == len(raw_records)
             elif format_name == 'dspace':
                 records = []
                 for obj in raw_records:
@@ -98,17 +107,24 @@ def snapshot_inventory(snapshot):
                     records.append({'title': item['name'], 'identifier': identifiers[0], 'identifiers': identifiers,
                                     'creators': [entry.get('value') for entry in metadata.get('dc.contributor.author', []) if entry.get('value')]})
                 page = payload.get('_embedded', {}).get('searchResult', {}).get('page', {})
-                complete = complete and page.get('totalElements', len(raw_records)) <= len(raw_records)
+                total = page.get('totalElements')
+                complete = complete and type(total) is int and total == len(raw_records)
             else:
                 records = raw_records
             if len(records) != len(raw_records):
                 raise ValueError('Inventory includes unparseable records; absence cannot be established')
         for record in records:
-            if not record.get('title') or not record.get('identifier'):
+            if (not isinstance(record.get('title'), str) or not record['title'].strip()
+                    or not isinstance(record.get('identifier'), str) or not record['identifier'].strip()
+                    or not isinstance(record.get('creators', []), list)
+                    or any(not isinstance(creator, str) for creator in record.get('creators', []))
+                    or not isinstance(record.get('identifiers', []), list)
+                    or any(not isinstance(identifier, str) for identifier in record.get('identifiers', []))
+                    or record.get('abstract') is not None and not isinstance(record['abstract'], str)):
                 raise ValueError('Each inventory record needs title and persistent identifier')
         result.update(records=records, inventory_complete=complete,
                       status=('checked' if complete else 'unchecked_partial'))
-    except (ValueError, TypeError, ET.ParseError) as exc:
+    except (ValueError, TypeError, AttributeError, KeyError, ET.ParseError) as exc:
         result['error'] = str(exc)
     return result
 

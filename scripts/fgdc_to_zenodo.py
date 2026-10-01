@@ -531,7 +531,9 @@ class FGDCToZenodoTransformer:
     
     def _extract_publication_date(self, root: ET.Element, file_path: str) -> Optional[str]:
         """Extract and normalize publication date."""
-        pubdate_elem = root.find('.//pubdate')
+        pubdate_elem = root.find('./idinfo/citation/citeinfo/pubdate')
+        if pubdate_elem is None:
+            pubdate_elem = root.find('./pubdate')  # Minimal direct-field fixtures only.
         if pubdate_elem is not None and pubdate_elem.text:
             date_text = pubdate_elem.text.strip()
             if date_text:
@@ -822,7 +824,9 @@ class FGDCToZenodoTransformer:
         text = re.sub(r"[\s_]+", "-", (useconst_text or "").lower().strip())
         if not text:
             return None
-        if re.search(r'all-rights-reserved|not-licensed|no-license|permission-required|not-under', text):
+        if re.search(r"\b(?:not|never|denied|prohibited)\b", useconst_text or "", re.IGNORECASE):
+            return None  # Explicit denial anywhere in source terms requires adjudication.
+        if re.search(r'all-rights-reserved|not-licensed|no-license|permission-required|not-under|(?:not|no)-(?:a-|an-)?(?:mit|apache|gpl|agpl|lgpl|cc|creative-commons)|(?:license|apache-[0-9.]+|gpl-[0-9.]+)-is-not|license-is-(?:not|never)|license-(?:is-)?(?:denied|prohibited)', text):
             return None
         # More restrictive variants must precede the generic attribution grant.
         for variant in ("by-nc-nd", "by-nc-sa", "by-nc", "by-nd", "by-sa", "by"):
@@ -844,7 +848,7 @@ class FGDCToZenodoTransformer:
             return f"cc-{variant}-{version.group(1)}" if version else None
         if re.search(r"\bcc-?0\b|cc-zero|creativecommons.org/publicdomain/zero/1.0", text):
             return "cc-zero"
-        for identifier, pattern in (("mit", r"mit-license"), ("apache-2.0", r"apache-(?:license-)?2(?:\.0)?"), ("gpl-3.0", r"(?<![a-z0-9])(?:gpl|gnu-general-public-license)-3(?:\.0)?(?![a-z0-9.])")):
+        for identifier, pattern in (("mit", r"(?<![a-z0-9])mit-license(?![a-z0-9])"), ("apache-2.0", r"(?<![a-z0-9])apache-(?:license-)?2(?:\.0)?(?![a-z0-9.])"), ("gpl-3.0", r"(?<![a-z0-9])(?:gpl|gnu-general-public-license)-3(?:\.0)?(?![a-z0-9.])")):
             if re.search(pattern, text):
                 return identifier
         return None

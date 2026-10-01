@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -31,7 +32,7 @@ def infer_zenodo_id(dto: CanonicalRecordDTO) -> str:
     metadata = dto.zenodo_metadata
     doi = metadata.get("doi") or metadata.get("preres")
     if isinstance(doi, str) and doi:
-        return doi.rsplit("/", 1)[-1]
+        return "doi-" + hashlib.sha256(doi.strip().lower().encode()).hexdigest()
     deposition_id = dto.extra_metadata.get("deposition_id") if isinstance(dto.extra_metadata, dict) else None
     if deposition_id:
         return str(deposition_id)

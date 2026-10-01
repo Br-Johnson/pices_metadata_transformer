@@ -331,6 +331,7 @@ class ZenodoAPIClient:
         params = dict(params)
         size = params.get('size', 100)
         page, expected_total = 1, None
+        seen_ids = set()
         while True:
             response = self.search_records(**dict(params, page=page, size=size))
             container = response.get('hits') if isinstance(response, dict) else None
@@ -349,6 +350,11 @@ class ZenodoAPIClient:
             hits = container['hits']
             if any(not isinstance(hit, dict) for hit in hits):
                 raise ValueError('Malformed inventory record')
+            for hit in hits:
+                identifier = hit.get('id')
+                if type(identifier) is not int or identifier < 1 or identifier in seen_ids:
+                    raise ValueError('Invalid or repeated inventory record ID')
+                seen_ids.add(identifier)
             aggregated_hits.extend(hits)
             if len(aggregated_hits) == total:
                 return aggregated_hits
@@ -378,6 +384,7 @@ class ZenodoAPIClient:
     ) -> List[Dict[str, Any]]:
         """Get depositions for the authenticated user, optionally filtered by query or modification date."""
         all_depositions = []
+        seen_ids = set()
         page = 1
         
         base_query = query or ""
@@ -395,7 +402,13 @@ class ZenodoAPIClient:
             params.update(base_params)
             response = self._make_request('GET', 'deposit/depositions', params=params)
             depositions = response.json()
-            
+            if not isinstance(depositions, list):
+                raise ValueError('Malformed owned-draft inventory response')
+            for deposition in depositions:
+                identifier = deposition.get('id') if isinstance(deposition, dict) else None
+                if type(identifier) is not int or identifier < 1 or identifier in seen_ids:
+                    raise ValueError('Invalid or repeated owned-draft inventory ID')
+                seen_ids.add(identifier)
             if not depositions:
                 break
                 

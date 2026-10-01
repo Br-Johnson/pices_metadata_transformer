@@ -13,7 +13,7 @@ from typing import Dict, List, Any, Optional
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
-from scripts.upload_service import assert_environment, prepare_metadata, read_json
+from scripts.upload_service import validate_deposition_response, assert_environment, prepare_metadata, read_json
 
 
 def compare_metadata(original, zenodo):
@@ -152,6 +152,8 @@ class ZenodoVerifier:
                     'timestamp': datetime.now().isoformat()
                 }
             
+            validate_deposition_response(deposition, deposition_id)
+
             original_metadata, _, _ = prepare_metadata(json_file, self.paths)
 
             # Get Zenodo metadata

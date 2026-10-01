@@ -76,6 +76,30 @@ def assert_environment(entry, environment):
             raise ValueError('Record URL and deposition ID disagree')
 
 
+def validate_deposition_response(record, deposition_id):
+    """Require explicit identity, state and files before verification/publication."""
+    if (not isinstance(record, dict) or type(record.get('id')) is not int
+            or record['id'] != deposition_id or record.get('state') not in ('unsubmitted', 'done')
+            or not isinstance(record.get('files'), list) or not isinstance(record.get('metadata'), dict)):
+        raise ValueError('Incomplete or mismatched deposition response')
+    return record
+
+
+def validate_registry_identities(registry):
+    """A remote draft may belong to exactly one source identity in a ledger."""
+    seen = set()
+    for key, entry in registry.items():
+        if key.startswith('_'):
+            continue
+        identifier = entry.get('deposition_id')
+        if identifier is None:
+            continue
+        identity = (entry.get('environment'), identifier)
+        if type(identifier) is not int or identifier < 1 or identity in seen:
+            raise ValueError('Invalid or shared deposition ID in upload ledger')
+        seen.add(identity)
+
+
 def require_inventory(safe, environment):
     if not isinstance(safe, dict) or safe.get('environment') != environment or not safe.get('inventory_complete'):
         raise ValueError('Complete environment-scoped duplicate inventory required before upload')
@@ -110,6 +134,7 @@ class DraftUploadService:
 
     def pending_files(self, limit=None):
         registry = read_json(self.paths.uploads_registry_path, {})
+        validate_registry_identities(registry)
         safe = read_json(self.paths.safe_to_upload_path)
         require_inventory(safe, self.environment)
         fingerprints = safe.get("metadata_hashes", {})
@@ -147,6 +172,7 @@ class DraftUploadService:
             raise ValueError("Invalid metadata: " + "; ".join(issues))
         with ledger_lock(self.paths):
             registry = read_json(self.paths.uploads_registry_path, {})
+            validate_registry_identities(registry)
             previous = registry.get(base, {})
             if previous:
                 assert_environment(previous, self.environment)
@@ -179,7 +205,11 @@ class DraftUploadService:
                     entry["needs_reconciliation"] = True
                     save()  # A crash/lost response from POST must not cause another POST.
                     deposition = client.create_deposition()
-                    entry["deposition_id"] = deposition["id"]
+                    candidate = dict(entry, deposition_id=deposition.get('id'))
+                    if type(candidate['deposition_id']) is not int or candidate['deposition_id'] < 1:
+                        raise ValueError('Invalid created deposition ID; reconcile uncertain creation')
+                    validate_registry_identities(dict(registry, **{base: candidate}))
+                    entry["deposition_id"] = candidate['deposition_id']
                     entry["zenodo_url"] = f"{client.base_url}/deposit/{deposition['id']}"
                     entry["needs_reconciliation"] = False
                     save()  # Persist remote ID before metadata update.

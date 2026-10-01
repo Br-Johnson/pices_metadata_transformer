@@ -24,6 +24,11 @@ class RightsTests(unittest.TestCase):
         with patch('scripts.fgdc_to_zenodo.get_logger', return_value=Mock()):
             self.transformer = FGDCToZenodoTransformer()
 
+    def test_explicit_license_denials_are_not_grants(self):
+        for text in ('This is not a MIT license', 'No MIT license is granted', 'Apache-2.0 is not applicable', 'MIT License does not apply', 'CC-BY-4.0 does not apply to these data', 'Not covered by the MIT License', 'Apache-2.01'):
+            with self.subTest(text=text):
+                self.assertIsNone(self.transformer._detect_license(text, 'fixture'))
+
     def test_gpl_family_does_not_consume_agpl_or_lgpl(self):
         for text in ('AGPL-3.0', 'LGPL-3.0', 'GNU Affero General Public License 3.0', 'GNU Lesser General Public License 3.0'):
             with self.subTest(text=text):
@@ -68,6 +73,42 @@ class DraftRecoveryTests(unittest.TestCase):
         self.client.create_deposition.return_value = {'id': 123}
         self.client.update_deposition_metadata.return_value = {'metadata': {}}
         self.service = DraftUploadService(self.paths, 'sandbox')
+
+    def test_reconciliation_cannot_alias_another_source_draft(self):
+        self.service.upload(str(self.file), self.client)
+        other = Path(self.paths.zenodo_json_dir) / 'other.json'
+        other.write_bytes(self.file.read_bytes())
+        (Path(self.paths.original_fgdc_dir) / 'other.xml').write_bytes((Path(self.paths.original_fgdc_dir) / 'sample.xml').read_bytes())
+        metadata, _, source_hash = prepare_metadata(str(other), self.paths)
+        snapshot = {'http_status': 200, 'retrieved_at': '2026-01-01T00:00:00Z',
+                    'endpoint': 'https://sandbox.zenodo.org/api/deposit/depositions/123',
+                    'confirmed_fgdc_id': 'other', 'confirmed_metadata_sha256': metadata_hash(metadata),
+                    'confirmed_source_sha256': source_hash,
+                    'body': {'id': 123, 'state': 'unsubmitted', 'files': [], 'metadata': {}}}
+        with self.assertRaisesRegex(ValueError, 'shared'):
+            reconcile(self.paths, 'other', snapshot, 'Fixture reviewer', 'Source correlation fixture')
+        self.assertNotIn('other', read_json(self.paths.uploads_registry_path))
+
+    def test_created_draft_response_cannot_claim_another_source_id(self):
+        atomic_json(self.paths.uploads_registry_path, {'other': {'environment': 'sandbox', 'deposition_id': 123}})
+        result = self.service.upload(str(self.file), self.client)
+        self.assertFalse(result['success'])
+        self.assertTrue(result['needs_reconciliation'])
+        self.assertNotIn('deposition_id', result)
+        self.client.update_deposition_metadata.assert_not_called()
+
+    def test_recovery_snapshot_requires_explicit_state_and_files(self):
+        metadata, _, source_hash = prepare_metadata(str(self.file), self.paths)
+        snapshot = {'http_status': 200, 'retrieved_at': '2026-01-01T00:00:00Z',
+                    'endpoint': 'https://sandbox.zenodo.org/api/deposit/depositions/123',
+                    'confirmed_fgdc_id': 'sample', 'confirmed_metadata_sha256': metadata_hash(metadata),
+                    'confirmed_source_sha256': source_hash,
+                    'body': {'id': 123, 'state': 'unsubmitted', 'files': [], 'metadata': {}}}
+        for field in ('state', 'files'):
+            incomplete = dict(snapshot, body=dict(snapshot['body']))
+            incomplete['body'].pop(field)
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                reconcile(self.paths, 'sample', incomplete, 'Fixture reviewer', 'Fixture correlation')
 
     def test_draft_id_survives_failed_update_and_resume_uses_same_id(self):
         self.client.update_deposition_metadata.side_effect = ZenodoAPIError('failed update')
@@ -203,3 +244,20 @@ class InventoryResponseTests(unittest.TestCase):
         client = ZenodoAPIClient.__new__(ZenodoAPIClient)
         client.search_records = Mock(side_effect=[{'hits': {'hits': [{'id': 1}], 'total': 2}, 'links': {'next': 'next'}}, {'hits': {'hits': [{'id': 2}], 'total': 2}}])
         self.assertEqual([row['id'] for row in client.get_records_by_query(size=1)], [1, 2])
+
+class InventoryStructureTests(unittest.TestCase):
+    def test_owned_draft_inventory_requires_valid_unique_records(self):
+        client = ZenodoAPIClient.__new__(ZenodoAPIClient)
+        for payload in ({}, None, [{'id': True}], [{'id': 1}, {'id': 1}]):
+            client._make_request = Mock(return_value=Mock(json=Mock(return_value=payload)))
+            with self.subTest(payload=payload), self.assertRaises(ValueError):
+                client.get_all_my_depositions()
+        client._make_request = Mock(side_effect=[Mock(json=Mock(return_value=[{'id': 1}])), Mock(json=Mock(return_value=[{'id': 1}]))])
+        with self.assertRaises(ValueError):
+            client.get_all_my_depositions(page_size=1)
+
+    def test_published_inventory_repeated_ids_do_not_prove_completeness(self):
+        client = ZenodoAPIClient.__new__(ZenodoAPIClient)
+        client.search_records = Mock(side_effect=[{'hits': {'hits': [{'id': 1}], 'total': 2}, 'links': {'next': 'next'}}, {'hits': {'hits': [{'id': 1}], 'total': 2}}])
+        with self.assertRaises(ValueError):
+            client.get_records_by_query(size=1)

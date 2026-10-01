@@ -11,11 +11,11 @@ from unittest.mock import Mock, patch
 from scripts.bibliographic_linkage import apply_decisions
 from scripts.dto import BibliographicLink, build_canonical_dto, save_dto
 from scripts.fgdc_to_zenodo import FGDCToZenodoTransformer
-from scripts.generate_jsonld_catalogue import build_jsonld, validate_records
+from scripts.generate_jsonld_catalogue import build_jsonld, validate_records, write_jsonld
 from scripts.path_config import OutputPaths
 from scripts.publish_records import RecordPublisher
 from scripts.qa_manifest import prepare_manifest, validate_approval
-from scripts.upload_service import DraftUploadService, atomic_json, metadata_hash, prepare_metadata, read_json
+from scripts.upload_service import atomic_json, metadata_hash, prepare_metadata, read_json, ledger_lock
 from scripts.validate_zenodo import ZenodoValidator
 from scripts.verify_uploads import ZenodoVerifier, compare_metadata
 
@@ -109,12 +109,29 @@ class LinkAndJsonldTests(unittest.TestCase):
         self.assertEqual(payload['creator'][0]['@type'], 'Organization')
         self.assertNotIn('sameAs', payload)
 
+    def test_distinct_doi_prefixes_cannot_overwrite_jsonld(self):
+        with tempfile.TemporaryDirectory() as directory:
+            paths = []
+            for identifier in ('10.1234/shared', '10.5678/shared'):
+                dto = build_canonical_dto(source_path=identifier.split('/')[0] + '.xml', zenodo_metadata={'doi': identifier, 'title': identifier})
+                paths.append(write_jsonld(dto, Path(directory), 'https://example.invalid/catalogue'))
+            self.assertNotEqual(paths[0], paths[1])
+            self.assertEqual(len(list(Path(directory).glob('*.jsonld'))), 2)
+
     def test_jsonld_health_rejects_prose_url(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'sample.jsonld'
             path.write_text(json.dumps({'@context': 'https://schema.org', '@type': 'Dataset',
                                         'name': 'Example', '@id': 'https://example.invalid/id', 'url': 'Free text'}))
             self.assertEqual(validate_records([path])['status'], 'fail')
+
+
+class PrimaryDateTests(unittest.TestCase):
+    def test_lineage_date_is_not_current_work_publication(self):
+        with patch('scripts.fgdc_to_zenodo.get_logger', return_value=Mock()):
+            transformer = FGDCToZenodoTransformer()
+        root = ET.fromstring('<metadata><idinfo><citation><citeinfo><title>Current</title></citeinfo></citation></idinfo><dataqual><lineage><srcinfo><srccite><citeinfo><pubdate>1977</pubdate></citeinfo></srccite></srcinfo></lineage></dataqual><metainfo><metd>20200101</metd></metainfo></metadata>')
+        self.assertEqual(transformer._extract_publication_date(root, 'fixture'), '2020-01-01')
 
 
 class HumanQATests(unittest.TestCase):
@@ -146,6 +163,38 @@ class HumanQATests(unittest.TestCase):
         record['duplicate_review'].update(status='reviewed', classification='checked_no_match',
                                          rationale='Offline inventory fixture', evidence=[{'source': 'fixture', 'status': 'checked_no_match'}])
 
+    def test_incomplete_remote_draft_blocks_publication_and_verification(self):
+        self.approve()
+        full = {'id': 123, 'metadata': self.metadata, 'files': [], 'state': 'unsubmitted'}
+        for field in ('id', 'files', 'state'):
+            response = dict(full)
+            response.pop(field)
+            self.publisher.client.reset_mock()
+            self.publisher.client.get_deposition.return_value = response
+            with self.subTest(field=field):
+                self.assertFalse(self.publisher._publish_single_record(self.entry)['publish_successful'])
+                self.publisher.client.publish_deposition.assert_not_called()
+                verifier = ZenodoVerifier.__new__(ZenodoVerifier)
+                verifier.paths, verifier.client, verifier.logger = self.paths, self.publisher.client, Mock()
+                self.assertFalse(verifier._verify_single_record(self.entry)['verification_successful'])
+
+    def test_publication_holds_ledger_lock_through_approved_remote_operation(self):
+        self.approve()
+        def get_record(_):
+            with self.assertRaises(BlockingIOError):
+                with ledger_lock(self.paths):
+                    pass
+            return {'id': 123, 'metadata': self.metadata, 'files': [], 'state': 'unsubmitted'}
+        calls = []
+        def locked_get(identifier):
+            calls.append(identifier)
+            response = get_record(identifier)
+            return dict(response, state='done' if len(calls) == 2 else 'unsubmitted')
+        self.publisher.client.get_deposition.side_effect = locked_get
+        self.publisher.client.publish_deposition.return_value = {'id': 123, 'metadata': self.metadata, 'files': [], 'state': 'done'}
+        self.assertTrue(self.publisher._publish_single_record(self.entry)['publish_successful'])
+        self.publisher.client.publish_deposition.assert_called_once_with(123)
+
     def test_pending_human_qa_blocks_publication_before_client_calls(self):
         result = self.publisher._publish_single_record(self.entry)
         self.assertFalse(result['publish_successful'])
@@ -155,7 +204,7 @@ class HumanQATests(unittest.TestCase):
     def test_approved_exact_custom_output_draft_can_publish_with_mock(self):
         self.approve()
         self.assertEqual(len(self.publisher.load_upload_log()), 1)
-        draft = {'metadata': self.metadata, 'files': [], 'state': 'unsubmitted'}
+        draft = {'id': 123, 'metadata': self.metadata, 'files': [], 'state': 'unsubmitted'}
         done = dict(draft, state='done')
         self.publisher.client.get_deposition.side_effect = [draft, done]
         self.publisher.client.publish_deposition.return_value = done
@@ -184,7 +233,7 @@ class HumanQATests(unittest.TestCase):
     def test_metadata_only_verification_and_meaningful_changes(self):
         verifier = ZenodoVerifier.__new__(ZenodoVerifier)
         verifier.paths, verifier.client, verifier.logger = self.paths, Mock(base_url='https://zenodo.org'), Mock()
-        verifier.client.get_deposition.return_value = {'metadata': self.metadata, 'files': []}
+        verifier.client.get_deposition.return_value = {'id': 123, 'metadata': self.metadata, 'state': 'unsubmitted', 'files': []}
         result = verifier._verify_single_record(self.entry)
         self.assertTrue(result['verification_successful'])
         for field in ['description', 'notes', 'publisher', 'related_identifiers']:
@@ -203,7 +252,7 @@ class HumanQATests(unittest.TestCase):
         self.publisher.publish_log_path = self.paths.publish_log_path
         self.publisher.publish_errors_path = self.paths.publish_errors_path
         self.publisher._save_publish_results = Mock()
-        done = {'metadata': self.metadata, 'files': [], 'state': 'done'}
+        done = {'id': 123, 'metadata': self.metadata, 'files': [], 'state': 'done'}
         self.publisher.client.get_deposition.side_effect = [dict(done, state='unsubmitted'), done]
         self.publisher.client.publish_deposition.return_value = done
         summary = self.publisher.publish_records(self.publisher.load_upload_log(), limit=1)
@@ -218,7 +267,7 @@ class HumanQATests(unittest.TestCase):
 
     def test_already_published_reconciles_ledger_without_new_post(self):
         self.approve()
-        self.publisher.client.get_deposition.return_value = {'metadata': self.metadata, 'files': [], 'state': 'done'}
+        self.publisher.client.get_deposition.return_value = {'id': 123, 'metadata': self.metadata, 'files': [], 'state': 'done'}
         for _ in range(2):
             self.assertTrue(self.publisher._publish_single_record(self.entry)['already_published'])
         self.publisher.client.publish_deposition.assert_not_called()
@@ -237,7 +286,7 @@ class HumanQATests(unittest.TestCase):
         changed = dict(self.metadata, creators=list(reversed(self.metadata['creators'])))
         with self.assertRaisesRegex(ValueError, 'Remote draft'):
             validate_approval(self.manifest, 'sample', self.entry, self.paths, changed)
-        self.publisher.client.get_deposition.return_value = {'metadata': changed, 'files': [], 'state': 'unsubmitted'}
+        self.publisher.client.get_deposition.return_value = {'id': 123, 'metadata': changed, 'files': [], 'state': 'unsubmitted'}
         self.assertFalse(self.publisher._publish_single_record(self.entry)['publish_successful'])
         self.publisher.client.publish_deposition.assert_not_called()
 

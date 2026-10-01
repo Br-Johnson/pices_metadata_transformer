@@ -157,3 +157,13 @@ This checklist tracks everything required to shepherd FGDC metadata through the 
 - One logical change per commit; reference checklist items in commit messages.
 - Group related commits into focused PRs (e.g., “Pre-upload safeguards”) and include command outputs or log summaries in descriptions.
 - Update this TODO list and supporting docs alongside code changes so the team always has an accurate view of project status.
+
+## PR 8 implementation and independent review
+
+- [x] Preserve source/rights/date/creator fidelity and isolate durable draft state by environment.
+- [x] Require human QA for production publication and validate approved bounded selection.
+- [x] Four independent agents reviewed lifecycle, QA, metadata fidelity and integration; confirmed findings fixed and rechecked.
+- [x] 65 offline regressions pass, including network-blocked execution.
+- [ ] Human source adjudication, historical ledger reconciliation and live endpoint compatibility checks before operational use.
+
+Production remains draft until human QA. This entry supersedes any earlier automatic production publication guidance.

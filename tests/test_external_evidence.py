@@ -17,6 +17,26 @@ class ExternalEvidenceTests(unittest.TestCase):
                      'query': 'Fixture', 'http_status': 200, 'scope_complete': True,
                      'format': 'records', 'body': {'records': []}}, **overrides)
 
+    def test_malformed_nested_payloads_preserve_unavailable_provenance(self):
+        for format_name, body in (('crossref', {'message': None}), ('datacite', {'data': [], 'links': None}), ('dspace', {'_embedded': []}), ('crossref', {'message': {'items': [{'DOI': '10.1234/test', 'title': [{'unexpected': 'nested'}]}]}})):
+            result = snapshot_inventory(self.snapshot(format=format_name, body=body))
+            with self.subTest(format=format_name, body=body):
+                self.assertFalse(result['inventory_complete'])
+                self.assertIn(result['status'], ('unchecked_unavailable', 'unchecked_partial'))
+                self.assertTrue(result['response_sha256'])
+
+    def test_optional_external_fields_require_matching_safe_types(self):
+        for field in ('identifiers', 'abstract'):
+            record = {'title': 'Example dataset', 'identifier': '10.x/y', field: ['wrong'] if field == 'abstract' else '10.x/y'}
+            result = snapshot_inventory(self.snapshot(body={'records': [record]}))
+            self.assertEqual(result['status'], 'unchecked_unavailable')
+            self.assertFalse(result['inventory_complete'])
+
+    def test_api_inventory_missing_pagination_proof_cannot_mean_complete(self):
+        for format_name, body in (('crossref', {'message': {'items': []}}), ('datacite', {'data': []})):
+            result = snapshot_inventory(self.snapshot(format=format_name, body=body))
+            self.assertFalse(result['inventory_complete'])
+
     def test_http200_angular_shell_is_unavailable_not_no_match(self):
         inventory = snapshot_inventory(self.snapshot(format='oai', content_type='text/html',
                                                       body='<html><app-root></app-root></html>'))

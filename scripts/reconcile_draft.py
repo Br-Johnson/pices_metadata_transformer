@@ -10,7 +10,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from scripts.path_config import OutputPaths
-from scripts.upload_service import atomic_json, expected_host, ledger_lock, metadata_hash, prepare_metadata, read_json
+from scripts.upload_service import validate_deposition_response, validate_registry_identities, atomic_json, expected_host, ledger_lock, metadata_hash, prepare_metadata, read_json
 
 
 def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
@@ -23,7 +23,8 @@ def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
             or not isinstance(record, dict) or not isinstance(record.get('id'), int)
             or endpoint.path.rstrip('/') != f"/api/deposit/depositions/{record['id']}"):
         raise ValueError('Verified environment-matched deposition response required')
-    if record.get('state') == 'done' or record.get('submitted') or record.get('files'):
+    validate_deposition_response(record, record['id'])
+    if record['state'] != 'unsubmitted' or record.get('submitted') or record['files']:
         raise ValueError('Only an unpublished metadata-only draft may be reconciled for upload resume')
     json_file = str(Path(paths.zenodo_json_dir) / f'{fgdc_id}.json')
     metadata, source_path, source_hash = prepare_metadata(json_file, paths)
@@ -47,6 +48,7 @@ def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
                             'retrieved_at': snapshot['retrieved_at'],
                             'reviewed_at': datetime.now(timezone.utc).isoformat(),
                             'response_sha256': metadata_hash(record)})
+        validate_registry_identities(registry)
         atomic_json(paths.uploads_registry_path, registry)
     return registry[fgdc_id]
 

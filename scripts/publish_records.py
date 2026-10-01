@@ -16,7 +16,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
-from scripts.upload_service import assert_environment, atomic_json, ledger_lock, read_json
+from scripts.upload_service import validate_registry_identities, validate_deposition_response, assert_environment, atomic_json, ledger_lock, read_json
 from scripts.qa_manifest import validate_approval
 
 
@@ -54,15 +54,14 @@ class RecordPublisher:
         }
     
     def _record_publication(self, fgdc_id, deposition_id, communities):
-        with ledger_lock(self.paths):
-            registry = read_json(self.paths.uploads_registry_path, {})
-            entry = registry.get(fgdc_id)
-            if not entry or entry.get('deposition_id') != deposition_id:
-                raise ValueError('Upload ledger changed during publication')
-            entry['publish_status'] = 'published'
-            entry['published_at'] = datetime.now().isoformat()
-            entry['community_status'] = 'reported' if any(c.get('identifier') == 'pices' for c in communities) else 'unconfirmed'
-            atomic_json(self.paths.uploads_registry_path, registry)
+        registry = read_json(self.paths.uploads_registry_path, {})
+        entry = registry.get(fgdc_id)
+        if not entry or entry.get('deposition_id') != deposition_id:
+            raise ValueError('Upload ledger changed during publication')
+        entry['publish_status'] = 'published'
+        entry['published_at'] = datetime.now().isoformat()
+        entry['community_status'] = 'reported' if any(c.get('identifier') == 'pices' for c in communities) else 'unconfirmed'
+        atomic_json(self.paths.uploads_registry_path, registry)
 
     def load_upload_log(self) -> List[Dict[str, Any]]:
         """Load upload metadata and aggregate successful records for publishing."""
@@ -143,7 +142,23 @@ class RecordPublisher:
         
         return summary
     
-    def _publish_single_record(self, upload: Dict[str, Any]) -> Dict[str, Any]:
+    def _publish_single_record(self, upload):
+        # Keep reconciliation/upload writers out of the entire approval-to-POST interval.
+        try:
+            with ledger_lock(self.paths):
+                registry = read_json(self.paths.uploads_registry_path, {})
+                validate_registry_identities(registry)
+                fgdc_id = os.path.splitext(os.path.basename(upload['json_file']))[0]
+                current = registry.get(fgdc_id, {})
+                if any(current.get(key) != upload.get(key) for key in
+                       ('deposition_id', 'metadata_sha256', 'source_sha256', 'environment', 'json_file')):
+                    raise ValueError('Upload ledger binding changed before publication')
+                return self._publish_locked(upload)
+        except Exception as exc:
+            return {'deposition_id': upload.get('deposition_id'), 'json_file': upload.get('json_file'),
+                    'publish_successful': False, 'error': str(exc), 'timestamp': datetime.now().isoformat()}
+
+    def _publish_locked(self, upload: Dict[str, Any]) -> Dict[str, Any]:
         """Publish a single uploaded record."""
         deposition_id = upload.get('deposition_id')
         json_file = upload.get('json_file')
@@ -166,6 +181,8 @@ class RecordPublisher:
                     'timestamp': datetime.now().isoformat()
                 }
             
+            validate_deposition_response(deposition, deposition_id)
+
             if not self.sandbox:
                 validate_approval(self.qa_manifest, fgdc_id, upload, self.paths, deposition.get('metadata', {}))
 
@@ -239,7 +256,10 @@ class RecordPublisher:
                     "Confirm community membership in the Zenodo UI; add manually if required"
                 )
             
-            final_state = (final_deposition or published_deposition).get('state')
+            confirmed = validate_deposition_response(final_deposition or published_deposition, deposition_id)
+            if confirmed['files']:
+                raise ValueError('Published record has unexpected attached files')
+            final_state = confirmed['state']
             if final_state != 'done':
                 raise ValueError('Publication state is unconfirmed; reconcile before retry')
             self._record_publication(fgdc_id, deposition_id, communities)
