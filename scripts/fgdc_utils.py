@@ -7,9 +7,13 @@ from typing import Optional, Tuple
 
 from scripts.path_config import OutputPaths
 
-METADATA_ONLY_NOTE = (
+LEGACY_METADATA_ONLY_NOTE = (
     "Record is migrated FGDC metadata from the archived PICES GeoNetwork "
     "metadata catalogue; dataset is metadata-only."
+)
+MIGRATION_NOTE = (
+    "Record includes migrated FGDC metadata from the archived PICES GeoNetwork "
+    "metadata catalogue; deposited research-data availability is classified separately."
 )
 FGDC_XML_HEADER = "Original FGDC metadata (XML):"
 
@@ -46,13 +50,13 @@ def load_fgdc_xml(base_name: str, paths: OutputPaths) -> Tuple[Optional[str], Op
 def build_metadata_notes(existing_notes: str, fgdc_xml: Optional[str]) -> str:
     """Return a consolidated notes field with metadata-only context and FGDC XML."""
     parts = []
-    normalized = (existing_notes or "").strip()
+    normalized = (existing_notes or "").replace(LEGACY_METADATA_ONLY_NOTE, "").strip()
 
     if normalized:
         parts.append(normalized)
 
-    if METADATA_ONLY_NOTE not in normalized:
-        parts.append(METADATA_ONLY_NOTE)
+    if MIGRATION_NOTE not in normalized:
+        parts.append(MIGRATION_NOTE)
 
     if fgdc_xml:
         xml_block = f"{FGDC_XML_HEADER}\n\n```xml\n{fgdc_xml}\n```"

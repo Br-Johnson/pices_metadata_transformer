@@ -15,6 +15,7 @@ import dateutil.parser
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+from scripts.content_classification import classify_content, export_content_metadata
 from scripts.logger import get_logger
 from scripts.enhanced_metrics import EnhancedMetricsCalculator
 
@@ -166,6 +167,7 @@ class FGDCToZenodoTransformer:
             self.logger.log_info(f"Successfully transformed {xml_path}")
             return {
                 "metadata": zenodo_metadata,
+                "content_classification": classify_content(self.active_decision.get("content_classification")),
                 "original_fgdc_file": os.path.basename(xml_path),
                 "character_analysis": {
                     "fgdc_total_chars": fgdc_char_count,
@@ -232,7 +234,8 @@ class FGDCToZenodoTransformer:
             if 'license' in overrides:
                 metadata['license'] = overrides['license']
             if self.active_decision:
-                metadata['notes'] += '\n\nCurator decision: ' + json.dumps(self.active_decision, sort_keys=True)
+                metadata['notes'] += '\n\nCurator decision: ' + json.dumps(
+                    {key: value for key, value in self.active_decision.items() if key != 'content_classification'}, sort_keys=True)
 
             # Force publisher to PICES (original publisher retained in imprint_publisher)
             metadata['publisher'] = self.pices_publisher
@@ -243,7 +246,7 @@ class FGDCToZenodoTransformer:
                 contributors.append(dict(self.pices_contributor))
             metadata['contributors'] = contributors
             
-            return metadata
+            return export_content_metadata(metadata, classify_content(self.active_decision.get("content_classification")))
             
         except Exception as e:
             self.logger.log_error(
