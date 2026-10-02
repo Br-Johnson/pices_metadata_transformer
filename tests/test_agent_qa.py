@@ -119,6 +119,16 @@ class AgentQATests(unittest.TestCase):
                 self.assertFalse(self.build()['records'][0]['qa']['approved'])
                 self.source.write_bytes(self.raw)
 
+    def test_institution_and_person_compound_does_not_pass_as_one_organization(self):
+        name = 'Example Marine Institute, Alice Smith and Bob Jones'
+        self.source.write_bytes(self.raw.replace(b'Example Marine Institute', name.encode()))
+        self.payload['artifact_policy']['source_sha256'] = hashlib.sha256(self.source.read_bytes()).hexdigest()
+        self.payload['metadata']['creators'] = [{'name': name, 'type': 'Organization'}]
+        self.sync()
+        row = self.build()['records'][0]
+        self.assertFalse(row['qa']['approved'])
+        self.assertIn('Creator semantics', row['hold_reasons'][0])
+
     def test_changed_source_payload_files_and_saved_response_block_stale_approval(self):
         manifest = self.build()
         for mutation in ('source', 'payload', 'files', 'id'):

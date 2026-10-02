@@ -72,3 +72,7 @@ The version-1 opt-in contract now supports reviewed original XML bytes without s
 ### 2026-10-02: Delegated record QA and separate release
 
 Human-per-record review is superseded by delegated agent record QA. Schema2 binds exact source/payload/artifact/draft/savedresponse/duplicate evidence and honest reviewer/run/revision provenance. Deterministic supported profiles may pass; ambiguous or unsupported profiles remain explicit holds. Independent process review and risk-stratified samples bind the approved population. A separate human release manifest binds exact QA content and bounded record selection; QA alone never publishes. Historical schema1 human approvals are supported as record QA without silently granting new release authority. Actual full production QA and authenticated sandbox transport remain unexecuted.
+
+### 2026-10-02: Collection classification and cache integrity
+
+Source-only classification now covers all 4,206 files without inventing remote evidence. Resume binds every Python rule dependency and validates prepared payload/original-copy integrity before reusing constructed results. Independent tests reproduce output deletion/tampering and rule invalidation. All 4,200 parseable sources remain held under the narrow explicit XML-rights profile; six malformed sources require reversible recovery with original bytes preserved. See `readiness/2026-10-02/collection_audit.md` for counts, ten independent semantic samples and the precise sandbox authentication boundary. Technical passes do not grant record QA or release.

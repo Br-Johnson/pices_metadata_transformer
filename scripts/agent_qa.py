@@ -52,21 +52,11 @@ def _timestamp(value):
     return stamp
 
 
-def assess(entry, paths, snapshot_path, duplicate_path):
-    """Return reproducible evidence only when every source-backed check succeeds."""
-    assert_environment(entry, paths.environment)
-    if entry.get('upload_status') != 'success' or entry.get('needs_reconciliation'):
-        raise ValueError('Successful reconciled draft required')
-    metadata, source_path, source_hash = prepare_metadata(entry['json_file'], paths)
-    payload = read_json(entry['json_file'])
+def assess_source(json_file, paths):
+    """Source-only profile assessment; no remote identity, duplicate or release approval."""
+    metadata, source_path, source_hash = prepare_metadata(json_file, paths)
+    payload = read_json(json_file)
     artifact = prepare_artifact(payload, source_path)
-    assert_artifact_binding(entry, artifact)
-    if source_hash != entry.get('source_sha256') or metadata_hash(metadata) != entry.get('metadata_sha256'):
-        raise ValueError('Source or metadata differs from uploaded ledger binding')
-    registry = read_json(paths.uploads_registry_path, {})
-    if any(key != Path(entry['json_file']).stem and not key.startswith('_')
-           and other.get('source_sha256') == source_hash for key, other in registry.items()):
-        raise ValueError('Another local source identity shares these exact source bytes; duplicate adjudication required')
     issues, _ = ZenodoValidator().validate_metadata(metadata)
     if issues:
         raise ValueError('Invalid transformed metadata: ' + '; '.join(issues))
@@ -87,6 +77,7 @@ def assess(entry, paths, snapshot_path, duplicate_path):
     for node, name in zip(origins, names):
         organization = transformer._is_organization(name)
         if (list(node) or not name or '\n' in ''.join(node.itertext()) or ';' in name
+                or (organization and re.search(r',\s*[A-Z][a-z]+\s+[A-Z][a-z]+\s+(?:of|and)\b', name))
                 or (not organization and not re.fullmatch(r"[A-Za-z][A-Za-z' -]+, [A-Za-z][A-Za-z' -]+", name))):
             raise ValueError('Creator semantics are ambiguous')
         expected.append({'name': name, **({'type': 'Organization'} if organization else {})})
@@ -124,6 +115,27 @@ def assess(entry, paths, snapshot_path, duplicate_path):
     # Relations cannot be inferred: this automated slice supports no outgoing relations.
     if metadata.get('related_identifiers'):
         raise ValueError('Relations require explicit record-level adjudication')
+    return metadata, source_hash, artifact, title
+
+
+def assess(entry, paths, snapshot_path, duplicate_path):
+    """Return reproducible evidence only when every source-backed check succeeds."""
+    assert_environment(entry, paths.environment)
+    if entry.get('upload_status') != 'success' or entry.get('needs_reconciliation'):
+        raise ValueError('Successful reconciled draft required')
+    metadata, source_path, source_hash = prepare_metadata(entry['json_file'], paths)
+    payload = read_json(entry['json_file'])
+    artifact = prepare_artifact(payload, source_path)
+    assert_artifact_binding(entry, artifact)
+    if source_hash != entry.get('source_sha256') or metadata_hash(metadata) != entry.get('metadata_sha256'):
+        raise ValueError('Source or metadata differs from uploaded ledger binding')
+    registry = read_json(paths.uploads_registry_path, {})
+    if any(key != Path(entry['json_file']).stem and not key.startswith('_')
+           and other.get('source_sha256') == source_hash for key, other in registry.items()):
+        raise ValueError('Another local source identity shares these exact source bytes; duplicate adjudication required')
+    checked_metadata, checked_hash, checked_artifact, title = assess_source(entry['json_file'], paths)
+    if checked_metadata != metadata or checked_hash != source_hash or checked_artifact != artifact:
+        raise ValueError('Source changed during assessment')
     snapshot = read_json(snapshot_path)
     if not isinstance(snapshot, dict):
         raise ValueError('Saved remote snapshot must be an object')
