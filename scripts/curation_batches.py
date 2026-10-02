@@ -139,7 +139,16 @@ def _validate_manifest(manifest):
         content = correction.get('content_classification')
         if policy is not None:
             _object(policy, ('schema_version', 'object_kind', 'resource_type', 'date_semantics',
-                             'reviewer', 'reviewed_at', 'rationale', 'rights_evidence', 'date_evidence', 'source_sha256'))
+                             'reviewer', 'reviewed_at', 'rationale', 'rights_evidence', 'date_evidence', 'source_sha256'),
+                    ('source_access_interpretation', 'rehosting_authority', 'creator_interpretation'))
+            for key in ('source_access_interpretation', 'rehosting_authority', 'creator_interpretation'):
+                if key in policy:
+                    reference = policy[key]
+                    _object(reference, ('manifest_path', 'manifest_sha256'))
+                    _text(reference['manifest_path'])
+                    if (not isinstance(reference['manifest_sha256'], str)
+                            or not re.fullmatch(r'[0-9a-f]{64}', reference['manifest_sha256'])):
+                        raise ValueError('Invalid bound interpretation reference')
             _review(policy)
             for key in ('rights_evidence', 'date_evidence'):
                 _text(policy[key])

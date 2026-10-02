@@ -157,10 +157,18 @@ class CurationBatchTests(unittest.TestCase):
         batch['correction']['content_classification'] = dict(provenance,
             inventory_complete=True, files=[{'name': '$source_filename',
             'role': 'descriptive_metadata', 'evidence': 'Fixture original XML'}])
+        batch['correction']['artifact_policy']['creator_interpretation'] = {
+            'manifest_path': 'reviewed-profile.json', 'manifest_sha256': 'a' * 64}
         decisions, _ = self.compile([batch])
+        self.assertEqual(decisions['FGDC1']['artifact_policy']['creator_interpretation'],
+                         batch['correction']['artifact_policy']['creator_interpretation'])
         self.assertEqual(decisions['FGDC1']['artifact_policy']['source_sha256'], hashlib.sha256(RAW).hexdigest())
         self.assertEqual(decisions['FGDC2']['content_classification']['files'][0]['name'], 'FGDC2.xml')
         self.assertEqual(validate_outputs(decisions, self.sources)['validated_count'], 2)
+        batch['correction']['artifact_policy']['creator_interpretation']['manifest_sha256'] = 'invalid'
+        with self.assertRaises(ValueError):
+            self.compile([batch])
+        batch['correction']['artifact_policy'].pop('creator_interpretation')
         batch['correction']['artifact_policy']['source_sha256'] = '0' * 64
         with self.assertRaises(ValueError):
             self.compile([batch])

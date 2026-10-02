@@ -70,6 +70,11 @@ be exactly `$source_sha256`; the single content file name must be exactly
 hash and original `<source_id>.xml`. It performs no general string interpolation.
 Artifact and content declarations must be supplied together; only complete,
 reviewed descriptive-metadata inventories of the original XML are supported.
+Optional artifact policy references `source_access_interpretation`,
+`rehosting_authority`, and `creator_interpretation` contain exactly nonempty
+`manifest_path` and lowercase 64-hex `manifest_sha256`. The compiler preserves
+these references and validates their syntax only; downstream pinned-profile
+validation decides their meaning and authority.
 No research-data availability is inferred. The existing artifact validator
 checks every resulting binding.
 
