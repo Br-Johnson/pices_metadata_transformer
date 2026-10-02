@@ -1,5 +1,7 @@
 # Evidence-backed hold reduction
 
+Update: Brett subsequently attested authority to rehost this lost GeoNetwork collection. The archival-authority question below is closed by that user attestation, without a new license or independently verified agreement. See [the source-bound authority profile and 687 supported preparation results](rehosting_attestation.md). The table below remains the pre-attestation baseline.
+
 The narrow automatic license profile's zero approvals does not mean no rights exist. Hold counts overlap and checks short-circuit: removing an early presentation hold may expose later creator/access/rights holds. Publication and remote verification remain zero.
 
 ## Completed reversible routine corrections

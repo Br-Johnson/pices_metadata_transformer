@@ -185,3 +185,10 @@ Brett explicitly delegated record QA to agents, superseding human-per-record req
 - [x] Require independent program review, population-bound risk-stratified spot checks and separate release selection before production publication.
 - [ ] Execute authenticated bounded sandbox draft/readback/idempotence canary; no authenticated sandbox session/client is available in this execution environment.
 - [ ] Obtain or investigate authoritative XML redistribution evidence for held publication cases; no default license or blanket approval.
+
+## Isolated lifecycle recovery — 2026-10-02
+
+- [x] Reject altered cached semantic verdicts while preserving unchanged transformation reuse and honest source-only flags.
+- [x] Revalidate source-bound restoration authority for historical schema-1 and schema-2 human approvals.
+- [x] Preserve failing-first regressions and pass all 136 socket-blocked tests; fresh/resumed classification preserves all 4,206 source decisions and original hashes. See `readiness/2026-10-02/qa_lifecycle_recovery.md`.
+- [ ] Reconcile the original writer before publishing this isolated recovery; live record QA, sandbox authentication and production release remain pending.

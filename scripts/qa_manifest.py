@@ -14,6 +14,7 @@ from pathlib import Path
 from scripts.path_config import OutputPaths
 from scripts.upload_service import assert_environment, atomic_json, metadata_hash, prepare_metadata, read_json
 from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
+from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
 
 
 QA_CHECKS = ('source_fidelity', 'dates', 'creators', 'rights', 'relations', 'metadata_only')
@@ -100,7 +101,14 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, rem
         raise ValueError(f'{fgdc_id}: exactly one QA record required')
     record = matches[0]
     metadata, source_path, source_hash = prepare_metadata(entry['json_file'], paths)
-    artifact = prepare_artifact(read_json(entry['json_file']), source_path)
+    payload = read_json(entry['json_file'])
+    artifact = prepare_artifact(payload, source_path)
+    if artifact and payload['artifact_policy'].get('rehosting_authority') is not None:
+        # Human adjudication cannot preserve approval of a changed authority binding.
+        validate_authority(payload['artifact_policy']['rehosting_authority'], Path(source_path).stem, source_hash)
+        validate_restricted_metadata(metadata)
+        if payload['artifact_policy'].get('license') not in ('', None):
+            raise ValueError('Rehosting attestation cannot grant a policy license')
     assert_artifact_binding(entry, artifact)
     if record.get('artifact_contract') != artifact:
         raise ValueError('QA artifact approval is stale or missing')

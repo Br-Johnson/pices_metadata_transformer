@@ -80,3 +80,11 @@ Source-only classification now covers all 4,206 files without inventing remote e
 ### 2026-10-02: Evidence-backed routine hold reduction
 
 Exact source titles now remain unchanged when only an artifact suffix would exceed limits; escaped exact source abstracts preserve scientific comparison signs and placeholders. Technical passes rise from4,089 to4,131, while all publication holds remain. Official PICES exporter code copies dataset constraints into metadata constraint fields;4,073 sources exhibit matching template evidence. Rights scope and creator roles require a shared provenance decision rather than4,200 inferred licenses or contact-to-author substitutions. See `readiness/2026-10-02/hold_reduction_plan.md`.
+
+### 2026-10-02: User-attested restoration authority
+
+Brett confirmed permission/instruction to rehost the lost GeoNetwork metadata. Exact-source-bound attestation replaces the blanket absent-authority hold, without assigning a CC license or claiming independent verification. Restricted-file preparation supports687sources;3,513 remain held and6 malformed. Public notes preserve rawXML and remain subject to platform metadata reuse terms; file download restriction does not conceal them. Live record QA, sensitive/source exceptions, alias reconciliation, sandbox auth and production release remain separate.
+
+### 2026-10-02: Revalidate evidence during classification and approval
+
+Isolated review reproduced two lifecycle gaps: editable cached verdicts could falsely promote held sources, and historical schema-1/schema-2 human approvals did not recheck changed external restoration-authority manifests. Classification now reconstructs each row from original XML and reruns source assessment while reusing verified transformation bytes. All artifact approval paths revalidate any restoration-authority digest, exact source membership and restricted blank-license conditions. Human semantic adjudication remains supported; agent QA, independent program review and separate release requirements remain unchanged. Failing-first regressions and complete offline collection verification accompany the recovery. The original checkout and shared branch are not part of this isolated repair; publication requires a reconciled single writer.

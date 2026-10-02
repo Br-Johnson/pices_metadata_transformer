@@ -1,4 +1,6 @@
 """Source-only collection classification and restart behavior, entirely offline."""
+import hashlib
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -6,6 +8,7 @@ from unittest.mock import patch
 
 from scripts.collection_qa import classify_collection
 from scripts.path_config import OutputPaths
+from scripts.rehosting_authority import STATEMENT
 from scripts.upload_service import read_json
 
 
@@ -63,6 +66,107 @@ class CollectionQATests(unittest.TestCase):
         with patch('scripts.collection_qa.FGDCToZenodoTransformer._build_zenodo_metadata', side_effect=AssertionError('Unchanged source should resume')):
             resumed = self.classify()
         self.assertEqual(resumed, original)
+
+    def test_resume_recomputes_semantic_verdicts_and_source_only_flags(self):
+        raw = SUPPORTED.replace(b'CC BY 4.0', b'Unknown').replace(
+            b'No restrictions', b'Sensitive; permission required')
+        source = self.sources / 'restricted.xml'; source.write_bytes(raw)
+        authority = Path(self.tmp.name, 'authority.json')
+        authority.write_text(json.dumps({
+            'schema_version': 1, 'attested_by': 'Brett', 'attested_at': '2026-10-02',
+            'statement': STATEMENT, 'scope': 'historical_geonetwork_metadata',
+            'grants_rehosting': True, 'grants_new_license': False,
+            'sources': {'restricted': hashlib.sha256(raw).hexdigest()}}))
+        for route, manifest in (('xml_rights', None), ('attested', authority)):
+            with self.subTest(route=route):
+                output = Path(self.tmp.name, route)
+                original = classify_collection(self.sources, output, self.reviewed_at, manifest)
+                self.assertEqual(original['records'][0]['source_status'], 'held')
+                paths = OutputPaths(str(output), 'sandbox')
+                payload = Path(paths.zenodo_json_dir, 'restricted.json')
+                payload_hash = hashlib.sha256(payload.read_bytes()).hexdigest()
+                report_path = output / 'classification.json'
+                cached = read_json(report_path)
+                cached['records'][0].update(source_status='supported',
+                    source_status_without_aliases='supported', hold_reasons=[],
+                    publication_approved=True, remote_verified=True)
+                report_path.write_text(json.dumps(cached))
+                with patch('scripts.collection_qa.FGDCToZenodoTransformer._build_zenodo_metadata',
+                           side_effect=AssertionError('Verified payload should be reused')):
+                    resumed = classify_collection(self.sources, output, self.reviewed_at, manifest)
+                fresh = classify_collection(self.sources, Path(self.tmp.name, route + '-fresh'),
+                                            self.reviewed_at, manifest)
+                row = resumed['records'][0]
+                self.assertEqual(row['source_status'], 'held')
+                self.assertTrue(row['hold_reasons'])
+                self.assertFalse(row['publication_approved'])
+                self.assertFalse(row['remote_verified'])
+                self.assertEqual(resumed['records'], fresh['records'])
+                self.assertEqual(resumed['summary'], fresh['summary'])
+                self.assertEqual(resumed['profile_sha256'], original['profile_sha256'])
+                self.assertEqual(hashlib.sha256(payload.read_bytes()).hexdigest(), payload_hash)
+                self.assertEqual(source.read_bytes(), raw)
+
+    def test_resume_recomputes_failed_rows_without_constructed_payloads(self):
+        raw = b'<metadata><not-closed>'
+        source = self.sources / 'malformed.xml'; source.write_bytes(raw)
+        original = self.classify()
+        self.assertEqual(original['records'][0]['source_status'], 'failed')
+        self.assertEqual(original['records'][0]['technical_metadata'], 'not_constructed')
+        report_path = self.output / 'classification.json'
+        cached = read_json(report_path)
+        cached['records'][0].update(source_status='supported',
+            source_status_without_aliases='supported', hold_reasons=[],
+            parse_error='Edited cached parse evidence', publication_approved=True,
+            remote_verified=True)
+        report_path.write_text(json.dumps(cached))
+        resumed = self.classify()
+        self.assertEqual(resumed, original)
+        self.assertEqual(source.read_bytes(), raw)
+
+    def test_resume_rebuilds_payloads_that_change_collection_policy_routes(self):
+        source = self.sources / 'sample.xml'
+        authority = Path(self.tmp.name, 'authority.json')
+        for route in ('dataset_instead_of_xml', 'xml_license_instead_of_attestation'):
+            with self.subTest(route=route):
+                raw = (SUPPORTED.replace(b'122003', b'20200102').replace(b'CC BY 4.0', b'Unknown')
+                       .replace(b'No restrictions', b'Sensitive; permission required')
+                       if route == 'dataset_instead_of_xml' else SUPPORTED)
+                source.write_bytes(raw)
+                manifest = None
+                if route == 'xml_license_instead_of_attestation':
+                    authority.write_text(json.dumps({
+                        'schema_version': 1, 'attested_by': 'Brett', 'attested_at': '2026-10-02',
+                        'statement': STATEMENT, 'scope': 'historical_geonetwork_metadata',
+                        'grants_rehosting': True, 'grants_new_license': False,
+                        'sources': {'sample': hashlib.sha256(raw).hexdigest()}}))
+                    manifest = authority
+                output = Path(self.tmp.name, route)
+                original = classify_collection(self.sources, output, self.reviewed_at, manifest)
+                paths = OutputPaths(str(output), 'sandbox')
+                payload_path = Path(paths.zenodo_json_dir, 'sample.json')
+                original_payload = payload_path.read_bytes()
+                payload = read_json(payload_path)
+                if route == 'dataset_instead_of_xml':
+                    self.assertEqual(original['records'][0]['source_status'], 'held')
+                    payload['artifact_policy'] = None
+                    payload['metadata'].update(title='Metadata catalogue',
+                        publication_date='2020-01-02', license='cc-zero', access_right='open')
+                else:
+                    self.assertEqual(original['records'][0]['source_status'], 'supported')
+                    del payload['artifact_policy']['rehosting_authority']
+                    payload['artifact_policy']['license'] = 'cc-by-4.0'
+                    payload['metadata'].update(license='cc-by-4.0', access_right='open')
+                payload['metadata'].pop('access_conditions', None)
+                payload_path.write_text(json.dumps(payload))
+                report_path = output / 'classification.json'
+                cached = read_json(report_path)
+                cached['records'][0]['prepared_payload_sha256'] = hashlib.sha256(payload_path.read_bytes()).hexdigest()
+                report_path.write_text(json.dumps(cached))
+                resumed = classify_collection(self.sources, output, self.reviewed_at, manifest)
+                self.assertEqual(resumed, original)
+                self.assertEqual(payload_path.read_bytes(), original_payload)
+                self.assertEqual(source.read_bytes(), raw)
 
     def test_exact_aliases_are_held_and_removing_alias_restores_source_status(self):
         (self.sources / 'first.xml').write_bytes(SUPPORTED)

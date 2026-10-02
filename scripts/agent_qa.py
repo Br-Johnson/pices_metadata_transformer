@@ -25,6 +25,7 @@ from scripts.upload_service import (assert_environment, atomic_json, expected_ho
 from scripts.validate_zenodo import ZenodoValidator
 from scripts.verify_uploads import compare_metadata
 from scripts.matching.evidence import snapshot_inventory
+from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
 
 
 def _text(root, path):
@@ -86,6 +87,7 @@ def assess_source(json_file, paths):
         raise ValueError('Creator order/name/type differs from primary citation')
     if artifact:
         policy = payload['artifact_policy']
+        authority = policy.get('rehosting_authority')
         if (policy.get('rights_scope') != 'original_fgdc_xml'
                 or policy.get('rights_source_xpath') != './metainfo/metuc'
                 or policy.get('date_semantics') != 'source_metadata_date'):
@@ -94,19 +96,25 @@ def assess_source(json_file, paths):
         prefix = 'Original FGDC XML metadata: '
         # FGDC metuc is metadata-use constraints; useconst is the underlying resource's rights.
         license_id = _explicit_license(grant[len(prefix):] if grant.startswith(prefix) else grant)
-        if policy.get('license') != license_id:
+        if authority is not None:
+            validate_authority(authority, Path(source_path).stem, source_hash)
+            validate_restricted_metadata(metadata)
+            if policy.get('license') not in ('', None):
+                raise ValueError('Rehosting attestation cannot grant a policy license')
+        elif policy.get('license') != license_id:
             raise ValueError('XML policy license differs from explicit XML grant')
         date_text = _text(root, './metainfo/metd')
         access_constraints = _text(root, './metainfo/metac')
     else:
+        authority = None
         license_id = _explicit_license(_text(root, './idinfo/useconst'))
         date_text = _text(root, './idinfo/citation/citeinfo/pubdate')
         access_constraints = _text(root, './idinfo/accconst')
     if access_constraints.strip().casefold().rstrip('.') not in ('', 'none', 'no restrictions', 'unrestricted', 'open', 'public'):
         raise ValueError('Contradictory or unsupported source access constraints require adjudication')
-    if not license_id or license_id != metadata.get('license'):
+    if authority is None and (not license_id or license_id != metadata.get('license')):
         raise ValueError('Unknown or unsupported source rights; no inferred grant')
-    if metadata.get('access_right') != 'open':
+    if authority is None and metadata.get('access_right') != 'open':
         raise ValueError('Restricted/embargoed rights need separate adjudication')
     if not re.fullmatch(r'\d{8}|\d{4}-\d{2}-\d{2}', date_text):
         raise ValueError('Exact source-backed date required; ambiguous precision is held')
@@ -187,7 +195,7 @@ def assess(entry, paths, snapshot_path, duplicate_path):
         _timestamp(raw_snapshot.get('retrieved_at', ''))
     # HEAD alone does not describe rules executing from an uncommitted working tree.
     rules = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-             for name in ('agent_qa.py', 'qa_manifest.py')}
+             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py')}
     return {'checks': dict.fromkeys(QA_CHECKS, True), 'rules_sha256': rules, 'source_sha256': source_hash,
             'metadata_sha256': metadata_hash(metadata), 'artifact_contract': artifact,
             'remote_snapshot': {'path': str(Path(snapshot_path).resolve()), 'sha256': metadata_hash(snapshot),

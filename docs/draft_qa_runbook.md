@@ -1,5 +1,7 @@
 # Reproducible metadata-only migration: draft, review, publish
 
+Brett's 2026-10-02 attestation establishes historical GeoNetwork metadata rehosting authority, recorded as user-attested rather than a verified agreement or new reuse license. Use the source-hash-bound [authority profile and collection evidence](readiness/2026-10-02/rehosting_attestation.md). It supports restricted attachments with blank license, while retaining source exceptions, record QA and the separate release gate. Raw XML remains in public metadata notes; attachment restrictions do not conceal it. Zenodo's public-metadata reuse terms remain a distinct platform consideration for release.
+
 Production records remain drafts until evidence-bound record QA and a separate explicit publication release. Brett has delegated record-level QA to agents; human review of every record is not required. This policy supersedes the older auto-publish suggestion in AGENTS.md. Running a pipeline is not evidence of publication or successful remote verification. No production migration was performed while implementing these changes.
 
 ## Canonical paths and responsibilities

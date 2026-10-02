@@ -29,3 +29,7 @@ Historical schema1 manifests remain human record-QA evidence, with prior exact s
 ## Current operational checkpoint
 
 Three authentic source-backed technical drafts and a clearly labeled synthetic XML fixture are prepared offline, with no assigned license or publication approval. See the [canary packet](readiness/2026-10-02/candidate_decisions.md). Authenticated sandbox access and fresh environment-scoped inventory are unavailable here, so no draft creation has occurred. Nonpublishing transport tests do not require final production QA; actual-source publication does.
+
+## User-attested restoration profile
+
+An artifact policy may reference a raw-file SHA-256-bound rehosting manifest enumerating exact source IDs/hashes. Brett's 2026-10-02 historical GeoNetwork restoration attestation is supported as USER_ATTESTED, not a verified agreement/new license. The profile requires restricted attachments, blank license and canonical unresolved-rights conditions; source access/creator/date/relation/file/evidence checks remain. Manifest changes invalidate artifact/QA bindings. Complete XML is retained in public notes, so download restrictions are not confidentiality protection; Zenodo public-metadata reuse terms are separate. See [scope and collection counts](readiness/2026-10-02/rehosting_attestation.md).
