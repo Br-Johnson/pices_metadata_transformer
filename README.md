@@ -635,7 +635,18 @@ Options:
 
 ### Environment Variables
 
-Create a `.env` file with your Zenodo API tokens:
+Token precedence is an explicit `create_zenodo_client(access_token=...)` argument,
+then the selected nonempty `ZENODO_SANDBOX_TOKEN` or `ZENODO_PRODUCTION_TOKEN`
+environment variable, then the legacy `.env` file in the current working directory.
+An empty environment variable falls back to `.env`; sandbox and production never
+fall back to each other's token. Environment values are opaque and passed unchanged
+into session and bucket `Authorization: Bearer` headers, including NetworkSecret
+placeholders. The loader does not resolve placeholders or log token values.
+Legacy `.env` parsing still trims surrounding whitespace without unquoting values.
+Credential provisioning requires separate secure approval; this compatibility
+change does not provision credentials or authorize uploads.
+
+For the legacy file option, create a `.env` file with your Zenodo API tokens:
 
 ```bash
 ZENODO_SANDBOX_TOKEN=your_sandbox_token_here

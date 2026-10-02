@@ -241,3 +241,9 @@ See [cloud integration evidence](readiness/2026-10-02/cloud_integration.md).
 The new goal authorizes publication of defensible records; it does not invent
 remote evidence, grant credentials or authorize merge/deletion/billing changes.
 This local cohort has not been pushed or used for a provider operation.
+## Successor token compatibility — 2026-10-02
+
+- [x] Verify PR8 d39cc21 / tree 7f6db4b and hash all 4,206 originals before edits.
+- [x] Support opaque environment tokens with legacy cwd .env fallback; 189 offline tests pass (six new token tests); 4,206 original SHA-256 values unchanged.
+- [ ] Await Library archive metadata and full owner handoff before importing prepared batches.
+- [ ] Keep credential provisioning and exact canary plan separately gated; no provider writes.

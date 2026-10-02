@@ -453,7 +453,16 @@ class ZenodoAPIClient:
 
 
 def load_zenodo_token(sandbox: bool = True) -> str:
-    """Load Zenodo token from .env file."""
+    """Prefer the selected environment token, then the legacy cwd .env file.
+
+    Environment values are opaque (including NetworkSecret placeholders): never
+    strip, expand, resolve, or log them. An empty variable uses the file fallback.
+    """
+    token_key = 'ZENODO_SANDBOX_TOKEN' if sandbox else 'ZENODO_PRODUCTION_TOKEN'
+    environment_token = os.environ.get(token_key)
+    if environment_token:
+        return environment_token
+
     secrets_file = ".env"
     
     if not os.path.exists(secrets_file):

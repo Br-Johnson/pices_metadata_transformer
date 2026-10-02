@@ -143,3 +143,9 @@ tested routes. Never use draft recovery for published IDs or replace unknown
 state with a new record. See the local production critical path and planning
 manifest; the published PR8 code remains frozen while GitHub review quota blocks
 a substantive final-head automated verdict.
+## 2026-10-02 successor token compatibility
+
+- Environment tokens now precede the legacy cwd `.env` fallback; explicit client tokens retain highest priority. Values stay opaque so NetworkSecret placeholders reach existing Bearer headers unchanged. No new token parser or resolver is introduced.
+- Validation: 189 tests pass using the existing venv with inherited socket/DNS blocking; only local Git revision reads and the existing curation CLI test subprocesses are permitted. Six new tests cover precedence, mode isolation, legacy fallback, error non-disclosure, and mocked session/bucket headers. All 4,206 original hashes remain unchanged. Initial harness attempts blocked required local subprocesses; the final inherited guard permits these specific commands.
+- Archive transfer remains blocked: Library resolved version 0 of `pices-successor-68b1443.tar.gz`, but the current supported helper returned `library file transfer failed: download failed`. No archive imported, no reviewed batch reimplemented. Retry supported materialization after transfer access is restored.
+- Credential provisioning and the exact bounded canary plan remain separately gated. No credentials configured, provider writes, production changes, PR pushes or merges. The 585-record Contributor/Source interpretation remains pending; do not extend the Contact Source interpretation automatically.
