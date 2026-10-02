@@ -1,5 +1,22 @@
 # Minimal decision packet: sandbox canary
 
+## Cloud handoff scope update
+
+The current resumed task permits offline repair, grouped source-backed curation,
+tests and PR8 review. It excludes provider writes and credential creation or
+transfer; the authentication instructions below describe a future operational
+gate, not a request to provision access during this repair. A future labeled
+sandbox cohort may duplicate historical test deposits, which remain delivery
+evidence rather than authoritative metadata. Own-run retry idempotency and
+production duplicate/DOI safeguards remain mandatory. The current inventory
+guard is retained; no fresh-cohort bypass is implemented by this task.
+
+Common FGDC transformations precede explicit source-ID/hash-bound correction
+batches, overlap review and narrower residual groups. A successful synthetic
+limit-ten upload test proves mocked selection/retry behavior only. Raw-source
+license validation holds are not a reason to fabricate licenses or reinterpret
+underlying dataset restrictions.
+
 **No authentic candidate is currently configured for live execution under the explicit artifact contract, and sandbox authentication is unavailable here.** Final source-policy judgments are publication-readiness decisions, not a blanket prerequisite for every authorized nonpublishing sandbox transport test. A clearly labeled synthetic XML can separate transport validation from authentic-source QA. No substitutes or real sources have been uploaded.
 
 ## Exact source evidence

@@ -96,3 +96,28 @@ The exact 31-source Washington Sea Grant Program cohort supports one verbatim in
 ### 2026-10-02: Exact source-bound access wording adjudication
 
 Brett's 18:26:45 UTC statement interprets Contact Source access as underlying dataset acquisition. The additive optional policy reference binds the exact 1,004-source cohort and user provenance, alongside existing restricted-file restoration authority. Matching raw use text is a context guard, never a new license. Separate metadata restrictions, creator/date/relation/alias holds and stale approval evidence remain fail-closed. The assessment uses its actual post-attestation time rather than backdating to the old controlled baseline; this deliberately updates all constructed policy/inventory timestamps and derived hashes while all 4,194 raw metadata objects remain unchanged. Failing-first and lifecycle controls, 147 offline tests and fresh/resume verification yield 196 newly supported preparations, not publication approvals. Semantic resume reassessment remains intentional (29.512 seconds fresh, 27.214 resume). Final independent review, live compatibility and release evidence remain separate. See `readiness/2026-10-02/contact_source_cohort.md`.
+
+
+### 2026-10-02: Cloud checkpoint integration and grouped corrections
+
+The cloud checkout was moved from the PR7 merge to exact PR8 base `35b01a2`
+before validation. The saved main-branch onboarding checks are not evidence for
+this branch. The two transferred code trees and 41 inventory-listed artifact
+hashes were verified; source census independently matches all 4,206 originals.
+The original-source and upload-limit fixes passed 160 guarded offline tests and
+an independent bounded diff review before local integration.
+
+Source lookup remains relative to repository-root `FGDC/`; callers must run
+from that root, and concurrent source writers must remain stopped. Conflicting
+prepared copies fail closed rather than being silently repaired. Pending
+selection validates the full prepared directory before limiting the caller
+subset. These constraints are documented; they are not implicit permissions to
+rewrite source bytes or remove records.
+
+The compiler and source-only QA serve distinct purposes: exact membership and
+field precedence make corrections reproducible, while a narrow reviewed source
+interpretation is still needed for a mixed creator citation. Raw schema success
+is not semantic approval. Historical sandbox duplicates may be acceptable for a
+future labeled cohort, but its explicit routing is not implemented; current
+inventory, new-run retry and production DOI safeguards remain in force. No
+provider operation or credential transfer is part of this repair.

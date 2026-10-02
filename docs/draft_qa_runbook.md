@@ -6,6 +6,20 @@ Production records remain drafts until evidence-bound record QA and a separate e
 
 ## Canonical paths and responsibilities
 
+Run operational commands from the repository root so `FGDC/` is the canonical
+source directory. Source resolution prefers that original and requires every
+present prepared/legacy copy to be byte-identical; disagreement, unreadable
+candidates and non-files stop preparation before client operations. A copied
+output is not a way to override an available original. Preserve conflicting
+copies for diagnosis rather than editing or deleting source evidence.
+
+For corrections, apply common transformations first, then compile reviewed
+[curation batches](curation_batches.md) with exact source-ID/hash membership.
+Review overlap and field precedence explicitly, retain the original citation
+attribution and restrictions, and subdivide remaining holds into narrower
+groups. Compilation and metadata validation do not themselves expand the
+supported agent-QA semantic profile or approve a release.
+
 `fgdc_to_zenodo.py` transforms original XML without modifying it; `validate_zenodo.py` supplies the shared metadata contract. `upload_service.py` owns both uploader entry points' durable draft lifecycle. Environment-scoped `OutputPaths` separates sandbox and production ledgers, duplicate inventories, verification and publication reports. Legacy unscoped ledgers are deliberately not imported: reconcile them with endpoint and source evidence first. Transformation output is shared, so changing it invalidates approval hashes.
 
 `publish_records.py` is the explicit publication entry point. Production requires `--qa-manifest` and a separate `--release-manifest` bound to that exact QA manifest and selected records. Inline production publication is disabled. Automatic duplicate replacement is retired; deletion is never a recovery strategy. `verify_uploads.py` compares submitted metadata and the explicit reviewed file contract; legacy records without an artifact policy retain the empty-file contract. Audit summaries count unique ledger records and explicitly describe local ledger evidence; they do not substitute for remote verification.
@@ -31,6 +45,16 @@ Use DOI/persistent IDs and source IDs first, then metadata similarity as evidenc
 Independent review observations found AquaDocs' candidate OAI route returned an Angular HTML shell and candidate server API routes returned HTTP 503. These observations do not prove endpoint deployment, coverage or absence of duplicate PICES records. No live AquaDocs integration or confirmed cross-repository duplicate is claimed. DOI/handle examples from ODIS are identifier examples only.
 
 ## Validation and remaining limits
+
+The current cloud repair scope is offline implementation, testing and GitHub
+review only; no provider operation or credential creation/transfer is included.
+Historical sandbox records are delivery evidence, not metadata truth. Brett
+permits a future labeled sandbox cohort to duplicate historical test uploads,
+but this does not disable the existing inventory gate: a separately implemented
+and tested cohort mechanism would be needed. Retries within the new run must
+reuse its draft IDs; production duplicate checks and DOI preservation remain
+mandatory. Do not use `--force`, remove ledger entries, or erase inventories to
+simulate that mechanism.
 
 Regression tests use temporary fixtures and mock clients, covering rights fidelity, calendar and creator handling, scoped state, uncertain POST, restart recovery, QA hash invalidation, verification, JSON-LD and external-response validation. They establish offline behavior, not compatibility with every live Zenodo normalization or repository deployment. Review the existing source exceptions and actual live drafts before authorizing a migration. Existing unrelated operational/metrics scripts have not been comprehensively redesigned.
 
