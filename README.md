@@ -642,6 +642,11 @@ An empty environment variable falls back to `.env`; sandbox and production never
 fall back to each other's token. Environment values are opaque and passed unchanged
 into session and bucket `Authorization: Bearer` headers, including NetworkSecret
 placeholders. The loader does not resolve placeholders or log token values.
+Tokens must be nonempty printable ASCII without whitespace: invalid environment,
+file, or explicit tokens fail closed before creating a session. Valid placeholders
+pass unchanged. Empty environment variables retain the file fallback described
+above; empty explicit/file tokens are rejected. Transport errors omit exception
+text and chained tracebacks; remote error diagnostics report HTTP status only.
 Legacy `.env` parsing still trims surrounding whitespace without unquoting values.
 Credential provisioning requires separate secure approval; this compatibility
 change does not provision credentials or authorize uploads.

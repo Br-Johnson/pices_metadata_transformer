@@ -28,11 +28,19 @@ class RateLimitError(ZenodoAPIError):
     pass
 
 
+def _validate_token(token: str) -> str:
+    """Accept opaque printable ASCII tokens without whitespace; never echo input."""
+    if (not isinstance(token, str) or not token
+            or any(ord(char) <= 32 or ord(char) >= 127 for char in token)):
+        raise ValueError('Zenodo token must be nonempty printable ASCII without whitespace')
+    return token
+
+
 class ZenodoAPIClient:
     """Client for interacting with the Zenodo REST API."""
     
     def __init__(self, access_token: str, sandbox: bool = True):
-        self.access_token = access_token
+        self.access_token = _validate_token(access_token)
         self.sandbox = sandbox
         self.base_url = "https://sandbox.zenodo.org" if sandbox else "https://zenodo.org"
         self.api_url = urljoin(self.base_url, "/api/")
@@ -79,8 +87,9 @@ class ZenodoAPIClient:
                 self.logger.log_info("Zenodo API connection successful")
             else:
                 raise ZenodoAPIError(f"API connection failed: {response.status_code}")
-        except Exception as e:
-            raise ZenodoAPIError(f"Failed to connect to Zenodo API: {str(e)}")
+        except Exception:
+            # Exception text and chained tracebacks can contain Authorization.
+            raise ZenodoAPIError("Failed to connect to Zenodo API") from None
     
     def _rate_limit_check(self):
         """Check and enforce rate limiting for both minute and hour limits."""
@@ -175,37 +184,20 @@ class ZenodoAPIClient:
                 
                 return response
                 
-            except requests.exceptions.RequestException as e:
+            except requests.exceptions.RequestException:
                 if attempt < retries:
                     delay = self.retry_delay * (self.backoff_factor ** attempt)
-                    self.logger.log_info(f"Request failed, retrying in {delay} seconds: {str(e)}")
+                    self.logger.log_info(f"Request failed, retrying in {delay} seconds")
                     time.sleep(delay)
                     continue
                 else:
-                    raise ZenodoAPIError(f"Request failed after retries: {str(e)}")
+                    raise ZenodoAPIError("Request failed after retries") from None
         
         raise ZenodoAPIError("Max retries exceeded")
     
     def _parse_error_response(self, response: requests.Response) -> str:
-        """Parse error response from Zenodo API."""
-        try:
-            error_data = response.json()
-            if 'message' in error_data:
-                message = error_data['message']
-                if 'errors' in error_data:
-                    errors = error_data['errors']
-                    error_details = []
-                    for error in errors:
-                        if 'field' in error and 'message' in error:
-                            error_details.append(f"{error['field']}: {error['message']}")
-                        else:
-                            error_details.append(str(error))
-                    return f"{message} - {'; '.join(error_details)}"
-                return message
-        except (json.JSONDecodeError, KeyError):
-            pass
-        
-        return f"HTTP {response.status_code}: {response.text}"
+        """Keep diagnostics status-only: remote error bodies may echo credentials."""
+        return f"HTTP {response.status_code}"
     
     def create_deposition(self, metadata: Dict[str, Any] = None) -> Dict[str, Any]:
         """Create a new deposition."""
@@ -268,8 +260,11 @@ class ZenodoAPIClient:
         with open(file_path, 'rb') as f:
             # Use direct requests call to avoid Content-Type header issues
             headers = {'Authorization': f'Bearer {self.access_token}'}
-            response = requests.put(upload_url, data=f, headers=headers,
-                                    timeout=(10, 60), allow_redirects=False)
+            try:
+                response = requests.put(upload_url, data=f, headers=headers,
+                                        timeout=(10, 60), allow_redirects=False)
+            except requests.exceptions.RequestException:
+                raise ZenodoAPIError('File upload request failed') from None
             
             if response.status_code not in [200, 201]:
                 raise ZenodoAPIError(f"File upload failed with HTTP {response.status_code}")
@@ -456,12 +451,13 @@ def load_zenodo_token(sandbox: bool = True) -> str:
     """Prefer the selected environment token, then the legacy cwd .env file.
 
     Environment values are opaque (including NetworkSecret placeholders): never
-    strip, expand, resolve, or log them. An empty variable uses the file fallback.
+    strip, expand, resolve, or log them. Invalid tokens fail closed; an empty
+    environment variable uses the file fallback.
     """
     token_key = 'ZENODO_SANDBOX_TOKEN' if sandbox else 'ZENODO_PRODUCTION_TOKEN'
     environment_token = os.environ.get(token_key)
     if environment_token:
-        return environment_token
+        return _validate_token(environment_token)
 
     secrets_file = ".env"
     
@@ -476,9 +472,9 @@ def load_zenodo_token(sandbox: bool = True) -> str:
             if '=' in line:
                 key, value = line.split('=', 1)
                 if key.strip() == 'ZENODO_SANDBOX_TOKEN' and sandbox:
-                    return value.strip()
+                    return _validate_token(value.strip())
                 elif key.strip() == 'ZENODO_PRODUCTION_TOKEN' and not sandbox:
-                    return value.strip()
+                    return _validate_token(value.strip())
     
     raise ValueError(f"Token not found in {secrets_file}")
 
