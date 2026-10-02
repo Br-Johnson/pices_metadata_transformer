@@ -206,7 +206,8 @@ Brett explicitly delegated record QA to agents, superseding human-per-record req
 - [x] Repair canonical FGDC source precedence and reject divergent/ambiguous available copies without changing originals or compatible fallback.
 - [x] Filter eligible pending uploads before applying the wrapper limit; make existing per-invocation statistics truthful.
 - [x] Capture intended failing-first regressions, 76 focused socket/subprocess-blocked passing tests and the synthetic limit-ten smoke.
-- [ ] Complete the full socket/subprocess-blocked suite and independent review after resuming in the approved execution environment. Work is checkpointed because Brett requested a pause and Cloud transfer; no publication has occurred for these fixes.
+- [x] Complete the cloud full offline suite: 160 tests pass, including the synthetic limit-ten upload and unchanged-rerun smoke; zero network/disallowed-subprocess attempts. All 4,206 original SHA-256 values remain unchanged. See `readiness/2026-10-02/cloud_source_batch_findings.md`.
+- [ ] Complete independent integration review and substantive GitHub Codex review before declaring PR8 ready; no provider writes or publication occurred in this findings lane.
 - [ ] Update the current runbook, candidate canary guidance and technical debt to reflect cluster-first curation and the fresh labeled canary direction. Existing inventory code gates remain unchanged; selector composition and conflict handling are being developed separately and are not part of this checkpoint.
 
 Original FGDC XML plus explicit source-backed corrections establishes metadata truth. Existing sandbox records provide reconciliation and API-delivery evidence, not a metadata baseline to reproduce.
