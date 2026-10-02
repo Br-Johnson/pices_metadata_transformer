@@ -75,6 +75,9 @@ Optional artifact policy references `source_access_interpretation`,
 `manifest_path` and lowercase 64-hex `manifest_sha256`. The compiler preserves
 these references and validates their syntax only; downstream pinned-profile
 validation decides their meaning and authority.
+Existing XML-specific `rights_scope`, `rights_source_xpath`, and policy `license`
+are preserved. An explicit empty metadata license remains empty: rehosting
+authority is not a license grant. These syntax checks do not clear QA holds.
 No research-data availability is inferred. The existing artifact validator
 checks every resulting binding.
 

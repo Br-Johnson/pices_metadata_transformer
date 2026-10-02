@@ -157,6 +157,8 @@ class CurationBatchTests(unittest.TestCase):
         batch['correction']['content_classification'] = dict(provenance,
             inventory_complete=True, files=[{'name': '$source_filename',
             'role': 'descriptive_metadata', 'evidence': 'Fixture original XML'}])
+        batch['correction']['artifact_policy'].update(rights_scope='original_fgdc_xml',
+            rights_source_xpath='./metainfo/metuc', license='cc-by-4.0')
         batch['correction']['artifact_policy']['creator_interpretation'] = {
             'manifest_path': 'reviewed-profile.json', 'manifest_sha256': 'a' * 64}
         decisions, _ = self.compile([batch])
@@ -188,6 +190,11 @@ class CurationBatchTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertEqual((self.sources / 'FGDC1.xml').read_bytes(), RAW + b' ')
         self.assertFalse((self.root / 'audit.json').exists())
+
+    def test_explicit_blank_license_is_preserved_without_inferred_grant(self):
+        self.batch['correction']['metadata']['license'] = ''
+        decisions, _ = self.compile()
+        self.assertEqual(decisions['FGDC1']['metadata']['license'], '')
 
     def test_existing_output_hardlink_cannot_overwrite_original(self):
         import os

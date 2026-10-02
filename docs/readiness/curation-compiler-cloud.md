@@ -20,7 +20,7 @@ PYTHONPATH=/tmp/pices-curation-cloud-guard:/workspace/pices-curation \
  tests.test_curation_batches tests.test_artifact_contract tests.test_content_classification -q
 ```
 
-Result: 34 tests passed; log `/tmp/pices-curation-cloud-tests.log`.
+Result: 35 tests passed; log `/tmp/pices-curation-cloud-tests.log`.
 No guard events were recorded. Tests operate only on temporary XML fixtures.
 No real correction cohort was applied, and no provider operation occurred.
 Independent frozen-diff review and combined integration suite remain the

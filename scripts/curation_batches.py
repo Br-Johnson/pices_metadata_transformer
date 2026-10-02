@@ -130,6 +130,8 @@ def _validate_manifest(manifest):
                         if 'type' in creator and creator['type'] not in ('Personal', 'Organizational', 'Person', 'Organization'):
                             raise ValueError('Invalid creator type')
                 else:
+                    if key == 'license' and value == '':
+                        continue  # Explicit absence of a license is not a new grant.
                     _text(value)
                     if key == 'publication_date':
                         if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
@@ -140,7 +142,14 @@ def _validate_manifest(manifest):
         if policy is not None:
             _object(policy, ('schema_version', 'object_kind', 'resource_type', 'date_semantics',
                              'reviewer', 'reviewed_at', 'rationale', 'rights_evidence', 'date_evidence', 'source_sha256'),
-                    ('source_access_interpretation', 'rehosting_authority', 'creator_interpretation'))
+                    ('source_access_interpretation', 'rehosting_authority', 'creator_interpretation',
+                     'rights_scope', 'rights_source_xpath', 'license'))
+            if 'rights_scope' in policy and policy['rights_scope'] != 'original_fgdc_xml':
+                raise ValueError('Unsupported rights scope')
+            if 'rights_source_xpath' in policy and policy['rights_source_xpath'] != './metainfo/metuc':
+                raise ValueError('Unsupported rights source XPath')
+            if 'license' in policy and policy['license'] is not None and not isinstance(policy['license'], str):
+                raise ValueError('Invalid artifact license')
             for key in ('source_access_interpretation', 'rehosting_authority', 'creator_interpretation'):
                 if key in policy:
                     reference = policy[key]
