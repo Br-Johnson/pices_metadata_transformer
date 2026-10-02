@@ -35,3 +35,7 @@ The independent follow-up review is recorded in [swarm review](reviews/2026-09-3
 ## Searchable deposited-content status
 
 Follow the approved [content classification contract](content_classification.md) when creating source-hashed curator decisions. Exported project keywords distinguish metadata-only, data-included, mixed and unknown; file-role evidence remains internal. Do not infer data availability from an FGDC XML attachment or external link. Keyword exclusion does not prove the remaining records contain data. These classifications do not resolve the separate deposited-artifact/DOI/rights/date policy or authorize publication.
+
+## Staged rollout gate (2026-10-02)
+
+See the [20-source offline audit](readiness/2026-10-02/source_audit.md) and its reproducible evidence. Technical validation is not source-specific rights or publication approval. No sample is cleared for live creation yet. The existing empty-file upload/verification contract must be intentionally adapted for meaningful approved original XML artifacts before live use; do not substitute dummy files. Zenodo’s documented editable draft state `inprogress` is accepted only when `submitted` is explicitly false; `unsubmitted` remains supported for compatibility. Sandbox and production are separate, and existing production IDs/DOIs must be reconciled before creating anything new.

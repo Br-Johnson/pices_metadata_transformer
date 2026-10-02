@@ -24,7 +24,7 @@ def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
             or endpoint.path.rstrip('/') != f"/api/deposit/depositions/{record['id']}"):
         raise ValueError('Verified environment-matched deposition response required')
     validate_deposition_response(record, record['id'])
-    if record['state'] != 'unsubmitted' or record.get('submitted') or record['files']:
+    if record['state'] not in ('unsubmitted', 'inprogress') or record.get('submitted') or record['files']:
         raise ValueError('Only an unpublished metadata-only draft may be reconciled for upload resume')
     json_file = str(Path(paths.zenodo_json_dir) / f'{fgdc_id}.json')
     metadata, source_path, source_hash = prepare_metadata(json_file, paths)

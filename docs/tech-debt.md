@@ -60,3 +60,7 @@
 ## PR 8 independent review follow-up
 
 Durable draft ownership, complete inventory validation and publication locking were consolidated in shared helpers rather than copied into CLI wrappers. Offline evidence ingestion preserves malformed-response provenance. Remaining operational work: reconcile historical unscoped ledgers, adjudicate ambiguous source rights/dates, validate live API normalization, and resolve AquaDocs availability before treating external coverage as checked. No CI workflow is configured; the 65-test network-blocked suite is locally reproducible, but a future CI setup should enforce these critical paths.
+
+### 2026-10-02: Source audit and live canary blockers
+
+The 20-source audit is deliberately stratified and uses strict raw parsing; it does not exercise XML recovery or prove live compatibility. Technical schema passes can still have ambiguous date semantics or unestablished artifact rights. The 4,206 files contain 228 exact byte-copy pairs; preserve source aliases and reconcile identities rather than assume one deposit per filename. The current empty-file contract needs an explicit meaningful-artifact policy and tested adaptation before Zenodo live writes. No authenticated sandbox access is exposed in this execution environment. See `readiness/2026-10-02/source_audit.md`. Documented editable `inprogress` drafts are now accepted only with `submitted:false`.

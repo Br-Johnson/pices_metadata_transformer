@@ -195,6 +195,18 @@ class HumanQATests(unittest.TestCase):
         self.assertTrue(self.publisher._publish_single_record(self.entry)['publish_successful'])
         self.publisher.client.publish_deposition.assert_called_once_with(123)
 
+    def test_documented_inprogress_unsubmitted_draft_contract(self):
+        self.approve()
+        draft = {'id': 123, 'metadata': self.metadata, 'files': [], 'state': 'inprogress', 'submitted': False}
+        self.publisher.client.get_deposition.side_effect = [draft, dict(draft, state='done', submitted=True)]
+        self.publisher.client.publish_deposition.return_value = dict(draft, state='done', submitted=True)
+        self.assertTrue(self.publisher._publish_single_record(self.entry)['publish_successful'])
+        self.publisher.client.reset_mock()
+        self.publisher.client.get_deposition.side_effect = None
+        self.publisher.client.get_deposition.return_value = dict(draft, submitted=True)
+        self.assertFalse(self.publisher._publish_single_record(self.entry)['publish_successful'])
+        self.publisher.client.publish_deposition.assert_not_called()
+
     def test_pending_human_qa_blocks_publication_before_client_calls(self):
         result = self.publisher._publish_single_record(self.entry)
         self.assertFalse(result['publish_successful'])

@@ -79,7 +79,8 @@ def assert_environment(entry, environment):
 def validate_deposition_response(record, deposition_id):
     """Require explicit identity, state and files before verification/publication."""
     if (not isinstance(record, dict) or type(record.get('id')) is not int
-            or record['id'] != deposition_id or record.get('state') not in ('unsubmitted', 'done')
+            or record['id'] != deposition_id or record.get('state') not in ('unsubmitted', 'inprogress', 'done')
+            or record.get('state') == 'inprogress' and record.get('submitted') is not False
             or not isinstance(record.get('files'), list) or not isinstance(record.get('metadata'), dict)):
         raise ValueError('Incomplete or mismatched deposition response')
     return record
