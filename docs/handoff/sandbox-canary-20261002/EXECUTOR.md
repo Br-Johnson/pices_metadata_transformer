@@ -1,9 +1,10 @@
 # Frozen sandbox execution handoff
 
-**Current execution pause:** the prior constructor/response-guard failure remains
-unclassified. See `docs/readiness/2026-10-02/constructor_probe_diagnostics.md`.
-Do not issue another request until the guard source is reviewed and the parent
-dispatches a bounded diagnostic step. The duplicate exception does not clear this gate.
+**Current execution pause:** the supplied guard has been reviewed and replaced,
+but the historical failure remains unclassified. Follow the exact one-GET
+diagnostic in `docs/readiness/2026-10-02/reviewed_inventory_guard.md` only after
+parent dispatch; then pause even on success. No write or full inventory is part
+of that observation. The duplicate exception does not clear this gate.
 
 The integration owner remains the sole code writer. The provider executor runs
 this frozen plan and reports evidence; it must not change code, source metadata,
@@ -47,7 +48,7 @@ The source/metadata-only interpretation does not establish production readiness.
 
 ## Checkout and offline verification
 
-Fetch the updated `handoff/pr8-sandbox-exception-20261002`; use the exact final commit and inventory
+Fetch the updated `handoff/pr8-reviewed-read-guard-20261002`; use the exact final commit and inventory
 hash delivered by the integration owner. Check out that commit in the provider's
 clean checkout. Use the exact newly reviewed runtime commit supplied in the handoff. The `FGDC`
 tree must match `9379fd8:FGDC`; scripts/tests now include the bounded exception.

@@ -24,7 +24,8 @@ class ZenodoAPIError(Exception):
     def __init__(self, message, *, stage='api_request', exception_type='unknown',
                  status=None, retryable=False, attempt=1):
         stages = {'constructor_probe', 'api_request', 'bucket_upload', 'request_prepare',
-                  'transport', 'response_status', 'response_json', 'response_owner', 'response_links'}
+                  'transport', 'response_status', 'response_json', 'response_owner', 'response_links',
+                  'response_cleanup'}
         types = {'unknown', 'HTTPStatus', 'ProxyError', 'SSLError', 'ConnectTimeout',
                  'ReadTimeout', 'Timeout', 'ConnectionError', 'InvalidHeader',
                  'JSONDecodeError', 'RequestException', 'ValueError', 'AssertionError'}
