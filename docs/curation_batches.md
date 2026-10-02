@@ -1,101 +1,89 @@
-# Correction batches — local implementation checkpoint
+# Reviewed correction batches
 
-This is an unfinished, local-only implementation checkpoint. Do not use the
-compiler for real corrections or publication yet. The current happy-path CLI
-works, but strict schema validation, duplicate detection and reviewed overlap
-handling are deliberately exposed by failing tests and remain to implement.
-In particular, the current prototype overwrites overlapping decisions; that is
-not the approved final behavior.
-
-The intended workflow is the shared FGDC transformer for common mappings,
-followed by the largest coherent source-supported correction batches, then
-narrower cohorts, with individual decisions as a residual fallback. Existing
-Zenodo sandbox records are API/reconciliation evidence, not metadata truth.
-Original FGDC XML remains the provenance baseline and must stay byte-identical.
-
-## Proposed schema and compatibility
-
-The standalone command compiles one or more manifests into ordinary keyed
-curator decisions accepted by `scripts.batch_transform --decisions`. No change
-to the existing decision interface or priority source/uploader modules is made.
-Run from the repository root:
+The standalone compiler converts reviewed source cohorts into ordinary keyed
+curator decisions accepted by `scripts.batch_transform --decisions`. It performs
+no provider calls and confers no publication or rehosting authority. Original
+FGDC XML remains immutable. Use common FGDC mappings first, then coherent
+source-supported batches, narrower groups and explicit residual source IDs.
+Sandbox records are not metadata truth.
 
 ```sh
 python -m scripts.curation_batches --sources FGDC \
   --manifest reviewed-batches.json --decisions-out decisions.json --audit-out audit.json
 ```
 
-Root contract: `schema_version: 1`, `batches: [...]`. Each batch declares:
+Both output paths must be new, distinct files outside the source directory and
+must not overwrite a manifest. Validation of every affected transformation and
+artifact contract completes before output creation. A filesystem failure during
+writing can leave a partial output pair; discard those outputs and retry with new
+paths. Never consume outputs from a failed invocation.
 
-- `batch_id`, `version`, `reviewer`, timezone-aware `reviewed_at`, `rationale`
-  and a nonempty `evidence` list.
-- `selector`: declared normalization `strip_xml_text`, plus `fgdc_paths_equal`
-  mapping supported exact FGDC paths to ordered lists of source element text.
-  This strips surrounding element whitespace and preserves interior text.
-- `members`: exact `source_id` and lowercase raw `source_sha256` for every source
-  matching that selector, including held records and aliases.
-- `correction`: existing `metadata` whitelist (`creators`, `publication_date`,
-  `license`), and optionally existing `artifact_policy` and
-  `content_classification` declarations. No license correction is currently
-  planned. All factual corrections need source-backed evidence.
-- Optional `supersedes`: prior batch IDs explicitly reviewed for conflicting
-  overlapping fields. The intended rule is that equal values coalesce, disjoint
-  fields compose, and conflicting values fail unless reviewed supersession
-  explicitly names every prior active batch affecting that field. All review
-  provenance must remain in the compiled decision and audit.
+## Version 1 contract
 
-The current module checks exact cohort membership and member hashes, compiles
-decisions with provenance, and validates actual affected transformations with
-the existing Zenodo validator and artifact contract. It also records malformed
-source exclusions and a source-inventory digest. The pending schema/overlap
-cycle must reject unknown keys/versions, invalid override structures, duplicate
-JSON/member/batch IDs and unsupported selector semantics before this is ready.
-Fixed source-binding tokens for artifact/content declarations are proposed but
-not implemented. A residual explicit source-ID selector is likewise proposed.
+Root: exactly `schema_version: 1` and nonempty `batches: [...]`. Batch:
 
-No creator or license is guessed. No provider calls, credentials, GitHub edits,
-uploads, source XML edits, publications or merge operations are part of this
-compiler. Full affected-output validation must pass before outputs are written.
+- `batch_id`, `version: 1`, nonempty `reviewer`, timezone-aware `reviewed_at`,
+  `rationale`, and nonempty `evidence`. Evidence entries are text or inert JSON
+  objects with a nonempty `kind`; structured source receipts are retained intact.
+  Evidence contents remain subject to human review, not automatic factual proof.
+- `selector`: `normalization: strip_xml_text` and exactly one of
+  `fgdc_paths_equal` or `source_ids`. Path selection matches the ordered lists of
+  all element text, trimming only surrounding whitespace. Supported paths are
+  primary citation `origin`, `title`, `pubdate`; `idinfo/accconst`,
+  `idinfo/useconst`; and `metainfo/metd`, `metrd`, `metac`, `metuc`.
+  Explicit `source_ids` enables narrower residual cohorts. Missing or malformed
+  explicitly selected sources fail. XML parse failures otherwise appear in audit
+  exclusions. Source symlinks fail.
+- `members`: every matching source's exact `source_id` and lowercase raw-byte
+  `source_sha256`, including held sources and aliases. Membership must be complete
+  and exact, with no duplicates. No alias or hold is cleared by selection.
+- `correction`: nonempty subset of `metadata`, `artifact_policy`, and
+  `content_classification`. Metadata permits only `creators`, ISO
+  `publication_date`, and `license`; creator fields are `name`, optional `type`,
+  `affiliation`, `orcid`, `gnd`. Empty or unknown structures fail. Factual and
+  rights changes require source-backed review; no license is inferred.
+- Optional `supersedes`: unique IDs of earlier batches in manifest/command order.
 
-## Checkpoint evidence and next work
+Duplicate JSON keys (at any level), duplicate batch IDs across manifests, unknown
+contract keys/versions and unsupported selector semantics fail closed. The API
+`load_manifest(path)` enforces duplicate-key handling; `compile_batches` accepts
+already parsed manifests and returns decisions/audit without writing outputs.
 
-Base: public PR8 head `35b01a265b86125459e1047b30297a4cbcea5210`, tree
-`0050ae4359183354ed8095475dd0d18ad307f97e`. Worktree:
-`/tmp/pices-curation-layer-35b01a2`, branch `fix/pr8-curation-batches`.
+## Overlap and precedence
 
-The repository `AGENTS.md`, TDD and testing skills were read. The user's direct
-authorization for parallel implementation and reasonable design discretion
-supplies the requested design confirmation. The integration owner retains
-shared runbook/checklist/technical-debt edits; this lane owns only the new module,
-tests and this document.
+Corrections compose by metadata field; artifact policy and content declaration
+are each atomic fields. Equal values coalesce and disjoint fields compose.
+Conflicting values require explicit `supersedes` naming **every currently active
+prior batch** contributing that field for that source. Equal-value contributors
+remain active until superseded. Unknown or forward supersession references fail.
+Manifest order alone never permits a conflicting overwrite. All batch reviews,
+evidence, fingerprints and supersession declarations remain in each compiled
+decision. The audit lists each equal/conflicting field overlap and resolution,
+exact membership hashes, inventory hash and decisions hash.
 
-Python runtime: `/Users/brettjohnson/Documents/Codex/2026-09-30/task-4/review-venv/bin/python`.
-Offline guard: `/tmp/pices-curation-guard/sitecustomize.py`, copied from the
-priority lane with the exact allowed local git-revision cwd changed to this
-worktree. It blocks socket access and non-Python subprocesses except that exact
-local revision read. System Python lacks dateutil; an older guard was initially
-incompatible with this cwd. Both harness issues were corrected before RED.
+## Original XML artifact binding
 
-- Baseline: existing metadata/artifact/content suites, 48 tests passed.
-  `/tmp/pices-curation-baseline.log`.
-- First RED: the end-to-end CLI compilation test failed because the compiler
-  module did not yet exist. `/tmp/pices-curation-red1.log`.
-- First GREEN: the same offline CLI fixture passed and originals stayed equal.
-  `/tmp/pices-curation-green1.log`.
-- Second RED: six tests ran with 18 expected negative/overlap failures plus one
-  missing `load_manifest` interface error. `/tmp/pices-curation-red2.log`.
-  Production implementation of this cycle is not yet complete.
+Artifact declarations use the existing artifact contract's strict schema and
+explicit rights/date evidence. In a batch, `artifact_policy.source_sha256` must
+be exactly `$source_sha256`; the single content file name must be exactly
+`$source_filename`. The compiler replaces only these two fields with the member
+hash and original `<source_id>.xml`. It performs no general string interpolation.
+Artifact and content declarations must be supplied together; only complete,
+reviewed descriptive-metadata inventories of the original XML are supported.
+No research-data availability is inferred. The existing artifact validator
+checks every resulting binding.
 
-The source census lane has identified 821 exact primary-citation origin matches
-for a three-entry creator correction. Its exact source manifest and evidence
-will be handed off separately. No real correction cohort has been compiled or
-applied here. Integrate only after the schema/overlap cycle is GREEN, a focused
-surrounding check passes and an independent review covers the frozen diff. The
-integration owner will run the combined full socket-blocked suite once after
-integrating finalized lanes; this checkpoint must not be reported as ready.
+## Migrating the transferred candidate
 
-The pause was requested because Brett's Mac ran out of application memory. No
-background test, full-corpus or provider process remains running in this lane.
-The patch and Git bundle preserve tracked work for a supported cloud workspace;
-the bundle needs the public base commit as its prerequisite. Offline logs and
-guard are separate local evidence and must be copied if migration needs them.
+The 821-member transfer candidate is a precursor, not a v1 compiler manifest.
+After independent source/evidence review, move its `schema_version` to a new
+root, add `version: 1` to the batch and `normalization: strip_xml_text` to its
+selector, and wrap it in root `batches`. Preserve all members, hashes, correction
+values and structured evidence. This document does not approve or apply that
+candidate, decide rights, or clear its residual access/alias holds.
+
+Implementation rationale: field-level active contributors prevent silent
+last-writer-wins loss of review, while atomic artifact declarations prevent
+partial policy merges. This compiler is additive and does not change the
+existing decisions interface. Shared checklist/technical-debt updates belong to
+the integration owner. See `docs/readiness/curation-compiler-cloud.md` for checks.

@@ -123,6 +123,89 @@ class CurationBatchTests(unittest.TestCase):
         self.assertIn('Second reviewer', value['reviewer'])
         self.assertEqual(len(audit['overlaps']), 2)
 
+    def test_all_active_equal_owners_must_be_superseded(self):
+        equal = dict(deepcopy(self.batch), batch_id='equal')
+        later = dict(deepcopy(self.batch), batch_id='later', supersedes=['example-date'])
+        later['correction']['metadata']['publication_date'] = '2002-05-01'
+        with self.assertRaisesRegex(ValueError, 'conflict'):
+            self.compile([self.batch, equal, later])
+        later['supersedes'].append('equal')
+        decisions, audit = self.compile([self.batch, equal, later])
+        self.assertEqual(decisions['FGDC1']['metadata']['publication_date'], '2002-05-01')
+        self.assertEqual(audit['overlaps'][-1]['resolution'], 'superseded')
+
+    def test_residual_selector_is_exact_and_rejects_missing_or_malformed(self):
+        batch = deepcopy(self.batch)
+        batch['selector'] = {'normalization': 'strip_xml_text', 'source_ids': ['FGDC1']}
+        batch['members'] = batch['members'][:1]
+        decisions, _ = self.compile([batch])
+        self.assertEqual(list(decisions), ['FGDC1'])
+        for source_id in ('absent', 'broken'):
+            (self.sources / 'broken.xml').write_bytes(b'<broken')
+            batch['selector']['source_ids'] = [source_id]
+            with self.assertRaises(ValueError):
+                self.compile([batch])
+
+    def test_artifact_tokens_bind_each_source_and_validate(self):
+        from scripts.curation_batches import validate_outputs
+        batch = deepcopy(self.batch)
+        provenance = {key: batch[key] for key in ('reviewer', 'reviewed_at', 'rationale')}
+        batch['correction']['artifact_policy'] = dict(provenance, schema_version=1,
+            object_kind='original_fgdc_xml', resource_type='other',
+            date_semantics='source_metadata_date', rights_evidence='Fixture CC BY 4.0',
+            date_evidence='Fixture metd', source_sha256='$source_sha256')
+        batch['correction']['content_classification'] = dict(provenance,
+            inventory_complete=True, files=[{'name': '$source_filename',
+            'role': 'descriptive_metadata', 'evidence': 'Fixture original XML'}])
+        decisions, _ = self.compile([batch])
+        self.assertEqual(decisions['FGDC1']['artifact_policy']['source_sha256'], hashlib.sha256(RAW).hexdigest())
+        self.assertEqual(decisions['FGDC2']['content_classification']['files'][0]['name'], 'FGDC2.xml')
+        self.assertEqual(validate_outputs(decisions, self.sources)['validated_count'], 2)
+        batch['correction']['artifact_policy']['source_sha256'] = '0' * 64
+        with self.assertRaises(ValueError):
+            self.compile([batch])
+
+    def test_source_change_and_source_output_overwrite_fail(self):
+        from scripts.curation_batches import validate_outputs
+        decisions, _ = self.compile()
+        (self.sources / 'FGDC1.xml').write_bytes(RAW + b' ')
+        with self.assertRaisesRegex(ValueError, 'Source changed'):
+            validate_outputs(decisions, self.sources)
+        manifest = self.root / 'batches.json'
+        manifest.write_text(json.dumps({'schema_version': 1, 'batches': [self.batch]}))
+        result = subprocess.run([sys.executable, '-m', 'scripts.curation_batches',
+            '--sources', str(self.sources), '--manifest', str(manifest),
+            '--decisions-out', str(self.sources / 'FGDC1.xml'),
+            '--audit-out', str(self.root / 'audit.json')], capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual((self.sources / 'FGDC1.xml').read_bytes(), RAW + b' ')
+        self.assertFalse((self.root / 'audit.json').exists())
+
+    def test_existing_output_hardlink_cannot_overwrite_original(self):
+        import os
+        target = self.root / 'decisions.json'
+        os.link(self.sources / 'FGDC1.xml', target)
+        manifest = self.root / 'batches.json'
+        manifest.write_text(json.dumps({'schema_version': 1, 'batches': [self.batch]}))
+        result = subprocess.run([sys.executable, '-m', 'scripts.curation_batches',
+            '--sources', str(self.sources), '--manifest', str(manifest),
+            '--decisions-out', str(target), '--audit-out', str(self.root / 'audit.json')],
+            capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual((self.sources / 'FGDC1.xml').read_bytes(), RAW)
+
+    def test_structured_evidence_survives_and_inventory_is_deterministic(self):
+        self.batch['evidence'].append({'kind': 'source_xpath_exact', 'text': 'Example Marine Institute'})
+        first = self.compile()
+        self.assertEqual(first, self.compile())
+        self.assertEqual(first[0]['FGDC1']['curation_batches'][0]['evidence'], self.batch['evidence'])
+        (self.sources / 'broken.xml').write_bytes(b'<broken')
+        _, audit = self.compile()
+        self.assertEqual(audit['unparsed_sources'][0]['source_id'], 'broken')
+        (self.sources / 'linked.xml').symlink_to(self.sources / 'FGDC1.xml')
+        with self.assertRaisesRegex(ValueError, 'symlinks'):
+            self.compile()
+
     def test_duplicate_batch_ids_and_json_keys_are_rejected(self):
         from scripts.curation_batches import load_manifest
         with self.assertRaises(ValueError):
