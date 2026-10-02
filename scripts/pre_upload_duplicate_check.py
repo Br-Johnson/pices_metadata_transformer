@@ -7,6 +7,7 @@ before attempting to upload them. This prevents duplicate uploads and saves API 
 import os
 import json
 import argparse
+from pathlib import Path
 from datetime import datetime, timedelta, timezone
 from typing import Dict, List, Any, Set, Optional
 import sys
@@ -21,7 +22,10 @@ from scripts.upload_service import atomic_json, metadata_hash, prepare_metadata
 class PreUploadDuplicateChecker:
     """Checks for existing records on Zenodo before upload to prevent duplicates."""
 
-    def __init__(self, sandbox: bool = True, output_dir: str = "output", allow_replacements: bool = False):
+    def __init__(self, sandbox: bool = True, output_dir: str = "output", allow_replacements: bool = False,
+                 canary_plan: Optional[str] = None):
+        from scripts.sandbox_canary import SandboxCanary
+        self.canary = SandboxCanary(canary_plan, 'sandbox' if sandbox else 'production') if canary_plan else None
         self.sandbox = sandbox
         self.output_dir = output_dir
         self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
@@ -36,6 +40,8 @@ class PreUploadDuplicateChecker:
 
         # Initialize Zenodo client
         self.client = create_zenodo_client(sandbox)
+        if self.canary and self.client.base_url != self.canary.plan['origin']:
+            raise ValueError('Canary client must use the exact sandbox origin')
 
         # File paths
         self.zenodo_json_dir = self.paths.zenodo_json_dir
@@ -68,7 +74,7 @@ class PreUploadDuplicateChecker:
             if not title:
                 raise ValueError('Remote record lacks title; reconcile identity before upload')
             info = {'id': hit.get('id'), 'title': title, 'state': hit.get('state', 'published'),
-                    'metadata': metadata}
+                    'metadata': metadata, 'created': hit.get('created'), 'submitted': hit.get('submitted')}
             key = title.casefold()
             records['titles'].add(key)
             records['title_to_record'].setdefault(key, info)
@@ -108,6 +114,13 @@ class PreUploadDuplicateChecker:
             # Check for exact title duplicates
             if not existing_records.get('inventory_complete'):
                 raise ValueError('Duplicate inventory incomplete')
+            if self.canary:
+                from scripts.upload_service import read_json
+                historical_ids = self.canary.check_inventory(json_file, self.paths, existing_records,
+                    read_json(self.paths.uploads_registry_path, {}))
+                return {'file': filename, 'safe_to_upload': True, 'title': title,
+                        'reason': 'Exact sandbox canary plan; own-run ledger remains strict',
+                        'historical_duplicate_ids': historical_ids}
             title_lower = title.casefold()
             if title_lower in existing_records['titles']:
                 # Get the existing record with this title
@@ -282,7 +295,10 @@ class PreUploadDuplicateChecker:
             'duplicate_files': self.duplicates_found,
             'replacement_candidates': self.replacement_candidates,
             'check_errors': self.check_errors,
-            'timestamp': datetime.now().isoformat()
+            'timestamp': datetime.now().isoformat(),
+            **({'sandbox_canary': self.canary.binding,
+                  'historical_duplicate_exceptions': {f['file']: f.get('historical_duplicate_ids', [])
+                                                    for f in self.safe_to_upload}} if self.canary else {})
         }
     
     def _save_results(self, summary: Dict[str, Any]):
@@ -295,10 +311,19 @@ class PreUploadDuplicateChecker:
     def generate_upload_list(self) -> str:
         """Generate a list of files safe to upload."""
         safe_files = [f['file'] for f in self.safe_to_upload]
+        if self.canary:
+            from scripts.upload_service import ledger_lock, read_json
+            with ledger_lock(self.paths):
+                registry = read_json(self.paths.uploads_registry_path, {})
+                self.canary.registry(registry)
+                registry['_sandbox_canary'] = self.canary.binding
+                atomic_json(self.paths.uploads_registry_path, registry)
+                create_files = [name for name in safe_files if Path(name).stem not in registry]
         
         # Save safe files list
         with open(self.paths.safe_to_upload_path, 'w', encoding='utf-8') as f:
             json.dump({'environment': 'sandbox' if self.sandbox else 'production',
+                       **({'sandbox_canary': self.canary.binding, 'canary_create_files': create_files} if self.canary else {}),
                        'inventory_complete': True, 'files': safe_files,
                        'checked_at': datetime.now(timezone.utc).isoformat(),
                        'valid_until': (datetime.now(timezone.utc) + timedelta(hours=24)).isoformat(),

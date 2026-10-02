@@ -130,7 +130,9 @@ def prepare_metadata(json_file, paths):
 class DraftUploadService:
     """Shared by batch and compatibility single-file upload entry points."""
 
-    def __init__(self, paths, environment):
+    def __init__(self, paths, environment, canary_plan=None):
+        from scripts.sandbox_canary import SandboxCanary
+        self.canary = SandboxCanary(canary_plan, environment) if canary_plan else None
         if paths.environment != environment:
             raise ValueError("Upload state must be scoped to its environment")
         self.paths, self.environment = paths, environment
@@ -139,10 +141,14 @@ class DraftUploadService:
         registry = read_json(self.paths.uploads_registry_path, {})
         validate_registry_identities(registry)
         safe = read_json(self.paths.safe_to_upload_path)
+        from scripts.sandbox_canary import require_canary_context
+        require_canary_context(self.canary, safe, registry)
         require_inventory(safe, self.environment)
         fingerprints = safe.get("metadata_hashes", {})
         pending = []
         for json_file in sorted(Path(self.paths.zenodo_json_dir).glob("*.json")):
+            if self.canary:
+                self.canary.authorize(json_file, self.paths)
             metadata, xml_path, source_hash = prepare_metadata(str(json_file), self.paths)
             artifact = prepare_artifact(read_json(json_file), xml_path)
             digest = metadata_hash(metadata)
@@ -168,7 +174,14 @@ class DraftUploadService:
         return pending[:limit] if limit is not None else pending
 
     def upload(self, json_file, client):
+        if self.canary:
+            if client.base_url != self.canary.plan['origin']:
+                raise ValueError('Canary client must use the exact sandbox origin')
+            self.canary.authorize(json_file, self.paths)
         metadata, xml_path, source_hash = prepare_metadata(json_file, self.paths)
+        from scripts.sandbox_canary import MARKER_PREFIX
+        if not self.canary and any(str(word).startswith(MARKER_PREFIX) for word in metadata.get('keywords', [])):
+            raise ValueError('Run-marked canary payload requires its explicit sandbox plan')
         artifact = prepare_artifact(read_json(json_file), xml_path)
         digest = metadata_hash(metadata)
         base = Path(json_file).stem
@@ -180,6 +193,8 @@ class DraftUploadService:
             raise ValueError("Invalid metadata: " + "; ".join(issues))
         with ledger_lock(self.paths):
             registry = read_json(self.paths.uploads_registry_path, {})
+            from scripts.sandbox_canary import require_canary_context
+            require_canary_context(self.canary, read_json(self.paths.safe_to_upload_path, {}), registry)
             validate_registry_identities(registry)
             previous = registry.get(base, {})
             if previous:
@@ -194,6 +209,8 @@ class DraftUploadService:
                 if previous.get("upload_status") == "success":
                     if artifact:
                         remote = validate_deposition_response(client.get_deposition(previous['deposition_id']), previous['deposition_id'])
+                        if self.canary and (remote.get('submitted') is not False or remote['state'] == 'done'):
+                            raise ValueError('Canary retry requires an unpublished unsubmitted draft')
                         validate_files(remote['files'], artifact)
                         from scripts.verify_uploads import compare_metadata
                         if compare_metadata(metadata, remote['metadata']):
@@ -202,6 +219,8 @@ class DraftUploadService:
             else:
                 safe = read_json(self.paths.safe_to_upload_path, {})
                 require_inventory(safe, self.environment)
+                if self.canary and Path(json_file).name not in safe.get('canary_create_files', []):
+                    raise ValueError('Canary create grant absent or consumed; reconcile')
                 if (safe.get("environment") != self.environment or not safe.get("inventory_complete")
                         or json_file and Path(json_file).name not in safe.get("files", [])
                         or safe.get("metadata_hashes", {}).get(Path(json_file).name) != digest):
@@ -215,14 +234,26 @@ class DraftUploadService:
                          zenodo_url=previous.get("zenodo_url", client.base_url + "/deposit/"))
 
             def save():
+                if self.canary:
+                    registry['_sandbox_canary'] = self.canary.binding
                 registry[base] = entry
                 atomic_json(self.paths.uploads_registry_path, registry)
 
             try:
                 if not entry.get("deposition_id"):
+                    if self.canary:
+                        # Consume the cached grant before recording intent/POST.
+                        # Even loss of the source ledger entry cannot reuse it.
+                        safe = read_json(self.paths.safe_to_upload_path, {})
+                        if Path(json_file).name not in safe.get('canary_create_files', []):
+                            raise ValueError('Canary create grant already consumed; reconcile')
+                        safe['canary_create_files'].remove(Path(json_file).name)
+                        atomic_json(self.paths.safe_to_upload_path, safe)
                     entry["needs_reconciliation"] = True
                     save()  # A crash/lost response from POST must not cause another POST.
-                    deposition = client.create_deposition()
+                    # Include the namespace in the initial POST, so an uncertain
+                    # create remains discoverable even before the later PUT.
+                    deposition = client.create_deposition(metadata) if self.canary else client.create_deposition()
                     candidate = dict(entry, deposition_id=deposition.get('id'))
                     if type(candidate['deposition_id']) is not int or candidate['deposition_id'] < 1:
                         raise ValueError('Invalid created deposition ID; reconcile uncertain creation')

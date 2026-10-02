@@ -36,6 +36,8 @@ class RecordPublisher:
         self.sandbox = sandbox
         self.output_dir = output_dir
         self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
+        if read_json(self.paths.uploads_registry_path, {}).get('_sandbox_canary'):
+            raise ValueError('Sandbox canary ledgers cannot be published')
         self.logger = get_logger()
         
         # Initialize Zenodo client
@@ -94,6 +96,8 @@ class RecordPublisher:
 
     def publish_records(self, upload_log: List[Dict[str, Any]], limit: int = None) -> Dict[str, Any]:
         """Publish uploaded records to make them visible in communities."""
+        if read_json(self.paths.uploads_registry_path, {}).get('_sandbox_canary'):
+            raise ValueError('Sandbox canary ledgers cannot be published')
         
         if limit:
             upload_log = upload_log[:limit]
@@ -159,6 +163,8 @@ class RecordPublisher:
         try:
             with ledger_lock(self.paths):
                 registry = read_json(self.paths.uploads_registry_path, {})
+                if registry.get('_sandbox_canary'):
+                    raise ValueError('Sandbox canary ledgers cannot be published')
                 validate_registry_identities(registry)
                 fgdc_id = os.path.splitext(os.path.basename(upload['json_file']))[0]
                 current = registry.get(fgdc_id, {})

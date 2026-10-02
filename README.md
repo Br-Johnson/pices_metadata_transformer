@@ -1001,3 +1001,5 @@ For issues or questions:
 Original FGDC XML attachments are available through the explicitly reviewed [artifact contract](docs/artifact_contract.md). Legacy records are not automatically reclassified. The [three-candidate decision packet](docs/readiness/2026-10-02/candidate_decisions.md) separates remaining source-policy decisions from completed offline engineering.
 
 Offline source classification can apply the exact, source-bound [Contact Source access interpretation](docs/readiness/2026-10-02/contact_source_cohort.md) alongside existing restoration authority. The documented optional flag preserves dataset restrictions, restricted XML, blank licenses and separate live QA/release gates.
+
+A narrow [sandbox canary handoff](docs/handoff/sandbox-canary-20261002/EXECUTOR.md) supports previously authorized historical duplicate tolerance for exactly three pinned sources. It requires the explicit `canary_plan` checker/service argument and a dedicated namespace-bound sandbox ledger; there is no global duplicate override. Production rejects the exception. The frozen plan, inventory freshness, own-run idempotency and draft-only gates remain mandatory.

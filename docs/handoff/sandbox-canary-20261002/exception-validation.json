@@ -1,0 +1,24 @@
+{
+  "base_runtime": "9379fd8f13255b95ffab7a2c6735525e1d5cf1de",
+  "offline_tests_passed": 232,
+  "exception_tests_passed": 25,
+  "independent_exception_tests_passed": 25,
+  "independent_review": "No remaining blocking findings under documented single-writer workflow",
+  "failing_first": [
+    "feature module absent",
+    "lost-ledger cached-grant reuse",
+    "published remote retry accepted",
+    "inventory refresh regranted lost source entry"
+  ],
+  "closed_by": [
+    "code-pinned source/payload/metadata and namespace",
+    "initialized ledger required",
+    "separate consumed create permissions for never-attempted sources only",
+    "unpublished/unsubmitted retry check"
+  ],
+  "legacy_cutoff_exclusive": "2026-10-02T00:00:00Z",
+  "max_actual_source_creates": 3,
+  "max_total_with_prior_synthetic": 4,
+  "production_exception": false,
+  "provider_writes_by_code_owner": 0
+}
