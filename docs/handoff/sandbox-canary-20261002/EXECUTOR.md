@@ -1,5 +1,10 @@
 # Frozen sandbox execution handoff
 
+**Current execution pause:** the prior constructor/response-guard failure remains
+unclassified. See `docs/readiness/2026-10-02/constructor_probe_diagnostics.md`.
+Do not issue another request until the guard source is reviewed and the parent
+dispatches a bounded diagnostic step. The duplicate exception does not clear this gate.
+
 The integration owner remains the sole code writer. The provider executor runs
 this frozen plan and reports evidence; it must not change code, source metadata,
 selection, inventory rules or failure handling. This branch adds the independently reviewed narrow sandbox duplicate exception

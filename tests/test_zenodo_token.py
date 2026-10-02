@@ -111,7 +111,7 @@ class TokenTests(unittest.TestCase):
                 rendered = traceback.format_exc()
             self.assertNotIn(token, rendered)
             self.assertNotIn(token, str(logger.mock_calls))
-            self.assertEqual(client.session.request.call_count, 4)
+            self.assertEqual(client.session.request.call_count, 1)
 
     def test_connection_error_wrapper_does_not_expose_cause(self):
         token = 'dummy-private-marker'

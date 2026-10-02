@@ -19,8 +19,48 @@ from scripts.logger import get_logger
 
 
 class ZenodoAPIError(Exception):
-    """Custom exception for Zenodo API errors."""
-    pass
+    """Bounded diagnostics; callers must supply fixed, credential-free messages."""
+
+    def __init__(self, message, *, stage='api_request', exception_type='unknown',
+                 status=None, retryable=False, attempt=1):
+        stages = {'constructor_probe', 'api_request', 'bucket_upload', 'request_prepare',
+                  'transport', 'response_status', 'response_json', 'response_owner', 'response_links'}
+        types = {'unknown', 'HTTPStatus', 'ProxyError', 'SSLError', 'ConnectTimeout',
+                 'ReadTimeout', 'Timeout', 'ConnectionError', 'InvalidHeader',
+                 'JSONDecodeError', 'RequestException', 'ValueError', 'AssertionError'}
+        self.diagnostics = {
+            'stage': stage if stage in stages else 'api_request',
+            'exception_type': exception_type if exception_type in types else 'unknown',
+            'status': status if type(status) is int and 100 <= status <= 599 else None,
+            'retryable': retryable is True,
+            'attempt': attempt if type(attempt) is int and 1 <= attempt <= 100 else 1,
+        }
+        # Call sites supply fixed messages; constructor wrapping discards originals.
+        suffix = (' [' + ', '.join(f'{key}={value}' for key, value in self.diagnostics.items()) + ']'
+                  if stage != 'api_request' or exception_type != 'unknown' or status is not None
+                  or retryable or attempt != 1 else '')
+        super().__init__(message + suffix)
+
+
+def _exception_diagnostics(exc, stage, attempt=1):
+    if isinstance(exc, ZenodoAPIError):
+        return dict(exc.diagnostics)
+    for cls, label, retryable in (
+            (requests.exceptions.JSONDecodeError, 'JSONDecodeError', False),
+            (requests.exceptions.ProxyError, 'ProxyError', False),
+            (requests.exceptions.SSLError, 'SSLError', False),
+            (requests.exceptions.InvalidHeader, 'InvalidHeader', False),
+            (requests.exceptions.ConnectTimeout, 'ConnectTimeout', True),
+            (requests.exceptions.ReadTimeout, 'ReadTimeout', True),
+            (requests.exceptions.Timeout, 'Timeout', True),
+            (requests.exceptions.ConnectionError, 'ConnectionError', True),
+            (requests.exceptions.RequestException, 'RequestException', False),
+            (ValueError, 'ValueError', False), (AssertionError, 'AssertionError', False)):
+        if isinstance(exc, cls):
+            return {'stage': stage, 'exception_type': label, 'status': None,
+                    'retryable': retryable, 'attempt': attempt}
+    return {'stage': stage, 'exception_type': 'unknown', 'status': None,
+            'retryable': False, 'attempt': attempt}
 
 
 class RateLimitError(ZenodoAPIError):
@@ -82,14 +122,18 @@ class ZenodoAPIClient:
     def _test_connection(self):
         """Test API connection and token validity."""
         try:
-            response = self._make_request('GET', 'deposit/depositions')
+            response = self._make_request('GET', 'deposit/depositions',
+                                          _diagnostic_stage='constructor_probe', _retry=False,
+                                          allow_redirects=False)
             if response.status_code == 200:
                 self.logger.log_info("Zenodo API connection successful")
             else:
-                raise ZenodoAPIError(f"API connection failed: {response.status_code}")
-        except Exception:
+                raise ZenodoAPIError('API connection failed', stage='constructor_probe',
+                                     exception_type='HTTPStatus', status=response.status_code)
+        except Exception as exc:
             # Exception text and chained tracebacks can contain Authorization.
-            raise ZenodoAPIError("Failed to connect to Zenodo API") from None
+            raise ZenodoAPIError('Zenodo constructor probe failed',
+                                 **_exception_diagnostics(exc, 'constructor_probe')) from None
     
     def _rate_limit_check(self):
         """Check and enforce rate limiting for both minute and hour limits."""
@@ -142,13 +186,14 @@ class ZenodoAPIClient:
         self.request_times.append(now)
         self.hourly_request_times.append(now)
     
-    def _make_request(self, method: str, endpoint: str, **kwargs) -> requests.Response:
+    def _make_request(self, method: str, endpoint: str, *, _diagnostic_stage='api_request',
+                      _retry=True, **kwargs) -> requests.Response:
         """Make a rate-limited request to the Zenodo API."""
         self._rate_limit_check()
         
         url = urljoin(self.api_url, endpoint)
         
-        retries = 0 if method.upper() == "POST" else self.max_retries
+        retries = 0 if method.upper() == "POST" or not _retry else self.max_retries
         kwargs.setdefault("timeout", 30)
         for attempt in range(retries + 1):
             try:
@@ -168,11 +213,12 @@ class ZenodoAPIClient:
                         time.sleep(retry_after)
                         continue
                     else:
-                        raise RateLimitError("Rate limit exceeded after retries")
+                        raise RateLimitError('Rate limit exceeded', stage=_diagnostic_stage,
+                                             exception_type='HTTPStatus', status=429,
+                                             retryable=True, attempt=attempt + 1)
                 
                 # Handle other errors
                 if response.status_code >= 400:
-                    error_msg = self._parse_error_response(response)
                     if attempt < retries and response.status_code >= 500:
                         # Retry on server errors
                         delay = self.retry_delay * (self.backoff_factor ** attempt)
@@ -180,18 +226,28 @@ class ZenodoAPIClient:
                         time.sleep(delay)
                         continue
                     else:
-                        raise ZenodoAPIError(f"API error: {error_msg}")
+                        raise ZenodoAPIError('API request failed', stage=_diagnostic_stage,
+                                             exception_type='HTTPStatus', status=response.status_code,
+                                             retryable=response.status_code >= 500, attempt=attempt + 1)
                 
                 return response
                 
-            except requests.exceptions.RequestException:
-                if attempt < retries:
+            except requests.exceptions.RequestException as exc:
+                diagnostics = _exception_diagnostics(exc, _diagnostic_stage, attempt + 1)
+                if attempt < retries and diagnostics['retryable']:
                     delay = self.retry_delay * (self.backoff_factor ** attempt)
                     self.logger.log_info(f"Request failed, retrying in {delay} seconds")
                     time.sleep(delay)
                     continue
                 else:
-                    raise ZenodoAPIError("Request failed after retries") from None
+                    raise ZenodoAPIError('API transport failed', **diagnostics) from None
+            except ZenodoAPIError as exc:
+                error_class = RateLimitError if isinstance(exc, RateLimitError) else ZenodoAPIError
+                raise error_class('API request failed',
+                                  **_exception_diagnostics(exc, _diagnostic_stage, attempt + 1)) from None
+            except Exception as exc:
+                raise ZenodoAPIError('API request validation failed',
+                                     **_exception_diagnostics(exc, _diagnostic_stage, attempt + 1)) from None
         
         raise ZenodoAPIError("Max retries exceeded")
     
@@ -263,8 +319,9 @@ class ZenodoAPIClient:
             try:
                 response = requests.put(upload_url, data=f, headers=headers,
                                         timeout=(10, 60), allow_redirects=False)
-            except requests.exceptions.RequestException:
-                raise ZenodoAPIError('File upload request failed') from None
+            except Exception as exc:
+                raise ZenodoAPIError('File upload request failed',
+                                     **_exception_diagnostics(exc, 'bucket_upload')) from None
             
             if response.status_code not in [200, 201]:
                 raise ZenodoAPIError(f"File upload failed with HTTP {response.status_code}")
