@@ -1,0 +1,11 @@
+# Reviewed Exxon primary citation profile
+
+The optional `--creator-interpretation-manifest docs/readiness/2026-10-02/exxon_citation_interpretation.json` enables one reviewed source-primary-citation interpretation. The default source QA remains conservative. This additive optional `artifact_policy.creator_interpretation` reference uses existing schema version 1 policy envelopes; older payloads without the reference require no migration.
+
+The manifest pins 821 explicit source IDs and original SHA-256 values, one exact plain primary citation origin, and three complete creator objects. Council remains an organization; James Bodkin and Thomas A. Dean receive only the affiliations explicitly attached by “of” in the source. No contact-derived initial is added. This credits the source citation; it does not establish XML or separately cited article authorship.
+
+The validator pins the full reviewed manifest bytes in code. Editing membership, evidence, scope or creator objects therefore needs a new code-reviewed profile; merely rehashing an arbitrary manifest is insufficient. QA rechecks manifest bytes and source membership/wording, and compares full creator objects, including affiliations and unexpected identifiers. Both agent assessment and human schema 1/schema 2 approval reread this evidence. Agent evidence fingerprints include the validator; collection cache fingerprints include the reference and all Python rules. A coherently rehashed cache cannot approve modified affiliations.
+
+Offline verification first used 10 records, then all 821 members. All 821 technical payloads pass; 414 become source-supported, 406 remain held for exact-copy alias adjudication, and FGDC-1994 retains its metadata-access hold. The compiler's independently bound 821 creator decisions equal every prepared full creator list. Copies equal originals; restricted access, blank licenses and attribution caveats remain. Neither these preparations nor source support grants publication or remote approval.
+
+`exxon_profile_validation.json` records counts and manifest digest. The independent source census membership digest is `c0c7562f0dc229b190596620be5c584e9ec1a6ec00ef20e5cf7b1f793710e84e`. No original FGDC files were edited. Alias resolution and FGDC-1994 access interpretation remain separate work; this profile deliberately cannot settle them.

@@ -17,6 +17,7 @@ from scripts.upload_service import assert_environment, atomic_json, metadata_has
 from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
 from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
 from scripts.source_access_interpretation import validate_interpretation
+from scripts.citation_creator_interpretation import validate_creator_interpretation
 
 
 QA_CHECKS = ('source_fidelity', 'dates', 'creators', 'rights', 'relations', 'metadata_only')
@@ -117,6 +118,12 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, rem
             raise ValueError('Access interpretation requires separate rehosting authority')
         validate_interpretation(policy['source_access_interpretation'], Path(source_path).stem,
                                 source_hash, ET.parse(source_path).getroot(), policy.get('reviewed_at'))
+    if artifact and payload['artifact_policy'].get('creator_interpretation') is not None:
+        expected_creators = validate_creator_interpretation(
+            payload['artifact_policy']['creator_interpretation'], Path(source_path).stem,
+            source_hash, ET.parse(source_path).getroot())
+        if metadata.get('creators') != expected_creators:
+            raise ValueError('Creator objects differ from reviewed primary citation interpretation')
     assert_artifact_binding(entry, artifact)
     if record.get('artifact_contract') != artifact:
         raise ValueError('QA artifact approval is stale or missing')

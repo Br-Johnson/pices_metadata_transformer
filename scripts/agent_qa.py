@@ -27,6 +27,7 @@ from scripts.verify_uploads import compare_metadata
 from scripts.matching.evidence import snapshot_inventory
 from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
 from scripts.source_access_interpretation import validate_interpretation
+from scripts.citation_creator_interpretation import validate_creator_interpretation
 
 
 def _text(root, path):
@@ -81,20 +82,30 @@ def assess_source(json_file, paths):
     names = [re.sub(r'\s+', ' ', ''.join(node.itertext())).strip() for node in origins]
     # Do not split ambiguous lists, initials, mixed XML or infer a creator from contacts.
     transformer = FGDCToZenodoTransformer()
-    expected = []
-    for node, name in zip(origins, names):
-        # The reviewed institutional name is not a surname in a comma-separated
-        # institution/person compound; keep appended identities for adjudication.
-        if name.startswith('Washington Sea Grant Program') and name != 'Washington Sea Grant Program':
-            raise ValueError('Creator semantics are ambiguous')
-        organization = _citation_organization(name, transformer)
-        if (list(node) or not name or '\n' in ''.join(node.itertext()) or ';' in name
-                or (organization and re.search(r',\s*[A-Z][a-z]+\s+[A-Z][a-z]+\s+(?:of|and)\b', name))
-                or (not organization and not re.fullmatch(r"[A-Za-z][A-Za-z' -]+, [A-Za-z][A-Za-z' -]+", name))):
-            raise ValueError('Creator semantics are ambiguous')
-        expected.append({'name': name, **({'type': 'Organization'} if organization else {})})
-    if compare_metadata({'creators': expected}, {'creators': metadata.get('creators')}):
-        raise ValueError('Creator order/name/type differs from primary citation')
+    creator_reference = payload.get('artifact_policy', {}).get('creator_interpretation')
+    if creator_reference is not None:
+        if not artifact:
+            raise ValueError('Creator interpretation requires an original XML artifact policy')
+        expected = validate_creator_interpretation(creator_reference, Path(source_path).stem, source_hash, root)
+        # Compare full objects: affiliations and unexpected identifiers must not
+        # disappear through the remote comparison helper's name/type projection.
+        if metadata.get('creators') != expected:
+            raise ValueError('Creator objects differ from reviewed primary citation interpretation')
+    else:
+        expected = []
+        for node, name in zip(origins, names):
+            # The reviewed institutional name is not a surname in a comma-separated
+            # institution/person compound; keep appended identities for adjudication.
+            if name.startswith('Washington Sea Grant Program') and name != 'Washington Sea Grant Program':
+                raise ValueError('Creator semantics are ambiguous')
+            organization = _citation_organization(name, transformer)
+            if (list(node) or not name or '\n' in ''.join(node.itertext()) or ';' in name
+                    or (organization and re.search(r',\s*[A-Z][a-z]+\s+[A-Z][a-z]+\s+(?:of|and)\b', name))
+                    or (not organization and not re.fullmatch(r"[A-Za-z][A-Za-z' -]+, [A-Za-z][A-Za-z' -]+", name))):
+                raise ValueError('Creator semantics are ambiguous')
+            expected.append({'name': name, **({'type': 'Organization'} if organization else {})})
+        if compare_metadata({'creators': expected}, {'creators': metadata.get('creators')}):
+            raise ValueError('Creator order/name/type differs from primary citation')
     interpreted_access = False
     if artifact:
         policy = payload['artifact_policy']
@@ -212,7 +223,7 @@ def assess(entry, paths, snapshot_path, duplicate_path):
         _timestamp(raw_snapshot.get('retrieved_at', ''))
     # HEAD alone does not describe rules executing from an uncommitted working tree.
     rules = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py', 'source_access_interpretation.py')}
+             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py', 'source_access_interpretation.py', 'citation_creator_interpretation.py')}
     return {'checks': dict.fromkeys(QA_CHECKS, True), 'rules_sha256': rules, 'source_sha256': source_hash,
             'metadata_sha256': metadata_hash(metadata), 'artifact_contract': artifact,
             'remote_snapshot': {'path': str(Path(snapshot_path).resolve()), 'sha256': metadata_hash(snapshot),

@@ -21,6 +21,7 @@ from scripts.path_config import OutputPaths
 from scripts.upload_service import atomic_json, metadata_hash, read_json, prepare_metadata
 from scripts.validate_zenodo import ZenodoValidator
 from scripts.source_access_interpretation import validate_interpretation
+from scripts.citation_creator_interpretation import validate_creator_interpretation
 
 
 def text(root, xpath):
@@ -28,7 +29,7 @@ def text(root, xpath):
     return re.sub(r'\s+', ' ', ''.join(node.itertext())).strip() if node is not None else ''
 
 
-def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None):
+def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None):
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     paths = OutputPaths(str(output), 'sandbox')
@@ -44,9 +45,17 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
         except OSError:
             access_digest = None  # Missing evidence is a source hold, not an exception to the rule.
         access_reference = {'manifest_path': str(access_interpretation_manifest), 'manifest_sha256': access_digest}
+    creator_reference = None
+    if creator_interpretation_manifest:
+        try:
+            creator_digest = hashlib.sha256(Path(creator_interpretation_manifest).read_bytes()).hexdigest()
+        except OSError:
+            creator_digest = None
+        creator_reference = {'manifest_path': str(creator_interpretation_manifest), 'manifest_sha256': creator_digest}
     profile_hash = metadata_hash({'rules': {str(file.relative_to(rules)): hashlib.sha256(file.read_bytes()).hexdigest()
                                  for file in sorted(rules.rglob('*.py'))},
-                                 'authority_reference': authority_reference, 'access_reference': access_reference})
+                                 'authority_reference': authority_reference, 'access_reference': access_reference,
+                                 'creator_reference': creator_reference})
     prior = read_json(output / 'classification.json', {})
     cache = {row['source_id']: row for row in prior.get('records', [])} if prior.get('profile_sha256') == profile_hash and prior.get('reviewed_at') == reviewed_at else {}
     records, buckets = [], defaultdict(list)
@@ -82,6 +91,14 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             title = text(root, './idinfo/citation/citeinfo/title')
             origins = [re.sub(r'\s+', ' ', ''.join(node.itertext())).strip()
                        for node in root.findall('./idinfo/citation/citeinfo/origin')]
+            interpreted_creators = None
+            if creator_reference:
+                try:
+                    interpreted_creators = validate_creator_interpretation(creator_reference, source.stem, digest, root)
+                except ValueError as exc:
+                    # Outside this pinned cohort, retain the conservative default.
+                    row['creator_interpretation_diagnostic'] = str(exc)
+                row['creator_interpretation'] = 'source_primary_citation_attribution' if interpreted_creators else 'not_established'
             metuc, metac = text(root, './metainfo/metuc'), text(root, './metainfo/metac')
             grant = _explicit_license(metuc)
             authority = None
@@ -131,6 +148,8 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                                              'Original source constraints preserved: ' + metuc)
             if interpreted_access:
                 policy['source_access_interpretation'] = access_reference
+            if interpreted_creators:
+                policy['creator_interpretation'] = creator_reference
             classification = {'inventory_complete': True, 'reviewer': policy['reviewer'], 'reviewed_at': reviewed_at,
                               'rationale': 'Descriptive source XML only; no underlying data included',
                               'files': [{'name': source.name, 'role': 'descriptive_metadata', 'evidence': 'Parsed source descriptive fields'}]}
@@ -145,7 +164,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             if not cache_valid:
                 source_copy.write_bytes(raw)
             transformer.active_decision = {'metadata': {'publication_date': metadata_date,
-                'creators': [{'name': name, **({'type': 'Organization'} if _citation_organization(name, transformer) else {})}
+                'creators': interpreted_creators or [{'name': name, **({'type': 'Organization'} if _citation_organization(name, transformer) else {})}
                              for name in origins], 'license': grant or ''},
                 'artifact_policy': policy, 'content_classification': classification}
             metadata = (cached_payload['metadata'] if cache_valid else
@@ -222,11 +241,12 @@ def main():
     parser.add_argument('--output-dir', required=True)
     parser.add_argument('--authority-manifest', help='Source-hash-bound user attestation; grants rehosting, never a new license')
     parser.add_argument('--access-interpretation-manifest', help='Exact Contact Source. dataset-acquisition interpretation; no license or release grant')
+    parser.add_argument('--creator-interpretation-manifest', help='Pinned Exxon primary citation attribution; no XML authorship or rights grant')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
         report = classify_collection(args.source_dir, args.output_dir, args.reviewed_at, args.authority_manifest,
-                                     args.access_interpretation_manifest)
+                                     args.access_interpretation_manifest, args.creator_interpretation_manifest)
     print(json.dumps(report['summary'], indent=2))
 
 
