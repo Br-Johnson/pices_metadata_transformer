@@ -14,6 +14,7 @@ from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
 from scripts.upload_service import validate_deposition_response, assert_environment, prepare_metadata, read_json
+from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
 
 
 def compare_metadata(original, zenodo):
@@ -154,7 +155,12 @@ class ZenodoVerifier:
             
             validate_deposition_response(deposition, deposition_id)
 
-            original_metadata, _, _ = prepare_metadata(json_file, self.paths)
+            original_metadata, source_path, source_hash = prepare_metadata(json_file, self.paths)
+            artifact = prepare_artifact(read_json(json_file), source_path)
+            assert_artifact_binding(upload, artifact)
+            if upload.get('source_sha256') != source_hash:
+                raise ValueError('Source changed since upload')
+            validate_files(deposition['files'], artifact)
 
             # Get Zenodo metadata
             zenodo_metadata = deposition.get('metadata', {})
@@ -165,7 +171,7 @@ class ZenodoVerifier:
             # Check if files were uploaded
             files_uploaded = len(deposition.get('files', [])) > 0
             
-            verification_successful = len(mismatches) == 0 and not files_uploaded
+            verification_successful = len(mismatches) == 0
             
             result = {
                 'deposition_id': deposition_id,
@@ -186,7 +192,7 @@ class ZenodoVerifier:
                 self.logger.log_warning(
                     json_file, "verification", "verification_failed",
                     f"Mismatches: {len(mismatches)}, Files uploaded: {files_uploaded}",
-                    "Complete metadata match with no attached files",
+                    "Complete metadata and reviewed file contract match",
                     f"Verification issues for deposition {deposition_id}",
                     "Review mismatches and fix if necessary"
                 )

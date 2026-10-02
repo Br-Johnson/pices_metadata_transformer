@@ -19,6 +19,7 @@ import fcntl
 
 from scripts.fgdc_utils import build_metadata_notes, load_fgdc_xml
 from scripts.validate_zenodo import ZenodoValidator
+from scripts.artifact_contract import prepare_artifact, artifact_metadata, validate_files, assert_artifact_binding
 
 
 def metadata_hash(metadata: dict) -> str:
@@ -122,6 +123,7 @@ def prepare_metadata(json_file, paths):
     if not xml:
         raise ValueError("Original FGDC XML required for source fidelity")
     metadata["notes"] = build_metadata_notes(metadata.get("notes", ""), xml)
+    metadata = artifact_metadata(metadata, payload, prepare_artifact(payload, xml_path))
     return metadata, xml_path, hashlib.sha256(Path(xml_path).read_bytes()).hexdigest()
 
 
@@ -141,11 +143,15 @@ class DraftUploadService:
         fingerprints = safe.get("metadata_hashes", {})
         pending = []
         for json_file in sorted(Path(self.paths.zenodo_json_dir).glob("*.json")):
-            metadata, _, _ = prepare_metadata(str(json_file), self.paths)
+            metadata, xml_path, source_hash = prepare_metadata(str(json_file), self.paths)
+            artifact = prepare_artifact(read_json(json_file), xml_path)
             digest = metadata_hash(metadata)
             entry = registry.get(json_file.stem, {})
             if entry:
                 assert_environment(entry, self.environment)
+                assert_artifact_binding(entry, artifact)
+                if entry.get('source_sha256') != source_hash:
+                    raise ValueError('Original source changed after draft creation')
                 if entry.get("needs_reconciliation"):
                     raise ValueError(f"{json_file.stem}: uncertain creation requires reconciliation")
                 if entry.get("metadata_sha256") != digest:
@@ -163,6 +169,7 @@ class DraftUploadService:
 
     def upload(self, json_file, client):
         metadata, xml_path, source_hash = prepare_metadata(json_file, self.paths)
+        artifact = prepare_artifact(read_json(json_file), xml_path)
         digest = metadata_hash(metadata)
         base = Path(json_file).stem
         if urlparse(client.base_url).hostname != expected_host(self.environment):
@@ -177,11 +184,20 @@ class DraftUploadService:
             previous = registry.get(base, {})
             if previous:
                 assert_environment(previous, self.environment)
+                assert_artifact_binding(previous, artifact)
+                if previous.get('source_sha256') != source_hash:
+                    raise ValueError('Original source changed after draft creation')
                 if previous.get("needs_reconciliation"):
                     raise ValueError("Uncertain creation requires reconciliation before retry")
                 if previous.get("metadata_sha256") != digest:
                     raise ValueError("Metadata changed; existing draft must be reviewed before updating")
                 if previous.get("upload_status") == "success":
+                    if artifact:
+                        remote = validate_deposition_response(client.get_deposition(previous['deposition_id']), previous['deposition_id'])
+                        validate_files(remote['files'], artifact)
+                        from scripts.verify_uploads import compare_metadata
+                        if compare_metadata(metadata, remote['metadata']):
+                            raise ValueError('Remote artifact metadata changed; human review required')
                     return dict(previous, success=True, json_file=json_file, metadata=metadata)
             else:
                 safe = read_json(self.paths.safe_to_upload_path, {})
@@ -193,6 +209,7 @@ class DraftUploadService:
             entry = dict(previous, json_file=str(json_file), metadata=metadata,
                          metadata_sha256=digest, source_sha256=source_hash,
                          fgdc_file=xml_path, environment=self.environment,
+                         artifact_contract=artifact,
                          timestamp=datetime.now(timezone.utc).isoformat(),
                          upload_status="pending", success=False,
                          zenodo_url=previous.get("zenodo_url", client.base_url + "/deposit/"))
@@ -214,8 +231,30 @@ class DraftUploadService:
                     entry["zenodo_url"] = f"{client.base_url}/deposit/{deposition['id']}"
                     entry["needs_reconciliation"] = False
                     save()  # Persist remote ID before metadata update.
-                updated = client.update_deposition_metadata(entry["deposition_id"], metadata,
-                                                            files={"enabled": False})
+                if artifact:
+                    from scripts.verify_uploads import compare_metadata
+                    remote = validate_deposition_response(client.get_deposition(entry['deposition_id']), entry['deposition_id'])
+                    if remote['state'] == 'done' or remote.get('submitted') is True:
+                        raise ValueError('Artifact upload requires an unpublished unsubmitted draft')
+                    missing = validate_files(remote['files'], artifact, allow_missing=True)
+                    if compare_metadata(metadata, remote['metadata']):
+                        client.update_deposition_metadata(entry['deposition_id'], metadata)
+                    if missing:
+                        # Upload an immutable snapshot, not a mutable source path; never edit the original.
+                        raw = Path(xml_path).read_bytes()
+                        if hashlib.sha256(raw).hexdigest() != source_hash:
+                            raise ValueError('Original artifact changed during upload preparation')
+                        with tempfile.TemporaryDirectory(prefix='fgdc-artifact-') as temporary:
+                            snapshot = Path(temporary) / Path(xml_path).name
+                            snapshot.write_bytes(raw)
+                            client.upload_file(entry['deposition_id'], str(snapshot), filename=snapshot.name)
+                    updated = validate_deposition_response(client.get_deposition(entry['deposition_id']), entry['deposition_id'])
+                    validate_files(updated['files'], artifact)
+                    if updated['state'] == 'done' or updated.get('submitted') is True or compare_metadata(metadata, updated['metadata']):
+                        raise ValueError('Draft artifact readback differs from intended payload')
+                else:
+                    updated = client.update_deposition_metadata(entry["deposition_id"], metadata,
+                                                                files={"enabled": False})
                 entry.update(success=True, upload_status="success", publish_status="draft",
                              doi=updated.get("metadata", {}).get("prereserve_doi", {}).get("doi"))
                 entry.pop("error", None)

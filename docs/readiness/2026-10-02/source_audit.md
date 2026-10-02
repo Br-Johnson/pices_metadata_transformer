@@ -1,6 +1,6 @@
 # Source audit and sandbox canary gate — 2026-10-02
 
-Audited transformation revision: `e85caaef8db418c6b4328122ec9fe83eea86aa75`. Twenty deliberately stratified original sources, including all five historical production imports. This is an offline strict-parser/build/validation audit, not a random sample, live-service test, or human publication approval. The public-to-source associations remain evidence-based associations, not proven upload provenance. No source edits or network operations.
+Initial transformation audit revision: `e85caaef8db418c6b4328122ec9fe83eea86aa75`. The saved JSON was rerun after the scoped NASA creator fix and identifies the exact transformer bytes with `transformer_sha256`. Twenty deliberately stratified original sources, including all five historical production imports. This is an offline strict-parser/build/validation audit, not a random sample, live-service test, or human publication approval. The public-to-source associations remain evidence-based associations, not proven upload provenance. No source edits or network operations.
 
 Reproduce from repository root: `python docs/readiness/2026-10-02/audit_sources.py`. The script blocks socket connections and writes the two evidence JSON files beside itself. Dependencies are the project dependencies.
 
@@ -51,7 +51,7 @@ Required decisions before any positive canary:
 1. Identify the deposited object: original descriptive XML artifact versus underlying research data; approve resource type, creator roles, and the date meaning. A metadata-artifact DOI must not be presented as the DOI of a cited research work.
 2. Record source-specific permission/license and access decision for that actual artifact. “None”, “Contact Source”, and restricted access are not blanket grants.
 3. Approve source aliases and existing-record disposition; preserve the five production IDs/DOIs. External AquaDocs inventory remains unchecked/unavailable, not checked-no-match.
-4. Adapt and test the file contract for a meaningful approved artifact. Current uploader/verifier assumes empty files; Zenodo requires at least one file. Do not use a dummy placeholder to bypass this.
+4. Exercise the new opt-in original XML artifact contract against authenticated sandbox readback after the human object/rights/date decisions. Offline attachment, retry, readback and stale approval regressions now pass; no live compatibility claim is made. Do not use a dummy placeholder to bypass the file requirement.
 5. Provide authenticated sandbox access through an authorized secure session. This execution environment exposes no authenticated Zenodo connector/session. No token values were read.
 
 After these gates: at most three approved sandbox draft creates, exact file/metadata readback and unchanged rerun; record IDs, environment, source/metadata/file hashes, before/after results. No publication or community submission. Report evidence before expanding. Production remains a separate environment and draft-until-human-QA.
@@ -61,3 +61,7 @@ After these gates: at most three approved sandbox draft creates, exact file/meta
 The API documentation describes `inprogress` with `submitted:false` as an editable draft. Shared response validation now accepts that documented state, retaining the prior `unsubmitted` representation. `inprogress` with submitted true is blocked. An offline mock regression verifies the eligible draft and the submitted-state rejection. No real publication was attempted.
 
 Official references: [API and sandbox](https://developers.zenodo.org/), [file requirement](https://support.zenodo.org/help/en-gb/1-upload-deposit/36-do-you-support-metadata-only-records). Evidence: [sample JSON](representative_spotcheck.json), [exact-copy groups](exact_source_copy_groups.json).
+
+## Subsequent scoped engineering checkpoint
+
+The opt-in original XML artifact contract is implemented; see [contract and activation](../../artifact_contract.md). Source/file/policy/role evidence is bound through metadata and the environment ledger/QA manifest. The candidate review found NASA being split into two personal creators; a regression now preserves the full organizational name. The sample was rerun, preserving the 11/4/3/2 technical-status counts. All candidate source-policy decisions remain pending; see [decision packet](candidate_decisions.md).

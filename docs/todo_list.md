@@ -173,5 +173,5 @@ Production remains draft until human QA. This entry supersedes any earlier autom
 - [x] Audit 20 stratified raw sources offline, including all five production imports and a missing-primary-date case; save source hashes, field comparisons, holds and duplicate evidence under `docs/readiness/2026-10-02/`.
 - [x] Validate documented editable `inprogress` draft response and reject submitted drafts; add mock regression.
 - [ ] Obtain source-specific rights, deposited-object/date/creator decisions; zero audited cases are currently approved for a live canary.
-- [ ] Adapt the current empty-file contract for approved meaningful source artifacts, with checksum/readback/resume tests.
+- [x] Implement the opt-in reviewed original XML artifact contract with source/policy/file hashes, checksum/readback/resume tests and stale QA rejection; authenticated live compatibility remains pending.
 - [ ] Establish authorized authenticated sandbox session, then run at most three approved draft canaries and idempotence readback before expansion. No publication or community submission.

@@ -10,6 +10,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from scripts.path_config import OutputPaths
+from scripts.artifact_contract import prepare_artifact, validate_files
 from scripts.upload_service import validate_deposition_response, validate_registry_identities, atomic_json, expected_host, ledger_lock, metadata_hash, prepare_metadata, read_json
 
 
@@ -24,10 +25,12 @@ def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
             or endpoint.path.rstrip('/') != f"/api/deposit/depositions/{record['id']}"):
         raise ValueError('Verified environment-matched deposition response required')
     validate_deposition_response(record, record['id'])
-    if record['state'] not in ('unsubmitted', 'inprogress') or record.get('submitted') or record['files']:
-        raise ValueError('Only an unpublished metadata-only draft may be reconciled for upload resume')
+    if record['state'] not in ('unsubmitted', 'inprogress') or record.get('submitted'):
+        raise ValueError('Only an unpublished draft may be reconciled for upload resume')
     json_file = str(Path(paths.zenodo_json_dir) / f'{fgdc_id}.json')
     metadata, source_path, source_hash = prepare_metadata(json_file, paths)
+    artifact = prepare_artifact(read_json(json_file), source_path)
+    validate_files(record['files'], artifact, allow_missing=True)
     digest = metadata_hash(metadata)
     if snapshot.get('confirmed_metadata_sha256') != digest or snapshot.get('confirmed_source_sha256') != source_hash:
         raise ValueError('Human source correlation does not match current source/payload hashes')
@@ -42,6 +45,7 @@ def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
         registry[fgdc_id] = dict(existing, environment=paths.environment,
             json_file=json_file, fgdc_file=source_path, metadata=metadata,
             metadata_sha256=digest, source_sha256=source_hash, deposition_id=record['id'],
+            artifact_contract=artifact,
             zenodo_url=f'https://{endpoint.hostname}/deposit/{record["id"]}',
             needs_reconciliation=False, upload_status='pending', success=False, publish_status='draft',
             reconciliation={'reviewer': reviewer, 'rationale': rationale, 'endpoint': snapshot['endpoint'],

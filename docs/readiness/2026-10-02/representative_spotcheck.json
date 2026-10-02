@@ -1,6 +1,7 @@
 {
   "scope": "20 intentionally stratified cases; not random sample, population estimate, human signoff or live API validation. Raw source comparisons independent of validation output.",
-  "source_revision": "e85caaef8db418c6b4328122ec9fe83eea86aa75",
+  "source_revision": "worktree identified by transformer_sha256",
+  "transformer_sha256": "3cbc1a1bba6c8fa6dda9648c4ce0f55da0bc89d50969fa6970751c41a20ab738",
   "counts": {
     "transformation_hold": 11,
     "validation_hold": 4,
@@ -670,10 +671,8 @@
         "publication_date": "1978-01-01",
         "creators": [
           {
-            "name": "Aeronautics, National"
-          },
-          {
-            "name": "(NASA), Space Administration"
+            "name": "National Aeronautics and Space Administration (NASA)",
+            "type": "Organization"
           }
         ],
         "license": "",

@@ -9,9 +9,10 @@ import time
 import os
 from datetime import datetime, timedelta
 from typing import Dict, List, Any, Optional, Tuple
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, quote
 import logging
 import sys
+from uuid import UUID
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.logger import get_logger
@@ -240,18 +241,38 @@ class ZenodoAPIClient:
         
         # Get deposition to get bucket URL
         deposition = self.get_deposition(deposition_id)
+        if (not isinstance(deposition, dict) or type(deposition.get('id')) is not int
+                or deposition['id'] != deposition_id):
+            raise ZenodoAPIError('Bucket response does not identify the requested deposition')
         bucket_url = deposition['links']['bucket']
+        bucket = urlparse(bucket_url)
+        expected = 'sandbox.zenodo.org' if self.sandbox else 'zenodo.org'
+        if (bucket.scheme != 'https' or bucket.hostname != expected
+                or bucket.netloc != expected or bucket.query or bucket.fragment
+                or not bucket.path.startswith('/api/files/')
+                or len(bucket.path.strip('/').split('/')) != 3):
+            raise ZenodoAPIError('File bucket URL does not match the selected environment')
+        bucket_id = bucket.path.strip('/').split('/')[-1]
+        try:
+            if str(UUID(bucket_id)) != bucket_id:
+                raise ValueError('Noncanonical bucket ID')
+        except ValueError as exc:
+            raise ZenodoAPIError('File bucket requires a canonical UUID identifier') from exc
+        if (not isinstance(filename, str) or not filename or filename in ('.', '..')
+                or '/' in filename or '\\' in filename):
+            raise ZenodoAPIError('File upload requires a safe basename')
         
         # Upload file to bucket
-        upload_url = f"{bucket_url}/{filename}"
+        upload_url = f"{bucket_url.rstrip('/')}/{quote(filename, safe='')}"
         
         with open(file_path, 'rb') as f:
             # Use direct requests call to avoid Content-Type header issues
             headers = {'Authorization': f'Bearer {self.access_token}'}
-            response = requests.put(upload_url, data=f, headers=headers)
+            response = requests.put(upload_url, data=f, headers=headers,
+                                    timeout=(10, 60), allow_redirects=False)
             
             if response.status_code not in [200, 201]:
-                raise ZenodoAPIError(f"File upload failed: {response.status_code} - {response.text}")
+                raise ZenodoAPIError(f"File upload failed with HTTP {response.status_code}")
         
         return response.json()
     

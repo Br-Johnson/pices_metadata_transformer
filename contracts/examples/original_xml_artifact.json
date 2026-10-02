@@ -1,0 +1,47 @@
+{
+  "purpose": "Offline synthetic contract example; never use as approval for real sources",
+  "source_filename": "sample.xml",
+  "source_utf8": "<metadata><title>Descriptive catalogue entry</title></metadata>",
+  "transformed_payload": {
+    "metadata": {
+      "title": "Original XML metadata artifact",
+      "upload_type": "other",
+      "publication_date": "2000-01-01",
+      "description": "Descriptive catalogue entry",
+      "creators": [
+        {
+          "name": "Example Institute",
+          "type": "Organization"
+        }
+      ],
+      "access_right": "open",
+      "license": "cc-by-4.0",
+      "notes": ""
+    },
+    "artifact_policy": {
+      "schema_version": 1,
+      "object_kind": "original_fgdc_xml",
+      "resource_type": "other",
+      "date_semantics": "source_metadata_date",
+      "source_sha256": "8daf0573d6476938af258e528a173af19f1b58b7950b0f1c764807b2b2311810",
+      "reviewer": "Fixture reviewer",
+      "reviewed_at": "2026-10-02",
+      "rationale": "Synthetic example only",
+      "rights_evidence": "Synthetic fixture grant, not permission for any real source",
+      "date_evidence": "Synthetic fixture date, not approval of a real source date"
+    },
+    "content_classification": {
+      "inventory_complete": true,
+      "reviewer": "Fixture reviewer",
+      "reviewed_at": "2026-10-02",
+      "rationale": "Synthetic XML inspection",
+      "files": [
+        {
+          "name": "sample.xml",
+          "role": "descriptive_metadata",
+          "evidence": "Synthetic XML has descriptive fields"
+        }
+      ]
+    }
+  }
+}

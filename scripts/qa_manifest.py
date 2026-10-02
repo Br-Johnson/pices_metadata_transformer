@@ -13,6 +13,7 @@ from pathlib import Path
 
 from scripts.path_config import OutputPaths
 from scripts.upload_service import assert_environment, atomic_json, metadata_hash, prepare_metadata, read_json
+from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
 
 
 QA_CHECKS = ('source_fidelity', 'dates', 'creators', 'rights', 'relations', 'metadata_only')
@@ -27,12 +28,15 @@ def prepare_manifest(paths):
         if fgdc_id.startswith('_') or entry.get('upload_status') != 'success':
             continue
         assert_environment(entry, paths.environment)
-        metadata, _, source_hash = prepare_metadata(entry['json_file'], paths)
+        metadata, source_path, source_hash = prepare_metadata(entry['json_file'], paths)
+        artifact = prepare_artifact(read_json(entry['json_file']), source_path)
+        assert_artifact_binding(entry, artifact)
         if metadata_hash(metadata) != entry.get('metadata_sha256') or source_hash != entry.get('source_sha256'):
             raise ValueError(f'{fgdc_id}: draft/source payload changed; reconcile before QA')
         records.append({
             'fgdc_id': fgdc_id, 'deposition_id': entry['deposition_id'],
             'metadata_sha256': entry['metadata_sha256'], 'source_sha256': entry['source_sha256'],
+            'artifact_contract': artifact,
             'duplicate_review': {'status': 'pending', 'classification': None, 'rationale': '', 'evidence': []},
             'qa': {'approved': False, 'reviewer': '', 'reviewed_at': '', 'rationale': '',
                    'checks': {check: False for check in QA_CHECKS}},
@@ -44,7 +48,7 @@ def prepare_manifest(paths):
             'prepared_at': datetime.now(timezone.utc).isoformat(), 'records': records}
 
 
-def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None):
+def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, remote_files=None):
     assert_environment(entry, paths.environment)
     if (not manifest or manifest.get('schema_version') != 1
             or manifest.get('environment') != paths.environment or not manifest.get('source_revision')):
@@ -53,7 +57,11 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None):
     if len(matches) != 1:
         raise ValueError(f'{fgdc_id}: exactly one QA record required')
     record = matches[0]
-    metadata, _, source_hash = prepare_metadata(entry['json_file'], paths)
+    metadata, source_path, source_hash = prepare_metadata(entry['json_file'], paths)
+    artifact = prepare_artifact(read_json(entry['json_file']), source_path)
+    assert_artifact_binding(entry, artifact)
+    if record.get('artifact_contract') != artifact:
+        raise ValueError('QA artifact approval is stale or missing')
     if (record.get('deposition_id') != entry.get('deposition_id')
             or record.get('metadata_sha256') != entry.get('metadata_sha256')
             or record.get('metadata_sha256') != metadata_hash(metadata)
@@ -74,6 +82,8 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None):
         from scripts.verify_uploads import compare_metadata
         if compare_metadata(metadata, remote_metadata):
             raise ValueError('Remote draft differs from the QA-approved payload')
+    if remote_files is not None:
+        validate_files(remote_files, artifact)
     return record
 
 

@@ -53,7 +53,8 @@ class FGDCToZenodoTransformer:
             r'center', r'lab', r'department', r'ministry', r'agency',
             r'corporation', r'inc\.', r'ltd\.', r'corp\.', r'commission', r'office',
             r'\bservice\b', r'\bcentre\b', r'\bbureau\b', r'\bdept\.?',
-            r'\bcouncil\b', r'\bsurvey\b', r'\buniv\.?', r'\bsociety\b'
+            r'\bcouncil\b', r'\bsurvey\b', r'\buniv\.?', r'\bsociety\b',
+            r'\bnasa\b', r'\bnational aeronautics and space administration\b'
         ]
         self.pices_publisher = "North Pacific Marine Science Organization"
         self.pices_contributor = {
@@ -167,6 +168,7 @@ class FGDCToZenodoTransformer:
             self.logger.log_info(f"Successfully transformed {xml_path}")
             return {
                 "metadata": zenodo_metadata,
+                **({'artifact_policy': self.active_decision['artifact_policy']} if 'artifact_policy' in self.active_decision else {}),
                 "content_classification": classify_content(self.active_decision.get("content_classification")),
                 "original_fgdc_file": os.path.basename(xml_path),
                 "character_analysis": {
@@ -235,7 +237,11 @@ class FGDCToZenodoTransformer:
                 metadata['license'] = overrides['license']
             if self.active_decision:
                 metadata['notes'] += '\n\nCurator decision: ' + json.dumps(
-                    {key: value for key, value in self.active_decision.items() if key != 'content_classification'}, sort_keys=True)
+                    {key: value for key, value in self.active_decision.items() if key not in ('content_classification', 'artifact_policy')}, sort_keys=True)
+
+            if self.active_decision.get('artifact_policy'):
+                # Explicit object decision; dates/rights still come from reviewed metadata, never inferred here.
+                metadata['upload_type'] = self.active_decision['artifact_policy'].get('resource_type')
 
             # Force publisher to PICES (original publisher retained in imprint_publisher)
             metadata['publisher'] = self.pices_publisher

@@ -18,6 +18,8 @@ from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
 from scripts.upload_service import validate_registry_identities, validate_deposition_response, assert_environment, atomic_json, ledger_lock, read_json
 from scripts.qa_manifest import validate_approval
+from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
+from scripts.upload_service import prepare_metadata
 
 
 class RecordPublisher:
@@ -151,7 +153,7 @@ class RecordPublisher:
                 fgdc_id = os.path.splitext(os.path.basename(upload['json_file']))[0]
                 current = registry.get(fgdc_id, {})
                 if any(current.get(key) != upload.get(key) for key in
-                       ('deposition_id', 'metadata_sha256', 'source_sha256', 'environment', 'json_file')):
+                       ('deposition_id', 'metadata_sha256', 'source_sha256', 'environment', 'json_file', 'artifact_contract')):
                     raise ValueError('Upload ledger binding changed before publication')
                 return self._publish_locked(upload)
         except Exception as exc:
@@ -182,14 +184,16 @@ class RecordPublisher:
                 }
             
             validate_deposition_response(deposition, deposition_id)
+            _, source_path, _ = prepare_metadata(json_file, self.paths)
+            artifact = prepare_artifact(read_json(json_file), source_path)
+            assert_artifact_binding(upload, artifact)
+            validate_files(deposition['files'], artifact)
 
             if not self.sandbox:
-                validate_approval(self.qa_manifest, fgdc_id, upload, self.paths, deposition.get('metadata', {}))
+                validate_approval(self.qa_manifest, fgdc_id, upload, self.paths, deposition.get('metadata', {}), deposition['files'])
 
             # Check if already published
             if deposition.get('state') == 'done':
-                if deposition.get('files'):
-                    raise ValueError('Published record has unexpected attached files')
                 metadata_payload = deposition.get('metadata', {})
                 communities = metadata_payload.get('communities', []) or []
                 if not any(comm.get('identifier') == 'pices' for comm in communities):
@@ -216,9 +220,6 @@ class RecordPublisher:
                     }
                 }
             
-            if deposition.get('files'):
-                raise ValueError('Unexpected attached files require human review; publication blocked')
-
             # Publish the deposition
             published_deposition = self.client.publish_deposition(deposition_id)
             
@@ -257,11 +258,13 @@ class RecordPublisher:
                 )
             
             confirmed = validate_deposition_response(final_deposition or published_deposition, deposition_id)
-            if confirmed['files']:
-                raise ValueError('Published record has unexpected attached files')
+            validate_files(confirmed['files'], artifact)
             final_state = confirmed['state']
             if final_state != 'done':
                 raise ValueError('Publication state is unconfirmed; reconcile before retry')
+            if not self.sandbox:
+                validate_approval(self.qa_manifest, fgdc_id, upload, self.paths,
+                                  confirmed['metadata'], confirmed['files'])
             self._record_publication(fgdc_id, deposition_id, communities)
 
             result = {
