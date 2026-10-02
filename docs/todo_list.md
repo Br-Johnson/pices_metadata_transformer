@@ -225,3 +225,19 @@ Original FGDC XML plus explicit source-backed corrections establishes metadata t
 - [ ] Review narrower residual cohorts, retain alias/access holds, and separately establish future provider/readback/release gates.
 
 See [cloud integration evidence](readiness/2026-10-02/cloud_integration.md).
+
+
+## Unpushed registration cohort and production goal — 2026-10-02
+
+- [x] Keep published PR8 `d39cc21` frozen; Codex review quota blocker remains explicit.
+- [x] Rank all 2,872 held sources with exact context hashes and narrower residuals.
+- [x] Independently audit 122 database-registration source contexts; capture pre-change 122-held baseline.
+- [x] Add source-backed, separately authority-gated optional interpretation; 196 tests and bounded 10/122 source checks pass.
+- [x] Independently review source bindings, all human/agent routes and unchanged metadata; 78 supported / 44 creator holds.
+- [x] Verify fresh/resumed full corpus: 1,406 supported / 2,794 held / six malformed; only 78 promotions; all 4,206 originals, 4,200 copies and 4,194 complete metadata objects unchanged.
+- [ ] Establish approved API connectivity and secure credential provisioning; current runtime probes fail before HTTP and no credentials are available.
+- [ ] Complete sandbox canaries, protected production identity/DOI guards, fresh duplicate and remote QA evidence, exact release binding and bounded verified publication under Brett's 21:09 UTC production goal.
+
+The new goal authorizes publication of defensible records; it does not invent
+remote evidence, grant credentials or authorize merge/deletion/billing changes.
+This local cohort has not been pushed or used for a provider operation.

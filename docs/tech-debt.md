@@ -121,3 +121,25 @@ is not semantic approval. Historical sandbox duplicates may be acceptable for a
 future labeled cohort, but its explicit routing is not implemented; current
 inventory, new-run retry and production DOI safeguards remain in force. No
 provider operation or credential transfer is part of this repair.
+
+
+### 2026-10-02: Explicit database-registration interpretation (local only)
+
+The exact 122-member source context describes obtaining/downloading data via
+underlying research databases. A pinned SOURCE_BACKED interpretation preserves
+all raw constraints and complete metadata, while separate USER_ATTESTED XML
+rehosting authority remains mandatory. It does not generalize the Contact Source
+attestation, assign a license, infer creators, or register with any database.
+The 78 access-only cases become supported; 23 ambiguous and 21 empty creators
+remain held. Original abstract markup is bound by parsed-subtree hash plus text
+rather than falsely assumed to be a plain leaf. Each full source hash is pinned.
+
+New production-goal authority does not supply operational evidence. Connectivity
+and credential provisioning are absent; current client reads cwd .env only.
+Before live creation, enforce protected historical source-to-record identities;
+before publication, explicitly verify immutable record/DOI identity. Published
+metadata editing and richer external duplicate adjudication require separately
+tested routes. Never use draft recovery for published IDs or replace unknown
+state with a new record. See the local production critical path and planning
+manifest; the published PR8 code remains frozen while GitHub review quota blocks
+a substantive final-head automated verdict.
