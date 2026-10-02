@@ -200,3 +200,13 @@ Brett explicitly delegated record QA to agents, superseding human-per-record req
 - [x] Capture the focused missing-behavior RED, then implement the exact source/policy binding alongside separate restricted-file restoration authority.
 - [x] Complete restriction/lifecycle controls, ten-source preparation, 147 socket-blocked tests, and byte-identical fresh/resumed whole-collection QA: 914 supported preparations/3,286 held/six malformed; 8,406 source/copy hash checks and 4,194 unchanged raw metadata objects. See `readiness/2026-10-02/contact_source_cohort.md`.
 - [ ] Complete independent review; sandbox readback, aliases and production release remain separate gates. This batch has no push or provider-write authorization.
+
+## PR8 source and batch review findings — 2026-10-02
+
+- [x] Repair canonical FGDC source precedence and reject divergent/ambiguous available copies without changing originals or compatible fallback.
+- [x] Filter eligible pending uploads before applying the wrapper limit; make existing per-invocation statistics truthful.
+- [x] Capture intended failing-first regressions, 76 focused socket/subprocess-blocked passing tests and the synthetic limit-ten smoke.
+- [ ] Complete the full socket/subprocess-blocked suite and independent review after resuming in the approved execution environment. Work is checkpointed because Brett requested a pause and Cloud transfer; no publication has occurred for these fixes.
+- [ ] Update the current runbook, candidate canary guidance and technical debt to reflect cluster-first curation and the fresh labeled canary direction. Existing inventory code gates remain unchanged; selector composition and conflict handling are being developed separately and are not part of this checkpoint.
+
+Original FGDC XML plus explicit source-backed corrections establishes metadata truth. Existing sandbox records provide reconciliation and API-delivery evidence, not a metadata baseline to reproduce.

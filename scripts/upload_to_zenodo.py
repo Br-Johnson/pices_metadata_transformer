@@ -84,15 +84,20 @@ class ZenodoUploader:
         return json_files
     
     def upload_files(self, json_files: List[str], limit: int = None) -> Dict[str, Any]:
-        """Upload JSON files to Zenodo."""
+        """Limit pending inputs; report this invocation while preserving the durable ledger."""
+        self.upload_log.clear()
+        self.upload_errors.clear()
+        for key in self.stats:
+            self.stats[key] = 0
+        pending = set(DraftUploadService(self.paths, self.environment).pending_files())
+        eligible = [path for path in json_files if path in pending]
+        self.stats['skipped_files'] = len(json_files) - len(eligible)
+        json_files = eligible
         if limit:
             json_files = json_files[:limit]
             self.logger.log_info(f"Uploading limited to {limit} files")
         
         self.stats['total_files'] = len(json_files)
-        
-        pending = set(DraftUploadService(self.paths, self.environment).pending_files())
-        json_files = [path for path in json_files if path in pending]
 
         # Process files with progress bar
         for json_file in tqdm(json_files, desc="Uploading to Zenodo"):
