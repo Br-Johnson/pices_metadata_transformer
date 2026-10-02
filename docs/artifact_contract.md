@@ -19,11 +19,11 @@ Required policy fields:
 | `date_semantics` | `source_metadata_date` or `metadata_artifact_publication`, explicitly reviewed |
 | `date_evidence` | Evidence supporting the exact submitted date and its meaning |
 | `rights_evidence` | Permission/license/access evidence applicable to the XML artifact |
-| `reviewer`, `reviewed_at`, `rationale` | Nonempty human review provenance |
+| `reviewer`, `reviewed_at`, `rationale` | Honest human or authorized agent preparer provenance |
 
 Also provide the existing `content_classification`: complete reviewed inventory with exactly one file, its actual original basename, role `descriptive_metadata`, evidence, reviewer, review date and rationale. This yields `metadata_only`. The preparer exports `pices-metadata-only` and an explicit description/notes statement identifying the XML object. Scientific tags and underlying source content remain preserved.
 
-The option does not infer a license or select a date. Existing metadata validation and production human-QA checks still apply. A textual evidence field is documentation supplied by the reviewer, not independently verified permission. Do not fill it with a placeholder to authorize a real upload. Policy/source mismatches, an unsupported resource type, or a conflicting file inventory block preparation.
+The option does not infer a license or select a date. Existing metadata validation and production evidence-bound record-QA and separate release checks still apply. A textual evidence field is documentation supplied by the reviewer, not independently verified permission. Do not fill it with a placeholder to authorize a real upload. Policy/source mismatches, an unsupported resource type, or a conflicting file inventory block preparation.
 
 ## Identity, transfer and recovery
 
@@ -37,6 +37,6 @@ Verification and production QA/publication use the same exact file contract. Cha
 
 ## Operational boundary
 
-No real records have been attached, published or deleted while implementing this feature. Live compatibility is pending a secure authenticated sandbox session and source-policy approval. Use the [three-candidate decision packet](readiness/2026-10-02/candidate_decisions.md), at most three approved draft canaries, readback and an unchanged rerun before expansion. Do not submit those drafts to a community: acceptance can publish them. Production remains draft until human QA.
+No real records have been attached, published or deleted while implementing this feature. Live compatibility is pending a secure authenticated sandbox session and fresh scoped inventory. Authentic publication policy is separate from already authorized nonpublishing technical tests. Use the [three-candidate decision packet](readiness/2026-10-02/candidate_decisions.md), at most three approved draft canaries, readback and an unchanged rerun before expansion. Do not submit those drafts to a community: acceptance can publish them. Production remains draft until supported record QA and separate explicit release.
 
 Offline coverage is in `tests/test_artifact_contract.py`: attachments and exact readback, idempotent rerun, lost responses, missing/corrupt/foreign files, source/policy changes, QA binding, mocked production final drift, reconciliation, and bucket identity/environment/redirect checks. Original sources are never edited.

@@ -18,7 +18,7 @@ rows=[]
 with patch('scripts.fgdc_to_zenodo.get_logger',return_value=Mock()),patch('scripts.validate_zenodo.get_logger',return_value=Mock()):
  t=FGDCToZenodoTransformer();v=ZenodoValidator()
  for sid in ids:
-  p=Path('FGDC')/(sid+'.xml');raw=p.read_bytes();row={'source_id':sid,'source_sha256':hashlib.sha256(raw).hexdigest(),'file_bytes':len(raw),'remote_write_eligible':False,'human_semantic_holds':['Deposited-object/DOI/date/creator/rights policy not yet signed off.','No reviewed external inventory or final source-to-existing-record disposition.']}
+  p=Path('FGDC')/(sid+'.xml');raw=p.read_bytes();row={'source_id':sid,'source_sha256':hashlib.sha256(raw).hexdigest(),'file_bytes':len(raw),'remote_write_eligible':False,'publication_semantic_holds':['Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.','No reviewed external inventory or final source-to-existing-record disposition.']}
   try:root=ET.fromstring(raw)
   except ET.ParseError as exc:row.update(technical_status='raw_xml_parse_hold',parse_error=str(exc));rows.append(row);continue
   def f(path):
@@ -33,13 +33,13 @@ with patch('scripts.fgdc_to_zenodo.get_logger',return_value=Mock()),patch('scrip
    row.update(technical_status='offline_contract_pass' if not issues else 'validation_hold',validation_issues=issues,transformed_fields={key:metadata.get(key) for key in ('publication_date','creators','license','access_right','keywords')})
    row['source_comparison']={'title_equal':metadata['title']==source['title'],'description_includes_raw_abstract':source['abstract'] in metadata['description'],'description_preserves_abstract_after_whitespace_normalization':re.sub(r'\s+', ' ',source['abstract']).strip() in re.sub(r'\s+', ' ', metadata['description']).strip(),'raw_xml_in_notes':raw.decode().strip() in metadata['notes']}
   if not source['publication_date']:
-   row['human_semantic_holds'].append('Primary publication date absent; metadata-date fallback is technically accepted but requires explicit deposited-object/date review.')
-  if source['publication_date']=='122003':row['human_semantic_holds'].append('Raw122003 ambiguous; cited publication year and metadata_date are different concepts.')
-  if re.search(r'Unknown|Present|thru|Planned|Unpublished',source['publication_date'],re.I):row['human_semantic_holds'].append('Primary date is unknown/status/coverage, not an established individual publication date.')
-  if source['publication_date'] in ('September 2001','October 2001'):row['human_semantic_holds'].append('Month precision requires representation rule; do not invent a known day.')
-  if '-' in source['publication_date'] and not re.fullmatch(r'\d{4}-\d{2}-\d{2}',source['publication_date']):row['human_semantic_holds'].append('Range must be retained; parser acceptance alone does not establish publication date.')
-  row['human_semantic_holds'].append('Source use constraints do not establish a recognized license grant; restricted access does not resolve rights.')
-  if sid in ('FGDC-2920','FGDC-3148'):row['human_semantic_holds'].append('Same title/ProCite438 pair requires source/work/subset comparison, not automatic title dedup.')
+   row['publication_semantic_holds'].append('Primary publication date absent; metadata-date fallback is technically accepted but requires explicit deposited-object/date review.')
+  if source['publication_date']=='122003':row['publication_semantic_holds'].append('Raw122003 ambiguous; cited publication year and metadata_date are different concepts.')
+  if re.search(r'Unknown|Present|thru|Planned|Unpublished',source['publication_date'],re.I):row['publication_semantic_holds'].append('Primary date is unknown/status/coverage, not an established individual publication date.')
+  if source['publication_date'] in ('September 2001','October 2001'):row['publication_semantic_holds'].append('Month precision requires representation rule; do not invent a known day.')
+  if '-' in source['publication_date'] and not re.fullmatch(r'\d{4}-\d{2}-\d{2}',source['publication_date']):row['publication_semantic_holds'].append('Range must be retained; parser acceptance alone does not establish publication date.')
+  row['publication_semantic_holds'].append('Source use constraints do not establish a recognized license grant; restricted access does not resolve rights.')
+  if sid in ('FGDC-2920','FGDC-3148'):row['publication_semantic_holds'].append('Same title/ProCite438 pair requires source/work/subset comparison, not automatic title dedup.')
   declaration={'inventory_complete':True,'reviewer':'Offline preparer, not final publication approver','reviewed_at':'2026-10-02','rationale':'Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.','files':[{'name':sid+'.xml','role':'descriptive_metadata','evidence':'Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions.'}]}
   row['proposed_file_role_classification']=classify_content(declaration)
   rows.append(row)
@@ -64,3 +64,22 @@ for source_path in sorted(Path('FGDC').glob('*.xml')):
 groups = [{'source_sha256':digest,'source_ids':aliases} for digest,aliases in buckets.items() if len(aliases)>1]
 copy_report = {'scope':'Exact raw byte equivalence only; not title/semantic/work/rights equivalence.','source_files':sum(map(len,buckets.values())),'unique_raw_byte_contents':len(buckets),'exact_copy_groups':len(groups),'files_in_exact_copy_groups':sum(len(g['source_ids']) for g in groups),'redundant_raw_copies':sum(len(g['source_ids'])-1 for g in groups),'groups':groups}
 Path(__file__).with_name('exact_source_copy_groups.json').write_text(json.dumps(copy_report,indent=2)+'\n')
+
+# Bounded metadata-rights census: labels supported by the automatic QA profile.
+from scripts.agent_qa import _explicit_license
+metadata_rights = collections.Counter()
+recognized = []
+parsed_sources = 0
+with patch('scripts.fgdc_to_zenodo.get_logger', return_value=Mock()):
+ for source_path in sorted(Path('FGDC').glob('*.xml')):
+  try:
+   source_root = ET.fromstring(source_path.read_bytes())
+  except ET.ParseError:
+   continue
+  parsed_sources += 1
+  text = source_root.findtext('./metainfo/metuc', '').strip()
+  metadata_rights[text] += 1
+  if _explicit_license(text):
+   recognized.append(source_path.stem)
+rights_report = {'scope':'Strict raw parsed metainfo/metuc only; exact grant labels supported by automatic QA profile. No legal conclusion about reuse or completeness of external authorizations.','strict_parsed_sources':parsed_sources,'top_metadata_use_constraints':metadata_rights.most_common(6),'exact_supported_grant_sources':recognized,'source_qa_completed':False}
+Path(__file__).with_name('metadata_rights_census.json').write_text(json.dumps(rights_report,indent=2)+'\n')

@@ -14,6 +14,7 @@ from scripts.fgdc_to_zenodo import FGDCToZenodoTransformer
 from scripts.generate_jsonld_catalogue import build_jsonld, validate_records, write_jsonld
 from scripts.path_config import OutputPaths
 from scripts.publish_records import RecordPublisher
+from scripts.release_manifest import prepare_release
 from scripts.qa_manifest import prepare_manifest, validate_approval
 from scripts.upload_service import atomic_json, metadata_hash, prepare_metadata, read_json, ledger_lock
 from scripts.validate_zenodo import ZenodoValidator
@@ -162,6 +163,12 @@ class HumanQATests(unittest.TestCase):
         record['qa']['checks'] = {check: True for check in record['qa']['checks']}
         record['duplicate_review'].update(status='reviewed', classification='checked_no_match',
                                          rationale='Offline inventory fixture', evidence=[{'source': 'fixture', 'status': 'checked_no_match'}])
+        self.authorize_release()
+
+    def authorize_release(self):
+        release = prepare_release(self.manifest)
+        release['release'].update(approved=True, authority='Fixture human release authority', authorized_at='2026-10-02', rationale='Synthetic offline release only')
+        self.publisher.release_manifest = release
 
     def test_incomplete_remote_draft_blocks_publication_and_verification(self):
         self.approve()
@@ -259,6 +266,7 @@ class HumanQATests(unittest.TestCase):
         self.approve()
         pending = dict(self.manifest['records'][0], fgdc_id='aaa-unapproved', qa={'approved': False})
         self.manifest['records'].insert(0, pending)
+        self.authorize_release()
         self.publisher.publish_log, self.publisher.publish_errors = [], []
         self.publisher.stats = {key: 0 for key in ('total_records', 'successful_publishes', 'failed_publishes', 'already_published', 'not_found')}
         self.publisher.publish_log_path = self.paths.publish_log_path
@@ -284,6 +292,24 @@ class HumanQATests(unittest.TestCase):
             self.assertTrue(self.publisher._publish_single_record(self.entry)['already_published'])
         self.publisher.client.publish_deposition.assert_not_called()
         self.assertEqual(read_json(self.paths.uploads_registry_path)['sample']['publish_status'], 'published')
+
+    def test_release_selection_precedes_limit_even_when_other_record_has_qa(self):
+        self.approve()
+        other = dict(self.entry, deposition_id=124, zenodo_url='https://zenodo.org/deposit/124')
+        atomic_json(self.paths.uploads_registry_path, {'aaa-other': other, 'sample': self.entry})
+        self.manifest['records'].insert(0, dict(self.manifest['records'][0], fgdc_id='aaa-other', deposition_id=124))
+        release = prepare_release(self.manifest, ['sample'])
+        release['release'].update(approved=True, authority='Fixture human release authority',
+                                  authorized_at='2026-10-02', rationale='Offline bounded fixture only')
+        self.publisher.release_manifest = release
+        selected = self.publisher.load_upload_log()
+        self.assertEqual([entry['deposition_id'] for entry in selected[:1]], [123])
+        done = {'id': 123, 'metadata': self.metadata, 'files': [], 'state': 'done'}
+        self.publisher.client.get_deposition.side_effect = [dict(done, state='unsubmitted'), done]
+        self.publisher.client.publish_deposition.return_value = done
+        self.assertTrue(self.publisher._publish_single_record(selected[0])['publish_successful'])
+        self.publisher.client.publish_deposition.assert_called_once_with(123)
+        self.assertNotIn('publish_status', read_json(self.paths.uploads_registry_path)['aaa-other'])
 
     def test_remote_author_reversal_invalidates_human_approval(self):
         payload = json.loads(self.file.read_text())

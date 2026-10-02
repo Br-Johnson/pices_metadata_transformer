@@ -1,7 +1,7 @@
 {
-  "status": "awaiting_human_source_policy_decisions",
+  "status": "routine technical mappings prepared; XML publication rights unresolved; sandbox authentication unavailable",
   "remote_write_eligible_count": 0,
-  "engineering_status": "Opt-in file contract implemented and offline tested; authenticated sandbox readback still pending.",
+  "engineering_status": "Three source-backed technical drafts plus one synthetic fixture prepared/validated offline; no remote writes, duplicate inventory unchecked and sandbox authentication unavailable.",
   "candidates": [
     {
       "source_id": "FGDC-767",
@@ -16,12 +16,22 @@
       "proposed_content_status": "metadata_only",
       "remote_write_eligible": false,
       "required_decisions": [
-        "Confirm the original XML is the intended archival object, with its own identity rather than a new DOI for the cited research work.",
-        "Provide permission/license/access evidence applicable to this XML artifact, including any collection-level authorization. Do not infer a grant from None or restricted access.",
-        "Choose and evidence the artifact publication-date meaning/value; raw metadata date is a lead, not an automatically approved replacement.",
-        "Confirm metadata-artifact creator roles; source origin may describe authors of the underlying work.",
-        "Approve source-to-existing-record/alias disposition and external duplicate evidence or explicitly adjudicated unavailable inventory."
-      ]
+        "Only consequential unresolved publication rights/scope need authority evidence. Routine source-backed date/name/object mappings are delegated to agent review, not a new questionnaire."
+      ],
+      "raw_access_constraints": "Reports (with maps) and databases are available by request to the Palmer Field office.",
+      "resolved_from_existing_evidence": [
+        "Original bytes, source identity/hash, descriptive XML file role and exact raw dates can be preserved without judgment.",
+        "Full origin name can be preserved as an institution; the name alone does not establish authorship of the XML artifact.",
+        "Primary publication/coverage date and metadata date are distinct fields, so do not silently substitute one for the other."
+      ],
+      "resolved_mapping": {
+        "object": "original FGDC XML metadata artifact, resource other",
+        "metadata_date": "2002-04-30",
+        "date_semantics": "source_metadata_date; not underlying research publication",
+        "creators": "full raw institution preserved as imported source attribution",
+        "license": "unresolved; no license assigned",
+        "sandbox_access": "restricted technical draft only"
+      }
     },
     {
       "source_id": "FGDC-832",
@@ -36,12 +46,22 @@
       "proposed_content_status": "metadata_only",
       "remote_write_eligible": false,
       "required_decisions": [
-        "Confirm the original XML is the intended archival object, with its own identity rather than a new DOI for the cited research work.",
-        "Provide permission/license/access evidence applicable to this XML artifact, including any collection-level authorization. Do not infer a grant from None or restricted access.",
-        "Choose and evidence the artifact publication-date meaning/value; raw metadata date is a lead, not an automatically approved replacement.",
-        "Confirm metadata-artifact creator roles; source origin may describe authors of the underlying work.",
-        "Approve source-to-existing-record/alias disposition and external duplicate evidence or explicitly adjudicated unavailable inventory."
-      ]
+        "Only consequential unresolved publication rights/scope need authority evidence. Routine source-backed date/name/object mappings are delegated to agent review, not a new questionnaire."
+      ],
+      "raw_access_constraints": "Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.",
+      "resolved_from_existing_evidence": [
+        "Original bytes, source identity/hash, descriptive XML file role and exact raw dates can be preserved without judgment.",
+        "Full origin name can be preserved as an institution; the name alone does not establish authorship of the XML artifact.",
+        "Primary publication/coverage date and metadata date are distinct fields, so do not silently substitute one for the other."
+      ],
+      "resolved_mapping": {
+        "object": "original FGDC XML metadata artifact, resource other",
+        "metadata_date": "2002-05-02",
+        "date_semantics": "source_metadata_date; not underlying research publication",
+        "creators": "full raw institution preserved as imported source attribution",
+        "license": "unresolved; no license assigned",
+        "sandbox_access": "restricted technical draft only"
+      }
     },
     {
       "source_id": "FGDC-854",
@@ -56,12 +76,43 @@
       "proposed_content_status": "metadata_only",
       "remote_write_eligible": false,
       "required_decisions": [
-        "Confirm the original XML is the intended archival object, with its own identity rather than a new DOI for the cited research work.",
-        "Provide permission/license/access evidence applicable to this XML artifact, including any collection-level authorization. Do not infer a grant from None or restricted access.",
-        "Choose and evidence the artifact publication-date meaning/value; raw metadata date is a lead, not an automatically approved replacement.",
-        "Confirm metadata-artifact creator roles; source origin may describe authors of the underlying work.",
-        "Approve source-to-existing-record/alias disposition and external duplicate evidence or explicitly adjudicated unavailable inventory."
-      ]
+        "Only consequential unresolved publication rights/scope need authority evidence. Routine source-backed date/name/object mappings are delegated to agent review, not a new questionnaire."
+      ],
+      "raw_access_constraints": "Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.",
+      "resolved_from_existing_evidence": [
+        "Original bytes, source identity/hash, descriptive XML file role and exact raw dates can be preserved without judgment.",
+        "Full origin name can be preserved as an institution; the name alone does not establish authorship of the XML artifact.",
+        "Primary publication/coverage date and metadata date are distinct fields, so do not silently substitute one for the other."
+      ],
+      "resolved_mapping": {
+        "object": "original FGDC XML metadata artifact, resource other",
+        "metadata_date": "2002-05-02",
+        "date_semantics": "source_metadata_date; not underlying research publication",
+        "creators": "full raw institution preserved as imported source attribution",
+        "license": "unresolved; no license assigned",
+        "sandbox_access": "restricted technical draft only"
+      }
     }
-  ]
+  ],
+  "inspected_project_evidence": {
+    "path": "docs/rfq.txt",
+    "supports": "Migration of the archived FGDC metadata catalogue into a PICES Zenodo collection",
+    "does_not_establish": "An explicit XML redistribution license, metadata-creator identity or artifact publication-date policy",
+    "scope_limit": "RFQ and existing curator/readiness documentation inspected; not a complete assessment of all project communications or legal rights."
+  },
+  "synthetic_transport_option": {
+    "recommended": true,
+    "requires_explicit_selection_before_live_upload": false,
+    "purpose": "Only authentication/attachment/readback/retry validation; no authentic-source QA or duplicate clearance claim",
+    "publication_allowed": false,
+    "source_data_included": false,
+    "notes": "Newly authored fictional XML has been prepared offline with SYNTHETIC TEST ONLY identity, UTC creation date provenance, fictional creator explicitly labeled and no license assigned. No live upload.",
+    "scope_note": "Nonpublishing transport tests are already authorized; current delegated instruction holds live mutations while actual gates/authentication are clarified. Final production QA is separate."
+  },
+  "authentication": {
+    "sandbox_url": "https://sandbox.zenodo.org/",
+    "authenticated_connector_exposed_here": false,
+    "browser_login_state": "unknown; no sandbox authenticated session has been observed in this execution environment",
+    "next_step": "Sign into the separate sandbox account in an authorized browser session, then establish a supported secure execution connection. Do not paste credentials or tokens into chat."
+  }
 }

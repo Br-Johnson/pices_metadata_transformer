@@ -1,4 +1,4 @@
-"""Prepare and validate human QA approval bound to exact drafts and payloads.
+"""Prepare and validate evidence-bound record QA for exact drafts and payloads.
 
 Preparing a manifest is offline and does not approve or publish records.
 Reviewers explicitly fill the approval and duplicate-adjudication fields.
@@ -19,6 +19,48 @@ from scripts.artifact_contract import prepare_artifact, assert_artifact_binding,
 QA_CHECKS = ('source_fidelity', 'dates', 'creators', 'rights', 'relations', 'metadata_only')
 CLASSIFICATIONS = ('same_work', 'alternate_version', 'derived_subset', 'different_dataset',
                    'checked_no_match', 'waived_unavailable')
+
+
+def approved_population_hash(manifest):
+    """Bind program review to exact approved identities, without a circular manifest hash."""
+    population = [{key: record.get(key) for key in
+                   ('fgdc_id', 'deposition_id', 'source_sha256', 'metadata_sha256',
+                    'artifact_contract', 'agent_evidence', 'qa', 'duplicate_review')}
+                  for record in manifest.get('records', []) if record.get('qa', {}).get('approved') is True]
+    return metadata_hash({'source_revision': manifest.get('source_revision'),
+                          'records': sorted(population, key=lambda item: item['fgdc_id'])})
+
+
+def validate_program_review(manifest):
+    """Schema 2 requires independent process review and risk-stratified spot checks.
+
+    This is a program gate, not a claim that every source received independent review.
+    Publication callers enforce it separately from record-level assessment.
+    """
+    if manifest.get('schema_version') != 2:
+        return
+    digest = approved_population_hash(manifest)
+    approved = {row['fgdc_id'] for row in manifest.get('records', []) if row.get('qa', {}).get('approved') is True}
+    if not approved:
+        raise ValueError('Program review requires an approved record population')
+    for name in ('independent_review', 'risk_stratified_spotcheck'):
+        review = manifest.get('program_review', {}).get(name, {})
+        if (review.get('status') != 'reviewed' or review.get('reviewer_type') not in ('human', 'agent')
+                or review.get('population_sha256') != digest
+                or any(not isinstance(review.get(key), str) or not review[key].strip()
+                       for key in ('reviewer', 'reviewed_at', 'rationale'))
+                or not isinstance(review.get('evidence'), list) or not review['evidence']
+                or any(not isinstance(item, dict) or not item.get('scope') or not item.get('reference')
+                       for item in review['evidence'])):
+            raise ValueError(f'Program {name} evidence is missing or stale')
+        if name == 'risk_stratified_spotcheck':
+            sample = review.get('sampled_ids')
+            if (not isinstance(sample, list) or not sample or len(set(sample)) != len(sample)
+                    or not set(sample).issubset(approved) or not review.get('risk_strata')):
+                raise ValueError('Risk-stratified spotcheck needs an explicit sample and strata')
+        elif review['reviewer'] in {row.get('qa', {}).get('reviewer') for row in manifest['records']
+                                   if row.get('qa', {}).get('approved') is True}:
+            raise ValueError('Independent program review must identify a separate assessor')
 
 
 def prepare_manifest(paths):
@@ -50,7 +92,7 @@ def prepare_manifest(paths):
 
 def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, remote_files=None):
     assert_environment(entry, paths.environment)
-    if (not manifest or manifest.get('schema_version') != 1
+    if (not manifest or manifest.get('schema_version') not in (1, 2)
             or manifest.get('environment') != paths.environment or not manifest.get('source_revision')):
         raise ValueError('A versioned environment-matched QA manifest is required')
     matches = [record for record in manifest.get('records', []) if record.get('fgdc_id') == fgdc_id]
@@ -69,13 +111,22 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, rem
             or source_hash != entry.get('source_sha256')):
         raise ValueError('QA approval is stale or identifies a different draft')
     qa = record.get('qa', {})
+    if manifest['schema_version'] == 1 and qa.get('reviewer_type', 'human') != 'human':
+        raise ValueError('Historical schema 1 approval requires human review')
+    if manifest['schema_version'] == 2:
+        if (qa.get('reviewer_type') not in ('human', 'agent') or not qa.get('run_id')
+                or qa.get('review_revision') != manifest['source_revision'] or not qa.get('evidence')):
+            raise ValueError('Schema 2 reviewer provenance is required')
+        if qa['reviewer_type'] == 'agent':
+            from scripts.agent_qa import validate_agent_evidence
+            validate_agent_evidence(record, entry, paths)
     if (qa.get('approved') is not True or not qa.get('reviewer') or not qa.get('reviewed_at')
             or not qa.get('rationale') or any(qa.get('checks', {}).get(key) is not True for key in QA_CHECKS)):
-        raise ValueError('Human QA approval and all checks are required')
+        raise ValueError('Record QA approval and all checks are required')
     duplicate = record.get('duplicate_review', {})
     if (duplicate.get('status') != 'reviewed' or duplicate.get('classification') not in CLASSIFICATIONS
             or not duplicate.get('rationale') or not duplicate.get('evidence')):
-        raise ValueError('Duplicate evidence and human adjudication are required')
+        raise ValueError('Duplicate evidence and recorded adjudication are required')
     if duplicate['classification'] == 'same_work' and duplicate.get('action') != 'publish_metadata_reference':
         raise ValueError('Same-work duplicate needs an explicit referential publication decision')
     if remote_metadata is not None:
@@ -88,7 +139,7 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, rem
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Prepare an offline QA manifest; approval remains manual')
+    parser = argparse.ArgumentParser(description='Prepare pending offline QA; schema 1 uses human review, agent_qa emits evidence-bound schema 2')
     parser.add_argument('--output', default='output')
     parser.add_argument('--production', action='store_true')
     parser.add_argument('--manifest', required=True, help='New manifest path; existing files are never overwritten')

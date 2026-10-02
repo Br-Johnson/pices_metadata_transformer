@@ -15,6 +15,7 @@ from scripts.reconcile_draft import reconcile
 from scripts.upload_service import DraftUploadService, atomic_json, metadata_hash, prepare_metadata, read_json
 from scripts.verify_uploads import ZenodoVerifier
 from scripts.publish_records import RecordPublisher
+from scripts.release_manifest import prepare_release
 from scripts.zenodo_api import ZenodoAPIClient, ZenodoAPIError
 
 
@@ -194,7 +195,9 @@ class ArtifactTests(unittest.TestCase):
         entry = dict(entry, environment='production', json_file=str(target), zenodo_url='https://zenodo.org/deposit/123')
         manifest = self.approve(paths, entry)
         with patch('scripts.publish_records.create_zenodo_client', return_value=self.client), patch('scripts.publish_records.get_logger', return_value=Mock()):
-            publisher = RecordPublisher(False, self.directory.name, manifest)
+            release = prepare_release(manifest)
+            release['release'].update(approved=True, authority='Fixture human release authority', authorized_at='2026-10-02', rationale='Offline fixture release only')
+            publisher = RecordPublisher(False, self.directory.name, manifest, release)
         def publish(_):
             self.remote.update(state='done', submitted=True)
             return copy.deepcopy(self.remote)
@@ -216,7 +219,9 @@ class ArtifactTests(unittest.TestCase):
         entry = dict(entry, environment='production', json_file=str(target), zenodo_url='https://zenodo.org/deposit/123')
         manifest = self.approve(paths, entry)
         with patch('scripts.publish_records.create_zenodo_client', return_value=self.client), patch('scripts.publish_records.get_logger', return_value=Mock()):
-            publisher = RecordPublisher(False, self.directory.name, manifest)
+            release = prepare_release(manifest)
+            release['release'].update(approved=True, authority='Fixture human release authority', authorized_at='2026-10-02', rationale='Offline fixture release only')
+            publisher = RecordPublisher(False, self.directory.name, manifest, release)
         def publish(_):
             self.remote.update(state='done', submitted=True)
             self.remote['metadata']['license'] = 'cc-zero'

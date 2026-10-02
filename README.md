@@ -40,7 +40,7 @@ pices_md_2/
 
 ## Production safety and review
 
-Follow the [draft and human-QA runbook](docs/draft_qa_runbook.md) before using operational commands. Production stays draft until an approved manifest is supplied to the explicit publisher. The [pinned review and offline reproductions](docs/reviews/2026-09-30/README.md) document the original defects.
+Follow the [draft and evidence-bound QA runbook](docs/draft_qa_runbook.md) before using operational commands. Production stays draft until supported human or delegated agent record QA and separate explicit publication release. The [pinned review and offline reproductions](docs/reviews/2026-09-30/README.md) document the original defects.
 
 ## 🚀 Quick Start
 
@@ -268,10 +268,7 @@ result = transform_fgdc_file("path/to/file.xml", "output/path")
 
 **Issue**: Files rejected with invalid license "none"
 
-**Solution**: The system now correctly defaults to "cc-zero" license. If you encounter this:
-
-1. Regenerate the JSON files: `python scripts/batch_transform.py --input FGDC --output output --limit N`
-2. The license will be correctly set to "cc-zero"
+**Solution**: Unknown source rights remain unresolved; the transformer does not default to CC0. Record a source-hash-bound rights decision supported by applicable permission/license evidence before an open deposit. Regenerating JSON does not establish a license. See the [artifact contract](docs/artifact_contract.md) and [curator decision matrix](docs/readiness/2026-10-01/curator_decision_matrix.md).
 
 ### Command Line Usage
 

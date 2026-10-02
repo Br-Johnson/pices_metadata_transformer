@@ -44,17 +44,11 @@ Compared primary title, origin, publication date, abstract, use constraints, and
 
 ## Live canary disposition
 
-**Zero sources are currently approved for remote writes.** The three technical candidates are FGDC-767, FGDC-832, FGDC-854. Their restricted access permits technical validation without a license; it does not establish permission to redistribute the XML or underlying material. Negative date, license, parse and duplicate cases stay offline.
+The three technical candidates are FGDC-767, FGDC-832 and FGDC-854. Source-backed XML identity, metadata-date semantics and full institutional attribution have now been prepared offline; a labeled synthetic fixture also passes technical validation. Their publication rights remain unresolved. Technical validation and delegated record QA are separate from publication release.
 
-Required decisions before any positive canary:
+No remote writes have occurred: authenticated sandbox access and a fresh scoped duplicate inventory are unavailable here. The recommended first live technical test is one labeled synthetic draft, followed by exact file/metadata readback and unchanged rerun. It does not claim authentic-source QA. Already authorized nonpublishing sandbox tests do not require human production QA of each record. Negative date, license, parse and duplicate cases stay offline. Preserve the five existing production IDs/DOIs and all source aliases; unavailable AquaDocs inventory cannot establish no match.
 
-1. Identify the deposited object: original descriptive XML artifact versus underlying research data; approve resource type, creator roles, and the date meaning. A metadata-artifact DOI must not be presented as the DOI of a cited research work.
-2. Record source-specific permission/license and access decision for that actual artifact. “None”, “Contact Source”, and restricted access are not blanket grants.
-3. Approve source aliases and existing-record disposition; preserve the five production IDs/DOIs. External AquaDocs inventory remains unchecked/unavailable, not checked-no-match.
-4. Exercise the new opt-in original XML artifact contract against authenticated sandbox readback after the human object/rights/date decisions. Offline attachment, retry, readback and stale approval regressions now pass; no live compatibility claim is made. Do not use a dummy placeholder to bypass the file requirement.
-5. Provide authenticated sandbox access through an authorized secure session. This execution environment exposes no authenticated Zenodo connector/session. No token values were read.
-
-After these gates: at most three approved sandbox draft creates, exact file/metadata readback and unchanged rerun; record IDs, environment, source/metadata/file hashes, before/after results. No publication or community submission. Report evidence before expanding. Production remains a separate environment and draft-until-human-QA.
+Report exact IDs, environment and source/metadata/file hashes before expanding the bounded canary. No publication or community submission. Production remains a separate environment and requires supported record QA plus separate explicit release. See [prepared evidence](canary_preparation.json) and [current packet](candidate_decisions.md).
 
 ## Draft API compatibility correction
 
@@ -64,4 +58,8 @@ Official references: [API and sandbox](https://developers.zenodo.org/), [file re
 
 ## Subsequent scoped engineering checkpoint
 
-The opt-in original XML artifact contract is implemented; see [contract and activation](../../artifact_contract.md). Source/file/policy/role evidence is bound through metadata and the environment ledger/QA manifest. The candidate review found NASA being split into two personal creators; a regression now preserves the full organizational name. The sample was rerun, preserving the 11/4/3/2 technical-status counts. All candidate source-policy decisions remain pending; see [decision packet](candidate_decisions.md).
+The opt-in original XML artifact contract is implemented; see [contract and activation](../../artifact_contract.md). Source/file/policy/role evidence is bound through metadata and the environment ledger/QA manifest. The candidate review found NASA being split into two personal creators; a regression now preserves the full organizational name. The sample was rerun, preserving the 11/4/3/2 technical-status counts. Routine technical mappings are complete; publication rights remain unresolved; see [decision packet](candidate_decisions.md).
+
+## Current delegated QA policy
+
+Brett subsequently delegated record-level QA to agents; the initial request for human-per-record signoff is superseded. Source-backed XML object/date/name preparation for the three technical candidates is complete offline, while publication rights remain unresolved. The automatic schema2 QA profile and separate release gate are described in [agent QA](../../agent_qa.md). The [metadata-rights census](metadata_rights_census.json) covers all 4,200 strictly parseable sources and finds zero exact grant labels supported by that narrow profile in `metainfo/metuc`; this is not a legal judgment or a claim that all 4,200 live records were QA evaluated.

@@ -1,0 +1,131 @@
+{
+  "environment": "sandbox",
+  "purpose": "offline technical preparation only",
+  "maximum_first_live_batch": 1,
+  "recommended_first_case": "SYNTHETIC-TRANSPORT-ONLY",
+  "inventory_status": "unchecked",
+  "authentication_status": "unavailable_in_execution_environment",
+  "live_execution_eligible": false,
+  "records": [
+    {
+      "source_id": "FGDC-767",
+      "synthetic": false,
+      "source_sha256": "5b70be19fc0cecb3e0a37c960643702e86256dfba2abd5b09eb3a3f3cf393b6f",
+      "metadata_sha256": "9ccf1c650b891326176a08837206941027d87ca198967b8132aadd8790b75efc",
+      "artifact_contract": {
+        "schema_version": 1,
+        "object_kind": "original_fgdc_xml",
+        "source_id": "FGDC-767",
+        "policy_sha256": "64e4f21562de99abb40b7fdfa5b75a6e60992d59b8ec343ed36943090b7067a6",
+        "classification_sha256": "a21dcb3179559a18b8514f445fe310a15ccc25e5d18f2f89ebaab767914495e4",
+        "files": [
+          {
+            "name": "FGDC-767.xml",
+            "size": 4604,
+            "sha256": "5b70be19fc0cecb3e0a37c960643702e86256dfba2abd5b09eb3a3f3cf393b6f",
+            "md5": "e31d36fdab1e74861d1e95b2774973ff",
+            "role": "descriptive_metadata"
+          }
+        ],
+        "sha256": "6dc27f3dbff252fbdb38a7af1f810654ade69500d879bddf235ffdbdc65f9729"
+      },
+      "technical_validation": "pass",
+      "publication_approved": false,
+      "raw_research_date": "1980-1982",
+      "prepared_metadata_date": "2002-04-30",
+      "raw_origin": "Palmer Field Office, U.S. Natural Resource Conservation Service formerly Soil Conservation Service",
+      "license_assigned": false,
+      "remote_writes_performed": 0
+    },
+    {
+      "source_id": "FGDC-832",
+      "synthetic": false,
+      "source_sha256": "7986c6cd4fb9741943c830382439a6457ed521115bb1580126dcbbb08d480248",
+      "metadata_sha256": "6cc27fea5587229cb0fce696ec401c3419fcc84f45dc49a0bde0d9cff199ee9c",
+      "artifact_contract": {
+        "schema_version": 1,
+        "object_kind": "original_fgdc_xml",
+        "source_id": "FGDC-832",
+        "policy_sha256": "29647227a9c95f435437a1ac1763b10802e9e533e96fc0d5def797b2cad67ee1",
+        "classification_sha256": "bed96be1cb2152f33c333f5438c5284b153fac8d79f0d9ab5ea4fd7c8dec6fb4",
+        "files": [
+          {
+            "name": "FGDC-832.xml",
+            "size": 4411,
+            "sha256": "7986c6cd4fb9741943c830382439a6457ed521115bb1580126dcbbb08d480248",
+            "md5": "78aa59719e65189af99cc313e0bde173",
+            "role": "descriptive_metadata"
+          }
+        ],
+        "sha256": "b70ab80606028b1bf10891ccc55a85aecbf2e7812abafc75eaabcffae9ec9afd"
+      },
+      "technical_validation": "pass",
+      "publication_approved": false,
+      "raw_research_date": "1995",
+      "prepared_metadata_date": "2002-05-02",
+      "raw_origin": "Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, Management and Development Division",
+      "license_assigned": false,
+      "remote_writes_performed": 0
+    },
+    {
+      "source_id": "FGDC-854",
+      "synthetic": false,
+      "source_sha256": "623edfaed8114774343c99a60c2e9f721914b2206f339902f7730d4eff9e86f9",
+      "metadata_sha256": "8991f05be77303e4695b3183de556a1cc3c05d984a23052b27a32ed926f44251",
+      "artifact_contract": {
+        "schema_version": 1,
+        "object_kind": "original_fgdc_xml",
+        "source_id": "FGDC-854",
+        "policy_sha256": "2287a14375b104db456ad8935e0c41e5b6749aa25a840b4f649c5b99aa8c7f5b",
+        "classification_sha256": "02a5a29d5d4143011e9620d7aea090144c9fa6f8ff41415b6988eba8060d9a74",
+        "files": [
+          {
+            "name": "FGDC-854.xml",
+            "size": 4609,
+            "sha256": "623edfaed8114774343c99a60c2e9f721914b2206f339902f7730d4eff9e86f9",
+            "md5": "291af614869fd7e440e480593ce8090c",
+            "role": "descriptive_metadata"
+          }
+        ],
+        "sha256": "7471bb71d8712356ec3a5fa75f5c3fae996f07a5fb4857e75c0409e21320919f"
+      },
+      "technical_validation": "pass",
+      "publication_approved": false,
+      "raw_research_date": "1978-1986",
+      "prepared_metadata_date": "2002-05-02",
+      "raw_origin": "National Aeronautics and Space Administration (NASA)",
+      "license_assigned": false,
+      "remote_writes_performed": 0
+    },
+    {
+      "source_id": "SYNTHETIC-TRANSPORT-ONLY",
+      "synthetic": true,
+      "source_sha256": "2aad72ffd41ade7a8d808faa3c703a950d2915f4fd38ba276860b7ea285676cd",
+      "metadata_sha256": "63df2f9929412e7b3adbc5a2e297086f94df86256efd5e36f37213b1a7d79ace",
+      "artifact_contract": {
+        "schema_version": 1,
+        "object_kind": "original_fgdc_xml",
+        "source_id": "SYNTHETIC-TRANSPORT-ONLY",
+        "policy_sha256": "3396faf11a6e6939af7be4dba21aa8d2481c713e44fe08e4dd7ee0462477cbc0",
+        "classification_sha256": "62b4c6b150290f18b7779f4deb264c11c219f3303660f4d0a752201ee60bdd24",
+        "files": [
+          {
+            "name": "SYNTHETIC-TRANSPORT-ONLY.xml",
+            "size": 474,
+            "sha256": "2aad72ffd41ade7a8d808faa3c703a950d2915f4fd38ba276860b7ea285676cd",
+            "md5": "611f5f8f7877b52774ebea4ef974c841",
+            "role": "descriptive_metadata"
+          }
+        ],
+        "sha256": "199bdb851c9f4500733bda51e26e8c82bf54bd5e7a7d55e09b5efa3f7961b9af"
+      },
+      "technical_validation": "pass",
+      "publication_approved": false,
+      "raw_research_date": "20261002",
+      "prepared_metadata_date": "2026-10-02",
+      "raw_origin": "Synthetic fixture author (fictional)",
+      "license_assigned": false,
+      "remote_writes_performed": 0
+    }
+  ]
+}

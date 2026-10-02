@@ -17,18 +17,22 @@ from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
 from scripts.upload_service import validate_registry_identities, validate_deposition_response, assert_environment, atomic_json, ledger_lock, read_json
-from scripts.qa_manifest import validate_approval
+from scripts.qa_manifest import validate_approval, validate_program_review
 from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
 from scripts.upload_service import prepare_metadata
+from scripts.release_manifest import validate_release
 
 
 class RecordPublisher:
     """Handles publishing uploaded records to Zenodo."""
     
-    def __init__(self, sandbox: bool = True, output_dir: str = "output", qa_manifest=None):
+    def __init__(self, sandbox: bool = True, output_dir: str = "output", qa_manifest=None, release_manifest=None):
         self.qa_manifest = read_json(qa_manifest) if isinstance(qa_manifest, (str, os.PathLike)) else qa_manifest
+        self.release_manifest = read_json(release_manifest) if isinstance(release_manifest, (str, os.PathLike)) else release_manifest
         if not sandbox and not self.qa_manifest:
-            raise ValueError('Production publication requires --qa-manifest with human approval')
+            raise ValueError('Production publication requires --qa-manifest with supported record QA')
+        if not sandbox and not self.release_manifest:
+            raise ValueError('Production publication requires separate --release-manifest authorization')
         self.sandbox = sandbox
         self.output_dir = output_dir
         self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
@@ -71,6 +75,12 @@ class RecordPublisher:
         uploads = []
         approved_ids = {record.get('fgdc_id') for record in (self.qa_manifest or {}).get('records', [])
                         if record.get('qa', {}).get('approved') is True}
+        if not self.sandbox:
+            release = getattr(self, 'release_manifest', None)
+            if not isinstance(release, dict):
+                raise ValueError('Separate publication release required')
+            # Apply bounded release selection before --limit, then validate every selected row.
+            approved_ids &= {record.get('fgdc_id') for record in release.get('records', [])}
         for fgdc_id, entry in sorted(registry.items()):
             if fgdc_id.startswith('_') or entry.get('upload_status') != 'success':
                 continue
@@ -170,6 +180,9 @@ class RecordPublisher:
             fgdc_id = os.path.splitext(os.path.basename(json_file))[0]
             if not self.sandbox:
                 validate_approval(self.qa_manifest, fgdc_id, upload, self.paths)
+                if self.qa_manifest.get('schema_version') == 2:
+                    validate_program_review(self.qa_manifest)
+                validate_release(getattr(self, 'release_manifest', None), self.qa_manifest, fgdc_id, upload)
             # First, check the current state of the deposition
             deposition = self.client.get_deposition(deposition_id)
             
@@ -437,7 +450,8 @@ def main():
         help='Limit number of records to publish (for testing)'
     )
     
-    parser.add_argument("--qa-manifest", help="Human-approved manifest required for production")
+    parser.add_argument("--qa-manifest", help="Evidence-bound record QA manifest required for production")
+    parser.add_argument("--release-manifest", help="Separate explicit release authorization required for production")
     args = parser.parse_args()
     
     # Determine environment
@@ -449,7 +463,7 @@ def main():
     
     try:
         # Create publisher
-        publisher = RecordPublisher(sandbox, args.output, args.qa_manifest)
+        publisher = RecordPublisher(sandbox, args.output, args.qa_manifest, args.release_manifest)
         
         # Load upload log
         upload_log = publisher.load_upload_log()

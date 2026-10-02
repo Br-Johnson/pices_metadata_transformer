@@ -175,3 +175,13 @@ Production remains draft until human QA. This entry supersedes any earlier autom
 - [ ] Obtain source-specific rights, deposited-object/date/creator decisions; zero audited cases are currently approved for a live canary.
 - [x] Implement the opt-in reviewed original XML artifact contract with source/policy/file hashes, checksum/readback/resume tests and stale QA rejection; authenticated live compatibility remains pending.
 - [ ] Establish authorized authenticated sandbox session, then run at most three approved draft canaries and idempotence readback before expansion. No publication or community submission.
+
+## Delegated record-level QA policy — 2026-10-02
+
+Brett explicitly delegated record QA to agents, superseding human-per-record requirements above. Production release remains a separate explicit authority decision; no release or merge is inferred.
+
+- [x] Prepare three source-backed technical XML drafts and one labeled synthetic fixture offline; preserve metadata-date semantics, source attribution and unresolved license values. No remote writes.
+- [x] Add source/evidence-bound schema-2 agent QA with explicit holds; preserve historical human schema-1 manifests.
+- [x] Require independent program review, population-bound risk-stratified spot checks and separate release selection before production publication.
+- [ ] Execute authenticated bounded sandbox draft/readback/idempotence canary; no authenticated sandbox session/client is available in this execution environment.
+- [ ] Obtain or investigate authoritative XML redistribution evidence for held publication cases; no default license or blanket approval.
