@@ -211,3 +211,17 @@ Brett explicitly delegated record QA to agents, superseding human-per-record req
 - [ ] Update the current runbook, candidate canary guidance and technical debt to reflect cluster-first curation and the fresh labeled canary direction. Existing inventory code gates remain unchanged; selector composition and conflict handling are being developed separately and are not part of this checkpoint.
 
 Original FGDC XML plus explicit source-backed corrections establishes metadata truth. Existing sandbox records provide reconciliation and API-delivery evidence, not a metadata baseline to reproduce.
+
+
+## Cloud integration — 2026-10-02
+
+- [x] Verify public PR8/checkpoint trees, transfer hashes and all 4,206 original bytes.
+- [x] Finish source precedence/divergence and pending-before-limit findings; independent diff review.
+- [x] Complete strict correction compiler with fieldwise conflict/supersession controls and independent review.
+- [x] Independently audit exact 821-member creator cohort and hash-bound residual groups.
+- [x] Add narrow opt-in citation interpretation; revalidate human/agent QA and stale cache evidence.
+- [x] Run 183 guarded integration tests and byte-identical fresh/resumed whole collection: 1,328 supported / 2,872 held / six malformed; zero remote or release approvals.
+- [ ] Track actual final-head GitHub Codex review in PR8; local review/test receipts do not substitute for it.
+- [ ] Review narrower residual cohorts, retain alias/access holds, and separately establish future provider/readback/release gates.
+
+See [cloud integration evidence](readiness/2026-10-02/cloud_integration.md).

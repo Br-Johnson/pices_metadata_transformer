@@ -40,6 +40,12 @@ pices_md_2/
 
 ## Production safety and review
 
+Use [reviewed correction batches](docs/curation_batches.md) for exact source-ID/hash
+membership, overlap checks and explicit field precedence after common FGDC
+transformations. The opt-in [Exxon citation profile](docs/readiness/2026-10-02/exxon_profile.md)
+supports the audited mixed citation while preserving source attribution, rights,
+alias holds and the separate production release gate.
+
 Follow the [draft and evidence-bound QA runbook](docs/draft_qa_runbook.md) before using operational commands. Production stays draft until supported human or delegated agent record QA and separate explicit publication release. The [pinned review and offline reproductions](docs/reviews/2026-09-30/README.md) document the original defects.
 
 ## 🚀 Quick Start

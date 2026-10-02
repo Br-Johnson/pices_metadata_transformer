@@ -20,6 +20,18 @@ attribution and restrictions, and subdivide remaining holds into narrower
 groups. Compilation and metadata validation do not themselves expand the
 supported agent-QA semantic profile or approve a release.
 
+For the independently audited 821-source Exxon primary-citation cohort, the
+optional [creator interpretation](readiness/2026-10-02/exxon_profile.md) supplies
+the exact reviewed Council/person/affiliation objects. Enable it explicitly with
+`--creator-interpretation-manifest
+docs/readiness/2026-10-02/exxon_citation_interpretation.json` when classifying.
+The manifest is pinned in code and bound into each affected artifact policy;
+human and agent QA reread it. This credits primary citation originators without
+asserting XML or cited-article authorship. Alias and access exceptions remain
+held. The [compiler batch](readiness/2026-10-02/cloud_exxon_creator_batch.json)
+contains the same exact membership and creator values; it does not itself
+perform the classifier's restricted original-XML preparation.
+
 `fgdc_to_zenodo.py` transforms original XML without modifying it; `validate_zenodo.py` supplies the shared metadata contract. `upload_service.py` owns both uploader entry points' durable draft lifecycle. Environment-scoped `OutputPaths` separates sandbox and production ledgers, duplicate inventories, verification and publication reports. Legacy unscoped ledgers are deliberately not imported: reconcile them with endpoint and source evidence first. Transformation output is shared, so changing it invalidates approval hashes.
 
 `publish_records.py` is the explicit publication entry point. Production requires `--qa-manifest` and a separate `--release-manifest` bound to that exact QA manifest and selected records. Inline production publication is disabled. Automatic duplicate replacement is retired; deletion is never a recovery strategy. `verify_uploads.py` compares submitted metadata and the explicit reviewed file contract; legacy records without an artifact policy retain the empty-file contract. Audit summaries count unique ledger records and explicitly describe local ledger evidence; they do not substitute for remote verification.
