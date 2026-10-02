@@ -15,7 +15,7 @@ import socket
 import xml.etree.ElementTree as ET
 from unittest.mock import Mock, patch
 
-from scripts.agent_qa import assess_source, _explicit_license
+from scripts.agent_qa import assess_source, _explicit_license, _citation_organization
 from scripts.fgdc_to_zenodo import FGDCToZenodoTransformer
 from scripts.path_config import OutputPaths
 from scripts.upload_service import atomic_json, metadata_hash, read_json, prepare_metadata
@@ -93,7 +93,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                        metadata_date_precision='day' if re.fullmatch(r'\d{8}|\d{4}-\d{2}-\d{2}', metadata_date) else 'unsupported',
                        primary_date_stratum='ambiguous_122003' if primary_date == '122003' else
                        'missing' if not primary_date else 'range_or_status' if re.search(r'Unknown|Present|thru|Planned|Unpublished|\d{4}\s*-\s*\d{4}', primary_date, re.I) else 'other',
-                       origin_stratum='institutional_or_compound' if any(transformer._is_organization(name) for name in origins) else 'personal_or_unknown')
+                       origin_stratum='institutional_or_compound' if any(_citation_organization(name, transformer) for name in origins) else 'personal_or_unknown')
             if not grant and not authority:
                 row['hold_reasons'].append('No exact XML-specific grant supported by the automatic profile')
             if metac.casefold().rstrip('.') not in ('', 'none', 'no restrictions', 'unrestricted', 'open', 'public'):
@@ -126,7 +126,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             if not cache_valid:
                 source_copy.write_bytes(raw)
             transformer.active_decision = {'metadata': {'publication_date': metadata_date,
-                'creators': [{'name': name, **({'type': 'Organization'} if transformer._is_organization(name) else {})}
+                'creators': [{'name': name, **({'type': 'Organization'} if _citation_organization(name, transformer) else {})}
                              for name in origins], 'license': grant or ''},
                 'artifact_policy': policy, 'content_classification': classification}
             metadata = (cached_payload['metadata'] if cache_valid else

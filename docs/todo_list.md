@@ -191,4 +191,5 @@ Brett explicitly delegated record QA to agents, superseding human-per-record req
 - [x] Reject altered cached semantic verdicts while preserving unchanged transformation reuse and honest source-only flags.
 - [x] Revalidate source-bound restoration authority for historical schema-1 and schema-2 human approvals.
 - [x] Preserve failing-first regressions and pass all 136 socket-blocked tests; fresh/resumed classification preserves all 4,206 source decisions and original hashes. See `readiness/2026-10-02/qa_lifecycle_recovery.md`.
+- [x] Validate the exact 31-source Washington Sea Grant Program citation-origin cohort locally: 10/10 then 31/31 supported, 46 focused/surrounding tests and four final contact regressions pass. Preserve dates, source bytes, contact attribution, restricted files, blank license and separate release/readback gates. See `readiness/2026-10-02/sea_grant_cohort.md`; this batch is not pushed.
 - [ ] Reconcile the original writer before publishing this isolated recovery; live record QA, sandbox authentication and production release remain pending.

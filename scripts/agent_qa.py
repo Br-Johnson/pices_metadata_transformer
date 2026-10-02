@@ -43,6 +43,11 @@ def _explicit_license(text):
     return FGDCToZenodoTransformer()._detect_license(text, 'offline agent QA')
 
 
+def _citation_organization(name, transformer):
+    """Recognize the reviewed citation name without changing contact formatting."""
+    return name == 'Washington Sea Grant Program' or transformer._is_organization(name)
+
+
 def _timestamp(value):
     if not isinstance(value, str) or not value:
         raise ValueError('Evidence timestamp is missing or malformed')
@@ -77,7 +82,11 @@ def assess_source(json_file, paths):
     transformer = FGDCToZenodoTransformer()
     expected = []
     for node, name in zip(origins, names):
-        organization = transformer._is_organization(name)
+        # The reviewed institutional name is not a surname in a comma-separated
+        # institution/person compound; keep appended identities for adjudication.
+        if name.startswith('Washington Sea Grant Program') and name != 'Washington Sea Grant Program':
+            raise ValueError('Creator semantics are ambiguous')
+        organization = _citation_organization(name, transformer)
         if (list(node) or not name or '\n' in ''.join(node.itertext()) or ';' in name
                 or (organization and re.search(r',\s*[A-Z][a-z]+\s+[A-Z][a-z]+\s+(?:of|and)\b', name))
                 or (not organization and not re.fullmatch(r"[A-Za-z][A-Za-z' -]+, [A-Za-z][A-Za-z' -]+", name))):
