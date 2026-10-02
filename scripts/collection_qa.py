@@ -20,7 +20,7 @@ from scripts.fgdc_to_zenodo import FGDCToZenodoTransformer
 from scripts.path_config import OutputPaths
 from scripts.upload_service import atomic_json, metadata_hash, read_json, prepare_metadata
 from scripts.validate_zenodo import ZenodoValidator
-from scripts.source_access_interpretation import validate_interpretation
+from scripts.source_access_interpretation import validate_interpretation, CONTRIBUTOR_WORDING
 from scripts.citation_creator_interpretation import validate_creator_interpretation
 from scripts.dataset_access_interpretation import validate_dataset_access_interpretation, REGISTRATION_WORDING
 
@@ -30,7 +30,7 @@ def text(root, xpath):
     return re.sub(r'\s+', ' ', ''.join(node.itertext())).strip() if node is not None else ''
 
 
-def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None):
+def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None):
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     paths = OutputPaths(str(output), 'sandbox')
@@ -46,6 +46,14 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
         except OSError:
             access_digest = None  # Missing evidence is a source hold, not an exception to the rule.
         access_reference = {'manifest_path': str(access_interpretation_manifest), 'manifest_sha256': access_digest}
+    contributor_reference = None
+    if contributor_access_interpretation_manifest:
+        try:
+            contributor_digest = hashlib.sha256(Path(contributor_access_interpretation_manifest).read_bytes()).hexdigest()
+        except OSError:
+            contributor_digest = None
+        contributor_reference = {'manifest_path': str(contributor_access_interpretation_manifest),
+                                 'manifest_sha256': contributor_digest}
     creator_reference = None
     if creator_interpretation_manifest:
         try:
@@ -64,7 +72,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
     profile_hash = metadata_hash({'rules': {str(file.relative_to(rules)): hashlib.sha256(file.read_bytes()).hexdigest()
                                  for file in sorted(rules.rglob('*.py'))},
                                  'authority_reference': authority_reference, 'access_reference': access_reference,
-                                 'creator_reference': creator_reference,
+                                 'creator_reference': creator_reference, 'contributor_reference': contributor_reference,
                                  'dataset_access_reference': dataset_access_reference})
     prior = read_json(output / 'classification.json', {})
     cache = {row['source_id']: row for row in prior.get('records', [])} if prior.get('profile_sha256') == profile_hash and prior.get('reviewed_at') == reviewed_at else {}
@@ -123,11 +131,13 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             if authority:
                 grant = None  # Restoration authority never assigns or imports a license.
             interpreted_access = None
-            if access_reference and metac == 'Contact Source.':
+            selected_access_reference = (access_reference if metac == 'Contact Source.' else
+                                         contributor_reference if metac == CONTRIBUTOR_WORDING else None)
+            if selected_access_reference:
                 try:
                     if not authority:
                         raise ValueError('Access interpretation requires separate rehosting authority')
-                    interpreted_access = validate_interpretation(access_reference, source.stem, digest, root, reviewed_at)
+                    interpreted_access = validate_interpretation(selected_access_reference, source.stem, digest, root, reviewed_at)
                 except ValueError as exc:
                     row['hold_reasons'].append(str(exc))
                 row['source_access_interpretation'] = 'USER_ATTESTED' if interpreted_access else 'not_established'
@@ -169,7 +179,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                                              'not an independently verified agreement or new license. '
                                              'Original source constraints preserved: ' + metuc)
             if interpreted_access:
-                policy['source_access_interpretation'] = access_reference
+                policy['source_access_interpretation'] = selected_access_reference
             if interpreted_dataset_access:
                 policy['dataset_access_interpretation'] = dataset_access_reference
             if interpreted_creators:
@@ -265,6 +275,7 @@ def main():
     parser.add_argument('--output-dir', required=True)
     parser.add_argument('--authority-manifest', help='Source-hash-bound user attestation; grants rehosting, never a new license')
     parser.add_argument('--access-interpretation-manifest', help='Exact Contact Source. dataset-acquisition interpretation; no license or release grant')
+    parser.add_argument('--contributor-access-interpretation-manifest', help='Exact source-bound Contributor or Source attestation; no license or release grant')
     parser.add_argument('--creator-interpretation-manifest', help='Pinned Exxon primary citation attribution; no XML authorship or rights grant')
     parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned source-backed database registration meaning; no authority or license grant')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
@@ -272,7 +283,7 @@ def main():
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
         report = classify_collection(args.source_dir, args.output_dir, args.reviewed_at, args.authority_manifest,
                                      args.access_interpretation_manifest, args.creator_interpretation_manifest,
-                                     args.dataset_access_interpretation_manifest)
+                                     args.dataset_access_interpretation_manifest, args.contributor_access_interpretation_manifest)
     print(json.dumps(report['summary'], indent=2))
 
 
