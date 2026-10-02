@@ -22,6 +22,7 @@ from scripts.upload_service import atomic_json, metadata_hash, read_json, prepar
 from scripts.validate_zenodo import ZenodoValidator
 from scripts.source_access_interpretation import validate_interpretation
 from scripts.citation_creator_interpretation import validate_creator_interpretation
+from scripts.dataset_access_interpretation import validate_dataset_access_interpretation, REGISTRATION_WORDING
 
 
 def text(root, xpath):
@@ -29,7 +30,7 @@ def text(root, xpath):
     return re.sub(r'\s+', ' ', ''.join(node.itertext())).strip() if node is not None else ''
 
 
-def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None):
+def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None):
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     paths = OutputPaths(str(output), 'sandbox')
@@ -52,10 +53,19 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
         except OSError:
             creator_digest = None
         creator_reference = {'manifest_path': str(creator_interpretation_manifest), 'manifest_sha256': creator_digest}
+    dataset_access_reference = None
+    if dataset_access_interpretation_manifest:
+        try:
+            dataset_access_digest = hashlib.sha256(Path(dataset_access_interpretation_manifest).read_bytes()).hexdigest()
+        except OSError:
+            dataset_access_digest = None
+        dataset_access_reference = {'manifest_path': str(dataset_access_interpretation_manifest),
+                                    'manifest_sha256': dataset_access_digest}
     profile_hash = metadata_hash({'rules': {str(file.relative_to(rules)): hashlib.sha256(file.read_bytes()).hexdigest()
                                  for file in sorted(rules.rglob('*.py'))},
                                  'authority_reference': authority_reference, 'access_reference': access_reference,
-                                 'creator_reference': creator_reference})
+                                 'creator_reference': creator_reference,
+                                 'dataset_access_reference': dataset_access_reference})
     prior = read_json(output / 'classification.json', {})
     cache = {row['source_id']: row for row in prior.get('records', [])} if prior.get('profile_sha256') == profile_hash and prior.get('reviewed_at') == reviewed_at else {}
     records, buckets = [], defaultdict(list)
@@ -121,6 +131,18 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                 except ValueError as exc:
                     row['hold_reasons'].append(str(exc))
                 row['source_access_interpretation'] = 'USER_ATTESTED' if interpreted_access else 'not_established'
+            interpreted_dataset_access = None
+            if dataset_access_reference and metac == REGISTRATION_WORDING:
+                try:
+                    if not authority:
+                        raise ValueError('Dataset access interpretation requires separate rehosting authority')
+                    if interpreted_access:
+                        raise ValueError('Conflicting access interpretations require separate adjudication')
+                    interpreted_dataset_access = validate_dataset_access_interpretation(
+                        dataset_access_reference, source.stem, digest, root)
+                except ValueError as exc:
+                    row['hold_reasons'].append(str(exc))
+                row['dataset_access_interpretation'] = 'SOURCE_BACKED' if interpreted_dataset_access else 'not_established'
             row.update(raw_primary_date=primary_date, raw_metadata_date=metadata_date,
                        raw_metadata_rights=metuc, raw_metadata_access=metac,
                        has_supported_xml_grant=bool(grant),
@@ -130,7 +152,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                        origin_stratum='institutional_or_compound' if any(_citation_organization(name, transformer) for name in origins) else 'personal_or_unknown')
             if not grant and not authority:
                 row['hold_reasons'].append('No exact XML-specific grant supported by the automatic profile')
-            if not interpreted_access and metac.casefold().rstrip('.') not in ('', 'none', 'no restrictions', 'unrestricted', 'open', 'public'):
+            if not interpreted_access and not interpreted_dataset_access and metac.casefold().rstrip('.') not in ('', 'none', 'no restrictions', 'unrestricted', 'open', 'public'):
                 row['hold_reasons'].append('Metadata access terms need source-backed adjudication')
             if row['metadata_date_precision'] != 'day':
                 row['hold_reasons'].append('Metadata date lacks supported exact day precision')
@@ -148,6 +170,8 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                                              'Original source constraints preserved: ' + metuc)
             if interpreted_access:
                 policy['source_access_interpretation'] = access_reference
+            if interpreted_dataset_access:
+                policy['dataset_access_interpretation'] = dataset_access_reference
             if interpreted_creators:
                 policy['creator_interpretation'] = creator_reference
             classification = {'inventory_complete': True, 'reviewer': policy['reviewer'], 'reviewed_at': reviewed_at,
@@ -242,11 +266,13 @@ def main():
     parser.add_argument('--authority-manifest', help='Source-hash-bound user attestation; grants rehosting, never a new license')
     parser.add_argument('--access-interpretation-manifest', help='Exact Contact Source. dataset-acquisition interpretation; no license or release grant')
     parser.add_argument('--creator-interpretation-manifest', help='Pinned Exxon primary citation attribution; no XML authorship or rights grant')
+    parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned source-backed database registration meaning; no authority or license grant')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
         report = classify_collection(args.source_dir, args.output_dir, args.reviewed_at, args.authority_manifest,
-                                     args.access_interpretation_manifest, args.creator_interpretation_manifest)
+                                     args.access_interpretation_manifest, args.creator_interpretation_manifest,
+                                     args.dataset_access_interpretation_manifest)
     print(json.dumps(report['summary'], indent=2))
 
 

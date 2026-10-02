@@ -28,6 +28,7 @@ from scripts.matching.evidence import snapshot_inventory
 from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
 from scripts.source_access_interpretation import validate_interpretation
 from scripts.citation_creator_interpretation import validate_creator_interpretation
+from scripts.dataset_access_interpretation import validate_dataset_access_policy
 
 
 def _text(root, path):
@@ -127,6 +128,9 @@ def assess_source(json_file, paths):
             raise ValueError('XML policy license differs from explicit XML grant')
         date_text = _text(root, './metainfo/metd')
         access_constraints = _text(root, './metainfo/metac')
+        if policy.get('dataset_access_interpretation') is not None:
+            validate_dataset_access_policy(policy, Path(source_path).stem, source_hash, root, metadata)
+            interpreted_access = True
         if policy.get('source_access_interpretation') is not None:
             if authority is None:
                 raise ValueError('Access interpretation requires separate rehosting authority')
@@ -223,7 +227,7 @@ def assess(entry, paths, snapshot_path, duplicate_path):
         _timestamp(raw_snapshot.get('retrieved_at', ''))
     # HEAD alone does not describe rules executing from an uncommitted working tree.
     rules = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py', 'source_access_interpretation.py', 'citation_creator_interpretation.py')}
+             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py', 'source_access_interpretation.py', 'citation_creator_interpretation.py', 'dataset_access_interpretation.py')}
     return {'checks': dict.fromkeys(QA_CHECKS, True), 'rules_sha256': rules, 'source_sha256': source_hash,
             'metadata_sha256': metadata_hash(metadata), 'artifact_contract': artifact,
             'remote_snapshot': {'path': str(Path(snapshot_path).resolve()), 'sha256': metadata_hash(snapshot),
