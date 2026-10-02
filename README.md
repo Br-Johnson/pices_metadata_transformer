@@ -977,3 +977,5 @@ For issues or questions:
 4. Consult the documentation in the `docs/` directory
 
 Original FGDC XML attachments are available through the explicitly reviewed [artifact contract](docs/artifact_contract.md). Legacy records are not automatically reclassified. The [three-candidate decision packet](docs/readiness/2026-10-02/candidate_decisions.md) separates remaining source-policy decisions from completed offline engineering.
+
+Offline source classification can apply the exact, source-bound [Contact Source access interpretation](docs/readiness/2026-10-02/contact_source_cohort.md) alongside existing restoration authority. The documented optional flag preserves dataset restrictions, restricted XML, blank licenses and separate live QA/release gates.

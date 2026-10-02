@@ -193,3 +193,10 @@ Brett explicitly delegated record QA to agents, superseding human-per-record req
 - [x] Preserve failing-first regressions and pass all 136 socket-blocked tests; fresh/resumed classification preserves all 4,206 source decisions and original hashes. See `readiness/2026-10-02/qa_lifecycle_recovery.md`.
 - [x] Validate the exact 31-source Washington Sea Grant Program citation-origin cohort locally: 10/10 then 31/31 supported, 46 focused/surrounding tests and four final contact regressions pass. Preserve dates, source bytes, contact attribution, restricted files, blank license and separate release/readback gates. See `readiness/2026-10-02/sea_grant_cohort.md`; this batch is not pushed.
 - [ ] Reconcile the original writer before publishing this isolated recovery; live record QA, sandbox authentication and production release remain pending.
+
+## Local Contact Source interpretation — 2026-10-02
+
+- [x] Pin Brett's 18:26:45 UTC dataset-acquisition interpretation to the exact 1,004-source cohort and preserve USER_ATTESTED provenance without a license or release grant.
+- [x] Capture the focused missing-behavior RED, then implement the exact source/policy binding alongside separate restricted-file restoration authority.
+- [x] Complete restriction/lifecycle controls, ten-source preparation, 147 socket-blocked tests, and byte-identical fresh/resumed whole-collection QA: 914 supported preparations/3,286 held/six malformed; 8,406 source/copy hash checks and 4,194 unchanged raw metadata objects. See `readiness/2026-10-02/contact_source_cohort.md`.
+- [ ] Complete independent review; sandbox readback, aliases and production release remain separate gates. This batch has no push or provider-write authorization.

@@ -26,6 +26,7 @@ from scripts.validate_zenodo import ZenodoValidator
 from scripts.verify_uploads import compare_metadata
 from scripts.matching.evidence import snapshot_inventory
 from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
+from scripts.source_access_interpretation import validate_interpretation
 
 
 def _text(root, path):
@@ -94,6 +95,7 @@ def assess_source(json_file, paths):
         expected.append({'name': name, **({'type': 'Organization'} if organization else {})})
     if compare_metadata({'creators': expected}, {'creators': metadata.get('creators')}):
         raise ValueError('Creator order/name/type differs from primary citation')
+    interpreted_access = False
     if artifact:
         policy = payload['artifact_policy']
         authority = policy.get('rehosting_authority')
@@ -114,12 +116,18 @@ def assess_source(json_file, paths):
             raise ValueError('XML policy license differs from explicit XML grant')
         date_text = _text(root, './metainfo/metd')
         access_constraints = _text(root, './metainfo/metac')
+        if policy.get('source_access_interpretation') is not None:
+            if authority is None:
+                raise ValueError('Access interpretation requires separate rehosting authority')
+            validate_interpretation(policy['source_access_interpretation'], Path(source_path).stem,
+                                    source_hash, root, policy.get('reviewed_at'))
+            interpreted_access = True
     else:
         authority = None
         license_id = _explicit_license(_text(root, './idinfo/useconst'))
         date_text = _text(root, './idinfo/citation/citeinfo/pubdate')
         access_constraints = _text(root, './idinfo/accconst')
-    if access_constraints.strip().casefold().rstrip('.') not in ('', 'none', 'no restrictions', 'unrestricted', 'open', 'public'):
+    if not interpreted_access and access_constraints.strip().casefold().rstrip('.') not in ('', 'none', 'no restrictions', 'unrestricted', 'open', 'public'):
         raise ValueError('Contradictory or unsupported source access constraints require adjudication')
     if authority is None and (not license_id or license_id != metadata.get('license')):
         raise ValueError('Unknown or unsupported source rights; no inferred grant')
@@ -204,7 +212,7 @@ def assess(entry, paths, snapshot_path, duplicate_path):
         _timestamp(raw_snapshot.get('retrieved_at', ''))
     # HEAD alone does not describe rules executing from an uncommitted working tree.
     rules = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py')}
+             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py', 'source_access_interpretation.py')}
     return {'checks': dict.fromkeys(QA_CHECKS, True), 'rules_sha256': rules, 'source_sha256': source_hash,
             'metadata_sha256': metadata_hash(metadata), 'artifact_contract': artifact,
             'remote_snapshot': {'path': str(Path(snapshot_path).resolve()), 'sha256': metadata_hash(snapshot),
