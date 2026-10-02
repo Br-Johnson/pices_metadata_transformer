@@ -120,6 +120,56 @@ class CollectionQATests(unittest.TestCase):
             after = self.classify()
         self.assertNotEqual(after['profile_sha256'], before['profile_sha256'])
 
+    def test_long_source_titles_are_preserved_and_over_limit_titles_held(self):
+        paths = OutputPaths(str(self.output), 'sandbox')
+        for length, expected in ((240, 'supported'), (260, 'held')):
+            title = 'A' * length
+            raw = SUPPORTED.replace(b'Metadata catalogue', title.encode())
+            source = self.sources / f'title{length}.xml'; source.write_bytes(raw)
+            report = self.classify()
+            row = next(item for item in report['records'] if item['source_id'] == source.stem)
+            payload = read_json(Path(paths.zenodo_json_dir, source.stem + '.json'))
+            self.assertEqual(payload['metadata']['title'], title)
+            self.assertEqual(len(payload['metadata']['title']), length)
+            self.assertEqual(row['source_status'], expected)
+            self.assertEqual(row['technical_metadata'], 'pass' if length == 240 else 'held')
+            self.assertFalse(row['publication_approved'])
+            self.assertEqual(source.read_bytes(), raw)
+
+    def test_math_and_literal_placeholders_are_escaped_without_losing_source_text(self):
+        raw = SUPPORTED.replace(b'Original descriptive metadata.',
+                                b'Observed x &lt; 3 and y &gt; 2; literal &lt;REQUIRED&gt; &amp; &lt;Unknown&gt;.')
+        source = self.sources / 'angles.xml'; source.write_bytes(raw)
+        report = self.classify()
+        row = report['records'][0]
+        self.assertEqual(row['source_status'], 'supported', row['hold_reasons'])
+        self.assertEqual(row['technical_metadata'], 'pass')
+        paths = OutputPaths(str(self.output), 'sandbox')
+        description = read_json(Path(paths.zenodo_json_dir, 'angles.json'))['metadata']['description']
+        self.assertIn('x &lt; 3 and y &gt; 2', description)
+        self.assertIn('&lt;REQUIRED&gt; &amp; &lt;Unknown&gt;', description)
+        self.assertNotIn('<REQUIRED>', description)
+        self.assertFalse(row['publication_approved'])
+        self.assertEqual(source.read_bytes(), raw)
+        self.assertEqual(Path(paths.original_fgdc_dir, source.name).read_bytes(), raw)
+
+    def test_safe_formatting_does_not_resolve_unknown_rights_or_promote_contacts(self):
+        raw = SUPPORTED.replace(b'Metadata catalogue', b'T' * 240).replace(
+            b'Original descriptive metadata.', b'Literal &lt;REQUIRED&gt; placeholder.').replace(
+            b'<metuc>CC BY 4.0', b'<metuc>Unknown')
+        source = self.sources / 'unknown-rights.xml'; source.write_bytes(raw)
+        report = self.classify(); row = report['records'][0]
+        self.assertEqual(row['source_status'], 'held')
+        self.assertFalse(row['has_supported_xml_grant'])
+        self.assertFalse(row['publication_approved'])
+        self.assertEqual(source.read_bytes(), raw)
+        no_author = SUPPORTED.replace(b'<origin>Example Marine Institute</origin>', b'').replace(
+            b'</idinfo>', b'<ptcontac><cntinfo><cntorgp><cntorg>Contact Marine Institute</cntorg></cntorgp></cntinfo></ptcontac></idinfo>')
+        (self.sources / 'contact-only.xml').write_bytes(no_author)
+        rows = {item['source_id']: item for item in self.classify()['records']}
+        self.assertEqual(rows['contact-only']['source_status'], 'held')
+        self.assertFalse(rows['contact-only']['publication_approved'])
+
 
 if __name__ == '__main__':
     unittest.main()

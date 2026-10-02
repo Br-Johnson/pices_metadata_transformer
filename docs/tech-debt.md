@@ -76,3 +76,7 @@ Human-per-record review is superseded by delegated agent record QA. Schema2 bind
 ### 2026-10-02: Collection classification and cache integrity
 
 Source-only classification now covers all 4,206 files without inventing remote evidence. Resume binds every Python rule dependency and validates prepared payload/original-copy integrity before reusing constructed results. Independent tests reproduce output deletion/tampering and rule invalidation. All 4,200 parseable sources remain held under the narrow explicit XML-rights profile; six malformed sources require reversible recovery with original bytes preserved. See `readiness/2026-10-02/collection_audit.md` for counts, ten independent semantic samples and the precise sandbox authentication boundary. Technical passes do not grant record QA or release.
+
+### 2026-10-02: Evidence-backed routine hold reduction
+
+Exact source titles now remain unchanged when only an artifact suffix would exceed limits; escaped exact source abstracts preserve scientific comparison signs and placeholders. Technical passes rise from4,089 to4,131, while all publication holds remain. Official PICES exporter code copies dataset constraints into metadata constraint fields;4,073 sources exhibit matching template evidence. Rights scope and creator roles require a shared provenance decision rather than4,200 inferred licenses or contact-to-author substitutions. See `readiness/2026-10-02/hold_reduction_plan.md`.

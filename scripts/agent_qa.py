@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import html
 import re
 import subprocess
 import xml.etree.ElementTree as ET
@@ -63,7 +64,7 @@ def assess_source(json_file, paths):
     root = ET.parse(source_path).getroot()
     title = _text(root, './idinfo/citation/citeinfo/title') or _text(root, './title')
     abstract = _text(root, './idinfo/descript/abstract') or title
-    visible_description = re.sub(r'\s+', ' ', re.sub(r'<[^>]*>', ' ', metadata.get('description', '')))
+    visible_description = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]*>', ' ', metadata.get('description', ''))))
     allowed_titles = (title, title + ' - FGDC XML metadata artifact') if artifact else (title,)
     if not title or metadata.get('title') not in allowed_titles or not abstract or abstract not in visible_description:
         raise ValueError('Source title/description fidelity is not supported')

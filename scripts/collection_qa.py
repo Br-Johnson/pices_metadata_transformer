@@ -7,6 +7,7 @@ import argparse
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 import hashlib
+import html
 import json
 from pathlib import Path
 import re
@@ -106,8 +107,19 @@ def classify_collection(source_dir, output_dir, reviewed_at):
                 'artifact_policy': policy, 'content_classification': classification}
             metadata = transformer._build_zenodo_metadata(root, str(source_copy)) if metadata_date else None
             if metadata:
-                metadata.update(title=title + ' - FGDC XML metadata artifact', communities=[],
+                artifact_title = title + ' - FGDC XML metadata artifact'
+                # The object contract/description identifies XML when the suffix would
+                # push a valid source title beyond Zenodo's limit. Never truncate it.
+                if len(artifact_title) > 250:
+                    artifact_title = title
+                abstract = text(root, './idinfo/descript/abstract') or title
+                metadata.update(title=artifact_title, description=html.escape(abstract), communities=[],
                                 access_right='open' if grant else 'restricted')
+                row['routine_source_decisions'] = {
+                    'title': 'exact source title' if artifact_title == title else 'exact source title plus artifact suffix',
+                    'description': 'HTML-escaped exact source abstract, or title if abstract absent',
+                    'date': 'explicit metadata creation/last-update day; not dataset publication',
+                    'creators': 'primary dataset citation preserved; XML authorship not independently established'}
                 if not grant:
                     metadata['access_conditions'] = 'Offline preparation only; no public release approved.'
                 json_file = Path(paths.zenodo_json_dir) / (source.stem + '.json')
