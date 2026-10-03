@@ -65,6 +65,9 @@ reject set, exact stage binding, same limits and applicable standing approval
 reference. `approved` and exclusive namespace are true only in that parent-issued
 private grant. The CLI issues none. No new production credential, account/email
 change or scope request is required to test the existing capability.
+The executor's existing `ZENODO_SANDBOX_TOKEN` must already be set privately
+through its approved route; the CLI reads that variable. Do not print, replace
+or reconfigure it, and do not request another credential.
 
 ```bash
 python -m scripts.modern_synthetic_canary stage --stage /ABS/PRIVATE/pices-modern-synthetic-20261003-code-02
