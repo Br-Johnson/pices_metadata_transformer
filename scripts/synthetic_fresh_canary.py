@@ -2,20 +2,25 @@
 
 Only the fixed fictional packet may use this capability. Attempts are durable
 before transport; failures stop permanently. Shared response projections retain
-status/body fingerprints and fixed error categories, never arbitrary body text.
+status/body fingerprints, bounded redacted error messages and selected trace IDs.
+Other response bodies and headers are never retained; failed allowances stay spent.
 """
 import argparse
+import base64
 import contextlib
 from datetime import datetime, timedelta, timezone
 import fcntl
 import io
+import html
 import json
 import logging
 import os
+import re
 from pathlib import Path
 import shutil
 import signal
-from urllib.parse import quote
+import unicodedata
+from urllib.parse import quote, unquote
 
 import requests
 from scripts import synthetic_canary_controller as c
@@ -37,6 +42,60 @@ PRIOR_GETS = 190  # Parent-reported original run; never rechecked/reset here.
 ERROR_PHRASES = ('internal server error', 'bad request', 'service unavailable',
                  'unexpected error', 'validation error', 'unauthorized', 'forbidden',
                  'not found', 'too many requests', 'gateway timeout', 'bad gateway')
+TRACE_HEADERS = ('x-request-id', 'x-correlation-id', 'x-trace-id', 'traceparent',
+                 'sentry-trace', 'x-amzn-trace-id', 'cf-ray')
+
+
+def _normalized_error_text(value):
+    for _ in range(2):
+        value = html.unescape(unquote(value))
+    return ''.join(ch for ch in value if not unicodedata.category(ch).startswith('C'))
+
+
+def _credential_variants(token):
+    return (token, quote(token, safe=''), html.escape(token),
+            base64.b64encode(token.encode('ascii')).decode('ascii'))
+
+
+def _safe_message(value, token):
+    """Redact selected human error text before truncation, never a nested body."""
+    original = value
+    value = _normalized_error_text(value)
+    # Error messages occasionally append structured payloads or traceback data.
+    # Keep their diagnostic prefix, never the appended private object/stack.
+    value = re.split(r'(?i)(?:Traceback|Stack trace)', value, maxsplit=1)[0]
+    value = re.sub(r'(?s)[\{\[].*', '[REDACTED_STRUCTURED_CONTENT]', value)
+    for secret in _credential_variants(token):
+        value = value.replace(secret, '[REDACTED_CREDENTIAL]')
+    value = re.sub(r'(?i)\b(?:authorization|bearer|token|access_token|api[_ -]?key|password|secret|cookie|session|owner|account_id|user_id|email|name|path)\s*[:=]\s*[^;,]+', '[REDACTED_PRIVATE_FIELD]', value)
+    value = re.sub(r'(?i)\bBearer\s+\S+', 'Bearer [REDACTED_CREDENTIAL]', value)
+    value = re.sub(r'(?i)\b(?:https?://|www\.)\S+', '[REDACTED_URL]', value)
+    value = re.sub(r"[\w.!#$%&'*+/=?^`{|}~-]+@[\w.-]+", '[REDACTED_EMAIL]', value)
+    value = re.sub(r'(?<!\w)(?:/[\w./-]+|[A-Za-z]:\\[^\s;,]+)', '[REDACTED_PATH]', value)
+    value = re.sub(r'\b[A-Za-z0-9_+/=-]{24,}\b', '[REDACTED_OPAQUE_VALUE]', value)
+    value = re.sub(r'\b\d+\b', '[REDACTED_NUMBER]', value)
+    value = re.sub(r'\s+', ' ', value).strip()
+    # Markers are fixed text. A credential echo must never survive normalization.
+    for secret in _credential_variants(token):
+        value = value.replace(secret, '[REDACTED_CREDENTIAL]')
+    return value[:512], value != original, len(value) > 512
+
+
+def _safe_trace_headers(response, token):
+    """Only request identifiers with recognized trace syntax, never arbitrary values."""
+    result = {}
+    generic = r'(?:[0-9a-f]{16,64}|[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12})'
+    formats = {'traceparent': r'00-[0-9a-f]{32}-[0-9a-f]{16}-[0-9a-f]{2}',
+               'sentry-trace': r'[0-9a-f]{32}-[0-9a-f]{16}(?:-[01])?',
+               'x-amzn-trace-id': r'Root=1-[0-9a-f]{8}-[0-9a-f]{24}(?:;Parent=[0-9a-f]{16})?(?:;Sampled=[01])?',
+               'cf-ray': r'[0-9a-f]{16}(?:-[A-Z]{3})?'}
+    for key in TRACE_HEADERS:
+        value = response.headers.get(key)
+        if (isinstance(value, str) and len(value) <= 128
+                and not any(secret in _normalized_error_text(value) for secret in _credential_variants(token))
+                and re.fullmatch(formats.get(key, generic), value, re.IGNORECASE)):
+            result[key] = value
+    return result
 
 
 class FreshPaths(OutputPaths):
@@ -181,13 +240,14 @@ def authorize_fresh_inventory(safe, environment, controller):
               and c.sha(Path(paths.safe_to_upload_path).read_bytes()) == controller.state['inventory_sha256'])
 
 
-def response_projection(raw, response, method):
-    """Closed vocabulary: arbitrary text/keys/values, headers and links are omitted."""
+def response_projection(raw, response, method, token):
+    """Retain selected redacted diagnostics; no other body, keys, values or headers."""
     status = response.status_code
     mime = response.headers.get('Content-Type', '').split(';', 1)[0].strip().lower()
     result = {'method': method, 'status': status if type(status) is int and 100 <= status <= 599 else None,
               'content_type': mime if mime in ('application/json', 'text/html', 'text/plain', 'application/xml') else 'other',
               'observed_bytes': len(raw), 'body_sha256': c.sha(raw)}
+    data = None
     try:
         data = json.loads(raw)
         result['body_format'] = 'json'
@@ -197,6 +257,24 @@ def response_projection(raw, response, method):
         result['body_format'] = 'html' if b'<' in raw[:256] else 'other'
     text = raw.decode('utf-8', errors='replace').lower()
     result['error_categories'] = [phrase for phrase in ERROR_PHRASES if phrase in text] if result['status'] and result['status'] >= 400 else []
+    result['credential_echo_detected'] = token.encode('ascii') in raw or credential_echoed(data, token)
+    if result['status'] and result['status'] >= 400:
+        result['trace_identifiers'] = _safe_trace_headers(response, token)
+        message, source = None, None
+        if isinstance(data, dict):
+            if isinstance(data.get('message'), str):
+                message, source = data['message'], 'json.message'
+            body_status = data.get('status')
+            if type(body_status) is int and 100 <= body_status <= 599:
+                result['error_status'] = body_status
+        elif result['body_format'] == 'html':
+            match = re.search(r'<(title|h1)\b[^>]*>(.*?)</\1\s*>', raw.decode('utf-8', errors='replace'), re.I | re.S)
+            if match:
+                message, source = re.sub(r'<[^>]*>', '', match[2]), 'html.' + match[1].lower()
+        if message is not None:
+            safe, redacted, truncated = _safe_message(message, token)
+            result.update(error_message=safe, error_message_source=source,
+                          error_message_redacted=redacted, error_message_truncated=truncated)
     return result
 
 
@@ -274,10 +352,7 @@ class FreshTransport(c.SyntheticTransport):
                         c.require(False, 'response_json')
                 raw = bytes(body)
                 c.require(datetime.now(timezone.utc) < datetime.fromisoformat(self.state['expires_at']))
-                observation = response_projection(raw, response, request.method)
-                try: decoded = json.loads(raw)
-                except (ValueError, UnicodeError, RecursionError): decoded = None
-                observation['credential_echo_detected'] = self.token.encode('ascii') in raw or credential_echoed(decoded, self.token)
+                observation = response_projection(raw, response, request.method, self.token)
                 observation['body_complete'] = True
                 observation['attempt_counts'] = dict(self.state['counts'])
                 self.state['responses'].append(observation); self.save()
@@ -285,7 +360,7 @@ class FreshTransport(c.SyntheticTransport):
                 response._content, response._content_consumed = raw, True
                 return response
             except Exception:
-                observation = response_projection(raw[:65536], response, request.method)
+                observation = response_projection(raw[:65536], response, request.method, self.token)
                 observation['body_complete'] = False
                 observation['attempt_counts'] = dict(self.state['counts'])
                 self.state['responses'].append(observation); self.save()
