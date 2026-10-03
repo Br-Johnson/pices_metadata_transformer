@@ -229,3 +229,22 @@ See readiness/2026-10-03/institution_program_citation_99.md and the parallel rol
 review. The original uncertain create remains spent after 190 GETs; finite backend
 confirmation/account-owner inspection/adoption decisions replace indefinite
 absence polling, without automatically granting another POST or resetting state.
+
+## Reviewed joint/collection citations and offline identity preparation — 2026-10-03
+
+The 190-member opt-in profile retains 99 earlier cohort objects and explicitly
+reviews 68 joint-citation after-images, including both USDA/DNR Organization
+objects. No generic comma split is introduced. The raw combined origin is retained
+in a note beside each corrected list; only its existing curator-decision creator
+list also changes. Unaami's 23 untyped collection objects remain literal. Actual
+source QA promotes only FGDC-619 and retains 90 access cases across nine exact
+partitions; meaning decisions must bind those source IDs/hashes rather than
+expanding old access attestations. See the current readiness profile/receipts.
+
+Complete offline duplicate/source-integrity preparation independently confirms
+4,206 originals, 4,200 copies, 4,194 payloads and all 228 exact-copy pairs. All
+456 alias identities remain held; title collisions are not record identity.
+Historical public IDs/DOIs are protected with their original association confidence,
+including three distinct contents sharing FGDC-2043's title. Fresh remote identity
+verification remains required before release. No canary machinery or new authority
+is added; its uncertain POST remains spent.

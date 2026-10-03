@@ -1,5 +1,9 @@
 # Parallel read-only role and access reviews
 
+Historical read-only review at PR8 `37ea595`: implementation and observed successor
+counts are now in [the joint/collection profile](joint_collection_citation_190.md).
+The source decisions and original read-only eligibility delta below remain intact.
+
 Three separate reviewers checked Ecotrust37, USDA/DNR31 and Unaami23 while the
 single code writer implemented the separate 27-source citation extension. The
 reviews made no file edits, provider requests, credential/private-run access or
