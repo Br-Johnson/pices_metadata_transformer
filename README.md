@@ -45,6 +45,11 @@ provides an isolated offline-tested Sandbox adapter, fixed fictional payload and
 separate runtime/grant bindings. Parent dispatched the approved trial and reports
 one durable POST intent with no retained response or established network dispatch.
 All create allowances remain spent/held. The
+[supported-route run02 handoff](docs/readiness/2026-10-03/modern_supported_route_handoff.md)
+freezes a distinct fictional trial with the same action ceiling, preserving normal
+environment routing and every old unresolved allowance. Its parent-bound dispatch
+must fall within the existing user approval; code changes issue no live grant.
+The
 [exact821 source scope answer](docs/readiness/2026-10-03/source_scope_attestation.md)
 supports791 promotions while retaining30 independent holds.
 The [five retained-import preparation](docs/readiness/2026-10-03/five_import_correction_preparation.md)

@@ -369,3 +369,22 @@ Parent separately approved/dispatched modern runtime dc351b0; its durable create
 Add exact205 underlying-resource acquisition/use interpretations,8 literal creator corrections and27 complete display titles without generic inference. Full352 guarded offline tests and complete4206/4200/4194 delta yield3468 supported/732 held/6 malformed;35 raw metadata objects change only reviewed fields/context notes. Old264/401/8 member objects and821attestation remain intact.110 previously protected held access records clear from individual source evidence,38remainheld; no broadattestation expansion. Creator preservation notes follow the established classifier order and require actual full after-image review. Inherited profile summary text describes ancestral cohorts; current contract/new-role fields govern additions.
 
 Remaining276nonalias holds include238access-only,31creator-lane,6dates and233title;456alias identities need verified provider crosswalk and owner decisions. Residualaccessgroups may admit further source review and are not universally irreducible. Normalized submission notes include active evidence refs, so unchanged raw metadata does not imply unchanged normalized upload bytes. The five-import raw metadata and historical comparisons remain untouched, with current concurrency/correction/release gates outstanding. Merges of PR11/12 were rejected by automatic review because original trustedscope excluded merges; sourcework stays in reviewed open handoffs. Root performs no provider requests/stage mutations. Frozen GET-only parentdispatch preserves193historicalreads and spentcreate allowances under separate boundedledger; diagnostics cannot reconstruct the consumed moderncreate cause.
+
+## Supported modern transport and a distinct synthetic run — 2026-10-03
+
+Parent reports one official-routeGET succeeded and its entire2025 newest prefix
+crossed the2026 search boundary; cumulative195 and285 preserved files remain.
+This neither settles the unknown run01 create nor proves a transport failure
+cause. Its read-only expiry is unchanged. Correct future transport by preserving
+ordinary Session.request environment/CA processing and existing adapters, with
+instance-only phase observations and an opaque authorization-preservation check.
+Disabling all environment routing is too broad a fix for netrc credential risk.
+
+Run02 uses a new immutable packet/exclusive stage and same finite protocol budget,
+never migration/reset/retry of run01. Parent dispatch must bind the applicable
+standing user trial approval; a fresh binding is accounting, while any action
+outside that actual approval is a substantive scope decision. No extra inventory
+or preconfirmation is required to test deployed modern protocol compatibility.
+All source classifications and production gates stay unchanged. Existing token
+configuration is sufficient; .env.example needs no new setting.
+See readiness/2026-10-03/modern_supported_route_handoff.md.

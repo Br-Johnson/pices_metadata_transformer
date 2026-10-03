@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "base_commit": "85420aba8be7ee137bfacfa9d4a53d61b9799d63",
+  "namespace": "pices-modern-synthetic-20261003-code-02",
+  "packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+  "runtime_sha256": {
+    "modern_synthetic_canary.py": "8b96b63ca66ec4e27546ce3980abb98cb8f5f7b696eb2c7d3f590ac7a61e9b24",
+    "modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3"
+  },
+  "fail_first": {
+    "new_contracts": 5,
+    "failures_on_base": 5,
+    "provider_requests": 0
+  },
+  "focused_tests": {
+    "count": 33,
+    "result": "PASS",
+    "seconds": 0.726
+  },
+  "full_guarded_tests": {
+    "count": 367,
+    "result": "PASS",
+    "seconds": 62.762,
+    "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/pices-code-venv/bin/python docs/readiness/2026-10-03/guarded_remaining_source_qa.py test",
+    "blocked": "unmocked Requests, sockets and DNS",
+    "log_sha256": "22f30b9a5ececf7fdcc1e3cd26a389e0acfe1f60436dc9b0f4a07ae0a2c2a248"
+  },
+  "lint": {
+    "result": "PASS",
+    "selection": "--isolated --select E4,E7,E9,F,I,B",
+    "files": [
+      "scripts/modern_synthetic_canary.py",
+      "tests/test_modern_supported_route.py",
+      "tests/test_modern_synthetic_canary.py"
+    ]
+  },
+  "independent_review": {
+    "path": "modern_supported_route_independent_review.json",
+    "sha256": "dfdaa88f25ed3603258f24fed970415cd4d0a49a5bd2acd907db97fbf9282bc9",
+    "focused_tests": 33,
+    "additional_boundary_checks": 3,
+    "result": "cleared"
+  },
+  "historical_get_intents_preserved": 195,
+  "prior_files_preserved_parent_report": 285,
+  "prior_create_outcome": "unknown; permanently spent and held",
+  "root_provider_requests": 0,
+  "actual_environment_values_credentials_or_private_stages_inspected": false,
+  "source_profiles_production_dedup_original_XML_unchanged": true,
+  "remaining_dispatch_condition": "Parent binds exclusive fresh run02 to applicable standing trial approval and exact reviewed runtime/packet/stage/window. No new provider confirmation needed."
+}
