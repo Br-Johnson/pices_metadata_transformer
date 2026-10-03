@@ -48,6 +48,15 @@ alias holds and the separate production release gate.
 
 Follow the [draft and evidence-bound QA runbook](docs/draft_qa_runbook.md) before using operational commands. Production stays draft until supported human or delegated agent record QA and separate explicit publication release. The [pinned review and offline reproductions](docs/reviews/2026-09-30/README.md) document the original defects.
 
+The current [finite source access checkpoint](docs/readiness/2026-10-03/finite_source_resource_access.md)
+adds 142 exact source/hash/context interpretations from merged `4b13126`:
+**2,430 source-supported / 1,770 held / six malformed**, with 312 guarded offline
+tests. All 4,194 prepared metadata objects and every original XML remain unchanged;
+source support still requires separate provider verification and release.
+The [grouped decision packet](docs/readiness/2026-10-03/remaining_source_decision_packet.md)
+retains 821 sources under the three largest unresolved wording questions and queues
+13 smaller attribution/title proposals without claiming an implemented promotion.
+
 ## 🚀 Quick Start
 
 ### 🎯 Recommended Approach: Use the Orchestration Pipeline

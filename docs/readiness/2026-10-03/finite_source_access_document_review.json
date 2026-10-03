@@ -1,0 +1,68 @@
+{
+  "accepted_independent_delta_receipt_sha256": "197a6bbf93c0cbbaac28573f3b2a863d887684836f52b81fee62f1cb251f60ca",
+  "actual_delta_receipt_reused": true,
+  "all_proposals_unimplemented": true,
+  "broken_local_links": [],
+  "display_title_proposals": 8,
+  "guarded_wrapper_source_review": "PASS: argv retained through runpy; root imports; dummy sandbox/production tokens; requests Session.send, socket create_connection/connect and getaddrinfo patched before classifier imports. No wrapper execution by reviewer.",
+  "highest821_projection_format": "source-id-sorted list of source_id/source_sha256 objects; JSON sort_keys=True,separators=(comma,colon),UTF-8",
+  "highest821_source_binding_projection_sha256": "fadd7400f24cb063303d4a294699b9bcdc0e362018ae5d74cbb44f9a28c0aca2",
+  "highest_unresolved_groups": {
+    "ADF": 351,
+    "ADF_literal_strata": [
+      253,
+      95,
+      3
+    ],
+    "ADF_long_title_holds": 28,
+    "Contributor": 361,
+    "Unknown": 109,
+    "disjoint_members": 821
+  },
+  "issues": [],
+  "local_markdown_links_checked": 33,
+  "proposal_context_copy_byte_equal": true,
+  "proposal_decision_copy_byte_equal": true,
+  "proposal_title_source_prefix_and_boundary_checks": "PASS",
+  "repository": "/workspace/pices-source-access-exceptions",
+  "resolved_findings": [
+    "Classifier reproduction now invokes the committed guarded_offline_classify.py rather than an unrelated unittest guard.",
+    "TODO last-updated date now matches 2026-10-03."
+  ],
+  "resume_receipt": "PASS fields bind accepted after-report f89ea06557eced0b0184d723a5a2fd576c036e795e4028ba55fb81baa67e69a0 and 4194 unchanged payload hashes; parent confirmed completion. No classification outputs reread.",
+  "reviewed_file_sha256": {
+    "README.md": "061ff87d2e8592b1611a36bf5f98d47ac2e885de496ce8c629ff5667a9909156",
+    "docs/readiness/2026-10-03/finite_source_resource_access.md": "f0d30fb318f041bd90e7d8842057763c1edc8cf45d8c302a5184c65e446b8f4a",
+    "docs/readiness/2026-10-03/finite_source_resource_access_validation.json": "36b7d72deaaafb05ed946207b47352b9c976c2fb78c53b1296e6827c3006d359",
+    "docs/readiness/2026-10-03/guarded_offline_classify.py": "242ded7f74fba5093811b6be8f78be14a7209633d04857d558ef98cb45e0f1c3",
+    "docs/readiness/2026-10-03/remaining_attribution_title_contexts.json": "fb4a9b19c4d6ce7da2870d7abb234dfae3eb9a5ed95d703d500dc4e262ac9f6b",
+    "docs/readiness/2026-10-03/remaining_attribution_title_proposals.json": "afc9240c5281e1fc208c43ba57c2631ec06afb7247d2ffd574ea4e53418dd2d8",
+    "docs/readiness/2026-10-03/remaining_source_decision_packet.md": "ce5741a312731bc46c920fc4b14bc9b7a2e76226603e1e5d77e26a06fce89d72",
+    "docs/tech-debt.md": "bdbc979617d230fd963d350670ec9e051da0fed2c97ee3d0943eb15d174eef20",
+    "docs/todo_list.md": "04af3f0bdca4401c9c1e398b2c2d4ac4ea4082494aaafa09a2e69e39cad89375"
+  },
+  "rights_and_permission_boundaries": "No new license/data permission/metadata permission/release/live-provider approval asserted; separate restoration authority, restricted access, blank licenses and independent holds preserved.",
+  "runtime_commit": "4cb1f80b70d9052e248b413e205c287ba49573f1",
+  "schema_version": 1,
+  "scope": "Bounded read-only final document/receipt/proposal/hash review. Reused accepted independent finite142 source/delta receipt; did not rerun tests, classifier, corpus delta or read live classifier outputs. No repository changes, provider/network calls or credential/private files.",
+  "selected_proposal_source_bindings_verified": 71,
+  "source_credit_proposals": 5,
+  "status": "CLEAR",
+  "title_lengths": [
+    150,
+    169,
+    227,
+    244,
+    209,
+    224,
+    236,
+    234
+  ],
+  "truthful_actual_counts": {
+    "held": 1770,
+    "malformed": 6,
+    "new_finite_members": 142,
+    "supported": 2430,
+    "whole_metadata_objects_unchanged": 4194
+  }
+}
