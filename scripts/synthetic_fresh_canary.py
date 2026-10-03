@@ -60,8 +60,9 @@ def packet_plan():
 
 def checked_stage(stage):
     stage = Path(stage).resolve()
-    c.require(stage.name == SOURCE and stage != c.RUN.resolve()
-              and stage not in c.RUN.resolve().parents)
+    original_root = c.RUN.resolve().parent
+    c.require(stage.name == SOURCE and stage != original_root
+              and stage not in original_root.parents and original_root not in stage.parents)
     return stage
 
 

@@ -119,6 +119,9 @@ class FreshCanaryTests(unittest.TestCase):
     def test_staging_cannot_reset_existing_or_bind_original_source_root(self):
         with self.assertRaises(FileExistsError): f.stage_packet(self.stage)
         with self.assertRaises(c.ZenodoAPIError): f.stage_packet(self.old)
+        for nested in (self.old / f.SOURCE, self.old.parent / f.SOURCE):
+            with self.subTest(nested=nested), self.assertRaises(c.ZenodoAPIError): f.stage_packet(nested)
+            self.assertFalse(nested.exists())
         self.assertEqual({p: p.read_bytes() for p in self.old.iterdir()}, self.old_bytes)
 
     def test_changed_source_payload_packet_or_stage_binding_blocks_before_transport(self):
