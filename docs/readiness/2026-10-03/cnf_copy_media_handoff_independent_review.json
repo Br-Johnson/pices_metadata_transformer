@@ -1,0 +1,408 @@
+{
+  "schema_version": 1,
+  "status": "CLEAR",
+  "reviewer": "Independent /root/unaami_role_access",
+  "scope": "Pure inspection of frozen runtime byte bindings, saved exact22 before/after artifacts, bounded helper, handoff documents and exact residual membership partition. No tests, classification calls, source-role audit or provider work in this follow-up.",
+  "worktree": "/workspace/pices-next-residual-cohort",
+  "runtime_commit": "5ac67c2a1dcf10815df7c77ef9fec5505048ea3c",
+  "reviewed_document_head": "125cc0a68b89a0675fd716c6f6ac8797e7562c55",
+  "rebased_main_parent": "cd397bb2115b220ff9c0994205589d393117aa8f",
+  "previous_implementation_review": {
+    "path": "/tmp/pices-cnf22-implementation-independent-review.json",
+    "sha256": "d975bdef037b342b856a5a0357aae1e3f6d94c3c15b4cd6db07d27b633543e07",
+    "all_eight_reviewed_code_test_helper_file_hashes_unchanged": true,
+    "profile_hash_unchanged": true,
+    "focused_test_result_reused": "Five guarded contracts PASS in7.208s; no rerun"
+  },
+  "current_code_sha256": {
+    "scripts/dataset_access_interpretation.py": "12c1443e5f863508cf554f4b18fb946e3d8d0f275e1ee7d53b17c4a2dcdf9251",
+    "scripts/collection_qa.py": "8f5cbd97819a73c5940d3012f3f1d788d18364a14ae41ad5f7fe8c9a84320a98",
+    "scripts/agent_qa.py": "992e2e4449cbd860c7b42930679ccb069917e530f38e6689d7c04bd18287c59a",
+    "scripts/qa_manifest.py": "b164742379c5f26b121717a2ad874e2d827d56c9a83e2f3e86ae32ca9b2d2732",
+    "scripts/source_scope_attestation.py": "14b61b38f53d83a02c3a82a2a1b293472f6afee6706c6ea157fcb3b358e15455",
+    "scripts/rehosting_authority.py": "220e41353c90f47e067d1650134d2290e494ca8b4e43f33a0d97d8b83fbb0032",
+    "tests/test_cnf_copy_media_access.py": "4565d410b7ab5fc37b818607d15eb3776a2413ff7c7a8e91d4dd2f022387446f",
+    "docs/readiness/2026-10-03/guarded_cnf_copy_media_qa.py": "859de18af0cec93f8066734eb9ea23572e31610f51e1998fedf19dcb78adb05c"
+  },
+  "current_document_sha256": {
+    "README.md": "9c6412ff97a7652041f765c58a4737d064b1cd28c1dee6a24f9a328e07a8c576",
+    "docs/tech-debt.md": "f92bdfb3a5ad36eb15f019a551267618cd08823d0d2f5ca9fb8301cb408d6cc8",
+    "docs/todo_list.md": "5dd25bd4ed27d9c86c3c7d955aab7ad0ee3a89ff7aa8bfc4eab24029d249bdf1",
+    "contracts/examples/cnf_copy_media_access_22.json": "c31ae077998836eb1fbd1447d558644cef69b07f05a1560d23407304b30ad541",
+    "docs/readiness/2026-10-03/cnf_copy_media_handoff.md": "4a7badc64af907427de7d35244f14d16ad377274e36584c06e7dfc34406ec278",
+    "docs/readiness/2026-10-03/guarded_cnf_copy_media_qa.py": "859de18af0cec93f8066734eb9ea23572e31610f51e1998fedf19dcb78adb05c",
+    "docs/readiness/2026-10-03/cnf_copy_media_bounded_delta.json": "f7c74308d39bed987971a9702e5095b5ecb1ec0944754c9a86e250f4dde50d1a",
+    "docs/readiness/2026-10-03/cnf_copy_media_source_proposals_22.json": "ba7b805cde77a1032eff42038e2b97d0fe39bcdecbde15bf94e61e1278113356",
+    "docs/readiness/2026-10-03/finite_source_resource_access_491.json": "13e82e2375da3bf17cf352fff7a8cda43fa6d781a3e436ca7321c8428ac77abe",
+    "docs/readiness/2026-10-03/cnf_copy_media_source_independent_review.json": "6fc94a1d71be8e10d282800ac3bf0bf7057b3dde09d2205baf9a4c843eb8530b",
+    "docs/readiness/2026-10-03/cnf_copy_media_implementation_independent_review.json": "d975bdef037b342b856a5a0357aae1e3f6d94c3c15b4cd6db07d27b633543e07",
+    "docs/readiness/2026-10-03/cnf_copy_media_validation.json": "3be80e1f5fc6f4d25f536ca738a9584098825c0c05898f572f34feb4ac5dc7ef",
+    "docs/readiness/2026-10-03/pices-next-residual-questions.json": "ceca1ee32d8047c3d2fd4953b16cbaf883f39a930d753f1836d5e3ebb6a3ad0b",
+    "docs/readiness/2026-10-03/pices-next-residual-questions.md": "de61bcc9388c2b9a45fe289e956db355b5043714a6ec4e9bbac7d3f552029efd",
+    "docs/readiness/2026-10-03/remaining_source_questions_732.json": "3baf322609cc02657f400067aff4731656c110eb10bc55fc14af6bcc16b75892"
+  },
+  "helper_static_review": {
+    "sha256": "859de18af0cec93f8066734eb9ea23572e31610f51e1998fedf19dcb78adb05c",
+    "exact_frozen_baseline_report_SHA_required": true,
+    "allowed_limits": [
+      10,
+      22
+    ],
+    "default_limit": 10,
+    "only_reviewed_proposal_member_prefix_selected": true,
+    "immutable469_before_and491_after_profiles_explicit": true,
+    "saved_baseline_selected_payload_hash_verified_before_comparison": true,
+    "complete_raw_metadata_baseline_before_after_equality_required": true,
+    "current_source_and_phase_copy_hashes_checked": true,
+    "exact_selected_phase_status_and_false_remote_release_flags_required": true,
+    "integrity_checks_use_explicit_ValueError_not_assert": true,
+    "AST_assert_statements": 0,
+    "real_environment_replaced_with_dummy_token_values_for_classification": true,
+    "Requests_Session_send_socket_connect_create_connection_and_DNS_blocked": true,
+    "writes_finite_QA_artifacts_only_for_selected_sources": true,
+    "no_provider_client_operations_in_helper_or_source_only_classifier_path": true
+  },
+  "actual_artifact_review": {
+    "baseline_report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+    "final_QA_directory": "/workspace/pices-cnf22-qa-final",
+    "before_report_sha256": "1a7c1b713a51a6eccb69c75869402896851ad941e17c56d183b4fe5f74fe5610",
+    "after_report_sha256": "1f3f6e90716591f45cbb90194b344b90d1c29dc6852ce0bba3ae33f3c287f307",
+    "selected_before": {
+      "supported": 0,
+      "held": 22,
+      "failed": 0
+    },
+    "selected_after": {
+      "supported": 22,
+      "held": 0,
+      "failed": 0
+    },
+    "delta_sha256": "f7c74308d39bed987971a9702e5095b5ecb1ec0944754c9a86e250f4dde50d1a",
+    "repository_delta_and_both_QA_directory_delta_bytes_identical": true,
+    "all22_source_membership_and_hashes_match_baseline_and_proposal": true,
+    "all22_complete_raw_metadata_equal_baseline_before_after": true,
+    "all22_current_originals_and_baseline_before_after_copies_byte_equal": true,
+    "all22_complete_before_after_payloads_differ_only_by_added_dataset_access_policy_reference": true,
+    "all22_restricted_blank_license_USER_ATTESTED_nonalias_technical_pass": true,
+    "all22_remote_verified_and_publication_approved_false": true,
+    "actual_ten_source_helper_smoke": "Parent-reported PASS; independent prior focused suite exercised ten-source sample. No additional sample classification run.",
+    "rows": [
+      {
+        "source_id": "FGDC-607",
+        "source_sha256": "9fdd8e455d4e94d671210c6a0c6697127dbf4d33c3452227a6c4b52100de1877",
+        "baseline_payload_sha256": "8c07efb690f98e91dd1817e7557414c632894237b2787f5b828832b532d7bd95",
+        "before_payload_sha256": "97bf4dc1694cdba36abeb2bb03e349a8fefb6d0a7af8e5d34200584de6e54ee0",
+        "after_payload_sha256": "86a1650af0c9edc729d77fbd3b44f679f83ee55dc0fc7cabd6640c6b9f450c1f",
+        "complete_raw_metadata_sha256": "584d477f09b32722a9a837862229e7b8120af83fc4583a34fefb2daeaca88f9e",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-638",
+        "source_sha256": "2dff06bcff4abe5b6fbb18b8116efca7365c65ecef690017c22c754338fcf0f1",
+        "baseline_payload_sha256": "b9ec26a4a1fc4c99d565e801a3dd314af6d6c560244b221313766b5ae00cf2eb",
+        "before_payload_sha256": "b23543a0a89616c96739b7b276e293a97202e1525123db34cf4f6eaf20c86467",
+        "after_payload_sha256": "cb795b572abbe2857a76ea2402d8b40e91f784e614b8b27725238a19c0ebe391",
+        "complete_raw_metadata_sha256": "0923d1583ae4acf8f371a3ebb68ce0450e0b1d0dc0c13436c756f63e2d806402",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-645",
+        "source_sha256": "3845169731c52fb192a6b91daa7527a917c04982602444ab45879f2e8b3861d1",
+        "baseline_payload_sha256": "b14cf5cfb13d5e86af6905269d9916498f607ac40a223fb13448122b113c4d9a",
+        "before_payload_sha256": "60938ba811a5f2f00ab23c62ae6d376c83d54168d8d7a69db5ca55882bf21756",
+        "after_payload_sha256": "55e5dc717fe5c8c443c4aad91fbd9aaba960cc694218055a77d1305e0752e1ed",
+        "complete_raw_metadata_sha256": "139477575f8ea89936d30ba4505497a1e32a37e165516fba3e7cef6c2cc56189",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-646",
+        "source_sha256": "338fb8ebd6900a2da426aeee92583ad8b2255d5745424edaad9d49c530b9f4a3",
+        "baseline_payload_sha256": "5c4a4654dc70f997a587119fee01281e73fa645bc4a6caa626aa226ad89800c7",
+        "before_payload_sha256": "867f0cc63a498bb8680e32d6a97ff76c719ae51496f7f13bab5831a09ea417c0",
+        "after_payload_sha256": "060d2129714191795a8356538843cef963429bead49fac9126fb1969dc8de055",
+        "complete_raw_metadata_sha256": "9657b47ec2572b9a8601200a804735410a23f2a8850e22059edb6109a1676c70",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-692",
+        "source_sha256": "039850a0900cd26092faa71ae1916376b03a1f86e2e0d5c8e36cbeccaeb7b392",
+        "baseline_payload_sha256": "d01606262069874608a7df2f3eddc2b47e048eefd9237cf6bacadbcbc6921e20",
+        "before_payload_sha256": "1fdbf12f9d57067d92282e2a7e1560a8491c66c852b9ff793c52c58b7bcf522a",
+        "after_payload_sha256": "fcd8229f0183aa4e48cc6a007f2fe997ed3466cfdcbdc54012a8d0a874be40cb",
+        "complete_raw_metadata_sha256": "51d80787524778d1a857152498e7c51f60c6f4b219391ed25f9f57f3fef075db",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-695",
+        "source_sha256": "4a82088f7684d3604c1f68bd5a884658f5810835d55b4e65ed2a7e1ad1b940db",
+        "baseline_payload_sha256": "cff029d2172655ee3f3b41cc34c6258dba6eed27885ba86bf495a8267a0fcd27",
+        "before_payload_sha256": "3741b953da50fcb87796b1684b2764ce7750561bdedf512ebe84f959da2f4472",
+        "after_payload_sha256": "4d7dd82f26bd1cd73a86a9886991d1fd49f29197a148e28c2250d42fc00b00e1",
+        "complete_raw_metadata_sha256": "e6e9d197d2c63d270650db68b52a0e68191966f337cbf51924aa8ea597f22605",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-698",
+        "source_sha256": "9c6887fcc45dc924411d0c6e8e3b5496313acd63f502587f2ed676688a314df2",
+        "baseline_payload_sha256": "d328acd819c784135564c20a6a8954e9d5e513f4c740a6f37af8971c7d202375",
+        "before_payload_sha256": "ca128a0c76d5661c3cbcea20c6c7bb7878e005e6938eb30cb1e3be8a19042a79",
+        "after_payload_sha256": "ce163300a8e1ef2438b9aa2117322577d7580537bf4de9e1c9fb7c952e1ae438",
+        "complete_raw_metadata_sha256": "ca4a9255810473872eccff401367173dc0a684628b30b3aafb98b2171593ff34",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-702",
+        "source_sha256": "920382abc215c129a0547e8bb8a1ad78ad7c87822b69f87568de87beacfe80fa",
+        "baseline_payload_sha256": "9e441c4ad8399c543da03e05a05427ced70007417d8b3dc243114284630a35b4",
+        "before_payload_sha256": "7a8ceb143b093a69ee7f006fafc1767ce953ff36802b1ac94a73ca0858d7e3c4",
+        "after_payload_sha256": "5f5d7937a816888f20c926f5c65ecbc7c17b0d95a64c1a3fa19e56c50a908fa6",
+        "complete_raw_metadata_sha256": "9dbd37852fc42ed538d931c8c38c4673054abd7f141746763239ea2c8d372f46",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-704",
+        "source_sha256": "a28b36aa5235beba2f0326622e8f130dc97a17a0912f94096b272508fea785db",
+        "baseline_payload_sha256": "751b0fc3cd6f6a8207f0d769c9d19c478eeebb10050902c675a692c7377c3566",
+        "before_payload_sha256": "6c889381b26980c89b31f1dd98f53c9c343c970f2eb829d1f0ae8b4d9e4d27e9",
+        "after_payload_sha256": "99b569b3dd96cfa3b1f1becba55a23ab247add28b030deddbd33ffea1f5e0608",
+        "complete_raw_metadata_sha256": "f50ac65bfda1ea7f1c18eb98331a56605a88e73b63d1401606bd2a56aef140cd",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-713",
+        "source_sha256": "cbe44a59380604abd229a29605483d36402c7deec9d73d21973ad8187bd7724a",
+        "baseline_payload_sha256": "5d48b1ac6451ebb6ca596de0c0125342330d8ee809da9a07eddb1a19ca293cfe",
+        "before_payload_sha256": "be1e11b68bfa6ad80f8bfe34b8191f97925911141e6b16de0767c30ef3055327",
+        "after_payload_sha256": "1b457f864aa9b9b8e87fb40805d1566179642329ad902a6b8fa9d38e62a2838c",
+        "complete_raw_metadata_sha256": "bb932ac0b406c9004613a6296bb9e2d297ad267c565c7fb89ec7a834ce111096",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-722",
+        "source_sha256": "01061d666fda4f27d51268f08f6aa61022339f4862c4763a06779b91dfcabf51",
+        "baseline_payload_sha256": "e0b60c18202bc1c652fed14daf3d2c85fdce6d1cfb8f87c69540430582a68fdd",
+        "before_payload_sha256": "957dac126fe99632187b2586a9019f6803e77cc60948b8583c53c457260d2a8b",
+        "after_payload_sha256": "370d4107447670da248c7536aa3bec22049c22d8a02a7b6687bbcc13fd648fcf",
+        "complete_raw_metadata_sha256": "f17704c64bee19c69bad81089e012a1a7c53e8b7c852734cfadadae9a04a21c3",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-727",
+        "source_sha256": "3aada74e85aaf4497275b7ea17b0681095c89196fbd92c7b63d5e80f565264f1",
+        "baseline_payload_sha256": "31987386c1c09b396c527827072779a885fb88f94190b4aced9a744eef4e7cbc",
+        "before_payload_sha256": "602750aeaf1eb61d687764902497024521da75d24720f5e9313c4e6576ff64da",
+        "after_payload_sha256": "b77f939697cabc99dd0286d229adb80921a378a312d76555865a57440e8c54f2",
+        "complete_raw_metadata_sha256": "c86bc2387f4bf11a72524f6d6350a5f72501592dd27a38b9d8b4d3ba11d1dd3c",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-738",
+        "source_sha256": "94a1741adae00de776642f30a8eedf3e80b3bfc33a6f353d3da6237ed2670204",
+        "baseline_payload_sha256": "86d925d987a1bfc0cf871efa69271457e44b3f8e56ba015722a4104ce4294add",
+        "before_payload_sha256": "07108563e28fc1e2aca3c5fb7a36c4d1456faa3beb6098c488b9e17933fd7ae9",
+        "after_payload_sha256": "34b9b92be57827006171fce9bb111121c89677b9d39e322f596499d5806d9dcb",
+        "complete_raw_metadata_sha256": "79f22eb6517776b89458019a47d8623828da7b24ea60cee09ccc011ec5678593",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-744",
+        "source_sha256": "f849ac1dbe0dc98b01bd20431706f39c7d7667f7d8dc55f24b6f714506af3636",
+        "baseline_payload_sha256": "276f9ee851bd483ce868ed816ddf4c857244ef7ec55f533c2eef8ad390065401",
+        "before_payload_sha256": "5cf602d19bb36f20965fe5caa624ef168fbe0f38d45d964ccb2d79b1de26b899",
+        "after_payload_sha256": "348d80e61e60e39b35c494258159be1d8a8c37bb171cdaa87b9a472e8467ed6a",
+        "complete_raw_metadata_sha256": "4479a536fe3853d70a81698fad740f6e81ae5de7cf071db6884c0ba2d7aebd43",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-745",
+        "source_sha256": "125a2f5c33d72f135bd7e7cf7bf3fcc1c7efa5adb3a722c57c6ce6ea908815a4",
+        "baseline_payload_sha256": "6f93f8bbbda63f2b853a28c45f0afcea6ace4b8e6a73534e9d2d892b60e640c4",
+        "before_payload_sha256": "5adca6e165bd7c03c58846bc35420f3382558321b3af54ba403f17c50cb72bac",
+        "after_payload_sha256": "01c38e4fda80caf7609c3f7fd966ddefd7f7a9fc8bc46276f664bf3ec9700ff8",
+        "complete_raw_metadata_sha256": "10aed4627ef300551a03abfbdb05572afea8e57b044ce7e640aac67be7accb47",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-746",
+        "source_sha256": "8af56bfda78595c5796b24c7946a9504e30efc88c29624671d50bad87c0fb7d8",
+        "baseline_payload_sha256": "9a510876dd8d420d8b9daf8d1980a94dd7cf16f00a7a79ccf3949d69c21390ba",
+        "before_payload_sha256": "2d6c4a90b960a29aca92491a0757a216f9d58f8a94539e060c635199b35134c6",
+        "after_payload_sha256": "41a814268edd5fbb570761b1b45610e449552c19933de7c10d3992a7a77e8521",
+        "complete_raw_metadata_sha256": "5ca7c5cd6da359b53997d8ce551e1929b4cb42f6b0b44373d27f70d329840c61",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-747",
+        "source_sha256": "f6ecf4702dc01d9c4406f2921226c7fa1cb1e51d1c63bae1fa7ad3cac85b49b4",
+        "baseline_payload_sha256": "9fa426d46d11a99691ebc955f0acf286986544f41d4da5756d5b22c2727b1ae1",
+        "before_payload_sha256": "4858debfc37ffee7efc9e21b1b3dd07009a078881eeeeb3e447d2a08d88c6b27",
+        "after_payload_sha256": "1181d78c89268c3e0f724cabf2f8304a8dfe840a128c605281ba85988682acfa",
+        "complete_raw_metadata_sha256": "e5b502840a3a8b7eb645a233d8acf6002f0839030db0d3fdd30e2504f59bc2f8",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-765",
+        "source_sha256": "8e0f9063baf515d78f41f8a7b4d3c5a6917028338d54fa21b42f067602b13c4a",
+        "baseline_payload_sha256": "b525d7e484de514cec19c116506bec1aca1b787cafc09af4c94f11a45003303d",
+        "before_payload_sha256": "c65aa966f50b51af81dc4b9c9add84a9205a2f06ac2da96db546dc3b86318001",
+        "after_payload_sha256": "d0971db9ce5385c1eb9f291beae296c9f66bcf15fe55679c14dd71bb0f1c01cb",
+        "complete_raw_metadata_sha256": "4d5d830f9bb8dd3b0471be9a2a227c53f60ec8e6dd32ccb53725f7e163f6d240",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-772",
+        "source_sha256": "94dd3ce382edbb4110ea938d77e8932008b4e4435e306e433b6fe67f164cd184",
+        "baseline_payload_sha256": "68d25d71e36d2a1f6398483b254adcc6293338c22f72223d852a8aebfbcd1482",
+        "before_payload_sha256": "4f0254899d28e0fe5c6318e9ea907e4d7b2ff3772d7671d51de4f87564bef688",
+        "after_payload_sha256": "b1f35a6f1e9d5d77600399fca42a1341e8a4f0c9e0067431e0a263b3b4cce7e1",
+        "complete_raw_metadata_sha256": "148c71cc607f05cb17e38d099c786f200480f06737f40af6800d3eaa734c8b66",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-773",
+        "source_sha256": "8cb88cf1d48f03ee0451a36cece98abf956e4b7b1b26e659b25ecfca734d3116",
+        "baseline_payload_sha256": "b2daa7bfc76feb5a33243bb19c30f066a38fade7b323d4b66e45068421b016bf",
+        "before_payload_sha256": "63e0850900481b0fb9a59693ad42098c8d6f6f6c432def776ed215684c557b11",
+        "after_payload_sha256": "3570ce2b55cdbbf4982e316e6fa39af7316489a947874507a84c07da962cc7ba",
+        "complete_raw_metadata_sha256": "be0e2c936c655604fdaf577bc038feb1ec1454868e1fdc1a8f170e73e31fc13b",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-774",
+        "source_sha256": "144eab14cb8094a44b6b0a8fceb777e118b46f17bd1be40f8fc83e055a40374d",
+        "baseline_payload_sha256": "5b0ae89bade33b860a2572c6eb590e80a600d37ba01b9cf3ea408ec3840112f9",
+        "before_payload_sha256": "ed00b940ac5392a5c8b1391f2a8ba53ca7a5abef883f487cf893a60d81f2eb17",
+        "after_payload_sha256": "0cc4e752adfde6f98d21f7ebaf0e652e55ddb7ec1f6cbb9e57868327540a13d5",
+        "complete_raw_metadata_sha256": "c182352653f14e260df601924617a2da298c940fb0b1d6d14120043f5959d130",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      },
+      {
+        "source_id": "FGDC-776",
+        "source_sha256": "7e9ccf3fb81162f95ab398f0a45aceeb51f137dbfa1d0a50789e8fd832a4de1d",
+        "baseline_payload_sha256": "978e8f18d8a567590e92d349ff53d7495ecfe1d3f2f0821b3f487ddf62a7022d",
+        "before_payload_sha256": "7661b8a18984f00714751a2ec1d4b078bd68194d5f8b45f7a7aaef4233488340",
+        "after_payload_sha256": "8af3f7edfe7407db694361a5b9936d4328e559b192c6116407679d3340d5cce2",
+        "complete_raw_metadata_sha256": "74ce7e68a47e5a834121d8ead683ceba55dab547b0d7e375643a098b262a8139",
+        "source_and_three_copies_identical": true,
+        "metadata_equal_all_three": true,
+        "only_dataset_access_policy_reference_added": true
+      }
+    ]
+  },
+  "partition_review": {
+    "frozen_baseline_held": 732,
+    "selected_CNF22": 22,
+    "deferred_still_held": 60,
+    "unresolved_access_scope": 156,
+    "other_separate_held": 494,
+    "four_groups_pairwise_disjoint_and_exact732_coverage": true,
+    "remaining_after_exact22_arithmetic": 710,
+    "selected22_excluded_from_all_remaining_sets": true,
+    "deferred_by_lane": {
+      "contact": 7,
+      "unknown_external": 26,
+      "sensitive_permission": 27
+    },
+    "unresolved_by_lane": {
+      "contact": 92,
+      "unknown_external": 29,
+      "sensitive_permission": 35
+    },
+    "other494": {
+      "creator": 31,
+      "dates": 6,
+      "title": 1,
+      "alias_identities": 456
+    },
+    "creator31": {
+      "unresolved_credit": 25,
+      "completed_creator_repairs_still_access_held": 6
+    },
+    "alias_byte_groups": 228,
+    "alias_exact_binding_lists_match_baseline": true,
+    "question_family_count": 15,
+    "question_families_cover_exact156_once": true,
+    "question_members_source_and_prepared_payload_hashes_match_pinned_baseline": true,
+    "all_four_frozen_question_input_file_hashes_match": true,
+    "partition_membership_sha256": {
+      "selected_CNF22": "86cc89c1f007aca27d616162d54dc73a7a328fd03c492d9ac768d9ccba8fd2cc",
+      "deferred_candidates60": "ecf03f3c19db1b5168209f350ebdcc4ac86cc7b210cdc5c195ebd0bc2c04592c",
+      "unresolved_access156": "3f9c3ee0d03e8cca0492056787aa38af8d8ddbef1e6a27fd92923b8d254174d2"
+    }
+  },
+  "documentation_review": {
+    "handoff_README_and_tech_debt_counts_are_explicit_baseline_plus_delta_projection": true,
+    "projected_counts": {
+      "supported": 3490,
+      "held": 710,
+      "malformed": 6
+    },
+    "no_new_full_corpus_or_remote_audit_claim": true,
+    "question_analysis_retains_preimplementation_conditional_count_label_and_handoff_explains_measured_delta": true,
+    "ancestral469_summary_fields_explicitly_labeled_historical": true,
+    "Unknown_remains_unresolved_not_None_permission_or_XML_exception": true,
+    "separate_USER_ATTESTED_XML_authority_restricted_access_and_blank_license_preserved": true,
+    "no_conditional_acquisition_event_asserted_as_occurred": true,
+    "no_new_license_data_permission_release_or_expansion_of_exact821": true,
+    "60_deferred_candidates_distinguished_from_156_current_source_questions": true,
+    "no_claim_further_source_work_exhausted": true,
+    "normalized_submission_notes_and_policy_refs_may_change_despite_raw_metadata_equality_explicit": true,
+    "root_372_integrated_tests_and_lint_reported_in_validation_receipt": "Inspected receipt fields; not independently rerun in this follow-up"
+  },
+  "supporting_artifact_check": {
+    "path": "/tmp/pices-cnf22-independent-handoff-artifact-check.json",
+    "sha256": "7142820d8ac49fef6ac1e9d042da287fde2abf23680f7cc3d59879ee869ee9e0"
+  },
+  "material_findings": [],
+  "blockers": [],
+  "operations_this_followup": {
+    "classification_calls": 0,
+    "tests_run": 0,
+    "new_source_audits": 0,
+    "provider_calls": 0,
+    "private_provider_or_credential_reads": 0,
+    "repository_edits": 0
+  }
+}
