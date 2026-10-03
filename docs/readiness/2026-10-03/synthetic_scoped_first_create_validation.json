@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "code_reviewed_checkpoint_dispatch_blocked_on_actual_diagnostic_pins",
+  "branch": "handoff/pr8-synthetic-scoped-first-create-20261003",
+  "base_commit": "b64f9e0d9dc66d8bb59bb819503df7c313934b13",
+  "inventory_scope": "synthetic_sealed_first_create_v4",
+  "inventory_complete": false,
+  "prior_observed_gets": 185,
+  "maximum_cumulative_gets": 305,
+  "maximum_new_gets": 8,
+  "expected_completed_cumulative_gets": 193,
+  "maximum_writes": {
+    "create": 1,
+    "metadata": 1,
+    "file": 1
+  },
+  "clock": "New30minute runtime starts only at execution; no restart renewal; prior failed clocks immutable",
+  "failed_recovery_state_sha256": "158b34452cb43d102457bd6f700e3bd8bc0aabb7dd0412ba7d65a6e71116f23f",
+  "failed_recovery_receipt_sha256": "b0d5826cc12866dde84ae92428ac9a82341dc0925b6969bee6892f7743a50d1b",
+  "root_validation": {
+    "guarded_offline_tests": 334,
+    "result": "passed",
+    "f_lint": "passed",
+    "new_module_lint": "passed",
+    "diff_check": "passed"
+  },
+  "independent_validation": {
+    "reviewer": "/root/canary_review",
+    "guarded_offline_tests": 334,
+    "result": "passed",
+    "code_clearance": true,
+    "dispatch_clearance": false
+  },
+  "file_sha256": {
+    "scripts/synthetic_canary_controller.py": "4e5f331db7b8029235f0574c3556cf4668a8f29af98d25cac0035ce615c4b8a3",
+    "scripts/synthetic_first_create.py": "23c88d2a154f16e889fec9de28a627c271140b572f486c4902d44968d85646fe",
+    "scripts/upload_service.py": "267be88d7a1471a7f1537a553fb2b9cc40db052c28fc3824e733cf09c05a7065",
+    "tests/test_synthetic_first_create.py": "ec0781e1e6d9c64eec701fc564c504e34175486a4dd8be70f32b91315aff50cb"
+  },
+  "provider_actions": {
+    "requests": 0,
+    "writes": 0,
+    "credential_inspections": 0
+  },
+  "remaining_blockers": [
+    "Exact page101diagnostic filename/receipt SHA",
+    "Exact successful two-GET diagnostic filename(s)/receipt SHA(s)",
+    "Narrow final receipt-pin consistency review",
+    "Separate provider executor connection confirmation and parent dispatch"
+  ],
+  "source_qa_and_production_changes": false
+}

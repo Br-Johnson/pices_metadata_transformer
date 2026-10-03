@@ -103,6 +103,12 @@ def validate_registry_identities(registry):
 
 
 def require_inventory(safe, environment, *, synthetic_controller=None):
+    # This explicit capability is synthetic-only and cannot authorize a generic
+    # caller. Production and actual-source complete-inventory gates are unchanged.
+    if isinstance(safe, dict) and safe.get('inventory_scope') == 'synthetic_sealed_first_create_v4':
+        from scripts.synthetic_canary_controller import authorize_scoped_inventory
+        authorize_scoped_inventory(safe, environment, synthetic_controller)
+        safe = dict(safe, inventory_scope=None, inventory_complete=True)
     if not isinstance(safe, dict) or safe.get('environment') != environment or not safe.get('inventory_complete'):
         raise ValueError('Complete environment-scoped duplicate inventory required before upload')
     if safe.get('inventory_scope') is not None:
@@ -227,7 +233,10 @@ class DraftUploadService:
                 require_inventory(safe, self.environment, synthetic_controller=synthetic_controller)
                 if self.canary and Path(json_file).name not in safe.get('canary_create_files', []):
                     raise ValueError('Canary create grant absent or consumed; reconcile')
-                if (safe.get("environment") != self.environment or not safe.get("inventory_complete")
+                # require_inventory above has already checked the exact active
+                # synthetic capability; generic callers cannot reach this case.
+                scoped_first_create = safe.get('inventory_scope') == 'synthetic_sealed_first_create_v4'
+                if (safe.get("environment") != self.environment or not safe.get("inventory_complete") and not scoped_first_create
                         or json_file and Path(json_file).name not in safe.get("files", [])
                         or safe.get("metadata_hashes", {}).get(Path(json_file).name) != digest):
                     raise ValueError("Fresh complete duplicate check required for this payload")

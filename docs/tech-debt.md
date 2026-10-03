@@ -248,3 +248,14 @@ unchanged; generic/production callers cannot use the synthetic grant. No provide
 request or credential/configuration change is part of coding. Independent review
 and frozen handoff evidence complete this bounded implementation. Source-QA133
 membership is supplied separately; it creates no live QA/publication approval.
+# 2026-10-03 — Sealed synthetic first-create scope
+
+The parent adopted zero-write first-create evidence plus a verified indexed
+title query after the full Sandbox inventory failed at page101. The new scope
+honestly reports incomplete historical inventory, retains10000known IDs as a
+partial reject set and never reconciles/recreates an uncertain empty POST.
+Production reconciliation is unchanged. Runtime starts a distinct authorized
+30-minute clock on execution; old failed state and clocks remain immutable.
+Exact successful diagnostic and page101 receipt hashes still require binding
+before the checkpoint becomes executable. See
+`docs/readiness/2026-10-03/synthetic_scoped_first_create.md`.

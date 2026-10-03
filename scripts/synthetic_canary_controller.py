@@ -39,6 +39,7 @@ RECOVERY_STATE = 'synthetic-owned-recovery-controller.json'
 RECOVERY_PAGES = 'synthetic-owned-recovery-pages'
 RECOVERY_RECEIPT = 'synthetic-owned-pages-failure-receipt.json'
 RECOVERY_DIAGNOSTIC = 'synthetic-owned-page-63-diagnostic-receipt.json'
+FIRST_CREATE_SCOPE = 'synthetic_sealed_first_create_v4'
 COMPATIBILITY_COMMIT = '58bbf0d501cda9244804734d52a1d425d47bd0c3'
 COMPATIBILITY_RECEIPT_SHA = '65efffe3c461e620323b01f2f7ee34cadd31b61f13e92f72d2a63a3c04616f3c'
 
@@ -52,7 +53,18 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
-def bindings(stage):
+class FirstCreatePaths(OutputPaths):
+    """Keep scoped grant files separate from every failed inventory cache."""
+    @property
+    def safe_to_upload_path(self):
+        return str(Path(self.state_dir) / 'sandbox' / 'synthetic-first-create-grant.json')
+
+    @property
+    def already_uploaded_path(self):
+        return str(Path(self.state_dir) / 'sandbox' / 'synthetic-first-create-known-ids.json')
+
+
+def bindings(stage, *, first_create=False):
     require(Path(stage).resolve() == RUN.resolve())
     raw = (PACKET / 'INVENTORY.json').read_bytes()
     require(sha(raw) == INVENTORY_SHA)
@@ -60,7 +72,7 @@ def bindings(stage):
         data = (PACKET / entry['path']).read_bytes()
         require(len(data) == entry['bytes'] and sha(data) == entry['sha256'])
     plan = read_json(PACKET / 'selection.json')['synthetic']
-    paths = OutputPaths(str(stage), 'sandbox')
+    paths = (FirstCreatePaths if first_create else OutputPaths)(str(stage), 'sandbox')
     file = Path(paths.zenodo_json_dir) / (SOURCE + '.json')
     require({p.name for p in Path(paths.zenodo_json_dir).glob('*.json')} == {file.name})
     require(sha(file.read_bytes()) == plan['prepared_payload_sha256'])
@@ -401,7 +413,7 @@ def authorize_scoped_inventory(safe, environment, controller):
             requests.sessions.Session.send is controller.active_send and
             controller.original_send is not None and not controller.state['failed'] and
             not controller.state['completed'] and controller.state['phase'] in ('upload', 'retry'))
-    paths, file, metadata, artifact, plan = bindings(RUN)
+    paths, file, metadata, artifact, plan = bindings(RUN, first_create=controller.inventory_scope == FIRST_CREATE_SCOPE)
     require(str(Path(controller.paths.base).resolve()) == str(RUN.resolve()) and
             controller.metadata == metadata and controller.artifact == artifact and controller.plan == plan)
     require(safe['files'] == [file.name] and safe['metadata_hashes'].get(file.name) == metadata_hash(metadata)
@@ -418,11 +430,16 @@ class SyntheticTransport:
         self.path = Path(paths.state_dir) / 'sandbox' / 'synthetic-controller.json'
         safe = read_json(paths.safe_to_upload_path, {})
         self.inventory_scope = safe.get('inventory_scope')
-        require(self.inventory_scope in (OWNED_SCOPE, RECOVERY_SCOPE))
+        require(self.inventory_scope in (OWNED_SCOPE, RECOVERY_SCOPE, FIRST_CREATE_SCOPE))
         self.binding = {'schema_version': 1, 'owner': owner, 'run': str(RUN.resolve()),
                         'packet': INVENTORY_SHA, 'inventory_scope': self.inventory_scope, 'payload': plan['prepared_payload_sha256'],
                         'metadata': metadata_hash(metadata), 'artifact': artifact['sha256']}
         recovery_evidence = None
+        if self.inventory_scope == FIRST_CREATE_SCOPE:
+            from scripts.synthetic_first_create import evidence_binding, validate_grant
+            first_evidence, _ = evidence_binding(self.path.parent, metadata, owner)
+            validate_grant(safe, paths, metadata, owner, first_evidence)
+            self.binding['first_create_evidence_sha256'] = sha(json.dumps(first_evidence, sort_keys=True).encode())
         if self.inventory_scope == RECOVERY_SCOPE:
             recovery_evidence = recovery_binding(self.path.parent, metadata, owner)
             self.binding['recovery_binding_sha256'] = sha(json.dumps(recovery_evidence, sort_keys=True).encode())
@@ -432,11 +449,11 @@ class SyntheticTransport:
         if self.state is None:
             require(not ledger)  # Never reconstruct lost controls around a prior attempt.
             inventory_state = read_json(self.path.parent / (RECOVERY_STATE if self.inventory_scope == RECOVERY_SCOPE else OWNED_STATE), {})
-            require(inventory_state.get('inventory_scope') == self.inventory_scope
+            require(self.inventory_scope == FIRST_CREATE_SCOPE or (inventory_state.get('inventory_scope') == self.inventory_scope
                     and inventory_state.get('completed') is True and inventory_state.get('failed') is False
                     and inventory_state.get('owner') == owner and inventory_state.get('packet') == INVENTORY_SHA
                     and inventory_state.get('safe_sha256') == sha(Path(paths.safe_to_upload_path).read_bytes())
-                    and inventory_state.get('retained_sha256') == sha(Path(paths.already_uploaded_path).read_bytes()))
+                    and inventory_state.get('retained_sha256') == sha(Path(paths.already_uploaded_path).read_bytes())))
             if self.inventory_scope == RECOVERY_SCOPE:
                 require(inventory_state.get('schema_version') == 3
                         and inventory_state.get('prior_observed_gets') == 80
@@ -446,7 +463,12 @@ class SyntheticTransport:
             safe = read_json(paths.safe_to_upload_path)
             # Validate freshness locally before the transport context exists.
             # Generic callers must never receive this scope-free copy.
-            require_inventory({k: v for k, v in safe.items() if k != 'inventory_scope'}, 'sandbox')
+            local_validity = {k: v for k, v in safe.items() if k != 'inventory_scope'}
+            if self.inventory_scope == FIRST_CREATE_SCOPE:
+                # Internal validity check only; persisted evidence explicitly
+                # declares no complete historical/own-run inventory proof.
+                local_validity['inventory_complete'] = True
+            require_inventory(local_validity, 'sandbox')
             require(safe.get('inventory_scope') == self.inventory_scope and safe['files'] == [SOURCE + '.json'] and
                     safe['metadata_hashes'].get(SOURCE + '.json') == metadata_hash(metadata))
             prior = read_json(paths.already_uploaded_path)
@@ -458,8 +480,15 @@ class SyntheticTransport:
                           'pre_ids': sorted(set(ids)), 'id': None, 'doi': None, 'bucket': None,
                           'failed': False, 'completed': False, 'phase': 'initial',
                           'inventory_sha256': sha(Path(paths.safe_to_upload_path).read_bytes())}
+            if self.inventory_scope == FIRST_CREATE_SCOPE:
+                self.state.update(started_at=safe['started_at'], expires_at=safe['valid_until'],
+                                  prior_observed_gets=185, maximum_cumulative_gets=305, created=None)
             self.save()
         require(self.state.get('binding') == self.binding and self.state.get('failed') is False)
+        if self.inventory_scope == FIRST_CREATE_SCOPE:
+            require(self.state.get('started_at') == safe['started_at'] and self.state.get('expires_at') == safe['valid_until']
+                    and self.state.get('prior_observed_gets') == 185 and self.state.get('maximum_cumulative_gets') == 305
+                    and self.state.get('pre_ids') == [item['id'] for item in read_json(paths.already_uploaded_path)['records']])
         require(type(self.state.get('completed')) is bool and self.state.get('phase') in
                 ('initial', 'upload', 'download', 'retry', 'completed'))
         require(self.state.get('id') is None or
@@ -490,9 +519,15 @@ class SyntheticTransport:
             diagnostics = ZenodoAPIError('Synthetic stopped', **{
                 k: saved[k] for k in ('stage', 'exception_type', 'status', 'attempt') if k in saved
             }).diagnostics
-        return {'completed': self.state['completed'], 'failed': self.state['failed'],
+        result = {'completed': self.state['completed'], 'failed': self.state['failed'],
                 'counts': dict(self.state['counts']), 'phase': self.state['phase'],
                 'diagnostics': diagnostics, 'packet_sha256': INVENTORY_SHA}
+        if self.inventory_scope == FIRST_CREATE_SCOPE:
+            result.update(inventory_scope=FIRST_CREATE_SCOPE, inventory_complete=False,
+                          proof='sealed_unused_first_create_with_title_candidate_evidence',
+                          prior_observed_gets=185, cumulative_gets=185+self.state['counts']['get'],
+                          maximum_cumulative_gets=305, expires_at=self.state['expires_at'])
+        return result
 
     def __enter__(self):
         self.original_send = requests.sessions.Session.send
@@ -517,6 +552,16 @@ class SyntheticTransport:
             require(data['id'] not in self.state['pre_ids'], 'response_owner')
             self.state['id'] = data['id']
             self.save()  # ID durable even if a later response check stops the run.
+        if self.inventory_scope == FIRST_CREATE_SCOPE:
+            created = datetime.fromisoformat(data.get('created', ''))
+            require(created.tzinfo is not None, 'response_json')
+            if creating:
+                require(datetime.fromisoformat(self.state['create_started_at']) - timedelta(seconds=60) <= created
+                        <= datetime.now(timezone.utc) + timedelta(seconds=60)
+                        and data.get('files') == [] and isinstance(data.get('metadata'), dict)
+                        and set(data['metadata']) <= {'prereserve_doi'}, 'response_json')
+                self.state['created'] = data['created']; self.save()
+            require(data.get('created') == self.state['created'], 'response_json')
         require(data['id'] == self.state['id'] and type(data.get('owner')) is int
                 and data['owner'] == self.owner, 'response_owner')
         require(data.get('submitted') is False and data.get('state') == 'unsubmitted', 'response_owner')
@@ -552,6 +597,9 @@ class SyntheticTransport:
         stage, status = 'request_prepare', None
         try:
             require(not self.state['failed'] and not self.state['completed'])
+            if self.inventory_scope == FIRST_CREATE_SCOPE:
+                require(datetime.now(timezone.utc) < datetime.fromisoformat(self.state['expires_at'])
+                        and 185 + self.state['counts']['get'] < 305)
             path = self.url(request.url)
             require(request.headers.get('Authorization') == 'Bearer ' + self.token)
             method = request.method
@@ -586,6 +634,8 @@ class SyntheticTransport:
                 require(False)
             require(self.state['counts'][kind] < (8 if kind == 'get' else 1))
             self.state['counts'][kind] += 1
+            if self.inventory_scope == FIRST_CREATE_SCOPE and kind == 'create':
+                self.state['create_started_at'] = datetime.now(timezone.utc).isoformat()
             self.save()  # Attempt consumes allowance before entering transport.
             kwargs.update(allow_redirects=False, timeout=(10, 30), stream=True)
             stage = 'transport'
@@ -645,14 +695,17 @@ def verify_remote(client, guard):
     return remote
 
 
-def execute(stage, owner):
-    paths, file, metadata, artifact, plan = bindings(stage)
+def execute(stage, owner, *, first_create=False):
+    paths, file, metadata, artifact, plan = bindings(stage, first_create=first_create)
     token = load_zenodo_token(sandbox=True)
     require(token == os.environ.get('ZENODO_SANDBOX_TOKEN'))
     lock_path = Path(paths.state_dir) / 'sandbox' / 'synthetic-controller.lock'
     lock_path.parent.mkdir(parents=True, exist_ok=True)
     with lock_path.open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        if first_create:
+            from scripts.synthetic_first_create import prepare_grant
+            prepare_grant(paths, metadata, owner)
         guard = SyntheticTransport(token, owner, paths, metadata, artifact, plan)
         if guard.state['completed']:
             entry = guard.check_ledger()
@@ -708,6 +761,7 @@ def main():
     parser.add_argument('--inventory-only', action='store_true', help='Checkpointed owned scan, up to 200 pages and 225 new GETs, then pause')
     parser.add_argument('--resume-inventory', action='store_true', help='Explicitly resume only eligible retained checkpoints')
     parser.add_argument('--recover-inventory', action='store_true', help='Explicit new v3 scan:225 additional GETs plus80 preserved, new30-minute lifetime')
+    parser.add_argument('--scoped-first-create', action='store_true', help='Sealed zero-write first-create evidence;185 prior GETs;new30-minute runtime')
     args = parser.parse_args()
     previous = signal.getsignal(signal.SIGALRM)
     old_logging = logging.root.manager.disable
@@ -715,14 +769,15 @@ def main():
     def deadline(*_):
         raise requests.exceptions.Timeout('Synthetic deadline')
     try:
-        signal.signal(signal.SIGALRM, deadline); signal.alarm(1800 if args.inventory_only else 300)
+        signal.signal(signal.SIGALRM, deadline); signal.alarm(1800 if args.inventory_only or args.scoped_first_create else 300)
         logging.disable(logging.CRITICAL)
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             require(not args.resume_inventory or args.inventory_only)
             require(not args.recover_inventory or args.inventory_only)
+            require(not args.scoped_first_create or not args.inventory_only)
             owner = json.loads(args.owner_file.read_bytes())
             receipt = (inventory(RUN, owner, resume=args.resume_inventory, recovery=args.recover_inventory)
-                       if args.inventory_only else execute(RUN, owner))
+                       if args.inventory_only else execute(RUN, owner, first_create=True) if args.scoped_first_create else execute(RUN, owner))
     except Exception:
         pass
     finally:
