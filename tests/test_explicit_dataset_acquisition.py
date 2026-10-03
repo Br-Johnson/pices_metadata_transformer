@@ -192,3 +192,28 @@ class ExplicitDatasetAcquisitionTests(unittest.TestCase):
                 evidence.write_bytes(evidence.read_bytes() + b'\n')
                 with self.assertRaises(ValueError):
                     validate_approval(manifest, 'FGDC-1094', entry, paths)
+
+    def test_missing_or_rehashed_profile_keeps_added_members_held(self):
+        from scripts.collection_qa import classify_collection
+        old_docs = REPO / 'docs/readiness/2026-10-02'
+        with tempfile.TemporaryDirectory() as tmp:
+            _, paths = self.prepared(tmp, ids=('FGDC-1094', 'FGDC-1910'))
+            evidence = Path(tmp) / 'external-profile.json'
+            for mutation in ('missing', 'changed_bytes', 'changed_scope'):
+                shutil.copyfile(MANIFEST, evidence)
+                if mutation == 'missing':
+                    evidence.unlink()
+                elif mutation == 'changed_bytes':
+                    evidence.write_bytes(evidence.read_bytes() + b'\n')
+                else:
+                    value = copy.deepcopy(self.manifest)
+                    value['acquisition_contexts']['FGDC-1910']['meaning'] = 'unrestricted_data'
+                    evidence.write_text(json.dumps(value))
+                report = classify_collection(Path(tmp) / 'sources', Path(tmp) / 'output', self.reviewed_at,
+                    authority_manifest=old_docs / 'rehosting_authority.json',
+                    dataset_access_interpretation_manifest=evidence)
+                with self.subTest(mutation=mutation):
+                    self.assertEqual(report['summary']['source_status_counts'], {'supported': 0, 'held': 2, 'failed': 0})
+                    for row in report['records']:
+                        payload = json.loads((Path(paths.zenodo_json_dir) / (row['source_id'] + '.json')).read_bytes())
+                        self.assertNotIn('dataset_access_interpretation', payload['artifact_policy'])

@@ -1,6 +1,6 @@
 """Pinned source-evidenced data acquisition; no authority or license grant.
 
-One exact audited cohort only. Recheck paired raw constraints and per-source
+Finite audited profiles only. Recheck paired raw constraints and per-source
 abstract structure/text; separate restricted XML rehosting policy remains required.
 """
 import hashlib
