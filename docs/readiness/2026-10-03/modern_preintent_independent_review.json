@@ -1,0 +1,52 @@
+{
+  "acknowledgment": "The prior independent review missed the pre-intent attribution error; this delta and regression correct it.",
+  "checks": [
+    "pendingNone failures use separate controller_failure/outside_pending_attempt and do not relabel the last acknowledged attempt.",
+    "First controller failure remains intact; later cleanup is stored separately with exact trusted categories and aware capture time.",
+    "DeadlineController captures pre-intent error before deadline cleanup; run wrapping retains the separate diagnostic.",
+    "New regression independently proves one fixture transport, create1/doi0, pendingNone, failedtrue, prior attempt exactly unchanged without failure, separate controller failure.",
+    "Eight existing diagnostics independently retain phase/type redaction, header status through projection failure, first+cleanup evidence, exact wall deadline and old runtime replay refusal.",
+    "No action ceiling, provider route, packet, grant, redirect/retry, production adapter or old-state migration change in this delta."
+  ],
+  "clearance": "Cleared narrow diagnostics delta only; no new grant/request allowance, old-stage reset/retry/adoption or provider action authorized.",
+  "commit": "a43f4a12056371b5b11af6b791d1ae8ad3c3cb2c",
+  "files": [
+    {
+      "path": "scripts/modern_synthetic_canary.py",
+      "sha256": "b9aa6c4706aa85f5a13b0ac1e838d3c8219edcc6869d1d345049e4ea415b0e99"
+    },
+    {
+      "path": "tests/test_modern_transport_diagnostics.py",
+      "sha256": "4cc9a4709b85ad5b9f34bc22d2585c130d710eee3d95b4d338449f926e9e81ba"
+    }
+  ],
+  "independent_tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/pices-code-venv/bin/python /tmp/pices-modern-preintent-diagnostic-review-tests.py",
+    "elapsed_seconds": 0.054,
+    "existing_diagnostic_contracts": 8,
+    "exit_code": 0,
+    "guard": "Requests Session.send/HTTPAdapter.send and socket connect/connect_ex/create_connection/getaddrinfo blocked except exact fixture mocks; dummy stages/tokens only",
+    "log": {
+      "path": "/tmp/pices-modern-preintent-diagnostic-review-tests.log",
+      "sha256": "e291232dcab0562fbce5572bea382720893e3c09cdd3e313f836ee8ed1934900"
+    },
+    "new_pre_intent_regression": 1,
+    "result": "OK",
+    "script": {
+      "path": "/tmp/pices-modern-preintent-diagnostic-review-tests.py",
+      "sha256": "bbcf70cac5905a36b1d9994366f0733236d3d9385545dbcc80e725f2d32b9a8e"
+    },
+    "total": 9
+  },
+  "parent_commit": "74f259517b267b275762586a969dc6199e2de92d",
+  "private_stage_or_credential_reads": 0,
+  "provider_requests": 0,
+  "remaining_material_runtime_blockers": [],
+  "repo_merges": 0,
+  "repository_edits": 0,
+  "review": "Independent read-only pre-intent diagnostics delta review",
+  "schema_version": 1,
+  "unchanged_modern18_or_full_suite_repeated": false,
+  "worktree": "/workspace/pices-modern-transport-diagnostics",
+  "worktree_status": "clean"
+}

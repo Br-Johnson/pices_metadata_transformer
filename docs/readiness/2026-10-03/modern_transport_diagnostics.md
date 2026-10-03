@@ -19,7 +19,7 @@ transmission or provider processing is proved. See [static review](modern_transp
 
 ## Frozen future diagnostic correction
 
-Runtime commit`0bfa79592c5d7d65558f96871b3f206566da7cde` retains fixed safe phase
+Runtime commit`a43f4a12056371b5b11af6b791d1ae8ad3c3cb2c` retains fixed safe phase
 and exception codes in the private state/journal and the held CLI projection.
 Request preparation is explicit before Session.send; an instrumented HTTPAdapter
 records local entry. `send_call_started` records the checkpoint before that call;
@@ -27,7 +27,9 @@ records local entry. `send_call_started` records the checkpoint before that call
 reached Zenodo.** Header-return evidence and validated status are durable before
 body/projection processing. A dedicated wall-deadline code and aware failure-capture
 time survive generic wrapping. Cleanup retains the first failure plus a fixed
-secondary category. Arbitrary exception text/class names/arguments/stack traces,
+secondary category. A failure outside a pending attempt is recorded separately as
+`controller_failure`; it cannot relabel the preceding acknowledged successful
+attempt. Arbitrary exception text/class names/arguments/stack traces,
 headers, raw URLs and bodies are never copied into these new diagnostics.
 
 The historical receipt field`provider_requests` remains the count of durable action
@@ -37,8 +39,13 @@ No limit/route/redirect/retry/publication/deletion permission changes. HTTPS/TLS
 and completed-only unchanged read retry remain. The explicit send uses no proxies
 and zero adapter retries, preserving the existing environment policy.
 
-All348 guarded offline tests pass. Independent review ran25 initial focused
-contracts and8 final diagnostic contracts, closing deadline/time findings.
+All349 guarded offline tests pass. Independent review ran25 initial focused
+contracts and8 updated diagnostic contracts, closing deadline/time findings.
+Automatic review then identified incorrect attribution of next-action pre-intent
+expiry to an acknowledged prior action. The new regression fails against the
+previous runtime and passes the correction; the final independent review runs all9
+diagnostic contracts and clears this delta. See the
+[pre-intent review](modern_preintent_independent_review.json).
 Changed runtime/test files pass Ruff. See [validation](modern_transport_validation.json)
 and [independent review](modern_transport_independent_review.json).
 
