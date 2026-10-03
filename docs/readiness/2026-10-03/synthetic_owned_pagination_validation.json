@@ -1,0 +1,67 @@
+{
+  "account_quiescence_or_server_snapshot_claimed": false,
+  "actual_source_stage_enabled": false,
+  "all_original_bytes_equal_baseline": true,
+  "baseline_runtime_commit": "6b8f6a8829e3c2bd85fc8adb9f2a5c34d14e5fef",
+  "controller_tests_passed": 37,
+  "cumulative_inventory_get_ceiling": 240,
+  "dependencies": {
+    "lxml": "6.1.3",
+    "python-dateutil": "2.9.0.post0",
+    "requests": "2.34.2",
+    "ruff": "0.16.10",
+    "tqdm": "4.70.1"
+  },
+  "file_sha256": {
+    "scripts/sandbox_read_guard.py": "ea3468f63ec5ff38be8b24fbbca803e0c75101b0a17b78ca20af4d5374a5b67b",
+    "scripts/synthetic_canary_controller.py": "c136c321f7ba54630efb64ccc11a0c7bb2363a4255b439829416fb793f57bc7c",
+    "scripts/upload_service.py": "9611d1cf94685cb688cbed2ca39f802873774944eb24fdb68ca4ed399ad9e317",
+    "scripts/zenodo_api.py": "19bdd0fe6a4bfe46c9d7936c6aa96fa38f9f3194e40f5b3a1ca63b9494f3f29b",
+    "tests/test_sandbox_read_guard.py": "fdb257724cb3e4c81b17fb240883a60d02bcd97356774f644fab75c1119efbc9",
+    "tests/test_synthetic_canary_controller.py": "a496d1a52dbb98a241195783fedc0d565e1a23b7b0482a6e6b46a47bbf3c5987"
+  },
+  "fixture_16538": {
+    "cumulative_inventory_gets": 182,
+    "new_gets": 167,
+    "verified_pages": 166
+  },
+  "full_offline_tests_passed": 299,
+  "handoff_branch": "handoff/pr8-synthetic-owned-pagination-20261003",
+  "independent_full_tests_passed": 299,
+  "independent_review": "cleared after replay-budget, endpoint-params and decoded-token-echo fixes",
+  "inventory_lifetime_seconds": 1800,
+  "inventory_scope": "synthetic_owned_namespace_pages_v2",
+  "maximum_inventory_pages": 200,
+  "maximum_new_inventory_gets": 225,
+  "maximum_synthetic_stage_attempts": {
+    "create": 1,
+    "file_put": 1,
+    "get": 8,
+    "metadata_put": 1
+  },
+  "offline_guard": {
+    "blocked": [
+      "socket.connect",
+      "socket.connect_ex",
+      "socket.create_connection",
+      "socket.getaddrinfo"
+    ],
+    "subprocess_allowlist": [
+      "git rev-parse HEAD",
+      "python -m scripts.curation_batches (local fixture commands)"
+    ]
+  },
+  "original_sources": 4206,
+  "original_untrusted_transfer_patch_sha256": "920211c5773484f5c8da79eb970d8806f7c2c7db8c02cfa0e4a1ab320c1e692b",
+  "packet_sha256": "428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1",
+  "page_size": 100,
+  "prior_observed_inventory_gets": 15,
+  "production_writes_enabled": false,
+  "provider_requests_by_code_owner": 0,
+  "provider_writes_by_code_owner": 0,
+  "python_version": "3.12",
+  "resume": "explicit full retained-page replay; original expiry and counts unchanged",
+  "runtime_commit": "b565d24187350da25bf32f10e5e6941018cbc3ed",
+  "source_sha256_manifest_digest": "3c3eb88c3a7840037300149393ddf71f2b193c60177b994963d6c63e6fa0ccbe",
+  "unchanged_packet_entries": 17
+}

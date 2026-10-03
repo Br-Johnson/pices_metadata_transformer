@@ -294,5 +294,5 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Replace the inadequate ten-GET gate with up to 200 owned pages/225 additional reads, retaining the prior 15 reads under the original 240 inventory ceiling. Old failed receipts remain byte-identical.
 - [x] Add explicit checkpoint replay with unchanged absolute expiry/cumulative counts, drift/orphan rejection, exact page/size transport checks, late collisions, adequate 16,538-item fixture, and decoded credential-echo rejection.
 - [x] Run 299 guarded offline tests, focused F-class lint, packet checks and original-source integrity checks. No provider requests or writes by the code owner.
-- [ ] Complete independent final review and publish the frozen runnable handoff. Parent dispatches owned inventory first, then separately the synthetic write/readback/retry controller after successful inventory.
+- [x] Complete independent final review and prepare the frozen runnable handoff. Parent dispatches owned inventory first, then separately the synthetic write/readback/retry controller after successful inventory.
 - [ ] Continue the separately reviewed source-QA lane and later actual-source/public API compatibility, fresh remote/duplicate evidence and production release gates. No production credentials/writes, merge, deletion or paid capacity are part of this coding task.

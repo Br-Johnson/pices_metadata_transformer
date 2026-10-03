@@ -1,5 +1,7 @@
 # PICES FGDC to Zenodo Metadata Migration
 
+Current synthetic Sandbox handoff: [bounded owned pagination](docs/readiness/2026-10-03/synthetic_owned_pagination.md). Provider stages require separate parent dispatch; the code owner performs no provider requests.
+
 This project transforms 4,206 FGDC XML metadata records to Zenodo JSON format and uploads them to the Zenodo sandbox for the PICES (North Pacific Marine Science Organization) metadata migration project.
 
 ## 🏗️ Project Structure

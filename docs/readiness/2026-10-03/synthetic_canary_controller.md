@@ -1,3 +1,5 @@
+> Superseded runnable instructions: use [bounded owned pagination](synthetic_owned_pagination.md) and its exact frozen commit. The ten-GET gate below is historical and stopped read-only; do not dispatch it again.
+
 # Frozen synthetic-only owned-inventory canary
 
 Public PICES community inventory is **not necessary for this disposable, sandbox-only synthetic namespace**. The exact synthetic source, original run directory, durable creation intent/ID, complete owned-deposition scan and guarded readback establish its relevant identity and idempotency boundaries. This narrowed authorization is usable only by the active frozen synthetic controller; ordinary upload paths reject it. Production and actual-source duplicate checkers still require their original public-plus-owned inventories.
