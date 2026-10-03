@@ -30,7 +30,7 @@ def text(root, xpath):
     return re.sub(r'\s+', ' ', ''.join(node.itertext())).strip() if node is not None else ''
 
 
-def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None, collective_creator_interpretation_manifest=None):
+def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None, collective_creator_interpretation_manifest=None, institution_creator_interpretation_manifest=None):
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     paths = OutputPaths(str(output), 'sandbox')
@@ -69,6 +69,14 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             collective_digest = None
         collective_reference = {'manifest_path': str(collective_creator_interpretation_manifest),
                                 'manifest_sha256': collective_digest}
+    institution_reference = None
+    if institution_creator_interpretation_manifest:
+        try:
+            institution_digest = hashlib.sha256(Path(institution_creator_interpretation_manifest).read_bytes()).hexdigest()
+        except OSError:
+            institution_digest = None
+        institution_reference = {'manifest_path': str(institution_creator_interpretation_manifest),
+                                 'manifest_sha256': institution_digest}
     dataset_access_reference = None
     if dataset_access_interpretation_manifest:
         try:
@@ -81,6 +89,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                                  for file in sorted(rules.rglob('*.py'))},
                                  'authority_reference': authority_reference, 'access_reference': access_reference,
                                  'creator_reference': creator_reference, 'collective_reference': collective_reference,
+                                 'institution_reference': institution_reference,
                                  'contributor_reference': contributor_reference,
                                  'dataset_access_reference': dataset_access_reference})
     prior = read_json(output / 'classification.json', {})
@@ -119,13 +128,20 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             origins = [re.sub(r'\s+', ' ', ''.join(node.itertext())).strip()
                        for node in root.findall('./idinfo/citation/citeinfo/origin')]
             interpreted_creators = None
-            selected_creator_reference = collective_reference if origins == ['DFO Staff'] else creator_reference
-            if selected_creator_reference:
+            selected_creator_reference = None
+            legacy_reference = collective_reference if origins == ['DFO Staff'] else creator_reference
+            for reference in (institution_reference, legacy_reference):
+                if reference is None:
+                    continue
                 try:
-                    interpreted_creators = validate_creator_interpretation(selected_creator_reference, source.stem, digest, root)
+                    interpreted_creators = validate_creator_interpretation(reference, source.stem, digest, root)
+                    selected_creator_reference = reference
+                    row.pop('creator_interpretation_diagnostic', None)
+                    break
                 except ValueError as exc:
                     # Outside this pinned cohort, retain the conservative default.
                     row['creator_interpretation_diagnostic'] = str(exc)
+            if institution_reference or legacy_reference:
                 row['creator_interpretation'] = 'source_primary_citation_attribution' if interpreted_creators else 'not_established'
             metuc, metac = text(root, './metainfo/metuc'), text(root, './metainfo/metac')
             grant = _explicit_license(metuc)
@@ -289,13 +305,15 @@ def main():
     parser.add_argument('--creator-interpretation-manifest', help='Pinned Exxon primary citation attribution; no XML authorship or rights grant')
     parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned source-backed database registration meaning; no authority or license grant')
     parser.add_argument('--collective-creator-interpretation-manifest', help='Pinned literal DFO Staff collective citation; no person, affiliation or institutional type inference')
+    parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned 72-source literal institutional citations; existing full creator objects only')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
         report = classify_collection(args.source_dir, args.output_dir, args.reviewed_at, args.authority_manifest,
                                      args.access_interpretation_manifest, args.creator_interpretation_manifest,
                                      args.dataset_access_interpretation_manifest, args.contributor_access_interpretation_manifest,
-                                     args.collective_creator_interpretation_manifest)
+                                     args.collective_creator_interpretation_manifest,
+                                     args.institution_creator_interpretation_manifest)
     print(json.dumps(report['summary'], indent=2))
 
 
