@@ -4,7 +4,8 @@
 
 - [x] Receive the standalone16494-byte Library text with supplied SHA; independently recompute five complete metadata hashes and retain exact date/creator/contributor/rights beforevalues without new provider requests.
 - [x] Bind current2043/2057 publication_date1220-01-01 and distinguish an unacceptable narrow preservation candidate from the source2004-07-23 XML metadata date; preserve all original dates and access holds.
-- [ ] Independently review the bounded schema2 comparison and transfer exact current file/version bindings from the reader's saved evidence before any live field delta.
+- [x] Independently review the bounded schema2 comparison: all five complete beforeimages and94 differing-field presence/value-hash comparisons clear at0f09049.
+- [ ] Transfer exact current file/version bindings from the reader's saved evidence before any live field delta.
 - PR10 is merged at e3fde4b with reviewed runtime dc351b0; modern live approval is still pending and both prior canary create allowances remain spent.821 source questions await Brett. No production correction or source promotion is approved by this evidence update.
 
 ## Five source credits and eight display titles — 2026-10-03

@@ -107,8 +107,9 @@ corrections and the separate provider/release gates are satisfied.
 
 [Exact source/after-image preparation receipt](five_import_correction_preparation.json).
 The [previous independent review](five_import_correction_preparation_review.json)
-continues to bind the earlier checkpoint; the schema2 evidence update receives a
-separate bounded review. PR10 code is merged at
+continues to bind the earlier checkpoint; the [schema2 bounded review](five_import_beforeimage_reconciliation_review.json)
+clears all five complete beforeimages and94 differing-field comparisons at0f09049.
+PR10 code is merged at
 `e3fde4b4fa9e30435b6b1322536aca276eebc22b`, with reviewed runtime
 `dc351b071df53c6d44f01491694916c1d44bd9f2`. Modern live execution remains
 unapproved; both prior uncertain create allowances remain permanently spent.
