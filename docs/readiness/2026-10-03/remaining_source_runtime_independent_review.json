@@ -1,0 +1,120 @@
+{
+  "changed_paths": [
+    "docs/readiness/2026-10-03/finite_source_resource_access_469.json",
+    "docs/readiness/2026-10-03/remaining_source_cohorts_contract.md",
+    "docs/readiness/2026-10-03/source_citation_credits_409.json",
+    "docs/readiness/2026-10-03/source_display_titles_35.json",
+    "docs/todo_list.md",
+    "scripts/citation_creator_interpretation.py",
+    "scripts/dataset_access_interpretation.py",
+    "scripts/source_title_interpretation.py",
+    "tests/test_remaining_source_cohorts.py"
+  ],
+  "file_sha256": {
+    "docs/readiness/2026-10-03/finite_source_resource_access_469.json": "76a5ca8a8cdadbe0c1b0157d559068c98b16e18619a8561ff66a203a5008730a",
+    "docs/readiness/2026-10-03/remaining_source_cohorts_contract.md": "82e61bfe99824bad68938f4275f9d1529f70c560e565a259845cfa1a1fbbf495",
+    "docs/readiness/2026-10-03/source_citation_credits_409.json": "f58ae360f225e6c6a1b2c717e389c766d67883c3d6fbb598acd19caa13d5ca24",
+    "docs/readiness/2026-10-03/source_display_titles_35.json": "db24d027d65b9e4392ede772172b04ada1fca4d14e576df70998d759303fe5c5",
+    "docs/readiness/2026-10-03/source_scope_attestation_821.json": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+    "docs/todo_list.md": "cc4484f1693c3031633060fb46a9a50b17d68a7ab89a0703359bc68589eb0b8b",
+    "scripts/agent_qa.py": "992e2e4449cbd860c7b42930679ccb069917e530f38e6689d7c04bd18287c59a",
+    "scripts/citation_creator_interpretation.py": "68139034a1c78c475607d47bd9d268773667eb05f8688ea9ac2d59b11f45f99e",
+    "scripts/collection_qa.py": "8f5cbd97819a73c5940d3012f3f1d788d18364a14ae41ad5f7fe8c9a84320a98",
+    "scripts/dataset_access_interpretation.py": "01d08773928d4e1ab7b72c445bbf25a97b477eb58b8d7e6de8b3749b255919b1",
+    "scripts/qa_manifest.py": "b164742379c5f26b121717a2ad874e2d827d56c9a83e2f3e86ae32ca9b2d2732",
+    "scripts/source_scope_attestation.py": "14b61b38f53d83a02c3a82a2a1b293472f6afee6706c6ea157fcb3b358e15455",
+    "scripts/source_title_interpretation.py": "3186521cf2ae29540342d044837787a1ba1a1e1a944e5258149e7850c4f32bc2",
+    "tests/test_remaining_source_cohorts.py": "29efcb1a2655360becbb09cabc4731e536c4bd6519de0c8b4af7fc2807e2674f"
+  },
+  "findings": [],
+  "guarded_tests": {
+    "coverage": [
+      "All240 new selected-source fixture classification, exact preservation and234 supported/six access-held outcomes.",
+      "All previous members/contexts and240 added exact source/hash validator bindings.",
+      "Access context/constraint/security rejection.",
+      "Missing/tampered evidence, separate authority and unselected residual holds.",
+      "Agent and both human-schema gates for external evidence mutation, withdrawal, creator/title/notes forgery, open/license changes and conflicting access policies."
+    ],
+    "errors": 0,
+    "failures": 0,
+    "guards": "Requests Session.request/send; socket connect/connect_ex/create_connection and DNS prohibited; credential/private-stage reads and repository writes/mutations rejected; logger mocked. PYTHONDONTWRITEBYTECODE=1. All generated fixtures limited to /tmp.",
+    "initial_harness_correction": "The first run falsely interpreted dir_fd-relative temporary cleanup as a repository mutation. Fixed /tmp audit-hook path resolution only and reran the same five; no repository implementation change.",
+    "log": "/tmp/pices-remaining966-runtime-independent-focused.log",
+    "log_sha256": "e0bb7b7df03f9daebce703e35436a36b2177685dbefad25b91103e92bb943aa0",
+    "passed": 5,
+    "pattern": "tests/test_remaining_source_cohorts.py",
+    "runner": "/tmp/pices-remaining966-independent-focused-tests.py",
+    "runner_sha256": "9f4e10b0b2cfe2fc82bfc99ab65070719f2722b3508b157f45e78f2253fea05d",
+    "seconds": 22.645,
+    "tests": 5
+  },
+  "implementation_blockers": [],
+  "implementation_review": {
+    "agent_and_both_human_schema_routes_revalidate_complete_metadata_and_external_evidence": true,
+    "diff_limited_to_finite_acceptance_pins_and_35_title_withdrawal_membership": true,
+    "fgdc233_10_2664_and_date_or_unselected_hold_controls_retained": true,
+    "forged_missing_wrong_source_security_and_context_evidence_fail_closed": true,
+    "no_generic_source_creator_access_date_or_title_heuristic_added": true,
+    "no_provider_action_or_shared_QA_gate_changes": true,
+    "opt_in_unchanged_retry_and_withdrawal_exercised": true,
+    "restricted_blank_license_original_XML_and_separate_authority_requirements_preserved": true
+  },
+  "limits": {
+    "broad_suites": 0,
+    "complete_corpus_reaudits": 0,
+    "credential_reads": 0,
+    "execution_publication_or_merge_authority_granted": false,
+    "private_stage_reads": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "repository_edits": 0,
+    "root_full352_and_complete_corpus_receipts_not_independently_repeated": true
+  },
+  "member_digest_recipe": "Canonical UTF-8 JSON of complete added member entries sorted lexicographically by source_id, sort_keys=True, ensure_ascii=False, separators=(comma,colon). Title entries include their complete reviewed title/metadata bindings.",
+  "nonblocking_descriptive_precision": {
+    "observation": "The409 interpretation/access_effect and35 interpretation fields retain predecessor descriptive wording. New role/context fields and current contract correctly describe8/27 additions. Runtime uses pinned member objects, not these inherited summaries.",
+    "parent_disposition": "Root explicitly accepted labeling inherited descriptions as historical in final contract/handoff while preserving frozen d611e1c runtime. Final documentation disposition is outside this runtime review."
+  },
+  "profile_counts": {
+    "access": {
+      "added": 205,
+      "added_members_sha256": "0f15b1345f00be1c847e92a93959394fd388f19dab291587ce9d510b659de7c0",
+      "current": 469,
+      "prior": 264
+    },
+    "creator": {
+      "added": 8,
+      "added_members_sha256": "3402411f866080ab58e951dc0349ccf26608b0c31e29a071ca18caa34890e421",
+      "current": 409,
+      "prior": 401
+    },
+    "title": {
+      "added": 27,
+      "added_members_sha256": "5e915737c30c2fb8c254ebb0cf00edf80d871fc68be8d731373483f71f0bd706",
+      "current": 35,
+      "prior": 8
+    }
+  },
+  "profile_verification": {
+    "all_new_profile_bytes_equal_validator_pins": true,
+    "all_old_225_creator_cohort_objects_401_bindings_verbatim": true,
+    "all_old_264_access_members_and_all_source_acquisition_contexts_verbatim": true,
+    "all_old_eight_title_member_objects_verbatim": true,
+    "new8_27_205_source_memberships_mutually_disjoint": true,
+    "new_creator_and_title_objects_match_independently_reviewed_packets": true,
+    "old_profile_sha_acceptance_remains": true,
+    "prior_manifest_references_and_original_file_bytes_unchanged": true
+  },
+  "reviewed_base_commit": "08f561ebf117ea31c2c5bf824b44830c1e0f1261",
+  "reviewed_commit": "d611e1ca02d06306b26649661e60ae4b64a37927",
+  "schema_version": 1,
+  "scope": "Read-only independent review of three validator/profile-pin changes and five new focused contracts. No repeated source-semantic review, broad suite or complete corpus audit.",
+  "source_evidence_carried_forward": {
+    "creator_proposals_sha256": "6e3addb0488e66b5ea1cc8c44cc7296cea2df47a1a2222db5c65ea39907006b4",
+    "new205_access_source_semantics": "Separate independent source reviewer owns this clearance; not duplicated here.",
+    "title_independent_review_sha256": "9b5d86e80379b7ba78c38ac121d120042817beb8eb320b7615029a687966d28c",
+    "title_proposals_sha256": "3f6e3a362feaf59c904bf6c02035b045ccebfd60129184ab155ea53343c0b798"
+  },
+  "status": "CLEAR_BOUNDED_RUNTIME_IMPLEMENTATION",
+  "worktree": "/workspace/pices-remaining-source-cohorts"
+}

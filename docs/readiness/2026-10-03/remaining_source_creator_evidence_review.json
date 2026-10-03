@@ -1,0 +1,276 @@
+{
+  "analysis_only": true,
+  "baseline_report_sha256": "759b7c924dc1452be1850635d4bee41230007883f7b94a4691160b067fa127dc",
+  "checks": {
+    "actual_full_payload_before_image_and_hashes_exact": 8,
+    "bounded_exact_notes_changes": 8,
+    "changed_dates_rights_license_description_title_relations_contacts": 0,
+    "copied_XML_bytes_match_originals": 8,
+    "full_XML_projection_and_all_context_supplement_elements_exact": 8,
+    "full_after_image_hashes_and_only_creators_notes_changed": 8,
+    "new_creator_types_affiliations_identifiers": 0,
+    "prior225_cohort_objects_not_reaudited": true,
+    "prior401_manifest_SHA_matches": true,
+    "proposed_members_disjoint_from401": true,
+    "source_hashes_against_baseline_and_proposal": 8
+  },
+  "clearance": "Eight source-backed proposals clear for exact bounded implementation with pinned full objects/context and preserved6access holds; no XML authorship, provider identity, rights/date or release approval granted.",
+  "conditional_counts": {
+    "actual_eligibility_delta": 0,
+    "conditional_promotion_members": [
+      "FGDC-2587",
+      "FGDC-3788"
+    ],
+    "independent_access_holds_retained": 6,
+    "other25_creator_lane_holds": "not independently repeated or adjudicated by this8-proposal review",
+    "source_credit_corrections": 8,
+    "source_supported_only_after_separate_exact_profile_implementation_QA": 2
+  },
+  "existing_profile": {
+    "cohort_objects": 225,
+    "future_integration_requirement": "Retain all225 existing cohort objects/401 bindings verbatim; this proposal review cannot prove an unprovided combined implementation.",
+    "path": "/workspace/pices-source-scope-attestation-821/docs/readiness/2026-10-03/source_citation_credits_401.json",
+    "sha256": "217a11a96ffbc1f55d6e065cfcc5fac34efd4a10057b399e4a6e25faa076887a",
+    "source_bindings": 401
+  },
+  "findings": [],
+  "limits": {
+    "classification_runs": 0,
+    "private_stage_or_credential_reads": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "repo_merges": 0,
+    "repository_edits": 0,
+    "tests": 0
+  },
+  "proposal_packet": {
+    "path": "/tmp/pices-remaining966-creator-proposals.json",
+    "sha256": "6e3addb0488e66b5ea1cc8c44cc7296cea2df47a1a2222db5c65ea39907006b4"
+  },
+  "review_scope": "Exactly8 proposed creators; full actual XML, parsed context/supplements, existing copied XML and baseline payload/raw-metadata objects. No old401 XML review, tests, classification, provider request or implementation review.",
+  "reviewed_source_commit": "08f561ebf117ea31c2c5bf824b44830c1e0f1261",
+  "reviews": [
+    {
+      "baseline_payload_sha256": "f26ca5577890ec7e17a7045d78fb3b2250cbc3ee446b6e8facbfb7023f3c3921",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "complete_after_metadata_sha256": "403ff0f9a9bdb0fe42be43278746d2d0cba651df6f9233f6def4b651b718d665",
+      "complete_before_metadata_sha256": "2a136711247297fa5f7ac7fe42e78460aa0d3d583ce913adc73b0e48c465943c",
+      "complete_creator_objects": [
+        {
+          "name": "Doug Schneider"
+        }
+      ],
+      "context_sha256": "c0ce91d27be561dcf91c7ecc87c43edd7687a61b51be6883d1f3ae00c7489a8b",
+      "full_parsed_xml_sha256": "f419de991b776415b61afe704c7016d99bbb3a622e6b33fb638c0563cbe1fdab",
+      "note_change": "Only existing curator-decision creator substitution plus exactly pinned raw-origin/context note append; all earlier note content retained.",
+      "other_full_metadata_fields": "exactly equal",
+      "preservation_notes_sha256": "63acc5dec02790d74f0d5b04a434b041d767bc1716458446d424dd3aa512d1ca",
+      "profile_object_sha256": "57055a508484f851d0eccbd3fa159904039cc85a96cd71c4ce1f44604952b6bf",
+      "rationale": "Explicit same-radio-work Doug Schneider reporting credit; preserve Brad Stevens primary origin and scientist/video context as unresolved author attribution.",
+      "residual_holds": [
+        "Metadata access terms need source-backed adjudication"
+      ],
+      "source_id": "FGDC-1257",
+      "source_semantic_review": "clear_bounded_source_resource_credit",
+      "source_sha256": "343d0e1b6c7d96a3899dfe5173b84ce12f8a5174d77b7fbdf65a897a00416b42"
+    },
+    {
+      "baseline_payload_sha256": "477770c8aec90c7b5867dc324c901b90fd61dea02685dc478faa088245dca5b0",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "complete_after_metadata_sha256": "3f4b828e0de5dd41d864239bf330a118f9d5d96402dc85b30a9fe409e164cbe7",
+      "complete_before_metadata_sha256": "02b3bfd300528f30c3294e3df7d100ced2297adb8babbc31de8b0360c8f5cadd",
+      "complete_creator_objects": [
+        {
+          "name": "Doug Schneider"
+        }
+      ],
+      "context_sha256": "e19e92d8c9d97f43b12aad6d0b1750893e3bda6d0fcd097975dffe067e3c6169",
+      "full_parsed_xml_sha256": "6747a77dea3af91f184de3793a709661da6296989c9a31dd06af530eef191096",
+      "note_change": "Only existing curator-decision creator substitution plus exactly pinned raw-origin/context note append; all earlier note content retained.",
+      "other_full_metadata_fields": "exactly equal",
+      "preservation_notes_sha256": "9622fd891c6b0cebfa3c949be01a6cd930496e412adb3fd3f28710343fd4f306",
+      "profile_object_sha256": "a194508f30314fd036ac3eaf881ce552c43eeddaea268fd85ed9eb0a6a0f8d87",
+      "rationale": "Explicit As Doug Schneider reports credit; Nancy Fresco primary origin/contact remains preserved without assigning an author role.",
+      "residual_holds": [
+        "Metadata access terms need source-backed adjudication"
+      ],
+      "source_id": "FGDC-1258",
+      "source_semantic_review": "clear_bounded_source_resource_credit",
+      "source_sha256": "fb72564a17bf0535a1cfeaab04dd92d674dcb164ce4d608cdd17c19a5b1bfac9"
+    },
+    {
+      "baseline_payload_sha256": "c9cfec661339daf87070edbd9a1db2ba91387f3917fae04eea779573ef10e0e4",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "complete_after_metadata_sha256": "c7f2b16cc88529446c0d1086f7787f044b9eeb62bd16d0c001cb8b1c08473586",
+      "complete_before_metadata_sha256": "4004ea3e8686d1e423cf0de5a666fdb262ef32710751e0ed90e95507a16cbc00",
+      "complete_creator_objects": [
+        {
+          "name": "Doug Schneider"
+        }
+      ],
+      "context_sha256": "f7dc50626ec6284c1e192315b558594fccc4715db7ca2c11d34582e3e8e96b6a",
+      "full_parsed_xml_sha256": "ee49080a37268773e69e6c1721cf5b912bcf1c37fcb62e968e6e0948326a87a6",
+      "note_change": "Only existing curator-decision creator substitution plus exactly pinned raw-origin/context note append; all earlier note content retained.",
+      "other_full_metadata_fields": "exactly equal",
+      "preservation_notes_sha256": "257f0dbfd0b827d22aba687b754d2436ab4bc9cf450626095cd6295a845ae63d",
+      "profile_object_sha256": "e5e334284ce2a11cdf10a090419fc203ec9e8a7e85e10ddbeac564b2bcca140b",
+      "rationale": "Explicit Doug Schneider reporting credit; William/Bill wording and fisheries scientist context preserved without asserting a new identity or reporter role for the scientist.",
+      "residual_holds": [
+        "Metadata access terms need source-backed adjudication"
+      ],
+      "source_id": "FGDC-1262",
+      "source_semantic_review": "clear_bounded_source_resource_credit",
+      "source_sha256": "3b9761159b7036598d96e2fcee9651c8f1c32428840106c4edb5cf53483d93cc"
+    },
+    {
+      "baseline_payload_sha256": "dfaa1df21156e3b58acdab7aabfe246f330202894cdb0398cfdaa8e50b33c334",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "complete_after_metadata_sha256": "987125d09c864e66aa1f843e22312f88350a3f5304a8082da0916e7103d2fecc",
+      "complete_before_metadata_sha256": "fdf50f7c480f9d857b8dcd2fcdd56735a64aa777ed11526f49f9e94be80e8301",
+      "complete_creator_objects": [
+        {
+          "name": "Doug Schneider"
+        }
+      ],
+      "context_sha256": "8563a40ed7b6b14c02b0f65016da97cbcc5228659b821d9e86f1982f0d51aaad",
+      "full_parsed_xml_sha256": "6186d1b6f34a581bbd49d8b687f48e8ce1e1f87b2d8f60ec02d0faec58796b84",
+      "note_change": "Only existing curator-decision creator substitution plus exactly pinned raw-origin/context note append; all earlier note content retained.",
+      "other_full_metadata_fields": "exactly equal",
+      "preservation_notes_sha256": "660244800f51268749240cb1839a864c00e11b9b467eef02256ba936dcf58a8e",
+      "profile_object_sha256": "ea634f3bce942f1b048442d63710f4c491e6d2072a0b3512870a1567ef95590e",
+      "rationale": "Explicit Doug Schneider reporting credit; Jan Curtis subject/source credit and literal corrupted apostrophe remain preserved.",
+      "residual_holds": [
+        "Metadata access terms need source-backed adjudication"
+      ],
+      "source_id": "FGDC-1273",
+      "source_semantic_review": "clear_bounded_source_resource_credit",
+      "source_sha256": "02957d0e04f214f4f02b72487d71923b613c01d81133967b17c2381626b1309a"
+    },
+    {
+      "baseline_payload_sha256": "250f8e563b554d499645d0d7ad132f324245ab7776e6399b589965aa2df026d3",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "complete_after_metadata_sha256": "566336889163c113172f0ba8427b74a02586b7f511f12bd29334b4726883c742",
+      "complete_before_metadata_sha256": "bde57cb6f5ee4846dd0eae900c96729c27b1eccda119688d68c3c05159fec989",
+      "complete_creator_objects": [
+        {
+          "name": "Boguslawski, G. Von"
+        }
+      ],
+      "context_sha256": "119f5be6c36c84b1edbffac537637d95afe89c71560458bf69da0e046280e21f",
+      "full_parsed_xml_sha256": "e827a321bfc4a152020c5720bd4a173eb6845efd822788021fcc95b6ef1be474",
+      "note_change": "Only existing curator-decision creator substitution plus exactly pinned raw-origin/context note append; all earlier note content retained.",
+      "other_full_metadata_fields": "exactly equal",
+      "preservation_notes_sha256": "d61caa667042a9504da134cee08d0cfddb7b95b48bdfd40bc2ca2bceb4ad7c78",
+      "profile_object_sha256": "efc175ca3747b5d2180f4ad680324d62c7dfc8bacf8ef3f931cf72d15b4d9b91",
+      "rationale": "Same German/English lecture explicitly credits Author: Boguslawski, G.  Von. Proposed spelling only collapses internal whitespace/removes sentence terminal period; primary collection-level origin retained without inferred editor role or spelling correction.",
+      "residual_holds": [],
+      "source_id": "FGDC-2587",
+      "source_semantic_review": "clear_bounded_source_resource_credit",
+      "source_sha256": "e0524fa518c066a4d2b40886bd53c3fcea4073c7b02e12ce5a331aad2a957f65"
+    },
+    {
+      "baseline_payload_sha256": "d1272189a93d49fd332601a9dd1df135a74325bc7ac8929b49a8c8bae5406bc3",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "complete_after_metadata_sha256": "608a7a6525fe90fb5ea8c2e05e3284715ab89ecbfefdfab137fcccc6b399567c",
+      "complete_before_metadata_sha256": "2980b4df50e329f997097cbe5436a9b7af5591883cdfb9bd699412d36db7cd29",
+      "complete_creator_objects": [
+        {
+          "name": "MESA/PSERP (Marine EcoSystems Analysis/Puget Sound ERP)"
+        },
+        {
+          "name": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)"
+        }
+      ],
+      "context_sha256": "e9cc1bb615392e0fe170663d0f67d36c87a25e880e1fc7cb4c6470d42f12d1b5",
+      "full_parsed_xml_sha256": "aaefd878d99ede12dffefa3e6dedfa25d987366cfb9dca03033c6cc9903131b7",
+      "note_change": "Only existing curator-decision creator substitution plus exactly pinned raw-origin/context note append; all earlier note content retained.",
+      "other_full_metadata_fields": "exactly equal",
+      "preservation_notes_sha256": "6376ddd0a0159262072dc8d62e7bb7d8604dd1c434065a366b565073dc116434",
+      "profile_object_sha256": "5a659b77554e9657549fc88b07ac927693193a037f21c86235048028dd631ede",
+      "rationale": "Exactly bound br-delimited program and NOAA/OAR/PMEL credits remain in source order; hierarchy remains one full name. No affiliation, original PI, database-contact authorship or removal of corruption warning.",
+      "residual_holds": [],
+      "source_id": "FGDC-3788",
+      "source_semantic_review": "clear_bounded_source_resource_credit",
+      "source_sha256": "1b28fc323d531db21c2b2e8d071451ba18a459231abea49942b8f0263fead7a9"
+    },
+    {
+      "baseline_payload_sha256": "0147eb2f33318f08b8c45d2a4f48feef9f90e7563df57bdf10955b8e1d7207dc",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "complete_after_metadata_sha256": "fd42f4c5e647f2427d6ec5226e1cdbb514372cb3ad013f0f3efe1be510850140",
+      "complete_before_metadata_sha256": "bd010cf853390e05e983aba9d2fc1ba9e0c9707bcc509255589ee9f89918ab9d",
+      "complete_creator_objects": [
+        {
+          "name": "Census of Marine Life"
+        },
+        {
+          "name": "Vancouver Aquarium"
+        }
+      ],
+      "context_sha256": "1fdddce8bb0c3f8531caca896680af5070e994b0a465cc97e823869522c728c0",
+      "full_parsed_xml_sha256": "7df1ca37e526877f64c2635427e419999d9c6102480aa92f210837da7a940ec3",
+      "note_change": "Only existing curator-decision creator substitution plus exactly pinned raw-origin/context note append; all earlier note content retained.",
+      "other_full_metadata_fields": "exactly equal",
+      "preservation_notes_sha256": "60afac827849203e2ce0c5f5fdeb744cef1cac2f47d84dff163304fc1890385d",
+      "profile_object_sha256": "acc2e9a47d5a44bf88da6f3c9ccbc3dc11b9d84afe1aa34cf150f6bfefe2394d",
+      "rationale": "Exactly bound br-delimited Census of Marine Life and Vancouver Aquarium display credits; relationship/authorship unresolved in context note; Peggy Tsang remains contact/distributor only and access hold remains.",
+      "residual_holds": [
+        "Metadata access terms need source-backed adjudication"
+      ],
+      "source_id": "FGDC-4063",
+      "source_semantic_review": "clear_bounded_source_resource_credit",
+      "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076"
+    },
+    {
+      "baseline_payload_sha256": "29d0ffcfc26e156a8449a62fcadabb4a986bad59870698b449b403371e84daa7",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "complete_after_metadata_sha256": "ae8979fa626dff3a873d348316ed3f053934005b0d6615d01f05e3e91dfa9b4f",
+      "complete_before_metadata_sha256": "8630586369e7d213edd6a66959aa1ebd8d328e4628b126a587cb7171521a90d0",
+      "complete_creator_objects": [
+        {
+          "name": "Census of Marine Life"
+        },
+        {
+          "name": "Vancouver Aquarium"
+        }
+      ],
+      "context_sha256": "82f38e3a86d369d213e5569e931a2e8a949caf27208dd9d9ad3fd9ca51eeeb35",
+      "full_parsed_xml_sha256": "22f394c2a429f4c150f2d62fba8adaa04bdcc4df05e0a6acd419ce99d1ee9571",
+      "note_change": "Only existing curator-decision creator substitution plus exactly pinned raw-origin/context note append; all earlier note content retained.",
+      "other_full_metadata_fields": "exactly equal",
+      "preservation_notes_sha256": "6c68c177389080db0fb66568bf6193b74b23844d9836873328f98806c5f7b916",
+      "profile_object_sha256": "1f1863ac0a989df18bc2a31eca7a9bf60e295d3ebdda5d209f9e0a24c78ee0b3",
+      "rationale": "Same bounded display-credit interpretation for database; DFO access URLs imply no additional author and most-recent-data password wording/access hold remain.",
+      "residual_holds": [
+        "Metadata access terms need source-backed adjudication"
+      ],
+      "source_id": "FGDC-4064",
+      "source_semantic_review": "clear_bounded_source_resource_credit",
+      "source_sha256": "1b3891fe9136b5a95182c3e0b5a06929a7524870ba09479fd59c5148da26806c"
+    }
+  ],
+  "schema_version": 1
+}

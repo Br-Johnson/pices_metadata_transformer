@@ -3,8 +3,9 @@
 - [x] Freeze205 access,8 creator and27 title proposals in disjoint source/hash/context review lanes.
 - [x] Preserve old264/401/8 profiles and implement three additive immutable acceptance pins.
 - [x] Observe failing-first acceptance regression; five focused preservation/gate contracts pass.
-- [ ] Finish guarded full suite, complete corpus delta and independent final runtime review.
-- [ ] Publish normal stacked handoff PR; merges remain blocked by original trusted no-merge scope.
+- [x]352 guarded offline tests, complete4206/4200/4194 corpus delta and independent runtime/source/actual-after-image reviews clear234promotions:3468supported/732held/6malformed.
+- [x] Freeze normal stacked handoff, residual732exactquestions and GET-only reconciliation dispatch.
+- [ ] Merge reviewed handoffs only when direct trusted authorization is accepted; automatic review rejected PR11/PR12 merge path under original no-merge scope.
 
 # FGDC → Zenodo Sandbox TODO List
 
