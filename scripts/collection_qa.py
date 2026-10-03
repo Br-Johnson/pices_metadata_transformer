@@ -30,7 +30,7 @@ def text(root, xpath):
     return re.sub(r'\s+', ' ', ''.join(node.itertext())).strip() if node is not None else ''
 
 
-def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None):
+def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None, collective_creator_interpretation_manifest=None):
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     paths = OutputPaths(str(output), 'sandbox')
@@ -61,6 +61,14 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
         except OSError:
             creator_digest = None
         creator_reference = {'manifest_path': str(creator_interpretation_manifest), 'manifest_sha256': creator_digest}
+    collective_reference = None
+    if collective_creator_interpretation_manifest:
+        try:
+            collective_digest = hashlib.sha256(Path(collective_creator_interpretation_manifest).read_bytes()).hexdigest()
+        except OSError:
+            collective_digest = None
+        collective_reference = {'manifest_path': str(collective_creator_interpretation_manifest),
+                                'manifest_sha256': collective_digest}
     dataset_access_reference = None
     if dataset_access_interpretation_manifest:
         try:
@@ -72,7 +80,8 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
     profile_hash = metadata_hash({'rules': {str(file.relative_to(rules)): hashlib.sha256(file.read_bytes()).hexdigest()
                                  for file in sorted(rules.rglob('*.py'))},
                                  'authority_reference': authority_reference, 'access_reference': access_reference,
-                                 'creator_reference': creator_reference, 'contributor_reference': contributor_reference,
+                                 'creator_reference': creator_reference, 'collective_reference': collective_reference,
+                                 'contributor_reference': contributor_reference,
                                  'dataset_access_reference': dataset_access_reference})
     prior = read_json(output / 'classification.json', {})
     cache = {row['source_id']: row for row in prior.get('records', [])} if prior.get('profile_sha256') == profile_hash and prior.get('reviewed_at') == reviewed_at else {}
@@ -110,9 +119,10 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             origins = [re.sub(r'\s+', ' ', ''.join(node.itertext())).strip()
                        for node in root.findall('./idinfo/citation/citeinfo/origin')]
             interpreted_creators = None
-            if creator_reference:
+            selected_creator_reference = collective_reference if origins == ['DFO Staff'] else creator_reference
+            if selected_creator_reference:
                 try:
-                    interpreted_creators = validate_creator_interpretation(creator_reference, source.stem, digest, root)
+                    interpreted_creators = validate_creator_interpretation(selected_creator_reference, source.stem, digest, root)
                 except ValueError as exc:
                     # Outside this pinned cohort, retain the conservative default.
                     row['creator_interpretation_diagnostic'] = str(exc)
@@ -183,7 +193,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             if interpreted_dataset_access:
                 policy['dataset_access_interpretation'] = dataset_access_reference
             if interpreted_creators:
-                policy['creator_interpretation'] = creator_reference
+                policy['creator_interpretation'] = selected_creator_reference
             classification = {'inventory_complete': True, 'reviewer': policy['reviewer'], 'reviewed_at': reviewed_at,
                               'rationale': 'Descriptive source XML only; no underlying data included',
                               'files': [{'name': source.name, 'role': 'descriptive_metadata', 'evidence': 'Parsed source descriptive fields'}]}
@@ -278,12 +288,14 @@ def main():
     parser.add_argument('--contributor-access-interpretation-manifest', help='Exact source-bound Contributor or Source attestation; no license or release grant')
     parser.add_argument('--creator-interpretation-manifest', help='Pinned Exxon primary citation attribution; no XML authorship or rights grant')
     parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned source-backed database registration meaning; no authority or license grant')
+    parser.add_argument('--collective-creator-interpretation-manifest', help='Pinned literal DFO Staff collective citation; no person, affiliation or institutional type inference')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
         report = classify_collection(args.source_dir, args.output_dir, args.reviewed_at, args.authority_manifest,
                                      args.access_interpretation_manifest, args.creator_interpretation_manifest,
-                                     args.dataset_access_interpretation_manifest, args.contributor_access_interpretation_manifest)
+                                     args.dataset_access_interpretation_manifest, args.contributor_access_interpretation_manifest,
+                                     args.collective_creator_interpretation_manifest)
     print(json.dumps(report['summary'], indent=2))
 
 
