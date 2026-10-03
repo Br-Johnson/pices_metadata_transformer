@@ -287,3 +287,12 @@ This local cohort has not been pushed or used for a provider operation.
 - Public PICES search returned HTTP 400 for q=communities:pices,size=200,page=1; its body was not retained and cause remains unknown. Removed that unrelated public-community prerequisite only for the disposable pinned synthetic sandbox trial; no query/size/credential causal fix is guessed.
 - Complete owned scan, exact title/source-ID/file collision checks and original durable ledger enforce run identity. Ten new GETs maximum after five observed reads; the previous stopped receipt is preserved byte-for-byte. Reduced-scope grants are bound to the exact active controller and rejected by generic pending/upload paths. Production and actual-source public inventories remain required.
 - Independent review caught missing collision fields and generic consumption of the scoped grant. Both fail closed now. 284 full offline tests pass, independently reproduced, including 23 controller and four endpoint tests. No provider requests/writes or production/actual-source scope expansion. See updated synthetic_canary_controller.md.
+
+## Bounded synthetic owned pagination — 2026-10-03
+
+- [x] Reconcile frozen owner at 6b8f6a8 and preserve the exact untested transferred patch (SHA-256 920211c5773484f5c8da79eb970d8806f7c2c7db8c02cfa0e4a1ab320c1e692b).
+- [x] Replace the inadequate ten-GET gate with up to 200 owned pages/225 additional reads, retaining the prior 15 reads under the original 240 inventory ceiling. Old failed receipts remain byte-identical.
+- [x] Add explicit checkpoint replay with unchanged absolute expiry/cumulative counts, drift/orphan rejection, exact page/size transport checks, late collisions, adequate 16,538-item fixture, and decoded credential-echo rejection.
+- [x] Run 299 guarded offline tests, focused F-class lint, packet checks and original-source integrity checks. No provider requests or writes by the code owner.
+- [ ] Complete independent final review and publish the frozen runnable handoff. Parent dispatches owned inventory first, then separately the synthetic write/readback/retry controller after successful inventory.
+- [ ] Continue the separately reviewed source-QA lane and later actual-source/public API compatibility, fresh remote/duplicate evidence and production release gates. No production credentials/writes, merge, deletion or paid capacity are part of this coding task.

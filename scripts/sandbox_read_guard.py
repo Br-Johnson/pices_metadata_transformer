@@ -14,6 +14,21 @@ import requests
 from scripts.zenodo_api import ZenodoAPIError, _exception_diagnostics, _validate_token
 
 
+def credential_echoed(data, token):
+    """Check decoded JSON too: quotes, backslashes and Unicode can be escaped."""
+    pending = [data]
+    while pending:
+        value = pending.pop()
+        if isinstance(value, str) and token in value:
+            return True
+        if isinstance(value, dict):
+            pending.extend(value.keys())
+            pending.extend(value.values())
+        elif isinstance(value, list):
+            pending.extend(value)
+    return False
+
+
 class SandboxInventoryGuard:
     def __init__(self, token, expected_owner_id, *, max_requests=1, max_bytes=12 * 1024 * 1024):
         self._token = _validate_token(token)
@@ -127,6 +142,8 @@ class SandboxInventoryGuard:
                 data = json.loads(raw)
             except (ValueError, UnicodeError):
                 self._require(False, observation, 'non_json_response', stage, exception_type='JSONDecodeError')
+            self._require(not credential_echoed(data, self._token), observation,
+                          'credential_echo_rejected', stage)
             if path == '/api/deposit/depositions':
                 self._require(isinstance(data, list), observation, 'owned_inventory_not_array', stage)
                 observation['json_validated'] = True

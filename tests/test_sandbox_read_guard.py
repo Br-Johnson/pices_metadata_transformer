@@ -105,6 +105,16 @@ class ReadGuardTests(unittest.TestCase):
         self.assertNotIn('dummy-other-secret',str(caught.exception))
         self.assertNotIn(TOKEN,json.dumps(guard.receipt()))
 
+    def test_json_escaped_credential_keys_and_values_are_rejected(self):
+        token='DUMMY-review-token\\with"escape'
+        for field in ({'notes':token},{token:'unrelated'}):
+            guard=SandboxInventoryGuard(token,OWNER)
+            data=[{'id':1,'owner':OWNER,'metadata':field}]
+            with self.subTest(field=field),self.assertRaises(ZenodoAPIError):
+                guard.send(Mock(return_value=response(data)),requests.Session(),prepared(token=token))
+            self.assertEqual(guard.receipt()['observations'][-1]['failure_code'],'credential_echo_rejected')
+            self.assertNotIn(token,json.dumps(guard.receipt()))
+
     def test_oversized_echo_and_nonjson_bodies_fail_safely(self):
         cases=[(b'x'*20,10,'response_size_bound_exceeded'),
                (TOKEN.encode(),1000,'credential_echo_rejected'),

@@ -15,13 +15,13 @@ import logging
 import os
 from pathlib import Path
 import signal
-from urllib.parse import urlsplit, quote
+from urllib.parse import urlsplit, quote, parse_qsl
 from uuid import UUID
 
 import requests
 from scripts.artifact_contract import prepare_artifact, validate_files
 from scripts.path_config import OutputPaths
-from scripts.sandbox_read_guard import SandboxInventoryGuard
+from scripts.sandbox_read_guard import SandboxInventoryGuard, credential_echoed
 from scripts.upload_service import (DraftUploadService, atomic_json, read_json,
                                     prepare_metadata, metadata_hash, require_inventory)
 from scripts.verify_uploads import compare_metadata
@@ -32,8 +32,8 @@ SOURCE = 'SYNTHETIC-PICES-9379FD8-20261002'
 RUN = Path('/workspace/pices-sandbox-run-9379fd8-20261002/synthetic')
 PACKET = Path(__file__).resolve().parents[1] / 'docs/handoff/sandbox-canary-20261002'
 INVENTORY_SHA = '428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1'
-OWNED_SCOPE = 'synthetic_owned_namespace_only_v1'
-OWNED_STATE = 'synthetic-owned-inventory-controller.json'
+OWNED_SCOPE = 'synthetic_owned_namespace_pages_v2'
+OWNED_STATE = 'synthetic-owned-pages-controller.json'
 
 
 def require(ok, stage='request_prepare'):
@@ -67,86 +67,195 @@ def bindings(stage):
     return paths, file, metadata, artifact, plan
 
 
-def inventory(stage, owner):
-    """Synthetic-only owned namespace reconciliation; no public-community query."""
+def check_owned_page(records, metadata, owner, seen):
+    require(isinstance(records, list) and len(records) <= 100, 'response_json')
+    for item in records:
+        require(isinstance(item, dict) and type(item.get('id')) is int and item['id'] > 0
+                and item['id'] not in seen and type(item.get('owner')) is int and item['owner'] == owner,
+                'response_owner')
+        md, files = item.get('metadata'), item.get('files')
+        require(isinstance(md, dict) and isinstance(files, list), 'response_json')
+        title = md.get('title')
+        require(isinstance(title, str) and bool(title.strip()), 'response_json')
+        same_run = title.strip().casefold() == metadata['title'].strip().casefold()
+        same_run |= SOURCE in json.dumps(md, sort_keys=True)
+        for remote_file in files:
+            require(isinstance(remote_file, dict), 'response_json')
+            names = [remote_file[k] for k in ('filename', 'name', 'key') if k in remote_file]
+            require(names and all(isinstance(name, str) and bool(name) for name in names), 'response_json')
+            same_run |= SOURCE + '.xml' in names
+        require(not same_run, 'response_owner')
+        seen.add(item['id'])
+
+
+def inventory(stage, owner, *, resume=False):
+    """One bounded owned scan. Resume replays every page; no snapshot is assumed."""
     paths, file, metadata, artifact, plan = bindings(stage)
     token = load_zenodo_token(sandbox=True)
     require(token == os.environ.get('ZENODO_SANDBOX_TOKEN'))
     folder = Path(paths.state_dir) / 'sandbox'
     folder.mkdir(parents=True, exist_ok=True)
     state_file = folder / OWNED_STATE
+    pages_dir = folder / 'synthetic-owned-pages'
     with (folder / 'synthetic-controller.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        require(not state_file.exists())
         require(not (folder / 'synthetic-controller.json').exists() and
                 not read_json(paths.uploads_registry_path, {}))
-        # Preserve the stopped community attempt, never reset or overwrite it.
-        previous_file = folder / 'synthetic-inventory-controller.json'
-        if previous_file.exists():
-            previous = read_json(previous_file)
-            require(previous.get('completed') is False and previous.get('failed') is True
-                    and previous.get('get_attempts') == 2 and previous.get('owner') == owner
-                    and previous.get('packet') == INVENTORY_SHA
-                    and previous.get('diagnostics', {}).get('status') == 400)
-        guard = SandboxInventoryGuard(token, owner, max_requests=10)
-        state = {'completed': False, 'failed': False, 'get_attempts': 0,
-                 'prior_observed_gets': 5, 'maximum_new_gets': 10, 'inventory_scope': OWNED_SCOPE,
-                 'owner': owner, 'packet': INVENTORY_SHA,
-                 'previous_attempt_sha256': sha(previous_file.read_bytes()) if previous_file.exists() else None}
+        # Only the known read-only failures can be superseded. Their bytes and
+        # counters remain untouched; the new allowance includes all 15 reads.
+        prior_hashes = {}
+        for name, attempts in [('synthetic-inventory-controller.json', 2),
+                               ('synthetic-owned-inventory-controller.json', 10)]:
+            prior_file = folder / name
+            if prior_file.exists():
+                prior = read_json(prior_file)
+                require(prior.get('completed') is False and prior.get('failed') is True
+                        and prior.get('get_attempts') == attempts and prior.get('owner') == owner
+                        and prior.get('packet') == INVENTORY_SHA)
+                if attempts == 2:
+                    require(prior.get('diagnostics', {}).get('status') == 400)
+                else:
+                    diagnostics = prior.get('diagnostics', {})
+                    require(prior.get('inventory_scope') == 'synthetic_owned_namespace_only_v1'
+                            and prior.get('prior_observed_gets') == 5 and prior.get('maximum_new_gets') == 10
+                            and diagnostics.get('stage') == 'request_prepare'
+                            and diagnostics.get('exception_type') == 'ValueError'
+                            and diagnostics.get('status') is None and diagnostics.get('retryable') is False)
+                prior_hashes[name] = sha(prior_file.read_bytes())
+        state = read_json(state_file)
+        if state is None:
+            require(not resume and not pages_dir.exists())
+            now = datetime.now(timezone.utc)
+            state = {'schema_version': 2, 'completed': False, 'failed': False, 'resume_allowed': True,
+                     'get_attempts': 0, 'prior_observed_gets': 15, 'maximum_new_gets': 225,
+                     'maximum_pages': 200, 'page_size': 100,
+                     'inventory_scope': OWNED_SCOPE, 'owner': owner, 'packet': INVENTORY_SHA,
+                     'previous_attempt_hashes': prior_hashes, 'started_at': now.isoformat(),
+                     'expires_at': (now + timedelta(minutes=30)).isoformat(),
+                     'pages': [], 'next_page': 1, 'ids': [], 'failures': [], 'resumes': []}
+        else:
+            require(resume and state.get('completed') is False and state.get('resume_allowed') is True)
+            require(state.get('schema_version') == 2 and type(state.get('failed')) is bool
+                    and state.get('owner') == owner and state.get('packet') == INVENTORY_SHA
+                    and state.get('inventory_scope') == OWNED_SCOPE
+                    and state.get('previous_attempt_hashes') == prior_hashes
+                    and state.get('prior_observed_gets') == 15 and state.get('maximum_new_gets') == 225
+                    and state.get('maximum_pages') == 200 and state.get('page_size') == 100)
+        require(type(state.get('get_attempts')) is int and 0 <= state['get_attempts'] < 225)
+        require(isinstance(state.get('pages'), list) and len(state['pages']) <= 200
+                and type(state.get('next_page')) is int and state['next_page'] == len(state['pages']) + 1
+                and isinstance(state.get('failures'), list) and isinstance(state.get('resumes'), list))
+        started = datetime.fromisoformat(state['started_at'])
+        expires = datetime.fromisoformat(state['expires_at'])
+        require(started.tzinfo is not None and expires.tzinfo is not None
+                and expires == started + timedelta(minutes=30)
+                and started <= datetime.now(timezone.utc) < expires)
+        seen = set()
+        terminal = False
+        expected_files = set()
+        # A partial checkpoint is evidence, not a remotely valid snapshot.
+        # Verify it locally, then replay from page one under the remaining budget.
+        for index, saved in enumerate(state['pages'], 1):
+            require(saved['page'] == index and not terminal)
+            page_name = 'page-%03d.json' % index
+            expected_files.add(page_name)
+            raw = (pages_dir / page_name).read_bytes()
+            require(sha(raw) == saved['sha256'])
+            records = json.loads(raw)
+            check_owned_page(records, metadata, owner, seen)
+            require(len(records) == saved['count'])
+            terminal = len(records) < 100
+        require(sorted(seen) == state['ids'] and state['get_attempts'] >= len(state['pages']))
+        minimum_replay_gets = 1 + len(state['pages']) + (0 if terminal else 1)
+        require(225 - state['get_attempts'] >= minimum_replay_gets)
+        require((not pages_dir.exists() and not expected_files) or
+                (pages_dir.is_dir() and {p.name for p in pages_dir.iterdir()} == expected_files))
         def save():
             atomic_json(state_file, state)
             fd = os.open(folder, os.O_RDONLY | os.O_DIRECTORY)
             try: os.fsync(fd)
             finally: os.close(fd)
+        if resume:
+            # Failed diagnostics stay in the immutable failure history. A resume
+            # must be dispatched explicitly, and never renews the clock or counts.
+            state['resumes'].append({'at': datetime.now(timezone.utc).isoformat(),
+                                     'get_attempts': state['get_attempts']})
+        state.update(failed=False, resume_allowed=True)
         save()
-        atomic_json(paths.safe_to_upload_path, {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
-                    'inventory_complete': False, 'files': [], 'metadata_hashes': {}})
+        incomplete = {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
+                      'inventory_complete': False, 'files': [], 'metadata_hashes': {}}
+        atomic_json(paths.safe_to_upload_path, incomplete)
+        guard = SandboxInventoryGuard(token, owner, max_requests=225 - state['get_attempts'])
         original = requests.sessions.Session.send
         client = None
         def counted(session, request, **kwargs):
-            require(request.method == 'GET' and urlsplit(request.url).path == '/api/deposit/depositions')
-            require(state['get_attempts'] < 10)
+            parsed = urlsplit(request.url)
+            require(request.method == 'GET' and parsed.path == '/api/deposit/depositions')
+            pairs = parse_qsl(parsed.query, keep_blank_values=True)
+            require((active_page is None and not pairs) or (active_page is not None and len(pairs) == 2 and dict(pairs) ==
+                    {'page': str(active_page), 'size': '100'}))
+            require(state['get_attempts'] < 225 and datetime.now(timezone.utc) < expires)
             state['get_attempts'] += 1; save()
             return original(session, request, **kwargs)
+        active_page = None
         try:
             requests.sessions.Session.send = counted
             with guard:
                 client = create_zenodo_client(sandbox=True)
+                require(client.base_url == ORIGIN)
                 client.max_retries = 0
-                owned = client.get_all_my_depositions()
-                require(any(o['owner_validated'] for o in guard.receipt()['observations']), 'response_owner')
-                for item in owned:
-                    md = item.get('metadata')
-                    files = item.get('files')
-                    require(isinstance(md, dict) and isinstance(files, list), 'response_json')
-                    title = md.get('title', '')
-                    require(isinstance(title, str) and bool(title.strip()), 'response_json')
-                    # A matching title, embedded frozen source ID, or exact file
-                    # name requires reconciliation, even if renamed or published.
-                    same_run = title.strip().casefold() == metadata['title'].strip().casefold()
-                    same_run |= SOURCE in json.dumps(md, sort_keys=True)
-                    for remote_file in files:
-                        require(isinstance(remote_file, dict), 'response_json')
-                        name = remote_file.get('filename', remote_file.get('name', remote_file.get('key')))
-                        require(isinstance(name, str) and bool(name), 'response_json')
-                        same_run |= name == SOURCE + '.xml'
-                    require(not same_run, 'response_owner')
-                require(owned, 'response_owner')
+                require(guard.receipt()['observations'][-1]['owner_validated'], 'response_owner')
+                seen = set()
+                for page in range(1, 201):
+                    active_page = page
+                    response = client._make_request('GET', 'deposit/depositions',
+                        params={'page': page, 'size': 100}, allow_redirects=False)
+                    records = response.json()
+                    check_owned_page(records, metadata, owner, seen)
+                    page_file = pages_dir / ('page-%03d.json' % page)
+                    if page <= len(state['pages']):
+                        # Revalidate all retained content/order, not just an
+                        # unpaged constructor anchor that could miss later drift.
+                        require(records == read_json(page_file), 'response_json')
+                    else:
+                        require(not page_file.exists())
+                        atomic_json(page_file, records)
+                        fd = os.open(pages_dir, os.O_RDONLY | os.O_DIRECTORY)
+                        try: os.fsync(fd)
+                        finally: os.close(fd)
+                        state['pages'].append({'page': page, 'count': len(records),
+                            'sha256': sha(page_file.read_bytes()),
+                            'response_sha256': guard.receipt()['observations'][-1]['sha256']})
+                        state['next_page'] = page + 1; state['ids'] = sorted(seen); save()
+                    if len(records) < 100:
+                        break
+                else:
+                    require(False)  # 200 full pages do not prove completion.
+                require(seen, 'response_owner')
             client.close(); client = None
-            now = datetime.now(timezone.utc)
+            require(datetime.now(timezone.utc) < expires)
             atomic_json(paths.already_uploaded_path, {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
-                        'total_records': len(owned), 'records': owned, 'check_date': now.isoformat()})
+                        'total_records': len(seen), 'records': [{'id': i} for i in sorted(seen)],
+                        'checkpoint_pages': state['pages'], 'check_date': datetime.now(timezone.utc).isoformat()})
             atomic_json(paths.safe_to_upload_path, {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
-                        'inventory_complete': True, 'files': [file.name], 'checked_at': now.isoformat(),
-                        'valid_until': (now + timedelta(hours=24)).isoformat(),
+                        'inventory_complete': True, 'files': [file.name],
+                        'checked_at': datetime.now(timezone.utc).isoformat(), 'valid_until': state['expires_at'],
                         'metadata_hashes': {file.name: metadata_hash(metadata)}})
-            state.update(completed=True, owned_count=len(owned),
+            state.update(completed=True, resume_allowed=False, owned_count=len(seen),
                          safe_sha256=sha(Path(paths.safe_to_upload_path).read_bytes()),
                          retained_sha256=sha(Path(paths.already_uploaded_path).read_bytes()))
         except Exception as exc:
-            state['failed'] = True
-            state['diagnostics'] = _exception_diagnostics(exc, 'api_request')
-            state['diagnostics']['retryable'] = False
+            diagnostics = _exception_diagnostics(exc, 'api_request')
+            diagnostics['retryable'] = False  # No automatic request retry.
+            state.update(completed=False, failed=True, diagnostics=diagnostics)
+            state['failures'].append({'get_attempts': state['get_attempts'],
+                                     'verified_pages': len(state['pages']), 'diagnostics': diagnostics})
+            state['resume_allowed'] = (diagnostics['stage'] == 'transport' and diagnostics['status'] is None
+                and diagnostics['exception_type'] in ('ConnectionError', 'Timeout', 'ReadTimeout', 'ConnectTimeout')
+                and 225 - state['get_attempts'] >= 1 + len(state['pages']) +
+                    (0 if state['pages'] and state['pages'][-1]['count'] < 100 else 1)
+                and datetime.now(timezone.utc) < expires)
+            atomic_json(paths.safe_to_upload_path, incomplete)
         finally:
             requests.sessions.Session.send = original
             if client is not None:
@@ -155,8 +264,11 @@ def inventory(stage, owner):
             save()
         return {'mode': 'inventory', 'inventory_scope': OWNED_SCOPE,
                 'completed': state['completed'], 'failed': state['failed'],
-                'get_attempts': state['get_attempts'], 'prior_observed_gets': 5,
-                'owned_count': state.get('owned_count'), 'diagnostics': state.get('diagnostics'),
+                'resume_allowed': state['resume_allowed'], 'verified_pages': len(state['pages']),
+                'next_page': state['next_page'], 'get_attempts': state['get_attempts'], 'prior_observed_gets': 15,
+                'cumulative_inventory_gets': 15 + state['get_attempts'], 'maximum_new_gets': 225,
+                'owned_count': state.get('owned_count'),
+                'diagnostics': state.get('diagnostics') if state['failed'] else None,
                 'guard': guard.receipt(), 'packet_sha256': INVENTORY_SHA}
 
 
@@ -264,6 +376,7 @@ class SyntheticTransport:
         return p.path
 
     def remote(self, data, creating=False):
+        require(not credential_echoed(data, self.token), 'response_json')
         require(isinstance(data, dict) and type(data.get('id')) is int and data['id'] > 0, 'response_json')
         if creating:
             require(data['id'] not in self.state['pre_ids'], 'response_owner')
@@ -363,6 +476,7 @@ class SyntheticTransport:
                 self.remote(json.loads(raw), creating=kind == 'create')
             else:
                 data = json.loads(raw)
+                require(not credential_echoed(data, self.token), stage)
                 require(isinstance(data, dict), stage)
             response._content, response._content_consumed = raw, True
             return response
@@ -456,7 +570,8 @@ def execute(stage, owner):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--owner-file', required=True, type=Path, help='Private JSON positive integer from verified account provenance')
-    parser.add_argument('--inventory-only', action='store_true', help='Synthetic-owned namespace check only, at most 10 new GETs, then pause')
+    parser.add_argument('--inventory-only', action='store_true', help='Checkpointed owned scan, up to 200 pages and 225 new GETs, then pause')
+    parser.add_argument('--resume-inventory', action='store_true', help='Explicitly resume only eligible retained checkpoints')
     args = parser.parse_args()
     previous = signal.getsignal(signal.SIGALRM)
     old_logging = logging.root.manager.disable
@@ -464,11 +579,13 @@ def main():
     def deadline(*_):
         raise requests.exceptions.Timeout('Synthetic deadline')
     try:
-        signal.signal(signal.SIGALRM, deadline); signal.alarm(300)
+        signal.signal(signal.SIGALRM, deadline); signal.alarm(1800 if args.inventory_only else 300)
         logging.disable(logging.CRITICAL)
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
-            operation = inventory if args.inventory_only else execute
-            receipt = operation(RUN, json.loads(args.owner_file.read_bytes()))
+            require(not args.resume_inventory or args.inventory_only)
+            owner = json.loads(args.owner_file.read_bytes())
+            receipt = (inventory(RUN, owner, resume=args.resume_inventory)
+                       if args.inventory_only else execute(RUN, owner))
     except Exception:
         pass
     finally:

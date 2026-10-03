@@ -1,7 +1,5 @@
 """Offline full-controller transactions with dummy transport; never provider writes."""
-import copy
 from datetime import datetime, timezone, timedelta
-import hashlib
 import json
 import os
 from pathlib import Path
@@ -45,7 +43,7 @@ class SyntheticControllerTests(unittest.TestCase):
                        'links': {'bucket': c.ORIGIN + BUCKET}}
 
     def save_inventory_binding(self):
-        atomic_json(self.stage/'state/sandbox/synthetic-owned-inventory-controller.json',
+        atomic_json(self.stage/'state/sandbox'/c.OWNED_STATE,
             {'completed':True,'failed':False,'owner':OWNER,'packet':c.INVENTORY_SHA,'inventory_scope':c.OWNED_SCOPE,
              'safe_sha256':c.sha(Path(self.paths.safe_to_upload_path).read_bytes()),
              'retained_sha256':c.sha(Path(self.paths.already_uploaded_path).read_bytes())})
@@ -223,7 +221,7 @@ class SyntheticControllerTests(unittest.TestCase):
     def inventory_transport(self, session, request, **kwargs):
         from urllib.parse import urlsplit,parse_qs
         self.calls.append((request.method,request.path_url))
-        state=read_json(self.stage/'state/sandbox/synthetic-owned-inventory-controller.json')
+        state=read_json(self.stage/'state/sandbox'/c.OWNED_STATE)
         self.assertEqual(state['get_attempts'],len(self.calls))
         self.assertFalse(kwargs['allow_redirects']);self.assertEqual(request.method,'GET')
         path=urlsplit(request.url).path
@@ -232,15 +230,15 @@ class SyntheticControllerTests(unittest.TestCase):
             r=response({},301);r.headers['Location']='https://evil.test/records';return r
         if '?' in request.url and self.mutation=='inventory_bound':
             page=int(parse_qs(urlsplit(request.url).query)['page'][0])
-            return response([{'id':page*100+i,'owner':OWNER,'metadata':{'title':'Unrelated'}} for i in range(100)])
+            return response([{'id':page*100+i,'owner':OWNER,'metadata':{'title':'Unrelated'},'files':[]} for i in range(100)])
         return response([{'id':3,'owner':OWNER,'metadata':{'title':'Unrelated existing item'},'state':'done','files':[]}])
 
-    def run_inventory(self):
+    def run_inventory(self, resume=False):
         with patch('requests.sessions.Session.send',self.inventory_transport),patch('scripts.zenodo_api.ZenodoAPIClient._rate_limit_check'):
-            return c.inventory(self.stage,OWNER)
+            return c.inventory(self.stage,OWNER,resume=resume)
 
     def test_inventory_entrypoint_then_separately_dispatched_write_controller(self):
-        (self.stage/'state/sandbox/synthetic-owned-inventory-controller.json').unlink()
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
         result=self.run_inventory()
         self.assertTrue(result['completed'],result);self.assertEqual(result['get_attempts'],2)
         count=len(self.calls)
@@ -249,7 +247,7 @@ class SyntheticControllerTests(unittest.TestCase):
         self.assertTrue(self.execute()['completed'])
 
     def test_inventory_redirect_stops_and_cannot_reset_attempt_budget(self):
-        (self.stage/'state/sandbox/synthetic-owned-inventory-controller.json').unlink()
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
         self.mutation='inventory_redirect';result=self.run_inventory()
         self.assertTrue(result['failed']);self.assertEqual(result['get_attempts'],2)
         self.assertFalse(read_json(self.paths.safe_to_upload_path)['inventory_complete'])
@@ -258,15 +256,15 @@ class SyntheticControllerTests(unittest.TestCase):
         self.assertEqual(len(self.calls),count)
         with self.assertRaises(c.ZenodoAPIError):self.execute()
 
-    def test_owned_inventory_ten_get_cap_preserves_five_prior_attempts(self):
-        (self.stage/'state/sandbox/synthetic-owned-inventory-controller.json').unlink()
+    def test_owned_inventory_two_hundred_page_cap_preserves_fifteen_prior_attempts(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
         self.mutation='inventory_bound';result=self.run_inventory()
-        self.assertTrue(result['failed']);self.assertEqual(result['get_attempts'],10)
-        self.assertEqual(result['prior_observed_gets']+result['get_attempts'],15)
-        self.assertEqual(len(self.calls),10)
+        self.assertTrue(result['failed']);self.assertEqual(result['get_attempts'],201)
+        self.assertEqual(result['prior_observed_gets']+result['get_attempts'],216)
+        self.assertEqual(len(self.calls),201)
 
     def test_synthetic_gate_does_not_request_public_community(self):
-        (self.stage/'state/sandbox/synthetic-owned-inventory-controller.json').unlink()
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
         def owned_only(session,request,**kwargs):
             from urllib.parse import urlsplit
             self.assertEqual(urlsplit(request.url).path,'/api/deposit/depositions')
@@ -279,7 +277,7 @@ class SyntheticControllerTests(unittest.TestCase):
         for marker in ('title','file','embedded'):
             obj=SyntheticControllerTests('test_complete_create_readback_retry_and_process_rerun');obj.setUp()
             try:
-                (obj.stage/'state/sandbox/synthetic-owned-inventory-controller.json').unlink()
+                (obj.stage/'state/sandbox'/c.OWNED_STATE).unlink()
                 original=obj.inventory_transport
                 def collision(session,request,**kwargs):
                     r=original(session,request,**kwargs)
@@ -298,18 +296,18 @@ class SyntheticControllerTests(unittest.TestCase):
             finally:obj.doCleanups()
 
     def test_prior_read_only_400_receipt_is_preserved_without_new_community_query(self):
-        (self.stage/'state/sandbox/synthetic-owned-inventory-controller.json').unlink()
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
         old=self.stage/'state/sandbox/synthetic-inventory-controller.json'
         atomic_json(old,{'completed':False,'failed':True,'get_attempts':2,'owner':OWNER,
                         'packet':c.INVENTORY_SHA,'diagnostics':{'status':400}})
         before=old.read_bytes();result=self.run_inventory()
         self.assertTrue(result['completed']);self.assertEqual(old.read_bytes(),before)
-        state=read_json(self.stage/'state/sandbox/synthetic-owned-inventory-controller.json')
-        self.assertEqual(state['previous_attempt_sha256'],c.sha(before))
-        self.assertEqual(result['prior_observed_gets'],5)
+        state=read_json(self.stage/'state/sandbox'/c.OWNED_STATE)
+        self.assertEqual(state['previous_attempt_hashes'][old.name],c.sha(before))
+        self.assertEqual(result['prior_observed_gets'],15)
 
     def test_nonmatching_prior_attempt_and_uncertain_create_block_new_owned_gate(self):
-        (self.stage/'state/sandbox/synthetic-owned-inventory-controller.json').unlink()
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
         old=self.stage/'state/sandbox/synthetic-inventory-controller.json'
         atomic_json(old,{'completed':True,'failed':False,'get_attempts':2,'owner':OWNER,'packet':c.INVENTORY_SHA})
         with self.assertRaises(c.ZenodoAPIError):self.run_inventory()
@@ -340,7 +338,7 @@ class SyntheticControllerTests(unittest.TestCase):
     def test_owned_grant_cannot_be_consumed_by_generic_upload_paths(self):
         from unittest.mock import Mock
         from scripts.upload_service import DraftUploadService, require_inventory
-        (self.stage/'state/sandbox/synthetic-owned-inventory-controller.json').unlink()
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
         self.assertTrue(self.run_inventory()['completed'])
         service=DraftUploadService(self.paths,'sandbox')
         client=Mock(base_url=c.ORIGIN)
@@ -360,7 +358,7 @@ class SyntheticControllerTests(unittest.TestCase):
                     {'id':3,'owner':OWNER,'metadata':{'title':'Title'},'files':[{}]}]:
             obj=SyntheticControllerTests('test_complete_create_readback_retry_and_process_rerun');obj.setUp()
             try:
-                (obj.stage/'state/sandbox/synthetic-owned-inventory-controller.json').unlink()
+                (obj.stage/'state/sandbox'/c.OWNED_STATE).unlink()
                 original=obj.inventory_transport
                 def malformed(session,request,**kwargs):
                     r=original(session,request,**kwargs)
@@ -370,3 +368,258 @@ class SyntheticControllerTests(unittest.TestCase):
                     result=obj.run_inventory();self.assertTrue(result['failed']);self.assertFalse(result['completed'])
                     self.assertFalse(read_json(obj.paths.safe_to_upload_path)['inventory_complete'])
             finally:obj.doCleanups()
+
+    def pagination_fixture(self, count=16538, fail_page=None):
+        from urllib.parse import urlsplit,parse_qs
+        original = self.inventory_transport
+        def paginated(session,request,**kwargs):
+            r = original(session,request,**kwargs)
+            params = parse_qs(urlsplit(request.url).query)
+            if not params:
+                return r
+            self.assertEqual(set(params),{'page','size'})
+            self.assertEqual(params['size'],['100'])
+            page = int(params['page'][0])
+            if page == fail_page:
+                raise requests.ConnectionError('private '+TOKEN)
+            start = (page-1)*100
+            return response([{'id':i+1000,'owner':OWNER,
+                'metadata':{'title':'Historical same title'},'files':[]}
+                for i in range(start,min(start+100,count))])
+        self.inventory_transport = paginated
+
+    def test_reported_16538_inventory_completes_with_adequate_budget(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        self.pagination_fixture()
+        result=self.run_inventory()
+        self.assertTrue(result['completed'],result)
+        self.assertEqual(result['owned_count'],16538)
+        self.assertEqual(result['verified_pages'],166)
+        self.assertEqual(result['get_attempts'],167)
+        self.assertEqual(result['prior_observed_gets'],15)
+        self.assertTrue(self.execute()['completed'])
+
+    def test_explicit_resume_replays_all_retained_pages_and_preserves_failure(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        self.pagination_fixture(count=220,fail_page=3)
+        first=self.run_inventory();self.assertTrue(first['failed']);self.assertTrue(first['resume_allowed'])
+        self.assertFalse(read_json(self.paths.safe_to_upload_path)['inventory_complete'])
+        count=len(self.calls)
+        with self.assertRaises(c.ZenodoAPIError):self.run_inventory()
+        self.assertEqual(len(self.calls),count)
+        # Remove only the dummy transient transport fault, preserving all local state.
+        self.inventory_transport=type(self).inventory_transport.__get__(self)
+        self.pagination_fixture(count=220)
+        result=self.run_inventory(resume=True)
+        self.assertTrue(result['completed'],result)
+        self.assertEqual(result['get_attempts'],8)
+        self.assertEqual([p for _,p in self.calls[count:]],['/api/deposit/depositions',
+            '/api/deposit/depositions?page=1&size=100','/api/deposit/depositions?page=2&size=100',
+            '/api/deposit/depositions?page=3&size=100'])
+        state=read_json(self.stage/'state/sandbox'/c.OWNED_STATE)
+        self.assertEqual(state['failures'][0]['get_attempts'],4)
+        self.assertNotIn(TOKEN,json.dumps(result)+json.dumps(state))
+
+    def test_changed_retained_second_page_blocks_resume_even_with_same_constructor(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        self.pagination_fixture(count=220,fail_page=3)
+        self.assertTrue(self.run_inventory()['resume_allowed'])
+        self.inventory_transport=type(self).inventory_transport.__get__(self)
+        self.pagination_fixture(count=220)
+        original=self.inventory_transport
+        def changed(session,request,**kwargs):
+            r=original(session,request,**kwargs)
+            if 'page=2&' in request.path_url:
+                data=json.loads(r.content);data[0]['metadata']['title']='Changed order/content'
+                return response(data)
+            return r
+        self.inventory_transport=changed
+        result=self.run_inventory(resume=True)
+        self.assertTrue(result['failed']);self.assertFalse(result['resume_allowed'])
+        self.assertFalse(read_json(self.paths.safe_to_upload_path)['inventory_complete'])
+        self.assertFalse(any('page=3&' in p for _,p in self.calls[4:]))
+
+    def test_own_run_collision_on_late_page_never_grants_inventory(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        self.pagination_fixture(count=16538)
+        original=self.inventory_transport
+        def collision(session,request,**kwargs):
+            r=original(session,request,**kwargs)
+            if 'page=166&' in request.path_url:
+                data=json.loads(r.content);data[-1]['metadata']['notes']=c.SOURCE
+                return response(data)
+            return r
+        self.inventory_transport=collision
+        result=self.run_inventory()
+        self.assertTrue(result['failed']);self.assertFalse(result['resume_allowed'])
+        self.assertFalse(read_json(self.paths.safe_to_upload_path)['inventory_complete'])
+
+    def test_orphan_expired_or_tampered_checkpoint_blocks_before_transport(self):
+        for fault in ('orphan','expired','hash','prior'):
+            obj=SyntheticControllerTests('test_complete_create_readback_retry_and_process_rerun');obj.setUp()
+            try:
+                (obj.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+                obj.pagination_fixture(count=120,fail_page=2)
+                self.assertTrue(obj.run_inventory()['resume_allowed'])
+                state_file=obj.stage/'state/sandbox'/c.OWNED_STATE
+                state=read_json(state_file)
+                if fault=='orphan':
+                    atomic_json(obj.stage/'state/sandbox/synthetic-owned-pages/page-002.json',[])
+                elif fault=='expired':
+                    state['expires_at']='2000-01-01T00:00:00+00:00';atomic_json(state_file,state)
+                elif fault=='hash':
+                    p=obj.stage/'state/sandbox/synthetic-owned-pages/page-001.json';p.write_bytes(p.read_bytes()+b' ')
+                else:
+                    atomic_json(obj.stage/'state/sandbox/synthetic-inventory-controller.json',
+                        {'completed':False,'failed':True,'get_attempts':2,'owner':OWNER,
+                         'packet':c.INVENTORY_SHA,'diagnostics':{'status':400}})
+                count=len(obj.calls)
+                with self.subTest(fault=fault),self.assertRaises(c.ZenodoAPIError):obj.run_inventory(resume=True)
+                self.assertEqual(len(obj.calls),count)
+            finally:obj.doCleanups()
+
+    def test_old_ten_get_cap_receipt_is_preserved_and_other_failures_rejected(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        old=self.stage/'state/sandbox/synthetic-owned-inventory-controller.json'
+        saved={'completed':False,'failed':True,'get_attempts':10,'owner':OWNER,
+            'packet':c.INVENTORY_SHA,'prior_observed_gets':5,'maximum_new_gets':10,
+            'inventory_scope':'synthetic_owned_namespace_only_v1',
+            'diagnostics':{'stage':'request_prepare','exception_type':'ValueError','status':None,'retryable':False}}
+        atomic_json(old,saved);before=old.read_bytes()
+        self.assertTrue(self.run_inventory()['completed'])
+        self.assertEqual(old.read_bytes(),before)
+        state=read_json(self.stage/'state/sandbox'/c.OWNED_STATE)
+        self.assertEqual(state['previous_attempt_hashes'][old.name],c.sha(before))
+
+    def test_final_cleanup_failure_revokes_inventory_and_is_redacted(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        with patch('scripts.zenodo_api.ZenodoAPIClient.close',side_effect=RuntimeError(TOKEN)):
+            result=self.run_inventory()
+        self.assertTrue(result['failed']);self.assertFalse(result['completed'])
+        self.assertFalse(read_json(self.paths.safe_to_upload_path)['inventory_complete'])
+        self.assertNotIn(TOKEN,json.dumps(result))
+
+    def test_remaining_durable_225_get_budget_cannot_be_reset_by_resume(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        self.pagination_fixture(count=120,fail_page=1)
+        self.assertTrue(self.run_inventory()['resume_allowed'])
+        state_file=self.stage/'state/sandbox'/c.OWNED_STATE
+        state=read_json(state_file)
+        # Independent offline fixture models a previously consumed budget.
+        state['get_attempts']=223;atomic_json(state_file,state)
+        self.calls=[('GET','prior-fixture')] * 223
+        self.inventory_transport=type(self).inventory_transport.__get__(self)
+        self.pagination_fixture(count=120)
+        result=self.run_inventory(resume=True)
+        self.assertTrue(result['failed']);self.assertFalse(result['resume_allowed'])
+        self.assertEqual(result['get_attempts'],225)
+        self.assertEqual(result['cumulative_inventory_gets'],240)
+        self.assertEqual(len(self.calls),225)
+        self.assertFalse(read_json(self.paths.safe_to_upload_path)['inventory_complete'])
+        with self.assertRaises(c.ZenodoAPIError):self.run_inventory(resume=True)
+        self.assertEqual(len(self.calls),225)
+
+    def test_repeated_ids_and_oversized_page_block_partial_inventory(self):
+        for fault in ('repeated','oversize'):
+            obj=SyntheticControllerTests('test_complete_create_readback_retry_and_process_rerun');obj.setUp()
+            try:
+                (obj.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+                obj.pagination_fixture(count=120)
+                original=obj.inventory_transport
+                def malformed(session,request,**kwargs):
+                    r=original(session,request,**kwargs)
+                    if fault=='repeated' and 'page=2&' in request.path_url:
+                        data=json.loads(r.content);data[0]['id']=1000;return response(data)
+                    if fault=='oversize' and 'page=1&' in request.path_url:
+                        data=json.loads(r.content);data.append({'id':9999,'owner':OWNER,
+                            'metadata':{'title':'Unrelated'},'files':[]});return response(data)
+                    return r
+                obj.inventory_transport=malformed
+                result=obj.run_inventory()
+                with self.subTest(fault=fault):
+                    self.assertTrue(result['failed']);self.assertFalse(result['resume_allowed'])
+                    self.assertFalse(read_json(obj.paths.safe_to_upload_path)['inventory_complete'])
+                    with self.assertRaises(c.ZenodoAPIError):obj.execute()
+            finally:obj.doCleanups()
+
+    def test_arbitrary_prior_ten_read_failure_cannot_be_superseded(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        old=self.stage/'state/sandbox/synthetic-owned-inventory-controller.json'
+        atomic_json(old,{'completed':False,'failed':True,'get_attempts':10,'owner':OWNER,
+            'packet':c.INVENTORY_SHA,'prior_observed_gets':5,'maximum_new_gets':10,
+            'inventory_scope':'synthetic_owned_namespace_only_v1',
+            'diagnostics':{'stage':'response_owner','exception_type':'ValueError','status':200,'retryable':False}})
+        before=old.read_bytes()
+        with self.assertRaises(c.ZenodoAPIError):self.run_inventory()
+        self.assertEqual(self.calls,[]);self.assertEqual(old.read_bytes(),before)
+
+    def test_secondary_file_alias_cannot_hide_an_own_run_collision(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        original=self.inventory_transport
+        def alias(session,request,**kwargs):
+            r=original(session,request,**kwargs)
+            if '?' in request.url:
+                data=json.loads(r.content)
+                data[0]['files']=[{'filename':'Unrelated.xml','key':c.SOURCE+'.xml'}]
+                return response(data)
+            return r
+        self.inventory_transport=alias
+        result=self.run_inventory()
+        self.assertTrue(result['failed']);self.assertFalse(result['resume_allowed'])
+
+    def test_insufficient_replay_budget_blocks_before_any_resume_request(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        self.pagination_fixture(count=120,fail_page=2)
+        self.assertTrue(self.run_inventory()['resume_allowed'])
+        state_file=self.stage/'state/sandbox'/c.OWNED_STATE
+        state=read_json(state_file);state['get_attempts']=223;atomic_json(state_file,state)
+        count=len(self.calls)
+        with self.assertRaises(c.ZenodoAPIError):self.run_inventory(resume=True)
+        self.assertEqual(len(self.calls),count)
+
+    def test_missing_page_params_cannot_grant_from_unpaged_default(self):
+        from scripts.zenodo_api import ZenodoAPIClient
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        original=ZenodoAPIClient._make_request
+        def omitted(client,method,endpoint,**kwargs):
+            kwargs.pop('params',None)
+            return original(client,method,endpoint,**kwargs)
+        with patch.object(ZenodoAPIClient,'_make_request',omitted):
+            result=self.run_inventory()
+        self.assertTrue(result['failed']);self.assertEqual(result['get_attempts'],1)
+        self.assertEqual(len(self.calls),1)
+        self.assertFalse(read_json(self.paths.safe_to_upload_path)['inventory_complete'])
+
+    def test_json_escaped_credential_is_rejected_before_checkpoint_or_create_id(self):
+        escaped='DUMMY-review-token\\with"escape'
+        with patch.dict(os.environ,{'ZENODO_SANDBOX_TOKEN':escaped}):
+            (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+            original=self.inventory_transport
+            def echo(session,request,**kwargs):
+                r=original(session,request,**kwargs)
+                if '?' in request.url:
+                    data=json.loads(r.content);data[0]['metadata']['notes']=escaped
+                    return response(data)
+                return r
+            self.inventory_transport=echo
+            result=self.run_inventory()
+            self.assertTrue(result['failed']);self.assertEqual(result['verified_pages'],0)
+            self.assertFalse((self.stage/'state/sandbox/synthetic-owned-pages').exists())
+            self.assertNotIn(escaped,json.dumps(result))
+            self.save_inventory_binding()
+            def create_echo(session,request,**kwargs):
+                self.calls.append((request.method,request.path_url))
+                if request.method=='GET':return response([{'id':3,'owner':OWNER}])
+                data=dict(self.remote);data['metadata']={'notes':escaped}
+                return response(data,201)
+            self.transport=create_echo
+            # Independent local grant fixture restores the original valid test inputs.
+            atomic_json(self.paths.safe_to_upload_path,{'environment':'sandbox','inventory_scope':c.OWNED_SCOPE,
+                'inventory_complete':True,'files':[self.file.name],
+                'valid_until':(datetime.now(timezone.utc)+timedelta(hours=1)).isoformat(),
+                'metadata_hashes':{self.file.name:c.metadata_hash(self.metadata)}})
+            self.save_inventory_binding()
+            result=self.execute()
+            self.assertTrue(result['failed']);self.assertEqual(result['counts']['create'],1)
+            state=read_json(self.stage/'state/sandbox/synthetic-controller.json')
+            self.assertIsNone(state['id']);self.assertNotIn(escaped,json.dumps(state))

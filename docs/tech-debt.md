@@ -189,3 +189,30 @@ a substantive final-head automated verdict.
 - Public PICES search returned HTTP 400 for q=communities:pices,size=200,page=1; its body was not retained and cause remains unknown. Removed that unrelated public-community prerequisite only for the disposable pinned synthetic sandbox trial; no query/size/credential causal fix is guessed.
 - Complete owned scan, exact title/source-ID/file collision checks and original durable ledger enforce run identity. Ten new GETs maximum after five observed reads; the previous stopped receipt is preserved byte-for-byte. Reduced-scope grants are bound to the exact active controller and rejected by generic pending/upload paths. Production and actual-source public inventories remain required.
 - Independent review caught missing collision fields and generic consumption of the scoped grant. Both fail closed now. 284 full offline tests pass, independently reproduced, including 23 controller and four endpoint tests. No provider requests/writes or production/actual-source scope expansion. See updated synthetic_canary_controller.md.
+
+## 2026-10-03 — Synthetic owned pagination recovery
+
+The reviewed ten-GET synthetic gate stopped after constructor plus nine 100-item
+pages, all HTTP 200, because the account inventory is approximately 16,538 items.
+No draft/write occurred. The successor preserves those failed receipt bytes and
+all 15 cumulative reads; its allowance is 225 additional inventory GETs with up
+to 200 pages and a fixed 30-minute lifetime. The 16,538-item offline fixture
+completes in 167 new reads. The generic production/public duplicate gates are
+unchanged.
+
+The transferred untested patch asserted account quiescence and validated only
+an unpaged anchor on resume. That assertion cannot be established here. Partial
+checkpoints now require an explicit replay from page one, unchanged retained
+page content/order, the same deadline and remaining counters. Drift, expiry,
+orphans, insufficient minimum replay allowance, malformed identity and collision
+stop without granting inventory. Offset pagination is still a sequential scan,
+not a verified server snapshot; no snapshot or account-activity attestation is
+claimed. Transport-only interruption can be resumed within remaining bounds;
+other failures require code-owner reconciliation. No automatic restart or reset.
+
+Independent review reproduced a decoded credential-echo gap for printable tokens
+with JSON-escaped quotes/backslashes. Both read and write boundaries now reject
+decoded key/value echoes before persisting page or create-response state.
+Independent review and provider dispatch are tracked in the frozen runbook and
+validation receipt. Live Sandbox delivery and public PICES query compatibility
+remain separate from source-backed metadata QA and production release.
