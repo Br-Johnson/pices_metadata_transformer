@@ -6,8 +6,11 @@
 - [x]352 guarded offline tests, complete4206/4200/4194 corpus delta and independent runtime/source/actual-after-image reviews clear234promotions:3468supported/732held/6malformed.
 - [x] Freeze normal stacked handoff, residual732exactquestions and GET-only reconciliation dispatch.
 - [x] Supply Brett’s exact direct merge instruction; accepted single PR11retry mergesb3d87f2, thenPR12merges8818c19. PR13targetsmain;3automaticreproducibilityfindingsfixed/reviewed/resolved;361combinedguardedtestsPASS.
-- [ ] Merge eligiblePR13andverify exactmaincheckpoint/runtime/source/profilebindings.
+- [x] MergePR13at85420ab and verify exact main:361 guarded offline tests, isolated Ruff and matching complete delta receipt.
 - [x] Independently compare workinglegacy environment-awaretransportvsconsumed/future modern exclusions; preserve194reads/spentcreates andfreeze one-shotofficial-route diagnostic194→195,239→238remaining,no settings/credential/private-stage inspection or provider calls.
+- [x] Parent reports corrected official-routeHTTP200; retained page1 is entirely2025, so reviewed boundary reconciliation adds zero reads. Historical195,285files preserved; original read expiry unchanged, global absence/create outcome unproven.
+- [x] Freeze distinct modern run02 and ordinary supported Session.request route, preserving adapters/CA/opaque authorization and all old uncertain state; six focused routing/isolation contracts plus prior modern contracts pass offline.
+- [x] Independent final runtime/packet/handoff review clears33 focused +3 additional checks;367 guarded full tests and isolated Ruff pass. Freeze normal runnable handoff for parent-bound dispatch within standing trial approval. Root issues no provider action or usable grant.
 
 # FGDC → Zenodo Sandbox TODO List
 

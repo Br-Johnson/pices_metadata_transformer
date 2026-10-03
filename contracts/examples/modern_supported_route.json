@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "purpose": "Offline synthetic binding example; never a live grant",
+  "approved": false,
+  "namespace": "pices-modern-synthetic-20261003-code-02",
+  "packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+  "origin": "https://sandbox.zenodo.org",
+  "transport": "ordinary Session.request; preserve approved environment route and CA processing",
+  "opaque_authorization_preserved_before_send": true,
+  "replace_existing_adapters": false,
+  "redirects": false,
+  "transport_retries": 0,
+  "limits": {"create": 1, "doi": 1, "metadata": 1, "init": 1, "content": 1, "commit": 1, "get": 8},
+  "grant_lifetime_seconds": 1800,
+  "request_wall_seconds": 20,
+  "response_max_bytes": 65536,
+  "historical_get_intents": 195,
+  "prior_unknown_creates": "permanently spent and unresolved; never adopted/reset/retried"
+}

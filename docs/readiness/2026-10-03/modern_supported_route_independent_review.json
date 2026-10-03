@@ -1,0 +1,104 @@
+{
+  "base_commit": "85420aba8be7ee137bfacfa9d4a53d61b9799d63",
+  "dispatch_conditions": [
+    "Parent must issue a fresh exact02 grant citing applicable standing user approval; offline code/packet creates no grant.",
+    "Old01 uncertain create, ledgers, clocks and counters remain permanently held; no state/grant migration or uncertain retry.",
+    "Provider executor only; exact new unused namespace/stage and fixed packet/runtime bindings.",
+    "Compatibility is the bounded trial outcome; no inventory/probe, complete absence claim or provider confirmation inferred."
+  ],
+  "independent_boundary_checks": [
+    "Actual Session.request/Session.send uses dummy environment proxy and CA settings with the identical existing mocked adapter; methods restored after failed POST.",
+    "Actual Session.send does not follow302 redirect; only one mocked POST, spent/held, response status retained without private route/token disclosure.",
+    "Dummy old01 stage is rejected before changes; mismatched01 grant cannot activate02 and consumes zero action counts."
+  ],
+  "independent_focused_tests": {
+    "actual_last_invocation_count": 3,
+    "additional_independent_boundary_checks": 3,
+    "boundary_final_log": "/tmp/pices-modern-supported-route-independent-boundary-final.log",
+    "boundary_final_log_sha256": "e52226dc57228a5c13d784f9b57ef9e6a0e6424eb6574a732a7f2ba1f140999e",
+    "distinct_total": 36,
+    "errors": 0,
+    "existing_modern_and_diagnostic": 27,
+    "failures": 0,
+    "new_route_contracts": 6,
+    "repository_33_passed_log": "/tmp/pices-modern-supported-route-independent-focused.log",
+    "repository_33_passed_log_sha256": "99f006899756fdef0d704d747d8dd32cf131bdf94fbf4f3f18dd886357c019f8",
+    "reviewed_files_unchanged_since_repository_33_passed": true
+  },
+  "limitations": [
+    "Process launched with env -i; fixtures use only empty/dummy environment and mocked netrc. No real environment values inspected.",
+    "DNS/socket/Session.send/HTTPAdapter.send blocked globally except exact scoped in-memory mocks.",
+    "No provider/credentials/private stage reads, repository edits, full suite or full classification run.",
+    "Review is not a provider action grant or deployed compatibility/causation verification.",
+    "Existing exact exception whitelist still projects ProxyError as unclassified; safety/held behavior is unchanged and no underlying cause is inferred."
+  ],
+  "material_findings": [],
+  "namespace": "pices-modern-synthetic-20261003-code-02",
+  "packet_review": {
+    "all_inventory_member_bytes_and_hashes_checked": true,
+    "fixed_fictional_xml_metadata": true,
+    "grant_lifetime_seconds": 1800,
+    "limits": {
+      "commit": 1,
+      "content": 1,
+      "create": 1,
+      "doi": 1,
+      "get": 8,
+      "init": 1,
+      "metadata": 1
+    },
+    "new02_title_keyword_file_key_metadata_bindings_consistent": true,
+    "old01_all_five_public_packet_files_byte_identical_to_base": [
+      {
+        "path": "docs/handoff/modern-synthetic-canary-20261003-code-01/INVENTORY.json",
+        "sha256": "95d125ba6e47cb87cd89fcc981c8a179ee37127e0fe9ccab5711f9984b79787e"
+      },
+      {
+        "path": "docs/handoff/modern-synthetic-canary-20261003-code-01/create.json",
+        "sha256": "7abb5eeca9b11e8ab01c60f03325d144cd4cf062fcd22f9a95cc92bef3be677a"
+      },
+      {
+        "path": "docs/handoff/modern-synthetic-canary-20261003-code-01/metadata-put.json",
+        "sha256": "96693e56956917134ba914294a15372e5fdd7940ed206ea1df2203a6bda055df"
+      },
+      {
+        "path": "docs/handoff/modern-synthetic-canary-20261003-code-01/selection.json",
+        "sha256": "93d7470df2d56fc0da66dabd6ddba717fa74551d2817ea7835b723fc3fc2468d"
+      },
+      {
+        "path": "docs/handoff/modern-synthetic-canary-20261003-code-01/synthetic.xml",
+        "sha256": "3b2e8bf95f28f68644be6bf5a6e38003aa16d4f1b13f31fbd6e911e8e1fafcf0"
+      }
+    ],
+    "request_timeout_seconds": 20,
+    "response_max_bytes": 65536,
+    "selection_approved": false
+  },
+  "packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+  "result": "CLEARED",
+  "reviewed_file_sha256": {
+    "docs/handoff/modern-synthetic-canary-20261003-code-02/INVENTORY.json": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+    "docs/handoff/modern-synthetic-canary-20261003-code-02/create.json": "d3ecca65f9ee1f3778446c33b4a4bb299d1ed2d1f8e23837ba39cb70da578991",
+    "docs/handoff/modern-synthetic-canary-20261003-code-02/metadata-put.json": "0197c230248e4192866b8662fa60a4cca4b05ed0d060fc67f6a9102bb6180128",
+    "docs/handoff/modern-synthetic-canary-20261003-code-02/selection.json": "d60dc6c3e9bbc6bc2b59876305989948e53e9682d8f70d1f990f057ca1e6945e",
+    "docs/handoff/modern-synthetic-canary-20261003-code-02/synthetic.xml": "7cf966d4c1396a3dc54cfad0b049394f70da59a8e02e9ec294dab00c3a8d4c1b",
+    "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "scripts/modern_synthetic_canary.py": "8b96b63ca66ec4e27546ce3980abb98cb8f5f7b696eb2c7d3f590ac7a61e9b24",
+    "tests/test_modern_supported_route.py": "d03346babfe6f82b257d9ad3b6d102272cee5f4e1245bc54d51ec9e3cedfe0b1",
+    "tests/test_modern_synthetic_canary.py": "dcb469c55128b7b2a4f5e75b88f64771ebfd5c3b254cab4f55d6fdf4ea70132b",
+    "tests/test_modern_transport_diagnostics.py": "4cc9a4709b85ad5b9f34bc22d2585c130d710eee3d95b4d338449f926e9e81ba"
+  },
+  "reviewer_harness": {
+    "path": "/tmp/pices-review-modern-supported-route-focused.py",
+    "sha256": "81395a179e63f9b724856ea702e387109625ae0ea9b40be4165998aeab1a538b"
+  },
+  "reviewer_harness_first_run": {
+    "errors": "Reviewer-only fixture corrections: restored method compared against in-scope mock rather than outer network guard; mocked redirect Response now supplies adapter-contract request/url. Initial expected total35 updated to actual36 after root added sixth route contract. All33 repository contracts passed; final three reviewer checks run separately after fixture correction, with unchanged reviewed repo hashes.",
+    "log": "/tmp/pices-modern-supported-route-independent-focused-first-run.log",
+    "log_sha256": "48ccce6da5c461918bc0dadb0f30fffec01f17619f02d17355d0928ecf33c25f",
+    "second_log": "/tmp/pices-modern-supported-route-independent-focused.log",
+    "second_log_sha256": "99f006899756fdef0d704d747d8dd32cf131bdf94fbf4f3f18dd886357c019f8"
+  },
+  "schema_version": 1,
+  "scope": "Independent focused offline runtime/packet/transport review only"
+}

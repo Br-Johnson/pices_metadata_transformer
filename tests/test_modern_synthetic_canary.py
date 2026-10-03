@@ -35,6 +35,12 @@ class Response:
 class ModernCanaryTests(unittest.TestCase):
     def setUp(self):
         self.__dict__.pop('transport', None)
+        environment = patch.dict(os.environ, {}, clear=True)
+        environment.start()
+        self.addCleanup(environment.stop)
+        netrc = patch('requests.sessions.get_netrc_auth', return_value=None)
+        netrc.start()
+        self.addCleanup(netrc.stop)
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.stage = Path(self.temp.name) / m.NAMESPACE
@@ -482,7 +488,7 @@ class ModernCanaryTests(unittest.TestCase):
         self.grant['valid_until'] = (now + timedelta(minutes=30)).isoformat()
         m.atomic(self.stage / 'approval.json', self.grant)
         def send(session, request, **kwargs):
-            self.assertFalse(session.trust_env)
+            self.assertTrue(session.trust_env)
             self.assertFalse(kwargs['allow_redirects'])
             self.assertTrue(kwargs['verify'])
             self.assertEqual(request.url, m.ORIGIN + '/api/records')

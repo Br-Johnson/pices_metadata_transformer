@@ -20,11 +20,11 @@ import requests
 
 from scripts.modern_canary_errors import credential_echoed, response_projection
 
-NAMESPACE = 'pices-modern-synthetic-20261003-code-01'
+NAMESPACE = 'pices-modern-synthetic-20261003-code-02'
 ORIGIN = 'https://sandbox.zenodo.org'
 ACCEPT = 'application/vnd.inveniordm.v1+json'
-PACKET = Path(__file__).resolve().parents[1] / 'docs/handoff/modern-synthetic-canary-20261003-code-01'
-PACKET_SHA = '95d125ba6e47cb87cd89fcc981c8a179ee37127e0fe9ccab5711f9984b79787e'
+PACKET = Path(__file__).resolve().parents[1] / 'docs/handoff/modern-synthetic-canary-20261003-code-02'
+PACKET_SHA = '0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13'
 LIMITS = {'create': 1, 'doi': 1, 'metadata': 1, 'init': 1, 'content': 1, 'commit': 1, 'get': 8}
 EXECUTOR = '01a0fed7-bf71-7384-95fd-3434599df03f'
 FILES = {'binding.json', 'state.json', 'journal.json', 'controller.lock', 'approval.json',
@@ -565,24 +565,48 @@ def execute(stage, token, retry=False):
     try:
         fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
         with requests.Session() as session:
-            session.trust_env = False
-            class ObservedAdapter(requests.adapters.HTTPAdapter):
-                def send(self, *args, **kwargs):
-                    controller.observe('adapter_entry', adapter_entered=True)
-                    require(datetime.now(timezone.utc) < datetime_aware(controller.grant['valid_until']))
-                    return super().send(*args, **kwargs)
-            for adapter in session.adapters.values():
-                adapter.close()
-            session.mount('https://', ObservedAdapter(max_retries=0))
-            def transport(method, url, body, headers, **options):
-                kwargs = {'data': body} if isinstance(body, bytes) else {'json': body}
+            # Keep the official Session.request environment/CA route and existing
+            # adapters. Observe this instance only; never replace trusted routing.
+            original_prepare = session.prepare_request
+            original_send = session.send
+            observed_adapters = []
+
+            def prepared(request):
                 controller.observe('request_preparation')
-                prepared = session.prepare_request(requests.Request(method, url, headers=headers, **kwargs))
+                result = original_prepare(request)
                 controller.observe('request_prepared')
+                require(result.headers.get('Authorization') == 'Bearer ' + token
+                        and result.url == request.url and result.method == request.method)
                 require(datetime.now(timezone.utc) < datetime_aware(controller.grant['valid_until']))
+                return result
+
+            def sent(request, **options):
+                require(options.get('allow_redirects') is False
+                        and options.get('verify') not in (None, False, ''))
+                adapter = session.get_adapter(request.url)
+                require(getattr(getattr(adapter, 'max_retries', None), 'total', None) == 0,
+                        'Approved transport must have zero retries; route unchanged')
                 controller.observe('send_call', send_call_started=True)
                 require(datetime.now(timezone.utc) < datetime_aware(controller.grant['valid_until']))
-                return session.send(prepared, proxies={}, **options)
+                return original_send(request, **options)
+
+            def observed_adapter(original):
+                def dispatch(*args, **kwargs):
+                    controller.observe('adapter_entry', adapter_entered=True)
+                    require(datetime.now(timezone.utc) < datetime_aware(controller.grant['valid_until']))
+                    return original(*args, **kwargs)
+                return dispatch
+
+            session.prepare_request = prepared
+            session.send = sent
+            for adapter in dict.fromkeys(session.adapters.values()):
+                original = adapter.send
+                observed_adapters.append((adapter, original))
+                adapter.send = observed_adapter(original)
+
+            def transport(method, url, body, headers, **options):
+                kwargs = {'data': body} if isinstance(body, bytes) else {'json': body}
+                return session.request(method, url, headers=headers, **kwargs, **options)
             # Requests' read timeout is per read; enforce a total20s request/body wall deadline.
             original_handler = signal.getsignal(signal.SIGALRM)
             def expired(*_):
@@ -611,8 +635,14 @@ def execute(stage, token, retry=False):
                         except BaseException as error:  # noqa: BLE001 - keep initial and cleanup diagnoses
                             diagnostic = self.capture_failure(error, 'deadline_cleanup')
                             raise Held('Modern deadline cleanup failed; preserve private stage', diagnostic) from None
-            controller = DeadlineController(stage, token, bounded)
-            return controller.run(retry)
+            try:
+                controller = DeadlineController(stage, token, bounded)
+                return controller.run(retry)
+            finally:
+                session.prepare_request = original_prepare
+                session.send = original_send
+                for adapter, original in observed_adapters:
+                    adapter.send = original
     except BlockingIOError:
         raise Held('Modern stage already locked; no concurrent execution') from None
     finally:
