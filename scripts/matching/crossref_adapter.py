@@ -10,6 +10,7 @@ import requests
 from scripts.logger import get_logger
 
 from .engine import MatchCandidate
+from .evidence import validate_json_payload
 
 
 class CrossrefAdapter:
@@ -53,8 +54,10 @@ class CrossrefAdapter:
             response = self.session.get(self.BASE_URL, params=params, timeout=30)
         response.raise_for_status()
 
+        if "html" in response.headers.get("Content-Type", "").lower():
+            raise ValueError("Expected metadata JSON, received HTML application shell")
         payload = response.json()
-        items = payload.get("message", {}).get("items", [])
+        items = validate_json_payload(payload, "crossref")
         matches = [self._normalise_item(item) for item in items]
         return [match for match in matches if match is not None]
 

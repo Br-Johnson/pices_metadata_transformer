@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -22,13 +23,16 @@ LICENSE_MAP = {
     "cc-by-4.0": "https://creativecommons.org/licenses/by/4.0/",
     "cc-by-sa-4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
 }
+for variant in ("by", "by-sa", "by-nc", "by-nc-sa", "by-nd", "by-nc-nd"):
+    for version in ("1.0", "2.0", "2.5", "3.0", "4.0"):
+        LICENSE_MAP[f"cc-{variant}-{version}"] = f"https://creativecommons.org/licenses/{variant}/{version}/"
 
 
 def infer_zenodo_id(dto: CanonicalRecordDTO) -> str:
     metadata = dto.zenodo_metadata
     doi = metadata.get("doi") or metadata.get("preres")
     if isinstance(doi, str) and doi:
-        return doi.rsplit("/", 1)[-1]
+        return "doi-" + hashlib.sha256(doi.strip().lower().encode()).hexdigest()
     deposition_id = dto.extra_metadata.get("deposition_id") if isinstance(dto.extra_metadata, dict) else None
     if deposition_id:
         return str(deposition_id)
@@ -43,7 +47,7 @@ def build_jsonld(dto: CanonicalRecordDTO, record_url: str) -> Dict[str, object]:
     if metadata.get("preres") and metadata["preres"] not in identifier_list:
         identifier_list.append(metadata["preres"])
 
-    related = [link.identifier for link in dto.bibliographic_links if link.identifier]
+    related = [link.identifier for link in dto.bibliographic_links if link.identifier and link.status == "accepted" and link.to_related_identifier()["relation"] in ("isIdenticalTo", "isAlternateIdentifier")]
     for identifier in related:
         if identifier not in identifier_list:
             identifier_list.append(identifier)
@@ -53,7 +57,7 @@ def build_jsonld(dto: CanonicalRecordDTO, record_url: str) -> Dict[str, object]:
         name = creator.get("name")
         if not name:
             continue
-        creators_payload.append({"@type": "Person", "name": name})
+        creators_payload.append({"@type": "Organization" if creator.get("type") == "Organization" else "Person", "name": name})
 
     keywords = metadata.get("keywords") or []
     if isinstance(keywords, str):
@@ -72,7 +76,7 @@ def build_jsonld(dto: CanonicalRecordDTO, record_url: str) -> Dict[str, object]:
         "name": metadata.get("title"),
         "description": metadata.get("description"),
         "identifier": identifier_list,
-        "url": landing_page or metadata.get("notes"),
+        "url": landing_page or record_url,
         "creator": creators_payload,
         "publisher": {
             "@type": "Organization",
@@ -128,6 +132,11 @@ def validate_records(records: Iterable[Path]) -> Dict[str, object]:
         except Exception as exc:  # pragma: no cover - defensive
             failures.append(f"{record.name}: {exc}")
             continue
+        from urllib.parse import urlparse
+        for field in ("@id", "url"):
+            parsed = urlparse(payload.get(field) or "")
+            if parsed.scheme not in ("http", "https") or not parsed.netloc:
+                failures.append(f"{record.name}: invalid {field} URL")
         for field in ("@context", "@type", "name"):
             if not payload.get(field):
                 failures.append(f"{record.name}: missing {field}")

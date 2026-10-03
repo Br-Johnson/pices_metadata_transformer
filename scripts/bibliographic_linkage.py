@@ -9,6 +9,7 @@ metrics for monitoring dashboards.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from collections import Counter
 from datetime import datetime, timezone
@@ -46,6 +47,7 @@ def build_candidates(
     dto: CanonicalRecordDTO,
     engine: MatchingEngine,
     adapters: Dict[str, object],
+    search_evidence=None,
 ) -> List[MatchResult]:
     title = dto.zenodo_metadata.get("title", "")
     abstract = dto.zenodo_metadata.get("description")
@@ -53,14 +55,22 @@ def build_candidates(
 
     candidates: List[MatchCandidate] = []
     for name, adapter in adapters.items():
+        evidence = {"source": name, "endpoint": getattr(adapter, "BASE_URL", None),
+                    "retrieved_at": datetime.now(timezone.utc).isoformat(), "query": title,
+                    "status": "unchecked_unavailable", "inventory_complete": False}
         try:
             if hasattr(adapter, "search"):
                 adapter_candidates = adapter.search(title, creators, abstract)
             else:
                 adapter_candidates = []
+            evidence["status"] = "candidates" if adapter_candidates else "checked_no_candidates_in_search_window"
+            evidence["candidates"] = len(adapter_candidates)
         except Exception as exc:  # pragma: no cover - defensive logging
             get_logger().log_info(f"Adapter {name} failed: {exc}")
             adapter_candidates = []
+            evidence["error"] = str(exc)
+        if search_evidence is not None:
+            search_evidence.append(evidence)
         candidates.extend(adapter_candidates)
 
     scored = engine.score_candidates(dto, candidates)
@@ -124,7 +134,7 @@ def apply_decisions(
         link = BibliographicLink(
             source=decision.get("source", ""),
             identifier=decision.get("identifier", ""),
-            relation=decision.get("relation", "isAlternativeIdentifierOf"),
+            relation=decision.get("relation") or "references",
             confidence=float(decision.get("confidence", 0.0)),
             status="accepted",
             title=decision.get("title"),
@@ -137,6 +147,13 @@ def apply_decisions(
     if not accepted_links:
         return dto
 
+    from scripts.validate_zenodo import ZenodoValidator
+    for link in accepted_links:
+        if link.to_related_identifier()["relation"] not in ZenodoValidator().valid_relations:
+            raise ValueError("Unsupported relation; curator must choose a supported semantic relation")
+    decision_digest = hashlib.sha256(json.dumps([link.to_json() for link in accepted_links], sort_keys=True).encode()).hexdigest()
+    if any(event.get("decision_sha256") == decision_digest for event in dto.audit_trail.get("bibliographic_linkage", [])):
+        return dto
     dto = dto.with_bibliographic_links(tuple(accepted_links))
     merge_related_identifiers(dto.zenodo_metadata, dto.related_identifiers)
 
@@ -155,6 +172,7 @@ def apply_decisions(
 
     audit_event = {
         "applied_at": applied_at,
+        "decision_sha256": decision_digest,
         "accepted_links": [link.to_json() for link in accepted_links],
     }
     dto = dto.with_audit_event("bibliographic_linkage", audit_event)
@@ -210,7 +228,8 @@ def main() -> None:
     for dto_path in iter_dto_files(dto_dir, args.limit):
         dto = load_dto(str(dto_path))
         dto_cache[dto.fgdc_id] = (dto_path, dto)
-        scored = build_candidates(dto, engine, adapters)
+        search_evidence = []
+        scored = build_candidates(dto, engine, adapters, search_evidence)
         candidates_payload: List[Dict[str, object]] = []
         for result in scored:
             candidate = result.candidate
@@ -223,12 +242,13 @@ def main() -> None:
                     "score": result.score,
                     "breakdown": result.breakdown,
                     "confidence": result.score,
-                    "relation": "isAlternativeIdentifierOf",
+                    "relation": "references",
                 }
             )
 
         results.append(
             {
+                "search_evidence": search_evidence,
                 "fgdc_id": dto.fgdc_id,
                 "zenodo_title": dto.zenodo_metadata.get("title"),
                 "candidates": candidates_payload,

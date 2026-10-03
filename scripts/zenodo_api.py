@@ -9,17 +9,59 @@ import time
 import os
 from datetime import datetime, timedelta
 from typing import Dict, List, Any, Optional, Tuple
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse, quote
 import logging
 import sys
+from uuid import UUID
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.logger import get_logger
 
 
 class ZenodoAPIError(Exception):
-    """Custom exception for Zenodo API errors."""
-    pass
+    """Bounded diagnostics; callers must supply fixed, credential-free messages."""
+
+    def __init__(self, message, *, stage='api_request', exception_type='unknown',
+                 status=None, retryable=False, attempt=1):
+        stages = {'constructor_probe', 'api_request', 'bucket_upload', 'request_prepare',
+                  'transport', 'response_status', 'response_json', 'response_owner', 'response_links',
+                  'response_cleanup'}
+        types = {'unknown', 'HTTPStatus', 'ProxyError', 'SSLError', 'ConnectTimeout',
+                 'ReadTimeout', 'Timeout', 'ConnectionError', 'InvalidHeader',
+                 'JSONDecodeError', 'RequestException', 'ValueError', 'AssertionError'}
+        self.diagnostics = {
+            'stage': stage if stage in stages else 'api_request',
+            'exception_type': exception_type if exception_type in types else 'unknown',
+            'status': status if type(status) is int and 100 <= status <= 599 else None,
+            'retryable': retryable is True,
+            'attempt': attempt if type(attempt) is int and 1 <= attempt <= 100 else 1,
+        }
+        # Call sites supply fixed messages; constructor wrapping discards originals.
+        suffix = (' [' + ', '.join(f'{key}={value}' for key, value in self.diagnostics.items()) + ']'
+                  if stage != 'api_request' or exception_type != 'unknown' or status is not None
+                  or retryable or attempt != 1 else '')
+        super().__init__(message + suffix)
+
+
+def _exception_diagnostics(exc, stage, attempt=1):
+    if isinstance(exc, ZenodoAPIError):
+        return dict(exc.diagnostics)
+    for cls, label, retryable in (
+            (requests.exceptions.JSONDecodeError, 'JSONDecodeError', False),
+            (requests.exceptions.ProxyError, 'ProxyError', False),
+            (requests.exceptions.SSLError, 'SSLError', False),
+            (requests.exceptions.InvalidHeader, 'InvalidHeader', False),
+            (requests.exceptions.ConnectTimeout, 'ConnectTimeout', True),
+            (requests.exceptions.ReadTimeout, 'ReadTimeout', True),
+            (requests.exceptions.Timeout, 'Timeout', True),
+            (requests.exceptions.ConnectionError, 'ConnectionError', True),
+            (requests.exceptions.RequestException, 'RequestException', False),
+            (ValueError, 'ValueError', False), (AssertionError, 'AssertionError', False)):
+        if isinstance(exc, cls):
+            return {'stage': stage, 'exception_type': label, 'status': None,
+                    'retryable': retryable, 'attempt': attempt}
+    return {'stage': stage, 'exception_type': 'unknown', 'status': None,
+            'retryable': False, 'attempt': attempt}
 
 
 class RateLimitError(ZenodoAPIError):
@@ -27,11 +69,19 @@ class RateLimitError(ZenodoAPIError):
     pass
 
 
+def _validate_token(token: str) -> str:
+    """Accept opaque printable ASCII tokens without whitespace; never echo input."""
+    if (not isinstance(token, str) or not token
+            or any(ord(char) <= 32 or ord(char) >= 127 for char in token)):
+        raise ValueError('Zenodo token must be nonempty printable ASCII without whitespace')
+    return token
+
+
 class ZenodoAPIClient:
     """Client for interacting with the Zenodo REST API."""
     
     def __init__(self, access_token: str, sandbox: bool = True):
-        self.access_token = access_token
+        self.access_token = _validate_token(access_token)
         self.sandbox = sandbox
         self.base_url = "https://sandbox.zenodo.org" if sandbox else "https://zenodo.org"
         self.api_url = urljoin(self.base_url, "/api/")
@@ -73,13 +123,18 @@ class ZenodoAPIClient:
     def _test_connection(self):
         """Test API connection and token validity."""
         try:
-            response = self._make_request('GET', 'deposit/depositions')
+            response = self._make_request('GET', 'deposit/depositions',
+                                          _diagnostic_stage='constructor_probe', _retry=False,
+                                          allow_redirects=False)
             if response.status_code == 200:
                 self.logger.log_info("Zenodo API connection successful")
             else:
-                raise ZenodoAPIError(f"API connection failed: {response.status_code}")
-        except Exception as e:
-            raise ZenodoAPIError(f"Failed to connect to Zenodo API: {str(e)}")
+                raise ZenodoAPIError('API connection failed', stage='constructor_probe',
+                                     exception_type='HTTPStatus', status=response.status_code)
+        except Exception as exc:
+            # Exception text and chained tracebacks can contain Authorization.
+            raise ZenodoAPIError('Zenodo constructor probe failed',
+                                 **_exception_diagnostics(exc, 'constructor_probe')) from None
     
     def _rate_limit_check(self):
         """Check and enforce rate limiting for both minute and hour limits."""
@@ -132,13 +187,16 @@ class ZenodoAPIClient:
         self.request_times.append(now)
         self.hourly_request_times.append(now)
     
-    def _make_request(self, method: str, endpoint: str, **kwargs) -> requests.Response:
+    def _make_request(self, method: str, endpoint: str, *, _diagnostic_stage='api_request',
+                      _retry=True, **kwargs) -> requests.Response:
         """Make a rate-limited request to the Zenodo API."""
         self._rate_limit_check()
         
         url = urljoin(self.api_url, endpoint)
         
-        for attempt in range(self.max_retries + 1):
+        retries = 0 if method.upper() == "POST" or not _retry else self.max_retries
+        kwargs.setdefault("timeout", 30)
+        for attempt in range(retries + 1):
             try:
                 response = self.session.request(method, url, **kwargs)
                 
@@ -150,59 +208,53 @@ class ZenodoAPIClient:
                 
                 # Handle rate limiting
                 if response.status_code == 429:
-                    if attempt < self.max_retries:
+                    if attempt < retries:
                         retry_after = int(response.headers.get('Retry-After', 60))
                         self.logger.log_info(f"Rate limited, waiting {retry_after} seconds")
                         time.sleep(retry_after)
                         continue
                     else:
-                        raise RateLimitError("Rate limit exceeded after retries")
+                        raise RateLimitError('Rate limit exceeded', stage=_diagnostic_stage,
+                                             exception_type='HTTPStatus', status=429,
+                                             retryable=True, attempt=attempt + 1)
                 
                 # Handle other errors
                 if response.status_code >= 400:
-                    error_msg = self._parse_error_response(response)
-                    if attempt < self.max_retries and response.status_code >= 500:
+                    if attempt < retries and response.status_code >= 500:
                         # Retry on server errors
                         delay = self.retry_delay * (self.backoff_factor ** attempt)
                         self.logger.log_info(f"Server error, retrying in {delay} seconds")
                         time.sleep(delay)
                         continue
                     else:
-                        raise ZenodoAPIError(f"API error: {error_msg}")
+                        raise ZenodoAPIError('API request failed', stage=_diagnostic_stage,
+                                             exception_type='HTTPStatus', status=response.status_code,
+                                             retryable=response.status_code >= 500, attempt=attempt + 1)
                 
                 return response
                 
-            except requests.exceptions.RequestException as e:
-                if attempt < self.max_retries:
+            except requests.exceptions.RequestException as exc:
+                diagnostics = _exception_diagnostics(exc, _diagnostic_stage, attempt + 1)
+                if attempt < retries and diagnostics['retryable']:
                     delay = self.retry_delay * (self.backoff_factor ** attempt)
-                    self.logger.log_info(f"Request failed, retrying in {delay} seconds: {str(e)}")
+                    self.logger.log_info(f"Request failed, retrying in {delay} seconds")
                     time.sleep(delay)
                     continue
                 else:
-                    raise ZenodoAPIError(f"Request failed after retries: {str(e)}")
+                    raise ZenodoAPIError('API transport failed', **diagnostics) from None
+            except ZenodoAPIError as exc:
+                error_class = RateLimitError if isinstance(exc, RateLimitError) else ZenodoAPIError
+                raise error_class('API request failed',
+                                  **_exception_diagnostics(exc, _diagnostic_stage, attempt + 1)) from None
+            except Exception as exc:
+                raise ZenodoAPIError('API request validation failed',
+                                     **_exception_diagnostics(exc, _diagnostic_stage, attempt + 1)) from None
         
         raise ZenodoAPIError("Max retries exceeded")
     
     def _parse_error_response(self, response: requests.Response) -> str:
-        """Parse error response from Zenodo API."""
-        try:
-            error_data = response.json()
-            if 'message' in error_data:
-                message = error_data['message']
-                if 'errors' in error_data:
-                    errors = error_data['errors']
-                    error_details = []
-                    for error in errors:
-                        if 'field' in error and 'message' in error:
-                            error_details.append(f"{error['field']}: {error['message']}")
-                        else:
-                            error_details.append(str(error))
-                    return f"{message} - {'; '.join(error_details)}"
-                return message
-        except (json.JSONDecodeError, KeyError):
-            pass
-        
-        return f"HTTP {response.status_code}: {response.text}"
+        """Keep diagnostics status-only: remote error bodies may echo credentials."""
+        return f"HTTP {response.status_code}"
     
     def create_deposition(self, metadata: Dict[str, Any] = None) -> Dict[str, Any]:
         """Create a new deposition."""
@@ -238,18 +290,42 @@ class ZenodoAPIClient:
         
         # Get deposition to get bucket URL
         deposition = self.get_deposition(deposition_id)
+        if (not isinstance(deposition, dict) or type(deposition.get('id')) is not int
+                or deposition['id'] != deposition_id):
+            raise ZenodoAPIError('Bucket response does not identify the requested deposition')
         bucket_url = deposition['links']['bucket']
+        bucket = urlparse(bucket_url)
+        expected = 'sandbox.zenodo.org' if self.sandbox else 'zenodo.org'
+        if (bucket.scheme != 'https' or bucket.hostname != expected
+                or bucket.netloc != expected or bucket.query or bucket.fragment
+                or not bucket.path.startswith('/api/files/')
+                or len(bucket.path.strip('/').split('/')) != 3):
+            raise ZenodoAPIError('File bucket URL does not match the selected environment')
+        bucket_id = bucket.path.strip('/').split('/')[-1]
+        try:
+            if str(UUID(bucket_id)) != bucket_id:
+                raise ValueError('Noncanonical bucket ID')
+        except ValueError as exc:
+            raise ZenodoAPIError('File bucket requires a canonical UUID identifier') from exc
+        if (not isinstance(filename, str) or not filename or filename in ('.', '..')
+                or '/' in filename or '\\' in filename):
+            raise ZenodoAPIError('File upload requires a safe basename')
         
         # Upload file to bucket
-        upload_url = f"{bucket_url}/{filename}"
+        upload_url = f"{bucket_url.rstrip('/')}/{quote(filename, safe='')}"
         
         with open(file_path, 'rb') as f:
             # Use direct requests call to avoid Content-Type header issues
             headers = {'Authorization': f'Bearer {self.access_token}'}
-            response = requests.put(upload_url, data=f, headers=headers)
+            try:
+                response = requests.put(upload_url, data=f, headers=headers,
+                                        timeout=(10, 60), allow_redirects=False)
+            except Exception as exc:
+                raise ZenodoAPIError('File upload request failed',
+                                     **_exception_diagnostics(exc, 'bucket_upload')) from None
             
             if response.status_code not in [200, 201]:
-                raise ZenodoAPIError(f"File upload failed: {response.status_code} - {response.text}")
+                raise ZenodoAPIError(f"File upload failed with HTTP {response.status_code}")
         
         return response.json()
     
@@ -324,34 +400,42 @@ class ZenodoAPIClient:
         return response.json()
     
     def get_records_by_query(self, **params) -> List[Dict[str, Any]]:
-        """Fetch all record hits for a given query with pagination support."""
-        aggregated_hits: List[Dict[str, Any]] = []
-        params = params.copy()
+        """Return only a structurally valid, complete exact-total inventory."""
+        aggregated_hits = []
+        params = dict(params)
         size = params.get('size', 100)
-        page = 1
-        
+        page, expected_total = 1, None
+        seen_ids = set()
         while True:
-            params['page'] = page
-            params['size'] = size
-            response = self.search_records(**params)
-            hits = response.get('hits', {}).get('hits', [])
-            if not hits:
-                break
-            
+            response = self.search_records(**dict(params, page=page, size=size))
+            container = response.get('hits') if isinstance(response, dict) else None
+            if not isinstance(container, dict) or not isinstance(container.get('hits'), list):
+                raise ValueError('Malformed record inventory response')
+            total = container.get('total')
+            if isinstance(total, dict):
+                if total.get('relation', 'eq') != 'eq':
+                    raise ValueError('Inventory total is not exact')
+                total = total.get('value')
+            if type(total) is not int or total < 0:
+                raise ValueError('Inventory lacks exact total')
+            if expected_total is not None and total != expected_total:
+                raise ValueError('Inventory changed during pagination')
+            expected_total = total
+            hits = container['hits']
+            if any(not isinstance(hit, dict) for hit in hits):
+                raise ValueError('Malformed inventory record')
+            for hit in hits:
+                identifier = hit.get('id')
+                if type(identifier) is not int or identifier < 1 or identifier in seen_ids:
+                    raise ValueError('Invalid or repeated inventory record ID')
+                seen_ids.add(identifier)
             aggregated_hits.extend(hits)
-            
-            # Stop if fewer hits than requested (last page)
-            if len(hits) < size:
-                break
-            
-            # If response provides explicit next link, use it; otherwise increment page
-            links = response.get('links', {})
-            if 'next' not in links:
-                break
+            if len(aggregated_hits) == total:
+                return aggregated_hits
+            if len(aggregated_hits) > total or not hits or not response.get('links', {}).get('next'):
+                raise ValueError('Incomplete inventory pagination')
             page += 1
-        
-        return aggregated_hits
-    
+
     def get_record(self, record_id: int) -> Dict[str, Any]:
         """Get a published record by ID."""
         response = self._make_request('GET', f'records/{record_id}')
@@ -374,6 +458,7 @@ class ZenodoAPIClient:
     ) -> List[Dict[str, Any]]:
         """Get depositions for the authenticated user, optionally filtered by query or modification date."""
         all_depositions = []
+        seen_ids = set()
         page = 1
         
         base_query = query or ""
@@ -391,7 +476,13 @@ class ZenodoAPIClient:
             params.update(base_params)
             response = self._make_request('GET', 'deposit/depositions', params=params)
             depositions = response.json()
-            
+            if not isinstance(depositions, list):
+                raise ValueError('Malformed owned-draft inventory response')
+            for deposition in depositions:
+                identifier = deposition.get('id') if isinstance(deposition, dict) else None
+                if type(identifier) is not int or identifier < 1 or identifier in seen_ids:
+                    raise ValueError('Invalid or repeated owned-draft inventory ID')
+                seen_ids.add(identifier)
             if not depositions:
                 break
                 
@@ -415,7 +506,17 @@ class ZenodoAPIClient:
 
 
 def load_zenodo_token(sandbox: bool = True) -> str:
-    """Load Zenodo token from .env file."""
+    """Prefer the selected environment token, then the legacy cwd .env file.
+
+    Environment values are opaque (including NetworkSecret placeholders): never
+    strip, expand, resolve, or log them. Invalid tokens fail closed; an empty
+    environment variable uses the file fallback.
+    """
+    token_key = 'ZENODO_SANDBOX_TOKEN' if sandbox else 'ZENODO_PRODUCTION_TOKEN'
+    environment_token = os.environ.get(token_key)
+    if environment_token:
+        return _validate_token(environment_token)
+
     secrets_file = ".env"
     
     if not os.path.exists(secrets_file):
@@ -429,9 +530,9 @@ def load_zenodo_token(sandbox: bool = True) -> str:
             if '=' in line:
                 key, value = line.split('=', 1)
                 if key.strip() == 'ZENODO_SANDBOX_TOKEN' and sandbox:
-                    return value.strip()
+                    return _validate_token(value.strip())
                 elif key.strip() == 'ZENODO_PRODUCTION_TOKEN' and not sandbox:
-                    return value.strip()
+                    return _validate_token(value.strip())
     
     raise ValueError(f"Token not found in {secrets_file}")
 

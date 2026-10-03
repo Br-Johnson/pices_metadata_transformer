@@ -32,7 +32,7 @@ class DuplicateChecker:
     ):
         self.sandbox = sandbox
         self.output_dir = output_dir
-        self.paths = OutputPaths(output_dir)
+        self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
         self.hours_back = hours_back
         self.cache_ttl_minutes = cache_ttl_minutes
         self.use_cache = use_cache

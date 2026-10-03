@@ -15,47 +15,34 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from collections import defaultdict, Counter
 from scripts.path_config import OutputPaths
+from scripts.upload_service import assert_environment, read_json
 
 class UploadAuditor:
     """Audits upload results and provides comprehensive reporting."""
     
-    def __init__(self, output_dir: str = "output"):
+    def __init__(self, output_dir: str = "output", sandbox: bool = True):
         self.output_dir = output_dir
-        self.paths = OutputPaths(output_dir)
+        self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         self.audit_report_file = self.paths.upload_audit_report_path(timestamp)
     
     def analyze_upload_logs(self) -> Dict[str, Any]:
         """Analyze all upload logs and generate comprehensive audit report."""
         
-        # Collect all upload data
+        registry = read_json(self.paths.uploads_registry_path, {})
         all_uploads = []
-        all_errors = []
-        batch_summaries = []
-        
-        # Process batch upload logs
-        for log_file in glob.glob(os.path.join(self.paths.upload_reports_dir, "batch_upload_log_*.json")):
-            if os.path.exists(log_file):
-                with open(log_file, 'r') as f:
-                    batch_data = json.load(f)
-                    batch_summaries.append(batch_data)
-                    
-                    # Extract individual uploads
-                    for batch in batch_data.get('batches', []):
-                        all_uploads.extend(batch.get('uploads', []))
-                        all_errors.extend(batch.get('errors', []))
-        
-        # Process legacy upload logs
-        legacy_log = self.paths.upload_log_path
-        if os.path.exists(legacy_log):
-            with open(legacy_log, 'r') as f:
-                legacy_data = json.load(f)
-                if isinstance(legacy_data, list):
-                    all_uploads.extend(legacy_data)
-        
-        # Analyze the data
-        analysis = self._analyze_uploads(all_uploads, all_errors, batch_summaries)
-        
+        for key, entry in sorted(registry.items()):
+            if key.startswith('_'):
+                continue
+            assert_environment(entry, self.paths.environment)
+            all_uploads.append(dict(entry, success=entry.get('upload_status') == 'success'))
+        analysis = self._analyze_uploads(all_uploads, [], [])
+        analysis['environment'] = self.paths.environment
+        analysis['coverage_status'] = 'local_ledger_only' if all_uploads else 'unverified_empty_ledger'
+        analysis['published_records'] = sum(entry.get('publish_status') == 'published' for entry in all_uploads)
+        analysis['unconfirmed_community_records'] = sum(entry.get('publish_status') == 'published' and entry.get('community_status') != 'reported' for entry in all_uploads)
+        analysis['reconciliation_required'] = sum(bool(entry.get('needs_reconciliation')) for entry in all_uploads)
+
         # Save audit report
         with open(self.audit_report_file, 'w') as f:
             json.dump(analysis, f, indent=2)
@@ -310,9 +297,10 @@ def main():
     parser.add_argument('--report-file', 
                        help='File to save human-readable report')
     
+    parser.add_argument("--production", action="store_true", help="Audit production ledger instead of sandbox")
     args = parser.parse_args()
     
-    auditor = UploadAuditor(args.output_dir)
+    auditor = UploadAuditor(args.output_dir, sandbox=not args.production)
     
     print("Analyzing upload logs...")
     analysis = auditor.analyze_upload_logs()

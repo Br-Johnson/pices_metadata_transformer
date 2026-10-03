@@ -1,0 +1,1032 @@
+{
+  "scope": "20 intentionally stratified cases; not random sample, population estimate, human signoff or live API validation. Raw source comparisons independent of validation output.",
+  "source_revision": "worktree identified by transformer_sha256",
+  "transformer_sha256": "3cbc1a1bba6c8fa6dda9648c4ce0f55da0bc89d50969fa6970751c41a20ab738",
+  "counts": {
+    "transformation_hold": 11,
+    "validation_hold": 4,
+    "offline_contract_pass": 3,
+    "raw_xml_parse_hold": 2
+  },
+  "remote_write_eligible_count": 0,
+  "records": [
+    {
+      "source_id": "FGDC-2057",
+      "source_sha256": "e0b48017a563544dedb618f5106e84dbeaf18ca7af1cbda83d93371cdd73736b",
+      "file_bytes": 6024,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Raw122003 ambiguous; cited publication year and metadata_date are different concepts.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "An Intersection Model for Estimating Sea Otter Mortality Along the Kenai Peninsula. Marine Mammals and the Exxon Valdez",
+        "origin": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+        "publication_date": "122003",
+        "abstract": "This journal article references population abundance and survival data of sea otters (Enhydra lutris) from Kenai Peninsula, Alaska.\n\n  The aforementioned data are referenced in citation: Bodkin, J.L. and M.S. Udevitz.  1994.  An Intersection Model for Estimating Sea Otter Mortality Along the Kenai Peninsula. Marine Mammals and the Exxon Valdez. p. 81-95.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #133 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.",
+        "use_constraints": "Contact Source.",
+        "metadata_date": "20040723"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": true,
+        "procite": [
+          "133"
+        ]
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-2057.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-2043",
+      "source_sha256": "9fc45ede1eff08d39e06618ae4b081ba5a6244a886a1a817fb2b4640b145790d",
+      "file_bytes": 6346,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Raw122003 ambiguous; cited publication year and metadata_date are different concepts.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea",
+        "origin": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+        "publication_date": "122003",
+        "abstract": "This report references species composition data of black oystercatchers (Haematopus bachmani), harlequin ducks (Histrionicus histrionicus), and scoters (Melanitta spp.) from Chiniak Bay, Alaska.\n\n  The aforementioned data are referenced in citation: Bartonek, J.C., C.J. Lensink, P.J. Gould, R.E. Gill, and G.A. Sanger.  1977.  Population dynamics and trophic relationships of marine birds in the Gulf of Alaska and southern Bering Sea.  In Environmental assessment of the Alaskan continental shelf, annual reports of principal investigators.  pp. 492-574.  Boulder, Colo., NOAA Environ. Res. Lab.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #104 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.",
+        "use_constraints": "Contact Source.",
+        "metadata_date": "20040723"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": true,
+        "procite": [
+          "104"
+        ]
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-2043.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-2725",
+      "source_sha256": "f8c85ff810507722578d0ccf592d8dc1b1518529f7574745ff900ff5347dccdc",
+      "file_bytes": 5913,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Distribution of Dissolved LMW Hydrocarbons in Bristol Bay, Alaska: Implications for Future Gas and Oil Development",
+        "origin": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+        "publication_date": "19810101",
+        "abstract": "In September and October, 1975, and again in July, 1976, the distribution of dissolved low molecular weight hydrocarbons was determined in Bristol Bay, Alaska. The concentrations were relatively low compared to other  Alaskan shelf areas and show a significant seasonal signature. Local production of methane is accelerated in summer as it is for the alkenes. The concentrations of ethane and ethane are in linear relation in summer, suggesting a common source or perhaps a common organic precursor. The distribution of methane is strongly coupled to circulation and, in particular, to the location of hydrographic fronts. In contrast, the alkenes appear to be regulated more by biological activity than circulation. In composition, LMW hydrocarbons arising from a thermogenic source can be readily distinguished from their biological equivalents on the basis of the relative concentrations of ethane and ethane.  Elementary modeling of a line hydrocarbon source suggests that hydrocarbon trajectories could be traced for several hundred km, assuming a source concentration 100 times above ambient levels. Other model scenarios are also considered.\n        [Reference: Cline, J.D. (1980): Distribution of dissolved LMW hydrocarbons in Bristol Bay, Alaska: Implications for future gas and oil development. In: Eastern Bering Sea Shelf: Oceanography and Resources, D.W. Hood and A.J. Calder (eds.), 1(27), 425-444. USDOC/NOAA/OMPA.]\n        \n          The abstract can also be viewed on the PMEL Publications website at\n          http://jelly.pmel.noaa.gov/admin/scripts/Publications.asp?ABSTRACT_REQUEST=0411",
+        "use_constraints": "None",
+        "metadata_date": "19980203"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": true,
+        "procite": []
+      },
+      "technical_status": "validation_hold",
+      "validation_issues": [
+        "License required for open/embargoed access"
+      ],
+      "transformed_fields": {
+        "publication_date": "1981-01-01",
+        "creators": [
+          {
+            "name": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+            "type": "Organization"
+          }
+        ],
+        "license": "",
+        "access_right": "open",
+        "keywords": [
+          "Oceanography",
+          "Chemistry",
+          "Bering Sea",
+          "Bristol Bay, Alaska",
+          "North Pacific Ocean",
+          "Hydrocarbons",
+          "pices-content-unknown"
+        ]
+      },
+      "source_comparison": {
+        "title_equal": true,
+        "description_includes_raw_abstract": false,
+        "description_preserves_abstract_after_whitespace_normalization": true,
+        "raw_xml_in_notes": true
+      },
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-2725.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held",
+      "field_fidelity_verdict": "correct_after_whitespace_normalization"
+    },
+    {
+      "source_id": "FGDC-1238",
+      "source_sha256": "c559cd8b956683c71c2fd240e583bc5817b2cf7f5bcc390955578c1e1e15aa2f",
+      "file_bytes": 4680,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Constrained Iterative Deconvolution Applied to SeaMARC I Sidescan Sonar Imagery",
+        "origin": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+        "publication_date": "1990",
+        "abstract": "Images collected by any sidescan sonar system represent the convolution of the acoustic beam pattern of the instrument with the true echo amplitude distribution\nover the seafloor. At typical tow speeds, the 1.7\u00b0 beam width of SeaMARC I results in multiple insonification of individual targets, particularly at the outside of the\nswath. A nonlinearly constrained iterative deconvolution technique developed for radar applications can be applied to SeaMARC I imagery to reduce the effect of\nthe beam pattern and equalize the spectral content of the image across the swath. Since the deconvolution is implemented in the along-track direction, the registration\nof individual scan lines must be precisely corrected before the operator is applied. The deconvolution operator must be modeled to account for beam shape, vehicle\nspeed, swath width, slant range, and ping rate. The method is numerically stable and increases the effective resolution of the image, but results in some loss of\ndynamic range. The technique is applied to target recognition and imagery from volcanic terrains of the central Juan de Fuca Ridge.",
+        "use_constraints": "Check with Contributor",
+        "metadata_date": "20010308"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": true,
+        "procite": []
+      },
+      "technical_status": "validation_hold",
+      "validation_issues": [
+        "License required for open/embargoed access"
+      ],
+      "transformed_fields": {
+        "publication_date": "1990-01-01",
+        "creators": [
+          {
+            "name": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+            "type": "Organization"
+          }
+        ],
+        "license": "",
+        "access_right": "open",
+        "keywords": [
+          "North Pacific Ocean",
+          "pices-content-unknown"
+        ]
+      },
+      "source_comparison": {
+        "title_equal": true,
+        "description_includes_raw_abstract": false,
+        "description_preserves_abstract_after_whitespace_normalization": true,
+        "raw_xml_in_notes": true
+      },
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-1238.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held",
+      "field_fidelity_verdict": "correct_after_whitespace_normalization"
+    },
+    {
+      "source_id": "FGDC-2731",
+      "source_sha256": "2f08555afe0c393d0c9e826d8fa3f78ddf5f5068a1575cf04218912265ec3a6c",
+      "file_bytes": 5413,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Primary date is unknown/status/coverage, not an established individual publication date.",
+        "Range must be retained; parser acceptance alone does not establish publication date.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "89-04 Nushagak River Chinook Salmon Escapement  Estimation From Subsistence Catch Monitoring in 1988.  Brian G. Bue.  March 1989.  14pp",
+        "origin": "Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, Management and Development Division",
+        "publication_date": "1988 - Present",
+        "abstract": "Includes (but are not limited to:) (1) Alaska Board of Fisheries and Fishery Management council reports (2) Season summaries (3) White papers (4) management plans (5) annual test fish results (6) legislative reports (7) forecast (8) area management reports (9) annual shellfish surveys (10) some annual U.S./Canada;  and since the 1993, the following studies have been published in this series:  (11) Salmon abundance, catch and escapements studies (12) annual smolt reports (13) tagging studies and (14) special short-term or interim reports on equipment or methodologies, stock identification, management, life history, etc..",
+        "use_constraints": "Republications of materials in this report series may be authorized by the department",
+        "metadata_date": "19980713"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-2731.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-120",
+      "source_sha256": "3cef7847037a9606c870fc35d98b92241c857f200e0e96c86fe362bdbd131803",
+      "file_bytes": 4357,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Primary date is unknown/status/coverage, not an established individual publication date.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Underway Data from the Bering Sea (1978-79)",
+        "origin": "National Oceanic and Atmospheric Administration (NOAA), Environmental Information Services (EIS)",
+        "publication_date": "Unknown",
+        "abstract": "Underway physical oceanographic data were collected as part of the NOAA Pacific\nMarine Environmental Laboratory's Processes and Resources of the Bering Sea\nproject from May 1978 to May 1979.  Parameters included in this data were temperature, salinity, chlorophyll-a, phaeopigments,  phosphate, silicate, nitrate, nitrite, carbon assimilation, pH, alkalinity, ammonia, and oxygen.",
+        "use_constraints": "None",
+        "metadata_date": "19990317"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-120.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-122",
+      "source_sha256": "b117c40f9c80c559c48ee05e24e09dadcc97758b2e260e727caece27e9170e2e",
+      "file_bytes": 6367,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Primary date is unknown/status/coverage, not an established individual publication date.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Institute of Marine Science, U Alaska-Fairbanks Database; Physical, Chemical, Biological and Geological Data",
+        "origin": "University of Alaska Fairbanks (UAF), School of Fisheries and Ocean Sciences (SFOS), Institute of Marine Science (IMS)",
+        "publication_date": "Unknown",
+        "abstract": "The Institute of Marine Science (IMS) maintains an oceanographic database using the Ingres (tm) relational database management system (RDBMS). It contains physical, chemical, biological and geological data from the Gulf of Alaska, Bering Sea, Chukchi Sea, Beaufort Sea, Prince William Sound, Cook Inlet and other coastal waters. Currently,\nthe database contains data as far back as 1970 and it is about 500 Mbytes in size.  Access is restricted to IMS researchers. However most data can be extracted from the database and forward to other researchers on a at-cost basis. Copies of most data were submitted to the National Oceanographic Data Center (NODC).\n\nPhysical Oceanography\n% STD - Salinity, Temperature and Depth. 60% of the database.\n% CM - Current Meters.\n% TG - Tide Gauges.\n\nBiological Oceanography\n% INFAUNA - Benthic Data from the Bering and Chukchi Seas.\n% PHYTO - Phytoplankton data from the ISHTAR project.\n% ZOOP - Zooplankton data from the ISHTAR, APPRISE and other projects.\n% CHL - Chlorophyll data from the ISHTAR project.\n% PP - Primary productivity, carbon and nitrogen uptake data from the ISHTAR\nproject.\n\nChemical Oceanography\n% NUTRIENT - Nutrient chemistry data from the ISHTAR project.\n% METAL - Heavy metal concentration data. (very small)\n\nGeological Oceanography\n% GRAIN SIZE - Sediment grain size data from the Beaufort and Chukchi seas.\n\nExxon Oil Spill Data\n--------------------\nThis database is \"litigation sensitive.\" Access is restricted to researchers\nworking on the Coastal Habitat Injury Assessment (CHIA) project.\n% INTERTIDAL\n% Invertebrates\n% Fishes\n% Algae\n% Semicircle Density\n% Limpet Growth/Survivorship\n% Mussel Growth/Survivorship\n% Swath Data\n% Mussel Histology\n% Photo Analysis\n% SUBTIDAL\n% Shallow Infaunal and Epifaunal Data\n% Deep Infaunal Data, 40+ Meters\n\nThe Institute of Marine Science (IMS) is the oldest and the largest\nunit of the School of Fisheries and Ocean Sciences. It is active in\nresearch and graduate training at the masters and doctoral levels,\nsupports coastal facilities at Seward and Kasitsna Bay, and operates\nthe 133-foot research vessel Alpha Helix for the National Science\nFoundation.",
+        "use_constraints": "Contact Source.",
+        "metadata_date": "19990317"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-122.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-1773",
+      "source_sha256": "f061a8960373d6074f3edf8c5471281b88e556e88f92f290526e498d9ab6aa40",
+      "file_bytes": 4799,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Month precision requires representation rule; do not invent a known day.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "PM Line Hydrography Data of the Sea of Japan by Maizuru Marine Observatory",
+        "origin": "Japan Meteorological Agency (JMA), Maizuru Marine Observatory",
+        "publication_date": "September 2001",
+        "abstract": "Maizuru Marine Observatory of the Japan Meteorological Agency has conducted routine oceanographic research cruises along the PM line for more than 30 years.  PM line oceanographic data set were collected from R.V. Seifu-Maru II-II Ship Observation.  The PM line is based on data taken at three stations; PM4, PM5, and PM6.  Hydrographic data include water temperature and salinity, DO, pH, PH4, NO3, NO2, Chl-a, pheopigment from sample depth of 0 to up to near bottom.  The samples were collected 4 times/year.  Nansen cast or CTD cast with Niskin bottle was used.  \n\n[ Reference: PICES Scientific Report No. 18 2001, Proceedings of the PICES/CoML/IPRC Workshop on \"Impact of Climate Variability on Observation and Prediction of Ecosystem and Biodiversity Changes in the North Pacific\", http://www.pices.int/publications/scientific_reports/Report18/default.aspx. ]",
+        "use_constraints": "Contact Source.",
+        "metadata_date": "20040112"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-1773.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-1752",
+      "source_sha256": "1bdaf28a42fd65c8354526c9a529134737030ce3dcabd5de93ccb95c8a2a80fe",
+      "file_bytes": 4389,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Month precision requires representation rule; do not invent a known day.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "ETOPO2 Global 2' Elevation",
+        "origin": "National Oceanic and Atmospheric Administration (NOAA), National Environmental Satellite, Data and Information Service (NESDIS), National Geophysical Data Center (NGDC)",
+        "publication_date": "October 2001",
+        "abstract": "Global elevation database gridded at 2-minute (latitude-longitude) resolution. The five major data sources were assembled into the single ETOPO2 2-minute data base without formal edge matching or other methods that alter the data as initially posted. Higher-resolution data take precedence: data derived from GLOBE mask all other data, Smith/Sandwell data come next, followed by IBCAO, with the 5-minute data filling any gaps. Five-minute data from DBDBV and ETOPO5 and 30-second data from GLOBE were regridded to 2 minute spacing by bicubic spline interpolation. IBCAO data were originally gridded in a polar stereographic projection; these data were interpolated along lines of constant latitude at 2 minute steps for every 2 minutes of latitude from 72\u00b0 North to the pole.  ETOPO2 data available on CD-ROM.",
+        "use_constraints": "None",
+        "metadata_date": "20031216"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-1752.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-1007",
+      "source_sha256": "acf911255a5dd56b5a09a8858706bd2a002318c99b7dc67b7f2f83ff999bbfc0",
+      "file_bytes": 4985,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Primary date is unknown/status/coverage, not an established individual publication date.",
+        "Range must be retained; parser acceptance alone does not establish publication date.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "No. 006 - Bristol Bay Sockeye Salmon (Oncorhynchus nerka)  -  1970  A Compilation of Catch and Escapement Data.  Compiled and Edited by: Robert Paulus and Mike Nelson.  1972  112 pp.",
+        "origin": "Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, Management and Development Division",
+        "publication_date": "72-88  thru  87-98",
+        "abstract": "Included (but are not limited to): (1)  Salmon abundance, catch and escapement studies  (2) annual smolt studies  (3) tagging studies  (4) annual federal aid reports  (5) special short-term or interim reports on equipment or methodologies, stock identification, management, life history, etc and (6) some annual  U.S./ Canada reports.",
+        "use_constraints": "Republications of materials in this report series may be authorized by the department",
+        "metadata_date": "19980716"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-1007.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-767",
+      "source_sha256": "5b70be19fc0cecb3e0a37c960643702e86256dfba2abd5b09eb3a3f3cf393b6f",
+      "file_bytes": 4604,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Range must be retained; parser acceptance alone does not establish publication date.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Copper River Basin Area 612 Soil Survey",
+        "origin": "Palmer Field Office, U.S. Natural Resource Conservation Service formerly Soil Conservation Service",
+        "publication_date": "1980-1982",
+        "abstract": "Data Type: Vegetation/Land Cover/Soils;  Soil survey reports and accompanying maps for areas throughout the state. Various surveys are intended to provide information relevant to development for urban use, rangeland, cropland or farming; selection of road, pond, or building sites; or value of the land as wildlife habitat. Tabular data in the reports includes soil characteristics (pH, depth, etc.), suitability and limitations of soil types, and flood hazard information. This tabular data is also available in database format.",
+        "use_constraints": "Data not intended for site specific purposes",
+        "metadata_date": "20020430"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "offline_contract_pass",
+      "validation_issues": [],
+      "transformed_fields": {
+        "publication_date": "1980-01-01",
+        "creators": [
+          {
+            "name": "Palmer Field Office, U.S. Natural Resource Conservation Service formerly Soil Conservation Service",
+            "type": "Organization"
+          }
+        ],
+        "license": "",
+        "access_right": "restricted",
+        "keywords": [
+          "Management",
+          "Copper River, Alaska",
+          "Survey",
+          "Alaska",
+          "Farming",
+          "North Pacific Ocean",
+          "pices-content-unknown"
+        ]
+      },
+      "source_comparison": {
+        "title_equal": true,
+        "description_includes_raw_abstract": false,
+        "description_preserves_abstract_after_whitespace_normalization": true,
+        "raw_xml_in_notes": true
+      },
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-767.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "technical_pass_human_review_required",
+      "field_fidelity_verdict": "correct_after_whitespace_normalization"
+    },
+    {
+      "source_id": "FGDC-832",
+      "source_sha256": "7986c6cd4fb9741943c830382439a6457ed521115bb1580126dcbbb08d480248",
+      "file_bytes": 4411,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Coded Wire Tag Database - Salmon",
+        "origin": "Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, Management and Development Division",
+        "publication_date": "1995",
+        "abstract": "Data Type: Fish  ; This database is used to evaluate hatchery practices and estimate hatchery contributions. It is used for in-season fisheries management and a variety of research and restoration activities. Fish are tracked from release to return. The database is part of the Pacific States Marine Fisheries Commission coast wide database used to monitor salmonoid fish and steelhead as part of the US-Canada fisheries treaty.",
+        "use_constraints": "Unknown",
+        "metadata_date": "20020502"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": true,
+        "procite": []
+      },
+      "technical_status": "offline_contract_pass",
+      "validation_issues": [],
+      "transformed_fields": {
+        "publication_date": "1995-01-01",
+        "creators": [
+          {
+            "name": "Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, Management and Development Division",
+            "type": "Organization"
+          }
+        ],
+        "license": "",
+        "access_right": "restricted",
+        "keywords": [
+          "Fish",
+          "Management",
+          "Wire Tag",
+          "Salmon",
+          "North Pacific Ocean",
+          "pices-content-unknown"
+        ]
+      },
+      "source_comparison": {
+        "title_equal": true,
+        "description_includes_raw_abstract": false,
+        "description_preserves_abstract_after_whitespace_normalization": true,
+        "raw_xml_in_notes": true
+      },
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-832.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "technical_pass_human_review_required",
+      "field_fidelity_verdict": "correct_after_whitespace_normalization"
+    },
+    {
+      "source_id": "FGDC-854",
+      "source_sha256": "623edfaed8114774343c99a60c2e9f721914b2206f339902f7730d4eff9e86f9",
+      "file_bytes": 4609,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Range must be retained; parser acceptance alone does not establish publication date.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Alaska High-Altitude Aerial Photography",
+        "origin": "National Aeronautics and Space Administration (NASA)",
+        "publication_date": "1978-1986",
+        "abstract": "Data Type: Remotely Sensed Data;  Hardcopy 9\"X9\" frames of high-altitude (65,000 ft.) aerial photography flown on prescribed flight lines by NASA 1978-1986, in support of scientific research projects throughout Alaska. Hardcopy prints can be produced from film as needed. Snow free photography with less than 10% shadow and cloud cover. Photography flown between June 15 and August 30. The minimum sun angle is 30 degrees.",
+        "use_constraints": "None, request that USGS be noted as data source.",
+        "metadata_date": "20020502"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "offline_contract_pass",
+      "validation_issues": [],
+      "transformed_fields": {
+        "publication_date": "1978-01-01",
+        "creators": [
+          {
+            "name": "National Aeronautics and Space Administration (NASA)",
+            "type": "Organization"
+          }
+        ],
+        "license": "",
+        "access_right": "restricted",
+        "keywords": [
+          "Management",
+          "Geology",
+          "Alaska",
+          "Aerial",
+          "Photography",
+          "NASA",
+          "Remotely Sensed Data",
+          "North Pacific Ocean",
+          "pices-content-unknown"
+        ]
+      },
+      "source_comparison": {
+        "title_equal": true,
+        "description_includes_raw_abstract": false,
+        "description_preserves_abstract_after_whitespace_normalization": true,
+        "raw_xml_in_notes": true
+      },
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-854.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "technical_pass_human_review_required",
+      "field_fidelity_verdict": "correct_after_whitespace_normalization"
+    },
+    {
+      "source_id": "FGDC-1220",
+      "source_sha256": "69f1879625635dff99f8cee91d5597cb68546266d5a30c6e5ed0e6e04ada79a3",
+      "file_bytes": 5578,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Latitudinal Differences in the Duration of Development of Neocalanus Plumchrus Copepodites",
+        "origin": "Sonia D. Batten, D.W. Welch, and T. Jonas",
+        "publication_date": "20030501",
+        "abstract": "Quasi-synoptic sampling along a transect from Alaska to California carried out in spring and summer 2000 using Continuous Plankton Recorders reveals that the abundant calanoid copepod Neocalanus plumchrus (Marukawa) reaches the surface at approximately the same time across the region.  However, monthly sampling also reveals that the timing of peak biomass (when 50% of the population consists of copepodites at stage CV) occurs about 5 weeks earlier at the southernmost part of its range than at the northernmost part, with intermediate areas having intermediate timings. Surface water temperature differed by about 4\u00b0C between the warmer south and the cooler north, and we suggest that such a difference would reduce development duration by about 3 weeks. If food supply in the north is more conducive to lipid accumulation, as seems possible from phytoplankton biomass data, then the use of the differences in timing of peak N. plumchrus biomass in each area as a measure of the differences in development time may not be accurate. We find that the estimate of the time of peak biomass varying by about 5 weeks between north and south may be an exaggeration of the actual difference in the development duration. Temperature is probably the most important factor governing the shorter development duration of N. plumchrus in southern latitudes.  \n\n[ Reference: Batten, S.D., Welch, D.W., and Jonas, T. 2003. Latitudinal Differences in the Duration of Development of Neocalanus Plumchrus Copepodites. Fish. Oceanogr. 12.3:201-208. ]",
+        "use_constraints": "Acknowledgement of source publication required",
+        "metadata_date": "20040211"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": true,
+        "procite": []
+      },
+      "technical_status": "validation_hold",
+      "validation_issues": [
+        "License required for open/embargoed access"
+      ],
+      "transformed_fields": {
+        "publication_date": "2003-05-01",
+        "creators": [
+          {
+            "name": "Batten, Sonia D."
+          },
+          {
+            "name": "Welch, D.W."
+          },
+          {
+            "name": "Jonas, and T."
+          }
+        ],
+        "license": "",
+        "access_right": "open",
+        "keywords": [
+          "Oceanography",
+          "Plankton",
+          "North Pacific Ocean",
+          "pices-content-unknown"
+        ]
+      },
+      "source_comparison": {
+        "title_equal": true,
+        "description_includes_raw_abstract": false,
+        "description_preserves_abstract_after_whitespace_normalization": true,
+        "raw_xml_in_notes": true
+      },
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-1220.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held",
+      "field_fidelity_verdict": "correct_after_whitespace_normalization"
+    },
+    {
+      "source_id": "FGDC-1334",
+      "source_sha256": "545be651f136a3caa0968c41bd695535482d32b26043429ba9101ea7f576e863",
+      "file_bytes": 5130,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Primary publication date absent; metadata-date fallback is technically accepted but requires explicit deposited-object/date review.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Mixed Layer Depth Climatology of the World Ocean Database (WOD98)",
+        "origin": "National Oceanic and Atmospheric Administration (NOAA), National Marine Fisheries Service (NMFS), Southwest Fisheries Science Center (SFSC), Pacific Fisheries Environmental Laboratory (PFEL)",
+        "publication_date": "",
+        "abstract": "Monthly mixed layer depth climatology are computed from the WOD98 standard level data. \n\nTemperature Criterion: Mixed layer depth climatology is determined as the depth at which the temperature falls to 0.5 degrees C below the surface temperature.\nDensity Criterion: Mixed layer depth is determined as the depth at which the density difference from the sea surface is 0.125 sigma units. Mixed Layer Depth Climatology includes Mixed Layer Depth and Number of Observations with T and D Criteria.\nFor more details, on the criteria see: Monterey, G., and S. Levitus, 1997: Seasonal variability of mixed layer depth for the World Ocean. NOAA Atlas, NESDIS 14, 100 pp., Washington, D.C. \n\nData can be downloaded from the PFEL Live Access Server (LAS) (http://www.pfeg.noaa.gov/products/las.html).  \n\n[ Reference: PICES Scientific Report No. 18 2001, Proceedings of the PICES/CoML/IPRC Workshop on \"Impact of Climate Variability on Observation and Prediction of Ecosystem and Biodiversity Changes in the North Pacific\", http://www.pices.int/publications/scientific_reports/Report18/default.aspx. ]",
+        "use_constraints": "Check with Contributor.",
+        "metadata_date": "20030703"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "validation_hold",
+      "validation_issues": [
+        "License required for open/embargoed access"
+      ],
+      "transformed_fields": {
+        "publication_date": "2003-07-03",
+        "creators": [
+          {
+            "name": "National Oceanic and Atmospheric Administration (NOAA), National Marine Fisheries Service (NMFS), Southwest Fisheries Science Center (SFSC), Pacific Fisheries Environmental Laboratory (PFEL)",
+            "type": "Organization"
+          }
+        ],
+        "license": "",
+        "access_right": "open",
+        "keywords": [
+          "Meteorology",
+          "Oceanography",
+          "Climatology",
+          "North Pacific Ocean",
+          "pices-content-unknown"
+        ]
+      },
+      "source_comparison": {
+        "title_equal": true,
+        "description_includes_raw_abstract": false,
+        "description_preserves_abstract_after_whitespace_normalization": true,
+        "raw_xml_in_notes": true
+      },
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-1334.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held",
+      "field_fidelity_verdict": "correct_after_whitespace_normalization"
+    },
+    {
+      "source_id": "FGDC-2920",
+      "source_sha256": "66097bbcd0f102a76e6fd464be17ded1cbc3ae33ddfcad625f066689f42dcd21",
+      "file_bytes": 6257,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Raw122003 ambiguous; cited publication year and metadata_date are different concepts.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights.",
+        "Same title/ProCite438 pair requires source/work/subset comparison, not automatic title dedup."
+      ],
+      "source_fields": {
+        "title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea",
+        "origin": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+        "publication_date": "122003",
+        "abstract": "This report references diet, population abundance, production, and species composition data of nearshore bird communities from the Gulf of Alaska.\n\n  The aforementioned data are referenced in citation: Hatch, S.A., D.R. Nysewander, A.R. Degange, M.R. Petersen, P.A. Baird, K.D. Wohl, and C.J. Lensink.1978.  Population dynamics and trophic relationships of marine birds in the Gulf of Alaska and southern Bering Sea. In Environmental assessment of the Alaskan continental shelf, annual reports of principal investigators, Boulder, Colorado.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #438 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.",
+        "use_constraints": "Contact Source.",
+        "metadata_date": "20040723"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": true,
+        "procite": [
+          "438"
+        ]
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-2920.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-3148",
+      "source_sha256": "66097bbcd0f102a76e6fd464be17ded1cbc3ae33ddfcad625f066689f42dcd21",
+      "file_bytes": 6257,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Raw122003 ambiguous; cited publication year and metadata_date are different concepts.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights.",
+        "Same title/ProCite438 pair requires source/work/subset comparison, not automatic title dedup."
+      ],
+      "source_fields": {
+        "title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea",
+        "origin": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+        "publication_date": "122003",
+        "abstract": "This report references diet, population abundance, production, and species composition data of nearshore bird communities from the Gulf of Alaska.\n\n  The aforementioned data are referenced in citation: Hatch, S.A., D.R. Nysewander, A.R. Degange, M.R. Petersen, P.A. Baird, K.D. Wohl, and C.J. Lensink.1978.  Population dynamics and trophic relationships of marine birds in the Gulf of Alaska and southern Bering Sea. In Environmental assessment of the Alaskan continental shelf, annual reports of principal investigators, Boulder, Colorado.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #438 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.",
+        "use_constraints": "Contact Source.",
+        "metadata_date": "20040723"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": true,
+        "procite": [
+          "438"
+        ]
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-3148.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-633",
+      "source_sha256": "3ff02be2d3961544648eb4acd48f4c88cf613b8837a3bc55322d426369e413e0",
+      "file_bytes": 5446,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition.",
+        "Range must be retained; parser acceptance alone does not establish publication date.",
+        "Source use constraints do not establish a recognized license grant; restricted access does not resolve rights."
+      ],
+      "source_fields": {
+        "title": "Land Ownership/Land Status",
+        "origin": "Migratory Bird Management, U.S. Fish and Wildlife Service",
+        "publication_date": "199207-099301",
+        "abstract": "Data Type: Boundaries; This is a composite land ownership/land status layer based primarily on the Chugach National Forest (CNF) land status GIS database and Bureau of Land Management (BLM) land records (as processed into a GIS format by Alaska Department of Natural Resources (DNR)). The CNF database includes owner, status and parcel boundaries for all lands within the CNF boundary. These parcel boundaries are based on legal descriptions, plats, and other sources drafted onto 1:31,680 scale base maps. Pacific GIS used land status records from Alaska DNR for areas outside the CNF boundary (primarily the Copper River basin). The DNR dataset is coarser in resolution (i.e., to the nearest section) than the datasets available through the Chugach NF. Alaska DNR bases their understanding of land status on a statewide digital (but non- geographic) database maintained by the BLM. In general, these records are thematically accurate but do not carry specific parcel boundaries. At a regional level of analysis, the coarse nature of this data is acceptable, but the user should recognize this limitations of this source data. Land ownership and status is dynamic, particularly in Alaska, where land is still being transferred from federal to state and Native corporation ownership, and from state to private ownership under the Alaska Statehood Act, the Alaska Native Claims Settlement Act, and various state homestead and land disposal programs. Due to the many and frequent changes in land ownership and status, Pacific GIS recommends obtaining updated information from the source agencies.",
+        "use_constraints": "Contact Contributor",
+        "metadata_date": "20020423"
+      },
+      "independent_source_observations": {
+        "has_primary_title": true,
+        "has_substantive_primary_abstract": true,
+        "explicit_license_in_source": false,
+        "raw_calendar_shape": false,
+        "procite": []
+      },
+      "technical_status": "transformation_hold",
+      "proposed_file_role_classification": {
+        "inventory_complete": true,
+        "reviewer": "Offline preparer, not final publication approver",
+        "reviewed_at": "2026-10-02",
+        "rationale": "Raw source structurally contains descriptive FGDC fields; inspected as a proposed original-XML artifact, not underlying observations.",
+        "files": [
+          {
+            "name": "FGDC-633.xml",
+            "role": "descriptive_metadata",
+            "evidence": "Raw parsed source contains metadata/idinfo/citation/descript, citation and metadata field descriptions."
+          }
+        ],
+        "content_status": "metadata_only"
+      },
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-3373",
+      "source_sha256": "f1e54026a1efbb56a3c5795e9642ce50445b2694fe7bc32057112b5dd5c80f1f",
+      "file_bytes": 5624,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition."
+      ],
+      "technical_status": "raw_xml_parse_hold",
+      "parse_error": "not well-formed (invalid token): line 1, column 0",
+      "audit_verdict": "held"
+    },
+    {
+      "source_id": "FGDC-21",
+      "source_sha256": "c79e17ea17b6dd2659dea129b191a32258674dbca183dc2e398cd83bab68fccd",
+      "file_bytes": 11360,
+      "remote_write_eligible": false,
+      "publication_semantic_holds": [
+        "Baseline without per-source curation decisions; publication evidence incomplete. See delegated QA and prepared canary mappings.",
+        "No reviewed external inventory or final source-to-existing-record disposition."
+      ],
+      "technical_status": "raw_xml_parse_hold",
+      "parse_error": "junk after document element: line 135, column 1",
+      "audit_verdict": "held"
+    }
+  ],
+  "duplicate_pair_check": {
+    "sources": [
+      "FGDC-2920",
+      "FGDC-3148"
+    ],
+    "raw_bytes_equal": true,
+    "serialized_xml_equal": true,
+    "scope": "These two raw XML files are byte-identical. Preserve both source aliases; this does not authorize deleting either source or prove cross-repository work equivalence."
+  },
+  "external_duplicate_evidence_status": "unchecked_unavailable: earlier AquaDocs endpoint findings do not prove duplicate absence; no new external requests."
+}

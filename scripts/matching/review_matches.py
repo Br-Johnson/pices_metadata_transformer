@@ -38,7 +38,7 @@ def prompt_user(fgdc_id: str, candidate: Dict[str, object]) -> str:
 
 def auto_decide(candidate: Dict[str, object], threshold: float) -> str:
     score = float(candidate.get("score", 0.0))
-    return "accept" if score >= threshold else "defer"
+    return "defer"  # Similarity is evidence, never an automatic identity decision.
 
 
 def main() -> None:
@@ -46,7 +46,7 @@ def main() -> None:
     parser.add_argument("candidates", help="Path to candidates JSON produced by bibliographic_linkage.py")
     parser.add_argument("--output-dir", default="output", help="Root output directory")
     parser.add_argument("--log-dir", default=default_log_dir("bibliography_review"), help="Directory for log files")
-    parser.add_argument("--auto-accept", action="store_true", help="Automatically accept matches above threshold")
+    parser.add_argument("--auto-accept", action="store_true", help="Compatibility option: candidates remain deferred for human adjudication")
     parser.add_argument("--threshold", type=float, default=0.85, help="Threshold for auto-accept decisions")
 
     args = parser.parse_args()

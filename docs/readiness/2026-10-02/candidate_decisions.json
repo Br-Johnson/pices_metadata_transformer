@@ -1,0 +1,118 @@
+{
+  "status": "routine technical mappings prepared; XML publication rights unresolved; sandbox authentication unavailable",
+  "remote_write_eligible_count": 0,
+  "engineering_status": "Three source-backed technical drafts plus one synthetic fixture prepared/validated offline; no remote writes, duplicate inventory unchecked and sandbox authentication unavailable.",
+  "candidates": [
+    {
+      "source_id": "FGDC-767",
+      "source_sha256": "5b70be19fc0cecb3e0a37c960643702e86256dfba2abd5b09eb3a3f3cf393b6f",
+      "title": "Copper River Basin Area 612 Soil Survey",
+      "raw_origin": "Palmer Field Office, U.S. Natural Resource Conservation Service formerly Soil Conservation Service",
+      "raw_publication_date": "1980-1982",
+      "raw_metadata_date": "20020430",
+      "raw_use_constraints": "Data not intended for site specific purposes",
+      "intended_object": "Original descriptive FGDC XML artifact, not the described research data",
+      "proposed_resource_type": "other",
+      "proposed_content_status": "metadata_only",
+      "remote_write_eligible": false,
+      "required_decisions": [
+        "Only consequential unresolved publication rights/scope need authority evidence. Routine source-backed date/name/object mappings are delegated to agent review, not a new questionnaire."
+      ],
+      "raw_access_constraints": "Reports (with maps) and databases are available by request to the Palmer Field office.",
+      "resolved_from_existing_evidence": [
+        "Original bytes, source identity/hash, descriptive XML file role and exact raw dates can be preserved without judgment.",
+        "Full origin name can be preserved as an institution; the name alone does not establish authorship of the XML artifact.",
+        "Primary publication/coverage date and metadata date are distinct fields, so do not silently substitute one for the other."
+      ],
+      "resolved_mapping": {
+        "object": "original FGDC XML metadata artifact, resource other",
+        "metadata_date": "2002-04-30",
+        "date_semantics": "source_metadata_date; not underlying research publication",
+        "creators": "full raw institution preserved as imported source attribution",
+        "license": "unresolved; no license assigned",
+        "sandbox_access": "restricted technical draft only"
+      }
+    },
+    {
+      "source_id": "FGDC-832",
+      "source_sha256": "7986c6cd4fb9741943c830382439a6457ed521115bb1580126dcbbb08d480248",
+      "title": "Coded Wire Tag Database - Salmon",
+      "raw_origin": "Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, Management and Development Division",
+      "raw_publication_date": "1995",
+      "raw_metadata_date": "20020502",
+      "raw_use_constraints": "Unknown",
+      "intended_object": "Original descriptive FGDC XML artifact, not the described research data",
+      "proposed_resource_type": "other",
+      "proposed_content_status": "metadata_only",
+      "remote_write_eligible": false,
+      "required_decisions": [
+        "Only consequential unresolved publication rights/scope need authority evidence. Routine source-backed date/name/object mappings are delegated to agent review, not a new questionnaire."
+      ],
+      "raw_access_constraints": "Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.",
+      "resolved_from_existing_evidence": [
+        "Original bytes, source identity/hash, descriptive XML file role and exact raw dates can be preserved without judgment.",
+        "Full origin name can be preserved as an institution; the name alone does not establish authorship of the XML artifact.",
+        "Primary publication/coverage date and metadata date are distinct fields, so do not silently substitute one for the other."
+      ],
+      "resolved_mapping": {
+        "object": "original FGDC XML metadata artifact, resource other",
+        "metadata_date": "2002-05-02",
+        "date_semantics": "source_metadata_date; not underlying research publication",
+        "creators": "full raw institution preserved as imported source attribution",
+        "license": "unresolved; no license assigned",
+        "sandbox_access": "restricted technical draft only"
+      }
+    },
+    {
+      "source_id": "FGDC-854",
+      "source_sha256": "623edfaed8114774343c99a60c2e9f721914b2206f339902f7730d4eff9e86f9",
+      "title": "Alaska High-Altitude Aerial Photography",
+      "raw_origin": "National Aeronautics and Space Administration (NASA)",
+      "raw_publication_date": "1978-1986",
+      "raw_metadata_date": "20020502",
+      "raw_use_constraints": "None, request that USGS be noted as data source.",
+      "intended_object": "Original descriptive FGDC XML artifact, not the described research data",
+      "proposed_resource_type": "other",
+      "proposed_content_status": "metadata_only",
+      "remote_write_eligible": false,
+      "required_decisions": [
+        "Only consequential unresolved publication rights/scope need authority evidence. Routine source-backed date/name/object mappings are delegated to agent review, not a new questionnaire."
+      ],
+      "raw_access_constraints": "Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.",
+      "resolved_from_existing_evidence": [
+        "Original bytes, source identity/hash, descriptive XML file role and exact raw dates can be preserved without judgment.",
+        "Full origin name can be preserved as an institution; the name alone does not establish authorship of the XML artifact.",
+        "Primary publication/coverage date and metadata date are distinct fields, so do not silently substitute one for the other."
+      ],
+      "resolved_mapping": {
+        "object": "original FGDC XML metadata artifact, resource other",
+        "metadata_date": "2002-05-02",
+        "date_semantics": "source_metadata_date; not underlying research publication",
+        "creators": "full raw institution preserved as imported source attribution",
+        "license": "unresolved; no license assigned",
+        "sandbox_access": "restricted technical draft only"
+      }
+    }
+  ],
+  "inspected_project_evidence": {
+    "path": "docs/rfq.txt",
+    "supports": "Migration of the archived FGDC metadata catalogue into a PICES Zenodo collection",
+    "does_not_establish": "An explicit XML redistribution license, metadata-creator identity or artifact publication-date policy",
+    "scope_limit": "RFQ and existing curator/readiness documentation inspected; not a complete assessment of all project communications or legal rights."
+  },
+  "synthetic_transport_option": {
+    "recommended": true,
+    "requires_explicit_selection_before_live_upload": false,
+    "purpose": "Only authentication/attachment/readback/retry validation; no authentic-source QA or duplicate clearance claim",
+    "publication_allowed": false,
+    "source_data_included": false,
+    "notes": "Newly authored fictional XML has been prepared offline with SYNTHETIC TEST ONLY identity, UTC creation date provenance, fictional creator explicitly labeled and no license assigned. No live upload.",
+    "scope_note": "Nonpublishing transport tests are already authorized; current delegated instruction holds live mutations while actual gates/authentication are clarified. Final production QA is separate."
+  },
+  "authentication": {
+    "sandbox_url": "https://sandbox.zenodo.org/",
+    "authenticated_connector_exposed_here": false,
+    "browser_login_state": "unknown; no sandbox authenticated session has been observed in this execution environment",
+    "next_step": "Sign into the separate sandbox account in an authorized browser session, then establish a supported secure execution connection. Do not paste credentials or tokens into chat."
+  }
+}

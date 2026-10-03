@@ -1,0 +1,442 @@
+{
+  "revision": "6f792dfc2ff2d3021d7a38cba9f8ab3152d2d58e",
+  "scope": "Read-only, primary date and current code use/access constraint extraction; no curator corrections.",
+  "source_total": 4206,
+  "parsed_total": 4200,
+  "date_categories": {
+    "recognized_calendar_form": 1208,
+    "range_not_publication_date": 435,
+    "status_or_unknown": 1580,
+    "unsupported_or_invalid_requires_individual_review": 18,
+    "missing": 116,
+    "unsupported_month_precision": 24,
+    "ambiguous_six_digit_invalid_year": 819
+  },
+  "held_date_categories": {
+    "range_not_publication_date": 435,
+    "status_or_unknown": 1580,
+    "unsupported_or_invalid_requires_individual_review": 18,
+    "unsupported_month_precision": 24,
+    "ambiguous_six_digit_invalid_year": 819
+  },
+  "rights_categories_all_parsed": {
+    "unrecognized_prose_no_explicit_license": 1921,
+    "no_explicit_grant": 1028,
+    "permission_or_restriction_terms": 1251
+  },
+  "date_exact_groups": [
+    {
+      "raw_value": "Unknown",
+      "count": 1373,
+      "kind": "status_or_unknown",
+      "date_held_count": 1373,
+      "representative_source_ids": [
+        "FGDC-120",
+        "FGDC-1208",
+        "FGDC-1209",
+        "FGDC-121"
+      ],
+      "source_hash": "3cef7847037a9606c870fc35d98b92241c857f200e0e96c86fe362bdbd131803"
+    },
+    {
+      "raw_value": "122003",
+      "count": 819,
+      "kind": "ambiguous_six_digit_invalid_year",
+      "date_held_count": 819,
+      "representative_source_ids": [
+        "FGDC-1839",
+        "FGDC-1840",
+        "FGDC-1841",
+        "FGDC-1843"
+      ],
+      "source_hash": "db588248e233bdb0d309ef3387c1f79ed363b94dbcd44a44131f24d4daeecc35"
+    },
+    {
+      "raw_value": "72-88  thru  87-98",
+      "count": 259,
+      "kind": "range_not_publication_date",
+      "date_held_count": 259,
+      "representative_source_ids": [
+        "FGDC-1007",
+        "FGDC-1018",
+        "FGDC-1029",
+        "FGDC-1040"
+      ],
+      "source_hash": "acf911255a5dd56b5a09a8858706bd2a002318c99b7dc67b7f2f83ff999bbfc0"
+    },
+    {
+      "raw_value": "1988 - Present",
+      "count": 110,
+      "kind": "range_not_publication_date",
+      "date_held_count": 110,
+      "representative_source_ids": [
+        "FGDC-101",
+        "FGDC-113",
+        "FGDC-124",
+        "FGDC-135"
+      ],
+      "source_hash": "3c3c13fcfa77ca78d42f9e921d6d2331d73caf68c1caea435e91bec5dbfba57e"
+    },
+    {
+      "raw_value": "Planned",
+      "count": 87,
+      "kind": "status_or_unknown",
+      "date_held_count": 87,
+      "representative_source_ids": [
+        "FGDC-335",
+        "FGDC-336",
+        "FGDC-341",
+        "FGDC-342"
+      ],
+      "source_hash": "873e86c97685b1d8935b1ba22c3651aa831173cce8593db750d678081c952a97"
+    },
+    {
+      "raw_value": "Unpublished material",
+      "count": 55,
+      "kind": "status_or_unknown",
+      "date_held_count": 55,
+      "representative_source_ids": [
+        "FGDC-4083",
+        "FGDC-4086",
+        "FGDC-4089",
+        "FGDC-4090"
+      ],
+      "source_hash": "45d794d7ce1825ee3f5aff52f5320bf25da68b8fc5e636ea58c37e1aa631a04e"
+    },
+    {
+      "raw_value": "Unpublished Material",
+      "count": 52,
+      "kind": "status_or_unknown",
+      "date_held_count": 52,
+      "representative_source_ids": [
+        "FGDC-1094",
+        "FGDC-1095",
+        "FGDC-112",
+        "FGDC-1206"
+      ],
+      "source_hash": "4f5564c2fbb912cdd8cb1bef55cfb1ea5cb1894650242b5891fbc26d69d17da0"
+    },
+    {
+      "raw_value": "1960 - Present",
+      "count": 27,
+      "kind": "range_not_publication_date",
+      "date_held_count": 27,
+      "representative_source_ids": [
+        "FGDC-2303",
+        "FGDC-2380",
+        "FGDC-2391",
+        "FGDC-2402"
+      ],
+      "source_hash": "e0d694c8d4c027b6afc19c0057291c338486e357287b32d97b4830c43bc66e37"
+    },
+    {
+      "raw_value": "September 2001",
+      "count": 23,
+      "kind": "unsupported_month_precision",
+      "date_held_count": 23,
+      "representative_source_ids": [
+        "FGDC-1773",
+        "FGDC-1774",
+        "FGDC-1775",
+        "FGDC-1776"
+      ],
+      "source_hash": "f061a8960373d6074f3edf8c5471281b88e556e88f92f290526e498d9ab6aa40"
+    },
+    {
+      "raw_value": "Varies",
+      "count": 13,
+      "kind": "status_or_unknown",
+      "date_held_count": 13,
+      "representative_source_ids": [
+        "FGDC-2561",
+        "FGDC-622",
+        "FGDC-630",
+        "FGDC-634"
+      ],
+      "source_hash": "f9eaa9868bc4ebd2b0b52e1a0ee1ec54b29f01233c5e7c138c6b5c550637c1ef"
+    },
+    {
+      "raw_value": "19970101-20021231",
+      "count": 5,
+      "kind": "range_not_publication_date",
+      "date_held_count": 5,
+      "representative_source_ids": [
+        "FGDC-338",
+        "FGDC-352",
+        "FGDC-505",
+        "FGDC-506"
+      ],
+      "source_hash": "32526154a8e0c3c6c5e8276fa321b71dc07084b14f43489e99c4368d2898da73"
+    },
+    {
+      "raw_value": "1972 - Present",
+      "count": 3,
+      "kind": "range_not_publication_date",
+      "date_held_count": 3,
+      "representative_source_ids": [
+        "FGDC-2255",
+        "FGDC-2263",
+        "FGDC-858"
+      ],
+      "source_hash": "7ba3de847e36f6b7458ccf3db9fbfae0af69eddcf173937eed9d9c7062678ec2"
+    }
+  ],
+  "rights_exact_groups": [
+    {
+      "raw_value": "Contact Source.",
+      "count": 993,
+      "kind": "permission_or_restriction_terms",
+      "date_held_count": 978,
+      "representative_source_ids": [
+        "FGDC-122",
+        "FGDC-1221",
+        "FGDC-1757",
+        "FGDC-1758"
+      ],
+      "source_hash": "b117c40f9c80c559c48ee05e24e09dadcc97758b2e260e727caece27e9170e2e"
+    },
+    {
+      "raw_value": "None",
+      "count": 852,
+      "kind": "no_explicit_grant",
+      "date_held_count": 363,
+      "representative_source_ids": [
+        "FGDC-100",
+        "FGDC-102",
+        "FGDC-103",
+        "FGDC-104"
+      ],
+      "source_hash": "fc1921212cfe534217440582eba6811d1ac10b4c2183ea41cfc5e3a77b240352"
+    },
+    {
+      "raw_value": "Check with Contributor or Source.",
+      "count": 585,
+      "kind": "unrecognized_prose_no_explicit_license",
+      "date_held_count": 584,
+      "representative_source_ids": [
+        "FGDC-1209",
+        "FGDC-1210",
+        "FGDC-1211",
+        "FGDC-1212"
+      ],
+      "source_hash": "1bd25b6632af51c4c10661aaa40de6918d68c4754efb9d168b873833148d3717"
+    },
+    {
+      "raw_value": "Republications of materials in this report series may be authorized by the department",
+      "count": 391,
+      "kind": "unrecognized_prose_no_explicit_license",
+      "date_held_count": 391,
+      "representative_source_ids": [
+        "FGDC-1007",
+        "FGDC-101",
+        "FGDC-1018",
+        "FGDC-1029"
+      ],
+      "source_hash": "acf911255a5dd56b5a09a8858706bd2a002318c99b7dc67b7f2f83ff999bbfc0"
+    },
+    {
+      "raw_value": "Check with Contributor",
+      "count": 362,
+      "kind": "unrecognized_prose_no_explicit_license",
+      "date_held_count": 1,
+      "representative_source_ids": [
+        "FGDC-10",
+        "FGDC-1000",
+        "FGDC-1001",
+        "FGDC-1002"
+      ],
+      "source_hash": "d6058b56805804d05348d45dd3e4686acc258dfc3495107b1d06cf345bbb592c"
+    },
+    {
+      "raw_value": "Unknown",
+      "count": 175,
+      "kind": "no_explicit_grant",
+      "date_held_count": 103,
+      "representative_source_ids": [
+        "FGDC-1890",
+        "FGDC-1891",
+        "FGDC-1892",
+        "FGDC-1893"
+      ],
+      "source_hash": "5a35ccbe323d6448a097fe4bf83440535c97b735b6bc43c0ecd3d5dbc6ac22ce"
+    },
+    {
+      "raw_value": "Check with Source.",
+      "count": 165,
+      "kind": "unrecognized_prose_no_explicit_license",
+      "date_held_count": 161,
+      "representative_source_ids": [
+        "FGDC-1041",
+        "FGDC-1310",
+        "FGDC-1313",
+        "FGDC-145"
+      ],
+      "source_hash": "e429cf50b06a9044d84786d09744262b87fa9542c29c158e77378aafca90b30f"
+    },
+    {
+      "raw_value": "Refer to webstite URL: http://www.pmel.noaa.gov/pubs/publications.shtml",
+      "count": 75,
+      "kind": "unrecognized_prose_no_explicit_license",
+      "date_held_count": 0,
+      "representative_source_ids": [
+        "FGDC-2658",
+        "FGDC-2661",
+        "FGDC-2726",
+        "FGDC-2727"
+      ],
+      "source_hash": "8ef4e3546e319395d8fc0368cce86084dc86719294cc39ad717b56ba439a701f"
+    },
+    {
+      "raw_value": "Acknowledgement of data source publication required",
+      "count": 47,
+      "kind": "unrecognized_prose_no_explicit_license",
+      "date_held_count": 7,
+      "representative_source_ids": [
+        "FGDC-1256",
+        "FGDC-1257",
+        "FGDC-1258",
+        "FGDC-1259"
+      ],
+      "source_hash": "be0ebc8c43e6b66d3a73ec0d896a5379398165bc85233a239e9324166b56059a"
+    },
+    {
+      "raw_value": "Contact Source",
+      "count": 38,
+      "kind": "permission_or_restriction_terms",
+      "date_held_count": 27,
+      "representative_source_ids": [
+        "FGDC-1748",
+        "FGDC-1749",
+        "FGDC-1750",
+        "FGDC-1751"
+      ],
+      "source_hash": "a263f5b1ea888e417621973aa18b2bec61d444a753657da88740f2d772ee0e49"
+    }
+  ],
+  "distinct_raw_dates": 406,
+  "distinct_rights_wordings": 179,
+  "cross_cohorts": [
+    {
+      "date_kind": "status_or_unknown",
+      "rights_kind": "unrecognized_prose_no_explicit_license",
+      "count": 891
+    },
+    {
+      "date_kind": "ambiguous_six_digit_invalid_year",
+      "rights_kind": "permission_or_restriction_terms",
+      "count": 819
+    },
+    {
+      "date_kind": "recognized_calendar_form",
+      "rights_kind": "unrecognized_prose_no_explicit_license",
+      "count": 616
+    },
+    {
+      "date_kind": "recognized_calendar_form",
+      "rights_kind": "no_explicit_grant",
+      "count": 453
+    },
+    {
+      "date_kind": "status_or_unknown",
+      "rights_kind": "no_explicit_grant",
+      "count": 435
+    },
+    {
+      "date_kind": "range_not_publication_date",
+      "rights_kind": "unrecognized_prose_no_explicit_license",
+      "count": 409
+    },
+    {
+      "date_kind": "status_or_unknown",
+      "rights_kind": "permission_or_restriction_terms",
+      "count": 254
+    },
+    {
+      "date_kind": "recognized_calendar_form",
+      "rights_kind": "permission_or_restriction_terms",
+      "count": 139
+    },
+    {
+      "date_kind": "missing",
+      "rights_kind": "no_explicit_grant",
+      "count": 109
+    },
+    {
+      "date_kind": "unsupported_month_precision",
+      "rights_kind": "permission_or_restriction_terms",
+      "count": 23
+    },
+    {
+      "date_kind": "range_not_publication_date",
+      "rights_kind": "no_explicit_grant",
+      "count": 22
+    },
+    {
+      "date_kind": "unsupported_or_invalid_requires_individual_review",
+      "rights_kind": "permission_or_restriction_terms",
+      "count": 8
+    },
+    {
+      "date_kind": "unsupported_or_invalid_requires_individual_review",
+      "rights_kind": "no_explicit_grant",
+      "count": 8
+    },
+    {
+      "date_kind": "range_not_publication_date",
+      "rights_kind": "permission_or_restriction_terms",
+      "count": 4
+    },
+    {
+      "date_kind": "missing",
+      "rights_kind": "permission_or_restriction_terms",
+      "count": 4
+    },
+    {
+      "date_kind": "missing",
+      "rights_kind": "unrecognized_prose_no_explicit_license",
+      "count": 3
+    },
+    {
+      "date_kind": "unsupported_or_invalid_requires_individual_review",
+      "rights_kind": "unrecognized_prose_no_explicit_license",
+      "count": 2
+    },
+    {
+      "date_kind": "unsupported_month_precision",
+      "rights_kind": "no_explicit_grant",
+      "count": 1
+    }
+  ],
+  "parse_failures": [
+    {
+      "source_id": "FGDC-21",
+      "error": "junk after document element: line 135, column 1"
+    },
+    {
+      "source_id": "FGDC-3373",
+      "error": "not well-formed (invalid token): line 1, column 0"
+    },
+    {
+      "source_id": "FGDC-3484",
+      "error": "not well-formed (invalid token): line 1, column 0"
+    },
+    {
+      "source_id": "FGDC-4077",
+      "error": "junk after document element: line 116, column 1"
+    },
+    {
+      "source_id": "FGDC-4184",
+      "error": "junk after document element: line 165, column 1"
+    },
+    {
+      "source_id": "FGDC-4185",
+      "error": "junk after document element: line 127, column 1"
+    }
+  ],
+  "source_not_in_original_archive": [
+    "FGDC-3373",
+    "FGDC-3484"
+  ],
+  "archive_not_in_sources": [],
+  "included_group_scope": "Top 12 date-held exact values and top 10 rights wordings only; aggregate categories cover all parseable sources. Full exact-group evidence retained in the task workspace."
+}

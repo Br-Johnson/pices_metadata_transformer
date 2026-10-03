@@ -38,7 +38,7 @@ class IterationLoopRunner:
     def __init__(self, args: argparse.Namespace):
         self.args = args
         self.logger = get_logger()
-        self.paths = OutputPaths(args.output_dir)
+        self.paths = OutputPaths(args.output_dir, "production" if args.production else "sandbox")
         self.environment = "production" if args.production else "sandbox"
         self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         self.pre_filter_backup: Optional[str] = None

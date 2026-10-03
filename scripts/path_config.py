@@ -26,7 +26,10 @@ from typing import Callable, Iterable, Optional
 class OutputPaths:
     """Convenience wrapper for all output/state/report directories."""
 
-    def __init__(self, base: str = "output"):
+    def __init__(self, base: str = "output", environment: Optional[str] = None):
+        if environment not in (None, "sandbox", "production"):
+            raise ValueError("Unknown output environment")
+        self.environment = environment
         self.base = base
         self.data_dir = os.path.join(base, "data")
         self.reports_dir = os.path.join(base, "reports")
@@ -50,17 +53,17 @@ class OutputPaths:
 
     def _prepare_dir(self, new_path: str, legacy_path: Optional[str] = None,
                      migrate_patterns: Optional[Iterable[str]] = None) -> str:
-        if legacy_path and os.path.exists(legacy_path) and not os.path.exists(new_path):
+        if self.environment is None and legacy_path and os.path.exists(legacy_path) and not os.path.exists(new_path):
             self._ensure_parent(new_path)
             shutil.move(legacy_path, new_path)
         os.makedirs(new_path, exist_ok=True)
-        if migrate_patterns:
+        if migrate_patterns and self.environment is None:
             self._migrate_patterns(migrate_patterns, new_path)
         return new_path
 
     def _prepare_file(self, new_path: str, legacy_path: Optional[str] = None) -> str:
         self._ensure_parent(new_path)
-        if legacy_path and os.path.exists(legacy_path) and not os.path.exists(new_path):
+        if self.environment is None and legacy_path and os.path.exists(legacy_path) and not os.path.exists(new_path):
             shutil.move(legacy_path, new_path)
         return new_path
 
@@ -132,7 +135,7 @@ class OutputPaths:
         return self._get_cached(
             "duplicates_reports_dir",
             lambda: self._prepare_dir(
-                os.path.join(self.reports_dir, "duplicates"),
+                os.path.join(self.reports_dir, "duplicates", self.environment or ""),
                 migrate_patterns=["duplicate_check_report_*.txt"],
             ),
         )
@@ -158,7 +161,7 @@ class OutputPaths:
         return self._get_cached(
             "pre_upload_reports_dir",
             lambda: self._prepare_dir(
-                os.path.join(self.reports_dir, "pre_upload"),
+                os.path.join(self.reports_dir, "pre_upload", self.environment or ""),
                 migrate_patterns=["pre_upload_duplicate_check_*.json"],
             ),
         )
@@ -168,7 +171,7 @@ class OutputPaths:
         return self._get_cached(
             "upload_reports_dir",
             lambda: self._prepare_dir(
-                os.path.join(self.reports_dir, "uploads"),
+                os.path.join(self.reports_dir, "uploads", self.environment or ""),
                 migrate_patterns=[
                     "batch_upload_log_*.json",
                     "batch_upload_errors_*.json",
@@ -197,7 +200,7 @@ class OutputPaths:
         return self._get_cached(
             "verification_reports_dir",
             lambda: self._prepare_dir(
-                os.path.join(self.reports_dir, "verification"),
+                os.path.join(self.reports_dir, "verification", self.environment or ""),
                 migrate_patterns=["verification_report.json", "verification_summary.txt"],
             ),
         )
@@ -214,7 +217,7 @@ class OutputPaths:
         return self._get_cached(
             "publish_reports_dir",
             lambda: self._prepare_dir(
-                os.path.join(self.reports_dir, "publish"),
+                os.path.join(self.reports_dir, "publish", self.environment or ""),
                 migrate_patterns=["publish_log.json", "publish_errors.json"],
             ),
         )
@@ -235,7 +238,7 @@ class OutputPaths:
     def uploads_state_dir(self) -> str:
         return self._get_cached(
             "uploads_state_dir",
-            lambda: self._prepare_dir(os.path.join(self.state_dir, "uploads")),
+            lambda: self._prepare_dir(os.path.join(self.state_dir, "uploads", self.environment or "")),
         )
 
     @property
@@ -243,7 +246,7 @@ class OutputPaths:
         return self._get_cached(
             "pre_upload_state_dir",
             lambda: self._prepare_dir(
-                os.path.join(self.state_dir, "pre_upload"),
+                os.path.join(self.state_dir, "pre_upload", self.environment or ""),
                 migrate_patterns=[
                     "safe_to_upload.json",
                     "already_uploaded_to_zenodo.json",

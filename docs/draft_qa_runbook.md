@@ -1,0 +1,85 @@
+# Reproducible metadata-only migration: draft, review, publish
+
+Brett's 2026-10-02 attestation establishes historical GeoNetwork metadata rehosting authority, recorded as user-attested rather than a verified agreement or new reuse license. Use the source-hash-bound [authority profile and collection evidence](readiness/2026-10-02/rehosting_attestation.md). It supports restricted attachments with blank license, while retaining source exceptions, record QA and the separate release gate. Raw XML remains in public metadata notes; attachment restrictions do not conceal it. Zenodo's public-metadata reuse terms remain a distinct platform consideration for release.
+
+Production records remain drafts until evidence-bound record QA and a separate explicit publication release. Brett has delegated record-level QA to agents; human review of every record is not required. This policy supersedes the older auto-publish suggestion in AGENTS.md. Running a pipeline is not evidence of publication or successful remote verification. No production migration was performed while implementing these changes.
+
+## Canonical paths and responsibilities
+
+Run operational commands from the repository root so `FGDC/` is the canonical
+source directory. Source resolution prefers that original and requires every
+present prepared/legacy copy to be byte-identical; disagreement, unreadable
+candidates and non-files stop preparation before client operations. A copied
+output is not a way to override an available original. Preserve conflicting
+copies for diagnosis rather than editing or deleting source evidence.
+
+For corrections, apply common transformations first, then compile reviewed
+[curation batches](curation_batches.md) with exact source-ID/hash membership.
+Review overlap and field precedence explicitly, retain the original citation
+attribution and restrictions, and subdivide remaining holds into narrower
+groups. Compilation and metadata validation do not themselves expand the
+supported agent-QA semantic profile or approve a release.
+
+For the independently audited 821-source Exxon primary-citation cohort, the
+optional [creator interpretation](readiness/2026-10-02/exxon_profile.md) supplies
+the exact reviewed Council/person/affiliation objects. Enable it explicitly with
+`--creator-interpretation-manifest
+docs/readiness/2026-10-02/exxon_citation_interpretation.json` when classifying.
+The manifest is pinned in code and bound into each affected artifact policy;
+human and agent QA reread it. This credits primary citation originators without
+asserting XML or cited-article authorship. Alias and access exceptions remain
+held. The [compiler batch](readiness/2026-10-02/cloud_exxon_creator_batch.json)
+contains the same exact membership and creator values; it does not itself
+perform the classifier's restricted original-XML preparation.
+
+`fgdc_to_zenodo.py` transforms original XML without modifying it; `validate_zenodo.py` supplies the shared metadata contract. `upload_service.py` owns both uploader entry points' durable draft lifecycle. Environment-scoped `OutputPaths` separates sandbox and production ledgers, duplicate inventories, verification and publication reports. Legacy unscoped ledgers are deliberately not imported: reconcile them with endpoint and source evidence first. Transformation output is shared, so changing it invalidates approval hashes.
+
+`publish_records.py` is the explicit publication entry point. Production requires `--qa-manifest` and a separate `--release-manifest` bound to that exact QA manifest and selected records. Inline production publication is disabled. Automatic duplicate replacement is retired; deletion is never a recovery strategy. `verify_uploads.py` compares submitted metadata and the explicit reviewed file contract; legacy records without an artifact policy retain the empty-file contract. Audit summaries count unique ledger records and explicitly describe local ledger evidence; they do not substitute for remote verification.
+
+## Repeatable sequence
+
+1. Preserve and identify the original FGDC source collection and Git revision. Transform and validate offline. Ambiguous publication semantics, unknown rights and oversized notes must be held for publication readiness. Already authorized nonpublishing sandbox technical tests can use clearly labeled source-backed or synthetic preparations without pretending source QA is complete. Dates are calendar validated within 1600–2100; this fixed policy is not a guess about historical records.
+2. If a source-backed correction is necessary, pass `batch_transform.py --decisions FILE`. Decisions are keyed by FGDC ID and include the original raw `source_sha256`, reviewer, rationale and reviewed_at, plus supported metadata overrides (`publication_date`, `creators`, `license`). A changed source invalidates the decision. Never repair the source XML silently.
+3. Perform the explicit pre-upload inventory for the selected environment. Missing, failed, expired or wrong-environment inventory blocks creation. Inventory includes owned drafts as well as published records. Treat search limitations as limitations, not proof of absence.
+4. Upload metadata-only drafts through either existing uploader CLI. The shared service writes creation intent before POST and persists the returned draft ID before metadata update. Known IDs resume; successful identical submissions skip. Changed metadata blocks reuse. An ambiguous creation response stops for reconciliation rather than replaying POST.
+5. For uncertain creation, an operator must identify the draft using authenticated read-only evidence in the correct environment. Save the GET response with endpoint, retrieval time, status and explicit confirmed source ID/source hash/metadata hash. Use `python -m scripts.reconcile_draft --help` for offline reconciliation. Empty drafts require affirmative source correlation by the authorized operator or agent; title similarity alone is insufficient.
+6. Verify remote drafts and retain environment-matched GET snapshots. Run `python -m scripts.agent_qa --output OUTPUT --production --inputs INPUTS --manifest QA --reviewer AGENT_ID --run-id RUN_ID` for the supported deterministic agent profile. The input maps each source ID to `remote_snapshot` and `duplicate_snapshot` paths. Every eligible ledger record gets an evidence-bound result or an explicit hold; this is not a claim that all original sources have already passed. Historical schema-1 human manifests remain readable as human QA; relabeling one as agent is rejected.
+7. Complete independent process review and risk-stratified source spot checks against the approved population digest. Preserve actual reviewer type, name, time, scope, evidence and sampled IDs. Never claim a program review means every source received independent review. Changed source, payload, files, remote evidence or approved population invalidates the binding.
+8. Prepare a separate unapproved release with `python -m scripts.release_manifest --qa-manifest QA --release-manifest RELEASE --fgdc-id ID` (repeat IDs as needed). Only the explicit release authority may authorize the bounded publication selection. Record-level QA does not authorize release. No release was granted while implementing this change.
+9. Once release is actually authorized, use `python -m scripts.publish_records --production --output OUTPUT --qa-manifest QA --release-manifest RELEASE`. Selection precedes `--limit`; every selected row still gets fresh QA/program/release validation and live metadata/file comparison. Retain publication readback and reconciliation evidence; uncertain results never trigger an automatic second POST.
+
+## External repository duplicate evidence
+
+`python -m scripts.matching.evidence --help` ingests saved read-only search snapshots; it does not contact repositories. Its envelope records repository, endpoint, retrieved_at, scope/query, HTTP status, format, body and declared scope completeness. Supported response structures are checked. HTTP 200 HTML, HTTP failures, malformed responses, Identify-only OAI responses and incomplete pagination cannot mean checked-no-match. Candidate matches require evidence-based agent adjudication; unresolved consequential identity judgments remain explicit holds.
+
+Use DOI/persistent IDs and source IDs first, then metadata similarity as evidence. Classify same work, alternate version, derived subset or different dataset. Record the evidence and publication rationale; same-work publication requires an explicit metadata-reference decision. No automatic merge or deletion is implemented. An unavailable service remains unavailable, never checked-no-match. An explicit exception requires evidence, rationale and separately authorized scope; the automatic agent profile does not approve unavailable inventories.
+
+Independent review observations found AquaDocs' candidate OAI route returned an Angular HTML shell and candidate server API routes returned HTTP 503. These observations do not prove endpoint deployment, coverage or absence of duplicate PICES records. No live AquaDocs integration or confirmed cross-repository duplicate is claimed. DOI/handle examples from ODIS are identifier examples only.
+
+## Validation and remaining limits
+
+The current cloud repair scope is offline implementation, testing and GitHub
+review only; no provider operation or credential creation/transfer is included.
+Historical sandbox records are delivery evidence, not metadata truth. Brett
+permits a future labeled sandbox cohort to duplicate historical test uploads,
+but this does not disable the existing inventory gate: a separately implemented
+and tested cohort mechanism would be needed. Retries within the new run must
+reuse its draft IDs; production duplicate checks and DOI preservation remain
+mandatory. Do not use `--force`, remove ledger entries, or erase inventories to
+simulate that mechanism.
+
+Regression tests use temporary fixtures and mock clients, covering rights fidelity, calendar and creator handling, scoped state, uncertain POST, restart recovery, QA hash invalidation, verification, JSON-LD and external-response validation. They establish offline behavior, not compatibility with every live Zenodo normalization or repository deployment. Review the existing source exceptions and actual live drafts before authorizing a migration. Existing unrelated operational/metrics scripts have not been comprehensively redesigned.
+
+The independent follow-up review is recorded in [swarm review](reviews/2026-09-30/swarm_review.md). Inventory pagination must have structurally valid, unique positive integer record IDs. Publication and recovery require an explicit matching deposition ID, recognized state and files list; absence of a field is not proof of a metadata-only draft. One deposition ID belongs to one source in each environment ledger. Publication holds the shared ledger lock throughout fresh approval validation and the remote operation. Catalogue filenames use a digest of the entire DOI to avoid suffix collisions.
+
+## Searchable deposited-content status
+
+Follow the approved [content classification contract](content_classification.md) when creating source-hashed curator decisions. Exported project keywords distinguish metadata-only, data-included, mixed and unknown; file-role evidence remains internal. Do not infer data availability from an FGDC XML attachment or external link. Keyword exclusion does not prove the remaining records contain data. These classifications do not resolve the separate deposited-artifact/DOI/rights/date policy or authorize publication.
+
+## Staged rollout gate (2026-10-02)
+
+See the [20-source offline audit](readiness/2026-10-02/source_audit.md) and its reproducible evidence. Technical validation is not source-specific rights or publication approval. Three source-backed technical preparations and one labeled synthetic fixture validate offline; no live writes have occurred because authenticated sandbox access and fresh inventory are absent. The [opt-in original XML artifact contract](artifact_contract.md) is now implemented and offline tested. Activation records explicit object, source date/name evidence and unresolved rights honestly; final record QA and release remain separate; live sandbox compatibility is still pending. Do not substitute dummy files. Zenodo’s documented editable draft state `inprogress` is accepted only when `submitted` is explicitly false; `unsubmitted` remains supported for compatibility. Sandbox and production are separate, and existing production IDs/DOIs must be reconciled before creating anything new.
+
+## Delegated record QA coverage
+
+See [agent QA contract](agent_qa.md). Deterministic assessment is deliberately narrower than all FGDC variants: exact source-backed dates, unambiguous primary creators, explicit supported rights, source fidelity, exact saved draft/file readback and fresh canonical duplicate search evidence. Unsupported profiles remain held for further source-backed agent adjudication rather than blanket approval. Current data have no exact supported CC grant labels in the inspected metadata-use-constraints fields; this is a parser/evidence result, not a legal conclusion that reuse is prohibited. No production record population has been approved by the new engine.

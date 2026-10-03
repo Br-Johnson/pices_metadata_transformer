@@ -56,7 +56,7 @@ class PipelineOrchestrator:
     def __init__(self, args):
         self.args = args
         self.logger = get_logger()
-        self.paths = OutputPaths(args.output_dir)
+        self.paths = OutputPaths(args.output_dir, "production" if args.production else "sandbox")
         self.review_input_path = os.path.join(
             self.paths.review_reports_dir, "creator_anomalies_input_pipeline.json"
         )
@@ -478,6 +478,8 @@ class PipelineOrchestrator:
             "--output-dir", self.args.output_dir
         ]
 
+        if self.args.production:
+            audit_command.append("--production")
         if not self._run_command(audit_command, "Generating upload audit report", "audit_upload"):
             return False
         

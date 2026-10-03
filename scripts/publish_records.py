@@ -16,15 +16,28 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.upload_service import validate_registry_identities, validate_deposition_response, assert_environment, atomic_json, ledger_lock, read_json
+from scripts.qa_manifest import validate_approval, validate_program_review
+from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
+from scripts.upload_service import prepare_metadata
+from scripts.release_manifest import validate_release
 
 
 class RecordPublisher:
     """Handles publishing uploaded records to Zenodo."""
     
-    def __init__(self, sandbox: bool = True, output_dir: str = "output"):
+    def __init__(self, sandbox: bool = True, output_dir: str = "output", qa_manifest=None, release_manifest=None):
+        self.qa_manifest = read_json(qa_manifest) if isinstance(qa_manifest, (str, os.PathLike)) else qa_manifest
+        self.release_manifest = read_json(release_manifest) if isinstance(release_manifest, (str, os.PathLike)) else release_manifest
+        if not sandbox and not self.qa_manifest:
+            raise ValueError('Production publication requires --qa-manifest with supported record QA')
+        if not sandbox and not self.release_manifest:
+            raise ValueError('Production publication requires separate --release-manifest authorization')
         self.sandbox = sandbox
         self.output_dir = output_dir
-        self.paths = OutputPaths(output_dir)
+        self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
+        if read_json(self.paths.uploads_registry_path, {}).get('_sandbox_canary'):
+            raise ValueError('Sandbox canary ledgers cannot be published')
         self.logger = get_logger()
         
         # Initialize Zenodo client
@@ -48,72 +61,43 @@ class RecordPublisher:
             'not_found': 0
         }
     
+    def _record_publication(self, fgdc_id, deposition_id, communities):
+        registry = read_json(self.paths.uploads_registry_path, {})
+        entry = registry.get(fgdc_id)
+        if not entry or entry.get('deposition_id') != deposition_id:
+            raise ValueError('Upload ledger changed during publication')
+        entry['publish_status'] = 'published'
+        entry['published_at'] = datetime.now().isoformat()
+        entry['community_status'] = 'reported' if any(c.get('identifier') == 'pices' for c in communities) else 'unconfirmed'
+        atomic_json(self.paths.uploads_registry_path, registry)
+
     def load_upload_log(self) -> List[Dict[str, Any]]:
         """Load upload metadata and aggregate successful records for publishing."""
-        import glob
-
-        uploads_by_key: Dict[str, Dict[str, Any]] = {}
-
-        batch_logs = sorted(
-            glob.glob(os.path.join(self.paths.upload_reports_dir, 'batch_upload_log_*.json')),
-            key=os.path.getmtime
-        )
-        if batch_logs:
-            self.logger.log_info(f"Aggregating successful uploads from {len(batch_logs)} batch logs")
-            for batch_log in batch_logs:
-                try:
-                    with open(batch_log, 'r', encoding='utf-8') as f:
-                        batch_data = json.load(f)
-                except (OSError, json.JSONDecodeError):
-                    continue
-
-                for batch in batch_data.get('batches', []):
-                    for upload in batch.get('uploads', []):
-                        if not upload.get('success', False):
-                            continue
-                        deposition_id = upload.get('deposition_id')
-                        if not isinstance(deposition_id, int):
-                            continue
-                        json_path = upload.get('json_file', '')
-                        if json_path and not json_path.startswith('output/data/zenodo_json/'):
-                            continue
-                        key = json_path or str(deposition_id)
-                        if not key:
-                            continue
-                        uploads_by_key[key] = upload
-
-        if os.path.exists(self.upload_log_path):
-            with open(self.upload_log_path, 'r', encoding='utf-8') as f:
-                try:
-                    upload_log = json.load(f)
-                except json.JSONDecodeError:
-                    upload_log = []
-        else:
-            upload_log = []
-
-        for upload in upload_log:
-            if not upload.get('success', False):
+        registry = read_json(self.paths.uploads_registry_path, {})
+        uploads = []
+        approved_ids = {record.get('fgdc_id') for record in (self.qa_manifest or {}).get('records', [])
+                        if record.get('qa', {}).get('approved') is True}
+        if not self.sandbox:
+            release = getattr(self, 'release_manifest', None)
+            if not isinstance(release, dict):
+                raise ValueError('Separate publication release required')
+            # Apply bounded release selection before --limit, then validate every selected row.
+            approved_ids &= {record.get('fgdc_id') for record in release.get('records', [])}
+        for fgdc_id, entry in sorted(registry.items()):
+            if fgdc_id.startswith('_') or entry.get('upload_status') != 'success':
                 continue
-            deposition_id = upload.get('deposition_id')
-            if not isinstance(deposition_id, int):
+            if not self.sandbox and fgdc_id not in approved_ids:
                 continue
-            json_path = upload.get('json_file', '')
-            if json_path and not json_path.startswith('output/data/zenodo_json/'):
-                continue
-            key = json_path or str(deposition_id)
-            if not key:
-                continue
-            uploads_by_key.setdefault(key, upload)
-
-        if not uploads_by_key:
-            raise FileNotFoundError("No successful upload records found in batch logs or upload_log.json")
-
-        uploads = list(uploads_by_key.values())
-        self.logger.log_info(f"Loaded {len(uploads)} successful uploads from aggregated logs")
+            assert_environment(entry, self.paths.environment)
+            uploads.append(dict(entry, success=True))
+        if not uploads:
+            raise ValueError('No successful environment-scoped drafts found')
         return uploads
-    
+
     def publish_records(self, upload_log: List[Dict[str, Any]], limit: int = None) -> Dict[str, Any]:
         """Publish uploaded records to make them visible in communities."""
+        if read_json(self.paths.uploads_registry_path, {}).get('_sandbox_canary'):
+            raise ValueError('Sandbox canary ledgers cannot be published')
         
         if limit:
             upload_log = upload_log[:limit]
@@ -128,7 +112,9 @@ class RecordPublisher:
                 result = self._publish_single_record(upload)
                 self.publish_log.append(result)
                 
-                if result['publish_successful']:
+                if result.get('already_published'):
+                    self.stats['already_published'] += 1
+                elif result['publish_successful']:
                     self.stats['successful_publishes'] += 1
                 elif result.get('already_published'):
                     self.stats['already_published'] += 1
@@ -172,12 +158,37 @@ class RecordPublisher:
         
         return summary
     
-    def _publish_single_record(self, upload: Dict[str, Any]) -> Dict[str, Any]:
+    def _publish_single_record(self, upload):
+        # Keep reconciliation/upload writers out of the entire approval-to-POST interval.
+        try:
+            with ledger_lock(self.paths):
+                registry = read_json(self.paths.uploads_registry_path, {})
+                if registry.get('_sandbox_canary'):
+                    raise ValueError('Sandbox canary ledgers cannot be published')
+                validate_registry_identities(registry)
+                fgdc_id = os.path.splitext(os.path.basename(upload['json_file']))[0]
+                current = registry.get(fgdc_id, {})
+                if any(current.get(key) != upload.get(key) for key in
+                       ('deposition_id', 'metadata_sha256', 'source_sha256', 'environment', 'json_file', 'artifact_contract')):
+                    raise ValueError('Upload ledger binding changed before publication')
+                return self._publish_locked(upload)
+        except Exception as exc:
+            return {'deposition_id': upload.get('deposition_id'), 'json_file': upload.get('json_file'),
+                    'publish_successful': False, 'error': str(exc), 'timestamp': datetime.now().isoformat()}
+
+    def _publish_locked(self, upload: Dict[str, Any]) -> Dict[str, Any]:
         """Publish a single uploaded record."""
         deposition_id = upload.get('deposition_id')
         json_file = upload.get('json_file')
         
         try:
+            assert_environment(upload, self.paths.environment)
+            fgdc_id = os.path.splitext(os.path.basename(json_file))[0]
+            if not self.sandbox:
+                validate_approval(self.qa_manifest, fgdc_id, upload, self.paths)
+                if self.qa_manifest.get('schema_version') == 2:
+                    validate_program_review(self.qa_manifest)
+                validate_release(getattr(self, 'release_manifest', None), self.qa_manifest, fgdc_id, upload)
             # First, check the current state of the deposition
             deposition = self.client.get_deposition(deposition_id)
             
@@ -191,6 +202,15 @@ class RecordPublisher:
                     'timestamp': datetime.now().isoformat()
                 }
             
+            validate_deposition_response(deposition, deposition_id)
+            _, source_path, _ = prepare_metadata(json_file, self.paths)
+            artifact = prepare_artifact(read_json(json_file), source_path)
+            assert_artifact_binding(upload, artifact)
+            validate_files(deposition['files'], artifact)
+
+            if not self.sandbox:
+                validate_approval(self.qa_manifest, fgdc_id, upload, self.paths, deposition.get('metadata', {}), deposition['files'])
+
             # Check if already published
             if deposition.get('state') == 'done':
                 metadata_payload = deposition.get('metadata', {})
@@ -205,6 +225,7 @@ class RecordPublisher:
                         "Zenodo deposition metadata lacks 'pices' community",
                         "Confirm community membership in the Zenodo UI; add manually if required"
                     )
+                self._record_publication(fgdc_id, deposition_id, communities)
                 return {
                     'deposition_id': deposition_id,
                     'json_file': json_file,
@@ -217,14 +238,6 @@ class RecordPublisher:
                         'communities': communities
                     }
                 }
-            
-            # Always enforce metadata-only publishing
-            files = deposition.get('files', [])
-            if files:
-                self.logger.log_info(
-                    f"Removing {len(files)} attached file(s) from deposition {deposition_id} before publishing"
-                )
-            self._mark_as_metadata_only(deposition_id)
             
             # Publish the deposition
             published_deposition = self.client.publish_deposition(deposition_id)
@@ -263,12 +276,22 @@ class RecordPublisher:
                     "Confirm community membership in the Zenodo UI; add manually if required"
                 )
             
+            confirmed = validate_deposition_response(final_deposition or published_deposition, deposition_id)
+            validate_files(confirmed['files'], artifact)
+            final_state = confirmed['state']
+            if final_state != 'done':
+                raise ValueError('Publication state is unconfirmed; reconcile before retry')
+            if not self.sandbox:
+                validate_approval(self.qa_manifest, fgdc_id, upload, self.paths,
+                                  confirmed['metadata'], confirmed['files'])
+            self._record_publication(fgdc_id, deposition_id, communities)
+
             result = {
                 'deposition_id': deposition_id,
                 'json_file': json_file,
                 'publish_successful': True,
                 'doi': doi,
-                'state': published_deposition.get('state'),
+                'state': final_state,
                 'timestamp': datetime.now().isoformat(),
                 'metadata': {
                     'title': metadata_payload.get('title', ''),
@@ -389,7 +412,7 @@ class RecordPublisher:
         
         # Recommendations
         report.append("RECOMMENDATIONS:")
-        if summary['failed_publishes'] > 0:
+        if summary['failed_publishes'] > 0 or summary['not_found'] > 0:
             report.append(f"  - {summary['failed_publishes']} records failed to publish. Check errors log for details.")
         if summary['not_found'] > 0:
             report.append(f"  - {summary['not_found']} records were not found. Verify deposition IDs.")
@@ -433,6 +456,8 @@ def main():
         help='Limit number of records to publish (for testing)'
     )
     
+    parser.add_argument("--qa-manifest", help="Evidence-bound record QA manifest required for production")
+    parser.add_argument("--release-manifest", help="Separate explicit release authorization required for production")
     args = parser.parse_args()
     
     # Determine environment
@@ -444,7 +469,7 @@ def main():
     
     try:
         # Create publisher
-        publisher = RecordPublisher(sandbox, args.output)
+        publisher = RecordPublisher(sandbox, args.output, args.qa_manifest, args.release_manifest)
         
         # Load upload log
         upload_log = publisher.load_upload_log()
@@ -460,7 +485,7 @@ def main():
         print("\n" + publish_report)
         
         # Exit with appropriate code
-        if summary['failed_publishes'] > 0:
+        if summary['failed_publishes'] > 0 or summary['not_found'] > 0:
             logger.log_info("Publishing completed with some failures")
             exit(1)
         else:

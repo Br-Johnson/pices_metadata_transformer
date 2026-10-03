@@ -17,7 +17,8 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # ZenodoUploader functionality is now integrated into this script
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.path_config import OutputPaths, default_log_dir
-from scripts.fgdc_utils import load_fgdc_xml, build_metadata_notes
+from scripts.logger import get_logger
+from scripts.upload_service import DraftUploadService, atomic_json, read_json
 
 class BatchUploader:
     """Handles batched uploads with proper resource management and error recovery."""
@@ -33,13 +34,15 @@ class BatchUploader:
         replace_duplicates: bool = False
     ):
         self.output_dir = output_dir
-        self.paths = OutputPaths(output_dir)
+        self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
         self.sandbox = sandbox
         self.batch_size = batch_size
         self.limit = limit
         self.interactive = interactive
         self.publish_on_upload = publish_on_upload
-        self.replace_duplicates = replace_duplicates
+        if replace_duplicates:
+            raise ValueError("Automatic replacement is retired; reconcile existing drafts explicitly")
+        self.replace_duplicates = False
         self.shutdown_requested = False
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         self.batch_log_file = self.paths.upload_batch_log_path(timestamp)
@@ -73,117 +76,21 @@ class BatchUploader:
     
     def _upload_single_file(self, json_file: str, client) -> Dict[str, Any]:
         """Upload a single JSON file to Zenodo."""
-        metadata = {}
-        timestamp = datetime.now().isoformat()
-        try:
-            # Load the JSON file
-            with open(json_file, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-
-            metadata = data.get('metadata', {})
-            base_name = os.path.splitext(os.path.basename(json_file))[0]
-            fgdc_xml, fgdc_file = load_fgdc_xml(base_name, self.paths)
-            metadata['notes'] = build_metadata_notes(metadata.get('notes', ''), fgdc_xml)
-
-            if not fgdc_xml:
-                print(f"⚠️  FGDC XML not found for {base_name}; metadata-only upload will not include raw FGDC content in notes.")
-
-            # Replace existing sandbox record if requested
-            self._maybe_replace_existing(base_name, metadata.get('title'), client)
-
-            # Create deposition without files
-            deposition = client.create_deposition()
-
-            if not deposition:
-                return {
-                    'success': False,
-                    'json_file': json_file,
-                    'error': 'Failed to create deposition'
-                }
-
-            deposition_id = deposition['id']
-
-            try:
-                updated_deposition = client.update_deposition_metadata(
-                    deposition_id,
-                    metadata,
-                    files={'enabled': False},
-                )
-            except ZenodoAPIError as e:
-                print(f"⚠️  Could not disable files for deposition {deposition_id}: {e}")
-                updated_deposition = client.update_deposition_metadata(deposition_id, metadata)
-
-            reserved_doi = updated_deposition.get('metadata', {}).get('prereserve_doi', {}).get('doi')
-
-            return {
-                'success': True,
-                'json_file': json_file,
-                'deposition_id': deposition_id,
-                'doi': reserved_doi,
-                'zenodo_url': f"{client.base_url}/deposit/{deposition_id}",
-                'metadata': metadata,
-                'fgdc_file': fgdc_file,
-                'timestamp': timestamp
-            }
-
-        except Exception as e:
-            return {
-                'success': False,
-                'json_file': json_file,
-                'error': str(e),
-                'metadata': metadata,
-                'timestamp': timestamp
-            }
+        service = DraftUploadService(self.paths, 'sandbox' if self.sandbox else 'production')
+        return service.upload(json_file, client)
 
     def _publish_deposition(self, client, upload_result: Dict[str, Any]) -> Dict[str, Any]:
         """Publish a deposition immediately after a successful upload."""
-        deposition_id = upload_result.get('deposition_id')
-        json_file = upload_result.get('json_file')
-        publish_timestamp = datetime.now().isoformat()
-
-        if not deposition_id:
-            error_message = 'Missing deposition ID for publishing'
-            self.publish_failures.append({
-                'json_file': json_file,
-                'deposition_id': deposition_id,
-                'error': error_message,
-                'timestamp': publish_timestamp
-            })
-            return {
-                'published': False,
-                'timestamp': publish_timestamp,
-                'communities': [],
-                'state': 'draft',
-                'error': error_message
-            }
-
-        try:
-            response = client.publish_deposition(deposition_id)
-            metadata = response.get('metadata', {}) if isinstance(response, dict) else {}
-            communities = metadata.get('communities', [])
-            state = response.get('state', 'done') if isinstance(response, dict) else 'done'
-            return {
-                'published': True,
-                'timestamp': publish_timestamp,
-                'communities': communities,
-                'state': state,
-                'doi': metadata.get('prereserve_doi', {}).get('doi') or upload_result.get('doi')
-            }
-        except Exception as e:
-            error_message = str(e)
-            self.publish_failures.append({
-                'json_file': json_file,
-                'deposition_id': deposition_id,
-                'error': error_message,
-                'timestamp': publish_timestamp
-            })
-            return {
-                'published': False,
-                'timestamp': publish_timestamp,
-                'communities': [],
-                'state': 'draft',
-                'error': error_message
-            }
+        from scripts.publish_records import RecordPublisher
+        publisher = RecordPublisher.__new__(RecordPublisher)
+        publisher.client, publisher.paths, publisher.sandbox = client, self.paths, self.sandbox
+        publisher.logger = get_logger()
+        publisher.qa_manifest = None
+        result = publisher._publish_single_record(upload_result)
+        published = result.get('publish_successful', False)
+        if not published:
+            self.publish_failures.append(result)
+        return dict(result, published=published)
 
     def _load_replacement_plan(self) -> Dict[str, Any]:
         """Load duplicate replacement plan if it exists."""
@@ -237,104 +144,9 @@ class BatchUploader:
     
     def get_remaining_files(self) -> List[str]:
         """Get list of files that haven't been uploaded yet."""
-        # First, check if we have a safe-to-upload list from pre-upload duplicate check
-        safe_files_path = self.safe_to_upload_path
-        if os.path.exists(safe_files_path):
-            print("📋 Using safe-to-upload list from pre-upload duplicate check...")
-            try:
-                with open(safe_files_path, 'r') as f:
-                    safe_files = json.load(f)
-                
-                # Convert to full paths
-                safe_json_files = []
-                for filename in safe_files:
-                    full_path = os.path.join(self.zenodo_json_dir, filename)
-                    if os.path.exists(full_path):
-                        safe_json_files.append(full_path)
-                
-                print(f"✅ Found {len(safe_json_files)} files safe to upload (pre-filtered for duplicates)")
-                all_json_files = safe_json_files
-                
-            except Exception as e:
-                print(f"⚠️  Could not load safe-to-upload list: {e}")
-                print("   Falling back to checking all files...")
-                # Fall back to getting all JSON files
-                json_pattern = os.path.join(self.zenodo_json_dir, "*.json")
-                all_json_files = glob.glob(json_pattern)
-                all_json_files.sort()
-        else:
-            print("⚠️  No safe-to-upload list found. Checking all files...")
-            print("   Consider running pre-upload duplicate check first.")
-            # Get all JSON files
-            json_pattern = os.path.join(self.zenodo_json_dir, "*.json")
-            all_json_files = glob.glob(json_pattern)
-            all_json_files.sort()
-        
-        # Get already uploaded files from centralized registry first
-        uploaded_files = set()
-        if os.path.exists(self.uploads_registry_path):
-            try:
-                with open(self.uploads_registry_path, 'r') as f:
-                    registry = json.load(f)
-                    for filename, entry in registry.items():
-                        if entry.get('upload_status') == 'success':
-                            uploaded_files.add(filename)
-            except Exception as e:
-                print(f"Warning: Could not load registry: {e}")
-        
-        # Get already uploaded files from all batch logs
-        for log_file in glob.glob(os.path.join(self.upload_reports_dir, "batch_upload_log_*.json")):
-            if os.path.exists(log_file):
-                try:
-                    with open(log_file, 'r') as f:
-                        batch_data = json.load(f)
-                        # Handle both old and new batch log formats
-                        if 'batches' in batch_data:
-                            for batch in batch_data.get('batches', []):
-                                for upload in batch.get('uploads', []):
-                                    if upload.get('success', False):
-                                        filename = os.path.basename(upload['json_file']).replace('.json', '')
-                                        uploaded_files.add(filename)
-                        else:
-                            # Handle flat structure
-                            for upload in batch_data.get('uploads', []):
-                                if upload.get('success', False):
-                                    filename = os.path.basename(upload['json_file']).replace('.json', '')
-                                    uploaded_files.add(filename)
-                except Exception as e:
-                    print(f"Warning: Could not load batch log {log_file}: {e}")
-        
-        # Get already uploaded files from legacy upload log
-        if os.path.exists(self.upload_log_path):
-            try:
-                with open(self.upload_log_path, 'r') as f:
-                    legacy_data = json.load(f)
-                    if isinstance(legacy_data, list):
-                        for upload in legacy_data:
-                            if upload.get('success', False):
-                                filename = os.path.basename(upload['json_file']).replace('.json', '')
-                                uploaded_files.add(filename)
-            except Exception as e:
-                print(f"Warning: Could not load legacy log: {e}")
-        
-        # Filter out already uploaded files
-        remaining_files = []
-        for json_file in all_json_files:
-            filename = os.path.basename(json_file).replace('.json', '')
-            if filename not in uploaded_files:
-                remaining_files.append(json_file)
+        service = DraftUploadService(self.paths, 'sandbox' if self.sandbox else 'production')
+        return service.pending_files(self.limit)
 
-        # Apply limit if specified
-        if self.limit is not None:
-            remaining_files = remaining_files[:self.limit]
-
-        print(f"Found {len(uploaded_files)} already uploaded files")
-        print(f"Found {len(remaining_files)} remaining files to upload")
-        if self.limit is not None:
-            print(f"Limited to {self.limit} files for testing")
-
-        return remaining_files
-    
     def upload_batch(self, batch_files: List[str], batch_number: int) -> Dict[str, Any]:
         """Upload a single batch of files."""
         print(f"\n=== BATCH {batch_number} ===")
@@ -436,59 +248,10 @@ class BatchUploader:
     
     def _update_registry(self, upload_result: Dict[str, Any], batch_number: Optional[int] = None):
         """Update centralized uploads registry."""
-        registry_path = self.uploads_registry_path
-        
-        # Load existing registry
-        registry = {}
-        if os.path.exists(registry_path):
-            try:
-                with open(registry_path, 'r') as f:
-                    registry = json.load(f)
-            except Exception as e:
-                print(f"Warning: Could not load registry: {e}")
-                registry = {}
-        
-        # Extract filename from json_file path
-        json_file = upload_result.get('json_file', '')
-        filename = os.path.basename(json_file).replace('.json', '')
-        
-        if filename:
-            # Update registry entry
-            publication = upload_result.get('publication', {}) if isinstance(upload_result, dict) else {}
+        # DraftUploadService already persisted the durable upload state before reporting.
+        # Publication changes are persisted by the shared publisher, not this report writer.
+        return
 
-            registry[filename] = {
-                'deposition_id': upload_result.get('deposition_id'),
-                'doi': upload_result.get('doi'),
-                'title': upload_result.get('metadata', {}).get('title', ''),
-                'uploaded_at': upload_result.get('timestamp'),
-                'upload_status': 'success' if upload_result.get('success', False) else 'failed',
-                'batch_number': batch_number if batch_number is not None else upload_result.get('batch_number'),
-                'error_message': upload_result.get('error') if not upload_result.get('success', False) else None,
-                'publish_status': 'published' if publication.get('published') else 'draft',
-                'published_at': publication.get('timestamp'),
-                'publication_error': publication.get('error')
-            }
-            
-            # Update metadata
-            if '_metadata' not in registry:
-                registry['_metadata'] = {
-                    'description': 'Centralized registry of all FGDC to Zenodo uploads',
-                    'version': '1.0',
-                    'created': datetime.now().isoformat(),
-                    'last_updated': datetime.now().isoformat(),
-                    'total_entries': 0
-                }
-            
-            registry['_metadata']['last_updated'] = datetime.now().isoformat()
-            registry['_metadata']['total_entries'] = len([k for k in registry.keys() if not k.startswith('_')])
-            
-            # Save updated registry
-            try:
-                with open(registry_path, 'w') as f:
-                    json.dump(registry, f, indent=2)
-            except Exception as e:
-                print(f"Warning: Could not save registry: {e}")
-    
     def _interactive_batch_review(self, current_batch: int, total_batches: int):
         """Interactive review between batches for production uploads."""
         print(f"\n{'='*80}")
@@ -588,6 +351,8 @@ class BatchUploader:
             # Get the project root directory
             project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             cmd = ['python3', 'scripts/upload_audit.py', '--output-dir', self.output_dir]
+            if not self.sandbox:
+                cmd.append('--production')
             result = subprocess.run(cmd, capture_output=True, text=True, cwd=project_root)
             print(result.stdout)
             if result.stderr:
@@ -699,6 +464,7 @@ class BatchUploader:
             fgdc_path = candidate_fgdc
         
         log_entry = {
+            'environment': 'sandbox' if self.sandbox else 'production',
             'json_file': json_path,
             'fgdc_file': fgdc_path,
             'deposition_id': upload_result.get('deposition_id'),

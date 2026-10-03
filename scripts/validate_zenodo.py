@@ -120,28 +120,7 @@ class ZenodoValidator:
             field_coverage = self._analyze_field_coverage(metadata)
             character_analysis = self._analyze_character_counts(metadata)
             
-            # Validate required fields
-            for field in self.required_fields:
-                if field not in metadata:
-                    issues.append(f"Missing required field: {field}")
-                elif not metadata[field]:
-                    issues.append(f"Empty required field: {field}")
-            
-            # Validate specific fields
-            self._validate_title(metadata, issues, warnings)
-            self._validate_upload_type(metadata, issues, warnings)
-            self._validate_publication_date(metadata, issues, warnings)
-            self._validate_creators(metadata, issues, warnings)
-            self._validate_description(metadata, issues, warnings)
-            self._validate_access_right(metadata, issues, warnings)
-            self._validate_license(metadata, issues, warnings)
-            self._validate_keywords(metadata, issues, warnings)
-            self._validate_related_identifiers(metadata, issues, warnings)
-            self._validate_contributors(metadata, issues, warnings)
-            self._validate_communities(metadata, issues, warnings)
-            
-            # Validate field length limits
-            self._validate_field_limits(metadata, issues, warnings)
+            issues, warnings = self.validate_metadata(metadata)
             
             is_valid = len(issues) == 0
             
@@ -164,6 +143,33 @@ class ZenodoValidator:
             return self._create_validation_result(
                 json_path, False, f"Validation error: {str(e)}"
             )
+
+    def validate_metadata(self, metadata: Dict[str, Any]):
+        """Validate the same canonical payload at transform and upload boundaries."""
+        issues, warnings = [], []
+        # Validate required fields
+        for field in self.required_fields:
+            if field not in metadata:
+                issues.append(f"Missing required field: {field}")
+            elif not metadata[field]:
+                issues.append(f"Empty required field: {field}")
+
+        # Validate specific fields
+        self._validate_title(metadata, issues, warnings)
+        self._validate_upload_type(metadata, issues, warnings)
+        self._validate_publication_date(metadata, issues, warnings)
+        self._validate_creators(metadata, issues, warnings)
+        self._validate_description(metadata, issues, warnings)
+        self._validate_access_right(metadata, issues, warnings)
+        self._validate_license(metadata, issues, warnings)
+        self._validate_keywords(metadata, issues, warnings)
+        self._validate_related_identifiers(metadata, issues, warnings)
+        self._validate_contributors(metadata, issues, warnings)
+        self._validate_communities(metadata, issues, warnings)
+
+        # Validate field length limits
+        self._validate_field_limits(metadata, issues, warnings)
+        return issues, warnings
     
     def _create_validation_result(self, file_path: str, is_valid: bool, 
                                 message: str, issues: List[str] = None, 
@@ -204,7 +210,9 @@ class ZenodoValidator:
         else:
             try:
                 # Try to parse as ISO date
-                dateutil.parser.parse(pub_date)
+                parsed = datetime.strptime(pub_date, '%Y-%m-%d')
+                if not 1600 <= parsed.year <= 2100:
+                    issues.append('Publication date outside reviewed range (1600–2100)')
                 # Check if it's in YYYY-MM-DD format
                 if not re.match(r'^\d{4}-\d{2}-\d{2}$', pub_date):
                     warnings.append(f"Publication date not in YYYY-MM-DD format: {pub_date}")
@@ -270,7 +278,7 @@ class ZenodoValidator:
             if not license_field:
                 issues.append("License required for open/embargoed access")
             elif not self._is_valid_license(license_field):
-                warnings.append(f"Unknown license: {license_field}")
+                issues.append(f"Unknown license: {license_field}")
     
     def _is_valid_license(self, license_id: str) -> bool:
         """Check if license ID is valid (basic check)."""
@@ -280,7 +288,7 @@ class ZenodoValidator:
             'mit', 'apache-2.0', 'gpl-3.0', 'gpl-2.0', 'bsd-3-clause',
             'lgpl-3.0', 'mpl-2.0', 'epl-1.0', 'cddl-1.0'
         ]
-        return license_id in valid_licenses
+        return license_id in valid_licenses or bool(re.fullmatch(r'cc-by(?:-nc)?(?:-sa|-nd)?-[1-4]\.0', license_id))
     
     def _validate_keywords(self, metadata: Dict[str, Any], issues: List[str], warnings: List[str]):
         """Validate keywords field."""

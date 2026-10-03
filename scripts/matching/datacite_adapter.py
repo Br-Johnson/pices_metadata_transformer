@@ -10,12 +10,13 @@ import requests
 from scripts.logger import get_logger
 
 from .engine import MatchCandidate
+from .evidence import validate_json_payload
 
 
 class DataCiteAdapter:
     """Query the DataCite API while respecting rate limits and paging."""
 
-    BASE_URL = "https://api.datacite.org/works"
+    BASE_URL = "https://api.datacite.org/dois"
 
     def __init__(
         self,
@@ -57,8 +58,10 @@ class DataCiteAdapter:
             response = self.session.get(self.BASE_URL, params=params, timeout=30)
         response.raise_for_status()
 
+        if "html" in response.headers.get("Content-Type", "").lower():
+            raise ValueError("Expected metadata JSON, received HTML application shell")
         payload = response.json()
-        data = payload.get("data", [])
+        data = validate_json_payload(payload, "datacite")
         matches = [self._normalise_item(item) for item in data]
         return [match for match in matches if match is not None]
 
@@ -66,10 +69,10 @@ class DataCiteAdapter:
     def _build_query(title: str, creators: Sequence[str], abstract: Optional[str]) -> str:
         parts: List[str] = []
         title = title or ""
-        parts.append(f"title:\"{title}\"")
+        parts.append(f"titles.title:\"{title}\"")
         for creator in creators:
             if creator:
-                parts.append(f"creator.name:\"{creator}\"")
+                parts.append(f"creators.name:\"{creator}\"")
         if abstract:
             parts.append(abstract[:120])
         return " ".join(parts)

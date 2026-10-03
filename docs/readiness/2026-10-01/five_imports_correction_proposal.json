@@ -1,0 +1,477 @@
+{
+  "scope": "Five bounded public GET responses and original source fields, no authenticated ownership/upload provenance verification; no writes.",
+  "source_revision": "1693d7f1bbc6bb3e21dec0953f084f7b719fccf8",
+  "source_date_format_evidence": {
+    "standard": "FGDC-STD-001-1998",
+    "date_conventions": "YYYY, YYYYMM, YYYYMMDD",
+    "source_pubdate_definition": "Date dataset published or made available for release",
+    "122003_count": 819,
+    "common_metadata_date": "20040723",
+    "common_metadata_date_count": 819,
+    "interpretation": "YYYYMM would read as year1220/month03; not a credible accepted catalogue date. MMYYYY/December2003 is a hypothesis without export provenance, not a correction. PublicJan1year1220 differs from prior reviewed codeMarch1year1220; upload-version provenance is not established."
+  },
+  "records": [
+    {
+      "record_id": 17317859,
+      "doi": "10.5281/zenodo.17317859",
+      "record_url": "https://zenodo.org/records/17317859",
+      "source_id": "FGDC-2057",
+      "source_sha256": "e0b48017a563544dedb618f5106e84dbeaf18ca7af1cbda83d93371cdd73736b",
+      "source_fields": {
+        "title": "An Intersection Model for Estimating Sea Otter Mortality Along the Kenai Peninsula. Marine Mammals and the Exxon Valdez",
+        "origin": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+        "publication_date": "122003",
+        "abstract": "This journal article references population abundance and survival data of sea otters (Enhydra lutris) from Kenai Peninsula, Alaska.\n\n  The aforementioned data are referenced in citation: Bodkin, J.L. and M.S. Udevitz.  1994.  An Intersection Model for Estimating Sea Otter Mortality Along the Kenai Peninsula. Marine Mammals and the Exxon Valdez. p. 81-95.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #133 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.",
+        "purpose": "Part of the design effort of the \"Alternative Sampling Designs for Nearshore Monitoring\" (Gulf Ecosystem Monitoring and Research Project).  Provides a comprehensive historical perspective of locations and types of past studies conducted in the nearshore marine communities within Gulf of Alaska in the form of a geographical information system database.",
+        "access_constraints": "Contact Source.",
+        "use_constraints": "Contact Source.",
+        "metadata_date": "20040723"
+      },
+      "source_links": {
+        "origin": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2057.xml#L5",
+        "date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2057.xml#L6",
+        "abstract": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2057.xml#L11",
+        "rights": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2057.xml#L59",
+        "metadata_date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2057.xml#L101"
+      },
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317859",
+        "retrieved_at": "2026-10-01T18:33:11.000122+00:00",
+        "status": 200
+      },
+      "current_public_fields": {
+        "title": "An Intersection Model for Estimating Sea Otter Mortality Along the Kenai Peninsula. Marine Mammals and the Exxon Valdez",
+        "description": "This journal article references population abundance and survival data of sea otters (Enhydra lutris) from Kenai Peninsula, Alaska.\n\n  The aforementioned data are referenced in citation: Bodkin, J.L. and M.S. Udevitz.  1994.  An Intersection Model for Estimating Sea Otter Mortality Along the Kenai Peninsula. Marine Mammals and the Exxon Valdez. p. 81-95.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #133 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.",
+        "publication_date": "1220-01-01",
+        "creators": [
+          {
+            "name": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska",
+            "affiliation": null
+          },
+          {
+            "name": "Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+            "affiliation": null
+          }
+        ],
+        "license": {
+          "id": "cc-zero"
+        },
+        "resource_type": {
+          "title": "Dataset",
+          "type": "dataset"
+        },
+        "access_right": "open",
+        "communities": [
+          {
+            "id": "pices"
+          }
+        ]
+      },
+      "public_files": [
+        {
+          "id": "94caad20-1076-4f4e-9883-c4448f674ecf",
+          "key": "metadata.txt",
+          "size": 102,
+          "checksum": "md5:af04b271a8f0c834b1c31389d4669b32",
+          "links": {
+            "self": "https://zenodo.org/api/records/17317859/files/metadata.txt/content"
+          }
+        }
+      ],
+      "association_evidence": {
+        "title_equal": true,
+        "abstract_equal": true,
+        "source_procite": [
+          "133"
+        ],
+        "public_procite": [
+          "133"
+        ]
+      },
+      "association_status": "strong_descriptive_association",
+      "proposed_corrections_pending_review": [],
+      "unresolved_decisions": [
+        "Existing CC0 lacks an explicit supporting grant in source use constraints; determine rights for the agreed deposited object.",
+        "Decide whether this is an archived metadata artifact or the described research object before changing resource type/DOI/date/creator roles.",
+        "Retain existing DOI/record ID; no new duplicate record, deletion or publication is proposed.",
+        "Year1220 is not an acceptable marine-catalogue interpretation; replacement date is unresolved. Raw122003 is not proof of December2003.",
+        "Cited research year is distinct from metadata creation/publication; do not automatically use1994/1977 or metadata_date20040723.",
+        "Mixed institutional/personal primary origin requires role adjudication; do not automatically replace with cited publication authors."
+      ],
+      "authorization": "Review proposal only; no live write approval."
+    },
+    {
+      "record_id": 17317857,
+      "doi": "10.5281/zenodo.17317857",
+      "record_url": "https://zenodo.org/records/17317857",
+      "source_id": "FGDC-2725",
+      "source_sha256": "f8c85ff810507722578d0ccf592d8dc1b1518529f7574745ff900ff5347dccdc",
+      "source_fields": {
+        "title": "Distribution of Dissolved LMW Hydrocarbons in Bristol Bay, Alaska: Implications for Future Gas and Oil Development",
+        "origin": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+        "publication_date": "19810101",
+        "abstract": "In September and October, 1975, and again in July, 1976, the distribution of dissolved low molecular weight hydrocarbons was determined in Bristol Bay, Alaska. The concentrations were relatively low compared to other  Alaskan shelf areas and show a significant seasonal signature. Local production of methane is accelerated in summer as it is for the alkenes. The concentrations of ethane and ethane are in linear relation in summer, suggesting a common source or perhaps a common organic precursor. The distribution of methane is strongly coupled to circulation and, in particular, to the location of hydrographic fronts. In contrast, the alkenes appear to be regulated more by biological activity than circulation. In composition, LMW hydrocarbons arising from a thermogenic source can be readily distinguished from their biological equivalents on the basis of the relative concentrations of ethane and ethane.  Elementary modeling of a line hydrocarbon source suggests that hydrocarbon trajectories could be traced for several hundred km, assuming a source concentration 100 times above ambient levels. Other model scenarios are also considered.\n        [Reference: Cline, J.D. (1980): Distribution of dissolved LMW hydrocarbons in Bristol Bay, Alaska: Implications for future gas and oil development. In: Eastern Bering Sea Shelf: Oceanography and Resources, D.W. Hood and A.J. Calder (eds.), 1(27), 425-444. USDOC/NOAA/OMPA.]\n        \n          The abstract can also be viewed on the PMEL Publications website at\n          http://jelly.pmel.noaa.gov/admin/scripts/Publications.asp?ABSTRACT_REQUEST=0411",
+        "purpose": "To report distribution of dissolved LMW hydrocarbons in Bristol Bay, Alaska.",
+        "access_constraints": "None",
+        "use_constraints": "None",
+        "metadata_date": "19980203"
+      },
+      "source_links": {
+        "origin": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2725.xml#L5",
+        "date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2725.xml#L6",
+        "abstract": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2725.xml#L11",
+        "rights": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2725.xml#L58",
+        "metadata_date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2725.xml#L100"
+      },
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317857",
+        "retrieved_at": "2026-10-01T18:33:11.662722+00:00",
+        "status": 200
+      },
+      "current_public_fields": {
+        "title": "Distribution of Dissolved LMW Hydrocarbons in Bristol Bay, Alaska: Implications for Future Gas and Oil Development",
+        "description": null,
+        "publication_date": "1981-01-01",
+        "creators": [
+          {
+            "name": "Oceanic, National",
+            "affiliation": null
+          },
+          {
+            "name": "Atmospheric Administration, Office of Oceanic",
+            "affiliation": "NOAA"
+          },
+          {
+            "name": "Atmospheric Research, Pacific Marine Environmental Laboratory",
+            "affiliation": "OAR"
+          }
+        ],
+        "license": {
+          "id": "cc-zero"
+        },
+        "resource_type": {
+          "title": "Dataset",
+          "type": "dataset"
+        },
+        "access_right": "open",
+        "communities": [
+          {
+            "id": "pices"
+          }
+        ]
+      },
+      "public_files": [
+        {
+          "id": "4ba924fd-3740-41ee-bf6d-97eda70bf83b",
+          "key": "metadata.txt",
+          "size": 102,
+          "checksum": "md5:af04b271a8f0c834b1c31389d4669b32",
+          "links": {
+            "self": "https://zenodo.org/api/records/17317857/files/metadata.txt/content"
+          }
+        }
+      ],
+      "association_evidence": {
+        "title_equal": true,
+        "abstract_equal": false,
+        "source_procite": [],
+        "public_procite": []
+      },
+      "association_status": "unique_title_source_candidate",
+      "proposed_corrections_pending_review": [
+        {
+          "field": "description",
+          "proposed_value": "In September and October, 1975, and again in July, 1976, the distribution of dissolved low molecular weight hydrocarbons was determined in Bristol Bay, Alaska. The concentrations were relatively low compared to other  Alaskan shelf areas and show a significant seasonal signature. Local production of methane is accelerated in summer as it is for the alkenes. The concentrations of ethane and ethane are in linear relation in summer, suggesting a common source or perhaps a common organic precursor. The distribution of methane is strongly coupled to circulation and, in particular, to the location of hydrographic fronts. In contrast, the alkenes appear to be regulated more by biological activity than circulation. In composition, LMW hydrocarbons arising from a thermogenic source can be readily distinguished from their biological equivalents on the basis of the relative concentrations of ethane and ethane.  Elementary modeling of a line hydrocarbon source suggests that hydrocarbon trajectories could be traced for several hundred km, assuming a source concentration 100 times above ambient levels. Other model scenarios are also considered.\n        [Reference: Cline, J.D. (1980): Distribution of dissolved LMW hydrocarbons in Bristol Bay, Alaska: Implications for future gas and oil development. In: Eastern Bering Sea Shelf: Oceanography and Resources, D.W. Hood and A.J. Calder (eds.), 1(27), 425-444. USDOC/NOAA/OMPA.]\n        \n          The abstract can also be viewed on the PMEL Publications website at\n          http://jelly.pmel.noaa.gov/admin/scripts/Publications.asp?ABSTRACT_REQUEST=0411",
+          "reason": "Public description is null; source abstract is substantive. Copy faithfully, preserving any source typos pending separate review."
+        },
+        {
+          "field": "creators",
+          "proposed_value": {
+            "name": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+            "identity_kind": "organization"
+          },
+          "reason": "Public roster splits institutional hierarchy into person-like fragments. Proposed source-faithful organization entry; reviewer must approve metadata-creator vs research-author attribution."
+        }
+      ],
+      "unresolved_decisions": [
+        "Existing CC0 lacks an explicit supporting grant in source use constraints; determine rights for the agreed deposited object.",
+        "Decide whether this is an archived metadata artifact or the described research object before changing resource type/DOI/date/creator roles.",
+        "Retain existing DOI/record ID; no new duplicate record, deletion or publication is proposed.",
+        "Source19810101 matches public1981-01-01; no date correction is proposed solely from these fields."
+      ],
+      "authorization": "Review proposal only; no live write approval."
+    },
+    {
+      "record_id": 17317855,
+      "doi": "10.5281/zenodo.17317855",
+      "record_url": "https://zenodo.org/records/17317855",
+      "source_id": "FGDC-1238",
+      "source_sha256": "c559cd8b956683c71c2fd240e583bc5817b2cf7f5bcc390955578c1e1e15aa2f",
+      "source_fields": {
+        "title": "Constrained Iterative Deconvolution Applied to SeaMARC I Sidescan Sonar Imagery",
+        "origin": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+        "publication_date": "1990",
+        "abstract": "Images collected by any sidescan sonar system represent the convolution of the acoustic beam pattern of the instrument with the true echo amplitude distribution\nover the seafloor. At typical tow speeds, the 1.7\u00b0 beam width of SeaMARC I results in multiple insonification of individual targets, particularly at the outside of the\nswath. A nonlinearly constrained iterative deconvolution technique developed for radar applications can be applied to SeaMARC I imagery to reduce the effect of\nthe beam pattern and equalize the spectral content of the image across the swath. Since the deconvolution is implemented in the along-track direction, the registration\nof individual scan lines must be precisely corrected before the operator is applied. The deconvolution operator must be modeled to account for beam shape, vehicle\nspeed, swath width, slant range, and ping rate. The method is numerically stable and increases the effective resolution of the image, but results in some loss of\ndynamic range. The technique is applied to target recognition and imagery from volcanic terrains of the central Juan de Fuca Ridge.",
+        "purpose": "",
+        "access_constraints": "Check with Contributor",
+        "use_constraints": "Check with Contributor",
+        "metadata_date": "20010308"
+      },
+      "source_links": {
+        "origin": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-1238.xml#L5",
+        "date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-1238.xml#L6",
+        "abstract": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-1238.xml#L11",
+        "rights": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-1238.xml#L43",
+        "metadata_date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-1238.xml#L85"
+      },
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317855",
+        "retrieved_at": "2026-10-01T18:33:12.233011+00:00",
+        "status": 200
+      },
+      "current_public_fields": {
+        "title": "Constrained Iterative Deconvolution Applied to SeaMARC I Sidescan Sonar Imagery",
+        "description": "Images collected by any sidescan sonar system represent the convolution of the acoustic beam pattern of the instrument with the true echo amplitude distribution\nover the seafloor. At typical tow speeds, the 1.7\u00b0 beam width of SeaMARC I results in multiple insonification of individual targets, particularly at the outside of the\nswath. A nonlinearly constrained iterative deconvolution technique developed for radar applications can be applied to SeaMARC I imagery to reduce the effect of\nthe beam pattern and equalize the spectral content of the image across the swath. Since the deconvolution is implemented in the along-track direction, the registration\nof individual scan lines must be precisely corrected before the operator is applied. The deconvolution operator must be modeled to account for beam shape, vehicle\nspeed, swath width, slant range, and ping rate. The method is numerically stable and increases the effective resolution of the image, but results in some loss of\ndynamic range. The technique is applied to target recognition and imagery from volcanic terrains of the central Juan de Fuca Ridge.",
+        "publication_date": "1990-01-01",
+        "creators": [
+          {
+            "name": "Oceanic, National",
+            "affiliation": null
+          },
+          {
+            "name": "Atmospheric Administration, Office of Oceanic",
+            "affiliation": "NOAA"
+          },
+          {
+            "name": "Atmospheric Research, Pacific Marine Environmental Laboratory",
+            "affiliation": "OAR"
+          }
+        ],
+        "license": {
+          "id": "cc-zero"
+        },
+        "resource_type": {
+          "title": "Dataset",
+          "type": "dataset"
+        },
+        "access_right": "restricted",
+        "communities": [
+          {
+            "id": "pices"
+          }
+        ]
+      },
+      "public_files": [],
+      "association_evidence": {
+        "title_equal": true,
+        "abstract_equal": true,
+        "source_procite": [],
+        "public_procite": []
+      },
+      "association_status": "strong_descriptive_association",
+      "proposed_corrections_pending_review": [
+        {
+          "field": "creators",
+          "proposed_value": {
+            "name": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+            "identity_kind": "organization"
+          },
+          "reason": "Public roster splits institutional hierarchy into person-like fragments. Proposed source-faithful organization entry; reviewer must approve metadata-creator vs research-author attribution."
+        }
+      ],
+      "unresolved_decisions": [
+        "Existing CC0 lacks an explicit supporting grant in source use constraints; determine rights for the agreed deposited object.",
+        "Decide whether this is an archived metadata artifact or the described research object before changing resource type/DOI/date/creator roles.",
+        "Retain existing DOI/record ID; no new duplicate record, deletion or publication is proposed.",
+        "Source1990 supports yearprecision, not known January1; preserve precision and verify object date policy.",
+        "Public API lists no files for a restricted record; this is not evidence of zero deposited files or metadata-only content."
+      ],
+      "authorization": "Review proposal only; no live write approval."
+    },
+    {
+      "record_id": 17317853,
+      "doi": "10.5281/zenodo.17317853",
+      "record_url": "https://zenodo.org/records/17317853",
+      "source_id": "FGDC-2731",
+      "source_sha256": "2f08555afe0c393d0c9e826d8fa3f78ddf5f5068a1575cf04218912265ec3a6c",
+      "source_fields": {
+        "title": "89-04 Nushagak River Chinook Salmon Escapement  Estimation From Subsistence Catch Monitoring in 1988.  Brian G. Bue.  March 1989.  14pp",
+        "origin": "Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, Management and Development Division",
+        "publication_date": "1988 - Present",
+        "abstract": "Includes (but are not limited to:) (1) Alaska Board of Fisheries and Fishery Management council reports (2) Season summaries (3) White papers (4) management plans (5) annual test fish results (6) legislative reports (7) forecast (8) area management reports (9) annual shellfish surveys (10) some annual U.S./Canada;  and since the 1993, the following studies have been published in this series:  (11) Salmon abundance, catch and escapements studies (12) annual smolt reports (13) tagging studies and (14) special short-term or interim reports on equipment or methodologies, stock identification, management, life history, etc..",
+        "purpose": "This series is primarily informational, serving to: (1) promote intradepartmental exchange of information and (2) meet ad hoc reporting functions of the department to other agencies, governmental and regulatory bodies, the fishing industry and the public.  Reports in this series may achieve original observations (raw data) or contain preliminary or incomplete data.  These reports do not receive full editorial and peer review.  Reports may be highly individualized.",
+        "access_constraints": "Requests for one or two pages of data and/or short reports can usually be accommodated.",
+        "use_constraints": "Republications of materials in this report series may be authorized by the department",
+        "metadata_date": "19980713"
+      },
+      "source_links": {
+        "origin": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2731.xml#L5",
+        "date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2731.xml#L6",
+        "abstract": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2731.xml#L11",
+        "rights": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2731.xml#L50",
+        "metadata_date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2731.xml#L92"
+      },
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317853",
+        "retrieved_at": "2026-10-01T18:33:12.825557+00:00",
+        "status": 200
+      },
+      "current_public_fields": {
+        "title": "89-04 Nushagak River Chinook Salmon Escapement  Estimation From Subsistence Catch Monitoring in 1988.  Brian G. Bue.  March 1989.  14pp",
+        "description": "Includes (but are not limited to:) (1) Alaska Board of Fisheries and Fishery Management council reports (2) Season summaries (3) White papers (4) management plans (5) annual test fish results (6) legislative reports (7) forecast (8) area management reports (9) annual shellfish surveys (10) some annual U.S./Canada;  and since the 1993, the following studies have been published in this series:  (11) Salmon abundance, catch and escapements studies (12) annual smolt reports (13) tagging studies and (14) special short-term or interim reports on equipment or methodologies, stock identification, management, life history, etc..",
+        "publication_date": "1988-01-01",
+        "creators": [
+          {
+            "name": "Fish, Alaska Department of",
+            "affiliation": null
+          },
+          {
+            "name": "Game, Division of Commercial Fisheries, Management",
+            "affiliation": "ADF&G"
+          },
+          {
+            "name": "Division, Development",
+            "affiliation": null
+          }
+        ],
+        "license": {
+          "id": "cc-zero"
+        },
+        "resource_type": {
+          "title": "Dataset",
+          "type": "dataset"
+        },
+        "access_right": "open",
+        "communities": [
+          {
+            "id": "pices"
+          }
+        ]
+      },
+      "public_files": [
+        {
+          "id": "b0363dd5-95ce-46e3-a2c1-6cbd80306354",
+          "key": "metadata.txt",
+          "size": 102,
+          "checksum": "md5:af04b271a8f0c834b1c31389d4669b32",
+          "links": {
+            "self": "https://zenodo.org/api/records/17317853/files/metadata.txt/content"
+          }
+        }
+      ],
+      "association_evidence": {
+        "title_equal": true,
+        "abstract_equal": true,
+        "source_procite": [],
+        "public_procite": []
+      },
+      "association_status": "strong_descriptive_association",
+      "proposed_corrections_pending_review": [
+        {
+          "field": "creators",
+          "proposed_value": {
+            "name": "Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, Management and Development Division",
+            "identity_kind": "organization"
+          },
+          "reason": "Public roster splits institutional hierarchy into person-like fragments. Proposed source-faithful organization entry; reviewer must approve metadata-creator vs research-author attribution."
+        }
+      ],
+      "unresolved_decisions": [
+        "Existing CC0 lacks an explicit supporting grant in source use constraints; determine rights for the agreed deposited object.",
+        "Decide whether this is an archived metadata artifact or the described research object before changing resource type/DOI/date/creator roles.",
+        "Retain existing DOI/record ID; no new duplicate record, deletion or publication is proposed.",
+        "Source1988 - Present is a series/coverage-like value; current1988-01-01 is not established individual report publication date. TitleMarch1989 is a lead requiring report/object verification."
+      ],
+      "authorization": "Review proposal only; no live write approval."
+    },
+    {
+      "record_id": 17317851,
+      "doi": "10.5281/zenodo.17317851",
+      "record_url": "https://zenodo.org/records/17317851",
+      "source_id": "FGDC-2043",
+      "source_sha256": "9fc45ede1eff08d39e06618ae4b081ba5a6244a886a1a817fb2b4640b145790d",
+      "source_fields": {
+        "title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea",
+        "origin": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+        "publication_date": "122003",
+        "abstract": "This report references species composition data of black oystercatchers (Haematopus bachmani), harlequin ducks (Histrionicus histrionicus), and scoters (Melanitta spp.) from Chiniak Bay, Alaska.\n\n  The aforementioned data are referenced in citation: Bartonek, J.C., C.J. Lensink, P.J. Gould, R.E. Gill, and G.A. Sanger.  1977.  Population dynamics and trophic relationships of marine birds in the Gulf of Alaska and southern Bering Sea.  In Environmental assessment of the Alaskan continental shelf, annual reports of principal investigators.  pp. 492-574.  Boulder, Colo., NOAA Environ. Res. Lab.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #104 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.",
+        "purpose": "Part of the design effort of the \"Alternative Sampling Designs for Nearshore Monitoring\" (Gulf Ecosystem Monitoring and Research Project).  Provides a comprehensive historical perspective of locations and types of past studies conducted in the nearshore marine communities within Gulf of Alaska in the form of a geographical information system database.",
+        "access_constraints": "Contact Source.",
+        "use_constraints": "Contact Source.",
+        "metadata_date": "20040723"
+      },
+      "source_links": {
+        "origin": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2043.xml#L5",
+        "date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2043.xml#L6",
+        "abstract": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2043.xml#L11",
+        "rights": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2043.xml#L60",
+        "metadata_date": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/1693d7f1bbc6bb3e21dec0953f084f7b719fccf8/FGDC/FGDC-2043.xml#L102"
+      },
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317851",
+        "retrieved_at": "2026-10-01T18:33:13.396282+00:00",
+        "status": 200
+      },
+      "current_public_fields": {
+        "title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea",
+        "description": "This report references species composition data of black oystercatchers (Haematopus bachmani), harlequin ducks (Histrionicus histrionicus), and scoters (Melanitta spp.) from Chiniak Bay, Alaska.\n\n  The aforementioned data are referenced in citation: Bartonek, J.C., C.J. Lensink, P.J. Gould, R.E. Gill, and G.A. Sanger.  1977.  Population dynamics and trophic relationships of marine birds in the Gulf of Alaska and southern Bering Sea.  In Environmental assessment of the Alaskan continental shelf, annual reports of principal investigators.  pp. 492-574.  Boulder, Colo., NOAA Environ. Res. Lab.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #104 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.",
+        "publication_date": "1220-01-01",
+        "creators": [
+          {
+            "name": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska",
+            "affiliation": null
+          },
+          {
+            "name": "Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+            "affiliation": null
+          }
+        ],
+        "license": {
+          "id": "cc-zero"
+        },
+        "resource_type": {
+          "title": "Dataset",
+          "type": "dataset"
+        },
+        "access_right": "open",
+        "communities": [
+          {
+            "id": "pices"
+          }
+        ]
+      },
+      "public_files": [
+        {
+          "id": "3df46266-073d-4e1a-bddb-c3d64c1b079d",
+          "key": "metadata.txt",
+          "size": 102,
+          "checksum": "md5:af04b271a8f0c834b1c31389d4669b32",
+          "links": {
+            "self": "https://zenodo.org/api/records/17317851/files/metadata.txt/content"
+          }
+        }
+      ],
+      "association_evidence": {
+        "title_equal": true,
+        "abstract_equal": true,
+        "source_procite": [
+          "104"
+        ],
+        "public_procite": [
+          "104"
+        ]
+      },
+      "association_status": "strong_descriptive_association",
+      "proposed_corrections_pending_review": [],
+      "unresolved_decisions": [
+        "Existing CC0 lacks an explicit supporting grant in source use constraints; determine rights for the agreed deposited object.",
+        "Decide whether this is an archived metadata artifact or the described research object before changing resource type/DOI/date/creator roles.",
+        "Retain existing DOI/record ID; no new duplicate record, deletion or publication is proposed.",
+        "Year1220 is not an acceptable marine-catalogue interpretation; replacement date is unresolved. Raw122003 is not proof of December2003.",
+        "Cited research year is distinct from metadata creation/publication; do not automatically use1994/1977 or metadata_date20040723.",
+        "Mixed institutional/personal primary origin requires role adjudication; do not automatically replace with cited publication authors."
+      ],
+      "authorization": "Review proposal only; no live write approval."
+    }
+  ]
+}

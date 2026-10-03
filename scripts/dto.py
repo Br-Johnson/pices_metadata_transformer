@@ -59,9 +59,8 @@ class BibliographicLink:
         """Return a Zenodo `related_identifiers` compatible payload."""
 
         payload: Dict[str, Any] = {
-            "relation": self.relation,
+            "relation": {"isAlternativeIdentifierOf": "isAlternateIdentifier"}.get(self.relation, self.relation),
             "identifier": self.identifier,
-            "resource_type": "dataset",
         }
         if self.scheme:
             payload["scheme"] = self.scheme
@@ -129,7 +128,8 @@ class CanonicalRecordDTO:
 
         identifiers: List[Dict[str, Any]] = []
         for link in self.bibliographic_links:
-            identifiers.append(link.to_related_identifier())
+            if link.status == "accepted":
+                identifiers.append(link.to_related_identifier())
         return identifiers
 
     def copy(self, **overrides: Any) -> "CanonicalRecordDTO":

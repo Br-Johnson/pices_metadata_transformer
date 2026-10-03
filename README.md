@@ -38,6 +38,16 @@ pices_md_2/
 └── README.md               # This file
 ```
 
+## Production safety and review
+
+Use [reviewed correction batches](docs/curation_batches.md) for exact source-ID/hash
+membership, overlap checks and explicit field precedence after common FGDC
+transformations. The opt-in [Exxon citation profile](docs/readiness/2026-10-02/exxon_profile.md)
+supports the audited mixed citation while preserving source attribution, rights,
+alias holds and the separate production release gate.
+
+Follow the [draft and evidence-bound QA runbook](docs/draft_qa_runbook.md) before using operational commands. Production stays draft until supported human or delegated agent record QA and separate explicit publication release. The [pinned review and offline reproductions](docs/reviews/2026-09-30/README.md) document the original defects.
+
 ## 🚀 Quick Start
 
 ### 🎯 Recommended Approach: Use the Orchestration Pipeline
@@ -264,10 +274,7 @@ result = transform_fgdc_file("path/to/file.xml", "output/path")
 
 **Issue**: Files rejected with invalid license "none"
 
-**Solution**: The system now correctly defaults to "cc-zero" license. If you encounter this:
-
-1. Regenerate the JSON files: `python scripts/batch_transform.py --input FGDC --output output --limit N`
-2. The license will be correctly set to "cc-zero"
+**Solution**: Unknown source rights remain unresolved; the transformer does not default to CC0. Record a source-hash-bound rights decision supported by applicable permission/license evidence before an open deposit. Regenerating JSON does not establish a license. See the [artifact contract](docs/artifact_contract.md) and [curator decision matrix](docs/readiness/2026-10-01/curator_decision_matrix.md).
 
 ### Command Line Usage
 
@@ -628,7 +635,23 @@ Options:
 
 ### Environment Variables
 
-Create a `.env` file with your Zenodo API tokens:
+Token precedence is an explicit `create_zenodo_client(access_token=...)` argument,
+then the selected nonempty `ZENODO_SANDBOX_TOKEN` or `ZENODO_PRODUCTION_TOKEN`
+environment variable, then the legacy `.env` file in the current working directory.
+An empty environment variable falls back to `.env`; sandbox and production never
+fall back to each other's token. Environment values are opaque and passed unchanged
+into session and bucket `Authorization: Bearer` headers, including NetworkSecret
+placeholders. The loader does not resolve placeholders or log token values.
+Tokens must be nonempty printable ASCII without whitespace: invalid environment,
+file, or explicit tokens fail closed before creating a session. Valid placeholders
+pass unchanged. Empty environment variables retain the file fallback described
+above; empty explicit/file tokens are rejected. Transport errors omit exception
+text and chained tracebacks; remote error diagnostics report HTTP status only.
+Legacy `.env` parsing still trims surrounding whitespace without unquoting values.
+Credential provisioning requires separate secure approval; this compatibility
+change does not provision credentials or authorize uploads.
+
+For the legacy file option, create a `.env` file with your Zenodo API tokens:
 
 ```bash
 ZENODO_SANDBOX_TOKEN=your_sandbox_token_here
@@ -974,3 +997,25 @@ For issues or questions:
 2. Review the audit reports for patterns
 3. Use the test scripts to isolate issues
 4. Consult the documentation in the `docs/` directory
+
+Original FGDC XML attachments are available through the explicitly reviewed [artifact contract](docs/artifact_contract.md). Legacy records are not automatically reclassified. The [three-candidate decision packet](docs/readiness/2026-10-02/candidate_decisions.md) separates remaining source-policy decisions from completed offline engineering.
+
+Offline source classification can apply the exact, source-bound [Contact Source access interpretation](docs/readiness/2026-10-02/contact_source_cohort.md) alongside existing restoration authority. The documented optional flag preserves dataset restrictions, restricted XML, blank licenses and separate live QA/release gates.
+
+The separate [Contributor or Source interpretation](docs/readiness/2026-10-02/contributor_source_profile.md) records Brett's 23:43 UTC attestation for exactly 585 source/hash pairs. Enable it with `--contributor-access-interpretation-manifest`; it does not remove independent creator/date holds or grant a license or publication approval.
+
+A narrow [sandbox canary handoff](docs/handoff/sandbox-canary-20261002/EXECUTOR.md) supports previously authorized historical duplicate tolerance for exactly three pinned sources. It requires the explicit `canary_plan` checker/service argument and a dedicated namespace-bound sandbox ledger; there is no global duplicate override. Production rejects the exception. The frozen plan, inventory freshness, own-run idempotency and draft-only gates remain mandatory.
+
+The opt-in [literal institutional citation profile](docs/readiness/2026-10-03/institution_citation_profile.md) pins 72 source/hash pairs while preserving full creator objects and all metadata. Together with the reviewed DFO70 profile, fresh/resumed source-only QA supports 2,121 records; nine new-cohort residuals, remote verification and production release gates remain held.
+
+The additive [institution/program citation extension](docs/readiness/2026-10-03/institution_program_citation_99.md) uses the same opt-in option and preserves the previous 72 cohort objects plus 27 exact new source bindings. Fresh/resumed source-only QA now supports 2,137 records, with eleven new-cohort access holds retained. Complete metadata objects and original/copied XML bytes remain unchanged; [parallel residual role/access reviews](docs/readiness/2026-10-03/residual_role_access_review.md) and [uncertain Sandbox-create recovery](docs/readiness/2026-10-03/uncertain_create_recovery_recommendation.md) remain separate from live QA and release.
+
+The [reviewed joint/collection citation profile](docs/readiness/2026-10-03/joint_collection_citation_190.md) retains those 99 cohort objects and adds 91 exact bindings. It corrects 68 joint creator lists with bounded citation notes, retains Unaami's literal collection attribution, and yields 2,138 source-supported records with 90 cohort access holds. Original/copied XML, all other metadata fields, dates and rights remain unchanged. Complete offline duplicate/source-integrity preparation protects historical existing record IDs/DOIs without claiming current remote identity or release approval.
+
+The [read-only alias reconciliation](docs/readiness/2026-10-03/source_alias_reconciliation.md) maps all 456 held identities to 228 neutral XML-byte groups, retaining every source/payload/submission hash and leaving provider canonical IDs/DOIs unset. Identical prepared metadata still produces distinct source-bound submission fingerprints. It also records 39 next literal-citation candidates and a [morning meaning bundle](docs/readiness/2026-10-03/morning_source_decisions.md) for the 90 access holds. This analysis installs no source interpretation or eligibility change.
+
+The subsequent [229-member literal-citation extension](docs/readiness/2026-10-03/literal_citation_extension_229.md) supports those 39 exact sources after full-object review and actual offline validation: 2,177 supported / 2,023 held / six malformed. All 4,194 complete metadata objects and source/copy bytes remain unchanged; only bounded creator-policy references change. All access and alias holds, unsupported creator/date cases, provider verification and production release gates remain intact.
+
+The [reviewed source-credit and historical-link checkpoint](docs/readiness/2026-10-03/source_credit_and_linkage.md) adds 90 exact citation interpretations and 21 dataset link preservation corrections. Actual guarded validation yields **2,288 supported / 1,912 held / six malformed**, exactly 111 promotions, with 301 tests independently reproduced. All 4,206 original hashes and 4,200 XML copies are preserved; 4,083 complete prepared metadata objects remain unchanged. Source support remains separate from provider verification and release. The 319-member creator profile preserves every earlier 229 cohort object; all 456 aliases, 90 joint/collection access holds and uncertain canary state remain held. Further source-only cleanup candidates among 86 access-held records are ranked without claiming approved after-images or access promotion.
+
+The [access-held source-credit cleanup](docs/readiness/2026-10-03/access_held_source_credits.md) completes the exact 86-record review: 77 bounded citation corrections, including all five literal siblings, while nine attribution gaps and all 86 access holds remain. Source counts stay **2,288 supported / 1,912 held / six malformed**. The 396-member opt-in profile preserves all 143 earlier cohort objects covering 319 source bindings; 34 creator lists change and 43 remain intact with reviewed source notes. All original bytes, dates, rights, aliases, earlier access decisions and uncertain canary state are preserved; 306 guarded contracts pass.

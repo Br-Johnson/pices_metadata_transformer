@@ -1,0 +1,655 @@
+{
+  "scope": "Source-backed bounded dataset-citation decisions; never XML authorship, rehosting authority, access meaning, license, remote identity or publication approval",
+  "source_checkpoint": "37ea59528123a243490e60079be72a48ec55a389",
+  "recorded_at": "2026-10-03T06:25:14Z",
+  "frozen_role_analysis_sha256": "9f93d22ede3b67bb50de386f299cea3d91762ce5f10844247b660ee899fc5b21",
+  "combined190_manifest_sha256": "43ab11d7da41c6d1b6f8ff7a9582240192505818167725f81a353d4a1ae9e68d",
+  "source_role_decisions": [
+    {
+      "label": "Ecotrust joint citation",
+      "member_count": 37,
+      "frozen_full_members_sha256": "b541425a147cc1d3b0d4d1772b4136b97ce1db1770575510cd8eef60514faa07",
+      "source_bindings_sha256": "0e5ffe7d1f1902a70270ce163bd0b22db79749fb142f38795a8370e6a98fbb96",
+      "before_creators": [
+        {
+          "name": "Ecotrust, Pacific GIS, and Conservation International"
+        }
+      ],
+      "after_creators": [
+        {
+          "name": "Ecotrust"
+        },
+        {
+          "name": "Pacific GIS"
+        },
+        {
+          "name": "Conservation International"
+        }
+      ],
+      "after_creators_sha256": "532fc204ba8bdde00570c873166a645c7555e46e2eeb6d8c23afe16b9343c993",
+      "independent_source_role_review": "cleared; dataset-citation attribution only, XML authorship not established",
+      "type_decision": "No type, person, affiliation, identifier or expanded identity added."
+    },
+    {
+      "label": "USDA Alaska DNR joint citation",
+      "member_count": 31,
+      "frozen_full_members_sha256": "4523d329f84d9aa33c24239b52446314cf02642e5cdd3c3cdff887872ed260b1",
+      "source_bindings_sha256": "2b02a64ef594324792e9dd56a7c10e13c89e9323828f01250722dc61bcf760af",
+      "before_creators": [
+        {
+          "name": "USDA Forest Service, Alaska Department of Natural Resources, Division of Support Services-Land Records Information Section",
+          "type": "Organization"
+        }
+      ],
+      "after_creators": [
+        {
+          "name": "USDA Forest Service",
+          "type": "Organization"
+        },
+        {
+          "name": "Alaska Department of Natural Resources, Division of Support Services-Land Records Information Section",
+          "type": "Organization"
+        }
+      ],
+      "after_creators_sha256": "59f6c740ca52f9a8a23dba8d01935926d5cdbbbabdc17c9f73b7a3b3bdf05f81",
+      "independent_source_role_review": "cleared; dataset-citation attribution only, XML authorship not established",
+      "type_decision": "Both complete Organization objects explicitly independently reviewed from literal institutional primary-origin credits and existing official DNR/LRIS context; not automatically copied from combined object."
+    },
+    {
+      "label": "Unaami collection citation",
+      "member_count": 23,
+      "frozen_full_members_sha256": "e073bea8226faa5b6bf56710c90d7cf46fb02e3ef349fb1293a287d8bf007e99",
+      "source_bindings_sha256": "365c865985786c7f882f22ccdcc1ad9c41e00752c5910308a8d7eb517ae91c3a",
+      "before_creators": [
+        {
+          "name": "Unaami Arctic Data Collection"
+        }
+      ],
+      "after_creators": [
+        {
+          "name": "Unaami Arctic Data Collection"
+        }
+      ],
+      "after_creators_sha256": "c382907523cd491a2cd7865044de0a808f0527f028e7fcc34b8f6889dca3d8a6",
+      "independent_source_role_review": "cleared; dataset-citation attribution only, XML authorship not established",
+      "type_decision": "No type, person, affiliation, identifier or expanded identity added."
+    }
+  ],
+  "remaining_meaning_decisions": [
+    {
+      "label": "Ecotrust joint citation",
+      "member_count": 2,
+      "representative_source_id": "FGDC-638",
+      "constraints": {
+        "dataset_access": [
+          "Available upon request at cost of copy media."
+        ],
+        "dataset_use": [
+          "Unknown"
+        ],
+        "metadata_access": [
+          "Available upon request at cost of copy media."
+        ],
+        "metadata_use": [
+          "Unknown"
+        ]
+      },
+      "members": [
+        {
+          "source_id": "FGDC-638",
+          "source_sha256": "2dff06bcff4abe5b6fbb18b8116efca7365c65ecef690017c22c754338fcf0f1"
+        },
+        {
+          "source_id": "FGDC-645",
+          "source_sha256": "3845169731c52fb192a6b91daa7527a917c04982602444ab45879f2e8b3861d1"
+        }
+      ],
+      "question": "Do these exact repeated metadata-field acquisition/distribution/use instructions apply only to the underlying GIS layer, or also to restoration of the descriptive XML, and what XML-specific conditions remain? Preserve Unknown and obtain any required agreement terms; a scope answer is not a new reuse license.",
+      "status": "held; no new access interpretation or attestation"
+    },
+    {
+      "label": "Ecotrust joint citation",
+      "member_count": 1,
+      "representative_source_id": "FGDC-641",
+      "constraints": {
+        "dataset_access": [
+          "Contact Chugach National Forest"
+        ],
+        "dataset_use": [
+          "Unknown"
+        ],
+        "metadata_access": [
+          "Contact Chugach National Forest"
+        ],
+        "metadata_use": [
+          "Unknown"
+        ]
+      },
+      "members": [
+        {
+          "source_id": "FGDC-641",
+          "source_sha256": "d9755a80b7caf7abb56a46593cdb2a4410aa251cf245d2e2c61068fd4f226dbf"
+        }
+      ],
+      "question": "Do these exact repeated metadata-field acquisition/distribution/use instructions apply only to the underlying GIS layer, or also to restoration of the descriptive XML, and what XML-specific conditions remain? Preserve Unknown and obtain any required agreement terms; a scope answer is not a new reuse license.",
+      "status": "held; no new access interpretation or attestation"
+    },
+    {
+      "label": "Ecotrust joint citation",
+      "member_count": 30,
+      "representative_source_id": "FGDC-568",
+      "constraints": {
+        "dataset_access": [
+          "Data transfer costs will be based on staff time and media costs."
+        ],
+        "dataset_use": [
+          "Data may not be sold."
+        ],
+        "metadata_access": [
+          "Data transfer costs will be based on staff time and media costs."
+        ],
+        "metadata_use": [
+          "Data may not be sold."
+        ]
+      },
+      "members": [
+        {
+          "source_id": "FGDC-568",
+          "source_sha256": "a687ee4c1cc9072f356e9c674e05b7d6a2df4e81bf4ed82e7d764a0b081430f4"
+        },
+        {
+          "source_id": "FGDC-569",
+          "source_sha256": "c9bde0fe841fb3c59dd8f1ec902efe2ba36e9fe8ca595622ece326b60a7f131a"
+        },
+        {
+          "source_id": "FGDC-590",
+          "source_sha256": "63095c3a46965b4470d6bcb8ca7eb6896a16526cde5b6b7c408088456607e375"
+        },
+        {
+          "source_id": "FGDC-591",
+          "source_sha256": "45d79929e680f9969284f550381d0593a5a880b887ce39f47ca2d2c747db47e0"
+        },
+        {
+          "source_id": "FGDC-592",
+          "source_sha256": "e5483ae0060fd897ba65b6b46f165f21591cc3345e85046a12518347b0dba7f8"
+        },
+        {
+          "source_id": "FGDC-593",
+          "source_sha256": "2cb88184d96b94ac8c26311f6deb8898b7877e7b09f0693edb0ccfdafad2d7c9"
+        },
+        {
+          "source_id": "FGDC-594",
+          "source_sha256": "3804100e341679fd3ded8d1b95505ab373c10c967ac07045913ab10a8ee4643f"
+        },
+        {
+          "source_id": "FGDC-606",
+          "source_sha256": "fb7714c5f042db61774d68a3b5f8ac08d0d148236a2dbec2f2b6ed725751f5a4"
+        },
+        {
+          "source_id": "FGDC-639",
+          "source_sha256": "5ae19a78055cc0f29cd82175769de147ec6a19f4d7f469a9ac2826cc0fc961aa"
+        },
+        {
+          "source_id": "FGDC-640",
+          "source_sha256": "a7dbfed3c5b307c1bd393e5fbde7c9f85f3b09e25da97de356429d3d50d321e5"
+        },
+        {
+          "source_id": "FGDC-643",
+          "source_sha256": "fd112d53911c968b50b34e919b07eb1775851e59de43e5dc19ad6d2b5340f757"
+        },
+        {
+          "source_id": "FGDC-644",
+          "source_sha256": "63009b67255b72887352c60e060cb479fe757fd9080be0d4adacfe7e6611a35b"
+        },
+        {
+          "source_id": "FGDC-689",
+          "source_sha256": "c92f84315947d1141be2dcf8bdac5a92e2188d83c10be5f8e1cb850fe2a92530"
+        },
+        {
+          "source_id": "FGDC-690",
+          "source_sha256": "f903532174d1f7b9fa5d9925e03beb160e684fe41b96099f52eac1f9dab83199"
+        },
+        {
+          "source_id": "FGDC-699",
+          "source_sha256": "ab81f6202d09eb7ea218068e1581024a7f32f2b580acae2f9812f9797a29beb0"
+        },
+        {
+          "source_id": "FGDC-700",
+          "source_sha256": "69884fff5516e6568dddc4770b187452ec8cf378b73aea7f10b64c0b2ab85ab8"
+        },
+        {
+          "source_id": "FGDC-701",
+          "source_sha256": "4ba64f19613013f1fbd843280425a6fb893bdccc0540528872f2dd398083918c"
+        },
+        {
+          "source_id": "FGDC-703",
+          "source_sha256": "b10770cc771fdf103289f2f03ae23ae7ad22a0cc6960b4f277442cac332b1a01"
+        },
+        {
+          "source_id": "FGDC-705",
+          "source_sha256": "2eaa5e5e9eb760722a9cf6c6cbc6514a955e4be0f35c82f502b3c6d9875a413f"
+        },
+        {
+          "source_id": "FGDC-706",
+          "source_sha256": "2bedff6577e76b8a31d99e9cd0cb8ec415ff50cc696fda6d4051d167220f5218"
+        },
+        {
+          "source_id": "FGDC-733",
+          "source_sha256": "3436581e65139750bd075e84ff7fb79e5044cf58be24a2953b5c51ba8dbd9b5b"
+        },
+        {
+          "source_id": "FGDC-734",
+          "source_sha256": "d205299ec3bd9d6f5fae69b314e39f8d46f5b34861944339e463902b4f749f2d"
+        },
+        {
+          "source_id": "FGDC-735",
+          "source_sha256": "89391f11dd67a1a3f162c1c3384cbe2a2c140030792a5a6e6325b2e18e912b1a"
+        },
+        {
+          "source_id": "FGDC-736",
+          "source_sha256": "bc026cab2fd85aa0ff242b59382244ccd23ea5938c9cb8f3a643ddcd9cbb071d"
+        },
+        {
+          "source_id": "FGDC-742",
+          "source_sha256": "beb5e17956a4a349e56b5fa6fb715bdd249036eb51cdfd1be9315040c53ed731"
+        },
+        {
+          "source_id": "FGDC-743",
+          "source_sha256": "373c098d9777b7d1a13ed19122cc72f268d800eb875f47fe43897b749f99aee8"
+        },
+        {
+          "source_id": "FGDC-777",
+          "source_sha256": "38381f5bec5b96c18d9746c68416e6ca9abffa8c5a3782a87453643f614b64fa"
+        },
+        {
+          "source_id": "FGDC-780",
+          "source_sha256": "27fcf034a165be76f92e03b2f6dd70bb866cd420b6935c8dc38793abd84446b3"
+        },
+        {
+          "source_id": "FGDC-782",
+          "source_sha256": "90234b5e7962d718d5dc1296d36141907dc85b683cb4c899754fb99c5e3ca361"
+        },
+        {
+          "source_id": "FGDC-783",
+          "source_sha256": "357b75d88ad945f98490d93550e85add39f9333183ef9de4e2dbbeef034764a5"
+        }
+      ],
+      "question": "Do these exact repeated metadata-field acquisition/distribution/use instructions apply only to the underlying GIS layer, or also to restoration of the descriptive XML, and what XML-specific conditions remain? Preserve Unknown and obtain any required agreement terms; a scope answer is not a new reuse license.",
+      "status": "held; no new access interpretation or attestation"
+    },
+    {
+      "label": "Ecotrust joint citation",
+      "member_count": 2,
+      "representative_source_id": "FGDC-567",
+      "constraints": {
+        "dataset_access": [
+          "Data transfer costs will be based on staff time and media costs."
+        ],
+        "dataset_use": [
+          "The easiest transfer format is UNIX tar with 8mm tape."
+        ],
+        "metadata_access": [
+          "Data transfer costs will be based on staff time and media costs."
+        ],
+        "metadata_use": [
+          "The easiest transfer format is UNIX tar with 8mm tape."
+        ]
+      },
+      "members": [
+        {
+          "source_id": "FGDC-567",
+          "source_sha256": "316448057c9d9db983405831ffb62562010ac621d690cf7b95c0c611972da480"
+        },
+        {
+          "source_id": "FGDC-637",
+          "source_sha256": "d159b2c47392ea53efccf889b55a3eafa343834b96b4ef63a15d92905bf78e14"
+        }
+      ],
+      "question": "Do these exact repeated metadata-field acquisition/distribution/use instructions apply only to the underlying GIS layer, or also to restoration of the descriptive XML, and what XML-specific conditions remain? Preserve Unknown and obtain any required agreement terms; a scope answer is not a new reuse license.",
+      "status": "held; no new access interpretation or attestation"
+    },
+    {
+      "label": "Ecotrust joint citation",
+      "member_count": 1,
+      "representative_source_id": "FGDC-707",
+      "constraints": {
+        "dataset_access": [
+          "Requestor must complete GIS Starter  Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data."
+        ],
+        "dataset_use": [
+          "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+        ],
+        "metadata_access": [
+          "Requestor must complete GIS Starter  Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data."
+        ],
+        "metadata_use": [
+          "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+        ]
+      },
+      "members": [
+        {
+          "source_id": "FGDC-707",
+          "source_sha256": "c8f822b36240274dfbb61b91ca8781ce49d1f052b1fcbee8a1f01c515e3924df"
+        }
+      ],
+      "question": "Do these exact repeated metadata-field acquisition/distribution/use instructions apply only to the underlying GIS layer, or also to restoration of the descriptive XML, and what XML-specific conditions remain? Preserve Unknown and obtain any required agreement terms; a scope answer is not a new reuse license.",
+      "status": "held; no new access interpretation or attestation"
+    },
+    {
+      "label": "USDA Alaska DNR joint citation",
+      "member_count": 1,
+      "representative_source_id": "FGDC-799",
+      "constraints": {
+        "dataset_access": [
+          "Data available as part of DNR's GIS Starter kit in modular format."
+        ],
+        "dataset_use": [
+          "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+        ],
+        "metadata_access": [
+          "Data available as part of DNR's GIS Starter kit in modular format."
+        ],
+        "metadata_use": [
+          "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+        ]
+      },
+      "members": [
+        {
+          "source_id": "FGDC-799",
+          "source_sha256": "bbdec0ec44598a1cb4f9ca5bb9cbf67dd8b0ee4d9aa3d141ce6cbb443a6f351a"
+        }
+      ],
+      "question": "Do these exact repeated metadata-field acquisition/distribution/use instructions apply only to the underlying GIS layer, or also to restoration of the descriptive XML, and what XML-specific conditions remain? Preserve Unknown and obtain any required agreement terms; a scope answer is not a new reuse license.",
+      "status": "held; no new access interpretation or attestation"
+    },
+    {
+      "label": "USDA Alaska DNR joint citation",
+      "member_count": 29,
+      "representative_source_id": "FGDC-696",
+      "constraints": {
+        "dataset_access": [
+          "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data."
+        ],
+        "dataset_use": [
+          "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+        ],
+        "metadata_access": [
+          "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data."
+        ],
+        "metadata_use": [
+          "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+        ]
+      },
+      "members": [
+        {
+          "source_id": "FGDC-696",
+          "source_sha256": "8aaceab215d24072301f48cdc76c7deb9d8174854e1d29d5860d7d990a6b78e4"
+        },
+        {
+          "source_id": "FGDC-714",
+          "source_sha256": "f997f0d3256ce80389ba9b2e18c40f113bdb09dde69196f0d2579ed50656a99e"
+        },
+        {
+          "source_id": "FGDC-801",
+          "source_sha256": "e732aab73a2811585c78bcaee7acad4bed65654aa342cafdd7100f2db67032d1"
+        },
+        {
+          "source_id": "FGDC-803",
+          "source_sha256": "01c4670955de7e98f61c89e47c96a66cee8088944dde46b0b9ec55762c791627"
+        },
+        {
+          "source_id": "FGDC-804",
+          "source_sha256": "7aa72a6aee743729f1491d932c355f4b509a17d4da55125059053e3c34c0db3a"
+        },
+        {
+          "source_id": "FGDC-805",
+          "source_sha256": "81ebfb8ddc2b060449cd19e8889c205b2c5c42921b27ccf506dff571e1848044"
+        },
+        {
+          "source_id": "FGDC-806",
+          "source_sha256": "5d6d99b6c0ccee10b14f5e0a4fc2e52d600e904a7d0a899ad1612fd61df0177f"
+        },
+        {
+          "source_id": "FGDC-807",
+          "source_sha256": "1ad9faf673c3792609fa3ed4b6c5cf8ab83c744c2ae47f1ab7023bf4dbfb5824"
+        },
+        {
+          "source_id": "FGDC-809",
+          "source_sha256": "f60ed9d7dfc987240b947f79e4cae24a38668f7163c1eb8a7eef5078c0371db1"
+        },
+        {
+          "source_id": "FGDC-810",
+          "source_sha256": "689320fd5814eca4575fe6ac265568105d614075768f669f03d84da372fd6ce7"
+        },
+        {
+          "source_id": "FGDC-811",
+          "source_sha256": "2faf33e20e66df0da8d0638e2bc20f9a7b153b0cee0eb7e38521e6208f949d0e"
+        },
+        {
+          "source_id": "FGDC-812",
+          "source_sha256": "834eea16f2bdef7a7c5e48509edb0083bcdee8f224d30462bc21886d8608a3c7"
+        },
+        {
+          "source_id": "FGDC-813",
+          "source_sha256": "88ccfe936e38934a2b7afdf972a2c0644eacbaeb6983e8610e5f76a3210316ca"
+        },
+        {
+          "source_id": "FGDC-818",
+          "source_sha256": "43fbf947c60427e7fb0450e41ea4a2614bf41e057c4a90486b68c97a8db7c5cf"
+        },
+        {
+          "source_id": "FGDC-820",
+          "source_sha256": "1d905c7e115a5fcccabcc1445c17bdc53458737409b7f086d5507a99ef568c6a"
+        },
+        {
+          "source_id": "FGDC-821",
+          "source_sha256": "998d0f111cb86cc6d806a6242eead974dd422d542cc439d693b97bed2fdb75d3"
+        },
+        {
+          "source_id": "FGDC-822",
+          "source_sha256": "c470eec4aefd39afc338bf2c00c743dcd56aa4e9d0288622effb51c7d74c8c6e"
+        },
+        {
+          "source_id": "FGDC-823",
+          "source_sha256": "43e61a2930678b13e539137addcb921a34c4076e6af5e8b859e2706c971939a8"
+        },
+        {
+          "source_id": "FGDC-824",
+          "source_sha256": "a65f5b2edc7ce3898d7b69643163a0f74b812309fcbb58d791bedb65d7fe94d8"
+        },
+        {
+          "source_id": "FGDC-825",
+          "source_sha256": "09b03cfe8f7fbaa3931d983d7cc72f6581c405b9609ba1b960c9f8a3c2379b32"
+        },
+        {
+          "source_id": "FGDC-826",
+          "source_sha256": "d0d275249378d35f9febcd371ff628ecc965d421a86bdebad6c5a58d6b4b2f5c"
+        },
+        {
+          "source_id": "FGDC-827",
+          "source_sha256": "1863dad0ef4acdcd3f7fcbcd60a3b8bbbc383315242f67669e672355d60fa548"
+        },
+        {
+          "source_id": "FGDC-837",
+          "source_sha256": "04086f43cc00f35c83ef8968612925d0459c9f3b053d784c957a0a98ccc26ff4"
+        },
+        {
+          "source_id": "FGDC-838",
+          "source_sha256": "7ecab416121170d12a29635722fdfeb5440764470aaefc4a2be060abd73dc832"
+        },
+        {
+          "source_id": "FGDC-839",
+          "source_sha256": "6442533f4d02c6f846b172895d8dbf327b24aec0ed813c38bd1b40921ceb2f89"
+        },
+        {
+          "source_id": "FGDC-840",
+          "source_sha256": "ec3da8eaba0bd79a5519ef51f7f0e70e89c39ec9463a98cd0eabb99e810e7ce8"
+        },
+        {
+          "source_id": "FGDC-846",
+          "source_sha256": "ff0098d925741f3ca1e0610735227aea85171eaafb60a709dce4fe589c17503b"
+        },
+        {
+          "source_id": "FGDC-847",
+          "source_sha256": "5c99585404da0646afc2045e2b74a021b22c21aa816bb9c2ecf870b2fdc2d082"
+        },
+        {
+          "source_id": "FGDC-848",
+          "source_sha256": "0cc6dbfe352ab7a61590c3034042b17d06b96557a740ba3c12841121862cd4c9"
+        }
+      ],
+      "question": "Do these exact repeated metadata-field acquisition/distribution/use instructions apply only to the underlying GIS layer, or also to restoration of the descriptive XML, and what XML-specific conditions remain? Preserve Unknown and obtain any required agreement terms; a scope answer is not a new reuse license.",
+      "status": "held; no new access interpretation or attestation"
+    },
+    {
+      "label": "USDA Alaska DNR joint citation",
+      "member_count": 1,
+      "representative_source_id": "FGDC-739",
+      "constraints": {
+        "dataset_access": [
+          "Unknown"
+        ],
+        "dataset_use": [
+          "Unknown"
+        ],
+        "metadata_access": [
+          "Unknown"
+        ],
+        "metadata_use": [
+          "Unknown"
+        ]
+      },
+      "members": [
+        {
+          "source_id": "FGDC-739",
+          "source_sha256": "766cd7c184f952c7ef6737555647c95cd09108c1c714751c7035615e444e62b8"
+        }
+      ],
+      "question": "Do these exact repeated metadata-field acquisition/distribution/use instructions apply only to the underlying GIS layer, or also to restoration of the descriptive XML, and what XML-specific conditions remain? Preserve Unknown and obtain any required agreement terms; a scope answer is not a new reuse license.",
+      "status": "held; no new access interpretation or attestation"
+    },
+    {
+      "label": "Unaami collection citation",
+      "member_count": 23,
+      "representative_source_id": "FGDC-545",
+      "constraints": {
+        "dataset_access": [
+          "Please acknowledge the Unaami Data Collection and the original source of the data."
+        ],
+        "dataset_use": [
+          "Please acknowledge the Unaami Data Collection and the original source of the data."
+        ],
+        "metadata_access": [
+          "Please acknowledge the Unaami Data Collection and the original source of the data."
+        ],
+        "metadata_use": [
+          "Please acknowledge the Unaami Data Collection and the original source of the data."
+        ]
+      },
+      "members": [
+        {
+          "source_id": "FGDC-545",
+          "source_sha256": "82ac680b3d26bb8f80b4642d21e314813247a8ba74c3faddd7d73bfffbd89e23"
+        },
+        {
+          "source_id": "FGDC-546",
+          "source_sha256": "8f6d9e0d603255b0156a6c6b356e6973f2429c782672406a5b50827400483662"
+        },
+        {
+          "source_id": "FGDC-547",
+          "source_sha256": "777f31dd1bd7686f8a94a6559efc27bd11255d1c3ee7feeebdd1b180ae3b8724"
+        },
+        {
+          "source_id": "FGDC-548",
+          "source_sha256": "e48070eb5a688b732bce467796b932f80ecbe600e7e3297e68d5709538629c7c"
+        },
+        {
+          "source_id": "FGDC-549",
+          "source_sha256": "b27410843d7a077362d7348cfa5da3c0889dde6850ce97fe23515c2094ac06d3"
+        },
+        {
+          "source_id": "FGDC-550",
+          "source_sha256": "703288a7c4460de563e91b6cab47ab41fcf62b6fc41f30c92910dedf8426d14b"
+        },
+        {
+          "source_id": "FGDC-551",
+          "source_sha256": "26031acb0be2cd0ccf8b63623fbe5d4453d3415f748dcd083c5a55acc259a16a"
+        },
+        {
+          "source_id": "FGDC-552",
+          "source_sha256": "342928f5a48294371b35eca91d0303065d5dfdb1eb151195bfe20621ec9c7bd8"
+        },
+        {
+          "source_id": "FGDC-553",
+          "source_sha256": "ad5907dd4660cb821b828e980a023a08c7b65d4a2f59a0fcb4f484049a7191a8"
+        },
+        {
+          "source_id": "FGDC-554",
+          "source_sha256": "3189d71b2848856a1bdba644c05fbfeb33e09f7c1fe7bdef1c366f6ce00d7c21"
+        },
+        {
+          "source_id": "FGDC-556",
+          "source_sha256": "006d4437d0049c3762958209ffe02ed4f0df5f1b1ef54acdd30276375ad0008f"
+        },
+        {
+          "source_id": "FGDC-557",
+          "source_sha256": "b61781d15506505c3cec592f53250e0429944f5da578c5ac79a54959fff2a7c7"
+        },
+        {
+          "source_id": "FGDC-558",
+          "source_sha256": "07ff9e68edab62873e6db271c43f2908462478009d2ca861bafbd5f918dc60b9"
+        },
+        {
+          "source_id": "FGDC-559",
+          "source_sha256": "facb54511675fc9c0403c9616998575af910b3e5b4cd948fe77fe5bab2042700"
+        },
+        {
+          "source_id": "FGDC-560",
+          "source_sha256": "e1701f70ad40d3b4f50c57239bc15c71de793d55e89e821b6ad9b66917c067cf"
+        },
+        {
+          "source_id": "FGDC-573",
+          "source_sha256": "8f169b58da27c345ed4f4111d6419d89749fb6be11cfb042326d6f5563d8bbe9"
+        },
+        {
+          "source_id": "FGDC-574",
+          "source_sha256": "f76cfeb5103c7ebc9ba1108d9cbfd22b94a889a8aea800521b047bf8c02747ac"
+        },
+        {
+          "source_id": "FGDC-575",
+          "source_sha256": "12f2a7bd8cf3c4587424b343414e61cbf7fcfe8cbd5378f13b219e746376d214"
+        },
+        {
+          "source_id": "FGDC-576",
+          "source_sha256": "5ee0491be59e811aae0a1eda9508a22c6fa837bc893ac9f818d2147e38cbdaa9"
+        },
+        {
+          "source_id": "FGDC-578",
+          "source_sha256": "734e45aec7e8eef957cacf29a479b54c16f21130260a97724016e2a75d17df09"
+        },
+        {
+          "source_id": "FGDC-579",
+          "source_sha256": "8bb135ccc245a35398d8279d887e6c2c5911b6d1029060bb3fea0f2584d8da1b"
+        },
+        {
+          "source_id": "FGDC-580",
+          "source_sha256": "139a5568a7bbf46daacd63128812124fd9a0033c48532d8313d1735d4fdf95a4"
+        },
+        {
+          "source_id": "FGDC-581",
+          "source_sha256": "b384c383a8621f38a6b734b4f88690efb33add6f1123178dd7670385e021e23c"
+        }
+      ],
+      "question": "Does this exact acknowledgment apply to restoration of the descriptive XML, underlying dataset use, or both, and what exact original-data-source credit satisfies it for these members?",
+      "status": "held; no new access interpretation or attestation"
+    }
+  ],
+  "creator_changes": 68,
+  "unchanged_collection_creator_objects": 23,
+  "remaining_access_holds": 90,
+  "XML_authorship_established": false,
+  "licenses_added": 0,
+  "user_attestations_added": 0,
+  "provider_requests": 0,
+  "provider_writes": 0
+}

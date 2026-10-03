@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "purpose": "Offline bounded sandbox candidate plan; not an upload inventory, ledger or release approval",
+  "run_label": "pices-successor-9379fd8-sandbox-20261002",
+  "environment": "sandbox",
+  "allowed_host": "sandbox.zenodo.org",
+  "max_actual_source_creates": 3,
+  "execution_order": "Synthetic first, verify exact readback and unchanged retry; then FGDC-100, FGDC-1839, FGDC-3682 one at a time if fresh authenticated inventory permits.",
+  "credential_provisioned": "Confirmed externally in designated provider environment only; never copied into code-owner environment",
+  "authenticated_account_verified": "Initial authenticated probe externally reported; executor must privately verify intended owner and complete fresh inventory before write",
+  "fresh_inventory_verified": false,
+  "write_approved": true,
+  "publish": false,
+  "delete": false,
+  "production_writes": false,
+  "excluded_source_ids": [
+    "FGDC-1238",
+    "FGDC-2043",
+    "FGDC-2057",
+    "FGDC-2725",
+    "FGDC-2731"
+  ],
+  "excluded_remote_record_ids": [
+    10042430
+  ],
+  "candidates": [
+    {
+      "source_id": "FGDC-100",
+      "stratum": "baseline",
+      "title": "Movements and Behavior of Satellite-tagged Spotted Seals (Phoca largha) in the Bering and Chukchi Seas - FGDC XML metadata artifact",
+      "source_sha256": "fc1921212cfe534217440582eba6811d1ac10b4c2183ea41cfc5e3a77b240352",
+      "source_bytes": 6111,
+      "source_md5": "b4d66101b7a800540ccdda5098a82705",
+      "prepared_payload_sha256": "21840012b6e5c4a3277b4cf747d2a611127f779755bbc1ff8b0d93464d32b6d3",
+      "expected_metadata_sha256": "5555e4cf7d25fd84787c172c4cc4465fc2cc17e54d6513a7c8ffcee158169d6f",
+      "expected_metadata_file": "FGDC-100.expected-metadata.json",
+      "artifact_contract": {
+        "schema_version": 1,
+        "object_kind": "original_fgdc_xml",
+        "source_id": "FGDC-100",
+        "policy_sha256": "47234aca61ab5188c9c255f55e4b6780f3d6510824fe88717e750511b0230ed6",
+        "classification_sha256": "ac5433529fe91652a245adb7eed8e3e4bd1843d10eb8a953858df42ad989b82c",
+        "files": [
+          {
+            "name": "FGDC-100.xml",
+            "size": 6111,
+            "sha256": "fc1921212cfe534217440582eba6811d1ac10b4c2183ea41cfc5e3a77b240352",
+            "md5": "b4d66101b7a800540ccdda5098a82705",
+            "role": "descriptive_metadata"
+          }
+        ],
+        "sha256": "9c128fc3a5ff389ef1c043a06b83ac8fc6a5bc67b88c76eb9d3f3541adf96f63"
+      },
+      "source_status": "supported",
+      "technical_metadata": "pass",
+      "remote_id": null,
+      "remote_doi": null,
+      "write_approved": true
+    },
+    {
+      "source_id": "FGDC-1839",
+      "stratum": "citation",
+      "title": "Injury to the Early Life History Stages of Pacific Herring in Prince William Sound after the Exxon Valdez Oil Spill - FGDC XML metadata artifact",
+      "source_sha256": "db588248e233bdb0d309ef3387c1f79ed363b94dbcd44a44131f24d4daeecc35",
+      "source_bytes": 6554,
+      "source_md5": "74be2400fb96a634bca60d774cbc3bb7",
+      "prepared_payload_sha256": "c9fcefa35dec86c396ea725d2fff8a5469bd7a68216603578ac10488cd1b680d",
+      "expected_metadata_sha256": "0c25fbd0a92db276a9bfbb7ee3050f52e3f9675b349f5eb906038e747f623cbe",
+      "expected_metadata_file": "FGDC-1839.expected-metadata.json",
+      "artifact_contract": {
+        "schema_version": 1,
+        "object_kind": "original_fgdc_xml",
+        "source_id": "FGDC-1839",
+        "policy_sha256": "cb9d729f207d12e0f880ac0a38507a0319d2dc7e69f3d9028f736ec78257a10f",
+        "classification_sha256": "a839bd0f5a51cf96e19b5cb2bd01564efba7c84a0c6126c6abd4b0c08b911733",
+        "files": [
+          {
+            "name": "FGDC-1839.xml",
+            "size": 6554,
+            "sha256": "db588248e233bdb0d309ef3387c1f79ed363b94dbcd44a44131f24d4daeecc35",
+            "md5": "74be2400fb96a634bca60d774cbc3bb7",
+            "role": "descriptive_metadata"
+          }
+        ],
+        "sha256": "db14c7e17ad261bab47c3c5aa8498979c6673d1fc89fa96d2d9d12ba6ca12cae"
+      },
+      "source_status": "supported",
+      "technical_metadata": "pass",
+      "remote_id": null,
+      "remote_doi": null,
+      "write_approved": true
+    },
+    {
+      "source_id": "FGDC-3682",
+      "stratum": "registration",
+      "title": "TRACKOB Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) - FGDC XML metadata artifact",
+      "source_sha256": "1400516e035cdb9c68cc0b5590ebdae4429ab3945497d50170fb8e3b823e06c1",
+      "source_bytes": 4619,
+      "source_md5": "f96592e311dcc3de9446e55c6edabac3",
+      "prepared_payload_sha256": "41e807a88a3481c5ecb5f179f5262f6360cd2051c497c5d227fff193bc55293f",
+      "expected_metadata_sha256": "3409e86c8d739246e7eadaf1da254b9262b2f1ae5cd0456cf978ca61398c32f1",
+      "expected_metadata_file": "FGDC-3682.expected-metadata.json",
+      "artifact_contract": {
+        "schema_version": 1,
+        "object_kind": "original_fgdc_xml",
+        "source_id": "FGDC-3682",
+        "policy_sha256": "df5b4eac35ba877c1420166a6a79240411f80d358429a66291df66d1b5bb19ee",
+        "classification_sha256": "a78aada43176e1e151011bcdad8ac3b824ebc1e262dbb6996b88162d997de2bf",
+        "files": [
+          {
+            "name": "FGDC-3682.xml",
+            "size": 4619,
+            "sha256": "1400516e035cdb9c68cc0b5590ebdae4429ab3945497d50170fb8e3b823e06c1",
+            "md5": "f96592e311dcc3de9446e55c6edabac3",
+            "role": "descriptive_metadata"
+          }
+        ],
+        "sha256": "0898d3c9c06056403deb4fd09bfb805c5395421bb30a1a23bf88cd4a6be5cf0a"
+      },
+      "source_status": "supported",
+      "technical_metadata": "pass",
+      "remote_id": null,
+      "remote_doi": null,
+      "write_approved": true
+    }
+  ],
+  "readback_checks": [
+    "Returned positive integer draft ID belongs to the authenticated intended account and sandbox host",
+    "Draft is unsubmitted and never done/published; no publish/community-submission action",
+    "Metadata matches expected_metadata_sha256 using existing compare_metadata semantics; source-backed metadata unchanged",
+    "Exactly one original XML attachment, exact basename/size/MD5; downloaded bytes match pinned SHA-256",
+    "Source SHA-256, artifact policy/contract and payload hash match selection before any write",
+    "Reserved DOI, if returned, and draft ID are recorded and preserved across all retries; no production DOI assigned"
+  ],
+  "idempotency_checks": [
+    "Persist create intent before POST and returned ID before metadata/file operations",
+    "Execute candidates serially under existing environment ledger lock with one writer",
+    "Repeat exact unchanged payloads and same durable ledger: zero new creates, same IDs/DOIs, metadata/files verified",
+    "Unknown POST result stops for read-only reconciliation; never clear ledger or repeat POST",
+    "After partial failure resume known ID; skip already matching XML upload; no DELETE",
+    "Changed payload/source, unexpected files, stale/incomplete inventory, cross-host bucket or identity mismatch stops"
+  ],
+  "pending_gates": [
+    "Secure user credential approval/provisioning",
+    "Bounded authenticated GET and intended-account/ownership verification",
+    "Fresh complete sandbox owned/community inventory and genuine exact-payload duplicate decision",
+    "Separate independently verified synthetic payload and successful upload/readback/retry",
+    "Independent final exact selection verification after live inventory; only the pinned historical-title exception may be used"
+  ],
+  "synthetic": {
+    "source_id": "SYNTHETIC-PICES-9379FD8-20261002",
+    "source_sha256": "ba23767a19b7d235ffcc8d8cf03380052ae03735e08f5c4ca9c57316bd14ae25",
+    "source_bytes": 471,
+    "source_md5": "820b1d0e33ac04feb42248698cd3dcaa",
+    "prepared_payload_sha256": "987f2259092f42024331f90e694fb001e32e6b14cc0e05d98b8b78addb5998b8",
+    "expected_metadata_sha256": "2d3a4697cbec05b1cc219e39048b9ecb611ea811d076091edf5906b8cc4776ea",
+    "expected_metadata_file": "SYNTHETIC-PICES-9379FD8-20261002.expected-metadata.json",
+    "artifact_contract": {
+      "schema_version": 1,
+      "object_kind": "original_fgdc_xml",
+      "source_id": "SYNTHETIC-PICES-9379FD8-20261002",
+      "policy_sha256": "f2023e47e4999da6343ff913d2079948dcbdab618919617d42ce463edd206758",
+      "classification_sha256": "4f2f389cba048c7927122a5da1f5db37dd8c29863331d242cdd7b2702644687c",
+      "files": [
+        {
+          "name": "SYNTHETIC-PICES-9379FD8-20261002.xml",
+          "size": 471,
+          "sha256": "ba23767a19b7d235ffcc8d8cf03380052ae03735e08f5c4ca9c57316bd14ae25",
+          "md5": "820b1d0e33ac04feb42248698cd3dcaa",
+          "role": "descriptive_metadata"
+        }
+      ],
+      "sha256": "e7f9203dd867d9af0dac949c3c2886fb2c494096fdd55a52029d5ac1d4251c90"
+    },
+    "technical_metadata": "pass",
+    "source_status": "synthetic transport only, not actual-source QA",
+    "remote_id": null,
+    "remote_doi": null
+  },
+  "max_total_new_drafts": 4,
+  "authorization_scope": "User authorized bounded sandbox draft canary only; all execution gates and exact selection checks remain mandatory. No production/publication/deletion.",
+  "sandbox_duplicate_exception": "legacy-duplicate-exception.json",
+  "exception_payload_change": "Only the exact run namespace keyword is added; authentic title/source/rights/creators/dates unchanged.",
+  "base_code_commit": "9379fd8f13255b95ffab7a2c6735525e1d5cf1de",
+  "base_code_tree": "3079d38a9be151b85e15350404948f2f0e9b908d",
+  "runtime_commit": "Use exact reviewed updated runtime commit delivered with this packet; base runtime alone is insufficient"
+}

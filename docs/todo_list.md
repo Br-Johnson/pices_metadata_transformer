@@ -157,3 +157,184 @@ This checklist tracks everything required to shepherd FGDC metadata through the 
 - One logical change per commit; reference checklist items in commit messages.
 - Group related commits into focused PRs (e.g., “Pre-upload safeguards”) and include command outputs or log summaries in descriptions.
 - Update this TODO list and supporting docs alongside code changes so the team always has an accurate view of project status.
+
+## PR 8 implementation and independent review
+
+- [x] Preserve source/rights/date/creator fidelity and isolate durable draft state by environment.
+- [x] Require human QA for production publication and validate approved bounded selection.
+- [x] Four independent agents reviewed lifecycle, QA, metadata fidelity and integration; confirmed findings fixed and rechecked.
+- [x] 65 offline regressions pass, including network-blocked execution.
+- [ ] Human source adjudication, historical ledger reconciliation and live endpoint compatibility checks before operational use.
+
+Production remains draft until human QA. This entry supersedes any earlier automatic production publication guidance.
+
+## Current staged rollout — 2026-10-02
+
+- [x] Audit 20 stratified raw sources offline, including all five production imports and a missing-primary-date case; save source hashes, field comparisons, holds and duplicate evidence under `docs/readiness/2026-10-02/`.
+- [x] Validate documented editable `inprogress` draft response and reject submitted drafts; add mock regression.
+- [ ] Obtain source-specific rights, deposited-object/date/creator decisions; zero audited cases are currently approved for a live canary.
+- [x] Implement the opt-in reviewed original XML artifact contract with source/policy/file hashes, checksum/readback/resume tests and stale QA rejection; authenticated live compatibility remains pending.
+- [ ] Establish authorized authenticated sandbox session, then run at most three approved draft canaries and idempotence readback before expansion. No publication or community submission.
+
+## Delegated record-level QA policy — 2026-10-02
+
+Brett explicitly delegated record QA to agents, superseding human-per-record requirements above. Production release remains a separate explicit authority decision; no release or merge is inferred.
+
+- [x] Prepare three source-backed technical XML drafts and one labeled synthetic fixture offline; preserve metadata-date semantics, source attribution and unresolved license values. No remote writes.
+- [x] Add source/evidence-bound schema-2 agent QA with explicit holds; preserve historical human schema-1 manifests.
+- [x] Require independent program review, population-bound risk-stratified spot checks and separate release selection before production publication.
+- [ ] Execute authenticated bounded sandbox draft/readback/idempotence canary; no authenticated sandbox session/client is available in this execution environment.
+- [ ] Obtain or investigate authoritative XML redistribution evidence for held publication cases; no default license or blanket approval.
+
+## Isolated lifecycle recovery — 2026-10-02
+
+- [x] Reject altered cached semantic verdicts while preserving unchanged transformation reuse and honest source-only flags.
+- [x] Revalidate source-bound restoration authority for historical schema-1 and schema-2 human approvals.
+- [x] Preserve failing-first regressions and pass all 136 socket-blocked tests; fresh/resumed classification preserves all 4,206 source decisions and original hashes. See `readiness/2026-10-02/qa_lifecycle_recovery.md`.
+- [x] Validate the exact 31-source Washington Sea Grant Program citation-origin cohort locally: 10/10 then 31/31 supported, 46 focused/surrounding tests and four final contact regressions pass. Preserve dates, source bytes, contact attribution, restricted files, blank license and separate release/readback gates. See `readiness/2026-10-02/sea_grant_cohort.md`; this batch is not pushed.
+- [ ] Reconcile the original writer before publishing this isolated recovery; live record QA, sandbox authentication and production release remain pending.
+
+## Local Contact Source interpretation — 2026-10-02
+
+- [x] Pin Brett's 18:26:45 UTC dataset-acquisition interpretation to the exact 1,004-source cohort and preserve USER_ATTESTED provenance without a license or release grant.
+- [x] Capture the focused missing-behavior RED, then implement the exact source/policy binding alongside separate restricted-file restoration authority.
+- [x] Complete restriction/lifecycle controls, ten-source preparation, 147 socket-blocked tests, and byte-identical fresh/resumed whole-collection QA: 914 supported preparations/3,286 held/six malformed; 8,406 source/copy hash checks and 4,194 unchanged raw metadata objects. See `readiness/2026-10-02/contact_source_cohort.md`.
+- [ ] Complete independent review; sandbox readback, aliases and production release remain separate gates. This batch has no push or provider-write authorization.
+
+## PR8 source and batch review findings — 2026-10-02
+
+- [x] Repair canonical FGDC source precedence and reject divergent/ambiguous available copies without changing originals or compatible fallback.
+- [x] Filter eligible pending uploads before applying the wrapper limit; make existing per-invocation statistics truthful.
+- [x] Capture intended failing-first regressions, 76 focused socket/subprocess-blocked passing tests and the synthetic limit-ten smoke.
+- [x] Complete the cloud full offline suite: 160 tests pass, including the synthetic limit-ten upload and unchanged-rerun smoke; zero network/disallowed-subprocess attempts. All 4,206 original SHA-256 values remain unchanged. See `readiness/2026-10-02/cloud_source_batch_findings.md`.
+- [ ] Complete independent integration review and substantive GitHub Codex review before declaring PR8 ready; no provider writes or publication occurred in this findings lane.
+- [ ] Update the current runbook, candidate canary guidance and technical debt to reflect cluster-first curation and the fresh labeled canary direction. Existing inventory code gates remain unchanged; selector composition and conflict handling are being developed separately and are not part of this checkpoint.
+
+Original FGDC XML plus explicit source-backed corrections establishes metadata truth. Existing sandbox records provide reconciliation and API-delivery evidence, not a metadata baseline to reproduce.
+
+
+## Cloud integration — 2026-10-02
+
+- [x] Verify public PR8/checkpoint trees, transfer hashes and all 4,206 original bytes.
+- [x] Finish source precedence/divergence and pending-before-limit findings; independent diff review.
+- [x] Complete strict correction compiler with fieldwise conflict/supersession controls and independent review.
+- [x] Independently audit exact 821-member creator cohort and hash-bound residual groups.
+- [x] Add narrow opt-in citation interpretation; revalidate human/agent QA and stale cache evidence.
+- [x] Run 183 guarded integration tests and byte-identical fresh/resumed whole collection: 1,328 supported / 2,872 held / six malformed; zero remote or release approvals.
+- [ ] Track actual final-head GitHub Codex review in PR8; local review/test receipts do not substitute for it.
+- [ ] Review narrower residual cohorts, retain alias/access holds, and separately establish future provider/readback/release gates.
+
+See [cloud integration evidence](readiness/2026-10-02/cloud_integration.md).
+
+
+## Unpushed registration cohort and production goal — 2026-10-02
+
+- [x] Keep published PR8 `d39cc21` frozen; Codex review quota blocker remains explicit.
+- [x] Rank all 2,872 held sources with exact context hashes and narrower residuals.
+- [x] Independently audit 122 database-registration source contexts; capture pre-change 122-held baseline.
+- [x] Add source-backed, separately authority-gated optional interpretation; 196 tests and bounded 10/122 source checks pass.
+- [x] Independently review source bindings, all human/agent routes and unchanged metadata; 78 supported / 44 creator holds.
+- [x] Verify fresh/resumed full corpus: 1,406 supported / 2,794 held / six malformed; only 78 promotions; all 4,206 originals, 4,200 copies and 4,194 complete metadata objects unchanged.
+- [ ] Establish approved API connectivity and secure credential provisioning; current runtime probes fail before HTTP and no credentials are available.
+- [ ] Complete sandbox canaries, protected production identity/DOI guards, fresh duplicate and remote QA evidence, exact release binding and bounded verified publication under Brett's 21:09 UTC production goal.
+
+The new goal authorizes publication of defensible records; it does not invent
+remote evidence, grant credentials or authorize merge/deletion/billing changes.
+This local cohort has not been pushed or used for a provider operation.
+## Successor token compatibility — 2026-10-02
+
+- [x] Verify PR8 d39cc21 / tree 7f6db4b and hash all 4,206 originals before edits.
+- [x] Support opaque environment tokens with legacy cwd .env fallback; 189 offline tests pass (six new token tests); 4,206 original SHA-256 values unchanged.
+- [ ] Await Library archive metadata and full owner handoff before importing prepared batches.
+- [ ] Keep credential provisioning and exact canary plan separately gated; no provider writes.
+
+## Successor integration and credential safety — 2026-10-02
+
+- Repository handoff restored after Library helper transfer failed. Verified exact 68b1443 code/tree, evidence parent and three-file-only diff, archive SHA-256, all 43 inventory entries and 4,206 original hashes. Evidence branch was not merged.
+- Combined loader now rejects malformed/empty tokens before Session creation. Valid opaque placeholders remain unchanged. Transport/connection/bucket exceptions suppress potentially secret-bearing text and traceback chaining; remote error bodies are replaced with HTTP status diagnostics. This deliberately trades verbose provider errors for credential confidentiality.
+- 207 guarded offline tests pass, independently reproduced. Prior P2 credential leak is closed. Fresh whole-corpus classification matches all handoff statuses: 1,406 supported / 2,794 held / six malformed; 4,200 XML copies and 4,206 originals verified unchanged. See `readiness/2026-10-02/successor_integration_validation.json`.
+- Secure sandbox setup instructions prepared in `readiness/2026-10-02/successor_secure_sandbox_setup.md`. No credentials provisioned or provider writes. Actual proxy substitution, intended account, inventories and exact synthetic canary selection remain unverified/gated. Contributor-or-Source interpretation remains pending. Original d8b30c5 branch retained; combined branch unpublished.
+
+## Narrow sandbox canary duplicate exception — 2026-10-02
+
+- Brett's explicit historical sandbox-duplicate authorization is implemented only through `canary_plan` on the checker/service. The code pins the three-source plan SHA-256, exact source/payload/metadata hashes, namespace and HTTPS sandbox origin; production rejects opt-in before client creation. Title matches require creation strictly before 2026-10-02 UTC and no canary namespace; identifier, recent, unknown-date, local-batch and own-run identity conflicts remain blocked.
+- New actual-source payloads add only one namespace keyword. Initial create POST includes exact metadata, so lost responses remain discoverable by namespace. A bound ledger and consumed create grants prevent cached-inventory reuse after ledger loss; uncertain creates stop. Exact same-run retries preserve IDs/files and must remain unsubmitted drafts. Canary ledgers cannot be published. No deletion or production exception was introduced.
+- Failing-first feature test preceded implementation. Independent review then reproduced two concrete defects (lost-ledger duplicate create and published-state retry); both were captured as failing regressions and fixed. Current 232-test guarded offline suite passes, including all three candidates first-run/retry with exactly three creates and uploads. Independent final review is recorded in the handoff receipt. No provider writes by the code owner.
+- Provider must keep the original synthetic ledger and count it against the four-total cap; do not repeat synthetic creation. New actual-source payload hashes supersede the earlier unmarked packet only before actual-source intents exist. See `handoff/sandbox-canary-20261002/EXECUTOR.md`.
+
+## Safe constructor probe diagnostics — 2026-10-02
+
+- Separate from the sandbox exception: constructor requests are one-attempt and preserve fixed stage, allowlisted exception type, observed HTTP status or null, retryability and attempt count. No token/URL/header/body/exception text or original traceback is exposed.
+- Dummy tests distinguish transport and HTTP errors, guards before response and after status/JSON/owner/link stages, arbitrary exception names/attributes and secret-bearing messages. The provider guard source is not yet available; no actual cause or authentication failure is asserted. Provider remains paused and code owner performs no authenticated request. See `readiness/2026-10-02/constructor_probe_diagnostics.md`.
+
+## Reviewed read-only inventory guard — 2026-10-02
+
+- Reviewed complete sanitized provider guard source. Its per-record blanket host filter was overly broad for inert DOI/citation/HTML links; no actual failing branch can be inferred from the retained evidence. Query blank-value omission, pre-transport counting, constructor/outer exception erasure and missing-hit fallback were also identified.
+- Added context-managed SandboxInventoryGuard with strict outgoing sandbox GET/endpoints/Bearer, actionable pagination checks, streaming byte bound and safe status/milestones. Inert record links are never followed. An independently found cleanup exception leak is fixed; cleanup cannot mask primary safe errors or mark completion.
+- The exact next diagnostic is one constructor GET, followed by pause even if successful; it does not authorize pagination or writes. See `readiness/2026-10-02/reviewed_inventory_guard.md`. No provider requests by the code owner.
+
+## Contributor or Source attestation integration — 2026-10-02
+
+- Brett's exact “yes” at 23:43 UTC is separate USER_ATTESTED evidence for the 585 original source/hash pairs. The optional contributor interpretation preserves all four original access/use fields, restricted XML, blank licenses, separate rehosting authority, and independent creator/date/security holds.
+- Independent review caught mutable cohort membership despite a refreshed manifest hash. Contributor-only canonical count and sorted source-map SHA-256 now reject additions, removals, rebinding and same-count substitutions; the older Contact Source profile is unchanged. Real-source and synthetic shape regressions cover both the scope and preserved restrictions.
+- The reviewed executor guard is frozen separately at d5022b8828ef910749aef32371304f2b2b669674 on handoff/pr8-reviewed-read-guard-20261002; all 17 packet entries verify. Its next step remains one constructor GET only after parent dispatch, then pause. No implementation-owner authenticated requests or provider writes. Historical pending entries above describe earlier checkpoints and are superseded by the current validation receipts.
+- Final guarded offline suite: 264 tests pass; independent contributor/legacy review: 16 tests pass with no remaining findings. The final corpus run yields 1,988 supported / 2,212 held / six malformed, exactly 582 promotions from the attested cohort. FGDC-1390 retains ambiguous creator semantics; FGDC-1422 and FGDC-1423 retain insufficient metadata-date precision. See `readiness/2026-10-02/contributor_source_validation.json` for reproducibility and preservation evidence.
+
+## Remaining held cohorts — 2026-10-03
+
+- Ranked all 2,212 held sources from PR8 c486d1f with exact source/hash evidence. Alias identity and six unsupported metadata dates remain held; separate institutional/access opportunities are reported without claiming promotions.
+- Implemented the independently reviewed 70-source literal DFO Staff interpretation on a separate branch. Names, full metadata, source bytes and rights remain unchanged; no inferred type, affiliation, acronym expansion or contact-derived author. Manifest bytes pin exact source membership and full creator objects.
+- Failing-first regression and 16 focused tests (independently reproduced), then 270 guarded full-suite tests pass. Full-corpus preservation/resume receipt accompanies the cohort report in readiness/2026-10-03. Provider handoff d5022b8 and PR8 c486d1f are not moved by this branch.
+
+## Exact institutional citation cohort — 2026-10-03
+
+- [x] Reconcile PR8 c486d1f and source-QA 8bc36dc, reproduce 270 offline tests, preserve the separately frozen canary a8cfeef.
+- [x] Audit every original hash/plain primary origin for the four exact literal institutions (26/19/20/7 members; 72 total). Preserve existing full creator objects; no name splitting, expansion or attribution from contacts.
+- [x] Add the pinned opt-in profile; 63 promotions and nine independent residuals verified, with both human schemas/agent QA and withdrawal/tampering tests.
+- [x] Validate byte-identical fresh/resumed corpus (2,121 supported / 2,079 held / six malformed), all 4,206 originals, 4,200 copies and 4,194 full metadata objects; independent review cleared. The source-QA branch combines the reviewed DFO70 and new63 delta for PR8 integration without merge.
+
+## Residual source review after a70e56b — 2026-10-03
+
+- [x] Recheck the pinned current report, every original/copy/payload hash and full metadata preservation. Audit exact residual creator cohorts and retain independent access/role holds; analysis grants no eligibility or publication approval. Evidence: readiness/2026-10-03/residual_creator_analysis.json, unchanged 2,121 supported / 2,079 held / six malformed.
+- [x] Freeze a concrete next creator batch and truthful Oct 6 readiness evidence independently of the unresolved Sandbox create. Independent review reproduced the exact audit and checked all 118 members; the 27-source next batch has 16 current creator-only diagnostics and 11 independent access holds, with no implemented promotion. No POST retry, provider operation or canary state reset. See readiness/2026-10-03/residual_source_next_batch.md.
+
+## Residual 27-source citation implementation — 2026-10-03
+
+- [x] Independently review all 27 plain literal source citations and freeze an additive 99-member manifest retaining the previous 72 cohort objects verbatim. Preserve full creator objects, exact spelling, dates, restrictions, blank licenses and the XML-authorship caveat.
+- [x] Add the second pinned manifest to the existing opt-in institution path; targeted failing-first tests, 30 focused and 284 guarded full tests, byte-identical fresh/resumed corpus. Actual 16 promotions yield 2,137 supported / 2,063 held / six malformed; all eleven access holds, 4,206 original hashes, 4,200 copied XML byte sequences and 4,194 complete metadata objects are preserved. Independent implementation review cleared.
+- [x] Record parallel read-only role/access decisions for Ecotrust37, USDA/DNR31 and Unaami23 with exact membership bindings; retain unresolved meaning holds. No correction or eligibility change for those 91 members.
+- [x] Complete independent implementation and handoff-document review; prepare the reviewed checkpoint for publication within existing non-draft PR8, without merge, provider operation or create-allowance reset.
+
+## Reviewed joint and collection citations — 2026-10-03
+
+- [x] Reuse the exact 91-source role reviews and explicitly review the entire two-Organization USDA/DNR after-image. Freeze a 190-member proposal retaining the prior 99 cohort objects; correct only 68 joint citation creator lists and retain Unaami's 23 literal collection objects.
+- [x] Validate opt-in only, all 190 source/hash/full-object bindings and prior 99 preservation; 35 focused and 289 guarded full tests pass, independently reproduced. Fresh/resumed full-corpus QA is byte-identical at 2,138 supported / 2,062 held / six malformed; only FGDC-619 is promoted. Exactly 68 creator/bounded-note corrections and 190 policy references change, retaining 90 access holds and all other metadata, dates, rights and source/copy bytes. Independent complete baseline duplicate/source-integrity preparation passes.
+- [x] Independently review the implementation and all corpus/document evidence; record exact remaining access decisions and freeze the reviewed checkpoint for approved existing non-draft PR8 publication, without merge, provider operation or uncertain-create reset.
+
+## Exact-copy alias reconciliation analysis — 2026-10-03
+
+- [x] Independently compare all 228 raw-byte pairs / 456 held identities, including complete prepared metadata/policies, filename-bound payloads, derived artifact/submission fingerprints and retained historical production associations. No source/runtime/provider state changed.
+- [x] Generate a deterministic source-alias to candidate byte-group map retaining original IDs/filenames/hashes; label numeric representatives provisional and keep every provider record/DOI selection unset. Preserve all holds and distinguish two title-only collisions from the retained ProCite104 record.
+- [x] Record parallel non-alias creator/date candidates and the exact 90-member morning meaning bundle; both independent artifact reviews clear the frozen maps/docs, including corrected metadata-review-date labeling. Deterministic repeated generation, Ruff F checks and local-link validation pass. Freeze an analysis-only checkpoint for approved existing non-draft PR8 publication; source counts/holds, provider state and all original/payload bytes stay unchanged.
+
+## Exact literal-citation extension — 2026-10-03
+
+- [x] Review all 39 full source-bound creator after-images and extend the opt-in manifest, retaining the previous 190 cohort objects and excluding five same-origin access-held siblings. Bind immediate predecessor/current evidence hashes and retain explicitly labeled ancestral evidence.
+- [x] Verify opt-in/withdrawal/full-object forgery protections, agent and both human QA schemas: 34 focused / 294 guarded offline tests pass; independent runtime review reproduces all 294. Fresh/resumed full-corpus QA is byte-identical at 2,177 supported / 2,023 held / six malformed, exactly 39 promotions. Verify 4,206 originals / 4,200 copies / 4,194 payloads, all complete metadata unchanged, only 229 policy references changed and 3,965 payload byte sequences unchanged; all access/alias/date/mixed-role holds remain intact.
+- [x] Independent runtime and complete source-integrity/document reviews clear the frozen implementation and receipts, including all 39 full creator objects, 90 exact four-field access bindings, 456 aliases, historical ID/DOI protections and 19 local links. Freeze the tested handoff for approved existing non-draft PR8 publication and return the nine-partition morning questions in plain text. Keep uncertain canary creation, all remaining source/access/alias holds and production release gates intact.
+
+## Remaining source credits and historical dataset linkage — 2026-10-03
+
+- [x] Reconcile the 2,023 actual held sources at dfeff4ce into disjoint creator/access/alias/date/title/relation scopes. Implement only independently reviewed exact source/hash-bound creator after-images and the 21 historical shared dataset links. Preserve all previous 229 cohort objects, source bytes, access and alias holds, dates, rights and frozen uncertain-create state.
+- [x] Verify default/withdrawal/tamper behavior, full mixed XML and role-context preservation, agent and both human QA schemas, guarded tests, complete corpus delta and deterministic resume.
+- [x] Complete independent runtime/source-integrity/document review and freeze a handoff for approved existing non-draft PR8 publication; queue remaining source decisions for morning.
+
+- Actual complete 111-promotion batch: 90 source-credit corrections (82 creator lists changed, eight notes-only), 21 historical-link corrections; 2,288 supported / 1,912 held / six malformed. Seven new focused / 301 guarded tests pass and independent source/runtime/delta reviews clear. Fresh/resume and all original/copy/payload integrity verified. Remaining 86 access-plus-creator cases are ranked, without approved after-images or new access authority.
+
+## Access-held source credit cleanup — 2026-10-03
+
+- [x] Review the exact 86-member source/hash queue after 9cdf8b0, prioritizing the five literal siblings and separating credits, interview/reporting, compiler/editor, contract and collection roles. Root remains sole writer.
+- [x] Implement only independently reviewed complete source-credit after-images in an additive pinned profile preserving the previous 143 cohort objects covering 319 source bindings; retain every access, date, rights and alias hold.
+- [x] Verify full metadata/source/payload delta and guarded contracts; complete independent runtime/source/document review and freeze the handoff for approved existing PR8 publication. No provider operations, uncertain-create retry or access-meaning decision.
+
+- Actual 77 corrections preserve all 86 access holds: 34 creator lists change / 43 notes-only; all source counts remain 2,288 supported / 1,912 held / six malformed. Five new focused / 306 guarded tests pass, independently reproduced; complete fresh/resumed corpus delta and documents are independently reviewed. Prior cohort objects, 456 aliases and 90 access holds remain intact; nine source-role gaps are queued with exact hashes. This 86-member creator queue is complete; further corrections here require new attribution evidence, and access meaning remains separate.

@@ -21,10 +21,10 @@ from scripts.path_config import OutputPaths, default_log_dir
 class RecordReviewer:
     """Comprehensive record review and analysis tool."""
     
-    def __init__(self, output_dir: str = "output", logs_dir: str = "logs"):
+    def __init__(self, output_dir: str = "output", logs_dir: str = "logs", sandbox: bool = True):
         self.output_dir = output_dir
         self.logs_dir = logs_dir
-        self.paths = OutputPaths(output_dir)
+        self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
         self.logger = get_logger()
         
         # File paths
@@ -617,7 +617,7 @@ def main():
     
     try:
         # Create reviewer
-        reviewer = RecordReviewer(args.output_dir, args.logs_dir)
+        reviewer = RecordReviewer(args.output_dir, args.logs_dir, sandbox=not args.production)
         
         # Review record
         result = reviewer.review_record(

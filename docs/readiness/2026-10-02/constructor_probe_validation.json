@@ -1,0 +1,18 @@
+{
+  "exception_patch_commit": "7f3493f65afbf4c137ed7f7fa3a14cbb6e2aedf3",
+  "full_offline_tests_passed": 239,
+  "independent_full_offline_tests_passed": 239,
+  "diagnostic_tests": 7,
+  "token_tests": 11,
+  "exception_tests": 25,
+  "independent_diagnostics_review": "Cleared after disabling constructor redirects; fixed categories/stages/status/retryability preserve safe evidence",
+  "constructor_max_request_attempts": 1,
+  "constructor_retries": false,
+  "constructor_redirects": false,
+  "originals_unchanged": 4206,
+  "provider_guard_source_reviewed": false,
+  "past_provider_failure_cause": "unknown: no retained response or completed guard stage",
+  "further_probe_performed": false,
+  "provider_writes_by_code_owner": 0,
+  "remaining_gate": "Obtain sanitized guard implementation, review with dummy fixtures, then parent-dispatch at most one staged read-only diagnostic probe; no blind rerun."
+}

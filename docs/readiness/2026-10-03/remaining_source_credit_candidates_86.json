@@ -1,0 +1,2305 @@
+{
+  "schema_version": 1,
+  "scope": "READ_ONLY source-role review queue; no approved after-images, eligibility change, access interpretation or publication authority.",
+  "report_sha256": "e075199e01caef6a1018160be2a74c73f76b3d42190eac72511a14d0f9a0eb26",
+  "member_count": 86,
+  "member_inventory_sha256": "50b589b0938d49a62077f564324c7501c89b23af0249f3aa871692bac638354b",
+  "queue_counts": {
+    "literal_institution_program": 37,
+    "plain_person": 8,
+    "person_list_and_named_role": 10,
+    "joint_agency_contractor": 7,
+    "mixed_XML_roles": 17,
+    "nonperson_primary": 7
+  },
+  "possible_next_exact_literal_siblings": [
+    "FGDC-121",
+    "FGDC-1767",
+    "FGDC-336",
+    "FGDC-533",
+    "FGDC-535"
+  ],
+  "source_caveats": {
+    "radio_1257_1258_1262_1273": "Abstract explicitly identifies Doug Schneider as reporter; resolve primary named credit role before asserting radio authorship.",
+    "FGDC-906": "Compiler role is explicit.",
+    "FGDC-289": "Editor role (Ed) is explicit.",
+    "FGDC-565": "Archaeological access restriction is separate and explicit.",
+    "FGDC-2228": "Abstract reference supplies Susanne F. McDermott and Sandra A. Lowe; exact-work supplemental review needed.",
+    "FGDC-2656": "Abstract reference supplies Allen, E.W.; exact-work supplemental review needed.",
+    "FGDC-2691": "Abstract reference supplies Hansen, Paul G.; exact-work supplemental review needed.",
+    "FGDC-10": "Address-only primary origin; additional attribution evidence needed.",
+    "FGDC-2664_FGDC-2817": "Journal-only primary origins without authors in inspected abstracts.",
+    "FGDC-715": "Literal CIA World Bank II collection credit; do not silently modernize or infer type."
+  },
+  "members": [
+    {
+      "source_id": "FGDC-10",
+      "source_sha256": "d6058b56805804d05348d45dd3e4686acc258dfc3495107b1d06cf345bbb592c",
+      "review_queue": "nonperson_primary",
+      "raw_primary_origins": [
+        "83 Havelock St."
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "83 Havelock St."
+        }
+      ],
+      "prepared_payload_sha256": "b406aeac2d15fce40494739d1b46154d8a3dd39192118c41ab87343c262a41dc",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-121",
+      "source_sha256": "a738d9405f8b2643db90693f08e29b793ff679137796dac443221d7848a8a6fd",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Raytheon ITSS"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unless specifically annotated otherwise, and may be used freely by the public.",
+        "./idinfo/useconst": "Real-time data has undergone gross error checking only.  Use real-time data with discretion.",
+        "./metainfo/metac": "Unless specifically annotated otherwise, and may be used freely by the public.",
+        "./metainfo/metuc": "Real-time data has undergone gross error checking only.  Use real-time data with discretion."
+      },
+      "raw_metadata_date": "19990317",
+      "existing_full_creators": [
+        {
+          "name": "Raytheon ITSS"
+        }
+      ],
+      "prepared_payload_sha256": "6f98cd71251f36294efe3586fd69c910071c54a31e98864b438e23aa7f989283",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1256",
+      "source_sha256": "be0ebc8c43e6b66d3a73ec0d896a5379398165bc85233a239e9324166b56059a",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Nicholas Bond\n          \n          University of Washington (UW), Joint Institute for the Study of Atmosphere and Ocean (JISAO)\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020128",
+      "existing_full_creators": [
+        {
+          "name": "Nicholas Bond University of Washington (UW), Joint Institute for the Study of Atmosphere and Ocean (JISAO)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "2696da7df4b20dfdedbd3c6c4200a0007b4d3d16c7a57a785a201156082e0974",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1257",
+      "source_sha256": "343d0e1b6c7d96a3899dfe5173b84ce12f8a5174d77b7fbdf65a897a00416b42",
+      "review_queue": "plain_person",
+      "raw_primary_origins": [
+        "Brad Stevens"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020128",
+      "existing_full_creators": [
+        {
+          "name": "Brad Stevens"
+        }
+      ],
+      "prepared_payload_sha256": "e7f495ef45c5de71009dd29f276d155727e2993a744473f52c49df748ed82787",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1258",
+      "source_sha256": "fb72564a17bf0535a1cfeaab04dd92d674dcb164ce4d608cdd17c19a5b1bfac9",
+      "review_queue": "plain_person",
+      "raw_primary_origins": [
+        "Nancy Fresco"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020128",
+      "existing_full_creators": [
+        {
+          "name": "Nancy Fresco"
+        }
+      ],
+      "prepared_payload_sha256": "a258da2f1437ae28dcdbc27927b337bb62dee3d3c5ef203cecfd67e738c9afdf",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1262",
+      "source_sha256": "3b9761159b7036598d96e2fcee9651c8f1c32428840106c4edb5cf53483d93cc",
+      "review_queue": "plain_person",
+      "raw_primary_origins": [
+        "William Smoker"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020128",
+      "existing_full_creators": [
+        {
+          "name": "William Smoker"
+        }
+      ],
+      "prepared_payload_sha256": "ecbe5f915650cbf50a9555570ad271608a7daf4362a4a3759c0991eda499b64d",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1263",
+      "source_sha256": "470a654c76433c464cb35a8f95a2290014357b5109a742b65fe15428e753e44e",
+      "review_queue": "plain_person",
+      "raw_primary_origins": [
+        "Andy Hall"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020128",
+      "existing_full_creators": [
+        {
+          "name": "Andy Hall"
+        }
+      ],
+      "prepared_payload_sha256": "abb3972ae9d6352a9427d6c7c6fa2949a205fba84b0d56d441159db4e2f36227",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1265",
+      "source_sha256": "822140d568756c49c6fc7cdccd24a4613755df799176b6480444479c16a113be",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Dallas Museum of Natural History"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020206",
+      "existing_full_creators": [
+        {
+          "name": "Dallas Museum of Natural History"
+        }
+      ],
+      "prepared_payload_sha256": "36667a44d7e47e254c9d234a91623d772256645d1ac08de330a2050369d71981",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1269",
+      "source_sha256": "2f02acb43598afcbcff084d6c324e9672bb43185d2b85109a32936e43d994954",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "Andy Hall; Alaska Magazine"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020225",
+      "existing_full_creators": [
+        {
+          "name": "Andy Hall; Alaska Magazine"
+        }
+      ],
+      "prepared_payload_sha256": "e0fa3b097e5bb94b4d1d7fcbc13e8a5e0657c9d0bf3150a977298f773e7851d4",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1271",
+      "source_sha256": "96710d45ba9976dfc273123c061d8480e0b1875e82911aedf0e88179bb8d655d",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "Sonya Senkowsky - AlaskaWriter Magazine"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020225",
+      "existing_full_creators": [
+        {
+          "name": "Sonya Senkowsky - AlaskaWriter Magazine"
+        }
+      ],
+      "prepared_payload_sha256": "a5b1c950556cb0639a602059306150a5d7ff76f853cd6ae618e9cf71b4701b60",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1273",
+      "source_sha256": "02957d0e04f214f4f02b72487d71923b613c01d81133967b17c2381626b1309a",
+      "review_queue": "plain_person",
+      "raw_primary_origins": [
+        "Jan Curtis"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020225",
+      "existing_full_creators": [
+        {
+          "name": "Jan Curtis"
+        }
+      ],
+      "prepared_payload_sha256": "081aadfa47859f868cb5452c9a0317f08b91bee02d471de7ed34e80dcf41357b",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1282",
+      "source_sha256": "fdc0789aeab6e1e3b241eec81815ce0565919701bf0b038db4b02c7a9b1de627",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Fisheries and Oceans Canada"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020225",
+      "existing_full_creators": [
+        {
+          "name": "Fisheries and Oceans Canada"
+        }
+      ],
+      "prepared_payload_sha256": "1353f98e69159cc9b2866cbb94294138c4844a93b65e263d2379a4886ad9cf61",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1287",
+      "source_sha256": "bf037a4cc53536aa64b3c848af0c4f025f5b9935b02daffcb5f4e659f32139ac",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Alaska Affairs - At-sea Processors Association"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020225",
+      "existing_full_creators": [
+        {
+          "name": "Alaska Affairs - At-sea Processors Association"
+        }
+      ],
+      "prepared_payload_sha256": "4e2cd275cc6e8824958850ff923a21c086d715f066cc4c644b0eb6d72464745b",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1289",
+      "source_sha256": "0b570b4165374be03471b99ea576db712d8b75639563641f2f818e9700edd022",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "North Slope Borough"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020225",
+      "existing_full_creators": [
+        {
+          "name": "North Slope Borough"
+        }
+      ],
+      "prepared_payload_sha256": "dcbf2679ddce8be4b64663f4bb08d5d8137ed0f6eb6a8d01c9189f37ca54f2a5",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1291",
+      "source_sha256": "5058840108166feafe018819f256dfb587224dc249be903cf309b5561972cacb",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Alaska Oceans Network"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "raw_metadata_date": "20020225",
+      "existing_full_creators": [
+        {
+          "name": "Alaska Oceans Network"
+        }
+      ],
+      "prepared_payload_sha256": "3bf0a892125890a408d34ed0244cd706c645792628ae6eba69aa49db4c969774",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1643",
+      "source_sha256": "e47fa7716d05477ec49aa845e6e953f094a3d9379377cfe34c2c9968e4ac41dd",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "Kiyotaka Ohtani and Tomonori Azumaya"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "FAX and email",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "FAX and email",
+        "./metainfo/metuc": "None"
+      },
+      "raw_metadata_date": "19970806",
+      "existing_full_creators": [
+        {
+          "name": "Kiyotaka Ohtani and Tomonori Azumaya"
+        }
+      ],
+      "prepared_payload_sha256": "4eff76a20835414f36bc3115f54695ef15a03e0a3eebe6d5f2c549790f7855b5",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-17",
+      "source_sha256": "0afb42c697a1d6828fb45b5f65c8e8cd9542cbec33991c14e42353d8a3a5a52e",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Russian Acadamy of Science, Far East Div., Pac. Inst. Geogr., Kamchatka Div. Wildl. Manage."
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Refer to webstite URL: http://www.csa.com/",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Refer to webstite URL: http://www.csa.com/"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "Russian Acadamy of Science, Far East Div., Pac. Inst. Geogr., Kamchatka Div. Wildl. Manage."
+        }
+      ],
+      "prepared_payload_sha256": "e0f79219efbd0f1e4f1a011f192e8ad7f879a6218e599c59431e3f880f99818e",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1767",
+      "source_sha256": "4c82d4256cc2c3e33d9f31083c99206bbf7a50ea1281344d2e2bf4dfcd78c147",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "U.S. GLOBEC Northeast Pacific"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "raw_metadata_date": "20040108",
+      "existing_full_creators": [
+        {
+          "name": "U.S. GLOBEC Northeast Pacific"
+        }
+      ],
+      "prepared_payload_sha256": "8aa6d11eefac8d7fb3e3d0d85bdcd07ac4c5634e2d61337b23744de59011fefa",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1800",
+      "source_sha256": "7028ba9a632c5aad7c1ee9a97142b9eab382b9fd52ebd494e753acefeaf46dea",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Sir Alister Hardy Foundation for Ocean Science"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Permission of Contributor required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required.",
+        "./metainfo/metac": "Permission of Contributor required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required."
+      },
+      "raw_metadata_date": "20040210",
+      "existing_full_creators": [
+        {
+          "name": "Sir Alister Hardy Foundation for Ocean Science"
+        }
+      ],
+      "prepared_payload_sha256": "9f0faf3d2ca0e49262044562f838985d462cda9b8fcd135e7c078e15c7775c8f",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-1903",
+      "source_sha256": "63c017345d2328f74bda6acb9bd04f2a8a507714b5e106b8d089490348f12e56",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "Devol, A.H., Codispoti, L.A., and Christensen, J.P."
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "raw_metadata_date": "20040429",
+      "existing_full_creators": [
+        {
+          "name": "Devol, A.H., Codispoti, L.A., and Christensen, J.P."
+        }
+      ],
+      "prepared_payload_sha256": "90ac7ba274ed501b0b0a66e470cb0b363ab76d5d02410b1d963b33e0f213c997",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-20",
+      "source_sha256": "6344d7ea61e2051fb1bdf56c374d183e63d3e4d4131ff43d64c96f201a200fb9",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Hokkaido University, Division of Earth and Planetary Sciences, Graduate School of Science"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "Hokkaido University, Division of Earth and Planetary Sciences, Graduate School of Science",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "4fc3c295023f33777a9c1e00f5b840eb4de53072a4515ddd1a9ce56107953ee2",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-218",
+      "source_sha256": "04fd251ef538126fc4a3bb1b963a76e6a22fa89d290915ee69e44eb64cf944e5",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Resource Ecology and Fisheries Management Division (REFM), Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanographic and Atmospheric Administration (NOAA)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Upon request",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Upon request",
+        "./metainfo/metuc": "None"
+      },
+      "raw_metadata_date": "19990804",
+      "existing_full_creators": [
+        {
+          "name": "Resource Ecology and Fisheries Management Division (REFM), Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanographic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "e31ac4cf508799276b7f9e64e6b4c01b5a04156bcace87b2aa36eba7b2276146",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2197",
+      "source_sha256": "421c742efcfd50498a916673e4a4e4b257b67a2929205d40cff11e2a07ba1113",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          North Pacific Groundfish Observer Program, compiler and editor\n          \n          National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./idinfo/useconst": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./metainfo/metac": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./metainfo/metuc": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged."
+      },
+      "raw_metadata_date": "19970802",
+      "existing_full_creators": [
+        {
+          "name": "North Pacific Groundfish Observer Program, compiler and editor National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "0abdf862d93250311cee8af1914ce6fb9fc0914e58fe1baeba33e302c67632c7",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2228",
+      "source_sha256": "141b02ba492c39db7996678e24917a951d1acd5bb5fae5d105044f78b996e37e",
+      "review_queue": "nonperson_primary",
+      "raw_primary_origins": [
+        "Fishery  Bulletin  1997"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "If data were collected by observer, vessel name is confidential",
+        "./idinfo/useconst": "Contact contributor",
+        "./metainfo/metac": "If data were collected by observer, vessel name is confidential",
+        "./metainfo/metuc": "Contact contributor"
+      },
+      "raw_metadata_date": "19980723",
+      "existing_full_creators": [
+        {
+          "name": "Fishery Bulletin 1997"
+        }
+      ],
+      "prepared_payload_sha256": "2441e40fe9fa9dc76d7eb27f1f063c927f2ad4a0e032b86568c5ee4f285eb61c",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2232",
+      "source_sha256": "8c0498452f5d0d971257c46731e690ab78297694f4c3f61f07a8df834f7b850f",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "MSO Anchorage"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Federal Government maintained database which does contain Privacy Act Material",
+        "./idinfo/useconst": "Quality of information is uneven /  information can be very difficult to extract and largely was to be done through Washington D.C.",
+        "./metainfo/metac": "Federal Government maintained database which does contain Privacy Act Material",
+        "./metainfo/metuc": "Quality of information is uneven /  information can be very difficult to extract and largely was to be done through Washington D.C."
+      },
+      "raw_metadata_date": "19980723",
+      "existing_full_creators": [
+        {
+          "name": "MSO Anchorage"
+        }
+      ],
+      "prepared_payload_sha256": "cc925978c8e8d1135570c31458f211c0f3f13d9172aa22c02df84d3ce9034ae6",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2234",
+      "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "CWO3  James Mike Anderson"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Database is maintained on a standalone system and is considered sensitive.",
+        "./idinfo/useconst": "Information is sensitive and subject to certain restrictions under the Freedom of Information Act.",
+        "./metainfo/metac": "Database is maintained on a standalone system and is considered sensitive.",
+        "./metainfo/metuc": "Information is sensitive and subject to certain restrictions under the Freedom of Information Act."
+      },
+      "raw_metadata_date": "19980723",
+      "existing_full_creators": [
+        {
+          "name": "CWO3 James Mike Anderson"
+        }
+      ],
+      "prepared_payload_sha256": "e6344e002033af9a96a75fd73908e37befaa4a7b376dc3043b8ce0dbaa905cc1",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2244",
+      "source_sha256": "9703a1f5392dac8c872c70296b8d4eb7748096a66c1664e553bfeec5d2ca63ea",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Alaska SAR facility at Fairbanks"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters",
+        "./idinfo/useconst": "Copyright protected by ESA and CSA. Give credit to ESA and CSA.",
+        "./metainfo/metac": "ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters",
+        "./metainfo/metuc": "Copyright protected by ESA and CSA. Give credit to ESA and CSA."
+      },
+      "raw_metadata_date": "19980728",
+      "existing_full_creators": [
+        {
+          "name": "Alaska SAR facility at Fairbanks"
+        }
+      ],
+      "prepared_payload_sha256": "73f38fd35970cc66667f65e5f845702e7126a35730c0aab948e1badf8d294dcb",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2293",
+      "source_sha256": "6e99db62f635043cb48edf38253ef029b7acfb3d0d5455d197d2c97854393320",
+      "review_queue": "plain_person",
+      "raw_primary_origins": [
+        "Susan J. Crockford"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Should be publically available after publication",
+        "./idinfo/useconst": "None on data.  Further analysis (e.g., DNA) on bone may require permission.",
+        "./metainfo/metac": "Should be publically available after publication",
+        "./metainfo/metuc": "None on data.  Further analysis (e.g., DNA) on bone may require permission."
+      },
+      "raw_metadata_date": "19980710",
+      "existing_full_creators": [
+        {
+          "name": "Susan J. Crockford"
+        }
+      ],
+      "prepared_payload_sha256": "3920544ba272446d1d84b42faa958606750bac112c740a7889811ca38a26931c",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2302",
+      "source_sha256": "e5a27697c6965960ea2a8bd8184e4b8739c79ce0f0cfa98dd6701c6c8bdc6c15",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          North Pacific Groundfish Observer Program, compiler and editor\n          \n          National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./idinfo/useconst": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./metainfo/metac": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./metainfo/metuc": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged."
+      },
+      "raw_metadata_date": "19970802",
+      "existing_full_creators": [
+        {
+          "name": "North Pacific Groundfish Observer Program, compiler and editor National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "592b87672d7fd84e3c137cedecad356a31b9157e0c8cd6fa98b3ce6c03c42ade",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2413",
+      "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Dr. Vidar Wespestad, editor\n          \n          Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Not available until edited and placed into an AFSC maintained database.",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Not available until edited and placed into an AFSC maintained database.",
+        "./metainfo/metuc": "None"
+      },
+      "raw_metadata_date": "19970802",
+      "existing_full_creators": [
+        {
+          "name": "Dr. Vidar Wespestad, editor Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "a0a7b2cbbe8a15d9da2442629a8efe00ccc2a4aef343368f9f4dd0af6c011bed",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-252",
+      "source_sha256": "d4a15a095c5be5cfadd075a23ce632af3a73969ae0ea017cf2c229af964eed7a",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Fisheries and Oceans Canada, Science Branch, Catch Statistics Unit"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      },
+      "raw_metadata_date": "19990811",
+      "existing_full_creators": [
+        {
+          "name": "Fisheries and Oceans Canada, Science Branch, Catch Statistics Unit"
+        }
+      ],
+      "prepared_payload_sha256": "dce414391b7ae96c498b9040ed7d30f32a190e76e91c4d551982438734b359e0",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2524",
+      "source_sha256": "bace4994cb6b32d9eca213fe1789afd21cdeb2269b2acdb5ca3ce720500130ce",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Patricia Livingston, compiler\n          \n          Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Contact Pat Livingston for more information.",
+        "./idinfo/useconst": "Contact Pat Livingston for more information.",
+        "./metainfo/metac": "Contact Pat Livingston for more information.",
+        "./metainfo/metuc": "Contact Pat Livingston for more information."
+      },
+      "raw_metadata_date": "19970802",
+      "existing_full_creators": [
+        {
+          "name": "Patricia Livingston, compiler Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "475a9a0b6a43e229edebf0b397bb7d0b72c137d0a39a56640f81fe84321ca9a2",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2557",
+      "source_sha256": "7af86209edfe433dd32d116ad14ba12a516880fc9e3d99742e922d5180990575",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Climate Data System (NCDS), National Aeronautics and Space Administration (NASA)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor about how to obtain data.",
+        "./idinfo/useconst": "Check with Contributor about how to obtain data.",
+        "./metainfo/metac": "Check with Contributor about how to obtain data.",
+        "./metainfo/metuc": "Check with Contributor about how to obtain data."
+      },
+      "raw_metadata_date": "19981014",
+      "existing_full_creators": [
+        {
+          "name": "Climate Data System (NCDS), National Aeronautics and Space Administration (NASA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "df764d6caea0b81183b2a9b9ca079fd0102c948c32fd9eb54d0e2f8d3ff565c5",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2603",
+      "source_sha256": "6a3cbd4808b1446f3264f553d24750023b861171dae7bcaebfb07065b1a01f4c",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Northwest Fisheries Center (NFC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Source  about how to obtain data.",
+        "./idinfo/useconst": "Check with Source",
+        "./metainfo/metac": "Check with Source  about how to obtain data.",
+        "./metainfo/metuc": "Check with Source"
+      },
+      "raw_metadata_date": "19990121",
+      "existing_full_creators": [
+        {
+          "name": "Northwest Fisheries Center (NFC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "f832fa8310876ce712d838677c7903ce9b3e67a533fea8ee64c3c4b90f3d3384",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-265",
+      "source_sha256": "752f0b18f02cc842b28309eb8f89e7830bc2bfdb99d6fa02426cff8771b39d9d",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Department of Fisheries and Oceans, Institute of Ocean Sciences, Ocean Sciences and Productivity Division"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      },
+      "raw_metadata_date": "19990813",
+      "existing_full_creators": [
+        {
+          "name": "Department of Fisheries and Oceans, Institute of Ocean Sciences, Ocean Sciences and Productivity Division",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "d755eaffd37b643383f040c67e9d8449ef6b04ef5b42ab55901072e142188efe",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2656",
+      "source_sha256": "bf5a1a37b9fb3a671be0cf99246a44fab08bf83fa6d7b4a1e809eda73c0eccb3",
+      "review_queue": "nonperson_primary",
+      "raw_primary_origins": [
+        "New York, Professional & Technical Press"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with your local library for book, author is not available.",
+        "./idinfo/useconst": "Check with your local library for book, author is not available.",
+        "./metainfo/metac": "Check with your local library for book, author is not available.",
+        "./metainfo/metuc": "Check with your local library for book, author is not available."
+      },
+      "raw_metadata_date": "19990202",
+      "existing_full_creators": [
+        {
+          "name": "New York, Professional & Technical Press"
+        }
+      ],
+      "prepared_payload_sha256": "3d7123431b1cb90535c4579c9ef97c07704bd3b3e8836ef414f0b00f9c48d9d3",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2664",
+      "source_sha256": "993fb2c2ae8a94b5a7a3e55b6bd344ea57753a4ffee2e4de45baf1b322a448b3",
+      "review_queue": "nonperson_primary",
+      "raw_primary_origins": [
+        "Okeanologiya. Moscow"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "Okeanologiya. Moscow"
+        }
+      ],
+      "prepared_payload_sha256": "6ed1c0d1c3f20c7142f1363bec90188de5b24fe6068e37ded4c96315be314364",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2665",
+      "source_sha256": "071e20190ee7ec450cc3457cdcf39f10c9a56df8018267fe778cc6267acfbbcc",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Kamchatka Div., Pac. Res. Inst. Fish. and Oceanogr."
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "Kamchatka Div., Pac. Res. Inst. Fish. and Oceanogr."
+        }
+      ],
+      "prepared_payload_sha256": "526d9c26158822b6c1cecb11c0a8a9cf5e81323c7231dddc55a94be5bb63199a",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2691",
+      "source_sha256": "888b6d0ca262e60fd13d2068a88e363e1bafa08ae9fa3ac02c7ef29002a4170f",
+      "review_queue": "nonperson_primary",
+      "raw_primary_origins": [
+        "Pacific Search Magazine"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor about how to obtain data.",
+        "./idinfo/useconst": "Check with Contributor about how to obtain data.",
+        "./metainfo/metac": "Check with Contributor about how to obtain data.",
+        "./metainfo/metuc": "Check with Contributor about how to obtain data."
+      },
+      "raw_metadata_date": "19990201",
+      "existing_full_creators": [
+        {
+          "name": "Pacific Search Magazine"
+        }
+      ],
+      "prepared_payload_sha256": "c86c6757ae4310ebca384a787cb9d4a2ec9f45b5772e8ac6f9f3bf8dbc45fe6f",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2694",
+      "source_sha256": "dbf99e7f17e8ffbd7c5d40dad1991c92a182d8ffe7094c37d40af82b1f1e32ac",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "Dale L. Taylor; Women in Natural Resource Magazine"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor about how to obtain data.",
+        "./idinfo/useconst": "Check with Contributor about how to obtain data.",
+        "./metainfo/metac": "Check with Contributor about how to obtain data.",
+        "./metainfo/metuc": "Check with Contributor about how to obtain data."
+      },
+      "raw_metadata_date": "19990201",
+      "existing_full_creators": [
+        {
+          "name": "Dale L. Taylor; Women in Natural Resource Magazine"
+        }
+      ],
+      "prepared_payload_sha256": "eda9a510e444d8c8dd848c3544b38ced55f428f23ca216f3f801dab7d46b6d30",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2695",
+      "source_sha256": "d9a2552d05d01549a8fe7ca11d14e3f1975fe943981de5102d2703481c0bc739",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          \n            D.W. Scholl: U.S. Naval Ordnance Test Station, China Lake, California\n            \n            E.C. Buffington: U.S. Navy Electronics Laboratory, San Diego, California\n            \n            D.M. Hopkins: U.S. Geological Survey, Menlo Park, California\n          \n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor about how to obtain data.",
+        "./idinfo/useconst": "Check with Contributor about how to obtain data.",
+        "./metainfo/metac": "Check with Contributor about how to obtain data.",
+        "./metainfo/metuc": "Check with Contributor about how to obtain data."
+      },
+      "raw_metadata_date": "19990201",
+      "existing_full_creators": [
+        {
+          "name": "D.W. Scholl: U.S. Naval Ordnance Test Station, China Lake, California E.C. Buffington: U.S. Navy Electronics Laboratory, San Diego, California D.M. Hopkins: U.S. Geological Survey, Menlo Park, California",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "1b846d7149a9b457e766bbba68044fa3d7b68de74d96c6ed75269ddfb3eca6cd",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2701",
+      "source_sha256": "12ec31120e833c61726e2d912f53baf2a00b8cc07b55fcf503e6f3a4553f7fbd",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Committee on the Bering Sea Ecosystem\n          \n          Polar Research Board\n          \n          Commission on Geosciences, Environment, and Resources\n          \n          National Research Council, National Academy of Sciences\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check library for book.",
+        "./idinfo/useconst": "Check library for book.",
+        "./metainfo/metac": "Check library for book.",
+        "./metainfo/metuc": "Check library for book."
+      },
+      "raw_metadata_date": "19990202",
+      "existing_full_creators": [
+        {
+          "name": "Committee on the Bering Sea Ecosystem Polar Research Board Commission on Geosciences, Environment, and Resources National Research Council, National Academy of Sciences",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "d461703dd96d12a5b0f614cd9b2cd3844e208dddea3222519ccca69d43ca559a",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2702",
+      "source_sha256": "8a9f23097d76bdde1a8118014bbde71d1a04047cbce4770f57f738b03b62a255",
+      "review_queue": "plain_person",
+      "raw_primary_origins": [
+        "Isobel Wylie Hutchison"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check library for book.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Check library for book.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "19990202",
+      "existing_full_creators": [
+        {
+          "name": "Isobel Wylie Hutchison"
+        }
+      ],
+      "prepared_payload_sha256": "4ef451a55fbc201ef0b2d3c6a52ca2a46a19ba24d38f0cae24fa8ff391250d60",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2707",
+      "source_sha256": "b48d53a5c40febda5356e9ec015fccdcac1054b15e801e6cc17bc2e6d020e228",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "United States Coast Guard Oceanographic Unit"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with your local library for book",
+        "./idinfo/useconst": "Check with your local library for book",
+        "./metainfo/metac": "Check with your local library for book",
+        "./metainfo/metuc": "Check with your local library for book"
+      },
+      "raw_metadata_date": "19990202",
+      "existing_full_creators": [
+        {
+          "name": "United States Coast Guard Oceanographic Unit"
+        }
+      ],
+      "prepared_payload_sha256": "52b84433b85a7adc401e1705110952505294a8d6119a83d33138d893c3b8b317",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-28",
+      "source_sha256": "5901f1b7e41766fa2571afa6789329755fcecaaca8c7ec0ed7a749d97e7c6d9b",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Climate and Global Dynamics Division, National Center for Atmospheric Research (NCAR), National Oceanic  and Atmospheric Administration (NOAA)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "Climate and Global Dynamics Division, National Center for Atmospheric Research (NCAR), National Oceanic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "cc3cbaa95033d2987a4b5c174363ec8b90ed97a5420e79766bd2102bee081330",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2817",
+      "source_sha256": "c18640475c937fa475ee45406d4a9cb1012ef8b96bb056f0b5435f995a13eb5c",
+      "review_queue": "nonperson_primary",
+      "raw_primary_origins": [
+        "Okeanologiya. Moscow"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Refer to webstite URL: http://www.csa.com/",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Refer to webstite URL: http://www.csa.com/"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "Okeanologiya. Moscow"
+        }
+      ],
+      "prepared_payload_sha256": "1e6626a328515f60d558b7844176a9a091a94eb70135b78f0c55ec2b2ca0ea1a",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2819",
+      "source_sha256": "7bf9a0d434e82fab1439a8382e4d5ee5431ecb860686a5feb9793d38ba64637c",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Triton Environmental Consultants Ltd"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "Triton Environmental Consultants Ltd"
+        }
+      ],
+      "prepared_payload_sha256": "93b08ab2298095604818bbb10d43526aabbb46d1fc4df5f673919446d2b8ff8f",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2832",
+      "source_sha256": "6b627fbf425393d9c8a0a06d84ee934a6dff32d07dfaf2e1a7004e9a33f846cb",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "National History Museum Inst., Chiba, 955-2 Aoba-cho, Chuo-ku, Chiba"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "National History Museum Inst., Chiba, 955-2 Aoba-cho, Chuo-ku, Chiba"
+        }
+      ],
+      "prepared_payload_sha256": "dd25f957b0c1586e70d400a454df4f135ed4c460d5f3c1cf4d10f744cfc439d0",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-2834",
+      "source_sha256": "bc550f670f4abb4704f7d8cce7a7cbfe2e3543ff0113df3f2fe8efa86ff25c59",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Fish and Wildlife Serv., Anchorage"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "Fish and Wildlife Serv., Anchorage"
+        }
+      ],
+      "prepared_payload_sha256": "172598d79a10a1e4ea26f7f08d00d67e37687c4d69822093b01a16bff8dff2d4",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-289",
+      "source_sha256": "6401d899f886cc56fd12b18eef3f7aea0a2cab6a542c2fccfce198f190f6dade",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "TaeKeun Rho and John J. Goering (Ed)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Need to contact Contributor before using the data",
+        "./idinfo/useconst": "Need to contact Contributor before using the data",
+        "./metainfo/metac": "Need to contact Contributor before using the data",
+        "./metainfo/metuc": "Need to contact Contributor before using the data"
+      },
+      "raw_metadata_date": "19990923",
+      "existing_full_creators": [
+        {
+          "name": "TaeKeun Rho and John J. Goering (Ed)"
+        }
+      ],
+      "prepared_payload_sha256": "f14df30ca3de395228511d8d6dc4f6ac319dde866a949cf8675415683bd621bb",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-31",
+      "source_sha256": "63fa2a28c7123d7995195b31d528c0c026aceee379959d43b0674f8ce5db67ac",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Remote Sensing Systems"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "Remote Sensing Systems"
+        }
+      ],
+      "prepared_payload_sha256": "9565290968f3093cf1f2cd90a8e4a9ecb12ab71ffd5fb2f9e90fc188ac8f7f92",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-336",
+      "source_sha256": "608fd4f69b42d39117194a5974ef7095681fb691e914732d51eb9fcd907b7c65",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Alaska Maritime National Wildlife Refuge"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "19991122",
+      "existing_full_creators": [
+        {
+          "name": "Alaska Maritime National Wildlife Refuge"
+        }
+      ],
+      "prepared_payload_sha256": "58752257b614270c33af2f97aba9fea8b3673536be6f5b51102d13842e13c71d",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-340",
+      "source_sha256": "9c2f93370b59f4c7fdc191cbdcd0a764b852e4c18a9e51b1e213cd1e9ae06248",
+      "review_queue": "plain_person",
+      "raw_primary_origins": [
+        "Cynthia T. Tynan"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "19991123",
+      "existing_full_creators": [
+        {
+          "name": "Cynthia T. Tynan"
+        }
+      ],
+      "prepared_payload_sha256": "134a2a7d5ff2abe18f14955b9350b05becbe605ba10f20883f33f17f99317568",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-355",
+      "source_sha256": "0bc2feb3881638057bab634c8d6027c6cb55ed442c2c95dee487480ded55ea03",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "The Native Village of Mekoryuk"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "19991206",
+      "existing_full_creators": [
+        {
+          "name": "The Native Village of Mekoryuk"
+        }
+      ],
+      "prepared_payload_sha256": "db67efb17bdd48e027d7d5eca7c65c1f5dad12178e8712897323c7d965163917",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-360",
+      "source_sha256": "7309ad4d359d1437741bf300bd06e782e19b78d6a78e7541ca235273175ca1b5",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Bering Sea Coalition"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "19991206",
+      "existing_full_creators": [
+        {
+          "name": "Bering Sea Coalition"
+        }
+      ],
+      "prepared_payload_sha256": "814fdbda512c7a62a6b175d5aca6b2296f5660376a08ff73d179e1ee702f6ddc",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-4027",
+      "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Japan Agency for Marine-Earth Science and Technology (JAMSTEC)\n          \n          National Space Development Agency (NASDA), Japan\n          \n          Hajime Akimoto; Atmospheric Composition Research Program, Frontier Research System for Global Change (FRSGC)\n          \n          Masaaki Takahashi and Masayuki Takigawa; Center for Climate System Research, University of Tokyo\n          \n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html",
+        "./idinfo/useconst": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html",
+        "./metainfo/metac": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html",
+        "./metainfo/metuc": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html"
+      },
+      "raw_metadata_date": "20050922",
+      "existing_full_creators": [
+        {
+          "name": "Japan Agency for Marine-Earth Science and Technology (JAMSTEC) National Space Development Agency (NASDA), Japan Hajime Akimoto; Atmospheric Composition Research Program, Frontier Research System for Global Change (FRSGC) Masaaki Takahashi and Masayuki Takigawa; Center for Climate System Research, University of Tokyo",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "9f60c23cc315db3574151aacc482247e19a0366638466c98a47b84f6a1bbe21c",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-4063",
+      "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Census of Marine Life\n          \n          Vancouver Aquarium\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "May require password access",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "May require password access",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "raw_metadata_date": "20050105",
+      "existing_full_creators": [
+        {
+          "name": "Census of Marine Life Vancouver Aquarium"
+        }
+      ],
+      "prepared_payload_sha256": "2fafb51396e215ebff2bda273a836e4c3170e1327ebc5b4219187541cc1d4e05",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-4064",
+      "source_sha256": "1b3891fe9136b5a95182c3e0b5a06929a7524870ba09479fd59c5148da26806c",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Census of Marine Life\n          \n          Vancouver Aquarium\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "May require password access",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "May require password access",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "raw_metadata_date": "20050105",
+      "existing_full_creators": [
+        {
+          "name": "Census of Marine Life Vancouver Aquarium"
+        }
+      ],
+      "prepared_payload_sha256": "88b198804bde50ff4d91b8003c8933147e18eef4d3a69bf2eb4b9955cb90354b",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-43",
+      "source_sha256": "282db3e1f3b9e0d0f4635957fd2d9714c6bc7b80c872fdb619f4274c920b9ecf",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Woods Hole Oceanographic Institution"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990205",
+      "existing_full_creators": [
+        {
+          "name": "Woods Hole Oceanographic Institution"
+        }
+      ],
+      "prepared_payload_sha256": "0b75c24ff8c485649c098a76cb1e8a8c67c986f193ac5ad2e6e6289c6a886615",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-47",
+      "source_sha256": "06e4b130a2f133d7e9321d0e007bee6bb60df9bac1087b0725929cd054ec73c1",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Antarctic Climate & Ecosystems Cooperative Research Centre (ACE CRC)\n          \n          Australian Government, Department of the Environment and Heritage, Australian Antarctic Division\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990205",
+      "existing_full_creators": [
+        {
+          "name": "Antarctic Climate & Ecosystems Cooperative Research Centre (ACE CRC) Australian Government, Department of the Environment and Heritage, Australian Antarctic Division",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "b3153eb8a9feacc5541622672d4c44290f0918a16720dc01db921e3f14f5e769",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-48",
+      "source_sha256": "cb514b192c38a6372d4a4b72af8895ca3ab2d47b6597d64456448691c53d1716",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Government of Canada, Environment Canada, Meteorological Service of Canada, Canadian Meteorological Centre (CMC)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990205",
+      "existing_full_creators": [
+        {
+          "name": "Government of Canada, Environment Canada, Meteorological Service of Canada, Canadian Meteorological Centre (CMC)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "052c4bb09668e8ccbadad1a1f1611b1eed9fffcc52d00f36f361fe0dfd85843f",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-517",
+      "source_sha256": "95b7436a96978541a726827c04ab5afc67bf19069cf43de57d4049c629b3bf0e",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Northwest Fisheries Science Center, National Oceanic and Atmospheric Administration (NOAA)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "19991123",
+      "existing_full_creators": [
+        {
+          "name": "Northwest Fisheries Science Center, National Oceanic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "fa9f8db1459293ecf91b6bed545cb63fce44563b7aed104ea06c322461514935",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-533",
+      "source_sha256": "d4e009b8ee1494b6cd5f9a702f3b317ff913018fa84b676cad62f335e37ddf7a",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Alaska Maritime National Wildlife Refuge"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "19991122",
+      "existing_full_creators": [
+        {
+          "name": "Alaska Maritime National Wildlife Refuge"
+        }
+      ],
+      "prepared_payload_sha256": "7d9bcccb43f37ad65b32345270b98f2ee166ccb5ba6659169707b8a096f2b1bc",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-535",
+      "source_sha256": "8591bf5e9b9646a63c13c797d0140dde1979c71621df9aa3621a693d834ebf28",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Alaska Maritime National Wildlife Refuge"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "19991122",
+      "existing_full_creators": [
+        {
+          "name": "Alaska Maritime National Wildlife Refuge"
+        }
+      ],
+      "prepared_payload_sha256": "7330f7602c306193115a5d4beddcf87eda0e0e26c41fd30e115779e2566f08d5",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-542",
+      "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Korean Data by Mr. Hynn-Su Jo of National Fisheries Research and Development Agency, Pujan, Republic of Korea.\n          \n          Polish data by Dr. Jerzy Janusz of Sea Fisheries Institute, Gdynia, Poland.\n          \n          Chinese data by Loh-Lee Low and Shanghai Fisheries University.\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Permission of contact person required.",
+        "./idinfo/useconst": "Permission of contact person required.",
+        "./metainfo/metac": "Permission of contact person required.",
+        "./metainfo/metuc": "Permission of contact person required."
+      },
+      "raw_metadata_date": "20020322",
+      "existing_full_creators": [
+        {
+          "name": "Korean Data by Mr. Hynn-Su Jo of National Fisheries Research and Development Agency, Pujan, Republic of Korea. Polish data by Dr. Jerzy Janusz of Sea Fisheries Institute, Gdynia, Poland. Chinese data by Loh-Lee Low and Shanghai Fisheries University.",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "72028b8f9222eede1c2bf2eb78ddf11a7ec0e3075cbd644f42f85fc639f7d9ff",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-565",
+      "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d",
+      "review_queue": "joint_agency_contractor",
+      "raw_primary_origins": [
+        "USDA Forest Service, Alaska Department of Natural Resources"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020424",
+      "existing_full_creators": [
+        {
+          "name": "USDA Forest Service, Alaska Department of Natural Resources",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "3dd8a7d8f8c90bda32bfd93f18d05f59399eee66d0fca273a1f330dca1f5f60e",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-650",
+      "source_sha256": "759c025d615b886ab361cc78caf406d207214d5924e61b0888e0658e5b9f1ddb",
+      "review_queue": "joint_agency_contractor",
+      "raw_primary_origins": [
+        "Exxon, Alaska Department of Natural Resources"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020424",
+      "existing_full_creators": [
+        {
+          "name": "Exxon, Alaska Department of Natural Resources",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "32ff5dabe059d4c80b309fd3979bd0c9bf0e3655f41a6469572355d0a1c6ded1",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-669",
+      "source_sha256": "dc7de1b6fd1213657665f9c3110653bd3faceb35cec697e026fa87d6183b64ed",
+      "review_queue": "joint_agency_contractor",
+      "raw_primary_origins": [
+        "Exxon, Alaska Department of Natural Resources, USDC Forest Service, Chugach National Forest"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water.",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water."
+      },
+      "raw_metadata_date": "20020424",
+      "existing_full_creators": [
+        {
+          "name": "Exxon, Alaska Department of Natural Resources, USDC Forest Service, Chugach National Forest",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "1a02506569f3bb110a8260361196ff5850486b4cf39cd132271e20b9e998bca7",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-674",
+      "source_sha256": "76e461581a4744a1ee40511ed5fa3a092c368b238853c8c831fa694d15a2a397",
+      "review_queue": "joint_agency_contractor",
+      "raw_primary_origins": [
+        "USDA Forest Service, Alaska Department of Natural Resources"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020424",
+      "existing_full_creators": [
+        {
+          "name": "USDA Forest Service, Alaska Department of Natural Resources",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "e742eba9602240ea7e0c71051dcbd714698c67be687a732de132e4b5881bd1be",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-677",
+      "source_sha256": "d2d121c19ce26f19f8fc87c75ddc06dd63185d919e4c8314595d5db90c0975e2",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          U.S. Geological Survey (USGS)\n          \n          USDA Forest Service, Alaska Department of Natural Resources\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020424",
+      "existing_full_creators": [
+        {
+          "name": "U.S. Geological Survey (USGS) USDA Forest Service, Alaska Department of Natural Resources",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "5018b78c5e6d167f145463d8fa168fc1b9780f839a1cba7465eca943854bff0f",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-678",
+      "source_sha256": "8b79f6c579307a8f0dbcc645934b67d90eb582ae028b5d61ef0edcfed2e2b354",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          USDA Forest Service, Alaska Department of Natural Resources\n          \n          U.S. Geological Survey (USGS), EROS Alaska Field Office\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020424",
+      "existing_full_creators": [
+        {
+          "name": "USDA Forest Service, Alaska Department of Natural Resources U.S. Geological Survey (USGS), EROS Alaska Field Office",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "e3d6afe14a9c6b73656248e9afd897b70bec2e7e4b068452bc0e502e836b20b3",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-680",
+      "source_sha256": "08ac5ff76ff24f6a9b3c67ef254bb64d419ad0a15dcecf5f381e3be2b2394ab5",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Technical Services, National Oceanic and Atmospheric Administration"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020424",
+      "existing_full_creators": [
+        {
+          "name": "Technical Services, National Oceanic and Atmospheric Administration",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "d27f03b686acdf6e8bde889dce8a05a7b7c12eec18397e438c9963bca7c02cfe",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-694",
+      "source_sha256": "3bd811f3277b7c2ca7208069f6ea432befb7dae22e1d82dcd69f2075cc6e3eea",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          U.S. Geological Survey (USGS)\n          \n          USDA Forest Service, Alaska Department of Natural Resources\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020425",
+      "existing_full_creators": [
+        {
+          "name": "U.S. Geological Survey (USGS) USDA Forest Service, Alaska Department of Natural Resources",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "d10b3c42466bc81898346a218a7110628d7566fbba6129f46dcd596cef10bed6",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-7",
+      "source_sha256": "b54af780eb105220f08869492ffa368c3f686ca3844e2b21a5435637a59e6404",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "U.S. Dep. Int., Natl. Park Serv"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990204",
+      "existing_full_creators": [
+        {
+          "name": "U.S. Dep. Int., Natl. Park Serv"
+        }
+      ],
+      "prepared_payload_sha256": "73da0890eb0ca9e91d63f4fbc277e08388e356a970c16d3cd889a0477ef3903a",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-70",
+      "source_sha256": "690aa60757a04acd1405ef423285affa56de865d483a6728359db2ffc9a76157",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "National Center for Atmospheric Research (Climate and Global Dynamics Division), National Center for Atmospheric Research (NCAR), National Oceanic and Atmospheric Administration (NOAA)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Check with Contributor",
+        "./idinfo/useconst": "Check with Contributor",
+        "./metainfo/metac": "Check with Contributor",
+        "./metainfo/metuc": "Check with Contributor"
+      },
+      "raw_metadata_date": "19990205",
+      "existing_full_creators": [
+        {
+          "name": "National Center for Atmospheric Research (Climate and Global Dynamics Division), National Center for Atmospheric Research (NCAR), National Oceanic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "3982ceb3a0a494c17c2239ba2b54b678ffd0071aefcbffa51a665bb4c2529f31",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-710",
+      "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Wildlife Conservation Division, Alaska Department of Fish and Game"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Subject to provisions of Alaska Administrative Code on dis-closure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Subject to provisions of Alaska Administrative Code on dis-closure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020425",
+      "existing_full_creators": [
+        {
+          "name": "Wildlife Conservation Division, Alaska Department of Fish and Game",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "1422d9e54245d05105b31ad50a4a133b16b021187f4bab6ed58a5d7c9fbe4408",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-715",
+      "source_sha256": "e1b36e7702814f7fa4fe104076d422df26252506785d4a61755e0a2f35ae5278",
+      "review_queue": "nonperson_primary",
+      "raw_primary_origins": [
+        "CIA World Bank II"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./idinfo/useconst": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order.",
+        "./metainfo/metac": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./metainfo/metuc": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+      },
+      "raw_metadata_date": "20020502",
+      "existing_full_creators": [
+        {
+          "name": "CIA World Bank II"
+        }
+      ],
+      "prepared_payload_sha256": "167cbc1d95576e67c071bb1f18c6d46fa4ccab13311268b95e3e2e48d764e25c",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-724",
+      "source_sha256": "16761230c65099aae6fd979568cbae9e32d44f09a63a0ff3d73aba5f6db00a34",
+      "review_queue": "joint_agency_contractor",
+      "raw_primary_origins": [
+        "Resource Analysis Section, Geological and Geophysical Survey Division, Alaska Department of Natural Resources contracted to Arctic Geo Resources"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020429",
+      "existing_full_creators": [
+        {
+          "name": "Resource Analysis Section, Geological and Geophysical Survey Division, Alaska Department of Natural Resources contracted to Arctic Geo Resources",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "82b530ce27b9e6ba39d6ce0db12abc017c5205e163f18abb80f16dd0ff0aa5f8",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-732",
+      "source_sha256": "9ebe6d5ea032afdf32ea3de72934853ee793b21adddc6e18c8508a18d9fd5122",
+      "review_queue": "joint_agency_contractor",
+      "raw_primary_origins": [
+        "Resource Analysis Section, Geological and Geophysical Surveys Division, Alaska Department of Natural Resources, contracted to Virgin Creek Forestry Consultants"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Unknown"
+      },
+      "raw_metadata_date": "20020429",
+      "existing_full_creators": [
+        {
+          "name": "Resource Analysis Section, Geological and Geophysical Surveys Division, Alaska Department of Natural Resources, contracted to Virgin Creek Forestry Consultants",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "43d39cd03166a46547c72a1b340383c944eff5c76634311ae4e53c6938f13ba9",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-859",
+      "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4",
+      "review_queue": "literal_institution_program",
+      "raw_primary_origins": [
+        "Satellite Pour l'Ovservation de la Terre (SPOT)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.",
+        "./idinfo/useconst": "Licensee agrees to limits to internal use and copy restrictions.",
+        "./metainfo/metac": "Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.",
+        "./metainfo/metuc": "Licensee agrees to limits to internal use and copy restrictions."
+      },
+      "raw_metadata_date": "20020502",
+      "existing_full_creators": [
+        {
+          "name": "Satellite Pour l'Ovservation de la Terre (SPOT)"
+        }
+      ],
+      "prepared_payload_sha256": "73410eafcce48f5bde6357c10fb1869643afe161333ca0df76684cc983bc66fb",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-871",
+      "source_sha256": "555891473bc8d6e400e8c86434eca35b07503612217119505140c4b92b03e6bb",
+      "review_queue": "joint_agency_contractor",
+      "raw_primary_origins": [
+        "U.S. Fish and Wildlife Service and the Office of Oceanography and Marine Assessment, National Oceanic and Atmospheric Administration"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "None. Presently available are ascii flat files or tabular reports from the database.",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "None. Presently available are ascii flat files or tabular reports from the database.",
+        "./metainfo/metuc": "None"
+      },
+      "raw_metadata_date": "20020503",
+      "existing_full_creators": [
+        {
+          "name": "U.S. Fish and Wildlife Service and the Office of Oceanography and Marine Assessment, National Oceanic and Atmospheric Administration",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "9a10451ed00687d4d1e28edb3714f12f69f3d1096115084c33427266b4375ca2",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-885",
+      "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          \n            Edward V. Farley, Jr., Richard E. Haight, Charles M. Guthrie III, and John E. Pohl\n            \n            Auke Bay Laboratory (ABL), Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n          \n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Data access limited to summarized data within the document",
+        "./idinfo/useconst": "Please notify contact person if interested in publishing any data.",
+        "./metainfo/metac": "Data access limited to summarized data within the document",
+        "./metainfo/metuc": "Please notify contact person if interested in publishing any data."
+      },
+      "raw_metadata_date": "20020503",
+      "existing_full_creators": [
+        {
+          "name": "Edward V. Farley, Jr., Richard E. Haight, Charles M. Guthrie III, and John E. Pohl Auke Bay Laboratory (ABL), Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "f297fdfa751ae0c6f7d377d834a47d982718009ca21e921ed9e3761634708210",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-887",
+      "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582",
+      "review_queue": "mixed_XML_roles",
+      "raw_primary_origins": [
+        "\n          Farley, E.V., Jr., J.M. Murphy, R.E. Haight, G.M. Guthrie, C.T. Baier, M.D. Adkison, V.I. Radchenko, and F.R. Satterfield\n          \n          Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, NOAA\n        "
+      ],
+      "primary_origin_is_mixed": true,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Data access limited to summarized data within the document",
+        "./idinfo/useconst": "Please notify contact person if interested in publishing any data.",
+        "./metainfo/metac": "Data access limited to summarized data within the document",
+        "./metainfo/metuc": "Please notify contact person if interested in publishing any data."
+      },
+      "raw_metadata_date": "20020503",
+      "existing_full_creators": [
+        {
+          "name": "Farley, E.V., Jr., J.M. Murphy, R.E. Haight, G.M. Guthrie, C.T. Baier, M.D. Adkison, V.I. Radchenko, and F.R. Satterfield Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, NOAA",
+          "type": "Organization"
+        }
+      ],
+      "prepared_payload_sha256": "46d6946b6c7b78eef59c96602d96b6faf5d6773521adb68c1e2026acf99528b3",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-905",
+      "source_sha256": "eea983a9d7960e862367e644fcc2740c40e05e7727f4c37f94b2a128b77974b6",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "William J. Sydeman and K. David Hyrenbach"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Permission of Contributor required",
+        "./idinfo/useconst": "Permission of Contributor required",
+        "./metainfo/metac": "Permission of Contributor required",
+        "./metainfo/metuc": "Permission of Contributor required"
+      },
+      "raw_metadata_date": "20030203",
+      "existing_full_creators": [
+        {
+          "name": "William J. Sydeman and K. David Hyrenbach"
+        }
+      ],
+      "prepared_payload_sha256": "d9b0515c6c0d9c92206017e82db25fc2ae8eaebd314247487181b99ed0a426aa",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-906",
+      "source_sha256": "26904ef9a38997f3cf55514fab3d9bda60f9e4de710734b7614e32bb5c70e04b",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "Gary D. Marty (comp.)"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Permission of Contributor required",
+        "./idinfo/useconst": "Acknowledgement of data source publication required.",
+        "./metainfo/metac": "Permission of Contributor required",
+        "./metainfo/metuc": "Acknowledgement of data source publication required."
+      },
+      "raw_metadata_date": "20030203",
+      "existing_full_creators": [
+        {
+          "name": "Gary D. Marty (comp.)"
+        }
+      ],
+      "prepared_payload_sha256": "02f68b5bfd18cecd7223357720e96fdefbc5b60775b553c4f91026fbf7aba079",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    },
+    {
+      "source_id": "FGDC-909",
+      "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae",
+      "review_queue": "person_list_and_named_role",
+      "raw_primary_origins": [
+        "Dr. Wieslaw Maslowski, Naval Postgraduate School, Monterey, California, USA"
+      ],
+      "primary_origin_is_mixed": false,
+      "exact_source_constraints": {
+        "./idinfo/accconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./idinfo/useconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metac": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metuc": "Permission of Contributor required. Department of Defense Sensitive data"
+      },
+      "raw_metadata_date": "20030213",
+      "existing_full_creators": [
+        {
+          "name": "Dr. Wieslaw Maslowski, Naval Postgraduate School, Monterey, California, USA"
+        }
+      ],
+      "prepared_payload_sha256": "a334cd941f70232ba87909133a4809241197832d3676781af87e156b3a3eaf54",
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ]
+    }
+  ]
+}
