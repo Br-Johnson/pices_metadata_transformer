@@ -12,6 +12,7 @@ from datetime import datetime, timedelta, timezone
 import fcntl
 import io
 import html
+from html.parser import HTMLParser
 import json
 import logging
 import os
@@ -47,20 +48,56 @@ TRACE_HEADERS = ('x-request-id', 'x-correlation-id', 'x-trace-id', 'traceparent'
 
 
 def _normalized_error_text(value):
-    for _ in range(2):
-        value = html.unescape(unquote(value))
+    for _ in range(8):
+        decoded = html.unescape(unquote(value))
+        if decoded == value:
+            return ''.join(ch for ch in value if not unicodedata.category(ch).startswith('C'))
+        value = decoded
+    # A bounded normalization must suppress unresolved encodings, not leak them.
+    if html.unescape(unquote(value)) != value:
+        return '[REDACTED_UNRESOLVED_ENCODING]'
     return ''.join(ch for ch in value if not unicodedata.category(ch).startswith('C'))
 
 
 def _credential_variants(token):
-    return (token, quote(token, safe=''), html.escape(token),
-            base64.b64encode(token.encode('ascii')).decode('ascii'))
+    standard = base64.b64encode(token.encode('ascii')).decode('ascii')
+    urlsafe = base64.urlsafe_b64encode(token.encode('ascii')).decode('ascii')
+    return (token, quote(token, safe=''), html.escape(token), standard, urlsafe,
+            standard.rstrip('='), urlsafe.rstrip('='))
+
+
+class _HumanErrorText(HTMLParser):
+    """Collect human heading/message text while excluding active markup content."""
+    def __init__(self, heading_only=False):
+        super().__init__(convert_charrefs=True)
+        self.heading_only, self.heading, self.finished = heading_only, None, False
+        self.blocked, self.parts = [], []
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ('script', 'style'):
+            self.blocked.append(tag)
+        elif not self.blocked and not self.finished and self.heading is None and tag in ('title', 'h1'):
+            self.heading = tag
+
+    def handle_endtag(self, tag):
+        if self.blocked:
+            if tag == self.blocked[-1]:
+                self.blocked.pop()
+        elif self.heading_only and tag == self.heading:
+            self.finished = True
+
+    def handle_data(self, value):
+        if not self.blocked and not self.finished and (not self.heading_only or self.heading):
+            self.parts.append(value)
 
 
 def _safe_message(value, token):
     """Redact selected human error text before truncation, never a nested body."""
     original = value
     value = _normalized_error_text(value)
+    parser = _HumanErrorText()
+    parser.feed(value)
+    value = ''.join(parser.parts)
     # Error messages occasionally append structured payloads or traceback data.
     # Keep their diagnostic prefix, never the appended private object/stack.
     value = re.split(r'(?i)(?:Traceback|Stack trace)', value, maxsplit=1)[0]
@@ -71,7 +108,7 @@ def _safe_message(value, token):
     value = re.sub(r'(?i)\bBearer\s+\S+', 'Bearer [REDACTED_CREDENTIAL]', value)
     value = re.sub(r'(?i)\b(?:https?://|www\.)\S+', '[REDACTED_URL]', value)
     value = re.sub(r"[\w.!#$%&'*+/=?^`{|}~-]+@[\w.-]+", '[REDACTED_EMAIL]', value)
-    value = re.sub(r'(?<!\w)(?:/[\w./-]+|[A-Za-z]:\\[^\s;,]+)', '[REDACTED_PATH]', value)
+    value = re.sub(r'(?<!\w)(?:/[\w./-]+|[A-Za-z]:\\[^;,]+|\\{2}[^;,]+)', '[REDACTED_PATH]', value)
     value = re.sub(r'\b[A-Za-z0-9_+/=-]{24,}\b', '[REDACTED_OPAQUE_VALUE]', value)
     value = re.sub(r'\b\d+\b', '[REDACTED_NUMBER]', value)
     value = re.sub(r'\s+', ' ', value).strip()
@@ -94,6 +131,8 @@ def _safe_trace_headers(response, token):
         if (isinstance(value, str) and len(value) <= 128
                 and not any(secret in _normalized_error_text(value) for secret in _credential_variants(token))
                 and re.fullmatch(formats.get(key, generic), value, re.IGNORECASE)):
+            if key == 'traceparent' and (value.split('-')[1] == '0' * 32 or value.split('-')[2] == '0' * 16):
+                continue
             result[key] = value
     return result
 
@@ -268,9 +307,10 @@ def response_projection(raw, response, method, token):
             if type(body_status) is int and 100 <= body_status <= 599:
                 result['error_status'] = body_status
         elif result['body_format'] == 'html':
-            match = re.search(r'<(title|h1)\b[^>]*>(.*?)</\1\s*>', raw.decode('utf-8', errors='replace'), re.I | re.S)
-            if match:
-                message, source = re.sub(r'<[^>]*>', '', match[2]), 'html.' + match[1].lower()
+            parser = _HumanErrorText(heading_only=True)
+            parser.feed(_normalized_error_text(raw.decode('utf-8', errors='replace')))
+            if parser.heading:
+                message, source = ''.join(parser.parts), 'html.' + parser.heading
         if message is not None:
             safe, redacted, truncated = _safe_message(message, token)
             result.update(error_message=safe, error_message_source=source,

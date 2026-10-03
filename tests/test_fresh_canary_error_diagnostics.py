@@ -157,3 +157,33 @@ class FreshErrorDiagnosticTests(unittest.TestCase):
             self.assertEqual(result['counts']['create'], 1)
         finally:
             obj.doCleanups()
+
+    def test_adversarial_recursive_encoding_urlsafe_base64_unc_and_active_markup(self):
+        for layers in (4, 20):
+            token = 'test/secret'
+            echo = token
+            for _ in range(layers):
+                echo = quote(echo, safe='')
+            response = requests.Response(); response.status_code = 500
+            result = f.response_projection(json.dumps({'message': 'Failure: ' + echo}).encode(), response, 'POST', token)
+            message = result['error_message']
+            for private in (token, echo, 'test%252Fsecret'):
+                self.assertNotIn(private, message)
+        token = '??>'
+        echo = base64.urlsafe_b64encode(token.encode()).decode()
+        response = requests.Response(); response.status_code = 500
+        result = f.response_projection(json.dumps({'message': 'Failure: ' + echo}).encode(), response, 'POST', token)
+        self.assertNotIn(echo, result['error_message'])
+        result = self.project({'message': r'Cannot open \\corp\private\run\file.pem'})
+        self.assertEqual(result['error_message'], 'Cannot open [REDACTED_PATH]')
+        for markup in ('<script>DO_NOT_KEEP_ME</script>', '<style>DO_NOT_KEEP_ME</style>',
+                       '&lt;script&gt;DO_NOT_KEEP_ME&lt;/script&gt;'):
+            result = self.project(('<h1>Service unavailable ' + markup + '</h1><p>PRIVATE-BODY</p>').encode(),
+                                  headers={'Content-Type': 'text/html'})
+            self.assertEqual(result['error_message'], 'Service unavailable')
+            self.assertNotIn('DO_NOT_KEEP_ME', json.dumps(result))
+            message = self.project({'message': 'Service unavailable ' + markup})
+            self.assertEqual(message['error_message'], 'Service unavailable')
+        for trace_id, span_id in (('0' * 32, 'b' * 16), ('a' * 32, '0' * 16)):
+            result = self.project({'message': 'Server error'}, headers={'traceparent': '00-' + trace_id + '-' + span_id + '-01'})
+            self.assertEqual(result['trace_identifiers'], {})
