@@ -75,8 +75,10 @@ def check_owned_page(records, metadata, owner, seen):
                 'response_owner')
         md, files = item.get('metadata'), item.get('files')
         require(isinstance(md, dict) and isinstance(files, list), 'response_json')
-        title = md.get('title')
-        require(isinstance(title, str) and bool(title.strip()), 'response_json')
+        # Historical empty drafts can have no title. Check every supplied
+        # identity field without requiring unrelated drafts to be complete.
+        title = md.get('title', '')
+        require(isinstance(title, str), 'response_json')
         same_run = title.strip().casefold() == metadata['title'].strip().casefold()
         same_run |= SOURCE in json.dumps(md, sort_keys=True)
         for remote_file in files:

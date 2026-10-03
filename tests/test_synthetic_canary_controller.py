@@ -353,7 +353,7 @@ class SyntheticControllerTests(unittest.TestCase):
 
     def test_incomplete_owned_collision_fields_fail_closed(self):
         for bad in [{'id':3,'owner':OWNER},
-                    {'id':3,'owner':OWNER,'metadata':{},'files':[]},
+                    {'id':3,'owner':OWNER,'metadata':{'title':None},'files':[]},
                     {'id':3,'owner':OWNER,'metadata':{'title':'Title'}},
                     {'id':3,'owner':OWNER,'metadata':{'title':'Title'},'files':[{}]}]:
             obj=SyntheticControllerTests('test_complete_create_readback_retry_and_process_rerun');obj.setUp()
@@ -368,6 +368,84 @@ class SyntheticControllerTests(unittest.TestCase):
                     result=obj.run_inventory();self.assertTrue(result['failed']);self.assertFalse(result['completed'])
                     self.assertFalse(read_json(obj.paths.safe_to_upload_path)['inventory_complete'])
             finally:obj.doCleanups()
+
+    def test_reported_page_63_empty_drafts_allow_complete_inventory(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        self.pagination_fixture(count=16538)
+        original=self.inventory_transport
+        def historical_drafts(session,request,**kwargs):
+            r=original(session,request,**kwargs)
+            if 'page=63&' in request.path_url:
+                data=json.loads(r.content)
+                self.assertEqual(len(data),100)
+                for item in data[-9:]:item['metadata']={}
+                self.assertEqual(sum('title' in item['metadata'] for item in data),91)
+                self.assertTrue(all(item['files']==[] for item in data))
+                return response(data)
+            return r
+        self.inventory_transport=historical_drafts
+        result=self.run_inventory()
+        self.assertTrue(result['completed'],result)
+        self.assertEqual(result['owned_count'],16538)
+        self.assertEqual(result['get_attempts'],167)
+
+    def test_missing_or_empty_title_still_checks_every_own_run_identity(self):
+        for title in ({},{'title':''},{'title':'   '}):
+            seen=set()
+            c.check_owned_page([{'id':3,'owner':OWNER,'metadata':title,'files':[]}],
+                               self.metadata,OWNER,seen)
+            self.assertEqual(seen,{3})
+        for marker in ('metadata_value','metadata_key','filename','name','key'):
+            item={'id':3,'owner':OWNER,'metadata':{},'files':[]}
+            if marker=='metadata_value':item['metadata']['notes']=c.SOURCE
+            elif marker=='metadata_key':item['metadata'][c.SOURCE]='Prior run'
+            else:item['files']=[{marker:c.SOURCE+'.xml'}]
+            with self.subTest(marker=marker),self.assertRaises(c.ZenodoAPIError):
+                c.check_owned_page([item],self.metadata,OWNER,set())
+
+    def test_empty_draft_schema_owner_and_id_requirements_remain_strict(self):
+        for change in ({'id':True},{'id':0},{'id':'3'},{'owner':8},{'owner':True},
+                       {'metadata':None},{'metadata':[]},{'files':None},{'files':{}},
+                       {'metadata':{'title':None}},{'metadata':{'title':42}},
+                       {'metadata':{'title':[]}}):
+            item={'id':3,'owner':OWNER,'metadata':{},'files':[]};item.update(change)
+            with self.subTest(change=change),self.assertRaises(c.ZenodoAPIError):
+                c.check_owned_page([item],self.metadata,OWNER,set())
+        with self.assertRaises(c.ZenodoAPIError):
+            c.check_owned_page([{'id':3,'owner':OWNER,'metadata':{},'files':[]}],
+                               self.metadata,OWNER,{3})
+
+    def test_compatibility_patch_cannot_reset_reported_semantic_failure(self):
+        (self.stage/'state/sandbox'/c.OWNED_STATE).unlink()
+        self.pagination_fixture(count=16538)
+        original=self.inventory_transport
+        def empty_drafts(session,request,**kwargs):
+            r=original(session,request,**kwargs)
+            if 'page=63&' in request.path_url:
+                data=json.loads(r.content)
+                for item in data[-9:]:item['metadata']={}
+                return response(data)
+            return r
+        self.inventory_transport=empty_drafts
+        compatible_check=c.check_owned_page
+        def previous_title_requirement(records,metadata,owner,seen):
+            c.require(all('title' in item.get('metadata',{}) for item in records),'response_json')
+            return compatible_check(records,metadata,owner,seen)
+        with patch.object(c,'check_owned_page',previous_title_requirement):
+            result=self.run_inventory()
+        self.assertTrue(result['failed']);self.assertFalse(result['resume_allowed'])
+        self.assertEqual(result['get_attempts'],64);self.assertEqual(result['verified_pages'],62)
+        state_file=self.stage/'state/sandbox'/c.OWNED_STATE
+        state_before=state_file.read_bytes()
+        pages_dir=self.stage/'state/sandbox/synthetic-owned-pages'
+        pages_before={p.name:p.read_bytes() for p in pages_dir.iterdir()}
+        for resume in (False,True):
+            with self.assertRaises(c.ZenodoAPIError):self.run_inventory(resume=resume)
+        with self.assertRaises(c.ZenodoAPIError):self.execute()
+        self.assertEqual(len(self.calls),64)
+        self.assertEqual(state_file.read_bytes(),state_before)
+        self.assertEqual({p.name:p.read_bytes() for p in pages_dir.iterdir()},pages_before)
+        self.assertFalse(read_json(self.paths.safe_to_upload_path)['inventory_complete'])
 
     def pagination_fixture(self, count=16538, fail_page=None):
         from urllib.parse import urlsplit,parse_qs
