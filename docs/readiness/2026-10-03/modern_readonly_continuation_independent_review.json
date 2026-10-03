@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "base_commit": "85420aba8be7ee137bfacfa9d4a53d61b9799d63",
+  "plan": "modern_readonly_reviewed_continuation.md",
+  "plan_sha256": "4e1dd8d2508ee2f81fdf10000bd64008f44cf2b2637aed1daae1c4d2d479f058",
+  "reviewer": "canary_review",
+  "result": "cleared",
+  "expiry_utc": "2026-10-03T22:51:16.309060Z",
+  "historical_get_intents": 195,
+  "remaining_get_intents": 238,
+  "cumulative_get_ceiling": 433,
+  "checks": [
+    "separate parent dispatch required",
+    "successful page1 checkpoint retained and never repeated",
+    "stop if page1 already crosses lower time boundary",
+    "fixed original expiry and clipped request wall deadline",
+    "original allowlist and candidate criteria retained",
+    "ordinary approved environment-aware Session.request route",
+    "zero retries and redirects; opaque authorization check",
+    "immutable held state,279preservedfiles,spentcreateallowances",
+    "read-only evidence; no global absence or adoption inference"
+  ],
+  "provider_requests_by_code_owner": 0,
+  "provider_requests_by_reviewer": 0,
+  "private_stage_or_environment_values_inspected": false
+}
