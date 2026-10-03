@@ -1,0 +1,101 @@
+{
+  "scope": "PR8 code merge-readiness audit, followed by explicitly authorized merge. Provider readiness is separately gated.",
+  "head_sha": "0db412dec13475b0ce2a2f16334a5fb72a11446d",
+  "base_sha": "4592f142b9c5be225254a0ad059c5cab7c6448ce",
+  "independent_reviewer": "ecotrust_role_access",
+  "final_head_substantive_review": "cleared; final documentation/receipt additions reviewed; runtime unchanged from independently reviewed0b2132cb and actual306-test log hashes match.",
+  "observed_checks": {
+    "statuses": 0,
+    "check_runs": 0,
+    "actions_runs_all_events": 0,
+    "combined_state": "pending",
+    "combined_total_count": 0,
+    "passing_github_ci_result": false
+  },
+  "observed_requirements": {
+    "main_protected": false,
+    "readable_protection_enabled": false,
+    "required_contexts": [],
+    "readable_inherited_rulesets": [],
+    "full_protection_HTTP_status": 403,
+    "full_protection_error": "Resource not accessible by integration",
+    "administrator_only_requirements_completeness": "unobservable; no assertion of passing required CI or full administrative certification"
+  },
+  "reviews": {
+    "submissions": 3,
+    "states": [
+      "COMMENTED",
+      "COMMENTED",
+      "COMMENTED"
+    ],
+    "approvals": 0,
+    "change_requests": 0,
+    "threads": 2,
+    "resolved_threads": 2,
+    "last_substantive_bot_revision": "6f792df",
+    "bot_usage_limited": true,
+    "new_bot_request": false
+  },
+  "dependencies": "Main fully included. Frozen2a2c82fa canary controller and fresh-canary branch have separate ancestry and are outsidePR8; no observed merge dependency requiring provider execution.",
+  "merge_authority": {
+    "status": "Explicitly authorized by Brett after the initial no-merge audit.",
+    "parent_thread": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+    "reported_brett_reply": "you are also approved to merge PRs in pices-metadata-transformer. I need to make sure this work get’s done over the weekend so I can present it on Tuesday. Please immediately raise any blockers or questions you have that you truly can’t figure out. Otherwise try to speed this work up by doing what you can"
+  },
+  "external_execution_gates": "Spent original uncertain POST stays held; separate fresh Sandbox test is newly authorized for sole provider executor. Live compatibility/canary, production credentials, fresh remote identity/recordQA and explicit release approval gate provider execution/publication, not automatically code merge. No configured/documented live-canary-as-code-merge requirement found.",
+  "verdict": "Merged PR8 after substantive final-head independent review and refreshed repository prerequisite checks, using exact expected head. GitHub confirmed success; merged tree exactly matches reviewed0db412d. No CI result existed and no readable required checks/rulesets were configured. Prior administrative-read limitation remained; the merge request used no bypass. Provider execution/publication gates remain separate.",
+  "evidence_urls": {
+    "PR": "https://github.com/Br-Johnson/pices_metadata_transformer/pull/8",
+    "status": "https://api.github.com/repos/Br-Johnson/pices_metadata_transformer/commits/0db412dec13475b0ce2a2f16334a5fb72a11446d/status",
+    "check_runs": "https://api.github.com/repos/Br-Johnson/pices_metadata_transformer/commits/0db412dec13475b0ce2a2f16334a5fb72a11446d/check-runs",
+    "reviews": "https://api.github.com/repos/Br-Johnson/pices_metadata_transformer/pulls/8/reviews",
+    "branch": "https://api.github.com/repos/Br-Johnson/pices_metadata_transformer/branches/main",
+    "rulesets": "https://api.github.com/repos/Br-Johnson/pices_metadata_transformer/rulesets?includes_parents=true",
+    "bot_usage": "https://github.com/Br-Johnson/pices_metadata_transformer/pull/8#issuecomment-5961480212",
+    "gates": "https://github.com/Br-Johnson/pices_metadata_transformer/blob/0db412dec13475b0ce2a2f16334a5fb72a11446d/docs/readiness/2026-10-02/production_goal_critical_path.md"
+  },
+  "provider_requests": 0,
+  "repository_mutations": 1,
+  "broad_tests_rerun_for_merge_audit": false,
+  "pre_merge_github_state": {
+    "open": true,
+    "draft": false,
+    "merged": false,
+    "mergeable": true,
+    "mergeable_state": "clean",
+    "rebaseable": true,
+    "requested_reviewers": 0,
+    "auto_merge": false,
+    "commits_ahead_of_main": 52,
+    "commits_behind_main": 0,
+    "only_open_PR": 8
+  },
+  "github_state": {
+    "state": "closed",
+    "merged": true,
+    "draft": false,
+    "head_sha": "0db412dec13475b0ce2a2f16334a5fb72a11446d",
+    "merge_commit_sha": "4b131266cee68798fffed1c309e447a48a420185"
+  },
+  "merge_execution": {
+    "method": "merge",
+    "expected_head_sha": "0db412dec13475b0ce2a2f16334a5fb72a11446d",
+    "confirmed_merged": true,
+    "merge_commit_sha": "4b131266cee68798fffed1c309e447a48a420185",
+    "premerge_permissions": {
+      "push": true,
+      "admin": true,
+      "merge_commits_allowed": true
+    },
+    "premerge_statuses": 0,
+    "premerge_check_runs": 0,
+    "premerge_main_protected": false,
+    "premerge_inherited_rulesets": [],
+    "reviewed_head_tree_git_object": "163608fd819bda81fd8ba17f0b38df209597f772",
+    "merged_tree_exactly_matches_reviewed_head": true,
+    "force_or_rules_bypass_requested": false,
+    "unchanged_broad_tests_rerun": false,
+    "merged_tree_git_object": "163608fd819bda81fd8ba17f0b38df209597f772"
+  },
+  "production_access_update": "Parent reports fresh production access verified HTTP200 in separate read-only executor01a10232-63b4-71e5-b20c-65784d3de039. Production credential readiness is no longer an outstanding connection blocker; identity/file/DOI QA and publication approval remain separate. Root made no production call."
+}

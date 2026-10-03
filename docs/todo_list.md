@@ -3,8 +3,9 @@
 ## Separately authorized fresh synthetic canary — 2026-10-03
 
 - [x] Add a distinct fixed-source run entry point, separate stage/grant/ledger/30-minute clock and durable 8 GET / one POST / two distinct PUT bounds. Preserve original spent uncertain-create state and all prior evidence.
-- [x] Test exact new artifact bindings, unchanged retry/ID reuse, failed/lost state, expiry, redirects, production/generic rejection and sanitized server-error retention without provider requests. All 346 guarded offline tests pass, including 12 fresh-run contracts.
-- [ ] Obtain independent runtime/artifact/instructions review, freeze an exact transferable commit and publish a normal handoff branch for parent relay to the sole provider executor.
+- [x] Test exact new artifact bindings, unchanged retry/ID reuse, failed/lost state, expiry, redirects, production/generic rejection and sanitized server-error retention without provider requests. Final 348 guarded tests / 14 fresh contracts pass; independent full 346-test baseline and final 14-contract verification clear. All three review findings are fixed.
+- [x] Complete independent runtime/artifact/instructions review and freeze the handoff for approved publication on the normal branch; root remains sole integration owner. Provider dispatch remains with parent and sole Sandbox writer.
+- [x] Independently audit final PR8 head and repository prerequisites, then merge after Brett's explicit later authorization: merge 4b131266 exactly matches reviewed 0db412d tree. Freeze exact latest main source/artifact inputs for the separately assigned read-only production executor; no provider inventory is duplicated.
 
 _Last updated: 2025-10-14_
 

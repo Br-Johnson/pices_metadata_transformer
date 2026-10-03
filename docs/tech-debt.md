@@ -1,5 +1,11 @@
 # Tech Debt Log
 
+## Separate fresh synthetic run — 2026-10-03
+
+A newly authorized synthetic test needs its own fixed source, packet, durable allowances and clock; it must not relabel or reset a spent uncertain write. The fresh controller reuses the transaction guard with an exact scoped capability, while production/generic inventory requirements remain unchanged. An independent journal prevents reconstructing lost controls around a prior attempt. Shared failure evidence uses a closed vocabulary with bounded response fingerprints rather than arbitrary response/exception text.
+
+Review found three concrete isolation gaps and closed them: exclude all descendants of the original private root; require actual observed metadata/files and valid file identity aliases; reject escaping data/control symlinks, nonregular files and hard-linked controls before every use. Path spelling alone is not an isolation boundary. Original receipts remain untouched. PR8's code prerequisites and explicit merge authority are separately recorded; live Sandbox/production/release evidence gates execution/publication.
+
 ## 2025-10-11
 
 ### Upload log drift
