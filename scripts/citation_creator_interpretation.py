@@ -16,6 +16,7 @@ INSTITUTION_PROGRAM_MANIFEST_SHA256 = '04db21a16750930112589d0cb9ab51df463849983
 JOINT_COLLECTION_MANIFEST_SHA256 = '43ab11d7da41c6d1b6f8ff7a9582240192505818167725f81a353d4a1ae9e68d'
 LITERAL_EXTENSION_MANIFEST_SHA256 = 'd2ba819c774a43f8cb5d90c28f2e4b3d41283747ddea9f282c0241468ab2c749'
 SOURCE_CREDIT_MANIFEST_SHA256 = '7526abc74cdc62644fe682b17ebb23213b90ccb80f6f00c61ee149174ae7c257'
+ACCESS_HELD_CREDIT_MANIFEST_SHA256 = '7b45346be4435fc9fa6bfecfeb3cbc175610abf37a3e59a6b43b9731028e6b8c'
 
 
 def source_element(node, outer=True):
@@ -32,7 +33,8 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
             or reference.get('manifest_sha256') not in
             (MANIFEST_SHA256, DFO_MANIFEST_SHA256, INSTITUTION_MANIFEST_SHA256,
              INSTITUTION_PROGRAM_MANIFEST_SHA256, JOINT_COLLECTION_MANIFEST_SHA256,
-             LITERAL_EXTENSION_MANIFEST_SHA256, SOURCE_CREDIT_MANIFEST_SHA256)):
+             LITERAL_EXTENSION_MANIFEST_SHA256, SOURCE_CREDIT_MANIFEST_SHA256,
+             ACCESS_HELD_CREDIT_MANIFEST_SHA256)):
         raise ValueError('Creator interpretation requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()
@@ -44,7 +46,7 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
     profiles = (manifest['cohorts'] if reference['manifest_sha256'] in
                 (INSTITUTION_MANIFEST_SHA256, INSTITUTION_PROGRAM_MANIFEST_SHA256,
                  JOINT_COLLECTION_MANIFEST_SHA256, LITERAL_EXTENSION_MANIFEST_SHA256,
-                 SOURCE_CREDIT_MANIFEST_SHA256)
+                 SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256)
                 else [manifest])
     matches = [profile for profile in profiles
                if any(member['source_id'] == source_id and member['source_sha256'] == source_sha256
@@ -53,7 +55,8 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
         raise ValueError('Source ID/hash is outside reviewed creator interpretation membership')
     profile = matches[0]
     nodes = root.findall(manifest['source_xpath'])
-    exact_credit_profile = reference['manifest_sha256'] == SOURCE_CREDIT_MANIFEST_SHA256
+    exact_credit_profile = reference['manifest_sha256'] in (
+        SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256)
     if exact_credit_profile and profile.get('primary_origin_element') is not None:
         if len(nodes) != 1 or source_element(nodes[0]) != profile['primary_origin_element']:
             raise ValueError('Creator interpretation requires the exact reviewed primary origin element')

@@ -330,3 +330,9 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Complete independent runtime/source-integrity/document review and freeze a handoff for approved existing non-draft PR8 publication; queue remaining source decisions for morning.
 
 - Actual complete 111-promotion batch: 90 source-credit corrections (82 creator lists changed, eight notes-only), 21 historical-link corrections; 2,288 supported / 1,912 held / six malformed. Seven new focused / 301 guarded tests pass and independent source/runtime/delta reviews clear. Fresh/resume and all original/copy/payload integrity verified. Remaining 86 access-plus-creator cases are ranked, without approved after-images or new access authority.
+
+## Access-held source credit cleanup — 2026-10-03
+
+- [ ] Review the exact86-member source/hash queue after9cdf8b0, prioritizing the five literal siblings and separating credits, interview/reporting, compiler/editor, contract and collection roles. Root remains sole writer.
+- [ ] Implement only independently reviewed complete source-credit after-images in an additive pinned profile preserving all previous319 cohort objects; retain every access, date, rights and alias hold.
+- [ ] Verify full metadata/source/payload delta and guarded contracts, independent runtime/source review, and publish the frozen checkpoint under existing PR8 authority. No provider operations, uncertain-create retry or access-meaning decision.
