@@ -1,5 +1,9 @@
 # Tech Debt Log
 
+## Modern transport evidence boundaries — 2026-10-03
+
+A durable action intent spends the allowance before preparation/send. It cannot prove network dispatch. The fixed diagnostic correction records trusted phase/exception enums, local send/adapter observations, response status independently of body projection and aware first/cleanup failure capture times. No arbitrary exception text or old-stage migration/reset. Exact runtime binding intentionally refuses consumed grants; future observability does not authorize another create. The original modern cause remains unknown; all allowances and historical193 reads stay held/preserved. Search window defaults cap10000 results, so a finite200-page/240-GET plan cannot promise a16538-entry inventory. An explicitly newest ordered prefix supplies candidate evidence only, with a separately approved GET-only ledger and no absence/adoption conclusion. See readiness/2026-10-03/modern_transport_diagnostics.md and review/validation receipts.
+
 ## 2025-10-11
 
 ### Upload log drift

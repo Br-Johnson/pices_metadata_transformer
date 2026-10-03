@@ -34,6 +34,34 @@ FILES = {'binding.json', 'state.json', 'journal.json', 'controller.lock', 'appro
 class Held(ValueError):
     """Fixed safe message; provider exceptions and credential values are never printed."""
 
+    def __init__(self, message, diagnostic=None):
+        super().__init__(message)
+        self.diagnostic = diagnostic
+
+
+class WallDeadline(Held):
+    """Trusted local alarm category; carries no provider exception text."""
+
+
+def exception_code(error):
+    """Exact trusted types only: never inspect exception names, arguments or text."""
+    types = ((Held, 'contract'), (WallDeadline, 'wall_deadline'),
+             (ValueError, 'value_error'), (TypeError, 'type_error'),
+             (KeyError, 'key_error'), (OSError, 'os_error'),
+             (KeyboardInterrupt, 'interrupted'), (json.JSONDecodeError, 'invalid_json'),
+             (requests.exceptions.InvalidHeader, 'invalid_header'),
+             (requests.exceptions.InvalidURL, 'invalid_url'),
+             (requests.exceptions.InvalidSchema, 'invalid_schema'),
+             (requests.exceptions.MissingSchema, 'missing_schema'),
+             (requests.exceptions.ConnectTimeout, 'connect_timeout'),
+             (requests.exceptions.ReadTimeout, 'read_timeout'),
+             (requests.exceptions.Timeout, 'timeout'),
+             (requests.exceptions.SSLError, 'tls_error'),
+             (requests.exceptions.ConnectionError, 'connection_error'),
+             (requests.exceptions.ChunkedEncodingError, 'chunked_body'),
+             (requests.exceptions.ContentDecodingError, 'body_decoding'))
+    return next((code for cls, code in types if type(error) is cls), 'unclassified')
+
 
 def require(ok, reason='Modern canary contract failed; preserve stage for reconciliation'):
     if not ok:
@@ -134,7 +162,8 @@ def stage_packet(stage):
     save(stage, {'binding': bound, 'grant_sha256': None, 'counts': dict.fromkeys(LIMITS, 0),
                  'pending': None, 'failed': False, 'completed': False, 'retry_completed': False,
                  'create_started_at': None, 'create_received_at': None,
-                 'identity': None, 'uncertain_candidate_id': None, 'responses': []})
+                 'identity': None, 'uncertain_candidate_id': None, 'responses': [],
+                 'attempt_diagnostics': [], 'controller_failure': None})
     return {'staged': True, 'provider_requests': 0, 'namespace': NAMESPACE,
             'packet_sha256': PACKET_SHA, 'runtime_sha256': bound['runtime_sha256']}
 
@@ -248,6 +277,43 @@ class Controller:
         self.state['failed'] = True
         self.persist()
 
+    def observe(self, phase, **observations):
+        """Durable local observations, never evidence that bytes reached the server."""
+        require(phase in {'intent', 'transport_entry', 'deadline_setup', 'request_preparation',
+                          'request_prepared', 'send_call', 'adapter_entry', 'response_headers',
+                          'body_read', 'response_projection', 'response_validation',
+                          'response_decode', 'credential_validation', 'identity_validation',
+                          'response_close', 'deadline_cleanup'})
+        require(set(observations) <= {'send_call_started', 'adapter_entered',
+                                     'response_seen', 'status'})
+        for key, value in observations.items():
+            require(type(value) is bool if key != 'status' else
+                    value is None or type(value) is int and 100 <= value <= 599)
+        diagnostic = self.state['attempt_diagnostics'][-1]
+        diagnostic.update(phase=phase, **observations)
+        self.persist()
+
+    def capture_failure(self, error, phase=None):
+        if self.state['pending'] is None:
+            failure = {'phase': phase or 'outside_pending_attempt', 'exception': exception_code(error),
+                       'captured_at': self.now().isoformat()}
+            if self.state['controller_failure'] is None:
+                self.state['controller_failure'] = failure
+            elif phase in ('response_close', 'deadline_cleanup'):
+                self.state['controller_failure']['cleanup_failure'] = failure
+            self.fail()
+            return {'controller_failure': deepcopy(self.state['controller_failure'])}
+        if not self.state['attempt_diagnostics']:
+            return None
+        diagnostic = self.state['attempt_diagnostics'][-1]
+        failure = {'phase': phase or diagnostic['phase'], 'exception': exception_code(error),
+                   'captured_at': self.now().isoformat()}
+        diagnostic.setdefault('failure', failure)
+        if phase in ('response_close', 'deadline_cleanup') and diagnostic['failure'] != failure:
+            diagnostic['cleanup_failure'] = failure
+        self.fail()
+        return deepcopy(diagnostic)
+
     def base(self):
         require(isinstance(self.state['identity'], dict))
         return '/api/records/' + record_id(self.state['identity']['id']) + '/draft'
@@ -278,6 +344,9 @@ class Controller:
             require(self.state['create_started_at'] is None and self.state['create_received_at'] is None)
             self.state['create_started_at'] = self.now().isoformat()
         self.state['pending'] = {'kind': kind, 'method': method, 'path_sha256': sha(path.encode())}
+        self.state['attempt_diagnostics'].append({'action': kind, 'phase': 'intent',
+            'send_call_started': False, 'adapter_entered': False,
+            'response_seen': False, 'status': None})
         self.persist()
         raw = b''
         response = None
@@ -285,10 +354,20 @@ class Controller:
         try:
             # Fsync may consume the last part of the window; never dispatch after it.
             require(self.now() < datetime_aware(self.grant['valid_until']))
+            self.observe('transport_entry')
             response = self.transport(method, ORIGIN + path, body,
                                       {'Accept': ACCEPT, 'Authorization': 'Bearer ' + self.token,
                                        'Content-Type': 'application/octet-stream' if binary else 'application/json'},
                                       timeout=20, allow_redirects=False, verify=True, stream=True)
+            self.observe('response_headers', response_seen=True)
+            observed_status = response.status_code
+            self.observe('response_headers', response_seen=True,
+                         status=observed_status if type(observed_status) is int
+                         and 100 <= observed_status <= 599 else None)
+            if kind == 'create':
+                self.state['create_received_at'] = self.now().isoformat()
+                self.persist()
+            self.observe('body_read')
             complete = True
             for chunk in response.iter_content(chunk_size=4096):
                 require(self.now() < datetime_aware(self.grant['valid_until']))
@@ -299,15 +378,16 @@ class Controller:
                     complete = False
                     break
             require(self.now() < datetime_aware(self.grant['valid_until']))
+            self.observe('response_projection')
             projection = response_projection(raw, response, method, self.token)
             projection.update(action=kind, body_complete=complete)
             self.state['responses'].append(projection)
             projected = True
-            if kind == 'create':
-                self.state['create_received_at'] = self.now().isoformat()
             self.persist()
+            self.observe('response_validation')
             require(complete and response.status_code == status,
                     'Provider response failed bounded status/body contract; attempt remains spent')
+            self.observe('response_decode')
             data = raw if binary and method == 'GET' else json.loads(raw)
             # A safe candidate ID is a private reconciliation handle, never adoption
             # authority. Persist it even when another response field echoes a token.
@@ -316,20 +396,30 @@ class Controller:
                     and self.token not in data['id']):
                 self.state['uncertain_candidate_id'] = data['id']
                 self.persist()
+            self.observe('credential_validation')
             require(self.token.encode() not in raw and not credential_echoed(data, self.token),
                     'Provider echoed credential; attempt remains spent')
+            self.observe('identity_validation')
             return data
-        except BaseException:  # noqa: BLE001 - interruption also permanently spends the attempted action
+        except BaseException as error:  # noqa: BLE001 - interruption also permanently spends the attempted action
             # Pending identity/action is retained even on interruption or partial body.
+            diagnostic = self.capture_failure(error)
             if response is not None and not projected:
-                projection = response_projection(raw, response, method, self.token)
-                projection.update(action=kind, body_complete=False)
-                self.state['responses'].append(projection)
-            self.fail()
-            raise Held('Modern canary held after attempted request; preserve private stage') from None
+                try:
+                    projection = response_projection(raw, response, method, self.token)
+                    projection.update(action=kind, body_complete=False)
+                    self.state['responses'].append(projection)
+                    self.persist()
+                except BaseException:  # noqa: BLE001,S110 - never log arbitrary exceptions
+                    pass
+            raise Held('Modern canary held after attempted request; preserve private stage', diagnostic) from None
         finally:
             if response is not None:
-                response.close()
+                try:
+                    response.close()
+                except BaseException as error:  # noqa: BLE001 - close also cannot reopen the allowance
+                    diagnostic = self.capture_failure(error, 'response_close')
+                    raise Held('Modern response cleanup failed; preserve private stage', diagnostic) from None
 
     def acknowledge(self):
         self.state['pending'] = None
@@ -450,17 +540,22 @@ class Controller:
                 self.state['completed'] = True
                 self.persist()
             return self.receipt()
-        except BaseException:  # noqa: BLE001 - preserve pending intent on all interruptions
+        except BaseException as error:  # noqa: BLE001 - preserve pending intent on all interruptions
             if self.state['pending'] is not None or any(self.state['counts'].values()) and not self.state['completed']:
-                self.fail()
-            raise Held('Modern canary contract held; no automatic retry or reset') from None
+                diagnostic = self.capture_failure(error)
+            else:
+                diagnostic = None
+            raise Held('Modern canary contract held; no automatic retry or reset', diagnostic) from None
 
     def receipt(self):
         return {'namespace': NAMESPACE, 'packet_sha256': PACKET_SHA, 'runtime_sha256': runtime_binding(),
                 'counts': self.state['counts'], 'completed': self.state['completed'],
                 'unchanged_retry': self.state['retry_completed'], 'failed': self.state['failed'],
                 'identity_retained_privately': self.state['identity'] is not None,
-                'responses': self.state['responses'], 'provider_requests': sum(self.state['counts'].values())}
+                'responses': self.state['responses'], 'provider_requests': sum(self.state['counts'].values()),
+                'request_count_semantics': 'durable_action_intents_not_confirmed_transmissions',
+                'attempt_diagnostics': self.state['attempt_diagnostics'],
+                'controller_failure': self.state['controller_failure']}
 
 
 def execute(stage, token, retry=False):
@@ -471,14 +566,29 @@ def execute(stage, token, retry=False):
         fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
         with requests.Session() as session:
             session.trust_env = False
+            class ObservedAdapter(requests.adapters.HTTPAdapter):
+                def send(self, *args, **kwargs):
+                    controller.observe('adapter_entry', adapter_entered=True)
+                    require(datetime.now(timezone.utc) < datetime_aware(controller.grant['valid_until']))
+                    return super().send(*args, **kwargs)
+            for adapter in session.adapters.values():
+                adapter.close()
+            session.mount('https://', ObservedAdapter(max_retries=0))
             def transport(method, url, body, headers, **options):
                 kwargs = {'data': body} if isinstance(body, bytes) else {'json': body}
-                return session.request(method, url, headers=headers, **kwargs, **options)
+                controller.observe('request_preparation')
+                prepared = session.prepare_request(requests.Request(method, url, headers=headers, **kwargs))
+                controller.observe('request_prepared')
+                require(datetime.now(timezone.utc) < datetime_aware(controller.grant['valid_until']))
+                controller.observe('send_call', send_call_started=True)
+                require(datetime.now(timezone.utc) < datetime_aware(controller.grant['valid_until']))
+                return session.send(prepared, proxies={}, **options)
             # Requests' read timeout is per read; enforce a total20s request/body wall deadline.
             original_handler = signal.getsignal(signal.SIGALRM)
             def expired(*_):
-                raise Held('Modern request wall deadline expired')
+                raise WallDeadline('Modern request wall deadline expired')
             def bounded(*args, **kwargs):
+                controller.observe('deadline_setup')
                 remaining = (datetime_aware(load(stage / 'approval.json')['valid_until'])
                              - datetime.now(timezone.utc)).total_seconds()
                 require(remaining > 0)
@@ -489,10 +599,20 @@ def execute(stage, token, retry=False):
                 def request(self, *args, **kwargs):
                     try:
                         return super().request(*args, **kwargs)
+                    except BaseException as error:  # capture pre-intent before cleanup
+                        if self.state['pending'] is None:
+                            diagnostic = self.capture_failure(error)
+                            raise Held('Modern pre-intent contract held; preserve private stage', diagnostic) from None
+                        raise
                     finally:
-                        signal.setitimer(signal.ITIMER_REAL, 0)
-                        signal.signal(signal.SIGALRM, original_handler)
-            return DeadlineController(stage, token, bounded).run(retry)
+                        try:
+                            signal.setitimer(signal.ITIMER_REAL, 0)
+                            signal.signal(signal.SIGALRM, original_handler)
+                        except BaseException as error:  # noqa: BLE001 - keep initial and cleanup diagnoses
+                            diagnostic = self.capture_failure(error, 'deadline_cleanup')
+                            raise Held('Modern deadline cleanup failed; preserve private stage', diagnostic) from None
+            controller = DeadlineController(stage, token, bounded)
+            return controller.run(retry)
     except BlockingIOError:
         raise Held('Modern stage already locked; no concurrent execution') from None
     finally:
@@ -512,9 +632,12 @@ def main():
             result = execute(args.stage, os.environ.get('ZENODO_SANDBOX_TOKEN'), args.action == 'retry')
         print(json.dumps(result, sort_keys=True))
         return 0
-    except (Held, OSError, ValueError, KeyError, TypeError):
-        print(json.dumps({'completed': False, 'held': True,
-                          'reason': 'Separate approval or stage/transport contract failed; preserve all state'}))
+    except (Held, OSError, ValueError, KeyError, TypeError) as error:
+        result = {'completed': False, 'held': True,
+                  'reason': 'Separate approval or stage/transport contract failed; preserve all state'}
+        if type(error) is Held and error.diagnostic is not None:
+            result['diagnostic'] = error.diagnostic
+        print(json.dumps(result, sort_keys=True))
         return 1
 
 

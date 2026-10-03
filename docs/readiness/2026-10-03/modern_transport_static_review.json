@@ -1,0 +1,257 @@
+{
+  "conclusion": {
+    "actual_failure_cause": "unresolved",
+    "network_transmission_or_server_processing_proven": false,
+    "normal_fixed_packet_local_preparation_bug_proven": false,
+    "original_create": "permanently spent and held; no reset, retry, recreate, adoption or old-stage migration"
+  },
+  "findings": [
+    {
+      "finding": "Counts and pending intent are durably persisted before transport. provider_requests is the sum of these intents, so it cannot represent established provider requests.",
+      "id": "intent_is_not_dispatch",
+      "source": "scripts/modern_synthetic_canary.py:276-291,458-463"
+    },
+    {
+      "finding": "Local preparation, deadline setup, adapter failures, interruptions and later validation errors are collapsed into generic Held and generic CLI JSON. No safe exception class or phase is durably retained.",
+      "id": "phase_and_exception_erased",
+      "source": "scripts/modern_synthetic_canary.py:322-329,453-456,515-518"
+    },
+    {
+      "finding": "Response-seen/status/time are not independently saved at header return. A projection failure is retried in the exception handler; another failure can erase even an observed HTTP500 status. create_received_at is captured after body/projection, not at response headers.",
+      "id": "response_evidence_depends_on_projection",
+      "source": "scripts/modern_synthetic_canary.py:288-308,324-328"
+    },
+    {
+      "finding": "signal.signal deterministically raises ValueError when execute is invoked outside the main interpreter thread. This is a conditional local failure reproduced offline, not evidence the actual CLI ran that way.",
+      "id": "conditional_nonmain_thread_failure",
+      "source": "scripts/modern_synthetic_canary.py:481-494"
+    },
+    {
+      "finding": "Response close and alarm restoration exceptions can replace an earlier exception. Diagnostics should preserve the first failure and record only a secondary fixed cleanup category.",
+      "id": "cleanup_can_mask_primary_failure",
+      "source": "scripts/modern_synthetic_canary.py:330-332,488-494"
+    },
+    {
+      "finding": "trust_env=False intentionally disables proxy environment use. A proxy-dependent executor could be affected; no such dependency or actual trial cause is established, and no environment/credential inspection was performed.",
+      "id": "environment_dependency_unproven",
+      "source": "scripts/modern_synthetic_canary.py:472-476"
+    }
+  ],
+  "independent_offline_evidence": {
+    "actual_provider_requests": 0,
+    "all_repros_preserved": "create=1, PUT=0, GET=0, pending=create, failed=true, no identity, no response retained; dummy secret absent from persisted state",
+    "command": "PYTHONDONTWRITEBYTECODE=1 /tmp/pices-code-venv/bin/python /tmp/pices-modern-transport-static-repros.py",
+    "cwd": "/workspace/pices-modern-synthetic-canary",
+    "dummy_repro_count": 5,
+    "dummy_repros": [
+      {
+        "adapter_send": 0,
+        "case": "local_prepare_failure",
+        "prepare": 1,
+        "response_returned": 0,
+        "session_send": 0
+      },
+      {
+        "adapter_send": 1,
+        "case": "mocked_adapter_ConnectionError",
+        "prepare": 1,
+        "response_returned": 0,
+        "session_send": 1
+      },
+      {
+        "adapter_send": 0,
+        "case": "alarm_before_adapter",
+        "prepare": 0,
+        "response_returned": 0,
+        "session_send": 0
+      },
+      {
+        "adapter_send": 1,
+        "case": "projection_failure_with_mocked_HTTP500",
+        "prepare": 1,
+        "projection_calls": 2,
+        "response_returned": 1,
+        "session_send": 1
+      },
+      {
+        "case": "nonmain_thread_signal_setup",
+        "session_send": 0
+      }
+    ],
+    "exit_code": 0,
+    "focused_unittest_count": 5,
+    "focused_unittest_elapsed_seconds": 0.061,
+    "focused_unittest_result": "OK",
+    "full_suite_rerun": false,
+    "guard": "Socket connect/connect_ex/create_connection/getaddrinfo forbidden; HTTPAdapter.send forbidden except explicit dummy adapter overrides; dummy temporary stages only.",
+    "log": {
+      "path": "/tmp/pices-modern-transport-static-repros.log",
+      "sha256": "84ad325b16fcb9fe468715969a4c18181c34a8b38f720528af09eeda957c7324"
+    },
+    "real_network_transmission": 0,
+    "script": {
+      "path": "/tmp/pices-modern-transport-static-repros.py",
+      "sha256": "f3fca9e48664124508d51045f2093ca278176565316e2af5221e2fcdfa44c81d"
+    }
+  },
+  "inspected_head": "c7363f3bcff575bf7997daa86258716833be7d60",
+  "packet_sha256_code_pin": "95d125ba6e47cb87cd89fcc981c8a179ee37127e0fe9ccab5711f9984b79787e",
+  "parent_code_delta_review": "Available for a later separately notified read-only review of the minimal future diagnostic diff.",
+  "pinned_primary_source_refs": [
+    {
+      "lines": [
+        21,
+        27,
+        33,
+        43
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/records/config.py",
+      "pin": "invenio-records-resources 11.1.1; 12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "e6e740f24ef15019810ee5e5911289ae53f059cf9d50f87390b60bd49955e027"
+    },
+    {
+      "lines": [
+        41,
+        71,
+        75,
+        89,
+        103
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/services/records/config.py",
+      "pin": "invenio-drafts-resources 11.0.3; locked sdist SHA 24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0",
+      "sha256": "8e5d541165818fa3fc902cff2a2805bcf830d52a152b6ca2fb7308a19445477b"
+    },
+    {
+      "lines": [
+        39,
+        52,
+        72,
+        91,
+        96
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/resources/records/resource.py",
+      "pin": "invenio-drafts-resources 11.0.3; same locked sdist",
+      "sha256": "a81ac43c433a216f2475de3b25d21ffff1be655fc977cd74fc7a175257269208"
+    },
+    {
+      "lines": [
+        229,
+        238,
+        645
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/config.py",
+      "pin": "invenio-rdm-records 35.2.0; d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "3fed5ee56d9a7170d8fe18007f1ac61ca7b8d3e0b0b9a4b1fc31096169a41956"
+    },
+    {
+      "lines": [
+        236,
+        240
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/resources/config.py",
+      "pin": "invenio-rdm-records 35.2.0; same commit",
+      "sha256": "d51e1636513bd7f12ee421452edfd34e0850e94274876f626d3cce4fd1fafabe"
+    }
+  ],
+  "read_only_reconciliation_plan": {
+    "budget_accounting": "Parent must issue the exact separate diagnostic read grant and retain historical193 plus every actual additional read; the modern8GET write-canary allowance is not replenished.",
+    "candidate_detail": "For an exact candidate, hardconstruct one GET /api/records/{id}/draft and revalidate full identity/metadata/files/PID shape within the same total budget. Never follow response links.",
+    "candidate_identity": "Exact namespace, fixed initial payload metadata canonical projection, known owner, canonical unique ID, aware created timestamp, unsubmitted/unpublished first draft and empty files; reject known old IDs. Preserve private IDs locally.",
+    "endpoint_source_candidate": "GET https://sandbox.zenodo.org/api/user/records with modern Accept; pinned framework route support is not verified deployed support.",
+    "execution": "Separate parent-dispatched provider executor only; no dispatch performed or grant issued by this review.",
+    "limitation": "The pinned inherited framework default_max_results is10000 and the parent-reported legacy scan failed at page101. A 200-page/240-GET client cap is numerically enough for16538 entries but cannot guarantee exhaustive deployed pagination. Any HTTP400, schema/order failure, duplicate ID, truncated/full final page or budget exhaustion leaves inventory incomplete. No global absence/snapshot claim.",
+    "minimal_prefix_option": "If modern route and explicit newest ordering are accepted and returned created values are validated as descending, inspect only through the lower creation-window boundary. This is recent candidate evidence only; index lag and mutable pagination prevent an absence/adoption conclusion.",
+    "network_requests_by_reviewer": 0,
+    "parameters": "Explicit source-supported sort=newest (draft-search default is updated-desc), page and size only; no speculative namespace/title/created q, status filter, cursor, response-link following or redirect. Source supports allversions explicitly if parent needs prior versions; do not infer a deployed parameter contract.",
+    "planning_ceiling": {
+      "all_GETs": 240,
+      "hidden_constructor_GETs": 0,
+      "list_pages": 200,
+      "page_size": 100
+    },
+    "time_evidence": "Use the sanitized intent timestamp and terminal observation as bounded search context, allowing only explicitly recorded clock tolerance; terminal completion is not a response or exact failure-capture timestamp.",
+    "zero_one_multiple_outcome": "Evidence only. Zero matches may reflect indexing/route/scan incompleteness; one or multiple matches cannot reset create, bind ledger, adopt ID, PUT or publish. Original uncertain create remains held."
+  },
+  "recommended_minimal_future_diagnostics": {
+    "exception_mapping": "Map known exception types to fixed category literals, including dedicated deadline/interruption and other categories; never persist arbitrary class/module names, exception args, chained string representations or stack traces.",
+    "focused_test_recommendations": [
+      "Local JSON/header preparation error before adapter entry",
+      "Mocked adapter ConnectionError/Timeout and signal deadline categories",
+      "Observed HTTP500 followed by projection failure retains status",
+      "Partial body read timeout retains bounded evidence",
+      "Cleanup failure preserves primary category",
+      "Secrets embedded in exception args/custom class names never persist",
+      "Failed old state rejects runtime change without any request"
+    ],
+    "future_only": true,
+    "header_evidence": "Save response_seen, validated status and capture time independently before body/projection. Preserve first safe failure projection before generic wrapping; projection and cleanup failures must not erase it.",
+    "invariants": "Pre-send durable action budget remains spent, retries and redirects remain disabled, original stages remain held and immutable. Future diagnostics do not authorize a new create.",
+    "old_failed_stage_migration_or_reset": false,
+    "phases": [
+      "local_validation",
+      "deadline_setup",
+      "request_prepare",
+      "session_send",
+      "adapter_entered",
+      "response_headers",
+      "body_read",
+      "projection",
+      "decode",
+      "validation",
+      "persist",
+      "cleanup"
+    ],
+    "redaction": "No str(exc), request headers, token, raw URL, request/response body, arbitrary response header or link in transport exception diagnostics. Existing HTTP body projection remains separate.",
+    "safe_fields": [
+      "schema_version",
+      "action enum",
+      "method enum",
+      "phase enum",
+      "fixed exception category enum",
+      "adapter_entered boolean",
+      "response_seen boolean",
+      "validated integer HTTP status when observed",
+      "aware failure_capture_at timestamp",
+      "bounded integer duration",
+      "body_complete boolean",
+      "observed body size and SHA when available"
+    ],
+    "transport_boundary": "Explicit Requests Request construction and Session.prepare_request, followed by Session.send with an actual HTTPAdapter entry hook. adapter_entered records local adapter entry only; it does not prove socket bytes reached Zenodo."
+  },
+  "runtime_commit": "dc351b071df53c6d44f01491694916c1d44bd9f2",
+  "runtime_files": [
+    {
+      "path": "/workspace/pices-modern-synthetic-canary/scripts/modern_synthetic_canary.py",
+      "sha256": "13d6499f8799a90490f098668be0b431fff965b0376fb81db66de3ff09aa16db"
+    },
+    {
+      "path": "/workspace/pices-modern-synthetic-canary/scripts/modern_canary_errors.py",
+      "sha256": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3"
+    },
+    {
+      "path": "/workspace/pices-modern-synthetic-canary/tests/test_modern_synthetic_canary.py",
+      "sha256": "cdad5099120cd46294d55c14707477f654d654fe51d7b96119c015ed6d60d4f1"
+    },
+    {
+      "path": "/workspace/pices-modern-synthetic-canary/tests/test_modern_canary_errors.py",
+      "sha256": "226d7b1d12710e2c86d074a0b0b90d1972af36f1c5922ea9a29f678b4511ad9b"
+    }
+  ],
+  "runtime_test_diff_from_frozen_commit": "empty",
+  "runtime_worktree_status": "clean",
+  "schema_version": 1,
+  "scope": "Independent static review and mocked offline reproductions only; no repository edits, provider requests, credentials, private provider stages or terminal audits read.",
+  "trial_facts": {
+    "GET": 0,
+    "HTTP_status_retained": false,
+    "PUT": 0,
+    "create_intents_spent": 1,
+    "exception_class_retained": false,
+    "historical_GET_reported": 193,
+    "intent_at": "2026-10-03T20:33:02.504304Z",
+    "network_dispatch_established": false,
+    "record_ID_retained": false,
+    "terminal_audit_finished_at": "2026-10-03T20:34:22.359350Z"
+  },
+  "trial_facts_source": "Sanitized parent report only, not independently verified from private run files."
+}
