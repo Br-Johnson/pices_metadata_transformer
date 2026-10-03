@@ -396,7 +396,10 @@ class ZenodoAPIClient:
     
     def search_records(self, **params) -> Dict[str, Any]:
         """Search published records."""
-        response = self._make_request('GET', 'records/', params=params)
+        # Sandbox's slashless public search is verified; the slash form returned
+        # 301. Its Location was not retained. Never follow it with credentials.
+        endpoint = 'records' if self.sandbox else 'records/'
+        response = self._make_request('GET', endpoint, params=params, allow_redirects=False)
         return response.json()
     
     def get_records_by_query(self, **params) -> List[Dict[str, Any]]:

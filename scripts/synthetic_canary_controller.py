@@ -64,6 +64,67 @@ def bindings(stage):
     return paths, file, metadata, artifact, plan
 
 
+def inventory(stage, owner):
+    """One bounded full-checker run, accounting for the three prior observed GETs."""
+    from scripts.pre_upload_duplicate_check import PreUploadDuplicateChecker
+    paths, file, metadata, artifact, plan = bindings(stage)
+    token = load_zenodo_token(sandbox=True)
+    require(token == os.environ.get('ZENODO_SANDBOX_TOKEN'))
+    folder = Path(paths.state_dir) / 'sandbox'
+    folder.mkdir(parents=True, exist_ok=True)
+    state_file = folder / 'synthetic-inventory-controller.json'
+    with (folder / 'synthetic-controller.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        require(not state_file.exists())  # A stopped/successful inventory is never silently rerun.
+        require(not (folder / 'synthetic-controller.json').exists() and
+                not read_json(paths.uploads_registry_path, {}))
+        guard = SandboxInventoryGuard(token, owner, max_requests=237)
+        state = {'completed': False, 'failed': False, 'get_attempts': 0,
+                 'prior_observed_gets': 3, 'maximum_new_gets': 237,
+                 'owner': owner, 'packet': INVENTORY_SHA}
+        def save():
+            atomic_json(state_file, state)
+            fd = os.open(folder, os.O_RDONLY | os.O_DIRECTORY)
+            try: os.fsync(fd)
+            finally: os.close(fd)
+        save()
+        original = requests.sessions.Session.send
+        checker = None
+        def counted(session, request, **kwargs):
+            require(state['get_attempts'] < 237)
+            state['get_attempts'] += 1; save()
+            return original(session, request, **kwargs)
+        try:
+            requests.sessions.Session.send = counted
+            with guard:
+                checker = PreUploadDuplicateChecker(sandbox=True, output_dir=str(stage),
+                                                    allow_replacements=False, canary_plan=None)
+                checker.client.max_retries = 0
+                summary = checker.check_all_files()
+                require(not summary['check_errors'] and not summary['duplicate_files'] and
+                        summary['safe_to_upload_files'] == [file.name])
+                require(any(o['owner_validated'] for o in guard.receipt()['observations']), 'response_owner')
+                checker.generate_upload_list()
+            checker.client.close(); checker = None
+            state.update(completed=True,
+                         safe_sha256=sha(Path(paths.safe_to_upload_path).read_bytes()),
+                         retained_sha256=sha(Path(paths.already_uploaded_path).read_bytes()))
+        except Exception as exc:
+            state['failed'] = True
+            state['diagnostics'] = _exception_diagnostics(exc, 'api_request')
+            state['diagnostics']['retryable'] = False
+        finally:
+            requests.sessions.Session.send = original
+            if checker is not None:
+                try: checker.client.close()
+                except Exception: pass
+            save()
+        return {'mode': 'inventory', 'completed': state['completed'], 'failed': state['failed'],
+                'get_attempts': state['get_attempts'], 'prior_observed_gets': 3,
+                'diagnostics': state.get('diagnostics'), 'guard': guard.receipt(),
+                'packet_sha256': INVENTORY_SHA}
+
+
 class SyntheticTransport:
     """Transport boundary used only by the complete controller below."""
     def __init__(self, token, owner, paths, metadata, artifact, plan):
@@ -80,6 +141,11 @@ class SyntheticTransport:
         require(set(ledger) <= {SOURCE})
         if self.state is None:
             require(not ledger)  # Never reconstruct lost controls around a prior attempt.
+            inventory_state = read_json(self.path.parent / 'synthetic-inventory-controller.json', {})
+            require(inventory_state.get('completed') is True and inventory_state.get('failed') is False
+                    and inventory_state.get('owner') == owner and inventory_state.get('packet') == INVENTORY_SHA
+                    and inventory_state.get('safe_sha256') == sha(Path(paths.safe_to_upload_path).read_bytes())
+                    and inventory_state.get('retained_sha256') == sha(Path(paths.already_uploaded_path).read_bytes()))
             safe = read_json(paths.safe_to_upload_path)
             require_inventory(safe, 'sandbox')
             require(safe['files'] == [SOURCE + '.json'] and
@@ -223,6 +289,7 @@ class SyntheticTransport:
             stage = 'transport'
             if constructor:
                 response = self.inventory_guard.send(self.original_send, session, request, **kwargs)
+                require(self.inventory_guard.receipt()['observations'][-1]['owner_validated'], 'response_owner')
                 self.state['phase'] = 'upload'; self.save()
                 return response
             response = self.original_send(session, request, **kwargs)
@@ -335,6 +402,7 @@ def execute(stage, owner):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--owner-file', required=True, type=Path, help='Private JSON positive integer from verified account provenance')
+    parser.add_argument('--inventory-only', action='store_true', help='One complete read-only checker run, at most 237 new GETs, then pause')
     args = parser.parse_args()
     previous = signal.getsignal(signal.SIGALRM)
     old_logging = logging.root.manager.disable
@@ -345,7 +413,8 @@ def main():
         signal.signal(signal.SIGALRM, deadline); signal.alarm(300)
         logging.disable(logging.CRITICAL)
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
-            receipt = execute(RUN, json.loads(args.owner_file.read_bytes()))
+            operation = inventory if args.inventory_only else execute
+            receipt = operation(RUN, json.loads(args.owner_file.read_bytes()))
     except Exception:
         pass
     finally:

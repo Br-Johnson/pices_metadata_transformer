@@ -1,8 +1,8 @@
 {
   "base_runtime_commit": "d5022b8828ef910749aef32371304f2b2b669674",
   "packet_inventory_sha256": "428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1",
-  "full_offline_tests_passed": 269,
-  "controller_tests_passed": 12,
+  "full_offline_tests_passed": 276,
+  "controller_tests_passed": 16,
   "independent_functional_review": "cleared after DOI-current-readback fix",
   "independent_security_review": "cleared after DOI-current-readback fix",
   "original_source_hashes_unchanged": 4206,
@@ -12,8 +12,16 @@
     "metadata_put": 1,
     "file_put": 1
   },
-  "controller_sha256": "e60c508687c771f535782854a7e97bdfcb1a00eabc5d1866fae49d59755d523b",
+  "controller_sha256": "c6aac6f51e189717c73ef467ea081fd2990c07497adaf6c22585493bf4277308",
   "provider_requests_by_code_owner": 0,
   "provider_writes_by_code_owner": 0,
-  "actual_source_stage_enabled": false
+  "actual_source_stage_enabled": false,
+  "endpoint_tests_passed": 3,
+  "independent_inventory_endpoint_tests_passed": 19,
+  "inventory_maximum_new_gets": 237,
+  "inventory_prior_observed_gets": 3,
+  "inventory_total_get_cap": 240,
+  "inventory_current_status": "not established; prior slash-form search returned 301, Location not retained",
+  "canonical_search_evidence": "parent-supplied prior slashless public API HTTP 200; no new provider verification by code owner",
+  "zenodo_api_sha256": "19bdd0fe6a4bfe46c9d7936c6aa96fa38f9f3194e40f5b3a1ca63b9494f3f29b"
 }

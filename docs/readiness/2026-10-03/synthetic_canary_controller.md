@@ -2,7 +2,7 @@
 
 This controller closes the write-stage gap without changing the frozen packet, the existing read guard, the upload service, PR8 or the separate 70-record cohort. Its base runtime is `d5022b8828ef910749aef32371304f2b2b669674`. The parent reported that runtime's one-request diagnostic passed HTTP 200 with 25 owner-consistent items and every validation milestone. The historical failure cause remains unknown.
 
-Execute only after the parent confirms the dispatched full inventory succeeded and supplies this controller's exact published commit. Check out that exact commit on its separate handoff branch; do not overlay an executor-written wrapper or use an unpinned branch tip. The runtime pins the unchanged packet INVENTORY SHA-256 `428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1` and verifies all 17 entries itself.
+Execute only after parent dispatch supplies this controller's exact published commit. The current complete-inventory gate is **not established**: the prior checker constructor returned 200, then public PICES search on `/api/records/` returned 301 and stopped without following it. Its Location was not retained, so no redirect target is asserted. The parent supplied prior successful public responses from slashless `/api/records?size=1`. Sandbox search now requests `/api/records` directly with redirects disabled; production search path is unchanged. No additional provider verification was performed by the implementation owner. Check out that exact commit on its separate handoff branch; do not overlay an executor-written wrapper or use an unpinned branch tip. The runtime pins the unchanged packet INVENTORY SHA-256 `428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1` and verifies all 17 entries itself.
 
 ## Inputs and command
 
@@ -18,7 +18,21 @@ From the checked-out repository root, run the installed Python interpreter:
 python -m scripts.synthetic_canary_controller --owner-file /path/to/private-owner.json
 ```
 
-The module is the complete executor entry point. It fixes the run directory, source selection, sandbox origin, response limits and transaction sequence; the executor supplies no transport or upload logic. `--help` does not contact the provider. Exit zero means completed or a matching cached completion; exit one means stop. Shared stdout is one sanitized JSON receipt. Keep ordinary logs, state and account details private.
+The command above is the write-stage entry point and must wait for the separately dispatched inventory mode below. The module is the complete executor entry point. It fixes the run directory, source selection, sandbox origin, response limits and transaction sequence; the executor supplies no transport, inventory or upload logic. `--help` does not contact the provider. Exit zero means completed or a matching cached completion; exit one means stop. Shared stdout is one sanitized JSON receipt. Keep ordinary logs, state and account details private.
+
+## First dispatch: complete inventory only
+
+From the exact same checked-out commit, after parent dispatch:
+
+```sh
+python -m scripts.synthetic_canary_controller --inventory-only --owner-file /path/to/private-owner.json
+```
+
+This runs the existing duplicate checker once under `SandboxInventoryGuard`, with zero retries and no redundant prefetched inventories. **At most 237 new GET attempts**, including its constructor, remain from the **240-total inventory budget after three already observed requests**. Every new transport attempt is fsynced first. Each response is capped at 12 MiB, and the overall command has a 300-second deadline. Both complete owned inventory and exact-total public PICES inventory must pass. Nonempty owned evidence must verify the intended owner. Any HTTP 301, regardless of Location, still stops; redirects are never followed.
+
+The private `synthetic/state/sandbox/synthetic-inventory-controller.json` permanently records this attempt. Reinvoking inventory mode after either success or failure stops without requests; do not delete its state or reset counters. Success binds the packet, private owner and SHA-256 of both checker-generated safe-upload and retained-inventory files. The write-stage entry point requires those exact successful bindings and fresh authorization. No handwritten approval artifact is accepted as part of the workflow.
+
+Inventory mode always pauses without creating a draft. Return its sanitized receipt to the parent. Only a separate parent dispatch after success permits the write command above. If inventory stops or exhausts its budget, retain all evidence and await the code owner; do not rerun or fall through to writes.
 
 ## Enforced preconditions and bounds
 
@@ -44,6 +58,6 @@ The private durable control file is `synthetic/state/sandbox/synthetic-controlle
 
 ## Validation and dispatch receipt
 
-Twelve offline controller tests exercise the full mocked flow and process rerun, durable state before writes, uncertain-create consumption, duplicate POST rejection, malformed origins/paths/Bearer values, redirects, owner/ID/publication/metadata/file mismatch, stale inventory, missing prior control state, credential redaction, cleanup failures and current DOI disappearance. Independent functional and security review cleared the controller after the DOI regression was fixed. The full guarded suite passes **269 tests** on this provider-runtime branch. No provider requests or writes were performed by the implementation owner.
+Sixteen offline controller tests plus three endpoint regressions exercise the full mocked flow and process rerun, durable state before writes, uncertain-create consumption, duplicate POST rejection, malformed origins/paths/Bearer values, redirects, owner/ID/publication/metadata/file mismatch, stale inventory, missing prior control state, credential redaction, cleanup failures and current DOI disappearance. Independent functional and security review cleared the controller after the DOI regression was fixed. The canonical-path regression failed before the endpoint change. Same-host, cross-host and missing-Location redirects are all rejected; every paginated search preserves the exact query and slashless path. A full inventory-to-synthetic mocked run, the 237-request limit, no-reset failure behavior and empty-owner rejection pass. The full guarded suite passes **276 tests** on this provider-runtime branch. No provider requests or writes were performed by the implementation owner.
 
 After the controller prints its receipt, **pause**. Send that receipt to the parent; retain ID/DOI/account evidence privately. Success does not dispatch FGDC-100, FGDC-1839 or FGDC-3682. Those remain a separate parent-gated stage under the existing narrow historical-duplicate exception.

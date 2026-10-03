@@ -38,10 +38,17 @@ class SyntheticControllerTests(unittest.TestCase):
             'valid_until': (datetime.now(timezone.utc) + timedelta(hours=1)).isoformat(),
             'files': [self.file.name], 'metadata_hashes': {self.file.name: c.metadata_hash(self.metadata)}})
         atomic_json(self.paths.already_uploaded_path, {'environment':'sandbox','community':'pices','total_records':0,'records':[]})
+        self.save_inventory_binding()
         self.calls = []; self.mutation = None
         self.remote = {'id': 101, 'owner': OWNER, 'submitted': False, 'state': 'unsubmitted',
                        'metadata': {'prereserve_doi': {'doi':'10.5072/test.101'}}, 'files': [],
                        'links': {'bucket': c.ORIGIN + BUCKET}}
+
+    def save_inventory_binding(self):
+        atomic_json(self.stage/'state/sandbox/synthetic-inventory-controller.json',
+            {'completed':True,'failed':False,'owner':OWNER,'packet':c.INVENTORY_SHA,
+             'safe_sha256':c.sha(Path(self.paths.safe_to_upload_path).read_bytes()),
+             'retained_sha256':c.sha(Path(self.paths.already_uploaded_path).read_bytes())})
 
     def transport(self, session, request, **kwargs):
         self.calls.append((request.method, request.path_url))
@@ -142,6 +149,7 @@ class SyntheticControllerTests(unittest.TestCase):
     def test_stale_inventory_rejected_before_any_request(self):
         safe=read_json(self.paths.safe_to_upload_path);safe['valid_until']='2000-01-01T00:00:00+00:00'
         atomic_json(self.paths.safe_to_upload_path,safe)
+        self.save_inventory_binding()
         with self.assertRaises(ValueError): self.execute()
         self.assertEqual(self.calls,[])
 
@@ -204,3 +212,58 @@ class SyntheticControllerTests(unittest.TestCase):
         self.transport=dropped
         result=self.execute()
         self.assertTrue(result['failed']);self.assertFalse(result['completed'])
+
+    def test_empty_constructor_cannot_authorize_first_write(self):
+        def empty(session,request,**kwargs):
+            self.calls.append((request.method,request.path_url));return response([])
+        self.transport=empty
+        result=self.execute();self.assertTrue(result['failed'])
+        self.assertEqual(result['counts']['create'],0);self.assertEqual(len(self.calls),1)
+
+    def inventory_transport(self, session, request, **kwargs):
+        from urllib.parse import urlsplit,parse_qs
+        self.calls.append((request.method,request.path_url))
+        state=read_json(self.stage/'state/sandbox/synthetic-inventory-controller.json')
+        self.assertEqual(state['get_attempts'],len(self.calls))
+        self.assertFalse(kwargs['allow_redirects']);self.assertEqual(request.method,'GET')
+        path=urlsplit(request.url).path
+        if path=='/api/deposit/depositions':
+            return response([{'id':3,'owner':OWNER,'metadata':{'title':'Unrelated existing item'},'state':'done'}])
+        self.assertEqual(path,'/api/records')
+        if self.mutation=='inventory_redirect':
+            r=response({},301);r.headers['Location']='https://evil.test/records';return r
+        if self.mutation=='inventory_bound':
+            page=int(parse_qs(urlsplit(request.url).query)['page'][0])
+            return response({'hits':{'total':1000,'hits':[{'id':page+100}]},
+                'links':{'next':c.ORIGIN+'/api/records?page='+str(page+1)}})
+        return response({'hits':{'total':0,'hits':[]},'links':{}})
+
+    def run_inventory(self):
+        with patch('requests.sessions.Session.send',self.inventory_transport),patch('scripts.zenodo_api.ZenodoAPIClient._rate_limit_check'):
+            return c.inventory(self.stage,OWNER)
+
+    def test_inventory_entrypoint_then_separately_dispatched_write_controller(self):
+        (self.stage/'state/sandbox/synthetic-inventory-controller.json').unlink()
+        result=self.run_inventory()
+        self.assertTrue(result['completed'],result);self.assertEqual(result['get_attempts'],3)
+        count=len(self.calls)
+        with self.assertRaises(c.ZenodoAPIError):self.run_inventory()
+        self.assertEqual(len(self.calls),count)
+        self.assertTrue(self.execute()['completed'])
+
+    def test_inventory_redirect_stops_and_cannot_reset_attempt_budget(self):
+        (self.stage/'state/sandbox/synthetic-inventory-controller.json').unlink()
+        self.mutation='inventory_redirect';result=self.run_inventory()
+        self.assertTrue(result['failed']);self.assertEqual(result['get_attempts'],2)
+        self.assertFalse(read_json(self.paths.safe_to_upload_path)['inventory_complete'])
+        count=len(self.calls)
+        with self.assertRaises(c.ZenodoAPIError):self.run_inventory()
+        self.assertEqual(len(self.calls),count)
+        with self.assertRaises(c.ZenodoAPIError):self.execute()
+
+    def test_inventory_237_new_get_cap_preserves_three_prior_attempts(self):
+        (self.stage/'state/sandbox/synthetic-inventory-controller.json').unlink()
+        self.mutation='inventory_bound';result=self.run_inventory()
+        self.assertTrue(result['failed']);self.assertEqual(result['get_attempts'],237)
+        self.assertEqual(result['prior_observed_gets']+result['get_attempts'],240)
+        self.assertEqual(len(self.calls),237)
