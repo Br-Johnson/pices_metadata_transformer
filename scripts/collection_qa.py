@@ -244,6 +244,12 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                 if not cache_valid:
                     metadata.update(title=artifact_title, description=html.escape(abstract), communities=[],
                                     access_right='open' if grant else 'restricted')
+                    if (interpreted_creators and selected_creator_reference == institution_reference
+                            and [creator['name'] for creator in interpreted_creators] != origins):
+                        # Exact reviewed joint credits retain the unparsed source
+                        # citation alongside the corrected creator list.
+                        metadata['notes'] += '\nOriginal primary citation origin: ' + root.find(
+                            './idinfo/citation/citeinfo/origin').text
                     if not grant:
                         if authority:
                             from scripts.rehosting_authority import AUTHORITY_ACCESS_CONDITIONS
@@ -305,7 +311,7 @@ def main():
     parser.add_argument('--creator-interpretation-manifest', help='Pinned Exxon primary citation attribution; no XML authorship or rights grant')
     parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned source-backed database registration meaning; no authority or license grant')
     parser.add_argument('--collective-creator-interpretation-manifest', help='Pinned literal DFO Staff collective citation; no person, affiliation or institutional type inference')
-    parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned literal institution/program citation profile; existing full creator objects only')
+    parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned institution/program or reviewed joint/collection citation profile; exact full creator objects')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
