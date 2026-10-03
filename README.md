@@ -40,6 +40,15 @@ pices_md_2/
 
 ## Production safety and review
 
+The [exact22 forestry GIS cohort](docs/readiness/2026-10-03/cnf_copy_media_handoff.md)
+adds finite copy-media acquisition interpretations while preserving literal
+Unknown use, all raw metadata and original XML. Its measured22-source delta plus
+the frozen full baseline yields **3490 source-supported /710 held /six malformed**;
+this bounded comparison does not claim a fresh full-corpus or remote audit.
+The [remaining plain-language questions](docs/readiness/2026-10-03/pices-next-residual-questions.md)
+separate156 unresolved access sources from60 deferred candidates and existing
+creator/date/title/alias holds.
+
 The [bounded modern synthetic approval packet](docs/readiness/2026-10-03/modern_synthetic_approval_plan.md)
 provides an isolated offline-tested Sandbox adapter, fixed fictional payload and
 separate runtime/grant bindings. Parent dispatched the approved trial and reports

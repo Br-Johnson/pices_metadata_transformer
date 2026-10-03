@@ -388,3 +388,20 @@ or preconfirmation is required to test deployed modern protocol compatibility.
 All source classifications and production gates stay unchanged. Existing token
 configuration is sufficient; .env.example needs no new setting.
 See readiness/2026-10-03/modern_supported_route_handoff.md.
+
+## Exact22 named forestry GIS delivery terms — 2026-10-03
+
+Named GIS feature/coverage descriptions and physical copy-media delivery support
+an exact22 acquisition-scope reading. Literal Unknown use remains unresolved;
+separate attested restricted/unlicensed XML authority is required. Complete source
+roots bind descriptions, metadata and distribution liability together, avoiding
+generic Unknown or same-wording inference. An additive491 pin preserves all469
+prior member/context objects and leaves821attestation and all runtime gates intact.
+
+Bounded before/after proves22 promotions with no raw metadata or XML changes.
+Frozen main3468/732/6 plus this actual delta projects3490/710/6; no full corpus
+re-audit is claimed. Normalized submission evidence/notes may still change.
+156 access scope gaps are grouped into15 concrete questions;60 other candidates
+remain held/deferred and need a later coherent reviewed increment. All494 separate
+creator/date/title/alias identities remain held. No provider release follows.
+See readiness/2026-10-03/cnf_copy_media_handoff.md.
