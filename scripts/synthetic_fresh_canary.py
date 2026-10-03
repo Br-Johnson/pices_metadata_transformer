@@ -281,12 +281,16 @@ class FreshTransport(c.SyntheticTransport):
                     identifier = item.get('id')
                     c.require(type(identifier) is int and identifier > 0 and identifier not in seen, 'response_owner')
                     seen.add(identifier)
-                    md = item.get('metadata', {})
-                    c.require(isinstance(md, dict) and SOURCE not in json.dumps(md, sort_keys=True)
-                              and md.get('title', '').strip().casefold() != TITLE.casefold(), 'response_owner')
-                    files = item.get('files', [])
-                    c.require(isinstance(files, list) and all(isinstance(f, dict) and SOURCE + '.xml' not in
-                        [f.get(k) for k in ('filename', 'name', 'key')] for f in files), 'response_owner')
+                    md, files = item.get('metadata'), item.get('files')
+                    c.require(isinstance(md, dict) and isinstance(files, list), 'response_json')
+                    title = md.get('title', '')
+                    c.require(isinstance(title, str) and SOURCE not in json.dumps(md, sort_keys=True)
+                              and title.strip().casefold() != TITLE.casefold(), 'response_owner')
+                    for file in files:
+                        c.require(isinstance(file, dict), 'response_json')
+                        names = [file[k] for k in ('filename', 'name', 'key') if k in file]
+                        c.require(names and all(isinstance(name, str) and bool(name) for name in names)
+                                  and SOURCE + '.xml' not in names, 'response_owner')
                 self.state['pre_ids'] = sorted(seen); self.save()
             return response
         except Exception as exc:

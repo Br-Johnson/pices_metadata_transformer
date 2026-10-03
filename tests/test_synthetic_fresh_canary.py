@@ -45,6 +45,16 @@ class FreshCanaryTests(unittest.TestCase):
         method, path = request.method, request.path_url
         if method == 'GET' and path == '/api/deposit/depositions':
             if self.mutation == 'empty_owner': return base.response([])
+            if isinstance(self.mutation, str) and self.mutation.startswith('bad_control_'):
+                item = {'id': 3, 'owner': OWNER, 'metadata': {}, 'files': []}
+                if self.mutation == 'bad_control_metadata': item.pop('metadata')
+                elif self.mutation == 'bad_control_files': item.pop('files')
+                elif self.mutation == 'bad_control_title': item['metadata']['title'] = None
+                elif self.mutation == 'bad_control_alias': item['files'] = [{'filename': 'Unrelated', 'key': 3}]
+                elif self.mutation == 'bad_control_absent_alias': item['files'] = [{}]
+                elif self.mutation == 'bad_control_empty_alias': item['files'] = [{'filename': ''}]
+                else: item['files'] = [{'key': f.SOURCE + '.xml'}]
+                return base.response([item])
             md = {'title': f.TITLE} if self.mutation == 'collision' else {'title': 'Unrelated historical item'}
             return base.response([{'id': 3, 'owner': OWNER, 'metadata': md, 'files': []}])
         if method == 'POST':
@@ -195,6 +205,16 @@ class FreshCanaryTests(unittest.TestCase):
         before = Path(self.paths.safe_to_upload_path).read_bytes()
         with patch.object(f, 'datetime', Later), self.assertRaises(c.ZenodoAPIError): self.execute()
         self.assertEqual(self.calls, []); self.assertEqual(Path(self.paths.safe_to_upload_path).read_bytes(), before)
+
+    def test_observed_control_identity_fields_and_every_file_alias_are_required(self):
+        for mutation in ('bad_control_metadata', 'bad_control_files', 'bad_control_title', 'bad_control_alias',
+                         'bad_control_absent_alias', 'bad_control_empty_alias', 'bad_control_own_file'):
+            obj = FreshCanaryTests('test_complete_new_identity_exact_readback_unchanged_retry_and_cached_rerun'); obj.setUp()
+            try:
+                obj.mutation = mutation; result = obj.execute()
+                self.assertTrue(result['failed'], result); self.assertEqual(result['counts']['create'], 0)
+                self.assertEqual(len(obj.calls), 1)
+            finally: obj.doCleanups()
 
     def test_changed_clock_or_durable_journal_binding_cannot_reconstruct_controls(self):
         self.folder.mkdir(parents=True, exist_ok=True); f.prepare_grant(self.paths, self.metadata, OWNER)
