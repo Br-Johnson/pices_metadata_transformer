@@ -103,7 +103,7 @@ class ModernCanaryTests(unittest.TestCase):
                 'published': lambda: self.remote.update(is_published=True),
                 'newversion': lambda: self.remote['versions'].update(index=2),
                 'old_created': lambda: self.remote.update(created='2020-01-01T00:00:00+00:00'),
-                'future_created': lambda: self.remote.update(created=(self.clock + timedelta(seconds=1)).isoformat()),
+                'future_created': lambda: self.remote.update(created=(self.clock + timedelta(seconds=6)).isoformat()),
                 'validation_errors': lambda: self.remote.update(errors=[{'field': 'metadata'}]),
                 'namespace': lambda: self.remote['metadata'].update(keywords=['other-run']),
                 'crosshost': lambda: self.remote['links'].update(self='https://evil.test/api/records/101/draft'),
@@ -176,6 +176,15 @@ class ModernCanaryTests(unittest.TestCase):
         self.assertTrue(result['completed'])
         self.assertEqual(result['counts']['doi'], 0)
         self.assertEqual(len(self.calls), 9)
+
+    def test_bounded_create_clock_skew_is_bound_once(self):
+        self.remote['created'] = (self.clock - timedelta(seconds=4)).isoformat()
+        result = self.controller().run()
+        self.assertTrue(result['completed'])
+        state = m.load(self.stage / 'state.json')
+        self.assertEqual(state['create_started_at'], self.clock.isoformat())
+        self.assertEqual(state['create_received_at'], self.clock.isoformat())
+        self.assertEqual(state['identity']['created'], self.remote['created'])
 
     def test_malformed_existing_doi_or_semantic_metadata_never_falls_back(self):
         for mutation in ('doi_null', 'doi_private', 'doi_client', 'doi_external', 'creator_role',
@@ -310,6 +319,20 @@ class ModernCanaryTests(unittest.TestCase):
             self.controller().run()
         self.assertEqual(len(self.calls), 1)
         self.assertEqual(m.load(self.stage / 'state.json')['counts']['create'], 1)
+
+    def test_expiry_during_durable_intent_stops_before_transport(self):
+        controller = self.controller()
+        original = controller.persist
+        def persist():
+            original()
+            self.clock += timedelta(minutes=30)
+        controller.persist = persist
+        with self.assertRaises(m.Held):
+            controller.run()
+        self.assertEqual(self.calls, [])
+        state = m.load(self.stage / 'state.json')
+        self.assertTrue(state['failed'])
+        self.assertEqual(state['counts']['create'], 1)
 
     def test_failures_spend_create_and_never_retry_or_reset(self):
         for mutation in ('uncertain', 'interrupt', '500', 'redirect', 'oversize', 'known_id', 'integer_id',

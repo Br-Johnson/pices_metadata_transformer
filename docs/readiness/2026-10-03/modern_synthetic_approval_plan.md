@@ -69,7 +69,11 @@ with durable attempt and redacted diagnostics for separate reconciliation. The
 parent confirms this exact namespace is unused and grants it exclusively; known
 previously observed IDs are only a reject set, never a complete-inventory claim.
 Returned identity/creation time/parent/owner/marker must match this fresh run before
-another mutation. Full production dedup remains untouched.
+another mutation. Create-start and bounded-response times are durable; the aware
+server creation time must be within five seconds before start through five seconds
+after response capture, with at most20seconds between the two client times. It is
+bound once and must remain identical in every later envelope. This finite skew
+permits small client/server clock differences. Full production dedup remains untouched.
 
 ## Separate runtime bindings and dispatch
 

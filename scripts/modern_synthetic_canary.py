@@ -133,6 +133,7 @@ def stage_packet(stage):
     atomic(stage / 'binding.json', bound)
     save(stage, {'binding': bound, 'grant_sha256': None, 'counts': dict.fromkeys(LIMITS, 0),
                  'pending': None, 'failed': False, 'completed': False, 'retry_completed': False,
+                 'create_started_at': None, 'create_received_at': None,
                  'identity': None, 'uncertain_candidate_id': None, 'responses': []})
     return {'staged': True, 'provider_requests': 0, 'namespace': NAMESPACE,
             'packet_sha256': PACKET_SHA, 'runtime_sha256': bound['runtime_sha256']}
@@ -273,28 +274,37 @@ class Controller:
         for name in ('synthetic.xml', 'create.json', 'metadata-put.json'):
             require((self.stage / name).read_bytes() == (PACKET / name).read_bytes())
         self.state['counts'][kind] += 1
+        if kind == 'create':
+            require(self.state['create_started_at'] is None and self.state['create_received_at'] is None)
+            self.state['create_started_at'] = self.now().isoformat()
         self.state['pending'] = {'kind': kind, 'method': method, 'path_sha256': sha(path.encode())}
         self.persist()
         raw = b''
         response = None
         projected = False
         try:
+            # Fsync may consume the last part of the window; never dispatch after it.
+            require(self.now() < datetime_aware(self.grant['valid_until']))
             response = self.transport(method, ORIGIN + path, body,
                                       {'Accept': ACCEPT, 'Authorization': 'Bearer ' + self.token,
                                        'Content-Type': 'application/octet-stream' if binary else 'application/json'},
                                       timeout=20, allow_redirects=False, verify=True, stream=True)
             complete = True
             for chunk in response.iter_content(chunk_size=4096):
+                require(self.now() < datetime_aware(self.grant['valid_until']))
                 require(isinstance(chunk, bytes))
                 remaining = 65536 - len(raw)
                 raw += chunk[:remaining]
                 if len(chunk) > remaining:
                     complete = False
                     break
+            require(self.now() < datetime_aware(self.grant['valid_until']))
             projection = response_projection(raw, response, method, self.token)
             projection.update(action=kind, body_complete=complete)
             self.state['responses'].append(projection)
             projected = True
+            if kind == 'create':
+                self.state['create_received_at'] = self.now().isoformat()
             self.persist()
             require(complete and response.status_code == status,
                     'Provider response failed bounded status/body contract; attempt remains spent')
@@ -346,7 +356,12 @@ class Controller:
         user = data.get('parent', {}).get('access', {}).get('owned_by', {}).get('user')
         require(isinstance(user, str) and re.fullmatch(r'[1-9][0-9]*', user) and user == str(self.grant['owner']))
         created = datetime_aware(data.get('created'))
-        require(datetime_aware(self.grant['started_at']) <= created <= self.now())
+        if self.state['identity'] is None:
+            started = datetime_aware(self.state['create_started_at'])
+            received = datetime_aware(self.state['create_received_at'])
+            require(datetime_aware(self.grant['started_at']) <= started <= received
+                    <= started + timedelta(seconds=20)
+                    and started - timedelta(seconds=5) <= created <= received + timedelta(seconds=5))
         validate_metadata(data.get('metadata'), expected['metadata'])
         require(data.get('access', {}).get('record') == expected['access']['record']
                 and data.get('access', {}).get('files') == expected['access']['files'])
@@ -461,8 +476,11 @@ def execute(stage, token, retry=False):
             def expired(*_):
                 raise Held('Modern request wall deadline expired')
             def bounded(*args, **kwargs):
+                remaining = (datetime_aware(load(stage / 'approval.json')['valid_until'])
+                             - datetime.now(timezone.utc)).total_seconds()
+                require(remaining > 0)
                 signal.signal(signal.SIGALRM, expired)
-                signal.setitimer(signal.ITIMER_REAL, 20)
+                signal.setitimer(signal.ITIMER_REAL, min(20, remaining))
                 return transport(*args, **kwargs)
             class DeadlineController(Controller):
                 def request(self, *args, **kwargs):
