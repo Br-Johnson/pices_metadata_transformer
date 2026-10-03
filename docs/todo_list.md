@@ -333,6 +333,8 @@ This local cohort has not been pushed or used for a provider operation.
 
 ## Access-held source credit cleanup — 2026-10-03
 
-- [ ] Review the exact86-member source/hash queue after9cdf8b0, prioritizing the five literal siblings and separating credits, interview/reporting, compiler/editor, contract and collection roles. Root remains sole writer.
-- [ ] Implement only independently reviewed complete source-credit after-images in an additive pinned profile preserving all previous319 cohort objects; retain every access, date, rights and alias hold.
-- [ ] Verify full metadata/source/payload delta and guarded contracts, independent runtime/source review, and publish the frozen checkpoint under existing PR8 authority. No provider operations, uncertain-create retry or access-meaning decision.
+- [x] Review the exact 86-member source/hash queue after 9cdf8b0, prioritizing the five literal siblings and separating credits, interview/reporting, compiler/editor, contract and collection roles. Root remains sole writer.
+- [x] Implement only independently reviewed complete source-credit after-images in an additive pinned profile preserving the previous 143 cohort objects covering 319 source bindings; retain every access, date, rights and alias hold.
+- [x] Verify full metadata/source/payload delta and guarded contracts; complete independent runtime/source/document review and freeze the handoff for approved existing PR8 publication. No provider operations, uncertain-create retry or access-meaning decision.
+
+- Actual 77 corrections preserve all 86 access holds: 34 creator lists change / 43 notes-only; all source counts remain 2,288 supported / 1,912 held / six malformed. Five new focused / 306 guarded tests pass, independently reproduced; complete fresh/resumed corpus delta and documents are independently reviewed. Prior cohort objects, 456 aliases and 90 access holds remain intact; nine source-role gaps are queued with exact hashes. This 86-member creator queue is complete; further corrections here require new attribution evidence, and access meaning remains separate.
