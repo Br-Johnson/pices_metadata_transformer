@@ -297,3 +297,10 @@ This local cohort has not been pushed or used for a provider operation.
 
 - [x] Recheck the pinned current report, every original/copy/payload hash and full metadata preservation. Audit exact residual creator cohorts and retain independent access/role holds; analysis grants no eligibility or publication approval. Evidence: readiness/2026-10-03/residual_creator_analysis.json, unchanged 2,121 supported / 2,079 held / six malformed.
 - [x] Freeze a concrete next creator batch and truthful Oct 6 readiness evidence independently of the unresolved Sandbox create. Independent review reproduced the exact audit and checked all 118 members; the 27-source next batch has 16 current creator-only diagnostics and 11 independent access holds, with no implemented promotion. No POST retry, provider operation or canary state reset. See readiness/2026-10-03/residual_source_next_batch.md.
+
+## Residual 27-source citation implementation — 2026-10-03
+
+- [x] Independently review all 27 plain literal source citations and freeze an additive 99-member manifest retaining the previous 72 cohort objects verbatim. Preserve full creator objects, exact spelling, dates, restrictions, blank licenses and the XML-authorship caveat.
+- [ ] Add the second pinned manifest to the existing opt-in institution path; targeted failing-first tests, full guarded tests and fresh/resumed actual corpus/preservation checks. Current creator-only counts do not authorize promotion.
+- [ ] Record parallel read-only role/access decisions for Ecotrust37, USDA/DNR31 and Unaami23 with exact membership bindings; retain unresolved meaning holds.
+- [ ] Complete independent implementation review and publish the non-draft PR8 checkpoint, without merge, provider operation or create-allowance reset.

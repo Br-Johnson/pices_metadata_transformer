@@ -305,7 +305,7 @@ def main():
     parser.add_argument('--creator-interpretation-manifest', help='Pinned Exxon primary citation attribution; no XML authorship or rights grant')
     parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned source-backed database registration meaning; no authority or license grant')
     parser.add_argument('--collective-creator-interpretation-manifest', help='Pinned literal DFO Staff collective citation; no person, affiliation or institutional type inference')
-    parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned 72-source literal institutional citations; existing full creator objects only')
+    parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned literal institution/program citation profile; existing full creator objects only')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
