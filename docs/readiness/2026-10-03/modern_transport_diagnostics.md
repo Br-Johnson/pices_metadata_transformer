@@ -80,15 +80,23 @@ before dispatch. No POST/PUT/DELETE, redirects, automatic retry or link followin
    supports this route/order; deployed support remains unverified. Do not substitute
    public/community search, guessed title/namespace/created filters, cursors or an
    old-runtime mutable-state restart. A rejected route/schema/order stops held.
-3. Validate each returned canonical unique ID, full current draft identity, exact
-   namespace/title/initial metadata, known owner, unpublished/unsubmitted first
-   draft, empty files and aware created time. Validate descending created ordering.
+3. Validate each inventory hit's schema, canonical unique ID and aware created time,
+   plus descending created ordering across the page and page boundary. Valid
+   unrelated historical records remain non-candidates. For a possible canary,
+   separately match full current draft identity, exact namespace/title/initial
+   metadata, known owner, unpublished/unsubmitted first draft and empty files.
+   Incomplete/malformed inventory remains held; do not treat it as a non-match.
    Treat intent-minus5seconds through terminal-observation-plus5seconds as search
    context only, with any clock tolerance explicit. A newest prefix may stop once
    it crosses that lower boundary; index lag/mutable pages make it candidate
    evidence only. It cannot establish global absence or authorize adoption.
-4. Total ceiling:240 GETs including details,200 list pages,size100,30minutes,
-   <=20seconds and64KiB per response. Persist fixed query/page/body-hash/item-ID
+4. The separate reconciliation grant permits at most240 **additional** GET intents
+   including details: historical193 plus at most240 means a cumulative ceiling433.
+   No read counter is reset. Bounds are200 list pages,size100,30minutes,
+   <=20seconds per response. Inventory pages need a separate bounded32MiB response
+   ceiling; the canary's64KiB single-record cap is not an adequate100-record page
+   bound. Exhausting either byte/time/read limit stops incomplete without automatic
+   page-size changes or repeated reads. Persist fixed query/page/body-hash/item-ID
    checkpoints and elapsed/count accounting before advancing. Resume only with a
    separately approved remaining read budget and demonstrated compatible ordering;
    ordinary offset pages are not a snapshot/cursor and cannot prove completeness.
