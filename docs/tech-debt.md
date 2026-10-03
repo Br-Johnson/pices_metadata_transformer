@@ -203,3 +203,15 @@ withdrawn or forged evidence cannot silently grant the interpretation. Fresh and
 resumed classification reports are byte-identical; all original/copy bytes are
 preserved and raw metadata objects are unchanged, with only72 payload policy-reference additions. The combined
 2,121-source support population is not live record QA or release approval.
+## Residual source roles and uncertain Sandbox creation — 2026-10-03
+
+The 27-member literal citation proposal preserves existing creator objects and
+has 16 current creator-only diagnostics, not validated promotions. Larger
+37/31/23 joint/collection groups retain independent access and role questions;
+resolve exact source-bound cohorts rather than widening a universal parser or
+rights vocabulary. See readiness/2026-10-03/residual_source_next_batch.md.
+The separately frozen controller consumed its create allowance on HTTP500;
+188 GETs and an empty reconciliation search cannot clear that uncertainty.
+A parent-dispatched two-GET known-record positive/negative created-filter check
+can assess query compatibility without new state machinery. Preserve the failed
+write intent and continue source restoration independently of provider repair.

@@ -292,3 +292,8 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Audit every original hash/plain primary origin for the four exact literal institutions (26/19/20/7 members; 72 total). Preserve existing full creator objects; no name splitting, expansion or attribution from contacts.
 - [x] Add the pinned opt-in profile; 63 promotions and nine independent residuals verified, with both human schemas/agent QA and withdrawal/tampering tests.
 - [x] Validate byte-identical fresh/resumed corpus (2,121 supported / 2,079 held / six malformed), all 4,206 originals, 4,200 copies and 4,194 full metadata objects; independent review cleared. The source-QA branch combines the reviewed DFO70 and new63 delta for PR8 integration without merge.
+
+## Residual source review after a70e56b — 2026-10-03
+
+- [x] Recheck the pinned current report, every original/copy/payload hash and full metadata preservation. Audit exact residual creator cohorts and retain independent access/role holds; analysis grants no eligibility or publication approval. Evidence: readiness/2026-10-03/residual_creator_analysis.json, unchanged 2,121 supported / 2,079 held / six malformed.
+- [x] Freeze a concrete next creator batch and truthful Oct 6 readiness evidence independently of the unresolved Sandbox create. Independent review reproduced the exact audit and checked all 118 members; the 27-source next batch has 16 current creator-only diagnostics and 11 independent access holds, with no implemented promotion. No POST retry, provider operation or canary state reset. See readiness/2026-10-03/residual_source_next_batch.md.
