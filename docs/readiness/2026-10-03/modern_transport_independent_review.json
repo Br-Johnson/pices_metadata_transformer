@@ -1,0 +1,178 @@
+{
+  "actual_network_transmission": 0,
+  "actual_provider_requests": 0,
+  "base_commit": "e3fde4b4fa9e30435b6b1322536aca276eebc22b",
+  "changed_files_from_base": [
+    "scripts/modern_synthetic_canary.py",
+    "tests/test_modern_transport_diagnostics.py"
+  ],
+  "checks": [
+    {
+      "check": "Durable intent and phase evidence",
+      "detail": "Budget increment/pending action and diagnostic are saved before transport. Preparation, send_call and actual adapter_entry markers are durably separate; they record local entry, never verified server transmission.",
+      "result": "pass"
+    },
+    {
+      "check": "Exact exception whitelist and redaction",
+      "detail": "exception_code compares exact trusted types and emits fixed category literals. Custom secret-bearing exception names/messages become unclassified. No exception args/string, raw URL, headers, body, token or traceback are added to transport diagnostics.",
+      "result": "pass"
+    },
+    {
+      "check": "Header status independent of response projection",
+      "detail": "response_seen and validated integer status are durably recorded before body/projection. A mocked HTTP500 plus projection RuntimeError retains seen/status, remains held and closes response.",
+      "result": "pass"
+    },
+    {
+      "check": "First failure and cleanup evidence",
+      "detail": "setdefault preserves initial failure with phase/category/time. Cleanup adds separate fixed failure projection. Tests cover status rejection, JSON decode, response close and signal cleanup; spent intent stays pending/failed with no identity.",
+      "result": "pass"
+    },
+    {
+      "check": "Preparation-to-send boundary",
+      "detail": "Explicit Requests Request construction and Session.prepare_request precede Session.send; HTTPS ObservedAdapter records actual adapter entry, max_retries=0, proxies={}, trust_env=False, allow_redirects=False and TLS verify preserved.",
+      "result": "pass"
+    },
+    {
+      "check": "Deadline and finite action bounds",
+      "detail": "Dedicated wall-deadline category;20s alarm remains active across request/body,30min grant enforced before send and adapter dispatch. Existing4POST maximum (1 each create/DOI/init/commit),2PUT and8GET ceilings/routes are unchanged; no hidden probes/inventory requests.",
+      "result": "pass"
+    },
+    {
+      "check": "Failed state and old runtime replay refusal",
+      "detail": "Runtime/grant/state/journal bindings remain exact. Tests reject changed old runtime binding and already failed stage before send with state bytes unchanged; no migration, retry, reset or grant creation added.",
+      "result": "pass"
+    },
+    {
+      "check": "Existing protocol and completed retry",
+      "detail": "18 existing modern tests independently passed before the narrow exact deadline/timestamp addition; successful identity/DOI/files/readback/unchanged retry, uncertainties, expiry, collisions, token echoes and filesystem guards remain covered. They were not redundantly rerun.",
+      "result": "pass"
+    },
+    {
+      "check": "Production and generic provider code",
+      "detail": "Only isolated modern synthetic controller and diagnostic tests differ from base. No production adapter, upload service, source transform, packet, limits or prior canary code change.",
+      "result": "pass"
+    }
+  ],
+  "clearance": "Cleared for the bounded future-only diagnostics code handoff at0bfa795; not authorization to reopen/retry/adopt original held stage or perform a new provider action.",
+  "final_frozen_files": [
+    {
+      "path": "scripts/modern_synthetic_canary.py",
+      "sha256": "cd13e52195541469c103650b0a25076fbf59be1030a7df7b05fd5ae508792106"
+    },
+    {
+      "path": "scripts/modern_canary_errors.py",
+      "sha256": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3"
+    },
+    {
+      "path": "tests/test_modern_transport_diagnostics.py",
+      "sha256": "c3b3f01068417b1af9f131dac73ba4eba7a4ba0a5a47facda2f28207e204c6e1"
+    },
+    {
+      "path": "tests/test_modern_synthetic_canary.py",
+      "sha256": "cdad5099120cd46294d55c14707477f654d654fe51d7b96119c015ed6d60d4f1"
+    }
+  ],
+  "final_review_commit": "0bfa79592c5d7d65558f96871b3f206566da7cde",
+  "full_suite_rerun": false,
+  "independent_tests": [
+    {
+      "commit": "bea4f95f60ad6b214fd9dc6a7c5e047fd3cb5666",
+      "elapsed_seconds": 0.681,
+      "existing_modern_tests": 18,
+      "exit_code": 0,
+      "guard": "Unmocked HTTPAdapter.send and socket/DNS boundaries blocked; Session.send permitted only to an exact mocked adapter for the adapter-entry test. Dummy token/stage fixtures.",
+      "log": {
+        "path": "/tmp/pices-modern-transport-diagnostics-focused-review.log",
+        "sha256": "4d3d565c2a2b1448480bbf619f3751cad79ec7b57afa7c3c4dadd4a35837fca0"
+      },
+      "modules": [
+        "tests.test_modern_transport_diagnostics",
+        "tests.test_modern_synthetic_canary"
+      ],
+      "new_diagnostic_tests": 7,
+      "result": "OK",
+      "script": {
+        "path": "/tmp/pices-modern-transport-diagnostics-focused-review.py",
+        "sha256": "08fd9b75095b1ff16cbabfa65e3a317b27af855b600c4cfaa1e66d16a50c54c9"
+      },
+      "total": 25
+    },
+    {
+      "commit": "0bfa79592c5d7d65558f96871b3f206566da7cde",
+      "elapsed_seconds": 0.051,
+      "exit_code": 0,
+      "guard": "Session.send, HTTPAdapter.send, socket connect/connect_ex/create_connection/getaddrinfo blocked except explicit fixture mocks; dummy tokens/stages.",
+      "log": {
+        "path": "/tmp/pices-modern-transport-diagnostics-final-review.log",
+        "sha256": "7985a26de40524425a0ea877a53d7128314e37dcbce3eda63f02125e6d1f9053"
+      },
+      "modules": [
+        "tests.test_modern_transport_diagnostics"
+      ],
+      "new_diagnostic_tests": 8,
+      "result": "OK",
+      "script": {
+        "path": "/tmp/pices-modern-transport-diagnostics-final-review.py",
+        "sha256": "66205b770483938314767382f9b032b4a97f4d9e9b943ec76e79522251c7a028"
+      },
+      "total": 8
+    }
+  ],
+  "initial_frozen_files": [
+    {
+      "path": "scripts/modern_synthetic_canary.py",
+      "sha256": "ea583ba7f8844a6e1311f1726e50dd0c528e9af7ed9e5c76c09303550c7c4caa"
+    },
+    {
+      "path": "scripts/modern_canary_errors.py",
+      "sha256": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3"
+    },
+    {
+      "path": "tests/test_modern_transport_diagnostics.py",
+      "sha256": "dd69575cc663028de0be60a50cf5f45b000aeb3347969f2a2c6dd3a1cbd73b83"
+    },
+    {
+      "path": "tests/test_modern_synthetic_canary.py",
+      "sha256": "cdad5099120cd46294d55c14707477f654d654fe51d7b96119c015ed6d60d4f1"
+    }
+  ],
+  "initial_harness_adjustment": {
+    "description": "The first harness blocked Session.send before the adapter-entry test could reach its exact adapter mock, yielding one harness-induced failure. The corrected harness allowed only that mock path; all25 passed. Root subsequently made the adapter fixture self-contained under the ordinary send guard. No provider/socket request occurred.",
+    "retained_log": {
+      "path": "/tmp/pices-modern-transport-diagnostics-focused-review-initial-guard.log",
+      "sha256": "f65a5b1cebb9d8b9f8677e6df0a82667ea8fc567a7e3c67bcb8153f42913b396"
+    }
+  },
+  "initial_review_commit": "bea4f95f60ad6b214fd9dc6a7c5e047fd3cb5666",
+  "intermediate_test_fixture_commit": "9108f089cf90ddeba0da4a0e965a40058859b67b",
+  "practical_limits": [
+    "No actual trial failure cause, HTTP response or network transmission can be inferred retrospectively; old failed stage remains permanently spent/held.",
+    "Adapter-entry/send-call observations may precede local rejection; they never establish socket bytes or server processing.",
+    "Filesystem persistence/interruption may still leave a state/journal mismatch; existing fail-closed behavior is retained, without reset.",
+    "Diagnostics change is future-only engineering and grants no new provider create or mutation permission.",
+    "The pinned inherited10000-result search-window limit from the separate static receipt still prevents a guaranteed exhaustive200-page reconciliation; no provider scan ran here."
+  ],
+  "private_stage_reads": 0,
+  "remaining_material_runtime_blockers": [],
+  "repository_edits": 0,
+  "resolved_review_findings": [
+    {
+      "final_source": "scripts/modern_synthetic_canary.py:42,48,578",
+      "finding": "Wall deadline initially used generic Held/contract category.",
+      "resolution": "Exact trusted WallDeadline type maps to wall_deadline; one deterministic no-send alarm regression passes."
+    },
+    {
+      "final_source": "scripts/modern_synthetic_canary.py:296-306",
+      "finding": "No trustworthy failure-capture timestamp retained for future reconciliation.",
+      "resolution": "Primary and cleanup failure projections retain captured_at from aware controller clock. Shared test helper independently verifies aware timestamp; first failure remains immutable."
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Read-only independent modern transport diagnostics code-delta review; dummy fixtures only. No provider/API requests, credentials, private old stages or terminal audits read; no repository edits.",
+  "separate_static_receipt": {
+    "path": "/tmp/pices-modern-transport-diagnostic-static-review.json",
+    "sha256": "fd2ed25feafebceeaba5834e40821bce0832a22df6f211c00643ecd288d4d48e"
+  },
+  "worktree": "/workspace/pices-modern-transport-diagnostics",
+  "worktree_status": "clean"
+}
