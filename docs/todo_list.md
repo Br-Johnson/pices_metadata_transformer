@@ -1,6 +1,15 @@
 # FGDC → Zenodo Sandbox TODO List
 
-_Last updated: 2025-10-14_
+## Remaining access and attribution evidence from merged 4b13126 — 2026-10-03
+
+- [x] Audit the largest exact source-constraint groups in disjoint read-only lanes, preserving the completed 86-record access queue, earlier 90 access cases and all 456 aliases. Root is the sole integration writer.
+- [x] Implement only reviewed finite source/hash/context-bound resource-access interpretations; preserve XML, complete metadata, restricted access, blank licenses and independent attribution/date/title holds.
+- [x] Verify the complete actual delta and independent implementation/source review; freeze the grouped decision packet. Provider execution remains with its separate executor.
+- Actual finite142 batch: 2,430 supported / 1,770 held / six malformed; 312 guarded offline tests and six independently reproduced focused contracts. All 4,194 whole metadata objects, 4,206 originals, 4,200 copies, 176 protected access holds and 456 aliases are preserved. See `readiness/2026-10-03/finite_source_resource_access.md` and its validation receipt.
+- [ ] Implement and independently test the separately prepared five source-credit and eight bounded-title proposals; they are not promotions in this checkpoint.
+- [ ] Obtain the exact remaining source-scope evidence, prioritizing Contributor361 / ADF&G351 / Unknown109, and preserve original terms, blank licenses and independent holds.
+
+_Last updated: 2026-10-03_
 
 This checklist tracks everything required to shepherd FGDC metadata through the Zenodo sandbox pipeline and keep the project healthy. Update it whenever a task is finished, deferred, or newly discovered. Capture timestamps or short notes when changing scope so the team always understands current progress.
 
