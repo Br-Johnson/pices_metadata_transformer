@@ -1,0 +1,62 @@
+{
+  "bindings": {
+    "error_helper_sha256": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "namespace": "pices-modern-synthetic-20261003-code-02",
+    "packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+    "private_candidate_id_owner_original_failed_grant_and_expiry": "Must be exactly bound by sole executor; reviewer has not inspected private values",
+    "runtime_sha256": "8b96b63ca66ec4e27546ce3980abb98cb8f5f7b696eb2c7d3f590ac7a61e9b24"
+  },
+  "document": {
+    "path": "/workspace/pices-run02-candidate-read/docs/readiness/2026-10-03/run02_canonical_candidate_readback.md",
+    "sha256": "e6dd6ead45070631862520083e14331e5ea670cd6de024ee4c6bc39cbbd4e5d6"
+  },
+  "limitations": [
+    "Document-only review; no new tests or pure helper implementation review.",
+    "No provider/network/credential/environment/private-stage reads, repository edits or dispatch.",
+    "HTTP201/create times/candidate retention and prior-file preservation are parent-reported sanitized evidence, not reviewer-observed provider facts."
+  ],
+  "limits": {
+    "diagnostic_window_seconds_maximum": 120,
+    "fallback_or_probe": false,
+    "get_intents": 1,
+    "historical_gets_before": 195,
+    "maximum_cumulative_gets_after": 196,
+    "original_run02_expiry_is_absolute_cap": true,
+    "post_put_delete_or_other_mutations": 0,
+    "redirects": false,
+    "request_body_wall_seconds": 20,
+    "request_wall_clipped_to_both_expiries": true,
+    "response_bytes_maximum": 65536,
+    "retries": 0
+  },
+  "material_findings": [],
+  "preservation_and_authority": {
+    "all288_prior_files_failed_state_pending_create_and_spent_counters_immutable": "Required; preservation reported by parent, not privately verified by reviewer",
+    "any_mutation_requires_separate_source_evidence_and_specific_reviewed_continuation": true,
+    "diagnostic_read_explicitly_spent_in_any_later_continuation": true,
+    "no_adoption_reset_create_upload_doi_publish_delete_or_new_version_authorized": true,
+    "no_trusted_identity_acceptance_or_success_flag_minted": true,
+    "sole_executor_parent_dispatch_required": true
+  },
+  "privacy": {
+    "beforeimage_directory0700_file0600_outside_old_files": true,
+    "no_actual_values_unknown_keys_ids_dois_owners_links_timestamps_credentials_or_exception_text": true,
+    "raw_and_decoded_credential_echo_checks_before_any_persistence_or_projection": true,
+    "raw_beforeimage_only_bounded200_credential_free_json": true,
+    "returned_diagnostics_fixed_field_names_closed_types_and_booleans_only": true
+  },
+  "read_route": {
+    "body": null,
+    "method": "GET",
+    "normal_approved_session_request_route_ca_tls_and_private_opaque_authorization_check": true,
+    "path": "https://sandbox.zenodo.org/api/records/{exact_retained_positive_canonical_decimal_id}/draft",
+    "query": null
+  },
+  "resolved_findings": [
+    "Credential checks now explicitly precede raw response persistence; echoed credentials produce held fixed diagnostics only.",
+    "Later continuation must account this diagnostic read as spent rather than silently restore a full allowance."
+  ],
+  "result": "CLEARED",
+  "schema_version": 1,
+  "scope": "Exact final one-GET canonical candidate readback plan review; no runtime helper or provider execution"
+}
