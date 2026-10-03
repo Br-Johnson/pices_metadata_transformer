@@ -3,15 +3,16 @@
 Finite audited profiles only. Recheck paired raw constraints and per-source
 abstract structure/text; separate restricted XML rehosting policy remains required.
 """
+import copy
 import hashlib
 import json
-import copy
-from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
+from pathlib import Path
 
 MANIFEST_SHA256 = '2d18139656b78f96404561afcee7d2ae77022655873958c3fa98619a2717bdee'
 ACQUISITION_MANIFEST_SHA256 = '5c141ea3e0fae8e9b6673a2dc3f5aadba0d16c949767f80b5892ac589e6a0dbf'
+EXTENDED_ACQUISITION_MANIFEST_SHA256 = '76a5ca8a8cdadbe0c1b0157d559068c98b16e18619a8561ff66a203a5008730a'
 REGISTRATION_WORDING = 'First time users must register to gain database access.'
 
 
@@ -19,7 +20,8 @@ def _manifest(reference):
     """Load only reviewed immutable evidence; a refreshed hash cannot expand it."""
     if (not isinstance(reference, dict) or set(reference) != {'manifest_path', 'manifest_sha256'}
             or not isinstance(reference.get('manifest_path'), str) or not reference['manifest_path'].strip()
-            or reference.get('manifest_sha256') not in (MANIFEST_SHA256, ACQUISITION_MANIFEST_SHA256)):
+            or reference.get('manifest_sha256') not in (MANIFEST_SHA256, ACQUISITION_MANIFEST_SHA256,
+                                                      EXTENDED_ACQUISITION_MANIFEST_SHA256)):
         raise ValueError('Dataset access interpretation requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()
@@ -83,7 +85,10 @@ def validate_dataset_access_interpretation(reference, source_id, source_sha256, 
 
 def validate_dataset_access_policy(policy, source_id, source_sha256, root, metadata):
     """Common all-QA-route gate: interpretation cannot replace rights authority."""
-    from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
+    from scripts.rehosting_authority import (
+        validate_authority,
+        validate_restricted_metadata,
+    )
     if policy.get('source_access_interpretation') is not None:
         raise ValueError('Conflicting access interpretations require separate adjudication')
     authority = policy.get('rehosting_authority')

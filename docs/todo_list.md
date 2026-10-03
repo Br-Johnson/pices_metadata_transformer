@@ -1,3 +1,11 @@
+# Remaining-source finite cohorts — 2026-10-03
+
+- [x] Freeze205 access,8 creator and27 title proposals in disjoint source/hash/context review lanes.
+- [x] Preserve old264/401/8 profiles and implement three additive immutable acceptance pins.
+- [x] Observe failing-first acceptance regression; five focused preservation/gate contracts pass.
+- [ ] Finish guarded full suite, complete corpus delta and independent final runtime review.
+- [ ] Publish normal stacked handoff PR; merges remain blocked by original trusted no-merge scope.
+
 # FGDC → Zenodo Sandbox TODO List
 
 ## Exact821 source scope answer — 2026-10-03
