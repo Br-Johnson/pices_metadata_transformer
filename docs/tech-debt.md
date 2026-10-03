@@ -248,3 +248,24 @@ Historical public IDs/DOIs are protected with their original association confide
 including three distinct contents sharing FGDC-2043's title. Fresh remote identity
 verification remains required before release. No canary machinery or new authority
 is added; its uncertain POST remains spent.
+
+## Alias candidates and residual source evidence — 2026-10-03
+
+All 228 exact-copy pairs have identical complete prepared metadata and artifact
+policies. Their full payloads retain distinct source filenames; artifact contracts
+and locally derived submission notes therefore have distinct fingerprints. Use
+the shared original SHA-256 as a neutral review-group key and retain every source
+ID/hash. A smallest-ID display representative supplies no historical priority,
+ownership or canonical provider identity. The 456-entry candidate map leaves all
+provider IDs/DOIs unset; all alias holds remain active. Two title-only matches to
+FGDC-2043/ProCite104 have different abstracts and cannot inherit its DOI.
+
+Parallel source QA ranks 15 full-object institutional and 24 untyped literal
+citation candidates without installing a profile. Five same-origin access-held
+siblings remain outside that scope. Separate full after-image review is required
+for smaller credit/person lists and 35 mixed BASIS role/order cases. Twenty-one
+empty origins and six unsupported metadata dates need authoritative evidence;
+contacts, hosting context and guessed dates cannot repair them. The nine-partition
+morning bundle queues exact XML-versus-dataset scope decisions for the unchanged
+90 access holds. See readiness/2026-10-03/source_alias_reconciliation.md and its
+reproducible maps. No provider access, spent-create reset or release occurs.
