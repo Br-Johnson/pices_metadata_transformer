@@ -102,9 +102,12 @@ def validate_registry_identities(registry):
         seen.add(identity)
 
 
-def require_inventory(safe, environment):
+def require_inventory(safe, environment, *, synthetic_controller=None):
     if not isinstance(safe, dict) or safe.get('environment') != environment or not safe.get('inventory_complete'):
         raise ValueError('Complete environment-scoped duplicate inventory required before upload')
+    if safe.get('inventory_scope') is not None:
+        from scripts.synthetic_canary_controller import authorize_scoped_inventory
+        authorize_scoped_inventory(safe, environment, synthetic_controller)
     try:
         expires = datetime.fromisoformat(safe['valid_until'])
         if expires.tzinfo is None or expires <= datetime.now(timezone.utc):
@@ -173,7 +176,10 @@ class DraftUploadService:
                 pending.append(str(json_file))
         return pending[:limit] if limit is not None else pending
 
-    def upload(self, json_file, client):
+    def upload(self, json_file, client, *, synthetic_controller=None):
+        scoped_inventory = read_json(self.paths.safe_to_upload_path, {})
+        if scoped_inventory.get('inventory_scope') is not None:
+            require_inventory(scoped_inventory, self.environment, synthetic_controller=synthetic_controller)
         if self.canary:
             if client.base_url != self.canary.plan['origin']:
                 raise ValueError('Canary client must use the exact sandbox origin')
@@ -218,7 +224,7 @@ class DraftUploadService:
                     return dict(previous, success=True, json_file=json_file, metadata=metadata)
             else:
                 safe = read_json(self.paths.safe_to_upload_path, {})
-                require_inventory(safe, self.environment)
+                require_inventory(safe, self.environment, synthetic_controller=synthetic_controller)
                 if self.canary and Path(json_file).name not in safe.get('canary_create_files', []):
                     raise ValueError('Canary create grant absent or consumed; reconcile')
                 if (safe.get("environment") != self.environment or not safe.get("inventory_complete")

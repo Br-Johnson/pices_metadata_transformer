@@ -5,6 +5,7 @@ links are inert except the one checked bucket/file. Shared receipts omit private
 IDs, owners, URLs, credentials, response bodies and arbitrary exception text.
 """
 import argparse
+from datetime import datetime, timezone, timedelta
 import contextlib
 import fcntl
 import hashlib
@@ -31,6 +32,8 @@ SOURCE = 'SYNTHETIC-PICES-9379FD8-20261002'
 RUN = Path('/workspace/pices-sandbox-run-9379fd8-20261002/synthetic')
 PACKET = Path(__file__).resolve().parents[1] / 'docs/handoff/sandbox-canary-20261002'
 INVENTORY_SHA = '428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1'
+OWNED_SCOPE = 'synthetic_owned_namespace_only_v1'
+OWNED_STATE = 'synthetic-owned-inventory-controller.json'
 
 
 def require(ok, stage='request_prepare'):
@@ -65,48 +68,79 @@ def bindings(stage):
 
 
 def inventory(stage, owner):
-    """One bounded full-checker run, accounting for the three prior observed GETs."""
-    from scripts.pre_upload_duplicate_check import PreUploadDuplicateChecker
+    """Synthetic-only owned namespace reconciliation; no public-community query."""
     paths, file, metadata, artifact, plan = bindings(stage)
     token = load_zenodo_token(sandbox=True)
     require(token == os.environ.get('ZENODO_SANDBOX_TOKEN'))
     folder = Path(paths.state_dir) / 'sandbox'
     folder.mkdir(parents=True, exist_ok=True)
-    state_file = folder / 'synthetic-inventory-controller.json'
+    state_file = folder / OWNED_STATE
     with (folder / 'synthetic-controller.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        require(not state_file.exists())  # A stopped/successful inventory is never silently rerun.
+        require(not state_file.exists())
         require(not (folder / 'synthetic-controller.json').exists() and
                 not read_json(paths.uploads_registry_path, {}))
-        guard = SandboxInventoryGuard(token, owner, max_requests=237)
+        # Preserve the stopped community attempt, never reset or overwrite it.
+        previous_file = folder / 'synthetic-inventory-controller.json'
+        if previous_file.exists():
+            previous = read_json(previous_file)
+            require(previous.get('completed') is False and previous.get('failed') is True
+                    and previous.get('get_attempts') == 2 and previous.get('owner') == owner
+                    and previous.get('packet') == INVENTORY_SHA
+                    and previous.get('diagnostics', {}).get('status') == 400)
+        guard = SandboxInventoryGuard(token, owner, max_requests=10)
         state = {'completed': False, 'failed': False, 'get_attempts': 0,
-                 'prior_observed_gets': 3, 'maximum_new_gets': 237,
-                 'owner': owner, 'packet': INVENTORY_SHA}
+                 'prior_observed_gets': 5, 'maximum_new_gets': 10, 'inventory_scope': OWNED_SCOPE,
+                 'owner': owner, 'packet': INVENTORY_SHA,
+                 'previous_attempt_sha256': sha(previous_file.read_bytes()) if previous_file.exists() else None}
         def save():
             atomic_json(state_file, state)
             fd = os.open(folder, os.O_RDONLY | os.O_DIRECTORY)
             try: os.fsync(fd)
             finally: os.close(fd)
         save()
+        atomic_json(paths.safe_to_upload_path, {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
+                    'inventory_complete': False, 'files': [], 'metadata_hashes': {}})
         original = requests.sessions.Session.send
-        checker = None
+        client = None
         def counted(session, request, **kwargs):
-            require(state['get_attempts'] < 237)
+            require(request.method == 'GET' and urlsplit(request.url).path == '/api/deposit/depositions')
+            require(state['get_attempts'] < 10)
             state['get_attempts'] += 1; save()
             return original(session, request, **kwargs)
         try:
             requests.sessions.Session.send = counted
             with guard:
-                checker = PreUploadDuplicateChecker(sandbox=True, output_dir=str(stage),
-                                                    allow_replacements=False, canary_plan=None)
-                checker.client.max_retries = 0
-                summary = checker.check_all_files()
-                require(not summary['check_errors'] and not summary['duplicate_files'] and
-                        summary['safe_to_upload_files'] == [file.name])
+                client = create_zenodo_client(sandbox=True)
+                client.max_retries = 0
+                owned = client.get_all_my_depositions()
                 require(any(o['owner_validated'] for o in guard.receipt()['observations']), 'response_owner')
-                checker.generate_upload_list()
-            checker.client.close(); checker = None
-            state.update(completed=True,
+                for item in owned:
+                    md = item.get('metadata')
+                    files = item.get('files')
+                    require(isinstance(md, dict) and isinstance(files, list), 'response_json')
+                    title = md.get('title', '')
+                    require(isinstance(title, str) and bool(title.strip()), 'response_json')
+                    # A matching title, embedded frozen source ID, or exact file
+                    # name requires reconciliation, even if renamed or published.
+                    same_run = title.strip().casefold() == metadata['title'].strip().casefold()
+                    same_run |= SOURCE in json.dumps(md, sort_keys=True)
+                    for remote_file in files:
+                        require(isinstance(remote_file, dict), 'response_json')
+                        name = remote_file.get('filename', remote_file.get('name', remote_file.get('key')))
+                        require(isinstance(name, str) and bool(name), 'response_json')
+                        same_run |= name == SOURCE + '.xml'
+                    require(not same_run, 'response_owner')
+                require(owned, 'response_owner')
+            client.close(); client = None
+            now = datetime.now(timezone.utc)
+            atomic_json(paths.already_uploaded_path, {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
+                        'total_records': len(owned), 'records': owned, 'check_date': now.isoformat()})
+            atomic_json(paths.safe_to_upload_path, {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
+                        'inventory_complete': True, 'files': [file.name], 'checked_at': now.isoformat(),
+                        'valid_until': (now + timedelta(hours=24)).isoformat(),
+                        'metadata_hashes': {file.name: metadata_hash(metadata)}})
+            state.update(completed=True, owned_count=len(owned),
                          safe_sha256=sha(Path(paths.safe_to_upload_path).read_bytes()),
                          retained_sha256=sha(Path(paths.already_uploaded_path).read_bytes()))
         except Exception as exc:
@@ -115,14 +149,29 @@ def inventory(stage, owner):
             state['diagnostics']['retryable'] = False
         finally:
             requests.sessions.Session.send = original
-            if checker is not None:
-                try: checker.client.close()
+            if client is not None:
+                try: client.close()
                 except Exception: pass
             save()
-        return {'mode': 'inventory', 'completed': state['completed'], 'failed': state['failed'],
-                'get_attempts': state['get_attempts'], 'prior_observed_gets': 3,
-                'diagnostics': state.get('diagnostics'), 'guard': guard.receipt(),
-                'packet_sha256': INVENTORY_SHA}
+        return {'mode': 'inventory', 'inventory_scope': OWNED_SCOPE,
+                'completed': state['completed'], 'failed': state['failed'],
+                'get_attempts': state['get_attempts'], 'prior_observed_gets': 5,
+                'owned_count': state.get('owned_count'), 'diagnostics': state.get('diagnostics'),
+                'guard': guard.receipt(), 'packet_sha256': INVENTORY_SHA}
+
+
+def authorize_scoped_inventory(safe, environment, controller):
+    """A reduced-scope grant is usable only inside this exact active controller."""
+    require(type(controller) is SyntheticTransport and environment == 'sandbox')
+    require(safe.get('inventory_scope') == OWNED_SCOPE and
+            requests.sessions.Session.send is controller.active_send and
+            controller.original_send is not None and not controller.state['failed'] and
+            not controller.state['completed'] and controller.state['phase'] in ('upload', 'retry'))
+    paths, file, metadata, artifact, plan = bindings(RUN)
+    require(str(Path(controller.paths.base).resolve()) == str(RUN.resolve()) and
+            controller.metadata == metadata and controller.artifact == artifact and controller.plan == plan)
+    require(safe['files'] == [file.name] and safe['metadata_hashes'].get(file.name) == metadata_hash(metadata)
+            and sha(Path(paths.safe_to_upload_path).read_bytes()) == controller.state['inventory_sha256'])
 
 
 class SyntheticTransport:
@@ -134,24 +183,27 @@ class SyntheticTransport:
         self.metadata, self.artifact, self.plan = metadata, artifact, plan
         self.path = Path(paths.state_dir) / 'sandbox' / 'synthetic-controller.json'
         self.binding = {'schema_version': 1, 'owner': owner, 'run': str(RUN.resolve()),
-                        'packet': INVENTORY_SHA, 'payload': plan['prepared_payload_sha256'],
+                        'packet': INVENTORY_SHA, 'inventory_scope': OWNED_SCOPE, 'payload': plan['prepared_payload_sha256'],
                         'metadata': metadata_hash(metadata), 'artifact': artifact['sha256']}
         self.state = read_json(self.path)
         ledger = read_json(paths.uploads_registry_path, {})
         require(set(ledger) <= {SOURCE})
         if self.state is None:
             require(not ledger)  # Never reconstruct lost controls around a prior attempt.
-            inventory_state = read_json(self.path.parent / 'synthetic-inventory-controller.json', {})
-            require(inventory_state.get('completed') is True and inventory_state.get('failed') is False
+            inventory_state = read_json(self.path.parent / OWNED_STATE, {})
+            require(inventory_state.get('inventory_scope') == OWNED_SCOPE
+                    and inventory_state.get('completed') is True and inventory_state.get('failed') is False
                     and inventory_state.get('owner') == owner and inventory_state.get('packet') == INVENTORY_SHA
                     and inventory_state.get('safe_sha256') == sha(Path(paths.safe_to_upload_path).read_bytes())
                     and inventory_state.get('retained_sha256') == sha(Path(paths.already_uploaded_path).read_bytes()))
             safe = read_json(paths.safe_to_upload_path)
-            require_inventory(safe, 'sandbox')
-            require(safe['files'] == [SOURCE + '.json'] and
+            # Validate freshness locally before the transport context exists.
+            # Generic callers must never receive this scope-free copy.
+            require_inventory({k: v for k, v in safe.items() if k != 'inventory_scope'}, 'sandbox')
+            require(safe.get('inventory_scope') == OWNED_SCOPE and safe['files'] == [SOURCE + '.json'] and
                     safe['metadata_hashes'].get(SOURCE + '.json') == metadata_hash(metadata))
             prior = read_json(paths.already_uploaded_path)
-            require(prior['environment'] == 'sandbox' and prior['community'] == 'pices')
+            require(prior['environment'] == 'sandbox' and prior.get('inventory_scope') == OWNED_SCOPE)
             require(prior['total_records'] == len(prior['records']))
             ids = [r['id'] for r in prior['records']]
             require(all(type(i) is int and i > 0 for i in ids))
@@ -173,6 +225,7 @@ class SyntheticTransport:
         else:
             require(not ledger and not any(self.state['counts'].values()))
         self.original_send = None
+        self.active_send = None
 
     def save(self):
         atomic_json(self.path, self.state)
@@ -196,7 +249,8 @@ class SyntheticTransport:
 
     def __enter__(self):
         self.original_send = requests.sessions.Session.send
-        requests.sessions.Session.send = lambda session, request, **kw: self.send(session, request, **kw)
+        self.active_send = lambda session, request, **kw: self.send(session, request, **kw)
+        requests.sessions.Session.send = self.active_send
         return self
 
     def __exit__(self, *_):
@@ -263,7 +317,7 @@ class SyntheticTransport:
             elif method == 'POST' and path == deposition and self.state['id'] is None:
                 require(self.state['phase'] == 'upload' and json.loads(request.body) == {})
                 require(sha(Path(self.paths.safe_to_upload_path).read_bytes()) == self.state['inventory_sha256'])
-                require_inventory(read_json(self.paths.safe_to_upload_path), 'sandbox')
+                require_inventory(read_json(self.paths.safe_to_upload_path), 'sandbox', synthetic_controller=self)
                 entry = self.check_ledger()
                 require(entry.get('needs_reconciliation') is True and not entry.get('deposition_id'))
                 kind = 'create'
@@ -365,7 +419,7 @@ def execute(stage, owner):
                 require(client.base_url == ORIGIN)
                 client.max_retries = 0
                 service = DraftUploadService(paths, 'sandbox')
-                entry = service.upload(str(file), client)
+                entry = service.upload(str(file), client, synthetic_controller=guard)
                 require(entry.get('success') is True and entry.get('publish_status') == 'draft')
                 remote = verify_remote(client, guard)
                 download = remote['files'][0].get('links', {}).get('download')
@@ -375,7 +429,7 @@ def execute(stage, owner):
                 client.session.get(download, allow_redirects=False, timeout=(10, 30)).content
                 guard.state['phase'] = 'retry'; guard.save()
                 before = dict(guard.state['counts'])
-                again = service.upload(str(file), client)
+                again = service.upload(str(file), client, synthetic_controller=guard)
                 require(again.get('success') is True and again.get('deposition_id') == entry['deposition_id']
                         and again.get('doi') == entry.get('doi'))
                 verify_remote(client, guard)
@@ -402,7 +456,7 @@ def execute(stage, owner):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--owner-file', required=True, type=Path, help='Private JSON positive integer from verified account provenance')
-    parser.add_argument('--inventory-only', action='store_true', help='One complete read-only checker run, at most 237 new GETs, then pause')
+    parser.add_argument('--inventory-only', action='store_true', help='Synthetic-owned namespace check only, at most 10 new GETs, then pause')
     args = parser.parse_args()
     previous = signal.getsignal(signal.SIGALRM)
     old_logging = logging.root.manager.disable
@@ -424,4 +478,6 @@ def main():
 
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    # Keep capability class identity canonical when invoked with python -m.
+    from scripts.synthetic_canary_controller import main as canonical_main
+    raise SystemExit(canonical_main())

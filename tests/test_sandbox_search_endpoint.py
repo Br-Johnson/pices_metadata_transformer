@@ -52,3 +52,22 @@ class SandboxSearchEndpointTests(unittest.TestCase):
         with patch.object(client,'_make_request',return_value=response({'hits':{'hits':[],'total':0}})) as call:
             client.search_records(q='communities:pices',size=200,page=1)
             call.assert_called_once_with('GET','records',params={'q':'communities:pices','size':200,'page':1},allow_redirects=False)
+
+    def test_reported_400_query_has_safe_status_classification_without_cause_inference(self):
+        calls=[]
+        def transport(session,request,**kwargs):
+            calls.append(request.url);self.assertFalse(kwargs['allow_redirects'])
+            parsed=urlsplit(request.url)
+            if parsed.path=='/api/deposit/depositions':return response([{'id':1,'owner':OWNER}])
+            self.assertEqual(parsed.path,'/api/records')
+            self.assertEqual(parse_qs(parsed.query),{'q':['communities:pices'],'size':['200'],'page':['1']})
+            return response({'unretained_error_body':'Do not infer cause'},400)
+        with patch('requests.sessions.Session.send',transport),patch.object(ZenodoAPIClient,'_rate_limit_check'):
+            with SandboxInventoryGuard(TOKEN,OWNER,max_requests=2) as guard:
+                client=ZenodoAPIClient(TOKEN,sandbox=True);client.max_retries=0
+                with self.assertRaises(ZenodoAPIError) as caught:client.get_records_by_query(q='communities:pices',size=200)
+                client.close()
+        self.assertEqual(len(calls),2)
+        self.assertEqual(caught.exception.diagnostics['status'],400)
+        self.assertEqual(caught.exception.diagnostics['stage'],'response_status')
+        self.assertFalse(guard.receipt()['observations'][-1]['json_validated'])

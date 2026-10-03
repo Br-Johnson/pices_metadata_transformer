@@ -1,63 +1,53 @@
-# Frozen runnable synthetic canary controller
+# Frozen synthetic-only owned-inventory canary
 
-This controller closes the write-stage gap without changing the frozen packet, the existing read guard, the upload service, PR8 or the separate 70-record cohort. Its base runtime is `d5022b8828ef910749aef32371304f2b2b669674`. The parent reported that runtime's one-request diagnostic passed HTTP 200 with 25 owner-consistent items and every validation milestone. The historical failure cause remains unknown.
+Public PICES community inventory is **not necessary for this disposable, sandbox-only synthetic namespace**. The exact synthetic source, original run directory, durable creation intent/ID, complete owned-deposition scan and guarded readback establish its relevant identity and idempotency boundaries. This narrowed authorization is usable only by the active frozen synthetic controller; ordinary upload paths reject it. Production and actual-source duplicate checkers still require their original public-plus-owned inventories.
 
-Execute only after parent dispatch supplies this controller's exact published commit. The current complete-inventory gate is **not established**: the prior checker constructor returned 200, then public PICES search on `/api/records/` returned 301 and stopped without following it. Its Location was not retained, so no redirect target is asserted. The parent supplied prior successful public responses from slashless `/api/records?size=1`. Sandbox search now requests `/api/records` directly with redirects disabled; production search path is unchanged. No additional provider verification was performed by the implementation owner. Check out that exact commit on its separate handoff branch; do not overlay an executor-written wrapper or use an unpinned branch tip. The runtime pins the unchanged packet INVENTORY SHA-256 `428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1` and verifies all 17 entries itself.
+The stopped public request was `GET /api/records` with `q=communities:pices`, `size=200`, `page=1`, returning HTTP 400. Its body was not retained; the cause is unknown. No size, query, credential or redirect cause is inferred or repaired here. An exact-query regression preserves safe HTTP-status classification. Public API compatibility remains a separate later task, not a prerequisite for this synthetic trial.
 
-## Inputs and command
+## Inputs and two separately dispatched commands
 
-Keep the original private run, staged files, checker output and every prior ledger/intent:
+Use the exact commit supplied by the parent on `handoff/pr8-synthetic-owned-gate-20261003`. Keep the existing private run:
 
 `/workspace/pices-sandbox-run-9379fd8-20261002/synthetic`
 
-Do not create a replacement run directory, reset state, refresh timestamps by hand or copy credentials. The existing `ZENODO_SANDBOX_TOKEN` must be supplied by the designated provider environment. The token loader must return that exact opaque value. An owner file contains only the private positive integer from verified account provenance as JSON; it is input data, never committed or printed.
+Keep all existing staged files, ledgers, controller state and failed inventory evidence. Do not create another namespace, delete a state file, reset counters or edit timestamps. The module verifies the unchanged packet inventory SHA-256 `428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1`, every one of its 17 entries, and exact synthetic source/payload/metadata/artifact bindings.
 
-From the checked-out repository root, run the installed Python interpreter:
+The existing `ZENODO_SANDBOX_TOKEN` must come from the designated provider environment; no copying or printing credentials. The owner file is private JSON containing only the positive integer from previously verified account provenance.
 
-```sh
-python -m scripts.synthetic_canary_controller --owner-file /path/to/private-owner.json
-```
-
-The command above is the write-stage entry point and must wait for the separately dispatched inventory mode below. The module is the complete executor entry point. It fixes the run directory, source selection, sandbox origin, response limits and transaction sequence; the executor supplies no transport, inventory or upload logic. `--help` does not contact the provider. Exit zero means completed or a matching cached completion; exit one means stop. Shared stdout is one sanitized JSON receipt. Keep ordinary logs, state and account details private.
-
-## First dispatch: complete inventory only
-
-From the exact same checked-out commit, after parent dispatch:
+**First parent dispatch — owned namespace check only:**
 
 ```sh
 python -m scripts.synthetic_canary_controller --inventory-only --owner-file /path/to/private-owner.json
 ```
 
-This runs the existing duplicate checker once under `SandboxInventoryGuard`, with zero retries and no redundant prefetched inventories. **At most 237 new GET attempts**, including its constructor, remain from the **240-total inventory budget after three already observed requests**. Every new transport attempt is fsynced first. Each response is capped at 12 MiB, and the overall command has a 300-second deadline. Both complete owned inventory and exact-total public PICES inventory must pass. Nonempty owned evidence must verify the intended owner. Any HTTP 301, regardless of Location, still stops; redirects are never followed.
+Only the owned-deposition list endpoint is permitted. The module verifies the account, obtains the complete owned inventory through the existing paginated client, and checks for the exact synthetic title, frozen source ID in metadata, or selected XML filename. A matching owned record, whether draft or published, requires reconciliation. Every full-scan item must expose metadata with a nonempty title and an explicit files list; each file must have a recognized name. Unknown identity fields, repeated IDs, incomplete pagination or owner mismatch stop safely.
 
-The private `synthetic/state/sandbox/synthetic-inventory-controller.json` permanently records this attempt. Reinvoking inventory mode after either success or failure stops without requests; do not delete its state or reset counters. Success binds the packet, private owner and SHA-256 of both checker-generated safe-upload and retained-inventory files. The write-stage entry point requires those exact successful bindings and fresh authorization. No handwritten approval artifact is accepted as part of the workflow.
+This phase permits **10 new GET attempts maximum**, including constructor verification, with five previously observed requests recorded separately—well below the original 240 inventory-read ceiling. Each attempt is durably counted before transport. Responses are capped at 12 MiB; timeout is `(10, 30)` and the command has a 300-second deadline. No redirects, automatic retries or public-community queries occur. No draft is created.
 
-Inventory mode always pauses without creating a draft. Return its sanitized receipt to the parent. Only a separate parent dispatch after success permits the write command above. If inventory stops or exhausts its budget, retain all evidence and await the code owner; do not rerun or fall through to writes.
+The new scope receipt is `synthetic/state/sandbox/synthetic-owned-inventory-controller.json`. If the earlier `synthetic-inventory-controller.json` exists, it must match the reported stopped read-only attempt: failed, incomplete, two GETs, HTTP 400, same owner and packet. Its bytes are preserved and hashed into the new receipt. An existing synthetic upload ledger or write-controller state blocks this new gate. A repeated owned-gate command stops without requests; never reset its state.
 
-## Enforced preconditions and bounds
+Success binds the owned-only scope, owner, packet, and SHA-256 of retained owned records and the exact synthetic authorization. Return the sanitized receipt and **pause**.
 
-Only `SYNTHETIC-PICES-9379FD8-20261002` can execute. The controller verifies staged payload bytes, original XML SHA-256/size, full prepared metadata and artifact contract against the pinned packet. It requires the genuine, unexpired, sandbox checker authorization for that exact metadata hash and the retained complete inventory IDs. It refuses a preexisting synthetic upload ledger without its matching controller state. Unknown/partial old attempts require owner-led reconciliation; the controller never reconstructs their state.
+**Second parent dispatch — only after the owned gate succeeds:**
 
-- **One create POST**, **one metadata PUT**, **one exact XML upload PUT**, and **eight total GET attempts**, including the new bounded constructor check. Limits persist across process restarts. Each attempt is durably consumed before transport.
-- **300-second overall deadline**, per-request `(10, 30)` timeout, JSON responses at most 12 MiB, downloaded XML exactly 471 bytes with the pinned SHA-256.
-- HTTPS `sandbox.zenodo.org`, port 443, unchanged Bearer value; no URL credentials, query parameters, fragments, redirects or automatic retries. Production and other origins, action endpoints, other IDs/files and unsupported methods stop before transport.
-- Only the returned, checked, owner-matching positive deposition ID may be updated. The controller fsyncs that ID before returning the create response to the service; the service separately persists its ledger ID before subsequent mutations.
-- The response must be an owner-consistent `unsubmitted` draft with `submitted` exactly false. A canonical same-origin bucket UUID is required. The only supported download is the returned `links.download` matching that bucket and the exact selected filename. Unsupported live schema/link forms stop for code-owner review.
+```sh
+python -m scripts.synthetic_canary_controller --owner-file /path/to/private-owner.json
+```
 
-No actual-source candidate, publication, deletion, replacement or production operation is enabled. The one synthetic create consumes its existing slot in the four-total canary run cap; it is not a new allowance.
+The module is the complete executor entry point: no handwritten transport, inventory or upload wrapper. Generic pending/upload paths reject this reduced-scope saved grant; only the exact active `SyntheticTransport`, in sandbox with the pinned payload and matching grant bytes, can consume it. Unscoped production and actual-source behavior is unchanged.
 
-## Exact sequence and rerun behavior
+## Synthetic operation and bounds
 
-The module constructs the client under the transport controller, invokes the existing `DraftUploadService` once, independently reads back expected metadata/files/owner/unpublished state/reserved DOI, and downloads the one XML to verify its bytes in memory. It then invokes the same service once unchanged with the original ledger and verifies the final readback. The unchanged service retry must preserve ID and DOI and issue zero additional POST/PUT operations.
+Only `SYNTHETIC-PICES-9379FD8-20261002` is allowed. Across restarts: **one create POST, one metadata PUT, one XML upload PUT and eight GET attempts maximum**. Every attempt consumes its durable allowance before transport. The returned positive ID is checked against the pre-run IDs and fsynced before updates; the existing service independently persists its intent and ID. Failed or uncertain outcomes stop on rerun rather than creating again.
 
-Normal first execution uses eight GETs: constructor, initial deposition, bucket discovery, service readback, independent readback, XML download, unchanged service retry, final independent readback. It uses exactly one of each permitted write. Readback must retain the current reserved DOI; a previously observed DOI cannot mask its later disappearance.
+All requests require HTTPS sandbox port 443, exact allowed paths/methods, unchanged Bearer value, and no query credentials, fragments, redirects or retries. Owner must match; state must be `unsubmitted` with `submitted` exactly false. Updates and reads address only the bound deposition. Bucket UUID and selected file path are checked. The command retains its 300-second deadline, 12 MiB JSON cap and exact 471-byte XML download bound.
 
-After completion, invoking the same module again validates the original local bindings and completed ledger and returns `cached=true, fresh_remote_check=false` with **zero requests**. This reuses the proven outcome and does not pretend to perform a fresh remote check. Any failed/uncertain attempt remains stopped on rerun. No blind retry, automatic repair, alternate namespace or cleanup deletion is available.
+The existing service creates the draft, updates metadata and uploads the one XML. The controller independently verifies metadata/files/owner/current reserved DOI and downloads the XML to match the pinned SHA-256. It calls the service once more with unchanged payload and ledger, requires the same ID/DOI and zero additional POST/PUTs, and verifies final readback. The eight GETs include constructor, service reads, independent readbacks, download and unchanged retry. A disappeared DOI cannot be replaced by a cached earlier value.
 
-The private durable control file is `synthetic/state/sandbox/synthetic-controller.json`; its separate lock covers the complete transaction. Preserve it together with the existing upload ledger. Private state retains ID/DOI/inventory bindings; the shared receipt exposes only counts, fixed phases, completion flags and sanitized allowlisted error classifications.
+A completed module rerun validates its local bindings and ledger and returns `cached=true, fresh_remote_check=false` with **zero requests**. It does not claim new remote verification. Preserve `synthetic-controller.json` and the original upload ledger. Shared output includes only fixed completion/phase flags, counts and sanitized diagnostics; ID/DOI/account data remain private. Exit zero means completed or matching cached completion; exit one means stop.
 
-## Validation and dispatch receipt
+Immediately pause after success. FGDC-100, FGDC-1839 and FGDC-3682 remain a separately dispatched stage under the existing narrow historical-duplicate exception. No publication, deletion, production request or actual-source upload is enabled. The synthetic still consumes its original slot within the four-total canary create cap.
 
-Sixteen offline controller tests plus three endpoint regressions exercise the full mocked flow and process rerun, durable state before writes, uncertain-create consumption, duplicate POST rejection, malformed origins/paths/Bearer values, redirects, owner/ID/publication/metadata/file mismatch, stale inventory, missing prior control state, credential redaction, cleanup failures and current DOI disappearance. Independent functional and security review cleared the controller after the DOI regression was fixed. The canonical-path regression failed before the endpoint change. Same-host, cross-host and missing-Location redirects are all rejected; every paginated search preserves the exact query and slashless path. A full inventory-to-synthetic mocked run, the 237-request limit, no-reset failure behavior and empty-owner rejection pass. The full guarded suite passes **276 tests** on this provider-runtime branch. No provider requests or writes were performed by the implementation owner.
+## Validation
 
-After the controller prints its receipt, **pause**. Send that receipt to the parent; retain ID/DOI/account evidence privately. Success does not dispatch FGDC-100, FGDC-1839 or FGDC-3682. Those remain a separate parent-gated stage under the existing narrow historical-duplicate exception.
+**284 guarded offline tests pass**, independently reproduced: 23 controller tests and four endpoint fixtures cover the narrowed gate, exact-query HTTP 400 classification, no public calls, same-run collisions, preserved old receipt, malformed collision fields, durable attempt caps, generic grant-consumption rejection, unchanged production/public inventory requirements, full synthetic readback/retry, uncertain creates and credential redaction. Review found and closed the missing-field and scope-consumption gaps. No provider request or write was performed by the implementation owner. Live owned inventory and synthetic execution remain for the separately dispatched provider task.

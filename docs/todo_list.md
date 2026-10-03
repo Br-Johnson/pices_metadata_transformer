@@ -281,3 +281,9 @@ This local cohort has not been pushed or used for a provider operation.
 
 - Follow-up observed checker search `/api/records/` returned 301; Location was not retained. Based on independently supplied slashless public-200 evidence, sandbox search now uses `/api/records` directly with redirects disabled. No target or historical failure cause is inferred.
 - The same module now offers `--inventory-only`: existing checker under the reviewed guard, at most 237 new GETs after three observed attempts, durable no-reset inventory state, and successful owner/packet/output-hash bindings required before the separately dispatched synthetic stage. No executor-written network logic. Sixteen controller tests plus three endpoint regressions pass; the full suite is 276 tests.
+
+## Synthetic-owned namespace gate — 2026-10-03
+
+- Public PICES search returned HTTP 400 for q=communities:pices,size=200,page=1; its body was not retained and cause remains unknown. Removed that unrelated public-community prerequisite only for the disposable pinned synthetic sandbox trial; no query/size/credential causal fix is guessed.
+- Complete owned scan, exact title/source-ID/file collision checks and original durable ledger enforce run identity. Ten new GETs maximum after five observed reads; the previous stopped receipt is preserved byte-for-byte. Reduced-scope grants are bound to the exact active controller and rejected by generic pending/upload paths. Production and actual-source public inventories remain required.
+- Independent review caught missing collision fields and generic consumption of the scoped grant. Both fail closed now. 284 full offline tests pass, independently reproduced, including 23 controller and four endpoint tests. No provider requests/writes or production/actual-source scope expansion. See updated synthetic_canary_controller.md.
