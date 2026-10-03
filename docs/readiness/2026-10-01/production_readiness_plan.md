@@ -1,5 +1,14 @@
 # Production readiness — October 1, 2026
 
+
+Current source-identity adjudication is recorded in
+[the reviewed three-record decision](../2026-10-03/production_identity_adjudication.md).
+It supports 1238→17317855,2725→17317857 and2731→17317853 for correcting the same
+existing imports; historical uploaded-byte/runtime provenance remains unknown.
+Earlier initial observations below are historical. Source-identity, current
+ownership/files/version, metadata corrections and publication QA remain separate;
+no old-upload receipt is required to establish catalogue identity.
+
 ## Verified repository and offline state
 
 GitHub PR 8 is open, ready for review, and unmerged at `6f792dfc2ff2d3021d7a38cba9f8ab3152d2d58e`. Main remains `4592f142b9c5be225254a0ad059c5cab7c6448ce`. The local implementation tree matches the published PR tree. Rechecked unit suite: 65 pass. Earlier network-blocked full suite passed. No live upload/publication validation is claimed.

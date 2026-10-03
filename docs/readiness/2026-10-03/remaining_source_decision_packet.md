@@ -1,5 +1,12 @@
 # Remaining source decisions after merged 4b13126
 
+
+This is the frozen finite142 decision census. The subsequent
+[13-source checkpoint](source_credit_title_13.md) implements its five credit and
+eight title proposals, reaching 2,443 supported / 1,757 held / six malformed. The 821
+highest source-scope questions below remain unchanged. Historical proposal-stage
+counts and receipts remain explicit; no eligibility is granted by this packet.
+
 The reviewed finite batch promotes **142 source-supported records**, yielding
 **2,430 supported / 1,770 held / six malformed**. All 86 source-credit access holds,
 90 earlier joint/collection access holds and 456 aliases remain held. This packet

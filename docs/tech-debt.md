@@ -317,3 +317,22 @@ scope evidence; the13 smaller attribution/title after-images are review proposal
 not runtime changes. See readiness/2026-10-03/finite_source_resource_access.md and
 remaining_source_decision_packet.md. Provider identity/readback/release work stays
 with the parent's separate executor; consumed canary allowances stay spent.
+
+## Five credit and eight display-title after-images — 2026-10-03
+
+Full source context can resolve literal analysis/contributor/report credits without
+inventing XML authorship or types. The additive401 profile preserves previous220
+cohort objects covering396 bindings; five new literal credits retain exact primary
+and supplemental XML and role notes. Eight long PICES report titles use individually
+reviewed responsibility boundaries, retaining complete originals/credits/bundle
+context in notes. Complete before/after hashes prevent unrelated changes; shared
+agent/human gates require exact evidence and withdrawal restores holds.
+
+Actual QA:2443 supported /1757 held /six malformed;317 guarded offline tests pass.
+Only13 complete metadata objects change;4181 remain identical.401 creator reference
+changes include396 prior rebindings; eight title references fall in those same401.
+All4206 originals,4200 copies,176 access holds and456 aliases remain intact. Existing
+catalogue identity can support retaining a DOI for the same import while old uploaded
+bytes/runtime remain unknown; no upload-receipt-only identity requirement is added.
+Current ownership/file/version/correction/readback/release QA remains distinct.
+See readiness/2026-10-03/source_credit_title_13.md and production_identity_adjudication.md.

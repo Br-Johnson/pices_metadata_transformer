@@ -1,0 +1,93 @@
+{
+  "criteria": {
+    "documented_source_and_same_work_adjudication": "production_readiness_plan.md requires source evidence beyond a title alone and preserving existing DOI. Human/source review is required; similarity scores do not automatically decide identity.",
+    "identity_and_release_separate": "Registry, artifact, remote response/file, metadata and QA fingerprints bind later upload/readback/release operations. They do not require an old upload receipt to establish bibliographic/source identity.",
+    "object_scope": "This supports reuse of each retained import's identity for correcting that same import. It does not assign its DOI to an independently created distinct object or prove historical deposited bytes.",
+    "preservation": "No new duplicate, ID rewrite, deletion, DOI substitution or inference of underlying research DOI ownership."
+  },
+  "evidence_limits": {
+    "edits": "Only this reviewer receipt under /tmp",
+    "historical_byte_or_runtime_provenance": "Not established; not used as an automatic source identity blocker.",
+    "library_status": "Supplied evidence item could not be downloaded. Latest live-export comparisons remain reader-reported; original source uniqueness and repository criteria were independently verified. No additional search/transfer.",
+    "live_record_or_release_state": "Not independently checked in this review.",
+    "provider_requests": 0,
+    "reader_reported_comparisons_not_independently_read_current_export": true
+  },
+  "normalization": "Uniqueness checked across parseable original FGDC corpus using primary title/abstract/purpose itertext, trim, whitespace collapse and casefold; source-byte uniqueness checked by SHA256.",
+  "original_independent_review_sha256": "1c597dae4c19346ca3649e343c88a0b5ce72783afb13232d9ae2be963ca352a0",
+  "records": [
+    {
+      "current_source_qa": "held_access",
+      "decision": "source_identity_supported_preserve_existing_identity",
+      "doi": "10.5281/zenodo.17317855",
+      "independently_verified": {
+        "abstract_source_matches": 1,
+        "committed_public_proposal_title_and_abstract_match": true,
+        "raw_byte_source_matches": 1,
+        "title_source_matches": 1
+      },
+      "reader_reported": "Exact unique title and exact unique SeaMARC/Juan de Fuca abstract in current production comparison.",
+      "record_id": 17317855,
+      "remaining_identity_ambiguity": "No competing source candidate identified; restricted public file omission does not prove file absence.",
+      "separate_release_questions": [
+        "Current controlled record ownership and expected ID/DOI readback",
+        "Historical file bytes/content and existing version state",
+        "Check with Contributor rights interpretation and approved exact correction/file action"
+      ],
+      "source_bytes": 4680,
+      "source_id": "FGDC-1238",
+      "source_sha256": "c559cd8b956683c71c2fd240e583bc5817b2cf7f5bcc390955578c1e1e15aa2f"
+    },
+    {
+      "current_source_qa": "supported_not_remote_verified_or_release_approved",
+      "decision": "source_identity_supported_preserve_existing_identity",
+      "doi": "10.5281/zenodo.17317857",
+      "independently_verified": {
+        "abstract_source_matches": 1,
+        "committed_public_proposal_title_and_date_match": true,
+        "purpose_source_matches": 1,
+        "raw_byte_source_matches": 1,
+        "title_source_matches": 1
+      },
+      "reader_reported": "Exact title plus exact purpose; historic PMEL abstract URL absent in current compared production metadata.",
+      "record_id": 17317857,
+      "remaining_identity_ambiguity": "No competing source candidate identified. Missing historic URL/abstract is a fidelity delta, not evidence of a different work; restore source content under approved correction scope.",
+      "separate_release_questions": [
+        "Current controlled record ownership and expected ID/DOI readback",
+        "Historical file bytes/content and existing version state",
+        "Approved exact description/link/creator/date/rights correction and artifact/file action"
+      ],
+      "source_bytes": 5913,
+      "source_id": "FGDC-2725",
+      "source_sha256": "f8c85ff810507722578d0ccf592d8dc1b1518529f7574745ff900ff5347dccdc"
+    },
+    {
+      "current_source_qa": "held_access",
+      "decision": "source_identity_supported_preserve_existing_identity",
+      "doi": "10.5281/zenodo.17317853",
+      "independently_verified": {
+        "abstract_source_matches": 109,
+        "committed_public_proposal_exact_full_report_title": true,
+        "purpose_source_matches": 109,
+        "raw_byte_source_matches": 1,
+        "title_source_matches": 1
+      },
+      "reader_reported": "Exact bibliographic report title including report89-04, Brian G. Bue, March1989,14pp and1988 study.",
+      "record_id": 17317853,
+      "remaining_identity_ambiguity": "Abstract/purpose are shared boilerplate and add no independent work identity. Unique full compound report citation identifies the single source; no competing candidate identified. The1988-Present primary date differs in meaning from March1989 report citation, which is a date/object-role question, not a second source.",
+      "separate_release_questions": [
+        "Current controlled record ownership and expected ID/DOI readback",
+        "Historical file bytes/content and existing version state",
+        "Conditional departmental republication authority and approved date/creator/artifact correction scope"
+      ],
+      "source_bytes": 5413,
+      "source_id": "FGDC-2731",
+      "source_sha256": "2f08555afe0c393d0c9e826d8fa3f78ddf5f5068a1575cf04218912265ec3a6c"
+    }
+  ],
+  "review_scope": "Read-only source identity adjudication for three existing production catalogue imports; no live/provider or release approval",
+  "schema_version": 1,
+  "source_revision": "4b131266cee68798fffed1c309e447a48a420185",
+  "source_worktree": "/workspace/pices-source-access-exceptions",
+  "verdict": "All three source-to-retained-production-record associations are supported for reconciliation and correction of the existing import. Preserve exact IDs/DOIs; historical uploaded byte/runtime provenance is not a prerequisite to this source-identity conclusion."
+}
