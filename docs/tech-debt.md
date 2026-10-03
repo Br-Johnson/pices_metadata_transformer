@@ -215,3 +215,17 @@ The separately frozen controller consumed its create allowance on HTTP500;
 A parent-dispatched two-GET known-record positive/negative created-filter check
 can assess query compatibility without new state machinery. Preserve the failed
 write intent and continue source restoration independently of provider repair.
+
+## Reviewed literal citation extension and remaining meanings — 2026-10-03
+
+The additive 99-member opt-in profile preserves 72 earlier cohort objects and
+resolves 16 source-supported creator holds among 27 new bindings, retaining 11
+access holds. No general name parser or access vocabulary changed. Compare whole
+metadata and account for 99 policy-reference changes: 27 new and 72 administrative
+rebindings. Separate Ecotrust (37), USDA/DNR (31) and Unaami (23) role reviews
+establish bounded attribution candidates but do not answer access or
+acknowledgment scope.
+See readiness/2026-10-03/institution_program_citation_99.md and the parallel role
+review. The original uncertain create remains spent after 190 GETs; finite backend
+confirmation/account-owner inspection/adoption decisions replace indefinite
+absence polling, without automatically granting another POST or resetting state.

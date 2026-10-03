@@ -1,5 +1,10 @@
 # Residual source review and Oct 6 readiness
 
+Historical analysis checkpoint: `84b0cf7`. The 27-source implementation and
+observed successor counts are now recorded in
+[the combined citation profile](institution_program_citation_99.md); the original
+analysis evidence and diagnostic counts below remain unchanged.
+
 This source-only analysis starts from PR8/source checkpoint
 `a70e56bd67bd85c0ee38c29aa387d03207461738`. It installs no interpretation,
 changes no runtime rule or prepared payload, and adds no source-support approval.

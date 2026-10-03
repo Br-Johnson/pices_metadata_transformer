@@ -301,6 +301,6 @@ This local cohort has not been pushed or used for a provider operation.
 ## Residual 27-source citation implementation — 2026-10-03
 
 - [x] Independently review all 27 plain literal source citations and freeze an additive 99-member manifest retaining the previous 72 cohort objects verbatim. Preserve full creator objects, exact spelling, dates, restrictions, blank licenses and the XML-authorship caveat.
-- [ ] Add the second pinned manifest to the existing opt-in institution path; targeted failing-first tests, full guarded tests and fresh/resumed actual corpus/preservation checks. Current creator-only counts do not authorize promotion.
-- [ ] Record parallel read-only role/access decisions for Ecotrust37, USDA/DNR31 and Unaami23 with exact membership bindings; retain unresolved meaning holds.
-- [ ] Complete independent implementation review and publish the non-draft PR8 checkpoint, without merge, provider operation or create-allowance reset.
+- [x] Add the second pinned manifest to the existing opt-in institution path; targeted failing-first tests, 30 focused and 284 guarded full tests, byte-identical fresh/resumed corpus. Actual 16 promotions yield 2,137 supported / 2,063 held / six malformed; all eleven access holds, 4,206 original hashes, 4,200 copied XML byte sequences and 4,194 complete metadata objects are preserved. Independent implementation review cleared.
+- [x] Record parallel read-only role/access decisions for Ecotrust37, USDA/DNR31 and Unaami23 with exact membership bindings; retain unresolved meaning holds. No correction or eligibility change for those 91 members.
+- [x] Complete independent implementation and handoff-document review; prepare the reviewed checkpoint for publication within existing non-draft PR8, without merge, provider operation or create-allowance reset.
