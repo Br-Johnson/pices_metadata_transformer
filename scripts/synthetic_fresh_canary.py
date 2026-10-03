@@ -41,11 +41,23 @@ ERROR_PHRASES = ('internal server error', 'bad request', 'service unavailable',
 
 class FreshPaths(OutputPaths):
     @property
+    def zenodo_json_dir(self):
+        secure_paths(self.base)
+        return super().zenodo_json_dir
+
+    @property
+    def original_fgdc_dir(self):
+        secure_paths(self.base)
+        return super().original_fgdc_dir
+
+    @property
     def safe_to_upload_path(self):
+        secure_paths(self.base)
         return str(Path(self.state_dir) / 'sandbox' / 'synthetic-fresh-grant.json')
 
     @property
     def uploads_registry_path(self):
+        secure_paths(self.base)
         return str(Path(self.state_dir) / 'sandbox' / 'synthetic-fresh-upload-ledger.json')
 
 
@@ -66,6 +78,24 @@ def checked_stage(stage):
     return stage
 
 
+def secure_paths(stage):
+    """Check every controlled parent/file before opening or writing the stage."""
+    root = checked_stage(stage)
+    directories = ('data', 'data/zenodo_json', 'data/original_fgdc', 'state', 'state/sandbox')
+    files = ('fresh-stage-binding.json', 'data/zenodo_json/' + SOURCE + '.json',
+             'data/original_fgdc/' + SOURCE + '.xml')
+    files += tuple('state/sandbox/' + name for name in
+                   (STATE, JOURNAL, EVIDENCE, 'synthetic-fresh-grant.json',
+                    'synthetic-fresh-upload-ledger.json', 'synthetic-fresh-upload-ledger.json.lock',
+                    'synthetic-fresh-controller.lock'))
+    for name in directories + files:
+        path = root / name
+        c.require(not path.is_symlink() and path.resolve().is_relative_to(root))
+        if path.exists():
+            c.require(path.is_dir() if name in directories else path.is_file() and path.stat().st_nlink == 1)
+    return root
+
+
 def stage_packet(stage):
     """Offline, exclusive staging; an existing run is never replaced or reset."""
     stage = checked_stage(stage)
@@ -80,7 +110,7 @@ def stage_packet(stage):
 
 
 def bindings(stage):
-    stage = checked_stage(stage)
+    stage = secure_paths(stage)
     plan = packet_plan()
     c.require(read_json(stage / 'fresh-stage-binding.json') ==
               {'source': SOURCE, 'run': str(stage), 'packet_sha256': PACKET_SHA})
@@ -117,6 +147,8 @@ def validate_grant(grant, paths, metadata, owner):
 
 
 def prepare_grant(paths, metadata, owner):
+    secure_paths(paths.base)
+    c.require(type(owner) is int and owner > 0)
     folder = Path(paths.state_dir) / 'sandbox'
     file = Path(paths.safe_to_upload_path)
     if not file.exists():
@@ -171,6 +203,7 @@ def response_projection(raw, response, method):
 class FreshTransport(c.SyntheticTransport):
     """Reuse the guarded transaction, with distinct source, clock and state files."""
     def __init__(self, token, owner, paths, metadata, artifact, plan):
+        secure_paths(paths.base)
         c.require(type(owner) is int and owner > 0)
         self.inventory_guard = SandboxInventoryGuard(token, owner, max_requests=1)
         self.token, self.owner, self.paths = token, owner, paths
@@ -215,6 +248,7 @@ class FreshTransport(c.SyntheticTransport):
         self.active_send = None
 
     def save(self):
+        secure_paths(self.paths.base)
         super().save()
         atomic_json(self.journal, {'state_sha256': c.sha(self.path.read_bytes()),
                                   'binding': self.binding, 'counts': dict(self.state['counts'])})
@@ -269,6 +303,7 @@ class FreshTransport(c.SyntheticTransport):
 
     def send(self, session, request, **kwargs):
         try:
+            secure_paths(self.paths.base)
             c.require(datetime.now(timezone.utc) < datetime.fromisoformat(self.state['expires_at']))
             if request.method == 'POST':
                 self.state['create_started_at'] = datetime.now(timezone.utc).isoformat()
@@ -311,6 +346,10 @@ class FreshTransport(c.SyntheticTransport):
                       and data['files'] == [] and set(data['metadata']) <= {'prereserve_doi'}, 'response_json')
             self.state['created'] = data['created']; self.save()
         c.require(data.get('created') == self.state['created'], 'response_json')
+
+    def check_ledger(self):
+        secure_paths(self.paths.base)
+        return super().check_ledger()
 
     def receipt(self):
         return {'completed': self.state['completed'], 'failed': self.state['failed'],

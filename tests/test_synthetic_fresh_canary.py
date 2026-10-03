@@ -249,5 +249,29 @@ class FreshCanaryTests(unittest.TestCase):
             code = f.main()
         self.assertEqual(code, 1); self.assertNotIn(TOKEN, capture.getvalue())
 
+    def test_control_directory_file_and_lock_symlinks_cannot_escape_to_original(self):
+        relatives = ('state', 'state/sandbox', 'state/sandbox/' + f.STATE,
+                     'state/sandbox/' + f.JOURNAL, 'state/sandbox/' + f.EVIDENCE,
+                     'state/sandbox/synthetic-fresh-grant.json',
+                     'state/sandbox/synthetic-fresh-upload-ledger.json',
+                     'state/sandbox/synthetic-fresh-upload-ledger.json.lock',
+                     'state/sandbox/synthetic-fresh-controller.lock', 'fresh-stage-binding.json',
+                     'data/zenodo_json', 'data/original_fgdc')
+        for relative in relatives:
+            obj = FreshCanaryTests('test_complete_new_identity_exact_readback_unchanged_retry_and_cached_rerun'); obj.setUp()
+            try:
+                target = obj.old / 'protected'; target.mkdir()
+                atomic_json(target / 'private.json', {'never_open': True})
+                before = {p: p.read_bytes() for p in obj.old.rglob('*') if p.is_file()}
+                path = obj.stage / relative
+                if path.exists(): path.rename(Path(obj.tmp.name) / 'saved-fresh-path')
+                path.parent.mkdir(parents=True, exist_ok=True)
+                is_dir = relative in ('state', 'state/sandbox', 'data/zenodo_json', 'data/original_fgdc')
+                path.symlink_to(target if is_dir else target / 'private.json', target_is_directory=is_dir)
+                with self.subTest(relative=relative), self.assertRaises(c.ZenodoAPIError): obj.execute()
+                self.assertEqual(obj.calls, [])
+                self.assertEqual({p: p.read_bytes() for p in obj.old.rglob('*') if p.is_file()}, before)
+            finally: obj.doCleanups()
+
 
 if __name__ == '__main__': unittest.main()
