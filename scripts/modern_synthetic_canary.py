@@ -163,7 +163,7 @@ def stage_packet(stage):
                  'pending': None, 'failed': False, 'completed': False, 'retry_completed': False,
                  'create_started_at': None, 'create_received_at': None,
                  'identity': None, 'uncertain_candidate_id': None, 'responses': [],
-                 'attempt_diagnostics': []})
+                 'attempt_diagnostics': [], 'controller_failure': None})
     return {'staged': True, 'provider_requests': 0, 'namespace': NAMESPACE,
             'packet_sha256': PACKET_SHA, 'runtime_sha256': bound['runtime_sha256']}
 
@@ -294,6 +294,15 @@ class Controller:
         self.persist()
 
     def capture_failure(self, error, phase=None):
+        if self.state['pending'] is None:
+            failure = {'phase': phase or 'outside_pending_attempt', 'exception': exception_code(error),
+                       'captured_at': self.now().isoformat()}
+            if self.state['controller_failure'] is None:
+                self.state['controller_failure'] = failure
+            elif phase in ('response_close', 'deadline_cleanup'):
+                self.state['controller_failure']['cleanup_failure'] = failure
+            self.fail()
+            return {'controller_failure': deepcopy(self.state['controller_failure'])}
         if not self.state['attempt_diagnostics']:
             return None
         diagnostic = self.state['attempt_diagnostics'][-1]
@@ -545,7 +554,8 @@ class Controller:
                 'identity_retained_privately': self.state['identity'] is not None,
                 'responses': self.state['responses'], 'provider_requests': sum(self.state['counts'].values()),
                 'request_count_semantics': 'durable_action_intents_not_confirmed_transmissions',
-                'attempt_diagnostics': self.state['attempt_diagnostics']}
+                'attempt_diagnostics': self.state['attempt_diagnostics'],
+                'controller_failure': self.state['controller_failure']}
 
 
 def execute(stage, token, retry=False):
@@ -589,6 +599,11 @@ def execute(stage, token, retry=False):
                 def request(self, *args, **kwargs):
                     try:
                         return super().request(*args, **kwargs)
+                    except BaseException as error:  # capture pre-intent before cleanup
+                        if self.state['pending'] is None:
+                            diagnostic = self.capture_failure(error)
+                            raise Held('Modern pre-intent contract held; preserve private stage', diagnostic) from None
+                        raise
                     finally:
                         try:
                             signal.setitimer(signal.ITIMER_REAL, 0)

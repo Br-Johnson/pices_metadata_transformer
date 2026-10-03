@@ -5,6 +5,7 @@ import json
 import sys
 import threading
 import unittest
+from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from unittest.mock import patch
 
@@ -161,6 +162,33 @@ class ModernTransportDiagnosticTests(unittest.TestCase):
             m.execute(self.stage, TOKEN)
         send.assert_not_called()
         self.assertEqual((self.stage / 'state.json').read_bytes(), before)
+
+    def test_pre_intent_expiry_does_not_relabel_previous_successful_attempt(self):
+        fixture = fixtures.ModernCanaryTests()
+        fixture.setUp()
+        self.addCleanup(fixture.doCleanups)
+        controller = fixture.controller()
+        acknowledged = controller.acknowledge
+        previous = []
+        def expire_after_create():
+            acknowledged()
+            if controller.state['counts']['create'] == 1:
+                previous.append(deepcopy(controller.state['attempt_diagnostics']))
+                fixture.clock += timedelta(minutes=31)
+        controller.acknowledge = expire_after_create
+        with self.assertRaises(m.Held) as caught:
+            controller.run()
+        state = m.load(fixture.stage / 'state.json')
+        self.assertEqual(len(fixture.calls), 1)
+        self.assertEqual(state['counts']['create'], 1)
+        self.assertEqual(state['counts']['doi'], 0)
+        self.assertIsNone(state['pending'])
+        self.assertTrue(state['failed'])
+        self.assertEqual(state['attempt_diagnostics'], previous[0])
+        self.assertNotIn('failure', state['attempt_diagnostics'][0])
+        self.assertEqual(state['controller_failure']['phase'], 'outside_pending_attempt')
+        self.assertEqual(state['controller_failure']['exception'], 'contract')
+        self.assertEqual(caught.exception.diagnostic, {'controller_failure': state['controller_failure']})
 
 
 if __name__ == '__main__':
