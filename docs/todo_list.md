@@ -1,5 +1,11 @@
 # FGDC → Zenodo Sandbox TODO List
 
+## Five source credits and eight display titles — 2026-10-03
+
+- [x] Implement exact additive401 creator profile and eight title selections with source/hash/element/full-metadata bindings; preserve all prior396 and every original title/credit/context.
+- [x] Fail the new-profile acceptance contract against the predecessor, then pass five guarded focused contracts for all13, full after-image tampering, defaults/withdrawal/cache, agent and both human QA routes.
+- [ ] Complete317 guarded tests, actual full-corpus preservation and independent source/runtime/delta review, then freeze the runnable handoff. No provider action, new license or source-identity inference.
+
 ## Remaining access and attribution evidence from merged 4b13126 — 2026-10-03
 
 - [x] Audit the largest exact source-constraint groups in disjoint read-only lanes, preserving the completed 86-record access queue, earlier 90 access cases and all 456 aliases. Root is the sole integration writer.

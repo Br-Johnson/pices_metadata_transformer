@@ -29,6 +29,7 @@ from scripts.rehosting_authority import validate_authority, validate_restricted_
 from scripts.source_access_interpretation import validate_interpretation
 from scripts.citation_creator_interpretation import validate_creator_metadata
 from scripts.source_link_interpretation import validate_source_link_policy
+from scripts.source_title_interpretation import validate_source_title_policy
 from scripts.dataset_access_interpretation import validate_dataset_access_policy
 
 
@@ -76,6 +77,11 @@ def assess_source(json_file, paths):
     abstract = _text(root, './idinfo/descript/abstract') or title
     visible_description = re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]*>', ' ', metadata.get('description', ''))))
     allowed_titles = (title, title + ' - FGDC XML metadata artifact') if artifact else (title,)
+    if artifact:
+        selected_title = validate_source_title_policy(payload['artifact_policy'], Path(source_path).stem,
+                                                     source_hash, root, payload['metadata'])
+        if selected_title is not None:
+            allowed_titles = (selected_title,)
     if not title or metadata.get('title') not in allowed_titles or not abstract or abstract not in visible_description:
         raise ValueError('Source title/description fidelity is not supported')
     origins = root.findall('./idinfo/citation/citeinfo/origin')
