@@ -187,3 +187,19 @@ a substantive final-head automated verdict.
 - Ranked all 2,212 held sources from PR8 c486d1f with exact source/hash evidence. Alias identity and six unsupported metadata dates remain held; separate institutional/access opportunities are reported without claiming promotions.
 - Implemented the independently reviewed 70-source literal DFO Staff interpretation on a separate branch. Names, full metadata, source bytes and rights remain unchanged; no inferred type, affiliation, acronym expansion or contact-derived author. Manifest bytes pin exact source membership and full creator objects.
 - Failing-first regression and 16 focused tests (independently reproduced), then 270 guarded full-suite tests pass. Full-corpus preservation/resume receipt accompanies the cohort report in readiness/2026-10-03. Provider handoff d5022b8 and PR8 c486d1f are not moved by this branch.
+
+## 2026-10-03 — Exact institutional citation source interpretation
+
+General creator detection holds some literal institutional citations because of
+unknown organizational patterns or commas in a hierarchy. No universal heuristic
+was changed. A separate exact-byte/source-hash-bound 72-member manifest supports
+the four audited literal citations with existing full creator objects. Exactly
+63 creator-only holds clear; eight local validator title-length issues and FGDC-2578's
+separate access wording remain held. No shortening or synonym/rights inference.
+
+Both human QA schemas and agent assessment use the shared validator and full
+object comparison. New opt-in evidence participates in cache invalidation; absent,
+withdrawn or forged evidence cannot silently grant the interpretation. Fresh and
+resumed classification reports are byte-identical; all original/copy bytes are
+preserved and raw metadata objects are unchanged, with only72 payload policy-reference additions. The combined
+2,121-source support population is not live record QA or release approval.

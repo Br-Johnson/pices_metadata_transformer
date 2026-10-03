@@ -285,3 +285,10 @@ This local cohort has not been pushed or used for a provider operation.
 - Ranked all 2,212 held sources from PR8 c486d1f with exact source/hash evidence. Alias identity and six unsupported metadata dates remain held; separate institutional/access opportunities are reported without claiming promotions.
 - Implemented the independently reviewed 70-source literal DFO Staff interpretation on a separate branch. Names, full metadata, source bytes and rights remain unchanged; no inferred type, affiliation, acronym expansion or contact-derived author. Manifest bytes pin exact source membership and full creator objects.
 - Failing-first regression and 16 focused tests (independently reproduced), then 270 guarded full-suite tests pass. Full-corpus preservation/resume receipt accompanies the cohort report in readiness/2026-10-03. Provider handoff d5022b8 and PR8 c486d1f are not moved by this branch.
+
+## Exact institutional citation cohort — 2026-10-03
+
+- [x] Reconcile PR8 c486d1f and source-QA 8bc36dc, reproduce 270 offline tests, preserve the separately frozen canary a8cfeef.
+- [x] Audit every original hash/plain primary origin for the four exact literal institutions (26/19/20/7 members; 72 total). Preserve existing full creator objects; no name splitting, expansion or attribution from contacts.
+- [x] Add the pinned opt-in profile; 63 promotions and nine independent residuals verified, with both human schemas/agent QA and withdrawal/tampering tests.
+- [x] Validate byte-identical fresh/resumed corpus (2,121 supported / 2,079 held / six malformed), all 4,206 originals, 4,200 copies and 4,194 full metadata objects; independent review cleared. The source-QA branch combines the reviewed DFO70 and new63 delta for PR8 integration without merge.
