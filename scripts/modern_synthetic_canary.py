@@ -39,9 +39,14 @@ class Held(ValueError):
         self.diagnostic = diagnostic
 
 
+class WallDeadline(Held):
+    """Trusted local alarm category; carries no provider exception text."""
+
+
 def exception_code(error):
     """Exact trusted types only: never inspect exception names, arguments or text."""
-    types = ((Held, 'contract'), (ValueError, 'value_error'), (TypeError, 'type_error'),
+    types = ((Held, 'contract'), (WallDeadline, 'wall_deadline'),
+             (ValueError, 'value_error'), (TypeError, 'type_error'),
              (KeyError, 'key_error'), (OSError, 'os_error'),
              (KeyboardInterrupt, 'interrupted'), (json.JSONDecodeError, 'invalid_json'),
              (requests.exceptions.InvalidHeader, 'invalid_header'),
@@ -292,7 +297,8 @@ class Controller:
         if not self.state['attempt_diagnostics']:
             return None
         diagnostic = self.state['attempt_diagnostics'][-1]
-        failure = {'phase': phase or diagnostic['phase'], 'exception': exception_code(error)}
+        failure = {'phase': phase or diagnostic['phase'], 'exception': exception_code(error),
+                   'captured_at': self.now().isoformat()}
         diagnostic.setdefault('failure', failure)
         if phase in ('response_close', 'deadline_cleanup') and diagnostic['failure'] != failure:
             diagnostic['cleanup_failure'] = failure
@@ -570,7 +576,7 @@ def execute(stage, token, retry=False):
             # Requests' read timeout is per read; enforce a total20s request/body wall deadline.
             original_handler = signal.getsignal(signal.SIGALRM)
             def expired(*_):
-                raise Held('Modern request wall deadline expired')
+                raise WallDeadline('Modern request wall deadline expired')
             def bounded(*args, **kwargs):
                 controller.observe('deadline_setup')
                 remaining = (datetime_aware(load(stage / 'approval.json')['valid_until'])

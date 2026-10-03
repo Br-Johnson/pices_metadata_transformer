@@ -34,6 +34,7 @@ class ModernTransportDiagnosticTests(unittest.TestCase):
         self.assertEqual(state['pending']['kind'], 'create')
         self.assertIsNone(state['identity'])
         self.assertEqual(caught.exception.diagnostic, state['attempt_diagnostics'][-1])
+        self.assertIsNotNone(datetime.fromisoformat(state['attempt_diagnostics'][-1]['failure']['captured_at']).tzinfo)
         self.assertEqual(m.load(self.stage / 'journal.json')['state_sha256'], m.sha((self.stage / 'state.json').read_bytes()))
         return state['attempt_diagnostics'][-1]
 
@@ -44,7 +45,8 @@ class ModernTransportDiagnosticTests(unittest.TestCase):
                 patch('requests.sessions.Session.send') as send:
             diagnostic = self.held(lambda: m.execute(self.stage, TOKEN))
             send.assert_not_called()
-        self.assertEqual(diagnostic['failure'], {'phase': 'request_preparation', 'exception': 'invalid_header'})
+        self.assertEqual(diagnostic['failure']['phase'], 'request_preparation')
+        self.assertEqual(diagnostic['failure']['exception'], 'invalid_header')
         self.assertFalse(diagnostic['send_call_started'])
         self.assertFalse(diagnostic['adapter_entered'])
         self.assertFalse(diagnostic['response_seen'])
@@ -70,7 +72,8 @@ class ModernTransportDiagnosticTests(unittest.TestCase):
         self.assertTrue(diagnostic['send_call_started'])
         self.assertTrue(diagnostic['adapter_entered'])
         self.assertFalse(diagnostic['response_seen'])
-        self.assertEqual(diagnostic['failure'], {'phase': 'adapter_entry', 'exception': 'connection_error'})
+        self.assertEqual(diagnostic['failure']['phase'], 'adapter_entry')
+        self.assertEqual(diagnostic['failure']['exception'], 'connection_error')
         with patch('requests.sessions.Session.send') as send, self.assertRaises(m.Held):
             m.execute(self.stage, TOKEN)
         send.assert_not_called()
@@ -91,8 +94,10 @@ class ModernTransportDiagnosticTests(unittest.TestCase):
             send.assert_not_called()
         self.assertEqual(len(caught), 1)
         diagnostic = caught[0].diagnostic
-        self.assertEqual(diagnostic['failure'], {'phase': 'deadline_setup', 'exception': 'value_error'})
-        self.assertEqual(diagnostic['cleanup_failure'], {'phase': 'deadline_cleanup', 'exception': 'value_error'})
+        self.assertEqual(diagnostic['failure']['phase'], 'deadline_setup')
+        self.assertEqual(diagnostic['failure']['exception'], 'value_error')
+        self.assertEqual(diagnostic['cleanup_failure']['phase'], 'deadline_cleanup')
+        self.assertEqual(diagnostic['cleanup_failure']['exception'], 'value_error')
         self.assertFalse(diagnostic['send_call_started'])
 
     def test_projection_failure_preserves_observed_http_status(self):
@@ -103,7 +108,8 @@ class ModernTransportDiagnosticTests(unittest.TestCase):
             diagnostic = self.held(lambda: m.execute(self.stage, TOKEN))
         self.assertTrue(diagnostic['response_seen'])
         self.assertEqual(diagnostic['status'], 500)
-        self.assertEqual(diagnostic['failure'], {'phase': 'response_projection', 'exception': 'unclassified'})
+        self.assertEqual(diagnostic['failure']['phase'], 'response_projection')
+        self.assertEqual(diagnostic['failure']['exception'], 'unclassified')
         self.assertEqual(m.load(self.stage / 'state.json')['responses'], [])
         self.assertTrue(response.closed)
 
@@ -121,7 +127,23 @@ class ModernTransportDiagnosticTests(unittest.TestCase):
                 self.assertEqual(diagnostic['failure']['phase'], 'response_validation' if mode == 'status' else 'response_decode')
                 self.assertEqual(diagnostic['failure']['exception'], 'contract' if mode == 'status' else 'invalid_json')
                 if mode == 'close':
-                    self.assertEqual(diagnostic['cleanup_failure'], {'phase': 'response_close', 'exception': 'os_error'})
+                    self.assertEqual(diagnostic['cleanup_failure']['phase'], 'response_close')
+                    self.assertEqual(diagnostic['cleanup_failure']['exception'], 'os_error')
+
+    def test_alarm_failure_has_exact_deadline_category_without_send(self):
+        self.live_fixture()
+        handler = []
+        def install(sig, callback):
+            handler.append(callback)
+        def arm(timer, seconds):
+            if seconds:
+                handler[-1](None, None)
+        with patch.object(m.signal, 'signal', install), patch.object(m.signal, 'setitimer', arm), \
+                patch('requests.sessions.Session.send') as send:
+            diagnostic = self.held(lambda: m.execute(self.stage, TOKEN))
+            send.assert_not_called()
+        self.assertEqual(diagnostic['failure']['phase'], 'deadline_setup')
+        self.assertEqual(diagnostic['failure']['exception'], 'wall_deadline')
 
     def test_unknown_exception_names_and_messages_are_never_projected(self):
         secret_exception = type(TOKEN + '_PrivateClass', (requests.exceptions.ConnectionError,), {})
