@@ -336,3 +336,19 @@ catalogue identity can support retaining a DOI for the same import while old upl
 bytes/runtime remain unknown; no upload-receipt-only identity requirement is added.
 Current ownership/file/version/correction/readback/release QA remains distinct.
 See readiness/2026-10-03/source_credit_title_13.md and production_identity_adjudication.md.
+
+## Isolated modern synthetic contract — 2026-10-03
+
+Modern upload is a different protocol: create, optional managed DOI allocation, metadata PUT, file initialization, content PUT and commit. The isolated candidate uses a fictional packet, distinct namespace and explicit fresh approval; it cannot consume/replenish old legacy grants or serve as a production adapter. Separate action counters and pending intent precede transport; completed retry only reads. A partial inventory is a known-ID reject set, not completeness evidence.
+
+Source-supported REST transfer envelopes differ from embedded record file metadata; validate these separately. DOI allocation returns the full draft, with only documented PID fields retained. Deployed support/scope/vocabulary may fail this bounded trial; no cause for historicalHTTP500 is inferred. Failed drafts/PIDs may remain orphaned and need separate reconciliation; no delete/recreate or automated fallback. The existing reported write scope and nonblocking hidden email state are retained. Tests and exact approval/runtime bindings are in readiness/2026-10-03/modern_synthetic_approval_plan.md. Production mapping, file-version correction and release remain separate tasks.
+
+## Retained-import dates and file versions — 2026-10-03
+
+The local five source2bf5f8a after-images use exactmetd days for the descriptive XML artifact date, preserving ambiguous resource citation dates verbatim. Two out-of-range remote dates and missing SeaMARC access_conditions are parent-reader-reported; exact beforeimages remain unavailable here after the currentLibrary review download failed. Do not turn that evidence gap into guessed fields, an identity-reuse blocker or repeatedproviderreads. Bind existing reader hashes/values before freezing a live field delta.
+
+Metadata corrections preserve sameDOI and verifiedexistingfiles. Adding XML is a distinct version/two-file action with original placeholders retained and version/PID relations explicit; the current one-XML upload contract does not authorize it. The already held Contributor1238 and departmental-republication2731 source decisions remain unresolved. See readiness/2026-10-03/five_import_correction_preparation.md/json.
+
+## Credential echoes after successful create — 2026-10-03
+
+PR10 final-head review identified loss of a reconciliation handle when a create201 included both a valid record ID and a credential echo. Retain only a syntactically valid, credential-free decimal ID privately before rejecting the echo; keep it untrusted, with pending intent, spent create and permanent failure. Never expose it in public receipts or adopt/retry the draft automatically. A dedicated failing-first regression and an ID-containing-credential case cover the correction. Code merge remains separate from the unissued live trial grant; old uncertain ledgers remain untouched.

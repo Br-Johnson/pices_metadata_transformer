@@ -1,0 +1,99 @@
+{
+  "census_sha256": "078fb02253bdf8d525ec11856e31a94cfafc6bc792e48cd9e8b8a877870a1997",
+  "common_recommendation": "Keep all currently held pending an informed, exact-source/hash-bound scope attestation or applicable existing authorization. Preserve raw fields, restricted XML, blank licenses and independent attribution/title/date/alias holds. An answer establishes a finite interpretation only; no blanket synonym, dataset permission, new license, current agency-law assumption or publication approval. No promotion count predicted.",
+  "distinct_held_source_count": 821,
+  "frozen_census_baseline_report_sha256": "dd6a9775ca3124f796a7280189072a446ddbd3256ead34a02ef24013dab87247",
+  "issues": [],
+  "questions": [
+    {
+      "approval_question": "For these exact 361 source/hash bindings, can you confirm that all four literal Check with Contributor fields refer only to contacting the contributor to obtain the underlying resource, and impose no separate contributor-clearance requirement on restricted, unlicensed rehosting of the descriptive FGDC XML? If clearance also applies to XML, identify the existing authorization and its conditions.",
+      "cohort": "Contributor",
+      "count": 361,
+      "irreducible_decision": "Underlying-resource contact instruction versus a clearance condition on descriptive XML. Earlier Contact Source / Check with Contributor or Source attestation does not establish this distinct wording.",
+      "recommendation": "Retain all 361 until that scope is confirmed; preserve the two attribution ambiguities and any other independent holds. 359 have only access diagnostics; 14 belong to the currently preserved 86 access queue.",
+      "source_bindings": [
+        {
+          "count": 361,
+          "exact_four_field_wording": {
+            "./idinfo/accconst": "Check with Contributor",
+            "./idinfo/useconst": "Check with Contributor",
+            "./metainfo/metac": "Check with Contributor",
+            "./metainfo/metuc": "Check with Contributor"
+          },
+          "membership_sha256": "4fd7c31a5e98f00e839beea61507703edc6b1322a4b5ce1f9a8e818dc2d1bc8b",
+          "protected_access_queue_counts": {
+            "86-source-credit": 14
+          }
+        }
+      ]
+    },
+    {
+      "approval_question": "For these exact 351 source/hash bindings, does the literal Republication or Republications of materials in this report series may be authorized by the department condition govern only underlying report materials, or also reposting these descriptive FGDC XML artifacts? If it governs XML, what existing departmental authorization and conditions cover this reposting?",
+      "cohort": "ADF&G",
+      "count": 351,
+      "irreducible_decision": "Scope and satisfaction of the conditional departmental republication requirement. An ability to accommodate one/two pages of data or short reports does not establish XML permission.",
+      "recommendation": "Retain all 351 until authoritative scope evidence or applicable existing departmental authorization is identified. Preserve all raw Request/Requests and Republication/Republications combinations 253/95/3. 323 technical passes and 28 long-title holds are distinct from this access decision.",
+      "source_bindings": [
+        {
+          "count": 253,
+          "exact_four_field_wording": {
+            "./idinfo/accconst": "Request for one or two pages of data and/or short reports can usually be accommodated.",
+            "./idinfo/useconst": "Republications of materials in this report series may be authorized by the department",
+            "./metainfo/metac": "Request for one or two pages of data and/or short reports can usually be accommodated.",
+            "./metainfo/metuc": "Republications of materials in this report series may be authorized by the department"
+          },
+          "membership_sha256": "e5992a00fbb0f9df41c17d6eee02e987cbe83feb55083694d784be2b3c8519e0",
+          "protected_access_queue_counts": {}
+        },
+        {
+          "count": 95,
+          "exact_four_field_wording": {
+            "./idinfo/accconst": "Requests for one or two pages of data and/or short reports can usually be accommodated.",
+            "./idinfo/useconst": "Republications of materials in this report series may be authorized by the department",
+            "./metainfo/metac": "Requests for one or two pages of data and/or short reports can usually be accommodated.",
+            "./metainfo/metuc": "Republications of materials in this report series may be authorized by the department"
+          },
+          "membership_sha256": "312bcc076c240259591ee1b59540896cc2c08b21e343ebfc96c24ae5fd3a45fe",
+          "protected_access_queue_counts": {}
+        },
+        {
+          "count": 3,
+          "exact_four_field_wording": {
+            "./idinfo/accconst": "Request for one or two pages of data and/or short reports can usually be accommodated.",
+            "./idinfo/useconst": "Republication of materials in this report series may be authorized by the department",
+            "./metainfo/metac": "Request for one or two pages of data and/or short reports can usually be accommodated.",
+            "./metainfo/metuc": "Republication of materials in this report series may be authorized by the department"
+          },
+          "membership_sha256": "8354cb034af26324c949d921d1010e82f5606ebf4a6f61de2604525c435bb545",
+          "protected_access_queue_counts": {}
+        }
+      ]
+    },
+    {
+      "approval_question": "For these exact 109 source/hash bindings, can you attest that the literal Unknown in all four access/use fields was an unrecorded underlying-resource placeholder, with no separate restriction on reposting the descriptive FGDC XML? If that meaning cannot be established, what verified source-specific XML access/use terms apply?",
+      "cohort": "Unknown",
+      "count": 109,
+      "irreducible_decision": "No original source resolves Unknown as data-only versus XML access/use uncertainty. Unknown supplies neither a license nor absence of restrictions.",
+      "recommendation": "Retain all 109 unless an informed bounded meaning attestation or verified source-specific XML terms resolve the uncertainty; preserve the 16 members in the existing 86/90 access queues and all independent holds.",
+      "source_bindings": [
+        {
+          "count": 109,
+          "exact_four_field_wording": {
+            "./idinfo/accconst": "Unknown",
+            "./idinfo/useconst": "Unknown",
+            "./metainfo/metac": "Unknown",
+            "./metainfo/metuc": "Unknown"
+          },
+          "membership_sha256": "8a232ae10b61882b79ce7fb1ae15f58449b7fa66ed06688d5f318a4f09269d4c",
+          "protected_access_queue_counts": {
+            "86-source-credit": 15,
+            "90-joint-collection": 1
+          }
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+  "source_head": "2bf5f8a9758a4a3c5a6c1bb7258872eb14eb25e6"
+}

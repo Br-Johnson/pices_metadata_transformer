@@ -1,0 +1,103 @@
+{
+  "kind": "pices_modern_synthetic_plan_exact_constants_addendum_v1",
+  "date": "2026-10-03",
+  "base_receipt": "/tmp/pices-modern-synthetic-plan-review-20261003.json",
+  "base_receipt_sha256": "543150489ea44d019b107f042e27d86d4c9f7eb1ad373c33a0af3c6b1ec268b1",
+  "conclusions": {
+    "REST_file_transfer_type": "L",
+    "not_an_alias": "Reject local/F/R/M or an unknown/missing type when a REST file transfer envelope is required. The semantic name local is not the wire constant.",
+    "managed_DOI_provider": "datacite",
+    "optional_managed_DOI_client": "datacite",
+    "client_rule": "PIDSchema allows an optional client; accept absence, but if supplied require exactly datacite. Manager populates client from provider.client.name, Zenodo config constructs DataCiteClient(datacite), and constructor assigns that name. No alternatives or fallback allocation.",
+    "embedded_record_file": "Correctly separate from REST file envelope: RDM embedded FileSchema contains key/size/checksum and related basic fields, not REST transfer/status/links. Do not require those REST-only fields on embedded record entries.",
+    "Sandbox_DOI_prefix": "10.5072 is bound from parent-reported existing reviewed Sandbox provenance; the repository default10.5281 is not substituted. This addendum does not read private provenance or verify deployment.",
+    "grant": "Same offline bounded plan4POST/2PUT/8GET; no live grant or new runtime scope."
+  },
+  "evidence_files": [
+    {
+      "id": "transfer_constants",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/files/transfer/constants.py",
+      "commit": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "15652f82000768424dfe6909d23251059b80d492354a9e8004519ee3601d33f5",
+      "lines": [
+        8
+      ]
+    },
+    {
+      "id": "local_provider",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/files/transfer/providers/local.py",
+      "commit": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "fce6c4669bb64a1611b2aa72956f25da7e6c2639525af180e75fc37f2a35152b",
+      "lines": [
+        13,
+        23
+      ]
+    },
+    {
+      "id": "transfer_schema",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/files/schema.py",
+      "commit": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "b2308bd485a195e61e4778bea7ccaeb952d8175fbca918f92f5416a3dabc7f4b",
+      "lines": [
+        29,
+        58,
+        59,
+        67
+      ]
+    },
+    {
+      "id": "zenodo_provider_config",
+      "path": "/workspace/pices-zenodo-api-research/site/zenodo_rdm/providers.py",
+      "commit": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "3fad7162f0a241e9d7882d6b4e8d9fb41cdb70f02cd655689ae7af76bb3c3991",
+      "lines": [
+        171,
+        172,
+        173
+      ]
+    },
+    {
+      "id": "datacite_client",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/pids/providers/datacite.py",
+      "commit": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "ae3d745b0f5a8a8088f746989dda4bb6bb40c008863a73c947ab0f431419719a",
+      "lines": [
+        32,
+        34
+      ]
+    },
+    {
+      "id": "pid_manager",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/pids/manager.py",
+      "commit": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "5157d6893a5fdf3e3bf105c60cb3b8600aeb5fe5b47cf6f27e121d6389b14bbb",
+      "lines": [
+        182,
+        183
+      ]
+    },
+    {
+      "id": "embedded_file_schema",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/files.py",
+      "commit": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "1baa64f7ea8504e8f5357e02e4e0c133317851841e45fc89fa332062f8682c07",
+      "lines": [
+        43,
+        48,
+        50,
+        55,
+        79,
+        81
+      ]
+    }
+  ],
+  "verification": {
+    "constant_AST_assertion": true,
+    "DataCite_name_chain_text_assertions": true,
+    "prior_receipt_unchanged": true,
+    "provider_requests": 0,
+    "credential_private_state_reads": 0,
+    "repository_edits": 0,
+    "broad_audit_or_test_rerun": false
+  }
+}

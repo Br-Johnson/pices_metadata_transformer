@@ -355,3 +355,21 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Verify full metadata/source/payload delta and guarded contracts; complete independent runtime/source/document review and freeze the handoff for approved existing PR8 publication. No provider operations, uncertain-create retry or access-meaning decision.
 
 - Actual 77 corrections preserve all 86 access holds: 34 creator lists change / 43 notes-only; all source counts remain 2,288 supported / 1,912 held / six malformed. Five new focused / 306 guarded tests pass, independently reproduced; complete fresh/resumed corpus delta and documents are independently reviewed. Prior cohort objects, 456 aliases and 90 access holds remain intact; nine source-role gaps are queued with exact hashes. This 86-member creator queue is complete; further corrections here require new attribution evidence, and access meaning remains separate.
+
+## Source PR9 and bounded modern synthetic candidate — 2026-10-03
+
+- [x] Merge reviewed source2bf5f8a through normalPR9 atd0f1393; final-head review, source inventory and identical merged-tree receipts retained. No provider action.
+- [x] Queue precise wording/scope questions for361 Contributor,351 conditional ADF&G republication and109 Unknown sources, with exact bindings and independent holds preserved.
+- [x] Implement separate fixed fictional modern adapter and offline contracts, durable pre-send journal, no replay/reset, exact readback and completed retry. Bound4POST/2PUT/8GET and30minutes; no account/email or production credential blocker added.
+- [ ] Parent receives exact bounded execution approval, materializes separately pinned private grant and dispatches sole provider executor. Both old HTTP500 create allowances stay spent; no live newcreate occurred here.
+
+## Five existing-import correction preparation — 2026-10-03
+
+- [x] Retain parent-reported five completedHTTP200 verification reads without repeating them; distinguish source/localafterimage proof from unavailable private remote beforeimages. Bind exactfive source/payload hashes and metadata-date proposals; prepare missing SeaMARC access_conditions while preserving1238/2731 holds.
+- [x] Document sameDOI/files-preserving metadata edits separately from a reviewed new-version/two-file attachment contract; no deletion, production write or release implied.
+- [ ] Reader supplies from already retained evidence the two flagged date IDs/rawvalues and exactfive metadatahash/filelist/creator-contributor beforeimages. CurrentLibraryv1bytes could not be downloaded here; no new GET is requested.
+
+## PR10 final-head integration review — 2026-10-03
+
+- [x] Address the substantive create201 credential-echo review: preserve a safe private untrusted candidate ID before rejection, with no trusted adoption/retry/reset or credential persistence. Add meaningful failure-first/reentry/privacy regressions; final runtime and validation bindings supersede the earlier canary pin.
+- Code merge requires exact final-head tests/review/requirements to pass. Live modern execution remains disabled pending the separate exact approval and parent dispatch; both prior spent ledgers remain preserved.

@@ -1,0 +1,51 @@
+{
+  "carry_forward": {
+    "budgets": "Unchanged maximum4POST+2PUT+8GET; completed retry GET-only; failed/uncertain stages held.",
+    "privacy_and_adversarial": "0750265232d3704e9a4f704c6e638561bdc2c47f21ce57c237b19e9d268ba275",
+    "repeated_get_partial": "b1fe69b8259ab02c76841d6ade37c104dcb0b3ff5f97a15cd5c7f27aebefe5d0"
+  },
+  "credential_or_private_provider_stage_reads": 0,
+  "delta_review": {
+    "first_identity": "Aware server created must fall within client send-start minus5s and client body-receive plus5s; grant start<=send start<=receive<=send start plus20s.",
+    "later_identity": "Original server created string and record/parent/DOI identity remain exactly bound; timestamp tolerance does not renew later identity.",
+    "post_body": "Create_received_at persisted after bounded body acquisition; any failure remains spent/held.",
+    "pre_send": "Create count, pending intent and aware create_started_at are durably saved together before transport.",
+    "unchanged": "No request route, action count, lifetime, deadline, reset, retry, privacy helper, packet or approval gate changes."
+  },
+  "execution_approved": false,
+  "file_sha256": {
+    "docs/handoff/modern-synthetic-canary-20261003-code-01/INVENTORY.json": "95d125ba6e47cb87cd89fcc981c8a179ee37127e0fe9ccab5711f9984b79787e",
+    "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "scripts/modern_synthetic_canary.py": "67264f5da91167eac4c0d971a9c753c7472aa9d2bca9c26660fb6830def88f21",
+    "tests/test_modern_canary_errors.py": "226d7b1d12710e2c86d074a0b0b90d1972af36f1c5922ea9a29f678b4511ad9b",
+    "tests/test_modern_synthetic_canary.py": "8ef042d63a94ee7a77974a0034d9e97fe898ae2870a55d4a4dd9c1aa94262c2a"
+  },
+  "guarded_validation": {
+    "delta_probes": [
+      "Server creation6s before client send is held after one create with no further request.",
+      "Client receive21s after client send is held after one create with no further request."
+    ],
+    "errors": 0,
+    "existing_regressions": "4s negative server skew accepted and bound;6s future server timestamp rejected; later changed created/parent remains rejected.",
+    "failures": 0,
+    "guard": "Default Requests send, sockets/DNS and credential-file paths prohibited; explicit mocked send boundary remains offline.",
+    "log": "/tmp/pices-modern-canary-independent-final20-guarded.log",
+    "log_sha256": "26b0184fcb908f836f12e6e644d7496af0e410d5a79c001526c8479be1f9ef47",
+    "passed": 20,
+    "sources_stable_across_run": true,
+    "tests": 20
+  },
+  "open_findings": [],
+  "prior_review": {
+    "base_commit_public_blobs_match_prior_file_hashes": true,
+    "path": "/tmp/pices-modern-canary-independent-final-review.json",
+    "sha256": "7d1b78bd666bdd317003d020a3f5575cac6c07aa57aca49e9959be5bc9a4bd73"
+  },
+  "provider_requests": 0,
+  "remaining": "Root must commit/freeze exact reviewed hashes and pin them in the separate parent grant before live execution. Deployed Sandbox behavior and earlier500 cause remain unproved.",
+  "repository_edits": 0,
+  "reviewed_base_commit": "29904ecef6e18d34c870766e6a1ea36bffec290f",
+  "schema_version": 1,
+  "scope": "Bounded timestamp-envelope supplement; prior implementation/privacy/repeated-GET review carried forward",
+  "verdict": "clear_for_offline_freeze_and_separate_exact_execution_approval_review"
+}

@@ -40,6 +40,16 @@ pices_md_2/
 
 ## Production safety and review
 
+The [bounded modern synthetic approval packet](docs/readiness/2026-10-03/modern_synthetic_approval_plan.md)
+provides an isolated offline-tested Sandbox adapter, fixed fictional payload and
+separate runtime/grant bindings. Live creation awaits the exact bounded approval;
+both earlier failed-create allowances remain spent. The
+[three exact source questions](docs/readiness/2026-10-03/remaining_source_scope_questions_821.md)
+retain 821 held records pending source-specific XML scope evidence.
+The [five retained-import preparation](docs/readiness/2026-10-03/five_import_correction_preparation.md)
+binds source-derived dates and the missing access-condition proposal, preserves
+existing DOIs/files and keeps exact unavailable remote beforeimages pending.
+
 Use [reviewed correction batches](docs/curation_batches.md) for exact source-ID/hash
 membership, overlap checks and explicit field precedence after common FGDC
 transformations. The opt-in [Exxon citation profile](docs/readiness/2026-10-02/exxon_profile.md)

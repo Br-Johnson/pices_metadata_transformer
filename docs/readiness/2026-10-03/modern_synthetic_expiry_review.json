@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "scope": "Final bounded expiry supplement; prior implementation, privacy, repeated-GET and timestamp reviews carried forward",
+  "verdict": "clear_for_offline_freeze_and_separate_exact_execution_approval_review",
+  "worktree": "/workspace/pices-modern-synthetic-canary",
+  "reviewed_base_commit": "29904ecef6e18d34c870766e6a1ea36bffec290f",
+  "prior_reviews": [
+    {
+      "path": "/tmp/pices-modern-canary-independent-final-review.json",
+      "sha256": "7d1b78bd666bdd317003d020a3f5575cac6c07aa57aca49e9959be5bc9a4bd73"
+    },
+    {
+      "path": "/tmp/pices-modern-canary-independent-timestamp-supplement.json",
+      "sha256": "9c634da43fc994feff8f65107348efcef7de2e887fd708525ec08c26421ebcaa"
+    }
+  ],
+  "file_sha256": {
+    "scripts/modern_synthetic_canary.py": "c88dd70b1c9fca0e7eac8b180f3b787b2e224562d095c29d44b975a8b6d8faf1",
+    "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "tests/test_modern_synthetic_canary.py": "ea8bd904ec20fb15b0cb0e3ff27da91362c256a4c880052a2037d7f55bb17edc",
+    "tests/test_modern_canary_errors.py": "226d7b1d12710e2c86d074a0b0b90d1972af36f1c5922ea9a29f678b4511ad9b",
+    "docs/handoff/modern-synthetic-canary-20261003-code-01/INVENTORY.json": "95d125ba6e47cb87cd89fcc981c8a179ee37127e0fe9ccab5711f9984b79787e"
+  },
+  "expiry_delta_review": {
+    "after_durable_intent": "Expiry checked again after count/pending intent fsync and before invoking transport.",
+    "streamed_body": "Expiry checked for each received chunk and after body acquisition; expired/partial request remains spent and held.",
+    "live_wall_timer": "Positive remaining grant seconds required; absolute signal timer is min(20 seconds, remaining grant seconds). Timer restored/cancelled by existing finally path.",
+    "regression": "Expiry during durable-intent persistence causes one conservatively spent create, failed/pending held state and zero transport calls.",
+    "unchanged": "No routes, budgets, sequence, approval scope, resets or extra requests introduced."
+  },
+  "guarded_validation": {
+    "tests": 21,
+    "passed": 21,
+    "failures": 0,
+    "errors": 0,
+    "pattern": "tests/test_modern*.py",
+    "guard": "Default Requests send, sockets/DNS and credential-file paths prohibited; explicit in-memory mocked send remains offline.",
+    "sources_stable_across_run": true,
+    "log": "/tmp/pices-modern-canary-independent-final21-guarded.log",
+    "log_sha256": "bb951d2e2d545a19d95a6a471d85b7037372b8692712691e5d6251f346854e95"
+  },
+  "carried_forward": {
+    "timestamp_bounds": "Durable send/receive envelope; first server created within send minus5s/receive plus5s, client interval at most20s; exact original created/parent identity later.",
+    "privacy_and_partial_get": "Prior10 adversarial privacy probes and repeated-GET partial-diagnostic proof retained; helper/test-helper hashes unchanged.",
+    "limits": {
+      "create": 1,
+      "doi": 1,
+      "metadata": 1,
+      "init": 1,
+      "content": 1,
+      "commit": 1,
+      "get": 8
+    },
+    "ceiling": "Maximum4POST+2PUT+8GET; completed retry GET-only, failed/uncertain stages remain held."
+  },
+  "open_findings": [],
+  "provider_requests": 0,
+  "credential_or_private_provider_stage_reads": 0,
+  "repository_edits": 0,
+  "execution_approved": false,
+  "remaining": "Root must freeze and pin exact reviewed hashes in the separately approved parent grant before live execution. Deployed Sandbox behavior and legacy500 cause remain unproved. No broader suite or production inventory result is asserted."
+}
