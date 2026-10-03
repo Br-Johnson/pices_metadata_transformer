@@ -34,6 +34,13 @@ PACKET = Path(__file__).resolve().parents[1] / 'docs/handoff/sandbox-canary-2026
 INVENTORY_SHA = '428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1'
 OWNED_SCOPE = 'synthetic_owned_namespace_pages_v2'
 OWNED_STATE = 'synthetic-owned-pages-controller.json'
+RECOVERY_SCOPE = 'synthetic_owned_namespace_recovery_v3'
+RECOVERY_STATE = 'synthetic-owned-recovery-controller.json'
+RECOVERY_PAGES = 'synthetic-owned-recovery-pages'
+RECOVERY_RECEIPT = 'synthetic-owned-pages-failure-receipt.json'
+RECOVERY_DIAGNOSTIC = 'synthetic-owned-page-63-diagnostic-receipt.json'
+COMPATIBILITY_COMMIT = '58bbf0d501cda9244804734d52a1d425d47bd0c3'
+COMPATIBILITY_RECEIPT_SHA = '65efffe3c461e620323b01f2f7ee34cadd31b61f13e92f72d2a63a3c04616f3c'
 
 
 def require(ok, stage='request_prepare'):
@@ -90,59 +97,166 @@ def check_owned_page(records, metadata, owner, seen):
         seen.add(item['id'])
 
 
-def inventory(stage, owner, *, resume=False):
+def legacy_receipt_hashes(folder, owner):
+    """Only the previously reviewed read-only failures may precede this run."""
+    hashes = {}
+    for name, attempts in [('synthetic-inventory-controller.json', 2),
+                           ('synthetic-owned-inventory-controller.json', 10)]:
+        path = folder / name
+        if path.exists():
+            prior = read_json(path)
+            require(prior.get('completed') is False and prior.get('failed') is True
+                    and prior.get('get_attempts') == attempts and prior.get('owner') == owner
+                    and prior.get('packet') == INVENTORY_SHA)
+            if attempts == 2:
+                require(prior.get('diagnostics', {}).get('status') == 400)
+            else:
+                diagnostics = prior.get('diagnostics', {})
+                require(prior.get('inventory_scope') == 'synthetic_owned_namespace_only_v1'
+                        and prior.get('prior_observed_gets') == 5 and prior.get('maximum_new_gets') == 10
+                        and diagnostics.get('stage') == 'request_prepare'
+                        and diagnostics.get('exception_type') == 'ValueError'
+                        and diagnostics.get('status') is None and diagnostics.get('retryable') is False)
+            hashes[name] = sha(path.read_bytes())
+    return hashes
+
+
+def valid_sha(value):
+    return isinstance(value, str) and len(value) == 64 and all(ch in '0123456789abcdef' for ch in value)
+
+
+def recovery_binding(folder, metadata, owner):
+    """Validate exact retained v2 failure; old pages never supply scan credit."""
+    require(type(owner) is int and owner > 0)
+    compatibility = PACKET.parents[1] / 'readiness/2026-10-03/synthetic_empty_draft_compatibility_validation.json'
+    require(sha(compatibility.read_bytes()) == COMPATIBILITY_RECEIPT_SHA)
+    state_file, receipt_file = folder / OWNED_STATE, folder / RECOVERY_RECEIPT
+    prior, receipt = read_json(state_file, {}), read_json(receipt_file, {})
+    require(isinstance(prior, dict) and isinstance(receipt, dict))
+    require(prior.get('schema_version') == 2 and prior.get('inventory_scope') == OWNED_SCOPE
+            and prior.get('completed') is False and prior.get('failed') is True
+            and prior.get('resume_allowed') is False and prior.get('owner') == owner
+            and prior.get('packet') == INVENTORY_SHA
+            and type(prior.get('get_attempts')) is int and prior['get_attempts'] == 64
+            and prior.get('prior_observed_gets') == 15 and prior.get('maximum_new_gets') == 225
+            and prior.get('maximum_pages') == 200 and prior.get('page_size') == 100
+            and prior.get('next_page') == 63)
+    diagnostics = prior.get('diagnostics', {})
+    require(diagnostics.get('stage') == 'response_json' and diagnostics.get('exception_type') == 'ValueError'
+            and diagnostics.get('status') is None and diagnostics.get('retryable') is False)
+    started, expires = datetime.fromisoformat(prior['started_at']), datetime.fromisoformat(prior['expires_at'])
+    # The original may have expired. Its lifetime is checked, never extended.
+    require(started.tzinfo is not None and expires.tzinfo is not None
+            and expires == started + timedelta(minutes=30))
+    require(prior.get('previous_attempt_hashes') == legacy_receipt_hashes(folder, owner)
+            and prior.get('resumes') == [] and isinstance(prior.get('failures'), list)
+            and len(prior['failures']) == 1 and prior['failures'][0] ==
+                {'get_attempts':64, 'verified_pages':62, 'diagnostics':diagnostics})
+    require(receipt.get('mode') == 'inventory' and receipt.get('inventory_scope') == OWNED_SCOPE
+            and receipt.get('completed') is False and receipt.get('failed') is True
+            and receipt.get('resume_allowed') is False and receipt.get('verified_pages') == 62
+            and receipt.get('next_page') == 63 and receipt.get('get_attempts') == 64
+            and receipt.get('prior_observed_gets') == 15 and receipt.get('cumulative_inventory_gets') == 79
+            and receipt.get('maximum_new_gets') == 225 and receipt.get('packet_sha256') == INVENTORY_SHA
+            and receipt.get('diagnostics') == diagnostics)
+    guard = receipt.get('guard', {})
+    require(isinstance(guard, dict) and guard.get('transport_attempts') == 64
+            and guard.get('owned_pages') == 64 and guard.get('community_pages') == 0
+            and guard.get('writes_performed') == 0 and isinstance(guard.get('observations'), list)
+            and len(guard['observations']) == 64)
+    for index, observation in enumerate(guard['observations']):
+        require(isinstance(observation, dict) and observation.get('status') == 200
+                and all(observation.get(key) is True for key in ('request_prepared', 'transport_entered',
+                    'response_received', 'status_validated', 'json_validated', 'owner_validated',
+                    'links_validated', 'completed'))
+                and 'diagnostics' not in observation and 'failure_code' not in observation
+                and valid_sha(observation.get('sha256'))
+                and type(observation.get('bytes')) is int and 0 < observation['bytes'] <= 12*1024*1024
+                and type(observation.get('owned_items')) is int and observation['owned_items'] > 0
+                and (index == 0 or observation['owned_items'] == 100))
+    require(isinstance(prior.get('pages'), list) and len(prior['pages']) == 62)
+    pages_dir = folder / 'synthetic-owned-pages'
+    expected = {'page-%03d.json' % page for page in range(1, 63)}
+    require(pages_dir.is_dir() and {p.name for p in pages_dir.iterdir()} == expected)
+    seen, page_hashes = set(), {}
+    for index, saved in enumerate(prior['pages'], 1):
+        page_file = pages_dir / ('page-%03d.json' % index)
+        raw = page_file.read_bytes(); records = json.loads(raw)
+        require(saved.get('page') == index and saved.get('count') == 100
+                and saved.get('sha256') == sha(raw)
+                and saved.get('response_sha256') == guard['observations'][index]['sha256'])
+        check_owned_page(records, metadata, owner, seen)
+        require(len(records) == 100)
+        page_hashes[page_file.name] = sha(raw)
+    require(len(seen) == 6200 and prior.get('ids') == sorted(seen))
+    failed_response = guard['observations'][-1]['sha256']
+    diagnostic_file = folder / RECOVERY_DIAGNOSTIC
+    diagnostic_hash = None
+    if diagnostic_file.exists():
+        raw = diagnostic_file.read_bytes(); data = json.loads(raw)
+        # A retained diagnostic may have a tool-specific envelope. Hash its
+        # complete bytes and require the exact failed response hash as a value.
+        pending, found = [data], False
+        while pending:
+            item = pending.pop()
+            if isinstance(item, str): found |= item == failed_response
+            elif isinstance(item, dict): pending.extend(item.values())
+            elif isinstance(item, list): pending.extend(item)
+        require(found)
+        diagnostic_hash = sha(raw)
+    return {'compatibility_commit':COMPATIBILITY_COMMIT,
+            'compatibility_receipt_sha256':COMPATIBILITY_RECEIPT_SHA,
+            'failed_state_sha256':sha(state_file.read_bytes()),
+            'failed_receipt_sha256':sha(receipt_file.read_bytes()),
+            'failed_response_sha256':failed_response, 'old_page_sha256':page_hashes,
+            'old_legacy_receipt_sha256':prior['previous_attempt_hashes'],
+            'diagnostic_receipt_sha256':diagnostic_hash,
+            'prior_read_counts':{'earlier':15, 'v2':64, 'diagnostic':1, 'total':80}}
+
+
+def inventory(stage, owner, *, resume=False, recovery=False):
     """One bounded owned scan. Resume replays every page; no snapshot is assumed."""
     paths, file, metadata, artifact, plan = bindings(stage)
     token = load_zenodo_token(sandbox=True)
     require(token == os.environ.get('ZENODO_SANDBOX_TOKEN'))
     folder = Path(paths.state_dir) / 'sandbox'
     folder.mkdir(parents=True, exist_ok=True)
-    state_file = folder / OWNED_STATE
-    pages_dir = folder / 'synthetic-owned-pages'
+    scope = RECOVERY_SCOPE if recovery else OWNED_SCOPE
+    prior_gets = 80 if recovery else 15
+    schema = 3 if recovery else 2
+    state_file = folder / (RECOVERY_STATE if recovery else OWNED_STATE)
+    pages_dir = folder / (RECOVERY_PAGES if recovery else 'synthetic-owned-pages')
     with (folder / 'synthetic-controller.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         require(not (folder / 'synthetic-controller.json').exists() and
                 not read_json(paths.uploads_registry_path, {}))
-        # Only the known read-only failures can be superseded. Their bytes and
-        # counters remain untouched; the new allowance includes all 15 reads.
-        prior_hashes = {}
-        for name, attempts in [('synthetic-inventory-controller.json', 2),
-                               ('synthetic-owned-inventory-controller.json', 10)]:
-            prior_file = folder / name
-            if prior_file.exists():
-                prior = read_json(prior_file)
-                require(prior.get('completed') is False and prior.get('failed') is True
-                        and prior.get('get_attempts') == attempts and prior.get('owner') == owner
-                        and prior.get('packet') == INVENTORY_SHA)
-                if attempts == 2:
-                    require(prior.get('diagnostics', {}).get('status') == 400)
-                else:
-                    diagnostics = prior.get('diagnostics', {})
-                    require(prior.get('inventory_scope') == 'synthetic_owned_namespace_only_v1'
-                            and prior.get('prior_observed_gets') == 5 and prior.get('maximum_new_gets') == 10
-                            and diagnostics.get('stage') == 'request_prepare'
-                            and diagnostics.get('exception_type') == 'ValueError'
-                            and diagnostics.get('status') is None and diagnostics.get('retryable') is False)
-                prior_hashes[name] = sha(prior_file.read_bytes())
+        require(recovery or not (folder / RECOVERY_STATE).exists())
+        prior_hashes = legacy_receipt_hashes(folder, owner)
+        recovery_evidence = recovery_binding(folder, metadata, owner) if recovery else None
         state = read_json(state_file)
         if state is None:
             require(not resume and not pages_dir.exists())
             now = datetime.now(timezone.utc)
-            state = {'schema_version': 2, 'completed': False, 'failed': False, 'resume_allowed': True,
-                     'get_attempts': 0, 'prior_observed_gets': 15, 'maximum_new_gets': 225,
+            state = {'schema_version': schema, 'completed': False, 'failed': False, 'resume_allowed': True,
+                     'get_attempts': 0, 'prior_observed_gets': prior_gets, 'maximum_new_gets': 225,
                      'maximum_pages': 200, 'page_size': 100,
-                     'inventory_scope': OWNED_SCOPE, 'owner': owner, 'packet': INVENTORY_SHA,
+                     'inventory_scope': scope, 'owner': owner, 'packet': INVENTORY_SHA,
                      'previous_attempt_hashes': prior_hashes, 'started_at': now.isoformat(),
                      'expires_at': (now + timedelta(minutes=30)).isoformat(),
                      'pages': [], 'next_page': 1, 'ids': [], 'failures': [], 'resumes': []}
+            if recovery:
+                state.update(recovery_binding=recovery_evidence, maximum_cumulative_gets=305)
         else:
             require(resume and state.get('completed') is False and state.get('resume_allowed') is True)
-            require(state.get('schema_version') == 2 and type(state.get('failed')) is bool
+            require(state.get('schema_version') == schema and type(state.get('failed')) is bool
                     and state.get('owner') == owner and state.get('packet') == INVENTORY_SHA
-                    and state.get('inventory_scope') == OWNED_SCOPE
+                    and state.get('inventory_scope') == scope
                     and state.get('previous_attempt_hashes') == prior_hashes
-                    and state.get('prior_observed_gets') == 15 and state.get('maximum_new_gets') == 225
+                    and state.get('prior_observed_gets') == prior_gets and state.get('maximum_new_gets') == 225
                     and state.get('maximum_pages') == 200 and state.get('page_size') == 100)
+            if recovery:
+                require(state.get('recovery_binding') == recovery_evidence
+                        and state.get('maximum_cumulative_gets') == 305)
         require(type(state.get('get_attempts')) is int and 0 <= state['get_attempts'] < 225)
         require(isinstance(state.get('pages'), list) and len(state['pages']) <= 200
                 and type(state.get('next_page')) is int and state['next_page'] == len(state['pages']) + 1
@@ -184,7 +298,7 @@ def inventory(stage, owner, *, resume=False):
                                      'get_attempts': state['get_attempts']})
         state.update(failed=False, resume_allowed=True)
         save()
-        incomplete = {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
+        incomplete = {'environment': 'sandbox', 'inventory_scope': scope,
                       'inventory_complete': False, 'files': [], 'metadata_hashes': {}}
         atomic_json(paths.safe_to_upload_path, incomplete)
         guard = SandboxInventoryGuard(token, owner, max_requests=225 - state['get_attempts'])
@@ -236,10 +350,12 @@ def inventory(stage, owner, *, resume=False):
                 require(seen, 'response_owner')
             client.close(); client = None
             require(datetime.now(timezone.utc) < expires)
-            atomic_json(paths.already_uploaded_path, {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
+            if recovery:
+                require(recovery_binding(folder, metadata, owner) == recovery_evidence)
+            atomic_json(paths.already_uploaded_path, {'environment': 'sandbox', 'inventory_scope': scope,
                         'total_records': len(seen), 'records': [{'id': i} for i in sorted(seen)],
                         'checkpoint_pages': state['pages'], 'check_date': datetime.now(timezone.utc).isoformat()})
-            atomic_json(paths.safe_to_upload_path, {'environment': 'sandbox', 'inventory_scope': OWNED_SCOPE,
+            atomic_json(paths.safe_to_upload_path, {'environment': 'sandbox', 'inventory_scope': scope,
                         'inventory_complete': True, 'files': [file.name],
                         'checked_at': datetime.now(timezone.utc).isoformat(), 'valid_until': state['expires_at'],
                         'metadata_hashes': {file.name: metadata_hash(metadata)}})
@@ -264,20 +380,24 @@ def inventory(stage, owner, *, resume=False):
                 try: client.close()
                 except Exception: pass
             save()
-        return {'mode': 'inventory', 'inventory_scope': OWNED_SCOPE,
+        result = {'mode': 'inventory', 'inventory_scope': scope,
                 'completed': state['completed'], 'failed': state['failed'],
                 'resume_allowed': state['resume_allowed'], 'verified_pages': len(state['pages']),
-                'next_page': state['next_page'], 'get_attempts': state['get_attempts'], 'prior_observed_gets': 15,
-                'cumulative_inventory_gets': 15 + state['get_attempts'], 'maximum_new_gets': 225,
+                'next_page': state['next_page'], 'get_attempts': state['get_attempts'], 'prior_observed_gets': prior_gets,
+                'cumulative_inventory_gets': prior_gets + state['get_attempts'], 'maximum_new_gets': 225,
                 'owned_count': state.get('owned_count'),
                 'diagnostics': state.get('diagnostics') if state['failed'] else None,
                 'guard': guard.receipt(), 'packet_sha256': INVENTORY_SHA}
+        if recovery:
+            result.update(maximum_cumulative_gets=305, compatibility_commit=COMPATIBILITY_COMMIT,
+                          failed_receipt_sha256=recovery_evidence['failed_receipt_sha256'])
+        return result
 
 
 def authorize_scoped_inventory(safe, environment, controller):
     """A reduced-scope grant is usable only inside this exact active controller."""
     require(type(controller) is SyntheticTransport and environment == 'sandbox')
-    require(safe.get('inventory_scope') == OWNED_SCOPE and
+    require(safe.get('inventory_scope') == controller.inventory_scope and
             requests.sessions.Session.send is controller.active_send and
             controller.original_send is not None and not controller.state['failed'] and
             not controller.state['completed'] and controller.state['phase'] in ('upload', 'retry'))
@@ -296,28 +416,41 @@ class SyntheticTransport:
         self.token, self.owner, self.paths = token, owner, paths
         self.metadata, self.artifact, self.plan = metadata, artifact, plan
         self.path = Path(paths.state_dir) / 'sandbox' / 'synthetic-controller.json'
+        safe = read_json(paths.safe_to_upload_path, {})
+        self.inventory_scope = safe.get('inventory_scope')
+        require(self.inventory_scope in (OWNED_SCOPE, RECOVERY_SCOPE))
         self.binding = {'schema_version': 1, 'owner': owner, 'run': str(RUN.resolve()),
-                        'packet': INVENTORY_SHA, 'inventory_scope': OWNED_SCOPE, 'payload': plan['prepared_payload_sha256'],
+                        'packet': INVENTORY_SHA, 'inventory_scope': self.inventory_scope, 'payload': plan['prepared_payload_sha256'],
                         'metadata': metadata_hash(metadata), 'artifact': artifact['sha256']}
+        recovery_evidence = None
+        if self.inventory_scope == RECOVERY_SCOPE:
+            recovery_evidence = recovery_binding(self.path.parent, metadata, owner)
+            self.binding['recovery_binding_sha256'] = sha(json.dumps(recovery_evidence, sort_keys=True).encode())
         self.state = read_json(self.path)
         ledger = read_json(paths.uploads_registry_path, {})
         require(set(ledger) <= {SOURCE})
         if self.state is None:
             require(not ledger)  # Never reconstruct lost controls around a prior attempt.
-            inventory_state = read_json(self.path.parent / OWNED_STATE, {})
-            require(inventory_state.get('inventory_scope') == OWNED_SCOPE
+            inventory_state = read_json(self.path.parent / (RECOVERY_STATE if self.inventory_scope == RECOVERY_SCOPE else OWNED_STATE), {})
+            require(inventory_state.get('inventory_scope') == self.inventory_scope
                     and inventory_state.get('completed') is True and inventory_state.get('failed') is False
                     and inventory_state.get('owner') == owner and inventory_state.get('packet') == INVENTORY_SHA
                     and inventory_state.get('safe_sha256') == sha(Path(paths.safe_to_upload_path).read_bytes())
                     and inventory_state.get('retained_sha256') == sha(Path(paths.already_uploaded_path).read_bytes()))
+            if self.inventory_scope == RECOVERY_SCOPE:
+                require(inventory_state.get('schema_version') == 3
+                        and inventory_state.get('prior_observed_gets') == 80
+                        and inventory_state.get('maximum_new_gets') == 225
+                        and inventory_state.get('maximum_cumulative_gets') == 305
+                        and inventory_state.get('recovery_binding') == recovery_evidence)
             safe = read_json(paths.safe_to_upload_path)
             # Validate freshness locally before the transport context exists.
             # Generic callers must never receive this scope-free copy.
             require_inventory({k: v for k, v in safe.items() if k != 'inventory_scope'}, 'sandbox')
-            require(safe.get('inventory_scope') == OWNED_SCOPE and safe['files'] == [SOURCE + '.json'] and
+            require(safe.get('inventory_scope') == self.inventory_scope and safe['files'] == [SOURCE + '.json'] and
                     safe['metadata_hashes'].get(SOURCE + '.json') == metadata_hash(metadata))
             prior = read_json(paths.already_uploaded_path)
-            require(prior['environment'] == 'sandbox' and prior.get('inventory_scope') == OWNED_SCOPE)
+            require(prior['environment'] == 'sandbox' and prior.get('inventory_scope') == self.inventory_scope)
             require(prior['total_records'] == len(prior['records']))
             ids = [r['id'] for r in prior['records']]
             require(all(type(i) is int and i > 0 for i in ids))
@@ -574,6 +707,7 @@ def main():
     parser.add_argument('--owner-file', required=True, type=Path, help='Private JSON positive integer from verified account provenance')
     parser.add_argument('--inventory-only', action='store_true', help='Checkpointed owned scan, up to 200 pages and 225 new GETs, then pause')
     parser.add_argument('--resume-inventory', action='store_true', help='Explicitly resume only eligible retained checkpoints')
+    parser.add_argument('--recover-inventory', action='store_true', help='Explicit new v3 scan:225 additional GETs plus80 preserved, new30-minute lifetime')
     args = parser.parse_args()
     previous = signal.getsignal(signal.SIGALRM)
     old_logging = logging.root.manager.disable
@@ -585,8 +719,9 @@ def main():
         logging.disable(logging.CRITICAL)
         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             require(not args.resume_inventory or args.inventory_only)
+            require(not args.recover_inventory or args.inventory_only)
             owner = json.loads(args.owner_file.read_bytes())
-            receipt = (inventory(RUN, owner, resume=args.resume_inventory)
+            receipt = (inventory(RUN, owner, resume=args.resume_inventory, recovery=args.recover_inventory)
                        if args.inventory_only else execute(RUN, owner))
     except Exception:
         pass
