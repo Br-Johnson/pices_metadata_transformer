@@ -2,7 +2,12 @@
 
 The [fresh-canary error correction](docs/readiness/2026-10-03/fresh_canary_error_diagnostics.md) retains bounded redacted human messages and selected valid trace IDs for future authorized failures. Both observed HTTP500 create allowances remain consumed; this patch adds no provider request or retry. A [read-only account readiness plan](docs/readiness/2026-10-03/sandbox_account_readiness_plan.md) covers visible write-scope/email status without token-value inspection.
 
-Current synthetic Sandbox handoff: the [separately authorized fresh controller](docs/readiness/2026-10-03/synthetic_fresh_canary.md) uses a fixed new source/title, separate private stage/grant/ledger/journal and a 30-minute clock. It permits eight GET attempts and one create/metadata/file attempt each, exact readback and unchanged retry. Original uncertain creation stays spent and held. All 348 guarded offline tests pass; independent full-baseline and final focused reviews clear. Parent dispatch to the sole provider executor remains required; code merge grants no publication authority. The [PR8 merge receipt](docs/readiness/2026-10-03/pr8_merge_readiness_0db412d.json) records the separately reviewed metadata-code merge and its actual prerequisites. Earlier recovery instructions are historical and must not be rerun.
+The [modern API source research](docs/readiness/2026-10-03/modern_zenodo_api_research.md)
+provides a pinned offline contract candidate. Deployed Sandbox modern writes and
+scope requirements remain unverified. Its file sequence requires extra POSTs and
+separate reviewed budgets; it is not a fallback or a new execution grant.
+
+Archived synthetic Sandbox handoff: the [separately authorized fresh controller](docs/readiness/2026-10-03/synthetic_fresh_canary.md) uses a fixed new source/title, separate private stage/grant/ledger/journal and a 30-minute clock. It permits eight GET attempts and one create/metadata/file attempt each, exact readback and unchanged retry. Original uncertain creation stays spent and held. All 348 guarded offline tests pass; independent full-baseline and final focused reviews clear. Both original and fresh create allowances are now consumed; its recorded execution instructions must not be rerun. Code merge grants no publication authority. The [PR8 merge receipt](docs/readiness/2026-10-03/pr8_merge_readiness_0db412d.json) records the separately reviewed metadata-code merge and its actual prerequisites. Earlier recovery instructions are historical and must not be rerun.
 
 [Source-QA membership](docs/readiness/2026-10-03/source_qa_133_promotion_membership.json) records earlier promotions; the latest metadata/source work is separately merged through PR8.
 

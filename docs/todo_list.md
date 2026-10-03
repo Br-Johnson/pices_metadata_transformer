@@ -6,6 +6,12 @@
 - [x] Add bounded redacted human-message/status and allowlisted trace-ID projection; preserve all attempt, state, retry, redirect and credential guards. Seven focused contracts cover redaction and durable complete/partial failure evidence, including independent adversarial findings.
 - [x] Complete independent focused review and freeze a no-write account-readiness plan and normal-branch handoff. All 21 guarded focused tests pass independently; six adversarial review findings are fixed. Do not retry or reconstruct either failed run.
 
+## Modern API source research — 2026-10-03
+
+- [x] Trace the slashless modern draft route through pinned Zenodo and locked Invenio primary source, including media/schema/owner/status/file/DOI behavior. No provider request or runtime adapter.
+- [x] Independently review the research and freeze the offline regression contract with explicit deployment/scope/budget limits. All35 evidence hashes,39 download entries,13 anchors and six locked-distribution source files verify; no runtime or provider stage enabled.
+- [ ] If the parent selects this route, implement and independently test a separate source-bound adapter before requesting its concrete revised live grant. Preserve both consumed legacy create allowances; no fallback or reset.
+
 ## Separately authorized fresh synthetic canary — 2026-10-03
 
 - [x] Add a distinct fixed-source run entry point, separate stage/grant/ledger/30-minute clock and durable 8 GET / one POST / two distinct PUT bounds. Preserve original spent uncertain-create state and all prior evidence.

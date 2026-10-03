@@ -1,0 +1,44 @@
+{
+  "additional_permission_policy_evidence": {
+    "line": 52,
+    "path": "site/zenodo_rdm/permissions.py",
+    "sha256": "c02a9d83308d2007be34da260dfb76e657e237951248e014a247ae3d7e30d981",
+    "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/zenodo_rdm/permissions.py#L52"
+  },
+  "checks": {
+    "auth_claim": "Authenticated creation/owner permission and active-token scopes=[] loader verified; deployed scope sufficiency remains unverified. deposit:write client prerequisite retained.",
+    "download_manifest_entries_verified": 39,
+    "existing_grant_cannot_authorize_modern_sequence": true,
+    "full_flow_write_budget": {
+      "POST": 3,
+      "PUT": 2
+    },
+    "line_anchors_verified": 13,
+    "locked_distribution_source_files_verified": 6,
+    "optional_doi_write_budget": {
+      "POST": 4,
+      "PUT": 2
+    },
+    "packet_evidence_hashes_verified": 35,
+    "route_media_schema_status_doi_claims": "PASS"
+  },
+  "credential_reads": 0,
+  "deployment_or_http500_cause_proven": false,
+  "failed_allowances_reset": false,
+  "fallback_enabled": false,
+  "focused_diagnostic_tests_previously_passed_independently": 21,
+  "framework_tests_executed": false,
+  "issues": [],
+  "new_runtime_tests": 0,
+  "private_run_reads": 0,
+  "provider_requests": 0,
+  "provider_writes": 0,
+  "research_packet_sha256": "484b2580ff84e3313d4576446d2bbb6af4bd90870f34f5e7d1da10cc08c39b9d",
+  "researcher_original_markdown_sha256": "f7ae1747a098cda348568587dda58d29eb43ad341ac06e773c189d123fc9e699",
+  "result": "CLEAR_OFFLINE_CONTRACT_CANDIDATE_ONLY",
+  "reviewer": "ecotrust_role_access; independent of canary_review research",
+  "runtime_unchanged": "9fdb393af11b38fea29dde64bd9569cee9ce3746",
+  "scope": "Independent public-primary-source review only; not a deployed API verification, implementation grant, provider request or release approval.",
+  "zenodo_commit": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+  "zenodo_lock_sha256": "aa05d6aef7de46bae73d9eb342c53180b0143c331d51a5a92dde1341d933d84f"
+}

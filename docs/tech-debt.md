@@ -269,3 +269,22 @@ existing original paths, without new provider reads or receipt reconstruction. S
 ## Fresh uncertain-create error evidence — 2026-10-03
 
 A body fingerprint and fixed error category cannot explain an HTTP500 when the human message and trace ID are discarded. The localized fresh-controller projection now preserves only selected bounded redacted messages/status and recognized allowlisted trace identifiers; all other body/header values stay omitted. Complete and partial failure evidence remains durable, and failed reruns issue zero requests. Seven new guarded contracts supplement the fourteen existing fresh-canary contracts, closing independent recursive encoding, URL-safe base64, UNC, active-markup and W3C-zero-ID findings. Original and fresh failed create allowances remain consumed; this correction cannot recover evidence already omitted or identify either failure's cause. A separately documented no-write account UI plan checks visible scope/email status without token-value inspection or invented REST endpoints. See readiness/2026-10-03/fresh_canary_error_diagnostics.md.
+
+## Modern draft API investigation — 2026-10-03
+
+Pinned Zenodo source supports a slashless modern create route and an explicit
+InvenioRDM response media type. It shares the RDM service with legacy conversion,
+so route selection alone does not explain or guarantee resolution of HTTP500.
+Incomplete drafts may receive201 with errors; the proposed offline contract
+requires exact schema/metadata/owner/run identity evidence. File initialization,
+content and commit are independent mutations:3POST+2PUT including create and
+metadata update, or4POST+2PUT with explicit DOI reservation. The existing
+1create/1metadataPUT/1filePUT allowance cannot authorize that flow. Local example
+content201 contradicts pinned implementation/tests200 and must not be copied.
+
+Modern deployed support, scope sufficiency and source-preserving production
+mapping remain unresolved. Source research grants no runtime fallback, provider
+request, failed-state reset, DOI invention or release approval. Brett's reported
+write scope is retained; unavailable email visibility is nonblocking and no setup
+cause is asserted. See readiness/2026-10-03/modern_zenodo_api_research.md and its
+pinned research/review packet.
