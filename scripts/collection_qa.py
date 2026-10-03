@@ -27,6 +27,7 @@ from scripts.source_title_interpretation import (validate_source_title_interpret
     apply_source_title_interpretation)
 from scripts.dataset_access_interpretation import (validate_dataset_access_interpretation,
     dataset_access_member_ids, REGISTRATION_WORDING)
+from scripts.source_scope_attestation import validate_scope_attestation, scope_member_ids
 
 
 def text(root, xpath):
@@ -34,7 +35,7 @@ def text(root, xpath):
     return re.sub(r'\s+', ' ', ''.join(node.itertext())).strip() if node is not None else ''
 
 
-def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None, collective_creator_interpretation_manifest=None, institution_creator_interpretation_manifest=None, source_link_interpretation_manifest=None, source_title_interpretation_manifest=None):
+def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None, collective_creator_interpretation_manifest=None, institution_creator_interpretation_manifest=None, source_link_interpretation_manifest=None, source_title_interpretation_manifest=None, source_scope_attestation_manifest=None):
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     paths = OutputPaths(str(output), 'sandbox')
@@ -106,6 +107,14 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
         title_reference = {'manifest_path': str(source_title_interpretation_manifest),
                            'manifest_sha256': title_digest}
     dataset_access_members = dataset_access_member_ids(dataset_access_reference) if dataset_access_reference else frozenset()
+    scope_reference = None
+    if source_scope_attestation_manifest:
+        try:
+            scope_digest = hashlib.sha256(Path(source_scope_attestation_manifest).read_bytes()).hexdigest()
+        except OSError:
+            scope_digest = None
+        scope_reference = {'manifest_path': str(source_scope_attestation_manifest), 'manifest_sha256': scope_digest}
+    scope_members = scope_member_ids(scope_reference) if scope_reference else frozenset()
     profile_hash = metadata_hash({'rules': {str(file.relative_to(rules)): hashlib.sha256(file.read_bytes()).hexdigest()
                                  for file in sorted(rules.rglob('*.py'))},
                                  'authority_reference': authority_reference, 'access_reference': access_reference,
@@ -114,7 +123,8 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                                  'source_link_reference': source_link_reference,
                                  'source_title_reference': title_reference,
                                  'contributor_reference': contributor_reference,
-                                 'dataset_access_reference': dataset_access_reference})
+                                 'dataset_access_reference': dataset_access_reference,
+                                 'source_scope_reference': scope_reference})
     prior = read_json(output / 'classification.json', {})
     cache = {row['source_id']: row for row in prior.get('records', [])} if prior.get('profile_sha256') == profile_hash and prior.get('reviewed_at') == reviewed_at else {}
     records, buckets = [], defaultdict(list)
@@ -219,6 +229,17 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                 except ValueError as exc:
                     row['hold_reasons'].append(str(exc))
                 row['dataset_access_interpretation'] = 'SOURCE_BACKED' if interpreted_dataset_access else 'not_established'
+            interpreted_scope = None
+            if scope_reference and source.stem in scope_members:
+                try:
+                    if not authority:
+                        raise ValueError('Source scope clarification requires separate rehosting authority')
+                    if interpreted_access or interpreted_dataset_access:
+                        raise ValueError('Conflicting source scope interpretations require separate adjudication')
+                    interpreted_scope = validate_scope_attestation(scope_reference, source.stem, digest, root, reviewed_at)
+                except ValueError as exc:
+                    row['hold_reasons'].append(str(exc))
+                row['source_scope_attestation'] = 'USER_ATTESTED' if interpreted_scope else 'not_established'
             row.update(raw_primary_date=primary_date, raw_metadata_date=metadata_date,
                        raw_metadata_rights=metuc, raw_metadata_access=metac,
                        has_supported_xml_grant=bool(grant),
@@ -228,7 +249,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                        origin_stratum='institutional_or_compound' if any(_citation_organization(name, transformer) for name in origins) else 'personal_or_unknown')
             if not grant and not authority:
                 row['hold_reasons'].append('No exact XML-specific grant supported by the automatic profile')
-            if not interpreted_access and not interpreted_dataset_access and metac.casefold().rstrip('.') not in ('', 'none', 'no restrictions', 'unrestricted', 'open', 'public'):
+            if not interpreted_access and not interpreted_dataset_access and not interpreted_scope and metac.casefold().rstrip('.') not in ('', 'none', 'no restrictions', 'unrestricted', 'open', 'public'):
                 row['hold_reasons'].append('Metadata access terms need source-backed adjudication')
             if row['metadata_date_precision'] != 'day':
                 row['hold_reasons'].append('Metadata date lacks supported exact day precision')
@@ -248,6 +269,8 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                 policy['source_access_interpretation'] = selected_access_reference
             if interpreted_dataset_access:
                 policy['dataset_access_interpretation'] = dataset_access_reference
+            if interpreted_scope:
+                policy['source_scope_attestation'] = scope_reference
             if interpreted_creators:
                 policy['creator_interpretation'] = selected_creator_reference
             if interpreted_link:
@@ -371,6 +394,7 @@ def main():
     parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned institution/program or reviewed joint/collection citation profile; exact full creator objects')
     parser.add_argument('--source-link-interpretation-manifest', help='Pinned historical shared dataset linkage preservation; no XML identity or replacement relation')
     parser.add_argument('--source-title-interpretation-manifest', help='Pinned eight source display titles with full original context and complete before/after metadata')
+    parser.add_argument('--source-scope-attestation-manifest', help='Pinned exact821 question-bound USER_ATTESTED underlying-data restriction scope; separate XML authority required')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
@@ -380,7 +404,8 @@ def main():
                                      args.collective_creator_interpretation_manifest,
                                      args.institution_creator_interpretation_manifest,
                                      args.source_link_interpretation_manifest,
-                                     args.source_title_interpretation_manifest)
+                                     args.source_title_interpretation_manifest,
+                                     args.source_scope_attestation_manifest)
     print(json.dumps(report['summary'], indent=2))
 
 

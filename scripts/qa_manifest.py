@@ -21,6 +21,7 @@ from scripts.citation_creator_interpretation import validate_creator_metadata
 from scripts.source_link_interpretation import validate_source_link_policy
 from scripts.source_title_interpretation import validate_source_title_policy
 from scripts.dataset_access_interpretation import validate_dataset_access_policy
+from scripts.source_scope_attestation import validate_scope_policy
 
 
 QA_CHECKS = ('source_fidelity', 'dates', 'creators', 'rights', 'relations', 'metadata_only')
@@ -124,6 +125,9 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, rem
     if artifact and payload['artifact_policy'].get('dataset_access_interpretation') is not None:
         validate_dataset_access_policy(payload['artifact_policy'], Path(source_path).stem,
                                        source_hash, ET.parse(source_path).getroot(), metadata)
+    if artifact and payload['artifact_policy'].get('source_scope_attestation') is not None:
+        validate_scope_policy(payload['artifact_policy'], Path(source_path).stem,
+                              source_hash, ET.parse(source_path).getroot(), metadata)
     if artifact and payload['artifact_policy'].get('source_access_interpretation') is not None:
         policy = payload['artifact_policy']
         if policy.get('rehosting_authority') is None:
