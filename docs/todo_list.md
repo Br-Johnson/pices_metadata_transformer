@@ -296,3 +296,15 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Run 299 guarded offline tests, focused F-class lint, packet checks and original-source integrity checks. No provider requests or writes by the code owner.
 - [x] Complete independent final review and prepare the frozen runnable handoff. Parent dispatches owned inventory first, then separately the synthetic write/readback/retry controller after successful inventory.
 - [ ] Continue the separately reviewed source-QA lane and later actual-source/public API compatibility, fresh remote/duplicate evidence and production release gates. No production credentials/writes, merge, deletion or paid capacity are part of this coding task.
+## 2026-10-03 — Synthetic empty-draft compatibility checkpoint
+
+- [x] Reconcile reported page63:100 records,91 titles/nine missing, empty files,
+  64 v2 GETs and62 saved pages; one diagnostic brings cumulative inventory to80.
+- [x] Preserve owner/ID/schema/security/own-run collision rules while accepting
+  unrelated missing/empty titles;303 guarded tests and independent review clear.
+- [x] Freeze compatibility-only branch; original published pagination branch,
+  private failed state/pages and write intent remain unchanged.
+- [ ] Parent decision on adequate additional recovery allowance and explicit new
+  lifetime;240 cumulative leaves160, below the approximately167 fresh-scan need.
+- [ ] Implement/review distinct hash-bound recovery state only after authorization;
+  parent dispatch to sole provider executor, then separate synthetic write stage.

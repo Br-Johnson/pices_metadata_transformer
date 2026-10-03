@@ -1,0 +1,70 @@
+{
+  "approximate_cumulative_minimum": 247,
+  "approximate_fresh_scan_minimum": 167,
+  "baseline_handoff_commit": "a8cfeef632c6764cfc7e4211fddd2e0e61385dd4",
+  "budget_and_expiry_changed": false,
+  "diff_check_passed": true,
+  "existing_cumulative_ceiling": 240,
+  "f_lint_passed": true,
+  "file_sha256": {
+    "scripts/sandbox_read_guard.py": "ea3468f63ec5ff38be8b24fbbca803e0c75101b0a17b78ca20af4d5374a5b67b",
+    "scripts/synthetic_canary_controller.py": "78ef4aec9ade10636838f810f232befec09976df9d8cd6eb27ddb557beb4c640",
+    "scripts/upload_service.py": "9611d1cf94685cb688cbed2ca39f802873774944eb24fdb68ca4ed399ad9e317",
+    "scripts/zenodo_api.py": "19bdd0fe6a4bfe46c9d7936c6aa96fa38f9f3194e40f5b3a1ca63b9494f3f29b",
+    "tests/test_synthetic_canary_controller.py": "a80c594ab074210b2cdb214059dcd87f8280833c47c7c8d643e2d6756eb23a5b"
+  },
+  "full_guarded_offline_tests_passed": 303,
+  "handoff_branch": "handoff/pr8-synthetic-empty-draft-compatibility-20261003",
+  "independent_added_checkpoint_regression_passed": 1,
+  "independent_full_guarded_tests_passed_before_added_checkpoint_test": 302,
+  "independent_review": "compatibility and added exact failed-state regression cleared; recovery not authorized",
+  "offline_complete_fixture": {
+    "get_attempts": 167,
+    "owned_count": 16538,
+    "verified_pages": 166
+  },
+  "offline_prior_failure_fixture": {
+    "execute_rejected": true,
+    "failed_state_bytes_unchanged": true,
+    "get_attempts": 64,
+    "new_requests_after_compatibility_patch": 0,
+    "ordinary_inventory_rejected": true,
+    "resume_rejected": true,
+    "saved_page_bytes_unchanged": true,
+    "verified_pages": 62
+  },
+  "original_sources": 4206,
+  "packet_sha256": "428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1",
+  "private_provider_state_inspected_by_code_owner": false,
+  "production_rules_changed": false,
+  "proposed_recovery": {
+    "additional_get_ceiling": 225,
+    "authorized": false,
+    "cumulative_ceiling": 305,
+    "implemented": false,
+    "maximum_pages": 200,
+    "new_explicit_lifetime_seconds": 1800
+  },
+  "provider_reported_counts": {
+    "cumulative_observed": 80,
+    "earlier_reads": 15,
+    "page_63_diagnostic": 1,
+    "provider_writes": 0,
+    "v2_attempts": 64
+  },
+  "provider_requests_by_code_owner": 0,
+  "provider_writes_by_code_owner": 0,
+  "recovery_executable": false,
+  "remaining_original_gets": 160,
+  "reported_page_63_fixture": {
+    "absent_titles": 9,
+    "empty_files_arrays": 100,
+    "metadata_objects": 100,
+    "nonempty_titles": 91,
+    "records": 100
+  },
+  "runtime_commit": "ff84b66241ff5642c58ae6686072492bcd2db0cd",
+  "source_sha256_manifest_digest": "3430315763379ef81c393cca00eb776952df3ad3f66856ef4b15edd48e396013",
+  "unchanged_packet_entries": 17,
+  "write_controller_changed": false
+}

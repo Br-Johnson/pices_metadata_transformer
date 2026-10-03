@@ -216,3 +216,18 @@ decoded key/value echoes before persisting page or create-response state.
 Independent review and provider dispatch are tracked in the frozen runbook and
 validation receipt. Live Sandbox delivery and public PICES query compatibility
 remain separate from source-backed metadata QA and production release.
+## 2026-10-03 — Historical empty-draft scan compatibility
+
+The parent-reported page63 response contains nine legitimate missing-title drafts
+among100 owner-verified metadata objects/files arrays. The synthetic-only checker
+now accepts absent/empty titles while validating supplied strings and all metadata
+and file own-run markers. Production rules and durable write allowances are unchanged.
+
+303 guarded tests pass; independent review reproduced302 plus the added exact
+failed-state regression. The compatibility patch cannot revive the failed v2
+state, renew its expiry or reset its counters/pages.80 cumulative reads leave160
+under the original240 ceiling, below the approximately167 required for a complete
+fresh scan. The separately reviewed225-new-read/305-cumulative recovery proposal
+requires explicit parent authorization and a subsequent state-handling runtime.
+See readiness/2026-10-03/synthetic_empty_draft_compatibility.md. No provider requests
+or writes were made by the code owner.

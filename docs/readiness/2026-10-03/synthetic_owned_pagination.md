@@ -1,6 +1,11 @@
 # Frozen synthetic canary: bounded owned pagination
 
-This is the current runnable handoff. It supersedes the ten-GET owned gate in
+Historical handoff: the live v2 scan later stopped at page63 on nine legitimate
+missing-title drafts. See [the compatibility checkpoint and pending recovery
+constraint](synthetic_empty_draft_compatibility.md) before any dispatch. Its failed
+state is not resumable and the remaining old budget cannot complete a fresh scan.
+
+This was the runnable handoff at its frozen checkpoint. It supersedes the ten-GET owned gate in
 `synthetic_canary_controller.md`. Parent dispatch is required for each provider
 stage. Only provider executor `01a0fed7-bf71-7384-95fd-3434599df03f` uses its existing
 Sandbox credential and performs provider writes. The code owner made zero provider
