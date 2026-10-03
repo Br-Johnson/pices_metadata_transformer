@@ -1,6 +1,23 @@
 # FGDC → Zenodo Sandbox TODO List
 
-_Last updated: 2025-10-14_
+## Five source credits and eight display titles — 2026-10-03
+
+- [x] Implement exact additive401 creator profile and eight title selections with source/hash/element/full-metadata bindings; preserve all prior396 and every original title/credit/context.
+- [x] Fail the new-profile acceptance contract against the predecessor, then pass five guarded focused contracts for all13, full after-image tampering, defaults/withdrawal/cache, agent and both human QA routes.
+- [x] Complete317 guarded tests and exact full-corpus/resume preservation; independent source/runtime/complete-delta review clears. Final documentation corrects frozen predecessor checkout requirements. No provider action or new license.
+- Actual13 promotions:2443 supported /1757 held /six malformed,4181 metadata objects unchanged,401 policy references changed,3793 payload bytes unchanged,176 protected access holds and456 aliases preserved. See `readiness/2026-10-03/source_credit_title_13.md`.
+- [x] Independently adjudicate the three retained production catalogue identities using discriminating source evidence. Preserve exact IDs/DOIs for the same existing imports; historical bytes remain unknown and current ownership/file/correction/readback/release gates remain separate.
+
+## Remaining access and attribution evidence from merged 4b13126 — 2026-10-03
+
+- [x] Audit the largest exact source-constraint groups in disjoint read-only lanes, preserving the completed 86-record access queue, earlier 90 access cases and all 456 aliases. Root is the sole integration writer.
+- [x] Implement only reviewed finite source/hash/context-bound resource-access interpretations; preserve XML, complete metadata, restricted access, blank licenses and independent attribution/date/title holds.
+- [x] Verify the complete actual delta and independent implementation/source review; freeze the grouped decision packet. Provider execution remains with its separate executor.
+- Actual finite142 batch: 2,430 supported / 1,770 held / six malformed; 312 guarded offline tests and six independently reproduced focused contracts. All 4,194 whole metadata objects, 4,206 originals, 4,200 copies, 176 protected access holds and 456 aliases are preserved. See `readiness/2026-10-03/finite_source_resource_access.md` and its validation receipt.
+- [x] Implement the separately prepared five source-credit and eight bounded-title proposals in the source13 checkpoint; all13 are source-supported. The earlier finite142 checkpoint counts remain historical.
+- [ ] Obtain the exact remaining source-scope evidence, prioritizing Contributor361 / ADF&G351 / Unknown109, and preserve original terms, blank licenses and independent holds.
+
+_Last updated: 2026-10-03_
 
 This checklist tracks everything required to shepherd FGDC metadata through the Zenodo sandbox pipeline and keep the project healthy. Update it whenever a task is finished, deferred, or newly discovered. Capture timestamps or short notes when changing scope so the team always understands current progress.
 

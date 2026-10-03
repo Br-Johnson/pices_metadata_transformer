@@ -48,6 +48,24 @@ alias holds and the separate production release gate.
 
 Follow the [draft and evidence-bound QA runbook](docs/draft_qa_runbook.md) before using operational commands. Production stays draft until supported human or delegated agent record QA and separate explicit publication release. The [pinned review and offline reproductions](docs/reviews/2026-09-30/README.md) document the original defects.
 
+The current [13-source credit/title checkpoint](docs/readiness/2026-10-03/source_credit_title_13.md)
+produces **2,443 source-supported /1,757 held / six malformed**, with 317 guarded
+offline tests. It includes the preceding 142 batch and adds five literal credits and
+eight bounded report titles, preserving full source context and every original XML.
+Provider verification, exact existing ID/DOI ownership/file state and release remain
+separate. [Three existing import identities](docs/readiness/2026-10-03/production_identity_adjudication.md)
+are supported for corrections preserving their current DOIs; old byte provenance
+is recorded as unknown and is not an identity-reuse blocker.
+
+The preceding [finite source access checkpoint](docs/readiness/2026-10-03/finite_source_resource_access.md)
+adds 142 exact source/hash/context interpretations from merged `4b13126`:
+**2,430 source-supported / 1,770 held / six malformed**, with 312 guarded offline
+tests. All 4,194 prepared metadata objects and every original XML remain unchanged;
+source support still requires separate provider verification and release.
+The [grouped decision packet](docs/readiness/2026-10-03/remaining_source_decision_packet.md)
+retains 821 sources under the three largest unresolved wording questions and queues
+13 smaller attribution/title proposals that are now implemented in the current checkpoint.
+
 ## 🚀 Quick Start
 
 ### 🎯 Recommended Approach: Use the Orchestration Pipeline

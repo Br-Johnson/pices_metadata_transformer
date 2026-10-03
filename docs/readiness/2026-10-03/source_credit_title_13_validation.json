@@ -1,0 +1,580 @@
+{
+  "actual_complete_audit": {
+    "after_report_sha256": "6213c25a1f3d71cdb08ae19a1ca91762fdad5b3f11524ed7ed137f1b7edb044e",
+    "alias_groups_sha256": "3ab9f6f1196e13458bf7362aaea65478038c83e69176c2849a0d54f55ce7926d",
+    "alias_identities_held": 456,
+    "all_other_statuses_and_hold_reasons_unchanged": true,
+    "assessed_artifact_fingerprints_changed": 224,
+    "baseline_report_sha256": "f89ea06557eced0b0184d723a5a2fd576c036e795e4028ba55fb81baa67e69a0",
+    "copies_verified": 4200,
+    "copy_inventory_sha256": "f805d52f08bebac0428decd68043022c0aa9c09be8c818d79de50468b4db675b",
+    "creator_corrections": 5,
+    "full_metadata_objects_unchanged": 4181,
+    "metadata_inventory_sha256": "95dff07c60806ab48d62ad1c2d7465be8dbae475f58455f9986a45aae4dcb7f6",
+    "new_licenses": 0,
+    "original_inventory_sha256": "27999ceb97fd8f2905513b28a22ac7e09966dab717ab7fad14bb8f9e8507bf8c",
+    "originals_verified": 4206,
+    "payload_bytes_unchanged": 3793,
+    "payload_inventory_sha256": "b082633eaa1607b4ba3e53d78fcce9f98b548ee592a9c91cf7d2965aae5490a8",
+    "payloads_verified": 4194,
+    "policy_references_changed": 401,
+    "previous_220_cohort_objects_396_members_unchanged": true,
+    "promoted_source_ids": [
+      "FGDC-1917",
+      "FGDC-1922",
+      "FGDC-1923",
+      "FGDC-1924",
+      "FGDC-1925",
+      "FGDC-1930",
+      "FGDC-1933",
+      "FGDC-1935",
+      "FGDC-3779",
+      "FGDC-3815",
+      "FGDC-3958",
+      "FGDC-3959",
+      "FGDC-3965"
+    ],
+    "promotions": 13,
+    "protected_access_holds_held": 176,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "scope": "Exact five source credits and eight preserved display titles; no provider approval",
+    "summary": {
+      "coverage": "Every raw file hashed; strict source-only agent profile on constructed XML artifacts; no recovery or remote/API/duplicate-service assessment",
+      "exact_copy_groups": 228,
+      "files_in_copy_groups": 456,
+      "publication_approved": 0,
+      "rehosting_authority_counts": {
+        "USER_ATTESTED": 4200,
+        "parse_failed": 6
+      },
+      "remote_verified": 0,
+      "source_files": 4206,
+      "source_status_counts": {
+        "failed": 6,
+        "held": 1757,
+        "supported": 2443
+      },
+      "technical_metadata_counts": {
+        "held": 52,
+        "not_constructed": 12,
+        "pass": 4142
+      },
+      "unique_raw_contents": 3978
+    },
+    "title_corrections": 8
+  },
+  "baseline_equivalent_frozen_source142_commit": "7a46be5b53d378643c15e67494575e8fa9ef33b5",
+  "credential_reads": 0,
+  "failing_first_log_sha256": "46f4b1705fae20916c864b5f07159ca87c615b9c6c21017217a257b4c56b308f",
+  "guarded_focused_tests": {
+    "count": 5,
+    "dummy_tokens": true,
+    "log_sha256": "aca81f3fdfe7427f4ca72ad88bb773432cf89af6a1d5365df26c21cea48b73cf",
+    "result": "PASS",
+    "seconds": 2.837,
+    "transport_socket_dns_blocked": true
+  },
+  "guarded_full_tests": {
+    "count": 317,
+    "dummy_tokens": true,
+    "log_sha256": "54514f3aa68be0396cb6c39f6d147f529d079e9dbda3e761defe874426757a1d",
+    "requests_socket_blocked": true,
+    "result": "PASS",
+    "seconds": 38.375
+  },
+  "historical_doi_adjudication": "Positive same-existing-import identity decisions are separate from unknown old uploaded byte/runtime provenance and current ownership/file/QA/release gates.",
+  "independent_complete_delta_and_document_review": {
+    "predecessor_checkout_documentation_corrected": true,
+    "receipt": "source_credit_title_13_freeze_review.json",
+    "result": "PASS",
+    "sha256": "d25911017dda8ca8579638027c3f930963bbcaac85cbaa955d38424a8b947747"
+  },
+  "independent_review": {
+    "all13_complete_after_images_sha256": "e5f11b97d6ee26d482b8d74cb36aa6f6d767613cf885446e6e0bc403ec4c826f",
+    "focused_log_sha256": "fd4cc28ec19ef11f0fc69551dc55dfa3e1c3ac30099ac1871a6576bbe6f97ef7",
+    "original_receipt_sha256": "4d61fc423c42bf8c8a5d656d2f10d382aa76543c06b0235c40f06a09493d0b31",
+    "receipt": {
+      "all_original_title_credits_and_bundle_context_preserved": true,
+      "complete_metadata_checks": [
+        {
+          "after_complete_metadata_sha256": "cade6c4147604b01752bf540fbc3ecaae1c2eda0f522a59612f2ef436fc2454a",
+          "before_complete_metadata_sha256": "f80c29585edfa1a5b3763aa58cc4d26011010fbba0e3f299c5b9858cea01a870",
+          "changed_metadata_fields": [
+            "notes",
+            "title"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "Acknowledgement of source publication required.",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "Acknowledgement of source publication required."
+          },
+          "creators_after": [
+            {
+              "name": "North Pacific Marine Science Organization (PICES)"
+            }
+          ],
+          "source_date": "20040601",
+          "source_id": "FGDC-1917",
+          "source_sha256": "e0f0e9156bb9491e7ffdc1725758c5e29f595f522d3457be511c2bb0326bca4f"
+        },
+        {
+          "after_complete_metadata_sha256": "7bc04f8f8844c4f255951bbc7847f527ffad53bdbe1c1863f3999a062fdbcd7e",
+          "before_complete_metadata_sha256": "1c227c80f4aeb199513dba582a1565f4e5d80204864e54824e3c7b6e71161f7a",
+          "changed_metadata_fields": [
+            "notes",
+            "title"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "Acknowledgement of source publication required.",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "Acknowledgement of source publication required."
+          },
+          "creators_after": [
+            {
+              "name": "North Pacific Marine Science Organization (PICES)"
+            }
+          ],
+          "source_date": "20040601",
+          "source_id": "FGDC-1922",
+          "source_sha256": "2d7004942ec9920a0203b24440e5ece5219dcabc4a8fbada2505f3a128aaad2d"
+        },
+        {
+          "after_complete_metadata_sha256": "8271f245a61adc78e3a67c7973e2bede1e32d90fb6ad33626bcb4b4ad42cf9d0",
+          "before_complete_metadata_sha256": "f4f766ace0c4fccb4c0e7c646c0473de49f2b7b8ad75e1cdcdf794370d0c8fcf",
+          "changed_metadata_fields": [
+            "notes",
+            "title"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "Acknowledgement of source publication required.",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "Acknowledgement of source publication required."
+          },
+          "creators_after": [
+            {
+              "name": "North Pacific Marine Science Organization (PICES)"
+            }
+          ],
+          "source_date": "20040601",
+          "source_id": "FGDC-1923",
+          "source_sha256": "f7405449ddab5b2318a4e1c6d6be3a41f944174e6595aee19906051a7072a3e9"
+        },
+        {
+          "after_complete_metadata_sha256": "0f32e910323616a9036bc8e802de43b6bb655a760cfc818579935812526c5b38",
+          "before_complete_metadata_sha256": "e82965b9ada68182cfb3eebfb783118fcf5ada1ab4e78a5df34a5402dd9e9c1f",
+          "changed_metadata_fields": [
+            "notes",
+            "title"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "Acknowledgement of source publication required.",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "Acknowledgement of source publication required."
+          },
+          "creators_after": [
+            {
+              "name": "North Pacific Marine Science Organization (PICES)"
+            }
+          ],
+          "source_date": "20040601",
+          "source_id": "FGDC-1924",
+          "source_sha256": "34e749d18bbeb0e60c966e609905d6a94b2ece57a217c7c624ab5fdde4ec4a96"
+        },
+        {
+          "after_complete_metadata_sha256": "b477730fee3e519b223d5b8405ef3f72fe23ccb7b87d5ba149551d5608c280f6",
+          "before_complete_metadata_sha256": "f54c59d1a79ce1d50387a8018ea69e8b7b0e57adc7492e644ffb15cdd991a906",
+          "changed_metadata_fields": [
+            "notes",
+            "title"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "Acknowledgement of source publication required.",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "Acknowledgement of source publication required."
+          },
+          "creators_after": [
+            {
+              "name": "North Pacific Marine Science Organization (PICES)"
+            }
+          ],
+          "source_date": "20040601",
+          "source_id": "FGDC-1925",
+          "source_sha256": "e8a52b4770bbbc78a3369db85e40a751d49e5820f63e4b4841e87848980a46de"
+        },
+        {
+          "after_complete_metadata_sha256": "323d73005ef0315d63dfe3b5359e7ef76f4ce295daa409dae8cf4d9269729888",
+          "before_complete_metadata_sha256": "cfd6ed195be059f85f6f43871ee2dbaee4331a45fdd7a886909de7014c073145",
+          "changed_metadata_fields": [
+            "notes",
+            "title"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "Acknowledgement of source publication required.",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "Acknowledgement of source publication required."
+          },
+          "creators_after": [
+            {
+              "name": "North Pacific Marine Science Organization (PICES)"
+            }
+          ],
+          "source_date": "20040601",
+          "source_id": "FGDC-1930",
+          "source_sha256": "e082b5412f09c630b00582ef0c1c3c51eb79387b1a766b2c7652bf4f147b3d0c"
+        },
+        {
+          "after_complete_metadata_sha256": "b3bb61f5bd33edd29f117ec9a6b852b05a537b65f2424015f21590d26c71f7b7",
+          "before_complete_metadata_sha256": "551fd3906511bac6ffe9f892d3002eac436f421ae8ec468135f8a73d7f415339",
+          "changed_metadata_fields": [
+            "notes",
+            "title"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "Acknowledgement of source publication required.",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "Acknowledgement of source publication required."
+          },
+          "creators_after": [
+            {
+              "name": "North Pacific Marine Science Organization (PICES)"
+            }
+          ],
+          "source_date": "20040601",
+          "source_id": "FGDC-1933",
+          "source_sha256": "197f50d7d26bad5d3233104f387b9ec28a5ceec79691c858ba9494b03308e05f"
+        },
+        {
+          "after_complete_metadata_sha256": "edb4c8875f5c3f332f79160be28b08c3a678a68e91b064186da15c3e55ed9159",
+          "before_complete_metadata_sha256": "4a7750b6a5ec4cffdca65708d392c18db624bdf41182a414bac48935debf3569",
+          "changed_metadata_fields": [
+            "notes",
+            "title"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "Acknowledgement of source publication required.",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "Acknowledgement of source publication required."
+          },
+          "creators_after": [
+            {
+              "name": "North Pacific Marine Science Organization (PICES)"
+            }
+          ],
+          "source_date": "20040601",
+          "source_id": "FGDC-1935",
+          "source_sha256": "aa0a893382df13ba1ea18b6af73057d753b51781a2483ed861fbce43a6491111"
+        },
+        {
+          "after_complete_metadata_sha256": "d50486915177fc6ff172083fcc749a063b56236fa6b883056cae131380f92063",
+          "before_complete_metadata_sha256": "d7e3447396753d4aa393a2cff3e9d14d191bb73e79acba1d1a92062f7638a944",
+          "changed_metadata_fields": [
+            "creators",
+            "notes"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "Cite the COPEPOD Database and the original PI when available.",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "Cite the COPEPOD Database and the original PI when available."
+          },
+          "creators_after": [
+            {
+              "name": "Jury Rudjakov"
+            }
+          ],
+          "source_date": "20041208",
+          "source_id": "FGDC-3779",
+          "source_sha256": "4798775f044874b80bc82573b3a8e19fde5d6dabbe502e3576e5dc4012232516"
+        },
+        {
+          "after_complete_metadata_sha256": "60886f1ca6e90ed61be85cd7f6b6acfc4cb839a7408bd23b55db6ccf5d362134",
+          "before_complete_metadata_sha256": "2517f52c6ca807d4383755331711b51e97129138409cea11847dffe59619816a",
+          "changed_metadata_fields": [
+            "creators",
+            "notes"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "None",
+            "./idinfo/useconst": "None",
+            "./metainfo/metac": "None",
+            "./metainfo/metuc": "None"
+          },
+          "creators_after": [
+            {
+              "name": "Temnykh, O.S."
+            },
+            {
+              "name": "A.N. Starovoytov"
+            },
+            {
+              "name": "I.I. Glebov"
+            },
+            {
+              "name": "G.V. Khen"
+            },
+            {
+              "name": "A.Ya. Efimkin"
+            },
+            {
+              "name": "A.M. Slabinsky"
+            },
+            {
+              "name": "V.V. Sviridov"
+            },
+            {
+              "name": "North Pacific Anadromous Fish Commission"
+            }
+          ],
+          "source_date": "20050225",
+          "source_id": "FGDC-3815",
+          "source_sha256": "6c99b13dedbc6cb76fabf034530941a87d203f64d9d9a821037f125e7ef6855f"
+        },
+        {
+          "after_complete_metadata_sha256": "1edc2312b2b7909d43e1e03ba2d26d3d23d20530f0eec84f023eec357c8f524f",
+          "before_complete_metadata_sha256": "0ca57d91c59bc3c2ca5ffbee0a543f20d2601498fe589cf82d76ff3315a2af19",
+          "changed_metadata_fields": [
+            "creators",
+            "notes"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "First time users must register to gain database access.",
+            "./idinfo/useconst": "None",
+            "./metainfo/metac": "First time users must register to gain database access.",
+            "./metainfo/metuc": "None"
+          },
+          "creators_after": [
+            {
+              "name": "Japan Meteorological Agency"
+            }
+          ],
+          "source_date": "20050418",
+          "source_id": "FGDC-3958",
+          "source_sha256": "9e697615eb1182216bdc9e6f9329788c5303b7fd7d624fdfc13728be3fdcba2e"
+        },
+        {
+          "after_complete_metadata_sha256": "a64d02d248ab7187711608bcffbb74eacca547c0eb0479311070bf83c4873121",
+          "before_complete_metadata_sha256": "1c953d37566032f4ead94aa9b1fbc836da09ed605c417a91e543ffb6473e9a4c",
+          "changed_metadata_fields": [
+            "creators",
+            "notes"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "First time users must register to gain database access.",
+            "./idinfo/useconst": "None",
+            "./metainfo/metac": "First time users must register to gain database access.",
+            "./metainfo/metuc": "None"
+          },
+          "creators_after": [
+            {
+              "name": "Japan Meteorological Agency"
+            }
+          ],
+          "source_date": "20050418",
+          "source_id": "FGDC-3959",
+          "source_sha256": "fb3e519d9a3f601c060f76837fff7bf6021eb145600e3e60f2cece70532ab08d"
+        },
+        {
+          "after_complete_metadata_sha256": "8a567b85af7abcf4fb782e9911c75205de9ad93a51de0130fd025f43118c0374",
+          "before_complete_metadata_sha256": "6814216f1598935e6672e7d47928502a79a7b34b49194ab5866ef99ab4e45ec2",
+          "changed_metadata_fields": [
+            "creators",
+            "notes"
+          ],
+          "constraints": {
+            "./idinfo/accconst": "First time users must register to gain database access.",
+            "./idinfo/useconst": "None",
+            "./metainfo/metac": "First time users must register to gain database access.",
+            "./metainfo/metuc": "None"
+          },
+          "creators_after": [
+            {
+              "name": "Far Eastern Regional Hydrometeorological Research Institute (FERHRI)"
+            }
+          ],
+          "source_date": "20050418",
+          "source_id": "FGDC-3965",
+          "source_sha256": "3df8cf28ed4231e0ccf89d7787e09dcfd830b975f67646ef366db08a3120f9d4"
+        }
+      ],
+      "creator_profile_sha256": "217a11a96ffbc1f55d6e065cfcc5fac34efd4a10057b399e4a6e25faa076887a",
+      "exact_individually_reviewed_display_titles": 8,
+      "focused_tests": {
+        "errors": 0,
+        "failures": 0,
+        "log_path": "/tmp/pices-credit-title-13-independent-tests.log",
+        "log_sha256": "fd4cc28ec19ef11f0fc69551dc55dfa3e1c3ac30099ac1871a6576bbe6f97ef7",
+        "module": "tests.test_source_credit_title_13",
+        "network_guard": "Requests Session.send, socket connect/connect_ex/create_connection and DNS getaddrinfo blocked; dummy fixture tokens only.",
+        "passed": 5,
+        "skipped": 0
+      },
+      "independent_after_images_path": "/tmp/pices-credit-title-13-independent-after-images.json",
+      "independent_after_images_sha256": "e5f11b97d6ee26d482b8d74cb36aa6f6d767613cf885446e6e0bc403ec4c826f",
+      "issues": [],
+      "member_count": 13,
+      "member_inventory": [
+        {
+          "source_id": "FGDC-1917",
+          "source_sha256": "e0f0e9156bb9491e7ffdc1725758c5e29f595f522d3457be511c2bb0326bca4f"
+        },
+        {
+          "source_id": "FGDC-1922",
+          "source_sha256": "2d7004942ec9920a0203b24440e5ece5219dcabc4a8fbada2505f3a128aaad2d"
+        },
+        {
+          "source_id": "FGDC-1923",
+          "source_sha256": "f7405449ddab5b2318a4e1c6d6be3a41f944174e6595aee19906051a7072a3e9"
+        },
+        {
+          "source_id": "FGDC-1924",
+          "source_sha256": "34e749d18bbeb0e60c966e609905d6a94b2ece57a217c7c624ab5fdde4ec4a96"
+        },
+        {
+          "source_id": "FGDC-1925",
+          "source_sha256": "e8a52b4770bbbc78a3369db85e40a751d49e5820f63e4b4841e87848980a46de"
+        },
+        {
+          "source_id": "FGDC-1930",
+          "source_sha256": "e082b5412f09c630b00582ef0c1c3c51eb79387b1a766b2c7652bf4f147b3d0c"
+        },
+        {
+          "source_id": "FGDC-1933",
+          "source_sha256": "197f50d7d26bad5d3233104f387b9ec28a5ceec79691c858ba9494b03308e05f"
+        },
+        {
+          "source_id": "FGDC-1935",
+          "source_sha256": "aa0a893382df13ba1ea18b6af73057d753b51781a2483ed861fbce43a6491111"
+        },
+        {
+          "source_id": "FGDC-3779",
+          "source_sha256": "4798775f044874b80bc82573b3a8e19fde5d6dabbe502e3576e5dc4012232516"
+        },
+        {
+          "source_id": "FGDC-3815",
+          "source_sha256": "6c99b13dedbc6cb76fabf034530941a87d203f64d9d9a821037f125e7ef6855f"
+        },
+        {
+          "source_id": "FGDC-3958",
+          "source_sha256": "9e697615eb1182216bdc9e6f9329788c5303b7fd7d624fdfc13728be3fdcba2e"
+        },
+        {
+          "source_id": "FGDC-3959",
+          "source_sha256": "fb3e519d9a3f601c060f76837fff7bf6021eb145600e3e60f2cece70532ab08d"
+        },
+        {
+          "source_id": "FGDC-3965",
+          "source_sha256": "3df8cf28ed4231e0ccf89d7787e09dcfd830b975f67646ef366db08a3120f9d4"
+        }
+      ],
+      "member_inventory_sha256": "b4eadcd0cf9d2aaad76fe4163199dcf692b530d2430abe6dda04633cf07c0640",
+      "new_credit_objects_and_contexts_exact_prior_review": 5,
+      "predecessor_checkpoint": "6e65b18",
+      "prior_220_cohorts_396_bindings_verbatim": true,
+      "prior_review_packet_sha256": "afc9240c5281e1fc208c43ba57c2631ec06afb7247d2ffd574ea4e53418dd2d8",
+      "reviewed_code_sha256": {
+        "scripts/agent_qa.py": "b2f2a9839ffbee86b2642aeae4575db0c9de7aeb3113718b736d47c9c000194b",
+        "scripts/citation_creator_interpretation.py": "fd0af48aad920d23c279d5448cc8a23978ba7dfd14c337d390a6505ad49d1981",
+        "scripts/collection_qa.py": "c997cc940d8ad740a05fb90bbc53ef9d5118deab9a889091996fb5fccf5d9cfb",
+        "scripts/qa_manifest.py": "3e149663ff588c4ca76ef1d62508842ba87d1dd0e8c01eb0176e9155fc1e87e3",
+        "scripts/source_title_interpretation.py": "a4157ca7339ca05e9575021004703fa563f1174d67354a71264aa9f33aeca540",
+        "tests/test_source_credit_title_13.py": "9b0cc1723e1c0d453508cca0eb73de6e94c1c7d9940a39ecd1b5d98b766e2a68"
+      },
+      "runtime_checkpoint": "427a2197d339dab4b1a00a6767928cb0cb5b8389",
+      "scope": "Independent bounded13 source/profile/runtime implementation review and five guarded focused contracts only; complete full-corpus delta separately belongs to root. No repository edits, provider requests, credentials or private provider files.",
+      "shared_gate_review": "Agent assessment and both human approval schemas call validate_source_title_policy. Exact manifest bytes, source ID/hash and recursive title element are mandatory. Applying the profile requires exact whole-before metadata, and approval requires exact whole-after metadata. Withdrawing evidence rejects retained selected titles for the exact eight IDs. Classifier is optional, profile-hash invalidated, and unchanged retries validate source/policy/payload bindings. No generic splitting or truncation rule is implemented. Creator exact-object and source-role preservation gates remain shared.",
+      "source_only_subset_delta": {
+        "after_supported": 13,
+        "before_held": 13,
+        "provider_approval_or_remote_verification": 0
+      },
+      "source_original_and_copy_hash_checks_passed": 13,
+      "title_profile_sha256": "fa08a25108bbd90a03fe0c107d5b4398403deabd76df2b839830fde05eb46780",
+      "unrelated_metadata_rights_dates_types_relations_and_policy_unchanged": true
+    },
+    "status": "PASS"
+  },
+  "manifests": {
+    "credits_401_sha256": "217a11a96ffbc1f55d6e065cfcc5fac34efd4a10057b399e4a6e25faa076887a",
+    "titles_8_sha256": "fa08a25108bbd90a03fe0c107d5b4398403deabd76df2b839830fde05eb46780"
+  },
+  "provider_requests": 0,
+  "provider_writes": 0,
+  "publication_approved": 0,
+  "remote_verified": 0,
+  "resume_verification": {
+    "complete_prepared_payloads_verified": 4194,
+    "dummy_tokens": true,
+    "no_code_or_input_changes": true,
+    "report_bytes_and_all_prepared_payload_hashes_equal": true,
+    "report_sha256": "6213c25a1f3d71cdb08ae19a1ca91762fdad5b3f11524ed7ed137f1b7edb044e",
+    "requests_socket_dns_blocked": true,
+    "resume_log_sha256": "4b8fa27aabca9ad0e7c8e20dc9ba5b98b5b8aeca26454068c22869bb502ada32",
+    "snapshot_sha256": "182a7d93e5eed6bf8e86c9dfec359ff0cdd0b14cbf57aa74e5d5a71cedaf80aa",
+    "status": "PASS"
+  },
+  "retained_existing_imports_source_state": {
+    "FGDC-1238": {
+      "doi": "10.5281/zenodo.17317855",
+      "identity_action": "Preserve same existing import ID/DOI; no create or correction executed",
+      "record_id": 17317855,
+      "remaining_source_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "remote_or_release_approval": false,
+      "source_sha256": "c559cd8b956683c71c2fd240e583bc5817b2cf7f5bcc390955578c1e1e15aa2f",
+      "source_status": "held"
+    },
+    "FGDC-2043": {
+      "doi": "10.5281/zenodo.17317851",
+      "identity_action": "Preserve same existing import ID/DOI; no create or correction executed",
+      "record_id": 17317851,
+      "remaining_source_hold_reasons": [],
+      "remote_or_release_approval": false,
+      "source_sha256": "9fc45ede1eff08d39e06618ae4b081ba5a6244a886a1a817fb2b4640b145790d",
+      "source_status": "supported"
+    },
+    "FGDC-2057": {
+      "doi": "10.5281/zenodo.17317859",
+      "identity_action": "Preserve same existing import ID/DOI; no create or correction executed",
+      "record_id": 17317859,
+      "remaining_source_hold_reasons": [],
+      "remote_or_release_approval": false,
+      "source_sha256": "e0b48017a563544dedb618f5106e84dbeaf18ca7af1cbda83d93371cdd73736b",
+      "source_status": "supported"
+    },
+    "FGDC-2725": {
+      "doi": "10.5281/zenodo.17317857",
+      "identity_action": "Preserve same existing import ID/DOI; no create or correction executed",
+      "record_id": 17317857,
+      "remaining_source_hold_reasons": [],
+      "remote_or_release_approval": false,
+      "source_sha256": "f8c85ff810507722578d0ccf592d8dc1b1518529f7574745ff900ff5347dccdc",
+      "source_status": "supported"
+    },
+    "FGDC-2731": {
+      "doi": "10.5281/zenodo.17317853",
+      "identity_action": "Preserve same existing import ID/DOI; no create or correction executed",
+      "record_id": 17317853,
+      "remaining_source_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "remote_or_release_approval": false,
+      "source_sha256": "2f08555afe0c393d0c9e826d8fa3f78ddf5f5068a1575cf04218912265ec3a6c",
+      "source_status": "held"
+    }
+  },
+  "runtime_commit": "427a2197d339dab4b1a00a6767928cb0cb5b8389",
+  "scope": "Five source credits and eight finite preserved title selections; no provider/release approval.",
+  "standalone_audit_script_sha256": "cebdc9604b1c1d2f73266dc4c46033c651c8d47be9b67ba6e2203d5e7accb347"
+}

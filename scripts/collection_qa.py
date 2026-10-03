@@ -23,7 +23,10 @@ from scripts.validate_zenodo import ZenodoValidator
 from scripts.source_access_interpretation import validate_interpretation, CONTRIBUTOR_WORDING
 from scripts.citation_creator_interpretation import validate_creator_interpretation
 from scripts.source_link_interpretation import validate_source_link_interpretation, apply_source_link_interpretation
-from scripts.dataset_access_interpretation import validate_dataset_access_interpretation, REGISTRATION_WORDING
+from scripts.source_title_interpretation import (validate_source_title_interpretation,
+    apply_source_title_interpretation)
+from scripts.dataset_access_interpretation import (validate_dataset_access_interpretation,
+    dataset_access_member_ids, REGISTRATION_WORDING)
 
 
 def text(root, xpath):
@@ -31,7 +34,7 @@ def text(root, xpath):
     return re.sub(r'\s+', ' ', ''.join(node.itertext())).strip() if node is not None else ''
 
 
-def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None, collective_creator_interpretation_manifest=None, institution_creator_interpretation_manifest=None, source_link_interpretation_manifest=None):
+def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None, collective_creator_interpretation_manifest=None, institution_creator_interpretation_manifest=None, source_link_interpretation_manifest=None, source_title_interpretation_manifest=None):
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     paths = OutputPaths(str(output), 'sandbox')
@@ -94,12 +97,22 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             dataset_access_digest = None
         dataset_access_reference = {'manifest_path': str(dataset_access_interpretation_manifest),
                                     'manifest_sha256': dataset_access_digest}
+    title_reference = None
+    if source_title_interpretation_manifest:
+        try:
+            title_digest = hashlib.sha256(Path(source_title_interpretation_manifest).read_bytes()).hexdigest()
+        except OSError:
+            title_digest = None
+        title_reference = {'manifest_path': str(source_title_interpretation_manifest),
+                           'manifest_sha256': title_digest}
+    dataset_access_members = dataset_access_member_ids(dataset_access_reference) if dataset_access_reference else frozenset()
     profile_hash = metadata_hash({'rules': {str(file.relative_to(rules)): hashlib.sha256(file.read_bytes()).hexdigest()
                                  for file in sorted(rules.rglob('*.py'))},
                                  'authority_reference': authority_reference, 'access_reference': access_reference,
                                  'creator_reference': creator_reference, 'collective_reference': collective_reference,
                                  'institution_reference': institution_reference,
                                  'source_link_reference': source_link_reference,
+                                 'source_title_reference': title_reference,
                                  'contributor_reference': contributor_reference,
                                  'dataset_access_reference': dataset_access_reference})
     prior = read_json(output / 'classification.json', {})
@@ -163,6 +176,13 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                 except ValueError as exc:
                     row['source_link_interpretation_diagnostic'] = str(exc)
                 row['source_link_interpretation'] = 'SOURCE_BACKED' if interpreted_link else 'not_established'
+            interpreted_title = None
+            if title_reference:
+                try:
+                    interpreted_title = validate_source_title_interpretation(title_reference, source.stem, digest, root)
+                except ValueError as exc:
+                    row['source_title_interpretation_diagnostic'] = str(exc)
+                row['source_title_interpretation'] = 'SOURCE_BACKED' if interpreted_title else 'not_established'
             metuc, metac = text(root, './metainfo/metuc'), text(root, './metainfo/metac')
             grant = _explicit_license(metuc)
             authority = None
@@ -188,7 +208,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                     row['hold_reasons'].append(str(exc))
                 row['source_access_interpretation'] = 'USER_ATTESTED' if interpreted_access else 'not_established'
             interpreted_dataset_access = None
-            if dataset_access_reference and metac == REGISTRATION_WORDING:
+            if dataset_access_reference and (metac == REGISTRATION_WORDING or source.stem in dataset_access_members):
                 try:
                     if not authority:
                         raise ValueError('Dataset access interpretation requires separate rehosting authority')
@@ -232,6 +252,8 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                 policy['creator_interpretation'] = selected_creator_reference
             if interpreted_link:
                 policy['source_link_interpretation'] = source_link_reference
+            if interpreted_title:
+                policy['source_title_interpretation'] = title_reference
             classification = {'inventory_complete': True, 'reviewer': policy['reviewer'], 'reviewed_at': reviewed_at,
                               'rationale': 'Descriptive source XML only; no underlying data included',
                               'files': [{'name': source.name, 'role': 'descriptive_metadata', 'evidence': 'Parsed source descriptive fields'}]}
@@ -259,7 +281,8 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                     artifact_title = title
                 abstract = text(root, './idinfo/descript/abstract') or title
                 row['routine_source_decisions'] = {
-                    'title': 'exact source title' if artifact_title == title else 'exact source title plus artifact suffix',
+                    'title': 'reviewed source display title with complete original preservation' if interpreted_title else
+                             'exact source title' if artifact_title == title else 'exact source title plus artifact suffix',
                     'description': 'HTML-escaped exact source abstract, or title if abstract absent',
                     'date': 'explicit metadata creation/last-update day; not dataset publication',
                     'creators': 'primary dataset citation preserved; XML authorship not independently established'}
@@ -285,6 +308,11 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                     if interpreted_link:
                         try:
                             metadata = apply_source_link_interpretation(interpreted_link, metadata)
+                        except ValueError as exc:
+                            row['hold_reasons'].append(str(exc))
+                    if interpreted_title:
+                        try:
+                            metadata = apply_source_title_interpretation(interpreted_title, metadata)
                         except ValueError as exc:
                             row['hold_reasons'].append(str(exc))
                     atomic_json(json_file, {'metadata': metadata, 'artifact_policy': policy,
@@ -338,10 +366,11 @@ def main():
     parser.add_argument('--access-interpretation-manifest', help='Exact Contact Source. dataset-acquisition interpretation; no license or release grant')
     parser.add_argument('--contributor-access-interpretation-manifest', help='Exact source-bound Contributor or Source attestation; no license or release grant')
     parser.add_argument('--creator-interpretation-manifest', help='Pinned Exxon primary citation attribution; no XML authorship or rights grant')
-    parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned source-backed database registration meaning; no authority or license grant')
+    parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned finite source-backed data acquisition meaning; no authority or license grant')
     parser.add_argument('--collective-creator-interpretation-manifest', help='Pinned literal DFO Staff collective citation; no person, affiliation or institutional type inference')
     parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned institution/program or reviewed joint/collection citation profile; exact full creator objects')
     parser.add_argument('--source-link-interpretation-manifest', help='Pinned historical shared dataset linkage preservation; no XML identity or replacement relation')
+    parser.add_argument('--source-title-interpretation-manifest', help='Pinned eight source display titles with full original context and complete before/after metadata')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
@@ -350,7 +379,8 @@ def main():
                                      args.dataset_access_interpretation_manifest, args.contributor_access_interpretation_manifest,
                                      args.collective_creator_interpretation_manifest,
                                      args.institution_creator_interpretation_manifest,
-                                     args.source_link_interpretation_manifest)
+                                     args.source_link_interpretation_manifest,
+                                     args.source_title_interpretation_manifest)
     print(json.dumps(report['summary'], indent=2))
 
 

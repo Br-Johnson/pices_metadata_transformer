@@ -296,3 +296,43 @@ Actual 111 promotions yield 2,288 supported / 1,912 held / six malformed; 301 gu
 Source-credit fidelity can improve without resolving access meaning. The exact 86-member review supports 77 source/hash-bound after-images and retains nine radio/program/address/journal attribution gaps. Every access hold remains; the additive 396 profile retains the earlier 143 cohort objects covering 319 source bindings. Literal compiler/editor, country-specific data-by, contracting, reporting and collection credits require explicit context. Source references support three supplemental author credits; contacts and byline-free journal labels do not. Independent review removed unsupported magazine-venue and shared-editor claims before the final pin.
 
 Actual complete delta: 34 creator lists and 43 note-only corrections, 4,117 unchanged prepared metadata objects, 396 policy changes including 319 rebindings, and unchanged 2,288/1,912/six eligibility. All 4,206 originals, 4,200 XML copies and 4,194 payload hashes are verified. Wait for classifier completion before auditing report summaries; checkpoint files intentionally contain partial inventory only. Further work within the 86 queue requires new role or access evidence rather than another generic parser. See readiness/2026-10-03/access_held_source_credits.md and validation receipt.
+
+## Finite source-backed access meanings — 2026-10-03
+
+A public resource locator, source-only acquisition instruction or explicit
+public-metadata statement can establish meaning without granting rights. The
+additive immutable264 profile preserves all122 earlier registration cases and adds
+142 exact source/hash/four-constraint/full-context bindings: acquisition36,
+publication referral75, resource availability30 and distinct PWID metadata/data
+scope1. The existing opt-in classifier and shared agent/human gate validate each
+selected source. No word-matching rule, current website terms, agency ownership,
+new license or XML authorship is inferred.
+
+Actual full QA: 2,430 supported / 1,770 held / six malformed; 312 guarded tests and
+independent focused implementation/source/delta reviews pass. All4,194 complete
+metadata objects remain identical;264 policy references and243 assessed artifact
+fingerprints change. All4206 original hashes,4200 copies,176 protected access holds
+and456 aliases remain intact. Contributor361, ADF&G351 and Unknown109 need exact
+scope evidence; the13 smaller attribution/title after-images are review proposals,
+not runtime changes. See readiness/2026-10-03/finite_source_resource_access.md and
+remaining_source_decision_packet.md. Provider identity/readback/release work stays
+with the parent's separate executor; consumed canary allowances stay spent.
+
+## Five credit and eight display-title after-images — 2026-10-03
+
+Full source context can resolve literal analysis/contributor/report credits without
+inventing XML authorship or types. The additive401 profile preserves previous220
+cohort objects covering396 bindings; five new literal credits retain exact primary
+and supplemental XML and role notes. Eight long PICES report titles use individually
+reviewed responsibility boundaries, retaining complete originals/credits/bundle
+context in notes. Complete before/after hashes prevent unrelated changes; shared
+agent/human gates require exact evidence and withdrawal restores holds.
+
+Actual QA:2443 supported /1757 held /six malformed;317 guarded offline tests pass.
+Only13 complete metadata objects change;4181 remain identical.401 creator reference
+changes include396 prior rebindings; eight title references fall in those same401.
+All4206 originals,4200 copies,176 access holds and456 aliases remain intact. Existing
+catalogue identity can support retaining a DOI for the same import while old uploaded
+bytes/runtime remain unknown; no upload-receipt-only identity requirement is added.
+Current ownership/file/version/correction/readback/release QA remains distinct.
+See readiness/2026-10-03/source_credit_title_13.md and production_identity_adjudication.md.
