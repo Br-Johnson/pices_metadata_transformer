@@ -1,0 +1,83 @@
+{
+  "ADF_access_wording_marginals": [
+    256,
+    95
+  ],
+  "ADF_paired_strata": [
+    253,
+    95,
+    3
+  ],
+  "ADF_use_wording_marginals": [
+    348,
+    3
+  ],
+  "USER_REPORTED_deposit_write_preserved": true,
+  "all_questions_no_promotions_or_license_grants": true,
+  "allocation_only_for_wholly_absent_doi_key": true,
+  "approval_reason": "A distinct namespace and new create/init/commit/conditional DOI actions are outside both permanently spent legacy grants. Engineering/code publication/sourcePR9 merge authorization supplies no live grant for this trial.",
+  "both_spent_legacy_grants_untouched": true,
+  "cohort_counts": [
+    361,
+    351,
+    109
+  ],
+  "draft_only_synthetic_values_no_production_inference": true,
+  "email_visibility_nonblocking": true,
+  "exact821_packet_byte_matches_prior_review": true,
+  "exact821_packet_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+  "executor": "01a0fed7-bf71-7384-95fd-3434599df03f",
+  "illustrative_grant_false_and_unusable": true,
+  "issues": [],
+  "known_pending_validation_link": [
+    {
+      "document": "docs/readiness/2026-10-03/modern_synthetic_approval_plan.md",
+      "target": "modern_synthetic_validation.json"
+    }
+  ],
+  "modern_fixed_XML_bytes": 439,
+  "modern_packet_sha256": "95d125ba6e47cb87cd89fcc981c8a179ee37127e0fe9ccab5711f9984b79787e",
+  "namespace": "pices-modern-synthetic-20261003-code-01",
+  "no_blanket_migration_or_account_gate": true,
+  "no_live_authorization_issued": true,
+  "no_publish_delete_newversion_community_or_automatic_create_retry": true,
+  "one_completed_unchanged_retry_four_GET_no_writes": true,
+  "orphan_uncertain_PID_and_duplicate_risk_disclosed": true,
+  "pending_root_finalization": [
+    "Create modern_synthetic_validation.json after completed tests and independent receipts; pin final reviewed runtime commit and both module SHA values before any grant or dispatch."
+  ],
+  "request_caps": {
+    "GET": 8,
+    "POST": 4,
+    "PUT": 2,
+    "total": 14
+  },
+  "resolved_findings": [
+    "Creation timestamp now binds durable create-start/response capture with explicit five-second skew and at-most20-second client interval; later returned identity/timestamp remain exact.",
+    "Expiry is rechecked after durable intent and before transport, on each body chunk and at body end; live wall timer caps at min(20seconds, remaining grant time)."
+  ],
+  "reviewed_file_sha256": {
+    "docs/handoff/modern-synthetic-canary-20261003-code-01/INVENTORY.json": "95d125ba6e47cb87cd89fcc981c8a179ee37127e0fe9ccab5711f9984b79787e",
+    "docs/handoff/modern-synthetic-canary-20261003-code-01/create.json": "7abb5eeca9b11e8ab01c60f03325d144cd4cf062fcd22f9a95cc92bef3be677a",
+    "docs/handoff/modern-synthetic-canary-20261003-code-01/metadata-put.json": "96693e56956917134ba914294a15372e5fdd7940ed206ea1df2203a6bda055df",
+    "docs/handoff/modern-synthetic-canary-20261003-code-01/selection.json": "93d7470df2d56fc0da66dabd6ddba717fa74551d2817ea7835b723fc3fc2468d",
+    "docs/handoff/modern-synthetic-canary-20261003-code-01/synthetic.xml": "3b2e8bf95f28f68644be6bf5a6e38003aa16d4f1b13f31fbd6e911e8e1fafcf0",
+    "docs/readiness/2026-10-03/modern_synthetic_approval_plan.md": "0bbcb6fc760327c1fa35e37a5619c5f59f33060b320ceda7881e274f2d732fb1",
+    "docs/readiness/2026-10-03/modern_synthetic_plan_review.json": "543150489ea44d019b107f042e27d86d4c9f7eb1ad373c33a0af3c6b1ec268b1",
+    "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+    "docs/readiness/2026-10-03/remaining_source_scope_questions_821.md": "91dd5c286a57cbc14d638b83d3cd62c04adc21a0430fca9b6d38140bd24fc2d9",
+    "docs/readiness/2026-10-03/source_pr9_final_head_review.json": "bbe228bceabc94f46fe6c6c8dc4e0fab21d9f206bb0bf94b7722f17171971b6e",
+    "docs/readiness/2026-10-03/source_pr9_merge_receipt.json": "ea0d1acdce7cff38f9d9767b9772c281add7c7a263d856e41f4fe3396b7de226",
+    "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "scripts/modern_synthetic_canary.py": "c88dd70b1c9fca0e7eac8b180f3b787b2e224562d095c29d44b975a8b6d8faf1"
+  },
+  "root_reported_tests_not_repeated": "Parent reports21 focused tests pass after timing fixes, final338 full suite starting. This is not independent test/runtime clearance.",
+  "schema_version": 1,
+  "scope": "Bounded documentation/approval-contract review only. No corpus inventory, tests, classifier, provider/network calls, credentials/tokens, private stages or Library reads; no repository edits. Root remains sole writer.",
+  "source_PR9_merge_commit": "d0f13930baa5fbcd6684038d03954aad2baba5a5",
+  "source_PR9_reused317_and_final_head_receipt": "bbe228bceabc94f46fe6c6c8dc4e0fab21d9f206bb0bf94b7722f17171971b6e",
+  "source_PR9_tree_equals_reviewed_2bf5f8a_tree": true,
+  "status": "DOCUMENTS_AND_APPROVAL_SHAPE_CLEAR_PENDING_ROOT_RUNTIME_FREEZE",
+  "strict_approval_shape_matches_code": true,
+  "valid_existing_DOI_skips_single_allocation_POST": true
+}

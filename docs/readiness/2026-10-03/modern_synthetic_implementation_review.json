@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "reviewer": "independent_ecotrust_role_access",
+  "scope": "Offline modern synthetic canary implementation and fixed packet review",
+  "verdict": "clear_for_offline_code_freeze_and_concrete_execution_approval_review",
+  "worktree": "/workspace/pices-modern-synthetic-canary",
+  "repository_base_revision": "d0f13930baa5fbcd6684038d03954aad2baba5a5",
+  "reviewed_runtime_commit": "Parent will commit/freeze after this receipt; exact reviewed file hashes below are binding.",
+  "namespace": "pices-modern-synthetic-20261003-code-01",
+  "origin": "https://sandbox.zenodo.org",
+  "live_execution_approved": false,
+  "provider_requests": 0,
+  "credential_or_private_provider_stage_reads": 0,
+  "repository_edits": 0,
+  "file_sha256": {
+    "scripts/modern_synthetic_canary.py": "ef04458378102f5332ec55ee0eba9fbd46952cb1899905c3e2cd26ed60588e8b",
+    "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "tests/test_modern_synthetic_canary.py": "f61e4ab3b1ee7f6704921173f942dc0af5a0a5875673bf875b7bef44104a9241",
+    "tests/test_modern_canary_errors.py": "226d7b1d12710e2c86d074a0b0b90d1972af36f1c5922ea9a29f678b4511ad9b",
+    "docs/handoff/modern-synthetic-canary-20261003-code-01/INVENTORY.json": "95d125ba6e47cb87cd89fcc981c8a179ee37127e0fe9ccab5711f9984b79787e",
+    "docs/readiness/2026-10-03/modern_synthetic_approval_plan.md": "35fd173e0e4026a197ed0bb906c828a529b18f530c5d48ce0217da309f0a2c6d"
+  },
+  "packet_inventory": [
+    {
+      "path": "synthetic.xml",
+      "bytes": 439,
+      "sha256": "3b2e8bf95f28f68644be6bf5a6e38003aa16d4f1b13f31fbd6e911e8e1fafcf0"
+    },
+    {
+      "path": "create.json",
+      "bytes": 597,
+      "sha256": "7abb5eeca9b11e8ab01c60f03325d144cd4cf062fcd22f9a95cc92bef3be677a"
+    },
+    {
+      "path": "metadata-put.json",
+      "bytes": 620,
+      "sha256": "96693e56956917134ba914294a15372e5fdd7940ed206ea1df2203a6bda055df"
+    },
+    {
+      "path": "selection.json",
+      "bytes": 895,
+      "sha256": "93d7470df2d56fc0da66dabd6ddba717fa74551d2817ea7835b723fc3fc2468d"
+    }
+  ],
+  "guarded_validation": {
+    "tests": 19,
+    "passed": 19,
+    "failures": 0,
+    "errors": 0,
+    "patterns": "tests/test_modern*.py",
+    "guard": "Default Requests send, sockets and DNS prohibited; credential-file paths guarded. Explicit in-memory mocked send within transport configuration test remains offline.",
+    "sources_stable_across_run": true,
+    "log": "/tmp/pices-modern-canary-independent-final19-guarded.log",
+    "log_sha256": "b1fe69b8259ab02c76841d6ade37c104dcb0b3ff5f97a15cd5c7f27aebefe5d0",
+    "repeated_get_partial_probe": "Passed: after an acknowledged first GET, second GET emits a bounded HTML heading then raises timeout. Distinct partial500 projection, request ID and human message retained; get count2, pending get, failed held; no reopening or extra requests.",
+    "adversarial_checks": 10,
+    "adversarial_log": "/tmp/pices-modern-canary-independent-adversarial.log",
+    "adversarial_log_sha256": "0750265232d3704e9a4f704c6e638561bdc2c47f21ce57c237b19e9d268ba275",
+    "adversarial_scope": "Four/twenty-layer percent encoding; standard and URL-safe base64 padded/unpadded; active HTML exclusion; incomplete heading suppression; UNC and Windows rooted path redaction; zero W3C trace IDs suppressed."
+  },
+  "reviewed_invariants": {
+    "durable_budget": "Exact action count and pending intent plus journal fsynced before transport; incomplete save cannot authorize a replayed send.",
+    "failure_and_restart": "Missing, inconsistent, pending, failed or changed approval/binding state held; no failed/uncertain create retry/reset or uncertain-ID automatic adoption.",
+    "sequence": "POST create; conditional POST DOI only when DOI key absent; fixed metadata PUT preserving returned DOI; file init POST/content PUT/commit POST; four exact GET readbacks. Completed unchanged retry supplies four more GETs only.",
+    "limits": {
+      "create": 1,
+      "doi": 1,
+      "metadata": 1,
+      "init": 1,
+      "content": 1,
+      "commit": 1,
+      "get": 8
+    },
+    "mutation_ceiling": "Four POST and two PUT maximum; three POST when create already supplies valid DOI. Fourteen lifetime attempts maximum including eight GETs.",
+    "transport": "Exact constructed Sandbox HTTPS paths only, TLS verification, environment proxies disabled, no automatic redirects/retries or response-link dispatch,20s request/body wall deadline and64KiB body cap.",
+    "identity": "Returned record/parent/owner/creation time/namespace/draft/version/DOI consistency checked before later mutations; files count/size/checksum/content and metadata semantic fields checked.",
+    "runtime_paths": "Packet hashes, both module hashes, namespace, absolute private stage and grant binding; exclusive stage, restrictive modes, hardlink/symlink/extra-file rejection and flock.",
+    "privacy": "Only bounded redacted human error message, enumerated status/field/category values, selected valid trace IDs and body hash/length; no raw provider body/header, private owner or request URL in public receipt.",
+    "old_state": "Isolated fixed namespace and packet; no legacy ledger/grant import, reset, replenishment, fallback, publish/delete/newversion or production operation."
+  },
+  "closed_findings": [
+    "DOI response previously preserved arbitrary extra keys; now permitted keys/client constrained and regression rejects raw private payload.",
+    "Nested creator/person/resource-type fields previously accepted extra semantics; now constrained and regression rejects added role/family/subtype.",
+    "Windows rooted path previously survived selected human-message redaction; now one/two leading backslashes redacted and regression added.",
+    "Root refined repeated-GET partial diagnostics to use current-request projected flag; independently verified partial timeout evidence is retained."
+  ],
+  "open_implementation_findings": [],
+  "remaining_limits": [
+    "Source-supported route/media/schema contracts and offline mocks do not prove deployed Sandbox behavior, token scope sufficiency or the cause of legacy500.",
+    "No live grant is issued by this review. Separate explicit parent approval and exact frozen runtime/packet/stage/owner/executor/action/window binding required before any transport.",
+    "Future failed or interrupted provider attempts remain consumed and held for separately approved reconciliation; no old allowance is reopened.",
+    "This review does not assert success of root's broader suite or inspect production reader files; those are separately owned."
+  ]
+}
