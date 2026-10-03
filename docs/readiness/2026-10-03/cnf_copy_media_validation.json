@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "runtime_commit": "5ac67c2a1dcf10815df7c77ef9fec5505048ea3c",
+  "base_main_commit": "cd397bb2115b220ff9c0994205589d393117aa8f",
+  "source_baseline_commit": "85420aba8be7ee137bfacfa9d4a53d61b9799d63",
+  "runtime_sha256": "12c1443e5f863508cf554f4b18fb946e3d8d0f275e1ee7d53b17c4a2dcdf9251",
+  "profile_sha256": "13e82e2375da3bf17cf352fff7a8cda43fa6d781a3e436ca7321c8428ac77abe",
+  "baseline_report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+  "fail_first": {
+    "contracts": 2,
+    "unregistered_profile_result": "one error and one failure as expected"
+  },
+  "focused_tests": {
+    "count": 5,
+    "result": "PASS",
+    "seconds": 7.047
+  },
+  "full_guarded_tests": {
+    "count": 372,
+    "result": "PASS",
+    "seconds": 70.131,
+    "blocked": "unmocked Requests/sockets/DNS",
+    "log_sha256": "f97cbad3df68e207f5c5ceeec1779de8f5558080d26b76f1cd5141a43512e2d3"
+  },
+  "lint": {
+    "result": "PASS",
+    "selection": "--isolated --select E4,E7,E9,F,I,B"
+  },
+  "bounded_delta": {
+    "path": "cnf_copy_media_bounded_delta.json",
+    "sha256": "f7c74308d39bed987971a9702e5095b5ecb1ec0944754c9a86e250f4dde50d1a",
+    "actual_selected_before": {
+      "supported": 0,
+      "held": 22
+    },
+    "actual_selected_after": {
+      "supported": 22,
+      "held": 0
+    },
+    "actual_ten_source_smoke": "PASS",
+    "identical_repeat_sha256": "f7c74308d39bed987971a9702e5095b5ecb1ec0944754c9a86e250f4dde50d1a",
+    "all22_complete_payloads_unchanged_except_exact_access_interpretation_reference": true,
+    "all22_complete_raw_metadata_and_original_copied_XML_unchanged": true
+  },
+  "projected_from_frozen_baseline_plus_exact_selected_delta": {
+    "supported": 3490,
+    "held": 710,
+    "malformed": 6
+  },
+  "fresh_full_corpus_audit_claimed": false,
+  "question_partition_verified_against_exact732_frozen_hold_members": {
+    "selected22": 22,
+    "deferred_candidates_still_held": 60,
+    "source_scope_questions": 156,
+    "other_held": 494,
+    "question_families": 15,
+    "union_disjoint_exact": true
+  },
+  "aliases_preserved": {
+    "source_identities": 456,
+    "byte_groups": 228
+  },
+  "exact821_attestation_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+  "independent_source_review": {
+    "path": "cnf_copy_media_source_independent_review.json",
+    "sha256": "6fc94a1d71be8e10d282800ac3bf0bf7057b3dde09d2205baf9a4c843eb8530b",
+    "result": "clear"
+  },
+  "independent_implementation_review": {
+    "path": "cnf_copy_media_implementation_independent_review.json",
+    "sha256": "d975bdef037b342b856a5a0357aae1e3f6d94c3c15b4cd6db07d27b633543e07",
+    "focused_tests": 5,
+    "result": "clear"
+  },
+  "provider_requests": 0,
+  "production_changes": false,
+  "old_canary_state_inspected_or_changed": false
+}
