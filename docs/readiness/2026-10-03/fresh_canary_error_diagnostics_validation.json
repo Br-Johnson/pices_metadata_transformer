@@ -1,0 +1,46 @@
+{
+  "scope": "Localized no-write error projection; no provider retry or reset",
+  "baseline_fresh_handoff": "f3eff050155fd713917e2287d5eade4f72fff5be",
+  "runtime_commit": "9fdb393af11b38fea29dde64bd9569cee9ce3746",
+  "code_sha256": {
+    "scripts/synthetic_fresh_canary.py": "caa6db866949014599435fc05c1d50c068e6b6aed6943f68aab5129a9303d949",
+    "tests/test_fresh_canary_error_diagnostics.py": "621f1c501d2613a2d8b99eb084f7cb801c54f8e624f22695d6b8f1e7d94158a0"
+  },
+  "unchanged_packet_inventory_sha256": "29ca42f8abcf04e27308ccefab2c92a0364f9a511ab247f5520fa57b39bf8a32",
+  "focused_tests": {
+    "total": 21,
+    "new": 7,
+    "existing_fresh_canary": 14,
+    "requests_and_sockets_blocked": true,
+    "dummy_credentials_only": true,
+    "root_log_sha256": "50d27f7b03b8e5f9b3bf45864217f327bf219f71b79587714229fa716429ab52"
+  },
+  "failing_first_log_sha256": "18a01ff396e2cceaa72e4b632eb593c66ea81b70ab31c473a51876f4a70cd97a",
+  "independent_review": {
+    "agent": "/root/ecotrust_role_access",
+    "runtime": "9fdb393af11b38fea29dde64bd9569cee9ce3746",
+    "tests": 21,
+    "elapsed_seconds": 1.598,
+    "blocked_socket_dns_default_requests_and_credential_files": true,
+    "remaining_runtime_findings": [],
+    "fixed_findings": [
+      "recursive percent encoding",
+      "URL-safe/unpadded base64",
+      "UNC private paths",
+      "script/style and entity markup",
+      "invalid all-zero W3C trace IDs",
+      "unclosed heading body capture"
+    ],
+    "log_retention": "No independent log file; witnessed tool completion session94233 chunkf9968b",
+    "documentation_review": "Final document and receipt cleared; reported-vs-visible scope separated; unknown email nonblocking"
+  },
+  "provider_requests": 0,
+  "provider_writes": 0,
+  "private_provider_files_read": 0,
+  "both_failed_create_allowances": "consumed_permanently_held",
+  "failed_receipts_rewritten": false,
+  "new_allowance_or_retry": false,
+  "account_readiness_check": "plan_only_not_executed",
+  "write_scope_evidence": "Brett USER_REPORTED present",
+  "email_status_evidence": "Brett reports no visible verification option; nonblocking unknown; not a cause assertion"
+}

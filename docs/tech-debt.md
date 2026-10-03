@@ -265,3 +265,7 @@ Production reconciliation is unchanged. Runtime starts a distinct authorized
 Exact successful diagnostic and page101 receipt hashes are now pinned at their
 existing original paths, without new provider reads or receipt reconstruction. See
 `docs/readiness/2026-10-03/synthetic_scoped_first_create.md`.
+
+## Fresh uncertain-create error evidence — 2026-10-03
+
+A body fingerprint and fixed error category cannot explain an HTTP500 when the human message and trace ID are discarded. The localized fresh-controller projection now preserves only selected bounded redacted messages/status and recognized allowlisted trace identifiers; all other body/header values stay omitted. Complete and partial failure evidence remains durable, and failed reruns issue zero requests. Seven new guarded contracts supplement the fourteen existing fresh-canary contracts, closing independent recursive encoding, URL-safe base64, UNC, active-markup and W3C-zero-ID findings. Original and fresh failed create allowances remain consumed; this correction cannot recover evidence already omitted or identify either failure's cause. A separately documented no-write account UI plan checks visible scope/email status without token-value inspection or invented REST endpoints. See readiness/2026-10-03/fresh_canary_error_diagnostics.md.

@@ -1,5 +1,11 @@
 # FGDC → Zenodo Sandbox TODO List
 
+## Fresh canary error evidence — 2026-10-03
+
+- [x] Reconcile the parent-reported second uncertain HTTP500 with frozen fresh-canary code f3eff05; both original and fresh create allowances remain consumed. No provider request or private run-file read by the code owner.
+- [x] Add bounded redacted human-message/status and allowlisted trace-ID projection; preserve all attempt, state, retry, redirect and credential guards. Seven focused contracts cover redaction and durable complete/partial failure evidence, including independent adversarial findings.
+- [x] Complete independent focused review and freeze a no-write account-readiness plan and normal-branch handoff. All 21 guarded focused tests pass independently; six adversarial review findings are fixed. Do not retry or reconstruct either failed run.
+
 ## Separately authorized fresh synthetic canary — 2026-10-03
 
 - [x] Add a distinct fixed-source run entry point, separate stage/grant/ledger/30-minute clock and durable 8 GET / one POST / two distinct PUT bounds. Preserve original spent uncertain-create state and all prior evidence.
