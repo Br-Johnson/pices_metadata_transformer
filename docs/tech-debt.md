@@ -336,3 +336,9 @@ catalogue identity can support retaining a DOI for the same import while old upl
 bytes/runtime remain unknown; no upload-receipt-only identity requirement is added.
 Current ownership/file/version/correction/readback/release QA remains distinct.
 See readiness/2026-10-03/source_credit_title_13.md and production_identity_adjudication.md.
+
+## Isolated modern synthetic contract — 2026-10-03
+
+Modern upload is a different protocol: create, optional managed DOI allocation, metadata PUT, file initialization, content PUT and commit. The isolated candidate uses a fictional packet, distinct namespace and explicit fresh approval; it cannot consume/replenish old legacy grants or serve as a production adapter. Separate action counters and pending intent precede transport; completed retry only reads. A partial inventory is a known-ID reject set, not completeness evidence.
+
+Source-supported REST transfer envelopes differ from embedded record file metadata; validate these separately. DOI allocation returns the full draft, with only documented PID fields retained. Deployed support/scope/vocabulary may fail this bounded trial; no cause for historicalHTTP500 is inferred. Failed drafts/PIDs may remain orphaned and need separate reconciliation; no delete/recreate or automated fallback. The existing reported write scope and nonblocking hidden email state are retained. Tests and exact approval/runtime bindings are in readiness/2026-10-03/modern_synthetic_approval_plan.md. Production mapping, file-version correction and release remain separate tasks.

@@ -1,0 +1,604 @@
+{
+  "kind": "pices_modern_zenodo_api_source_research_v1",
+  "research_date": "2026-10-03",
+  "status": "OFFLINE_CONTRACT_CANDIDATE_ONLY",
+  "zenodo_checkout": {
+    "path": "/workspace/pices-zenodo-api-research",
+    "commit": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+    "tag": "v26.6.1",
+    "worktree_clean": true,
+    "lock_sha256": "aa05d6aef7de46bae73d9eb342c53180b0143c331d51a5a92dde1341d933d84f"
+  },
+  "dependency_pins": {
+    "invenio-rdm-records": {
+      "version": "35.2.0",
+      "commit": "d4a4ef21ef5cd99b6d1350b537c82581799296a3"
+    },
+    "invenio-records-resources": {
+      "version": "11.1.1",
+      "commit": "12ca933194d9f5c4ea15eacc72ec220ee2cec197"
+    },
+    "invenio-drafts-resources": {
+      "version": "11.0.3",
+      "sdist_sha256": "24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0"
+    },
+    "invenio-oauth2server": {
+      "version": "6.1.0",
+      "sdist_sha256": "eba4aa6c9c05b69412176b86a8a3ed71197234296e723b46bf053e09468d321a"
+    }
+  },
+  "activity": {
+    "live_provider_requests": 0,
+    "provider_writes": 0,
+    "credential_reads": 0,
+    "private_run_file_reads": 0,
+    "repository_edits": 0,
+    "public_primary_source_reads_only": true,
+    "framework_tests_executed": false,
+    "source_static_assertions": {
+      "create": 201,
+      "update_content": 200,
+      "create_commit": 200,
+      "read": 200
+    }
+  },
+  "conclusion": {
+    "source_supported_route": "POST /api/records (slashless) creates a modern draft via invenio_rdm_records.resources.resources.RDMRecordResource; creation is inherited through invenio_drafts_resources.resources.records.resource.RecordResource from records-resources RecordResource.create.",
+    "deployed_zenodo_sandbox_modern_write_support": "UNVERIFIED",
+    "legacy500_workaround": "UNPROVEN: modern avoids the legacy deserializer/serializer, but both paths use RDMRecordService creation and the same configured record classes/service components.",
+    "official_zenodo_doc": {
+      "url": "https://developers.zenodo.org/",
+      "observed_date": "2026-10-03",
+      "scope": "Documents legacy POST /api/deposit/depositions; its Records section describes published-record GET search/read, without a modern POST /api/records contract. Its new Files API is the legacy bucket API, not the RDM init/content/commit protocol."
+    }
+  },
+  "authentication": {
+    "transport": "HTTPS certificate verification enabled; Authorization: Bearer from privately configured token; never query-string credentials.",
+    "documented_zenodo_scope": "deposit:write for nonpublishing deposit writes; deposit:actions covers publication actions.",
+    "modern_scope_finding": "The examined modern route/config/policy does not declare a route-specific OAuth scope. Creation requires authenticated identity; draft metadata/file actions require owner or configured review/manage permissions. Locked OAuth REST authentication verifies a token with scopes=[] and sets the user identity. Thus a minimum modern token scope, and sufficiency of a deposit:write token on the deployed host, remain unverified. This is not a recommendation to loosen client scope gates.",
+    "contract_choice": "Keep deposit:write as a conservative client prerequisite for any separately approved nonpublishing test; no request to broaden scopes or use publication permissions."
+  },
+  "format": {
+    "request_content_type": "application/json",
+    "response_accept": "application/vnd.inveniordm.v1+json",
+    "reason": "Zenodo overrides application/json to Zenodo legacy record serialization. The modern media type retains RDM fields and adds ui presentation fields. Validate canonical metadata, not ui display data.",
+    "response_identity": {
+      "id": "string; Zenodo-specific provider generates positive decimal strings",
+      "created": "aware ISO timestamp",
+      "owner": "parent.access.owned_by.user (string, single object)",
+      "is_published": false,
+      "status": "draft for a first unrevised, unreviewed draft",
+      "versions.index": 1,
+      "files": "object with enabled,count,entries keyed by file key; differs from legacy files array"
+    },
+    "file_endpoint_response": "File-list entries are an array; each file response has key,status,checksum,size and links.self/content/commit. Record files.entries is instead an object."
+  },
+  "metadata_contract": {
+    "strict_minimum_fields": [
+      "metadata.title (at least 3 characters)",
+      "metadata.resource_type.id (existing depositable vocabulary value)",
+      "metadata.publication_date (EDTF date)",
+      "metadata.creators (at least one person_or_org object)"
+    ],
+    "creator_rule": "person_or_org.type is personal (family_name required) or organizational (name required). Do not guess types or split literal PICES credits for production.",
+    "optional_schema_fields": [
+      "metadata.publisher",
+      "metadata.description",
+      "metadata.rights"
+    ],
+    "draft_semantics": "Empty/incomplete drafts can receive201 because create/update use raise_errors=False. The potential adapter must reject returned validation errors, missing required metadata or changed expected fields before further writes.",
+    "explicit_access_and_files": {
+      "access": {
+        "record": "public",
+        "files": "restricted"
+      },
+      "files": {
+        "enabled": true
+      }
+    },
+    "test_fixture_example_not_runnable_or_authorized": {
+      "metadata": {
+        "creators": [
+          {
+            "person_or_org": {
+              "type": "personal",
+              "family_name": "Brown",
+              "given_name": "Troy"
+            }
+          }
+        ],
+        "publication_date": "2020-06-01",
+        "resource_type": {
+          "id": "image-photo"
+        },
+        "title": "A Romans story"
+      }
+    },
+    "fixture_explanation": "These values come from the pinned Zenodo test fixture. They are not unique run identity or a proposed live payload. An eventual adapter must bind the explicitly authorized synthetic source/title/artifact/metadata, including the marker in initial create metadata; no new namespace is defined here.",
+    "rights": "Do not invent or default new rights. The modern field is metadata.rights; legacy license/access_right is not the request shape."
+  },
+  "potential_offline_adapter_contract": {
+    "enabled": false,
+    "request_sequence": [
+      {
+        "step": "create",
+        "method": "POST",
+        "path": "/api/records",
+        "expect": 201,
+        "body": "Explicitly hash-bound synthetic modern access/files/metadata object, not an empty body; marker belongs in initial title.",
+        "guard": "Durably consume create allowance and record intent before request. On201 persist returned ID, aware created time, owner and any returned PID before another write. Verify fresh ID, expected metadata, empty files, no errors, first draft status and exact same-host links."
+      },
+      {
+        "step": "metadata_update",
+        "method": "PUT",
+        "path": "/api/records/{id}/draft",
+        "expect": 200,
+        "body": "Same approved modern metadata/access/files; preserve returned PID data.",
+        "guard": "Only the durably returned ID, same owner/created time/run marker; no cached uncertain-ID adoption."
+      },
+      {
+        "step": "file_init",
+        "method": "POST",
+        "path": "/api/records/{id}/draft/files",
+        "expect": 201,
+        "body": [
+          {
+            "key": "FIXED_APPROVED_ARTIFACT_BASENAME"
+          }
+        ],
+        "guard": "Exactly one expected key; pending status; local transfer only. Validate returned content/commit links against constructed same-host, same-ID/key paths."
+      },
+      {
+        "step": "file_content",
+        "method": "PUT",
+        "path": "/api/records/{id}/draft/files/{encoded_key}/content",
+        "expect": 200,
+        "body": "Exact hash-bound bytes; Content-Type application/octet-stream.",
+        "guard": "Allowance durably consumed before transport; no implicit retry/remote fetch/multipart."
+      },
+      {
+        "step": "file_commit",
+        "method": "POST",
+        "path": "/api/records/{id}/draft/files/{encoded_key}/commit",
+        "expect": 200,
+        "body": null,
+        "guard": "Require completed state and expected byte count/checksum; uncertainty permanently stops this grant."
+      },
+      {
+        "step": "readback",
+        "method": "GET",
+        "paths": [
+          "/api/records/{id}/draft",
+          "/api/records/{id}/draft/files",
+          "/api/records/{id}/draft/files/{encoded_key}",
+          "/api/records/{id}/draft/files/{encoded_key}/content"
+        ],
+        "expect": 200,
+        "guard": "Explicit finite read allowance; validate owner/ID/created/status/title, all metadata fields, single file key/size/checksum and optional exact bounded byte hash. A redirect stops; no following links to another host."
+      },
+      {
+        "step": "unchanged_retry",
+        "method": "GET",
+        "paths": [
+          "same previously bound draft/file paths only"
+        ],
+        "guard": "Completed rerun reuses durable ID and performs no POST or PUT; compare canonical unchanged metadata/file evidence."
+      }
+    ],
+    "write_ceiling_required_if_metadata_put_is_tested": {
+      "create_POST": 1,
+      "metadata_PUT": 1,
+      "file_init_POST": 1,
+      "file_content_PUT": 1,
+      "file_commit_POST": 1,
+      "total_POST": 3,
+      "total_PUT": 2,
+      "note": "These are separate mutations; the existing legacy1create/1metadataPUT/1filePUT grant does not authorize this protocol."
+    },
+    "doi_variant": {
+      "legacy_fact": "Legacy metadata.prereserve_doi is computed from the numeric record ID by the serializer; do not treat it as modern response state.",
+      "modern_optional_action": "POST /api/records/{id}/draft/pids/doi ->201, linked as reserve_doi; resulting identity is pids.doi.identifier/provider.",
+      "policy": "Without an actual returned DOI, an equivalent DOI readback contract needs a separately counted and authorized reservation POST (total4POST+2PUT). Alternatively a reviewed draft-only contract must explicitly omit the DOI criterion. Never fabricate a DOI or silently waive an existing criterion."
+    },
+    "safety_invariants": [
+      "No runtime fallback after a legacy500, no failed-state reset, no replenished create allowance, no adoption of an uncertain empty creation by search. All old receipts/budgets/held uncertainty remain intact.",
+      "Separate explicit grant/packet/lifetime/namespace decision needed before any provider stage; this research is not that grant.",
+      "Reuse existing durable pre-send counters, path isolation, bounded time/response body, no redirects/automatic retries, closed-vocabulary sanitized error projection and exact source/artifact binding.",
+      "No constructor full-account scan, hidden endpoint probe or unbudgeted read. Partial old-ID knowledge is only a reject set.",
+      "No publish, edit-existing-record, newversion, DOI registration, delete, community submission, production request or generic upload-service fallback."
+    ],
+    "offline_regression_matrix": [
+      "Modern Accept selection vs legacy application/json response",
+      "201 with errors/incomplete metadata blocks before next mutation",
+      "Malformed/old/colliding ID, missing/wrong owner, stale created timestamp, wrong returned title and nonempty initial files",
+      "Cross-host, wrong-ID/file-key, encoded slash and redirect response links",
+      "Independent durable budgets for init/content/commit and optional DOI reservation",
+      "500/timeout/crash after every mutation consumes its allowance and refuses unsafe resumption",
+      "pending before commit; completed only after commit; exact key/size/checksum/byte hash",
+      "Completed unchanged retry produces no writes; lost state/journal/PID fails closed",
+      "No change to old uncertain creation evidence or production dedup gates"
+    ],
+    "read_ceiling_candidate": {
+      "maximum_GET": 8,
+      "allocation": "4 readback GETs plus4 same-ID unchanged-retry GETs; no constructor/list/probe requests. A later design may reduce reads but cannot add hidden calls."
+    }
+  },
+  "versioned_test_evidence": {
+    "zenodo": "site/tests/resources/test_record_file_permissions.py create_record_w_file:201create/201init/200content/200commit; tests use local Flask authenticated sessions, not deployed-host bearer scope proof.",
+    "framework": "Pinned tests/resources/test_files.py plus helpers exercise draft readback, files.entries/count/enabled and file attach phases.",
+    "demo_limit": "scripts/new_api_flow.py is a localhost demo, disables TLS verification, publishes/edits and asserts content201; those behaviours must not be copied into a canary. The authoritative pinned resource and site tests specify content200.",
+    "not_run": "No Zenodo/Invenio integration environment or provider test was executed during this research."
+  },
+  "claims_anchors": [
+    {
+      "source": "r_config",
+      "line": 236,
+      "locator": "class RDMRecordResourceConfig"
+    },
+    {
+      "source": "d_config",
+      "line": 21,
+      "locator": "\"list\": \"\""
+    },
+    {
+      "source": "d_resource",
+      "line": 60,
+      "locator": "route(\"POST\", p(routes[\"list\"]), self.create)"
+    },
+    {
+      "source": "d_service",
+      "line": 322,
+      "locator": "def create(self, identity, data"
+    },
+    {
+      "source": "d_service",
+      "line": 296,
+      "locator": "raise_errors=False"
+    },
+    {
+      "source": "r_permissions",
+      "line": 141,
+      "locator": "can_create = SameAs(\"can_authenticated\")"
+    },
+    {
+      "source": "o_ext",
+      "line": 234,
+      "locator": "scopes = []"
+    },
+    {
+      "source": "r_metadata",
+      "line": 351,
+      "locator": "class MetadataSchema"
+    },
+    {
+      "source": "r_metadata",
+      "line": 83,
+      "locator": "NAMES = [\"organizational\", \"personal\"]"
+    },
+    {
+      "source": "f_resource",
+      "line": 297,
+      "locator": "def update_content"
+    },
+    {
+      "source": "f_resource",
+      "line": 235,
+      "locator": "def create_commit"
+    },
+    {
+      "source": "r_draft_status",
+      "line": 83,
+      "locator": "return \"draft\" if record.versions.index == 1"
+    },
+    {
+      "source": "z_doi_projection",
+      "line": 182,
+      "locator": "def dump_prereserve_doi"
+    }
+  ],
+  "evidence_files": [
+    {
+      "id": "z_demo",
+      "local_path": "/workspace/pices-zenodo-api-research/scripts/new_api_flow.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/scripts/new_api_flow.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "01ac47cbeb0f160a00d7dbd118b74a0a5e4c239a326adc1b43a524f0beaa2490",
+      "bytes": 2653
+    },
+    {
+      "id": "z_rest_test",
+      "local_path": "/workspace/pices-zenodo-api-research/site/tests/resources/test_record_file_permissions.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/tests/resources/test_record_file_permissions.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "0a0b861a58fae11e4b6d3a6f69d9e4ebb788c545bef16d49da670d4a445e77ed",
+      "bytes": 17893
+    },
+    {
+      "id": "z_fixture",
+      "local_path": "/workspace/pices-zenodo-api-research/site/tests/conftest.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/tests/conftest.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "e6b359a9f74d7ccf62aa4566b0709a0510e55898dc8c224da769fe58da56ab25",
+      "bytes": 31298
+    },
+    {
+      "id": "z_serializers",
+      "local_path": "/workspace/pices-zenodo-api-research/site/zenodo_rdm/resources.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/zenodo_rdm/resources.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "dfb1eb8705bd0274e8d0ff702b0ca0fa9972db8cb612a80d9ac6e09648111482",
+      "bytes": 1375
+    },
+    {
+      "id": "z_config",
+      "local_path": "/workspace/pices-zenodo-api-research/invenio.cfg",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/invenio.cfg",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "fac635e93d06c96aa340b52685354d7d871dcc8f22bfc4d7b09cbd41e4e8b3be",
+      "bytes": 42557
+    },
+    {
+      "id": "z_scopes",
+      "local_path": "/workspace/pices-zenodo-api-research/site/zenodo_rdm/legacy/scopes.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/zenodo_rdm/legacy/scopes.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "84fb595b38c65958bcd022e57a97b77cc5441d0743a7c090ecd0764d33ff6e05",
+      "bytes": 544
+    },
+    {
+      "id": "z_legacy_resource",
+      "local_path": "/workspace/pices-zenodo-api-research/site/zenodo_rdm/legacy/resources.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/zenodo_rdm/legacy/resources.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "186516dbf3373fd7435723359920dc2c16cc5561ff07c1de05657d3453b9413a",
+      "bytes": 18610
+    },
+    {
+      "id": "z_legacy_service",
+      "local_path": "/workspace/pices-zenodo-api-research/site/zenodo_rdm/legacy/services.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/zenodo_rdm/legacy/services.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "fc9b9ae9c970c1460f71c6b6196a36f263b1123b7a8e75915f93c1fdf747fd41",
+      "bytes": 15299
+    },
+    {
+      "id": "z_legacy_deserializer",
+      "local_path": "/workspace/pices-zenodo-api-research/site/zenodo_rdm/legacy/deserializers/schemas.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/zenodo_rdm/legacy/deserializers/schemas.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "4a5b8ba21a95870096428e482076dbd7237f8c20558342b0b649c7ab1884631e",
+      "bytes": 8208
+    },
+    {
+      "id": "z_doi_projection",
+      "local_path": "/workspace/pices-zenodo-api-research/site/zenodo_rdm/legacy/serializers/schemas/legacyjson.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/zenodo_rdm/legacy/serializers/schemas/legacyjson.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "6cec9225711bb2c63687bf002c4542748f6704e9fc0fe0888863a47c9824330b",
+      "bytes": 7149
+    },
+    {
+      "id": "z_ids",
+      "local_path": "/workspace/pices-zenodo-api-research/site/zenodo_rdm/api.py",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/zenodo_rdm/api.py",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "8b06f4133f7fd25f49e85cd61edc62f683eeb1200466becfdedb348f169147c2",
+      "bytes": 1963
+    },
+    {
+      "id": "lock",
+      "local_path": "/workspace/pices-zenodo-api-research/uv.lock",
+      "source_url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/uv.lock",
+      "source_pin": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+      "sha256": "aa05d6aef7de46bae73d9eb342c53180b0143c331d51a5a92dde1341d933d84f",
+      "bytes": 478669
+    },
+    {
+      "id": "r_config",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/resources/config.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/resources/config.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "d51e1636513bd7f12ee421452edfd34e0850e94274876f626d3cce4fd1fafabe",
+      "bytes": 19595
+    },
+    {
+      "id": "r_resource",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/resources/resources.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/resources/resources.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "116bef7c57e2d298836363cb4a176f8947ee0c1b2d7d6c95d023bdf27e80a008",
+      "bytes": 27769
+    },
+    {
+      "id": "r_service",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/services.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/services.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "e0df10f191c909cc0c718e40ca20351f4f3c01d7b8d13c729a206229ab3866c3",
+      "bytes": 32776
+    },
+    {
+      "id": "r_permissions",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/permissions.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/permissions.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "0cd63773a1c4a5d46b2cc01ce28a1bd2a3a1b430db0ef48b44e2d85a786e4653",
+      "bytes": 13468
+    },
+    {
+      "id": "r_metadata",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/metadata.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/schemas/metadata.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "01c3c04db0bbbc1a381e3b602415c98aabe496387fd47051a661c4d80a7c177d",
+      "bytes": 12556
+    },
+    {
+      "id": "r_parent_access",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/parent/access.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/schemas/parent/access.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "7f5c1c83be58c315971fe751f48944f930eaafa2869ef9301706f94d404da0b5",
+      "bytes": 3279
+    },
+    {
+      "id": "r_file_shape",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/files.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/schemas/files.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "1baa64f7ea8504e8f5357e02e4e0c133317851841e45fc89fa332062f8682c07",
+      "bytes": 3354
+    },
+    {
+      "id": "r_pids",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/components/pids.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/components/pids.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "6b92b09d149d3326687d9b43c8e41c8e0be24f2a0b8add0d119be45752f49ca5",
+      "bytes": 16170
+    },
+    {
+      "id": "r_draft_status",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/records/systemfields/draft_status.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/records/systemfields/draft_status.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "994928994ab266a1ce025236400e35d4e18f6b014ec3a5ba6dec4f0814ceefaf",
+      "bytes": 3255
+    },
+    {
+      "id": "r_ui",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/resources/serializers/ui/schema.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/resources/serializers/ui/schema.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "6170cecbb74a587ac6e1bfe9bee81f8008157e5289eb8daae989730aa234d192",
+      "bytes": 16379
+    },
+    {
+      "id": "r_test",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/tests/resources/test_files.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/tests/resources/test_files.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "bcfd5b92d400cd0a7832be6bac2541b2704e8e36b9dd358e1e5bef14d7f4fdd1",
+      "bytes": 10103
+    },
+    {
+      "id": "r_test_helpers",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/tests/resources/conftest.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/tests/resources/conftest.py",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "7b040a57880f98b9c02b56e4281f0f4a2fc64992206edf5882c3ee1df65effb5",
+      "bytes": 2406
+    },
+    {
+      "id": "d_config",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/resources/records/config.py",
+      "source_url": "https://files.pythonhosted.org/packages/be/8d/5ee92357e8837d887ec4c56c8c5fc30360fa23546a9542312c46bf5a1504/invenio_drafts_resources-11.0.3.tar.gz",
+      "source_pin": "locked sdist11.0.3 SHA24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0",
+      "sha256": "70b9223f4a295fb1032acace398909418be649ca0dd7752a90573ffcd9704ee5",
+      "bytes": 889,
+      "archive_member_relative_path": "invenio_drafts_resources/resources/records/config.py",
+      "source_note": "Source bytes are from this SHA-verified locked distribution; the corresponding GitHub version tag is not asserted to be byte-identical."
+    },
+    {
+      "id": "d_resource",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/resources/records/resource.py",
+      "source_url": "https://files.pythonhosted.org/packages/be/8d/5ee92357e8837d887ec4c56c8c5fc30360fa23546a9542312c46bf5a1504/invenio_drafts_resources-11.0.3.tar.gz",
+      "source_pin": "locked sdist11.0.3 SHA24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0",
+      "sha256": "a81ac43c433a216f2475de3b25d21ffff1be655fc977cd74fc7a175257269208",
+      "bytes": 7806,
+      "archive_member_relative_path": "invenio_drafts_resources/resources/records/resource.py",
+      "source_note": "Source bytes are from this SHA-verified locked distribution; the corresponding GitHub version tag is not asserted to be byte-identical."
+    },
+    {
+      "id": "d_service",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/services/records/service.py",
+      "source_url": "https://files.pythonhosted.org/packages/be/8d/5ee92357e8837d887ec4c56c8c5fc30360fa23546a9542312c46bf5a1504/invenio_drafts_resources-11.0.3.tar.gz",
+      "source_pin": "locked sdist11.0.3 SHA24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0",
+      "sha256": "66cebef20154f1b5a180eb5faca38f1f2215e06c12085e9c86d2ca59bd139aff",
+      "bytes": 26964,
+      "archive_member_relative_path": "invenio_drafts_resources/services/records/service.py",
+      "source_note": "Source bytes are from this SHA-verified locked distribution; the corresponding GitHub version tag is not asserted to be byte-identical."
+    },
+    {
+      "id": "f_resource",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/resources/files/resource.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-records-resources/blob/12ca933194d9f5c4ea15eacc72ec220ee2cec197/invenio_records_resources/resources/files/resource.py",
+      "source_pin": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "517d4f6a852fd3be8126b4758540d2224087638fbcd7a035d7a756a0564bcbb0",
+      "bytes": 11297
+    },
+    {
+      "id": "f_config",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/resources/files/config.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-records-resources/blob/12ca933194d9f5c4ea15eacc72ec220ee2cec197/invenio_records_resources/resources/files/config.py",
+      "source_pin": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "165bbe7a30fe3f6884eb07ac8cba0ad3772e366b89790c828406ac451c73876f",
+      "bytes": 1661
+    },
+    {
+      "id": "f_schema",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/files/schema.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-records-resources/blob/12ca933194d9f5c4ea15eacc72ec220ee2cec197/invenio_records_resources/services/files/schema.py",
+      "source_pin": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "b2308bd485a195e61e4778bea7ccaeb952d8175fbca918f92f5416a3dabc7f4b",
+      "bytes": 5742
+    },
+    {
+      "id": "f_transfer",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/files/transfer/base.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-records-resources/blob/12ca933194d9f5c4ea15eacc72ec220ee2cec197/invenio_records_resources/services/files/transfer/base.py",
+      "source_pin": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "83ab09158cd62fa07b719434dc8d97c21587547c17062237bd9ea69551468008",
+      "bytes": 5142
+    },
+    {
+      "id": "f_local",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/files/transfer/providers/local.py",
+      "source_url": "https://github.com/inveniosoftware/invenio-records-resources/blob/12ca933194d9f5c4ea15eacc72ec220ee2cec197/invenio_records_resources/services/files/transfer/providers/local.py",
+      "source_pin": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "fce6c4669bb64a1611b2aa72956f25da7e6c2639525af180e75fc37f2a35152b",
+      "bytes": 1046
+    },
+    {
+      "id": "o_ext",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/invenio-oauth2server/invenio_oauth2server/ext.py",
+      "source_url": "https://files.pythonhosted.org/packages/d9/a2/049cfbf46c357a6eb42e585641461c957babbf90358f68c2b697dfd9fa34/invenio_oauth2server-6.1.0.tar.gz",
+      "source_pin": "locked sdist6.1.0 SHAeba4aa6c9c05b69412176b86a8a3ed71197234296e723b46bf053e09468d321a",
+      "sha256": "966423477ff28f2acbbf24832640aa34ecf450d5a1a495d81f5645f46f5a8694",
+      "bytes": 12492,
+      "archive_member_relative_path": "invenio_oauth2server/ext.py",
+      "source_note": "Source bytes are from this SHA-verified locked distribution; the corresponding GitHub version tag is not asserted to be byte-identical."
+    },
+    {
+      "id": "o_provider",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/invenio-oauth2server/invenio_oauth2server/provider.py",
+      "source_url": "https://files.pythonhosted.org/packages/d9/a2/049cfbf46c357a6eb42e585641461c957babbf90358f68c2b697dfd9fa34/invenio_oauth2server-6.1.0.tar.gz",
+      "source_pin": "locked sdist6.1.0 SHAeba4aa6c9c05b69412176b86a8a3ed71197234296e723b46bf053e09468d321a",
+      "sha256": "d119a18ec01db64b8774355a8c55a3b0db9ca093b078402924e7128d0540bae2",
+      "bytes": 4847,
+      "archive_member_relative_path": "invenio_oauth2server/provider.py",
+      "source_note": "Source bytes are from this SHA-verified locked distribution; the corresponding GitHub version tag is not asserted to be byte-identical."
+    },
+    {
+      "id": "o_decorators",
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/invenio-oauth2server/invenio_oauth2server/decorators.py",
+      "source_url": "https://files.pythonhosted.org/packages/d9/a2/049cfbf46c357a6eb42e585641461c957babbf90358f68c2b697dfd9fa34/invenio_oauth2server-6.1.0.tar.gz",
+      "source_pin": "locked sdist6.1.0 SHAeba4aa6c9c05b69412176b86a8a3ed71197234296e723b46bf053e09468d321a",
+      "sha256": "9d5aabded66ac2f19c4ab05c78e1c5b49bc5ede16de11fa860525911649f4175",
+      "bytes": 2345,
+      "archive_member_relative_path": "invenio_oauth2server/decorators.py",
+      "source_note": "Source bytes are from this SHA-verified locked distribution; the corresponding GitHub version tag is not asserted to be byte-identical."
+    }
+  ],
+  "download_manifest_path": "/tmp/pices-modern-api-evidence-7111dde/manifest.json",
+  "remaining_blockers": [
+    "Current deployed Sandbox modern write/schema/scopes/version not verified.",
+    "No revised live grant or implementation approved by this research; modern writes require a different explicit ceiling and separately reviewed packet.",
+    "Modern production adaptation would require field-by-field source-preserving mapping and reviewed creator type/rights/date/DOI/community decisions; no eligibility or protection changes here."
+  ],
+  "source_cache_integrity": {
+    "download_manifest_sha256": "039ad2bd3faa48b0e60488d515c5c364d086b5633de0057cd7b4426930394df8",
+    "all_packet_evidence_sha256_rechecked": true,
+    "public_github_tree_discovery": "GitHub tree endpoint unavailable (proxy403); relied on pinned raw source and exact locked sdists."
+  }
+}

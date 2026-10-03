@@ -1,0 +1,112 @@
+{
+  "kind": "pices_modern_synthetic_plan_review_v1",
+  "date": "2026-10-03",
+  "status": "SOURCE_SUPPORTED_BOUNDED_PLAN; NO LIVE_GRANT",
+  "namespace": "pices-modern-synthetic-20261003-code-01",
+  "reviewed_worktree": "/workspace/pices-modern-synthetic-canary",
+  "head": "d0f13930baa5fbcd6684038d03954aad2baba5a5",
+  "ceilings": {
+    "POST": 4,
+    "PUT": 2,
+    "GET": 8,
+    "lifetime_seconds": 1800,
+    "request_timeout_seconds": 20,
+    "response_cap_bytes": 65536,
+    "no_inventory_or_probes": true
+  },
+  "scope": {
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "credential_reads": 0,
+    "private_stage_reads": 0,
+    "repo_edits": 0,
+    "broad_source_audit": false,
+    "public_source_fetch": "Four narrow exact-commit source files resolve PIDsService.create/RecordItem/config; original pinned research otherwise reused."
+  },
+  "doi_envelope_resolved": {
+    "response_code": 201,
+    "route": "POST /api/records/{id}/draft/pids/doi",
+    "source_chain": "PIDsService.create resolves the same draft, writes draft.pids[scheme] from PIDManager.create, commits, then returns configured RecordItem(self, identity, draft, links...). RecordItem dumps service.schema (RDMRecordSchema), including the full draft identity, ownership, metadata, files and pids.",
+    "pid_fields": {
+      "identifier": "nonempty string",
+      "provider": "datacite for this managed synthetic DOI",
+      "client": "optional; if supplied, require the pinned datacite client"
+    },
+    "semantic_limit": "The reserve_doi route calls create, whose source documents NEW PID allocation. Returned PID schema has no reservation-status field. Validate allocated DOI identity and later exact stability; do not claim external registration or require an unexposed PID status.",
+    "branch_rule": "Only a wholly absent doi key in a valid pids object may trigger the single allocated-DOI POST. A supplied malformed/empty/external/mismatched DOI fails; it does not trigger fallback allocation. A valid supplied managed DOI skips allocation, leaving the unused POST allowance unused."
+  },
+  "required_record_validator": [
+    "Explicit Accept application/vnd.inveniordm.v1+json for create, DOI allocation, metadata update and draft reads; application/json can return legacy record shape. A legacy-shaped or missing-envelope response stops.",
+    "Require id as canonical positive decimal string, not bool/int/freeform coercion. First201 ID must be outside the pinned partial known-ID reject set. After binding, all envelopes require exactly that ID and parent ID. No claim that the reject set is a complete inventory.",
+    "Require parent.access.owned_by as an object with user exactly the known canonical owner string, is_published exactly false, status exactly draft and versions.index exactly integer1 (not bool). Reject review/newversion/published states.",
+    "Require an aware created timestamp within the explicit permitted clock-skew window around durable create-start/response capture; bind it once. Later envelopes require the same timestamp, not a refreshed creation window. Persist returned ID/created/PID before another mutation.",
+    "Require actual metadata/access/files/pids objects, approved source marker/title and full creator/date/resource/access after-image. Do not infer metadata fields from ui display fields. An absent errors field is normal; if present it must be an empty list. Nonempty/malformed errors fail before another write.",
+    "Before file initialization, require enabled exactly true, count exactly integer0, total_bytes exactly integer0 and entries exactly empty object. Initial metadata must be the explicitly pinned synthetic create payload, not an assumed empty legacy draft.",
+    "After DOI allocation, revalidate the complete same draft envelope; canonical metadata/access/files unchanged, pids.doi valid and durable. A PID-only response fails after the consumed allocation, with no hidden GET or second POST.",
+    "Validate DOI syntax and exact stability; do not infer the Sandbox prefix from the repository default10.5281 or fabricate an identifier. Any expected prefix/suffix mapping must be explicit in the approved fixture/grant and grounded in existing provenance.",
+    "Every used response link must match the hardconstructed HTTPS Sandbox origin and exact same ID/fixed basename/action path; no redirects, cross-host links, alternate transfer types, slash-containing keys or query credentials. Never follow publish/edit/delete/newversion links."
+  ],
+  "file_validator": [
+    "File initialization201 must have exactly one entries-array item with the fixed key and local-transfer semantics; validate content/commit links. Distinguish this array from record files.entries object.",
+    "Content PUT200 and commit POST200 must refer to the same key. Completion readback requires status completed, exact byte size/checksum and exact bounded content hash. Pending/failure/incomplete file states cannot count as completion.",
+    "Four final readback GETs (draft/list/entry/content) plus the identical completed retry fit8GET; avoid constructor/probe/DOI-confirmation reads. Artifact size must fit the64KiB byte-read cap at offline packet validation."
+  ],
+  "durability_and_approval": [
+    "Each of create/DOI/init/commit/metadata/content has a separate durable pre-send allowance and intent, as well as aggregate4POST/2PUT/8GET. Interrupted or ambiguous mutations remain permanently held; never replenish an allowance or recreate.",
+    "Exclusive namespace/stage and packet/hash bindings, prior original/fresh failure evidence preserved, 30-minute execution clock written once and never extended. Completed retry reuses the bound ID and issues no writes.",
+    "20-second socket timeouts are not a20-second absolute request deadline in requests; document the precise semantics or enforce a wall-time deadline across streamed bodies. The durable30-minute deadline and64KiB cap must remain enforced.",
+    "Engineering and dummy offline tests are already authorized. Provider creation needs the separate parent-approved bounded grant because prior create grants are spent and this protocol adds mutations. No blanket migration gate or production adapter is introduced."
+  ],
+  "offline_contract_tests_required": [
+    "full DOI allocation envelope + no DOI create response",
+    "valid already-returned DOI skips allocation",
+    "malformed existing DOI does not allocate",
+    "same ID but wrong owner/created/parent/status/metadata after allocation",
+    "legacy MIME shape, integer/bool IDs/counts, missing real fields/errors",
+    "wrong file keys/transfer/path/links and redirect responses",
+    "counter/time/path/state crash windows for all6 possible mutations",
+    "8GET and4POST/2PUT exhaustion; completed rerun no writes; no lost-state reset",
+    "JSON-escaped credentials/URLs/errors sanitization and oversized/trickled bodies"
+  ],
+  "evidence_files": [
+    {
+      "id": "pids_service",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/pids/service.py",
+      "commit": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "b396a81024f3dbf7f539713d4a6400d2df6c2617eeb24fac436e64a9b3c0cca3"
+    },
+    {
+      "id": "record_item",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/records/results.py",
+      "commit": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "d7bf276d6a4fd42808c22780d27e86903435e5f4d44710ff5a2a0d5731003daa"
+    },
+    {
+      "id": "record_config",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/records/config.py",
+      "commit": "12ca933194d9f5c4ea15eacc72ec220ee2cec197",
+      "sha256": "e6e740f24ef15019810ee5e5911289ae53f059cf9d50f87390b60bd49955e027"
+    },
+    {
+      "id": "record_schema",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/record.py",
+      "commit": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "010721368d635dc6727245d1a05589eda8a3d656fae662d8224cc4521e679e11"
+    },
+    {
+      "id": "pids_resource",
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/resources/resources.py",
+      "commit": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "116bef7c57e2d298836363cb4a176f8947ee0c1b2d7d6c95d023bdf27e80a008"
+    }
+  ],
+  "source_static_assertions": {
+    "PIDsService.create_returns_same_full_draft_RecordItem": true,
+    "RecordItem_projects_configured_RDMRecordSchema": true,
+    "pids_reserve_response201": true
+  },
+  "remaining_limits": [
+    "Source-supported API contract, not proof of current deployed Sandbox modern write support or bearer scope sufficiency.",
+    "No runtime implementation, integration-test or provider-run clearance given by this plan review."
+  ]
+}
