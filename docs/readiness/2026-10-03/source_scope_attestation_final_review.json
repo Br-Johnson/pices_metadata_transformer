@@ -1,0 +1,143 @@
+{
+  "blockers": [],
+  "documentation_and_gate_review": {
+    "aware_current_post_attestation_timestamp_required": true,
+    "exact_cli_profile_flags_and_referenced_manifest_paths_valid": true,
+    "modern_canary_status_is_parent_reported_not_independently_reverified_here": true,
+    "no_publication_or_provider_write_grant": true,
+    "opt_in_withdrawal_cache_and_schema_gates_match_carried_forward_implementation_review": true,
+    "reviewed_at": "2026-10-03T20:30:00Z",
+    "scope_is_user_attested_not_independent_legal_license_or_underlying_rights_determination": true,
+    "separate_rehosting_authority_still_required": true
+  },
+  "file_sha256": {
+    "README.md": "6888bb42a868e55e82f90b59706390acb56463cc99dfce2671d2ffa06d6cac1e",
+    "docs/readiness/2026-10-03/five_import_correction_preparation.json": "e7d84ee15ae2203aa1644f895f45bc8ecc08df13322aa3b27dc00056e5559fc9",
+    "docs/readiness/2026-10-03/five_import_correction_preparation.md": "dc9188057b0d99b981f909fe8cc8b59e87e3a243e181adf85c2c113138bb3e1b",
+    "docs/readiness/2026-10-03/source_scope_attestation.md": "772d5614afd3aec9671fa1d227b0a01005be852c6c7f394cfd899faf94b3ab16",
+    "docs/readiness/2026-10-03/source_scope_attestation_821.json": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+    "docs/readiness/2026-10-03/source_scope_attestation_complete_delta.json": "a0bd97202fc90ba88a856bf4178bb3b633f9f3785627287b8e3da2a10d5573f5",
+    "docs/readiness/2026-10-03/source_scope_attestation_evidence_review.json": "b789e84e5f36a92bffc61e35ca0a9bac940c0d3ad99e6ca6852e74b331e5cdcd",
+    "docs/readiness/2026-10-03/source_scope_attestation_implementation_review.json": "4b9678e2e06aa5e3da95db68d0370c1293e43749062a17f127b1f42ba075daf9",
+    "docs/readiness/2026-10-03/source_scope_attestation_validation.json": "be04d080e6add9222baf745322cf30b870122ac29b5885745f5be3b2c5897b0f",
+    "docs/tech-debt.md": "454dca061c7a8ea8e9f4fc433b94afcec2e72ec8630f3fcbfecec788b596bf9d",
+    "docs/todo_list.md": "42235d47500ebdb7cc9feebb93848e089738298e21dff1835c1778962cf3df07",
+    "scripts/agent_qa.py": "992e2e4449cbd860c7b42930679ccb069917e530f38e6689d7c04bd18287c59a",
+    "scripts/collection_qa.py": "8f5cbd97819a73c5940d3012f3f1d788d18364a14ae41ad5f7fe8c9a84320a98",
+    "scripts/qa_manifest.py": "b164742379c5f26b121717a2ad874e2d827d56c9a83e2f3e86ae32ca9b2d2732",
+    "scripts/source_scope_attestation.py": "14b61b38f53d83a02c3a82a2a1b293472f6afee6706c6ea157fcb3b358e15455",
+    "tests/test_source_scope_attestation.py": "94a9a75d776aa87725f3b6e0106479bef648573f48cd60944c2abc69125930af"
+  },
+  "findings": [],
+  "five_import_reassessment": {
+    "all_five_current_xml_artifact_sources_supported": true,
+    "current_payload_and_source_hash_bindings_verified": true,
+    "executable_correction_patch": false,
+    "frozen_and_current_normalized_metadata_and_notes_hashes_independently_reproduced": true,
+    "historical_comparisons_unchanged": 94,
+    "historical_rows_equal_previous_commit": true,
+    "live_correction_authorized": false,
+    "new_scope_attestation_sources": [
+      "FGDC-1238",
+      "FGDC-2731"
+    ],
+    "normalized_metadata_changed_fields_for_each_record": [
+      "notes"
+    ],
+    "raw_constructed_metadata_and_other_normalized_fields_unchanged": true,
+    "restricted_access_and_blank_license_preserved": true,
+    "retained_source_record_doi_associations": [
+      {
+        "doi": "10.5281/zenodo.17317855",
+        "record_id": "17317855",
+        "source_id": "FGDC-1238"
+      },
+      {
+        "doi": "10.5281/zenodo.17317851",
+        "record_id": "17317851",
+        "source_id": "FGDC-2043"
+      },
+      {
+        "doi": "10.5281/zenodo.17317859",
+        "record_id": "17317859",
+        "source_id": "FGDC-2057"
+      },
+      {
+        "doi": "10.5281/zenodo.17317857",
+        "record_id": "17317857",
+        "source_id": "FGDC-2725"
+      },
+      {
+        "doi": "10.5281/zenodo.17317853",
+        "record_id": "17317853",
+        "source_id": "FGDC-2731"
+      }
+    ],
+    "underlying_date_mode_still_held": [
+      "FGDC-2043",
+      "FGDC-2057"
+    ]
+  },
+  "independently_verified_reconciliation": {
+    "after": {
+      "failed": 6,
+      "held": 966,
+      "supported": 3234
+    },
+    "aliases_retained_held": 456,
+    "all_4206_reported_source_hashes_unchanged": true,
+    "all_remote_verified_and_publication_approved_flags_false": true,
+    "before": {
+      "failed": 6,
+      "held": 1757,
+      "supported": 2443
+    },
+    "held_to_supported_promotions": 791,
+    "nonmember_hold_reasons_unchanged": true,
+    "other_status_changes": 0,
+    "promotions_by_cohort": {
+      "ADFG": 323,
+      "Contributor": 359,
+      "Unknown": 109
+    },
+    "protected_prior_groups": {
+      "members": 176,
+      "promoted": 28,
+      "remaining_held": 148,
+      "selected_overlap": 30
+    },
+    "selected_members": 821,
+    "selected_retained_holds": {
+      "creator": 2,
+      "creator_ids": [
+        "FGDC-10",
+        "FGDC-2664"
+      ],
+      "title": 28,
+      "total": 30
+    }
+  },
+  "input_sha256": {
+    "after_classification": "759b7c924dc1452be1850635d4bee41230007883f7b94a4691160b067fa127dc",
+    "before_classification": "52b8fb6dc66643a0113275dff2e2f19db2be21db75dc18404b92e663c1ec057a",
+    "complete_delta_audit": "a0bd97202fc90ba88a856bf4178bb3b633f9f3785627287b8e3da2a10d5573f5",
+    "historical_source13_classification": "6213c25a1f3d71cdb08ae19a1ca91762fdad5b3f11524ed7ed137f1b7edb044e"
+  },
+  "review_limits": {
+    "complete_preservation_audit_receipt_hash_and_committed_copy_verified": true,
+    "credential_reads": 0,
+    "full_or_focused_test_suite_not_repeated": true,
+    "full_xml_audit_not_repeated": true,
+    "new_runtime_or_live_canary_approval": false,
+    "prior_independent_source_and_implementation_clearances_carried_forward": true,
+    "private_stage_reads": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "repository_edits": 0
+  },
+  "reviewed_commit": "a77b3ffe968f6387d46ad388e9f293e063a5f688",
+  "runtime_commit": "503f72b15b0b5cf949096e6e7d4d2c3200001ac5",
+  "schema_version": 1,
+  "scope": "Independent final documentation, actual classifier delta and five-record normalized metadata reconciliation; carries forward completed independent source and implementation reviews.",
+  "status": "CLEAR_BOUNDED_FINAL_RECONCILIATION"
+}

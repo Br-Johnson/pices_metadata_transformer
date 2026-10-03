@@ -52,6 +52,11 @@ See [validation](source_scope_attestation_validation.json),
 [complete delta](source_scope_attestation_complete_delta.json),
 [source evidence review](source_scope_attestation_evidence_review.json) and
 [implementation review](source_scope_attestation_implementation_review.json).
+The [final bounded reconciliation](source_scope_attestation_final_review.json)
+clears actual counts/protected/alias holds, all five normalized notes-only changes
+and the documentation at`a77b3ffe968f6387d46ad388e9f293e063a5f688`.
+Normal handoff[PR11](https://github.com/Br-Johnson/pices_metadata_transformer/pull/11)
+remains open; this coding delegation excludes repository merges.
 The old report SHA is `6213c25a1f3d71cdb08ae19a1ca91762fdad5b3f11524ed7ed137f1b7edb044e`;
 baseline `52b8fb6dc66643a0113275dff2e2f19db2be21db75dc18404b92e663c1ec057a`;
 after `759b7c924dc1452be1850635d4bee41230007883f7b94a4691160b067fa127dc`.
