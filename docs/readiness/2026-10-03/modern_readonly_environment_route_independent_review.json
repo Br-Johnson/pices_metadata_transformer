@@ -1,0 +1,103 @@
+{
+  "accounting": {
+    "expired_authority_means_no_dispatch": true,
+    "historical_gets_after_maximum_followup": 195,
+    "historical_gets_before_original_reconciliation": 193,
+    "historical_gets_before_this_followup": 194,
+    "no_reset_replenishment_or_expiration_extension": true,
+    "original_additional_get_envelope": 240,
+    "original_cumulative_get_ceiling": 433,
+    "original_envelope_remaining_after_one_followup": 238,
+    "original_envelope_remaining_before_followup": 239,
+    "original_envelope_spent_before_followup": 1,
+    "original_reconciliation_failed_get_intents": 1,
+    "separate_diagnostic_must_bind_retained_remaining_budget_and_current_authority": true
+  },
+  "document": {
+    "path": "/workspace/pices-remaining-source-cohorts/docs/readiness/2026-10-03/modern_readonly_environment_route_followup.md",
+    "repository_head_at_review": "c07e1ff2507419e48bf38ab1b6e061a7c341c9e1",
+    "sha256": "4c11b0d8e25279cb0db288d07f709d2503573dd5c53f8da61ce2595a83276260"
+  },
+  "independent_transport_evidence": {
+    "all_passed": true,
+    "dummy_offline_cases": 6,
+    "executor_dependency_version_inspected": false,
+    "path": "/tmp/pices-session-routing-defaults-independent-review.json",
+    "requests_version_in_reviewer_venv": "2.34.2",
+    "sha256": "b324aff39e24df938c9b54023e8c9e20cba53f10fe2c9565edd56fcb066d3f97",
+    "source_refs": [
+      {
+        "commit": "2a2c82fa257832986fdd62309a13462b691febda",
+        "line_references": "102-113 ordinary Session;120-128 constructor GET;190-201 Session.request",
+        "path": "scripts/zenodo_api.py",
+        "sha256": "19bdd0fe6a4bfe46c9d7936c6aa96fa38f9f3194e40f5b3a1ca63b9494f3f29b"
+      },
+      {
+        "commit": "2a2c82fa257832986fdd62309a13462b691febda",
+        "line_references": "604 prepared Authorization equality;635-647 durable intent and original Session.send forwarding",
+        "path": "scripts/synthetic_canary_controller.py",
+        "sha256": "4e5f331db7b8029235f0574c3556cf4668a8f29af98d25cac0035ce615c4b8a3"
+      },
+      {
+        "commit": "dc351b071df53c6d44f01491694916c1d44bd9f2",
+        "line_references": "472-476 trust_env=False and Session.request",
+        "path": "scripts/modern_synthetic_canary.py",
+        "sha256": "13d6499f8799a90490f098668be0b431fff965b0376fb81db66de3ff09aa16db"
+      },
+      {
+        "commit": "a43f4a12056371b5b11af6b791d1ae8ad3c3cb2c",
+        "line_references": "567-585 trust_env=False, prepare_request and send(proxies={})",
+        "path": "scripts/modern_synthetic_canary.py",
+        "sha256": "b9aa6c4706aa85f5a13b0ac1e838d3c8219edcc6869d1d345049e4ea415b0e99"
+      }
+    ]
+  },
+  "limitations": [
+    "Zero provider/DNS/socket/real HTTP calls; six prior checks used dummy environment and mocked transport only.",
+    "No credentials, actual environment values, netrc, private provider stages or terminal audits inspected.",
+    "No repository edits, classifier/full tests, network configuration changes, merges or provider dispatch.",
+    "This document clearance supplies no mutation authority and no live cause determination."
+  ],
+  "material_findings": [],
+  "preservation_and_interpretation": {
+    "273_original_preserved_files_unchanged": "Parent report only; not privately inspected by reviewer",
+    "connection_failure_cause": "UNKNOWN",
+    "no_failed_ledger_or_stage_migration_reset": true,
+    "no_global_absence_completeness_create_success_or_release_claim": true,
+    "no_post_put_delete_or_identity_adoption": true,
+    "no_review_or_network_denial_bypass": true,
+    "no_transmission_or_provider_response_inferred_from_intent": true,
+    "spent_modern_and_legacy_create_allowances_stay_held": true
+  },
+  "request": {
+    "accept": "application/vnd.inveniordm.v1+json",
+    "additional_get_intents_maximum": 1,
+    "automatic_pagination": false,
+    "automatic_retry": false,
+    "body": null,
+    "constructor_probe": false,
+    "method": "GET",
+    "redirects": false,
+    "url": "https://sandbox.zenodo.org/api/user/records?sort=newest&size=100&page=1"
+  },
+  "resolved_document_findings": [
+    "Actual consumed dc351b0 trial disabled trust_env before Session.request. Explicit Session.send(proxies={}) belongs to later a43f4a1 diagnostics; document distinguishes both.",
+    "Environment-aware preparation can consult netrc; document requires opaque intended-authorization preservation check before sending, boolean-only, mismatch/inability held, without real netrc/environment inspection or credential substitution."
+  ],
+  "result": "CLEARED",
+  "schema_version": 1,
+  "scope": "Final bounded GET-only environment-route follow-up document spot-check; independent source/fixture evidence referenced without repeated tests or live execution",
+  "transport": {
+    "authorization_preservation_must_be_checked_before_dispatch": true,
+    "first_failure_and_cleanup_separate": true,
+    "inventory_body_ceiling_bytes": 33554432,
+    "manual_preparation_requires_same_approved_environment_settings_merge": true,
+    "no_actual_network_setting_edits_or_hardcoded_route": true,
+    "ordinary_environment_aware_session_request_preferred": true,
+    "preserve_existing_supported_proxy_ca_and_secret_injection_route": true,
+    "safe_phase_exception_and_status_only": true,
+    "tls_verification_required": true,
+    "total_request_body_wall_seconds": 20,
+    "zero_transport_retries": true
+  }
+}

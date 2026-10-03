@@ -5,7 +5,9 @@
 - [x] Observe failing-first acceptance regression; five focused preservation/gate contracts pass.
 - [x]352 guarded offline tests, complete4206/4200/4194 corpus delta and independent runtime/source/actual-after-image reviews clear234promotions:3468supported/732held/6malformed.
 - [x] Freeze normal stacked handoff, residual732exactquestions and GET-only reconciliation dispatch.
-- [ ] Merge reviewed handoffs only when direct trusted authorization is accepted; automatic review rejected PR11/PR12 merge path under original no-merge scope.
+- [x] Supply Brett’s exact direct merge instruction; accepted single PR11retry mergesb3d87f2, thenPR12merges8818c19. PR13targetsmain;3automaticreproducibilityfindingsfixed/reviewed/resolved;361combinedguardedtestsPASS.
+- [ ] Merge eligiblePR13andverify exactmaincheckpoint/runtime/source/profilebindings.
+- [x] Independently compare workinglegacy environment-awaretransportvsconsumed/future modern exclusions; preserve194reads/spentcreates andfreeze one-shotofficial-route diagnostic194→195,239→238remaining,no settings/credential/private-stage inspection or provider calls.
 
 # FGDC → Zenodo Sandbox TODO List
 

@@ -1,0 +1,135 @@
+{
+  "findings": [
+    "Legacy client uses ordinary Session defaults and Session.request. Its guarded Session.send receives the already merged proxy/CA settings and does not replace them.",
+    "Frozen modern trial dc351b0 explicitly disables trust_env before Session.request; future diagnostics a43f4a1 also supplies proxies={} directly to Session.send.",
+    "The first reconciliation dispatch document required trust_env=False/no proxy. Its actual executable transport/configuration was not inspected.",
+    "In dummy fixtures an ordinary Session.request uses environment proxy and CA settings; trust_env=False suppresses both. This is a plausible route conflict if such settings supply the supported executor route.",
+    "proxies={} passed to Session.request does not suppress environment proxies when trust_env=True; proxies={} passed directly to Session.send does.",
+    "Only changing trust_env=True while retaining direct Session.send(proxies={}) will still suppress proxies and omit environment CA merging. Direct send without proxies resolves a proxy but still does not perform the CA merge.",
+    "Connection failure without HTTP evidence establishes neither the actual environment configuration nor the local/network/provider cause. No claim of successful transmission or review denial is justified."
+  ],
+  "limits": [
+    "Requests fixture version is reviewer venv only; executor dependency/configuration not examined.",
+    "Zero provider/DNS/socket/real HTTPAdapter calls. Only dummy requests reached mocked boundaries.",
+    "No credentials or real environment values, private stages/terminal audit, network-setting changes or repository edits.",
+    "No live causation claim and no new mutation/create/replay authority."
+  ],
+  "minimal_followup_recommendation": [
+    "Provider-only GET follow-up may preserve the same supported environment routing semantics as the working loader: ordinary Session.request, or explicit prepare_request plus merge_environment_settings before send. Do not modify proxy/environment values or disable TLS verification.",
+    "Keep exact Sandbox/user-records route, opaque existing Bearer credential, zero retries/redirects, TLS verification, durable pre-send accounting, deadline/body bounds and GET-only allowlist.",
+    "If explicit preparation is used, validate prepared Authorization equals the intended private Bearer value before dispatch and expose only a boolean. trust_env also enables netrc preparation; do not inspect or log real netrc/environment values.",
+    "Do not instantiate ZenodoAPIClient: its constructor calls an extra deposition GET. Do not restart any spent canary, reset historical194 reads, add writes or bypass any review denial.",
+    "Any follow-up is an explicit new read intent within the retained remaining envelope, never an automatic retry. Persist fixed phase/class/status evidence without raw environment/headers/exception text."
+  ],
+  "offline_check_count": 6,
+  "offline_checks": [
+    {
+      "case": "ordinary_session_request",
+      "dummy_environment_ca_bundle_selected": true,
+      "dummy_environment_proxy_selected": true,
+      "passed": true,
+      "trust_env": true
+    },
+    {
+      "case": "modern_trial_request_trust_env_false",
+      "dummy_environment_ca_bundle_selected": false,
+      "dummy_environment_proxy_selected": false,
+      "passed": true,
+      "trust_env": false
+    },
+    {
+      "case": "session_request_empty_proxies_still_merges_environment",
+      "dummy_environment_ca_bundle_selected": true,
+      "dummy_environment_proxy_selected": true,
+      "passed": true,
+      "trust_env": true
+    },
+    {
+      "case": "direct_send_empty_proxies",
+      "dummy_environment_ca_bundle_selected": false,
+      "dummy_environment_proxy_selected": false,
+      "passed": true,
+      "trust_env": true
+    },
+    {
+      "case": "direct_send_without_proxies",
+      "dummy_environment_ca_bundle_selected": false,
+      "dummy_environment_proxy_selected": true,
+      "passed": true,
+      "trust_env": true
+    },
+    {
+      "case": "prepare_merge_environment_send",
+      "dummy_environment_ca_bundle_selected": true,
+      "dummy_environment_proxy_selected": true,
+      "passed": true,
+      "trust_env": true
+    }
+  ],
+  "parent_reported_sanitized_facts": {
+    "first_get_intent": "2026-10-03T22:21:16.313005Z",
+    "historical_get_intents": 194,
+    "http_status": null,
+    "items": 0,
+    "outcome": "connection_failure",
+    "pages": 0,
+    "preserved_files_unchanged": 273,
+    "provenance": "Parent report only; no private executor evidence inspected"
+  },
+  "repository_source_refs": [
+    {
+      "commit": "2a2c82fa257832986fdd62309a13462b691febda",
+      "line_references": "102-113 ordinary Session;120-128 constructor GET;190-201 Session.request",
+      "path": "scripts/zenodo_api.py",
+      "sha256": "19bdd0fe6a4bfe46c9d7936c6aa96fa38f9f3194e40f5b3a1ca63b9494f3f29b"
+    },
+    {
+      "commit": "2a2c82fa257832986fdd62309a13462b691febda",
+      "line_references": "604 prepared Authorization equality;635-647 durable intent and original Session.send forwarding",
+      "path": "scripts/synthetic_canary_controller.py",
+      "sha256": "4e5f331db7b8029235f0574c3556cf4668a8f29af98d25cac0035ce615c4b8a3"
+    },
+    {
+      "commit": "dc351b071df53c6d44f01491694916c1d44bd9f2",
+      "line_references": "472-476 trust_env=False and Session.request",
+      "path": "scripts/modern_synthetic_canary.py",
+      "sha256": "13d6499f8799a90490f098668be0b431fff965b0376fb81db66de3ff09aa16db"
+    },
+    {
+      "commit": "a43f4a12056371b5b11af6b791d1ae8ad3c3cb2c",
+      "line_references": "567-585 trust_env=False, prepare_request and send(proxies={})",
+      "path": "scripts/modern_synthetic_canary.py",
+      "sha256": "b9aa6c4706aa85f5a13b0ac1e838d3c8219edcc6869d1d345049e4ea415b0e99"
+    }
+  ],
+  "requests_primary_source_refs": [
+    {
+      "path": "/tmp/pices-code-venv/lib/python3.12/site-packages/requests/sessions.py",
+      "sha256": "96fbb30bbbf06a59a5268d13b57885149756aa3f31695b5c15e41dd7bb2f67a6"
+    },
+    {
+      "path": "/tmp/pices-code-venv/lib/python3.12/site-packages/requests/utils.py",
+      "sha256": "657fd02343b2586bbd138a4ec0f03ceeb7610c2712f96ac54f28a708bf7d079c"
+    }
+  ],
+  "requests_source_lines": {
+    "sessions.py": [
+      "492 default trust_env=True",
+      "535-551 environment netrc authentication during preparation",
+      "639-651 Session.request merges environment settings before send",
+      "759-763 direct Session.send defaults/conditional proxy resolution",
+      "845-868 environment proxies and REQUESTS_CA_BUNDLE/CURL_CA_BUNDLE merge"
+    ],
+    "utils.py": [
+      "911-939 resolve_proxies respects trust_env"
+    ]
+  },
+  "requests_version_in_reviewer_venv": "2.34.2",
+  "result": "CANDIDATE_CONFIGURATION_DIFFERENCE_CONFIRMED_OFFLINE; LIVE_CAUSE_UNKNOWN",
+  "reviewer_script": {
+    "path": "/tmp/pices-review-session-routing-defaults.py",
+    "sha256": "d008b7d4b6ad586e368f18cd865cebb11afb8131b84ccec36ba5d174d538ad48"
+  },
+  "schema_version": 1,
+  "scope": "Bounded independent repository transport-settings review and six dummy-only Requests fixtures"
+}
