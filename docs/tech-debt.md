@@ -284,3 +284,9 @@ creator-policy references changed. Source/policy-bound submission fingerprints
 still differ when policy evidence changes. Full tests and source-integrity receipts
 remain separate from provider verification and release; see the current profile
 and the morning scope questions. Original uncertain canary creation stays spent.
+
+## Exact source credits and historical dataset linkage — 2026-10-03
+
+Mixed XML and short-person/list credits require bounded reviewed interpretations, not a generic comma/initials parser. The additive 319 profile preserves prior 229 objects and binds 90 new source after-images, complete parsed mixed origins, scoped roles and three exact abstract supplements. The distinct 21-member link profile removes inferred XML alternate identities only with full before/after metadata hashes, retaining the exact dataset portal URL. Both agent and human QA enforce evidence/context; withdrawal restores holds.
+
+Actual 111 promotions yield 2,288 supported / 1,912 held / six malformed; 301 guarded tests and full delta preservation are independently reproduced. Complete prepared metadata equality differs from submitted artifact fingerprints: 229 evidence rebindings update policy-bound fingerprints. No provider state changes. Further 86 access-plus-creator cases remain a source-role review queue, including five literal siblings and dedicated radio/editor/compiler context; they cannot clear access holds. Complete after-image hashes deliberately prevent unrelated edits from piggybacking on the link correction; future metadata corrections need a newly reviewed profile. See readiness/2026-10-03/source_credit_and_linkage.md and validation receipt.

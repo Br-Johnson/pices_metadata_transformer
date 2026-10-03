@@ -325,6 +325,8 @@ This local cohort has not been pushed or used for a provider operation.
 
 ## Remaining source credits and historical dataset linkage — 2026-10-03
 
-- [ ] Reconcile the 2,023 actual held sources at dfeff4ce into disjoint creator/access/alias/date/title/relation scopes. Implement only independently reviewed exact source/hash-bound creator after-images and the 21 historical shared dataset links. Preserve all previous 229 cohort objects, source bytes, access and alias holds, dates, rights and frozen uncertain-create state.
-- [ ] Verify default/withdrawal/tamper behavior, full mixed XML and role-context preservation, agent and both human QA schemas, guarded tests, complete corpus delta and deterministic resume.
-- [ ] Obtain independent runtime/source-integrity review and publish a frozen checkpoint under existing non-draft PR8 authority; queue remaining source decisions for morning.
+- [x] Reconcile the 2,023 actual held sources at dfeff4ce into disjoint creator/access/alias/date/title/relation scopes. Implement only independently reviewed exact source/hash-bound creator after-images and the 21 historical shared dataset links. Preserve all previous 229 cohort objects, source bytes, access and alias holds, dates, rights and frozen uncertain-create state.
+- [x] Verify default/withdrawal/tamper behavior, full mixed XML and role-context preservation, agent and both human QA schemas, guarded tests, complete corpus delta and deterministic resume.
+- [x] Complete independent runtime/source-integrity/document review and freeze a handoff for approved existing non-draft PR8 publication; queue remaining source decisions for morning.
+
+- Actual complete 111-promotion batch: 90 source-credit corrections (82 creator lists changed, eight notes-only), 21 historical-link corrections; 2,288 supported / 1,912 held / six malformed. Seven new focused / 301 guarded tests pass and independent source/runtime/delta reviews clear. Fresh/resume and all original/copy/payload integrity verified. Remaining 86 access-plus-creator cases are ranked, without approved after-images or new access authority.

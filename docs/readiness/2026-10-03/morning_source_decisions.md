@@ -1,5 +1,7 @@
 # Morning source-meaning decision bundle
 
+The nine access questions below remain current after the [111-source correction checkpoint](source_credit_and_linkage.md), which yields 2,288 supported / 1,912 held / six malformed. The final preservation paragraph records the earlier 229-profile increment. BASIS 34 literal credits are now supported with original spelling; FGDC-3815 remains a role/order gap.
+
 The existing archival rehosting authority and exact Contact Source /
 Contributor-or-Source interpretations remain unchanged. No new blanket license
 or permission is requested here. Source/hash memberships for the **90 retained
@@ -47,7 +49,7 @@ or a separately recorded narrow scope statement.
   [FGDC defines review separately from metadata creation or last update](https://www.fgdc.gov/metadata/csdgm/07.html).
   Provide a verified metadata creation or last-update day; review dates, source
   publication dates and guessed `20080207` are not replacements.
-- **BASIS roles/order:** primary [FGDC-3681](../../../FGDC/FGDC-3681.xml) says
+- **Historical BASIS review question (resolved by exact literal-credit preservation for 34):** primary [FGDC-3681](../../../FGDC/FGDC-3681.xml) says
   `Nancy Navis`, while the abstract reference says `N. Davis`. Keep the primary
   spelling/order unless authoritative report/catalogue evidence resolves it.
   Contacts, existing combined Organization objects and abstract order do not
