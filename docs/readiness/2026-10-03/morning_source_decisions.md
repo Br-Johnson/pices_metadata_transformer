@@ -53,9 +53,10 @@ or a separately recorded narrow scope statement.
   Contacts, existing combined Organization objects and abstract order do not
   silently establish full after-images.
 
-The 15 typed and 24 untyped literal-citation candidates can proceed to separate
-source-bound implementation/review without answering these missing-name/date
-cases. No eligibility change is installed in this analysis.
+The 15 typed and 24 untyped literal-citation candidates subsequently passed
+[separate source-bound implementation and offline validation](literal_citation_extension_229.md)
+without answering these missing-name/date cases. Their 39 source-support additions
+do not clear any of the nine access partitions or establish publication approval.
 
 ## Canonical identity evidence
 
@@ -67,6 +68,8 @@ there is no direct retained production association for these aliases. Preserve
 all original IDs/history and existing provider records/DOIs. Two title-only
 collisions differ from FGDC-2043/ProCite104 and cannot inherit its DOI.
 
-Source copies, payloads, 90 access holds, 456 alias holds and the spent uncertain
-canary POST remain unchanged. No provider request or canary retry is needed to
-prepare this decision bundle.
+Source copies and all 4,194 complete metadata objects remain unchanged. The
+extension changes 229 creator-policy references; 3,965 complete payload byte
+sequences remain identical. The 90 access holds, 456 alias holds and spent
+uncertain canary POST remain intact. No provider request or canary retry is
+needed to prepare this decision bundle.

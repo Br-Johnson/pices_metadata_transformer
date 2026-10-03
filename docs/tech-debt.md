@@ -269,3 +269,18 @@ contacts, hosting context and guessed dates cannot repair them. The nine-partiti
 morning bundle queues exact XML-versus-dataset scope decisions for the unchanged
 90 access holds. See readiness/2026-10-03/source_alias_reconciliation.md and its
 reproducible maps. No provider access, spent-create reset or release occurs.
+
+## Exact 39-source literal-citation extension — 2026-10-03
+
+The additive 229-member manifest preserves all earlier 190 cohort objects and
+binds 39 explicitly reviewed full creator after-images. The 15 plain institutions
+retain existing Organization type/hierarchy; 24 literal program/institution credits
+remain untyped. No generic parser, modern identity, new role or contact attribution
+is introduced. Immediate predecessor/evidence hashes now identify this extension;
+older evidence stays clearly ancestral. Five same-origin access-held siblings are
+excluded. Actual QA promotes all 39 and no other source: 2,177 supported / 2,023
+held / six malformed, with 4,194 whole metadata objects unchanged and only 229
+creator-policy references changed. Source/policy-bound submission fingerprints
+still differ when policy evidence changes. Full tests and source-integrity receipts
+remain separate from provider verification and release; see the current profile
+and the morning scope questions. Original uncertain canary creation stays spent.
