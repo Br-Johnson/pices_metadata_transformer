@@ -1,0 +1,97 @@
+{
+  "actual_live_recovery_performed": false,
+  "compatibility_receipt_sha256": "65efffe3c461e620323b01f2f7ee34cadd31b61f13e92f72d2a63a3c04616f3c",
+  "dependencies": {
+    "lxml": "6.1.3",
+    "python-dateutil": "2.9.0.post0",
+    "requests": "2.34.2",
+    "ruff": "0.16.10",
+    "tqdm": "4.70.1"
+  },
+  "diff_check_passed": true,
+  "distinct_recovery_lifetime_seconds": 1800,
+  "f_lint_passed": true,
+  "file_sha256": {
+    "scripts/sandbox_read_guard.py": "ea3468f63ec5ff38be8b24fbbca803e0c75101b0a17b78ca20af4d5374a5b67b",
+    "scripts/synthetic_canary_controller.py": "77413bf12ed33bb23df73bdda2e67fef199cb9c3f60f6c030b0ea28e20e49664",
+    "scripts/upload_service.py": "9611d1cf94685cb688cbed2ca39f802873774944eb24fdb68ca4ed399ad9e317",
+    "scripts/zenodo_api.py": "19bdd0fe6a4bfe46c9d7936c6aa96fa38f9f3194e40f5b3a1ca63b9494f3f29b",
+    "tests/test_sandbox_read_guard.py": "fdb257724cb3e4c81b17fb240883a60d02bcd97356774f644fab75c1119efbc9",
+    "tests/test_synthetic_canary_controller.py": "a80c594ab074210b2cdb214059dcd87f8280833c47c7c8d643e2d6756eb23a5b",
+    "tests/test_synthetic_canary_recovery.py": "93b42debeae80017070d5d3041515e49931acd9fff20ee36c637ffd9e32cc83d"
+  },
+  "full_guarded_offline_tests_passed": 322,
+  "handoff_branch": "handoff/pr8-synthetic-authorized-recovery-20261003",
+  "independent_extra_zero_request_probes": [
+    "old-scope grant substitution blocks execute",
+    "prior receipt tampering after completed write blocks cached rerun"
+  ],
+  "independent_full_guarded_offline_tests_passed": 322,
+  "independent_review": "cleared: exact prior receipt/page binding, cold scan, cumulative budget/expiry/resume, write isolation and133membership",
+  "maximum_cumulative_inventory_gets": 305,
+  "maximum_new_inventory_gets": 225,
+  "maximum_pages": 200,
+  "maximum_synthetic_stage_attempts": {
+    "create": 1,
+    "file_put": 1,
+    "get": 8,
+    "metadata_put": 1
+  },
+  "new_recovery_tests": 19,
+  "offline_fixture": {
+    "cumulative_gets": 247,
+    "new_gets": 167,
+    "old_failed_state_and62_pages_byte_unchanged": true,
+    "original_write_readback_retry_completed": true,
+    "owned_count": 16538,
+    "prior_gets": 80,
+    "recovery_pages": 166
+  },
+  "offline_guard": {
+    "blocked": [
+      "socket.connect",
+      "socket.connect_ex",
+      "socket.create_connection",
+      "socket.getaddrinfo"
+    ],
+    "subprocess_allowlist": [
+      "git rev-parse HEAD",
+      "python -m scripts.curation_batches (local fixture commands)"
+    ]
+  },
+  "old_pages_supply_completion_credit": false,
+  "optional_original_diagnostic_receipt": "synthetic-owned-page-63-diagnostic-receipt.json",
+  "original_bytes_unchanged_from_compatibility_branch": true,
+  "original_deadline_extended": false,
+  "original_sources": 4206,
+  "packet_sha256": "428559c7a8e81e84c22627b0add1230797b92013f87152e2ee3024b56af30fd1",
+  "page_size": 100,
+  "prior_count_components": {
+    "earlier": 15,
+    "page63_diagnostic": 1,
+    "v2": 64
+  },
+  "prior_observed_inventory_gets": 80,
+  "private_provider_state_inspected_by_code_owner": false,
+  "production_changes_enabled": false,
+  "provider_requests_by_code_owner": 0,
+  "provider_writes_by_code_owner": 0,
+  "python_version": "3.12",
+  "recovery_pages": "synthetic-owned-recovery-pages",
+  "recovery_schema": 3,
+  "recovery_scope": "synthetic_owned_namespace_recovery_v3",
+  "recovery_state": "synthetic-owned-recovery-controller.json",
+  "required_original_failure_receipt": "synthetic-owned-pages-failure-receipt.json",
+  "reviewed_compatibility_commit": "58bbf0d501cda9244804734d52a1d425d47bd0c3",
+  "runtime_commit": "0acf265ba9f0dcc99d0d8e530ad1f3aa4e8909fc",
+  "source_promotion_groups": {
+    "new_institutional": 63,
+    "prior_dfo": 70,
+    "total_disjoint": 133
+  },
+  "source_promotion_membership_sha256": "1219473d1f6c518a08265cd68205ea86188ca60090980ee6685c12c3eaf7b223",
+  "source_qa_head": "a70e56bd67bd85c0ee38c29aa387d03207461738",
+  "token_or_configuration_changes": false,
+  "unchanged_packet_entries": 17,
+  "write_service_and_http_client_bytes_unchanged": true
+}

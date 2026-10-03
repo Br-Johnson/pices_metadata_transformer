@@ -231,3 +231,20 @@ fresh scan. The separately reviewed225-new-read/305-cumulative recovery proposal
 requires explicit parent authorization and a subsequent state-handling runtime.
 See readiness/2026-10-03/synthetic_empty_draft_compatibility.md. No provider requests
 or writes were made by the code owner.
+## 2026-10-03 — Explicit distinct recovery state after parent authorization
+
+The parent authorized225 additional GETs/305 cumulative and a separate30-minute
+recovery lifetime. A schema3 scope/state/page folder binds the reviewed58bbf0d
+compatibility receipt, exact old64-read/62-page semantic failure, original CLI
+receipt and optional retained diagnostic. Every prior page's saved-file and
+raw-response hash is validated; no old page supplies live completion credit.
+The old state, clock, counters and pages remain immutable. A cold page1 scan and
+explicit full replay on eligible transport resume retain finite time/read bounds.
+
+The same write controller now selects the exact completed v2/v3 grant and binds
+recovery evidence in its durable intent, including cached reruns. Its1create,
+1metadataPUT,1uploadPUT/8GET ceilings and uncertainty/readback/retry checks are
+unchanged; generic/production callers cannot use the synthetic grant. No provider
+request or credential/configuration change is part of coding. Independent review
+and frozen handoff evidence complete this bounded implementation. Source-QA133
+membership is supplied separately; it creates no live QA/publication approval.

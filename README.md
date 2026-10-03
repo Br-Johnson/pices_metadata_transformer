@@ -1,6 +1,6 @@
 # PICES FGDC to Zenodo Metadata Migration
 
-Current synthetic Sandbox checkpoint: [empty-draft compatibility and pending recovery](docs/readiness/2026-10-03/synthetic_empty_draft_compatibility.md). A new adequate read budget and reviewed recovery runtime are required before parent dispatch; the code owner performs no provider requests.
+Current synthetic Sandbox handoff: [authorized bounded recovery](docs/readiness/2026-10-03/synthetic_authorized_recovery.md), with 225 additional inventory reads / 305 cumulative and a distinct 30-minute lifetime. Provider stages require separate parent dispatch; the code owner performs no provider requests. [Source-QA membership](docs/readiness/2026-10-03/source_qa_133_promotion_membership.json) separately records the prior 70 and newly 63 promotions.
 
 This project transforms 4,206 FGDC XML metadata records to Zenodo JSON format and uploads them to the Zenodo sandbox for the PICES (North Pacific Marine Science Organization) metadata migration project.
 

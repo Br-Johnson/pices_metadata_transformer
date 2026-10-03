@@ -1,6 +1,7 @@
 # Frozen synthetic canary: bounded owned pagination
 
-Historical handoff: the live v2 scan later stopped at page63 on nine legitimate
+Historical handoff: use [authorized v3 recovery](synthetic_authorized_recovery.md)
+for the current parent-dispatched stage. The live v2 scan later stopped at page63 on nine legitimate
 missing-title drafts. See [the compatibility checkpoint and pending recovery
 constraint](synthetic_empty_draft_compatibility.md) before any dispatch. Its failed
 state is not resumable and the remaining old budget cannot complete a fresh scan.

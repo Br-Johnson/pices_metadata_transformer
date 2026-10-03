@@ -1,5 +1,10 @@
 # Frozen empty-draft compatibility checkpoint; recovery blocked
 
+Historical checkpoint at58bbf0d: the parent subsequently authorized a distinct
+recovery allowance. Use [the reviewed authorized recovery handoff](synthetic_authorized_recovery.md)
+on its own frozen branch. This compatibility receipt and all original private
+failed evidence remain unchanged; its earlier pending proposal is historical.
+
 Runtime: **ff84b66241ff5642c58ae6686072492bcd2db0cd**. Branch:
 `handoff/pr8-synthetic-empty-draft-compatibility-20261003`, based on frozen handoff
 `a8cfeef632c6764cfc7e4211fddd2e0e61385dd4`. The older published branch remains

@@ -304,7 +304,20 @@ This local cohort has not been pushed or used for a provider operation.
   unrelated missing/empty titles;303 guarded tests and independent review clear.
 - [x] Freeze compatibility-only branch; original published pagination branch,
   private failed state/pages and write intent remain unchanged.
-- [ ] Parent decision on adequate additional recovery allowance and explicit new
-  lifetime;240 cumulative leaves160, below the approximately167 fresh-scan need.
-- [ ] Implement/review distinct hash-bound recovery state only after authorization;
+- [x] Parent authorized225 additional /305 cumulative inventory reads and a
+  distinct30-minute lifetime, preserving all80 previous reads and the old expiry.
+- [x] Implement/review distinct hash-bound recovery state after authorization;
   parent dispatch to sole provider executor, then separate synthetic write stage.
+
+## 2026-10-03 — Authorized v3 recovery and source membership handoff
+
+- [x] Implement cold scan with separate schema3 state/pages/scope; bind exact
+  compatibility checkpoint, original64-GET receipt,62 saved pages and optional
+  retained diagnostic. Preserve failed v2 evidence and all80 historical reads.
+- [x] Pass322 guarded offline tests and F lint; keep original1/1/1/8 write/read
+  ceilings, scope isolation, uncertainty stops and source/packet bindings.
+- [x] Supply disjoint133-promotion membership with separate70 DFO and63
+  institutional sourceID/hash members and pinned review receipts.
+- [x] Complete independent recovery review and freeze runnable commands for publication.
+- [ ] Parent dispatch inventory-only to provider executor, return receipt and pause;
+  successful fresh grant permits a separate parent-dispatched synthetic stage.
