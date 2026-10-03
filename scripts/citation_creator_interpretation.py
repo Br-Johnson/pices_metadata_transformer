@@ -5,9 +5,9 @@ XML is checked again at QA; this grants no rights, aliases or release authority.
 """
 import hashlib
 import json
+import xml.etree.ElementTree as ET
 from copy import deepcopy
 from pathlib import Path
-import xml.etree.ElementTree as ET
 
 MANIFEST_SHA256 = 'ee49147aec99d83cf54cb7fa4e59f7e50229967af0f08f5408e97144367e99e5'
 DFO_MANIFEST_SHA256 = '6587234a935a8eb893f6890ad3ec01a330c7ff4e8c55dcaeb6c03800bf157b0d'
@@ -18,6 +18,7 @@ LITERAL_EXTENSION_MANIFEST_SHA256 = 'd2ba819c774a43f8cb5d90c28f2e4b3d41283747dde
 SOURCE_CREDIT_MANIFEST_SHA256 = '7526abc74cdc62644fe682b17ebb23213b90ccb80f6f00c61ee149174ae7c257'
 ACCESS_HELD_CREDIT_MANIFEST_SHA256 = '7b45346be4435fc9fa6bfecfeb3cbc175610abf37a3e59a6b43b9731028e6b8c'
 SOURCE_CREDIT_401_MANIFEST_SHA256 = '217a11a96ffbc1f55d6e065cfcc5fac34efd4a10057b399e4a6e25faa076887a'
+SOURCE_CREDIT_409_MANIFEST_SHA256 = 'f58ae360f225e6c6a1b2c717e389c766d67883c3d6fbb598acd19caa13d5ca24'
 
 
 def source_element(node, outer=True):
@@ -35,7 +36,8 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
             (MANIFEST_SHA256, DFO_MANIFEST_SHA256, INSTITUTION_MANIFEST_SHA256,
              INSTITUTION_PROGRAM_MANIFEST_SHA256, JOINT_COLLECTION_MANIFEST_SHA256,
              LITERAL_EXTENSION_MANIFEST_SHA256, SOURCE_CREDIT_MANIFEST_SHA256,
-             ACCESS_HELD_CREDIT_MANIFEST_SHA256, SOURCE_CREDIT_401_MANIFEST_SHA256)):
+             ACCESS_HELD_CREDIT_MANIFEST_SHA256,
+             SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256)):
         raise ValueError('Creator interpretation requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()
@@ -47,7 +49,8 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
     profiles = (manifest['cohorts'] if reference['manifest_sha256'] in
                 (INSTITUTION_MANIFEST_SHA256, INSTITUTION_PROGRAM_MANIFEST_SHA256,
                  JOINT_COLLECTION_MANIFEST_SHA256, LITERAL_EXTENSION_MANIFEST_SHA256,
-                 SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256, SOURCE_CREDIT_401_MANIFEST_SHA256)
+                 SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256,
+                 SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256)
                 else [manifest])
     matches = [profile for profile in profiles
                if any(member['source_id'] == source_id and member['source_sha256'] == source_sha256
@@ -57,7 +60,8 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
     profile = matches[0]
     nodes = root.findall(manifest['source_xpath'])
     exact_credit_profile = reference['manifest_sha256'] in (
-        SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256, SOURCE_CREDIT_401_MANIFEST_SHA256)
+        SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256,
+        SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256)
     if exact_credit_profile and profile.get('primary_origin_element') is not None:
         if len(nodes) != 1 or source_element(nodes[0]) != profile['primary_origin_element']:
             raise ValueError('Creator interpretation requires the exact reviewed primary origin element')

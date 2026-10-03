@@ -1,3 +1,14 @@
+# Remaining-source finite cohorts — 2026-10-03
+
+- [x] Freeze205 access,8 creator and27 title proposals in disjoint source/hash/context review lanes.
+- [x] Preserve old264/401/8 profiles and implement three additive immutable acceptance pins.
+- [x] Observe failing-first acceptance regression; five focused preservation/gate contracts pass.
+- [x]352 guarded offline tests, complete4206/4200/4194 corpus delta and independent runtime/source/actual-after-image reviews clear234promotions:3468supported/732held/6malformed.
+- [x] Freeze normal stacked handoff, residual732exactquestions and GET-only reconciliation dispatch.
+- [x] Supply Brett’s exact direct merge instruction; accepted single PR11retry mergesb3d87f2, thenPR12merges8818c19. PR13targetsmain;3automaticreproducibilityfindingsfixed/reviewed/resolved;361combinedguardedtestsPASS.
+- [ ] Merge eligiblePR13andverify exactmaincheckpoint/runtime/source/profilebindings.
+- [x] Independently compare workinglegacy environment-awaretransportvsconsumed/future modern exclusions; preserve194reads/spentcreates andfreeze one-shotofficial-route diagnostic194→195,239→238remaining,no settings/credential/private-stage inspection or provider calls.
+
 # FGDC → Zenodo Sandbox TODO List
 
 ## Exact821 source scope answer — 2026-10-03

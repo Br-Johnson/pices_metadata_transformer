@@ -1,0 +1,77 @@
+{
+  "actual_promotions": 234,
+  "actual_source_counts": {
+    "failed": 6,
+    "held": 732,
+    "supported": 3468
+  },
+  "base_commit": "08f561ebf117ea31c2c5bf824b44830c1e0f1261",
+  "combined_main_suite_run": false,
+  "complete_corpus_audit": "4206 originals/4200copies/4194fullrawMD,4159unchanged/35reviewedfields changes; actual independent after-image clearance",
+  "failing_first_result": "Expected failure: old runtime held all240; expected234supported/6held",
+  "file_sha256": {
+    "docs/readiness/2026-10-03/audit_remaining_source_cohorts.py": "fea7d920bfd433e6b3f34bdd5498683cd678b9cd0713623d87e729a8a97180b3",
+    "docs/readiness/2026-10-03/finite_source_resource_access_469.json": "76a5ca8a8cdadbe0c1b0157d559068c98b16e18619a8561ff66a203a5008730a",
+    "docs/readiness/2026-10-03/guarded_remaining_source_qa.py": "ec1611765ad2436fae8fc47704443fa6c31cfb2d0db0205e093f1206d7c1ca20",
+    "docs/readiness/2026-10-03/modern_readonly_reconciliation_dispatch.md": "514c2aaf1b9cfa3d8bc8a81ea6973a2c19d1f405eca3eaab754a61cc81f57d26",
+    "docs/readiness/2026-10-03/remaining_source_access_independent_review.json": "d6b4462ef9a7e03c41908ed89c5c93a64cf38f6996f7ee6ff70c6d6657b56c19",
+    "docs/readiness/2026-10-03/remaining_source_actual_delta_independent_review.json": "b8863a693f45c8e819636b70f0b5ebd0104163b2d76d29803edfef747448a779",
+    "docs/readiness/2026-10-03/remaining_source_cohorts_complete_delta.json": "6ccf6d621e67e371a916165892417b1dbec7ba385007a9ec6c97de1c1acb35cf",
+    "docs/readiness/2026-10-03/remaining_source_creator_evidence_review.json": "6d299fc87c815442a3720fb13fb4105fdda8eb5cadeb961150d84666d5324fe1",
+    "docs/readiness/2026-10-03/remaining_source_date_identity_review.json": "b7632a12341c7320b4a6d07502057437c9e4ef10c0a97998899de0ea558d9feb",
+    "docs/readiness/2026-10-03/remaining_source_questions_732.json": "3baf322609cc02657f400067aff4731656c110eb10bc55fc14af6bcc16b75892",
+    "docs/readiness/2026-10-03/remaining_source_runtime_independent_review.json": "f70def95822161bd0c0f60a6222c5a025d471bd71797b13b51581b1708d46020",
+    "docs/readiness/2026-10-03/remaining_source_title_evidence_review.json": "9b5d86e80379b7ba78c38ac121d120042817beb8eb320b7615029a687966d28c",
+    "docs/readiness/2026-10-03/source_citation_credits_409.json": "f58ae360f225e6c6a1b2c717e389c766d67883c3d6fbb598acd19caa13d5ca24",
+    "docs/readiness/2026-10-03/source_display_titles_35.json": "db24d027d65b9e4392ede772172b04ada1fca4d14e576df70998d759303fe5c5",
+    "docs/readiness/2026-10-03/source_scope_attestation_821.json": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+    "scripts/citation_creator_interpretation.py": "68139034a1c78c475607d47bd9d268773667eb05f8688ea9ac2d59b11f45f99e",
+    "scripts/dataset_access_interpretation.py": "01d08773928d4e1ab7b72c445bbf25a97b477eb58b8d7e6de8b3749b255919b1",
+    "scripts/source_title_interpretation.py": "3186521cf2ae29540342d044837787a1ba1a1e1a944e5258149e7850c4f32bc2",
+    "tests/test_remaining_source_cohorts.py": "29efcb1a2655360becbb09cabc4731e536c4bd6519de0c8b4af7fc2807e2674f"
+  },
+  "full_classification_guards": "Requests, socket and DNS prohibited; dummy fixture tokens",
+  "independent_focused_contracts": {
+    "guards": "Requests, socket, DNS, repository writes and credential/private-stage reads rejected",
+    "passed": 5,
+    "seconds": 22.645
+  },
+  "limits": "Source support only; provider correction/concurrency/identity/release gates remain; modern heldcreatecauseunknown; merges blocked by automatic trusted-authority review.",
+  "log_sha256": {
+    "/tmp/pices-remaining-source-after.log": "8d36d9366e0fe9145a8b12bb15974bd2414de0427e9aaa1d612673df96fca20c",
+    "/tmp/pices-remaining-source-before.log": "a1ed32156fba6063f9e06a9ed4e8342e2c9b7fdb443f0d6e20c596bf989776e3",
+    "/tmp/pices-remaining-source-failing-first.log": "9608b2a3fa92ef2fac1e2df4ce2204b24ea0d365cbb08fe4ad2b9c71c8111641",
+    "/tmp/pices-remaining-source-focused-tests.log": "ac7091a3137029872678a66626f93ea2d85ee531b3857c5715d58c100076dfa2",
+    "/tmp/pices-remaining-source-full-tests.log": "cc7084febce805a390ebd8cce18af96c7ca18a74efa391c2bac1f52ad3b17175",
+    "/tmp/pices-remaining-source-reproduction-audit.log": "e43c85e06714c08df61aba01801e00da82d245dbf31d03f65f23a51ef8aeeb66",
+    "/tmp/pices-remaining-source-reproduction-smoke-relative.log": "7207fa2b0fc9253755c998faecb3d0301c8ee093d7c980ae7c4d6568f8592ea2"
+  },
+  "provider_credentials_or_private_canary_state_read": false,
+  "provider_requests": 0,
+  "provider_writes": 0,
+  "repo_merges": 0,
+  "reproduction_smoke": {
+    "failed": 0,
+    "held": 3,
+    "sources": 10,
+    "supported": 7
+  },
+  "reviewed_at": "2026-10-03T21:52:00Z",
+  "root_focused_contracts": {
+    "passed": 5,
+    "seconds": 22.763
+  },
+  "root_full_suite": {
+    "guards": [
+      "Requests Session.send",
+      "socket.socket.connect",
+      "socket.create_connection"
+    ],
+    "passed": 352,
+    "real_credentials_used": false,
+    "seconds": 65.283
+  },
+  "ruff": "PASS changed runtime/tests and two offline helper scripts",
+  "runtime_commit": "d611e1ca02d06306b26649661e60ae4b64a37927",
+  "schema_version": 1
+}

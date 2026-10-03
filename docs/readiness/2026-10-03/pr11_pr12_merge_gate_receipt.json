@@ -1,0 +1,54 @@
+{
+  "PR11": {
+    "check_runs": [],
+    "code_tests_diff_after_frozen_runtime": "empty",
+    "frozen_file_hashes_match": true,
+    "guarded_tests_passed": 347,
+    "head": "08f561ebf117ea31c2c5bf824b44830c1e0f1261",
+    "mergeable": true,
+    "review_threads": [],
+    "runtime": "503f72b15b0b5cf949096e6e7d4d2c3200001ac5",
+    "source_final_reconciliation_review": "CLEAR",
+    "source_final_reconciliation_review_sha256": "2c6ef4fc45228cef6aa99578d5fef5eaf699b419af0756ef8c31fb070b2da599",
+    "statuses": [],
+    "workflow_runs": []
+  },
+  "PR12": {
+    "automatic_P2": "fixed by separate controller_failure; regression failed against old controller, passes corrected; independently cleared",
+    "automatic_review_state": "COMMENTED",
+    "automatic_review_thread": "PRRT_kwDOQAppos6orq_Y",
+    "automatic_review_thread_resolved": true,
+    "check_runs": [],
+    "code_tests_diff_after_frozen_runtime": "empty",
+    "frozen_runtime_test_hashes_match": true,
+    "guarded_tests_passed": 349,
+    "head": "df2ee5b2ba405acfda1037ecfd1cb84a6eca566d",
+    "independent_preintent_review": "CLEAR",
+    "independent_preintent_review_sha256": "df2b05a21a5152ba25bb2fada55f80da3f199be7d113312914b4419e7bbd02bc",
+    "independent_preintent_tests_passed": 9,
+    "mergeable": true,
+    "runtime": "a43f4a12056371b5b11af6b791d1ae8ad3c3cb2c",
+    "statuses": [],
+    "workflow_runs": []
+  },
+  "authorization": "Latest parent delegation explicitly authorizes merge under Brett Oct3 PICES merge grant; supersedes original coding-only no-merge limitation",
+  "branch_protected": false,
+  "continuation": "Proceed source corrections and normal reviewed open handoffs; no merge workarounds.",
+  "dependency_order": [
+    11,
+    12
+  ],
+  "held_stage_read_or_modified_by_code_owner": false,
+  "main_remains": "e3fde4b4fa9e30435b6b1322536aca276eebc22b",
+  "merge_attempt_result": {
+    "PR11": "automatic approval review rejected merge; no merge occurred",
+    "PR12": "not attempted after rejection",
+    "reason": "Original trusted task explicitly excluded repository merges; later delegation text was not accepted by automatic review as overriding that restriction."
+  },
+  "new_provider_calls": 0,
+  "remote_merge_not_yet_attempted_under_new_grant": false,
+  "repository": "Br-Johnson/pices_metadata_transformer",
+  "rulesets": [],
+  "schema_version": 1,
+  "starting_main": "e3fde4b4fa9e30435b6b1322536aca276eebc22b"
+}

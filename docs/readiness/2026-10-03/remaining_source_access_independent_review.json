@@ -1,0 +1,2637 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_SOURCE_SEMANTIC_CLEARANCE_EXACT205",
+  "scope": "Independent read-only source review of exactly the added205 finite access proposals. This receipt does not extend the821 user answer, grant rehosting or a license, certify underlying conditions as satisfied, or approve publication/provider activity.",
+  "proposal_path": "/tmp/pices-remaining966-access-proposals.json",
+  "proposal_sha256": "6a38f3c0f7bbaf107e7252b5238657b761a49629bb2dc273809fae952fb163cb",
+  "baseline_source_head": "08f561ebf117ea31c2c5bf824b44830c1e0f1261",
+  "baseline_report_path": "/workspace/pices-source-scope821-qa/after/classification.json",
+  "baseline_report_sha256": "759b7c924dc1452be1850635d4bee41230007883f7b94a4691160b067fa127dc",
+  "after_report_path": "/workspace/pices-remaining-cohorts-qa/after/classification.json",
+  "after_report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+  "source_review_count": 205,
+  "proposal_membership_sha256": "0f15b1345f00be1c847e92a93959394fd388f19dab291587ce9d510b659de7c0",
+  "membership_digest_recipe": "SHA-256 of ordered member objects {source_id,source_sha256} serialized with json.dumps(sort_keys=True,separators=(comma,colon),ensure_ascii=False). Proposal order is lexicographic source_id order.",
+  "exact_raw_constraint_strata": 58,
+  "normalized_constraint_groups": 57,
+  "distinct_rationales_read": 55,
+  "meaning_counts": {
+    "underlying_GIS_Starter_Kit_acquisition_and_scale": 33,
+    "underlying_data_archive_acquisition": 4,
+    "underlying_data_availability_and_citation": 2,
+    "underlying_data_availability_and_quality": 1,
+    "underlying_data_collection_attribution": 24,
+    "underlying_data_internet_acquisition_and_citation": 1,
+    "underlying_data_inventory_acquisition": 1,
+    "underlying_data_ordering_and_attribution": 1,
+    "underlying_data_ordering_referral": 1,
+    "underlying_data_processing_availability": 1,
+    "underlying_data_publication_and_physical_specimen_permission": 1,
+    "underlying_data_publication_attribution": 39,
+    "underlying_data_publication_contingency": 3,
+    "underlying_data_publication_status": 1,
+    "underlying_data_software_and_interpretation_guidance": 1,
+    "underlying_data_transfer_and_no_sale": 38,
+    "underlying_data_transfer_format": 2,
+    "underlying_data_use_contact": 1,
+    "underlying_database_output_availability": 1,
+    "underlying_dataset_acquisition": 4,
+    "underlying_map_availability_and_navigation_limit": 1,
+    "underlying_map_copy_cost_and_attribution": 3,
+    "underlying_nonrestricted_photo_acquisition_and_attribution": 1,
+    "underlying_plant_data_inquiry_and_attribution": 1,
+    "underlying_publication_library_acquisition": 11,
+    "underlying_resource_acquisition": 12,
+    "underlying_resource_acquisition_referral": 1,
+    "underlying_resource_archive_holdings": 1,
+    "underlying_resource_availability_and_application": 1,
+    "underlying_resource_availability_and_scale": 3,
+    "underlying_resource_availability_with_source_limits": 1,
+    "underlying_resource_construction_status": 1,
+    "underlying_resource_media_acquisition_and_attribution": 1,
+    "underlying_resource_partial_availability_and_resolution": 1,
+    "underlying_resource_publication_status": 2,
+    "underlying_resource_storage_status": 1,
+    "underlying_resource_technical_guide": 1,
+    "underlying_resource_temporal_availability": 1,
+    "underlying_soil_report_database_acquisition_and_scale": 1
+  },
+  "binding_checks": {
+    "all205_original_sha256_matches_proposal_and_baseline_report": true,
+    "all205_original_copy_bytes_identical": true,
+    "all205_prepared_payload_sha256_matches_proposal_and_baseline_report": true,
+    "all205_exact_baseline_hold_reasons_verified": true,
+    "all205_baseline_technical_pass_nonalias_access_only_held": true,
+    "all205_four_constraints_single_plain_elements_raw_text_and_serialization_equal": true,
+    "all205_data_and_metadata_constraint_pairs_exactly_duplicate": true,
+    "all205_complete_context_elements_and_recursive_mixed_content_equal": true,
+    "all205_full_title_abstract_purpose_text_read_and_semantically_reviewed": true,
+    "all205_source_tag_inventory_metd_distribution_liability_equal": true,
+    "all205_no_source_attributes_comments_doctype_entity_security_or_extension_elements": true,
+    "all205_runtime_context_projection_equals_reviewed_proposal": true,
+    "all205_existing_restricted_blank_license_and_USER_ATTESTED_authority": true,
+    "all205_no_metadata_or_source_byte_mutations_or_claimed_condition_satisfaction": true,
+    "no_overlap_with_old264_members_or821_attestation_members_or456_aliases": true,
+    "all205_complete_raw_metadata_objects_and_source_copy_bytes_identical_before_after": true,
+    "all205_after_authority_new_license_remote_publication_gates_unchanged": true,
+    "all205_supported_in_completed_after_report": true
+  },
+  "raw_metadata_hash_recipe": "SHA-256 of complete raw payload metadata JSON serialized with sort_keys=True,separators=(comma,colon),ensure_ascii=False. Classifier metadata_sha256 instead hashes assessed metadata, including generated artifact-contract notes; the two are intentionally distinguished.",
+  "baseline_complete_raw_metadata_inventory_sha256": "c8733846d1791eec5b778328f5f00eea137c5e8e37686d9abcdf91b26819ac9b",
+  "complete_source_projection_sha256": "72c2c139d48ce194488ae0ea1224d94dee6aeab62d06cfff7a58819c83acf5dc",
+  "baseline_hold_reasons": [
+    {
+      "hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "count": 205
+    }
+  ],
+  "protected_subset": {
+    "original_protected_union_count": 176,
+    "baseline_protected_held_count": 148,
+    "queue86_path": "docs/readiness/2026-10-03/remaining_source_credit_candidates_86.json",
+    "queue86_sha256": "e81f08548c86a454cf96d4b3d5ca2efd75f87ba518bc793c1f8f7d83194c5843",
+    "queue90_path": "docs/readiness/2026-10-03/joint_collection_source_decisions.json",
+    "queue90_sha256": "8b94c19e501c060c458a5a71cfe0ebd123701f8101f659f34406e77e394a9b37",
+    "new205_previously_protected_count": 110,
+    "new205_previously_protected_queue86_count": 24,
+    "new205_previously_protected_queue90_count": 86,
+    "new205_previously_protected_membership_sha256": "41bb4d30710d76aee369bc250a98c6408ab21a52fd972b0ebc9533e4bf5b8961",
+    "new205_previously_protected_members": [
+      {
+        "source_id": "FGDC-121",
+        "source_sha256": "a738d9405f8b2643db90693f08e29b793ff679137796dac443221d7848a8a6fd"
+      },
+      {
+        "source_id": "FGDC-1256",
+        "source_sha256": "be0ebc8c43e6b66d3a73ec0d896a5379398165bc85233a239e9324166b56059a"
+      },
+      {
+        "source_id": "FGDC-1263",
+        "source_sha256": "470a654c76433c464cb35a8f95a2290014357b5109a742b65fe15428e753e44e"
+      },
+      {
+        "source_id": "FGDC-1265",
+        "source_sha256": "822140d568756c49c6fc7cdccd24a4613755df799176b6480444479c16a113be"
+      },
+      {
+        "source_id": "FGDC-1269",
+        "source_sha256": "2f02acb43598afcbcff084d6c324e9672bb43185d2b85109a32936e43d994954"
+      },
+      {
+        "source_id": "FGDC-1271",
+        "source_sha256": "96710d45ba9976dfc273123c061d8480e0b1875e82911aedf0e88179bb8d655d"
+      },
+      {
+        "source_id": "FGDC-1282",
+        "source_sha256": "fdc0789aeab6e1e3b241eec81815ce0565919701bf0b038db4b02c7a9b1de627"
+      },
+      {
+        "source_id": "FGDC-1287",
+        "source_sha256": "bf037a4cc53536aa64b3c848af0c4f025f5b9935b02daffcb5f4e659f32139ac"
+      },
+      {
+        "source_id": "FGDC-1289",
+        "source_sha256": "0b570b4165374be03471b99ea576db712d8b75639563641f2f818e9700edd022"
+      },
+      {
+        "source_id": "FGDC-1291",
+        "source_sha256": "5058840108166feafe018819f256dfb587224dc249be903cf309b5561972cacb"
+      },
+      {
+        "source_id": "FGDC-2293",
+        "source_sha256": "6e99db62f635043cb48edf38253ef029b7acfb3d0d5455d197d2c97854393320"
+      },
+      {
+        "source_id": "FGDC-2413",
+        "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728"
+      },
+      {
+        "source_id": "FGDC-252",
+        "source_sha256": "d4a15a095c5be5cfadd075a23ce632af3a73969ae0ea017cf2c229af964eed7a"
+      },
+      {
+        "source_id": "FGDC-2557",
+        "source_sha256": "7af86209edfe433dd32d116ad14ba12a516880fc9e3d99742e922d5180990575"
+      },
+      {
+        "source_id": "FGDC-265",
+        "source_sha256": "752f0b18f02cc842b28309eb8f89e7830bc2bfdb99d6fa02426cff8771b39d9d"
+      },
+      {
+        "source_id": "FGDC-2656",
+        "source_sha256": "bf5a1a37b9fb3a671be0cf99246a44fab08bf83fa6d7b4a1e809eda73c0eccb3"
+      },
+      {
+        "source_id": "FGDC-2691",
+        "source_sha256": "888b6d0ca262e60fd13d2068a88e363e1bafa08ae9fa3ac02c7ef29002a4170f"
+      },
+      {
+        "source_id": "FGDC-2694",
+        "source_sha256": "dbf99e7f17e8ffbd7c5d40dad1991c92a182d8ffe7094c37d40af82b1f1e32ac"
+      },
+      {
+        "source_id": "FGDC-2695",
+        "source_sha256": "d9a2552d05d01549a8fe7ca11d14e3f1975fe943981de5102d2703481c0bc739"
+      },
+      {
+        "source_id": "FGDC-2701",
+        "source_sha256": "12ec31120e833c61726e2d912f53baf2a00b8cc07b55fcf503e6f3a4553f7fbd"
+      },
+      {
+        "source_id": "FGDC-2707",
+        "source_sha256": "b48d53a5c40febda5356e9ec015fccdcac1054b15e801e6cc17bc2e6d020e228"
+      },
+      {
+        "source_id": "FGDC-289",
+        "source_sha256": "6401d899f886cc56fd12b18eef3f7aea0a2cab6a542c2fccfce198f190f6dade"
+      },
+      {
+        "source_id": "FGDC-545",
+        "source_sha256": "82ac680b3d26bb8f80b4642d21e314813247a8ba74c3faddd7d73bfffbd89e23"
+      },
+      {
+        "source_id": "FGDC-546",
+        "source_sha256": "8f6d9e0d603255b0156a6c6b356e6973f2429c782672406a5b50827400483662"
+      },
+      {
+        "source_id": "FGDC-547",
+        "source_sha256": "777f31dd1bd7686f8a94a6559efc27bd11255d1c3ee7feeebdd1b180ae3b8724"
+      },
+      {
+        "source_id": "FGDC-548",
+        "source_sha256": "e48070eb5a688b732bce467796b932f80ecbe600e7e3297e68d5709538629c7c"
+      },
+      {
+        "source_id": "FGDC-549",
+        "source_sha256": "b27410843d7a077362d7348cfa5da3c0889dde6850ce97fe23515c2094ac06d3"
+      },
+      {
+        "source_id": "FGDC-550",
+        "source_sha256": "703288a7c4460de563e91b6cab47ab41fcf62b6fc41f30c92910dedf8426d14b"
+      },
+      {
+        "source_id": "FGDC-551",
+        "source_sha256": "26031acb0be2cd0ccf8b63623fbe5d4453d3415f748dcd083c5a55acc259a16a"
+      },
+      {
+        "source_id": "FGDC-552",
+        "source_sha256": "342928f5a48294371b35eca91d0303065d5dfdb1eb151195bfe20621ec9c7bd8"
+      },
+      {
+        "source_id": "FGDC-553",
+        "source_sha256": "ad5907dd4660cb821b828e980a023a08c7b65d4a2f59a0fcb4f484049a7191a8"
+      },
+      {
+        "source_id": "FGDC-554",
+        "source_sha256": "3189d71b2848856a1bdba644c05fbfeb33e09f7c1fe7bdef1c366f6ce00d7c21"
+      },
+      {
+        "source_id": "FGDC-556",
+        "source_sha256": "006d4437d0049c3762958209ffe02ed4f0df5f1b1ef54acdd30276375ad0008f"
+      },
+      {
+        "source_id": "FGDC-557",
+        "source_sha256": "b61781d15506505c3cec592f53250e0429944f5da578c5ac79a54959fff2a7c7"
+      },
+      {
+        "source_id": "FGDC-558",
+        "source_sha256": "07ff9e68edab62873e6db271c43f2908462478009d2ca861bafbd5f918dc60b9"
+      },
+      {
+        "source_id": "FGDC-559",
+        "source_sha256": "facb54511675fc9c0403c9616998575af910b3e5b4cd948fe77fe5bab2042700"
+      },
+      {
+        "source_id": "FGDC-560",
+        "source_sha256": "e1701f70ad40d3b4f50c57239bc15c71de793d55e89e821b6ad9b66917c067cf"
+      },
+      {
+        "source_id": "FGDC-567",
+        "source_sha256": "316448057c9d9db983405831ffb62562010ac621d690cf7b95c0c611972da480"
+      },
+      {
+        "source_id": "FGDC-568",
+        "source_sha256": "a687ee4c1cc9072f356e9c674e05b7d6a2df4e81bf4ed82e7d764a0b081430f4"
+      },
+      {
+        "source_id": "FGDC-569",
+        "source_sha256": "c9bde0fe841fb3c59dd8f1ec902efe2ba36e9fe8ca595622ece326b60a7f131a"
+      },
+      {
+        "source_id": "FGDC-573",
+        "source_sha256": "8f169b58da27c345ed4f4111d6419d89749fb6be11cfb042326d6f5563d8bbe9"
+      },
+      {
+        "source_id": "FGDC-574",
+        "source_sha256": "f76cfeb5103c7ebc9ba1108d9cbfd22b94a889a8aea800521b047bf8c02747ac"
+      },
+      {
+        "source_id": "FGDC-575",
+        "source_sha256": "12f2a7bd8cf3c4587424b343414e61cbf7fcfe8cbd5378f13b219e746376d214"
+      },
+      {
+        "source_id": "FGDC-576",
+        "source_sha256": "5ee0491be59e811aae0a1eda9508a22c6fa837bc893ac9f818d2147e38cbdaa9"
+      },
+      {
+        "source_id": "FGDC-578",
+        "source_sha256": "734e45aec7e8eef957cacf29a479b54c16f21130260a97724016e2a75d17df09"
+      },
+      {
+        "source_id": "FGDC-579",
+        "source_sha256": "8bb135ccc245a35398d8279d887e6c2c5911b6d1029060bb3fea0f2584d8da1b"
+      },
+      {
+        "source_id": "FGDC-580",
+        "source_sha256": "139a5568a7bbf46daacd63128812124fd9a0033c48532d8313d1735d4fdf95a4"
+      },
+      {
+        "source_id": "FGDC-581",
+        "source_sha256": "b384c383a8621f38a6b734b4f88690efb33add6f1123178dd7670385e021e23c"
+      },
+      {
+        "source_id": "FGDC-590",
+        "source_sha256": "63095c3a46965b4470d6bcb8ca7eb6896a16526cde5b6b7c408088456607e375"
+      },
+      {
+        "source_id": "FGDC-591",
+        "source_sha256": "45d79929e680f9969284f550381d0593a5a880b887ce39f47ca2d2c747db47e0"
+      },
+      {
+        "source_id": "FGDC-592",
+        "source_sha256": "e5483ae0060fd897ba65b6b46f165f21591cc3345e85046a12518347b0dba7f8"
+      },
+      {
+        "source_id": "FGDC-593",
+        "source_sha256": "2cb88184d96b94ac8c26311f6deb8898b7877e7b09f0693edb0ccfdafad2d7c9"
+      },
+      {
+        "source_id": "FGDC-594",
+        "source_sha256": "3804100e341679fd3ded8d1b95505ab373c10c967ac07045913ab10a8ee4643f"
+      },
+      {
+        "source_id": "FGDC-606",
+        "source_sha256": "fb7714c5f042db61774d68a3b5f8ac08d0d148236a2dbec2f2b6ed725751f5a4"
+      },
+      {
+        "source_id": "FGDC-637",
+        "source_sha256": "d159b2c47392ea53efccf889b55a3eafa343834b96b4ef63a15d92905bf78e14"
+      },
+      {
+        "source_id": "FGDC-639",
+        "source_sha256": "5ae19a78055cc0f29cd82175769de147ec6a19f4d7f469a9ac2826cc0fc961aa"
+      },
+      {
+        "source_id": "FGDC-640",
+        "source_sha256": "a7dbfed3c5b307c1bd393e5fbde7c9f85f3b09e25da97de356429d3d50d321e5"
+      },
+      {
+        "source_id": "FGDC-643",
+        "source_sha256": "fd112d53911c968b50b34e919b07eb1775851e59de43e5dc19ad6d2b5340f757"
+      },
+      {
+        "source_id": "FGDC-644",
+        "source_sha256": "63009b67255b72887352c60e060cb479fe757fd9080be0d4adacfe7e6611a35b"
+      },
+      {
+        "source_id": "FGDC-689",
+        "source_sha256": "c92f84315947d1141be2dcf8bdac5a92e2188d83c10be5f8e1cb850fe2a92530"
+      },
+      {
+        "source_id": "FGDC-690",
+        "source_sha256": "f903532174d1f7b9fa5d9925e03beb160e684fe41b96099f52eac1f9dab83199"
+      },
+      {
+        "source_id": "FGDC-696",
+        "source_sha256": "8aaceab215d24072301f48cdc76c7deb9d8174854e1d29d5860d7d990a6b78e4"
+      },
+      {
+        "source_id": "FGDC-699",
+        "source_sha256": "ab81f6202d09eb7ea218068e1581024a7f32f2b580acae2f9812f9797a29beb0"
+      },
+      {
+        "source_id": "FGDC-700",
+        "source_sha256": "69884fff5516e6568dddc4770b187452ec8cf378b73aea7f10b64c0b2ab85ab8"
+      },
+      {
+        "source_id": "FGDC-701",
+        "source_sha256": "4ba64f19613013f1fbd843280425a6fb893bdccc0540528872f2dd398083918c"
+      },
+      {
+        "source_id": "FGDC-703",
+        "source_sha256": "b10770cc771fdf103289f2f03ae23ae7ad22a0cc6960b4f277442cac332b1a01"
+      },
+      {
+        "source_id": "FGDC-705",
+        "source_sha256": "2eaa5e5e9eb760722a9cf6c6cbc6514a955e4be0f35c82f502b3c6d9875a413f"
+      },
+      {
+        "source_id": "FGDC-706",
+        "source_sha256": "2bedff6577e76b8a31d99e9cd0cb8ec415ff50cc696fda6d4051d167220f5218"
+      },
+      {
+        "source_id": "FGDC-707",
+        "source_sha256": "c8f822b36240274dfbb61b91ca8781ce49d1f052b1fcbee8a1f01c515e3924df"
+      },
+      {
+        "source_id": "FGDC-714",
+        "source_sha256": "f997f0d3256ce80389ba9b2e18c40f113bdb09dde69196f0d2579ed50656a99e"
+      },
+      {
+        "source_id": "FGDC-715",
+        "source_sha256": "e1b36e7702814f7fa4fe104076d422df26252506785d4a61755e0a2f35ae5278"
+      },
+      {
+        "source_id": "FGDC-733",
+        "source_sha256": "3436581e65139750bd075e84ff7fb79e5044cf58be24a2953b5c51ba8dbd9b5b"
+      },
+      {
+        "source_id": "FGDC-734",
+        "source_sha256": "d205299ec3bd9d6f5fae69b314e39f8d46f5b34861944339e463902b4f749f2d"
+      },
+      {
+        "source_id": "FGDC-735",
+        "source_sha256": "89391f11dd67a1a3f162c1c3384cbe2a2c140030792a5a6e6325b2e18e912b1a"
+      },
+      {
+        "source_id": "FGDC-736",
+        "source_sha256": "bc026cab2fd85aa0ff242b59382244ccd23ea5938c9cb8f3a643ddcd9cbb071d"
+      },
+      {
+        "source_id": "FGDC-742",
+        "source_sha256": "beb5e17956a4a349e56b5fa6fb715bdd249036eb51cdfd1be9315040c53ed731"
+      },
+      {
+        "source_id": "FGDC-743",
+        "source_sha256": "373c098d9777b7d1a13ed19122cc72f268d800eb875f47fe43897b749f99aee8"
+      },
+      {
+        "source_id": "FGDC-777",
+        "source_sha256": "38381f5bec5b96c18d9746c68416e6ca9abffa8c5a3782a87453643f614b64fa"
+      },
+      {
+        "source_id": "FGDC-780",
+        "source_sha256": "27fcf034a165be76f92e03b2f6dd70bb866cd420b6935c8dc38793abd84446b3"
+      },
+      {
+        "source_id": "FGDC-782",
+        "source_sha256": "90234b5e7962d718d5dc1296d36141907dc85b683cb4c899754fb99c5e3ca361"
+      },
+      {
+        "source_id": "FGDC-783",
+        "source_sha256": "357b75d88ad945f98490d93550e85add39f9333183ef9de4e2dbbeef034764a5"
+      },
+      {
+        "source_id": "FGDC-799",
+        "source_sha256": "bbdec0ec44598a1cb4f9ca5bb9cbf67dd8b0ee4d9aa3d141ce6cbb443a6f351a"
+      },
+      {
+        "source_id": "FGDC-801",
+        "source_sha256": "e732aab73a2811585c78bcaee7acad4bed65654aa342cafdd7100f2db67032d1"
+      },
+      {
+        "source_id": "FGDC-803",
+        "source_sha256": "01c4670955de7e98f61c89e47c96a66cee8088944dde46b0b9ec55762c791627"
+      },
+      {
+        "source_id": "FGDC-804",
+        "source_sha256": "7aa72a6aee743729f1491d932c355f4b509a17d4da55125059053e3c34c0db3a"
+      },
+      {
+        "source_id": "FGDC-805",
+        "source_sha256": "81ebfb8ddc2b060449cd19e8889c205b2c5c42921b27ccf506dff571e1848044"
+      },
+      {
+        "source_id": "FGDC-806",
+        "source_sha256": "5d6d99b6c0ccee10b14f5e0a4fc2e52d600e904a7d0a899ad1612fd61df0177f"
+      },
+      {
+        "source_id": "FGDC-807",
+        "source_sha256": "1ad9faf673c3792609fa3ed4b6c5cf8ab83c744c2ae47f1ab7023bf4dbfb5824"
+      },
+      {
+        "source_id": "FGDC-809",
+        "source_sha256": "f60ed9d7dfc987240b947f79e4cae24a38668f7163c1eb8a7eef5078c0371db1"
+      },
+      {
+        "source_id": "FGDC-810",
+        "source_sha256": "689320fd5814eca4575fe6ac265568105d614075768f669f03d84da372fd6ce7"
+      },
+      {
+        "source_id": "FGDC-811",
+        "source_sha256": "2faf33e20e66df0da8d0638e2bc20f9a7b153b0cee0eb7e38521e6208f949d0e"
+      },
+      {
+        "source_id": "FGDC-812",
+        "source_sha256": "834eea16f2bdef7a7c5e48509edb0083bcdee8f224d30462bc21886d8608a3c7"
+      },
+      {
+        "source_id": "FGDC-813",
+        "source_sha256": "88ccfe936e38934a2b7afdf972a2c0644eacbaeb6983e8610e5f76a3210316ca"
+      },
+      {
+        "source_id": "FGDC-818",
+        "source_sha256": "43fbf947c60427e7fb0450e41ea4a2614bf41e057c4a90486b68c97a8db7c5cf"
+      },
+      {
+        "source_id": "FGDC-820",
+        "source_sha256": "1d905c7e115a5fcccabcc1445c17bdc53458737409b7f086d5507a99ef568c6a"
+      },
+      {
+        "source_id": "FGDC-821",
+        "source_sha256": "998d0f111cb86cc6d806a6242eead974dd422d542cc439d693b97bed2fdb75d3"
+      },
+      {
+        "source_id": "FGDC-822",
+        "source_sha256": "c470eec4aefd39afc338bf2c00c743dcd56aa4e9d0288622effb51c7d74c8c6e"
+      },
+      {
+        "source_id": "FGDC-823",
+        "source_sha256": "43e61a2930678b13e539137addcb921a34c4076e6af5e8b859e2706c971939a8"
+      },
+      {
+        "source_id": "FGDC-824",
+        "source_sha256": "a65f5b2edc7ce3898d7b69643163a0f74b812309fcbb58d791bedb65d7fe94d8"
+      },
+      {
+        "source_id": "FGDC-825",
+        "source_sha256": "09b03cfe8f7fbaa3931d983d7cc72f6581c405b9609ba1b960c9f8a3c2379b32"
+      },
+      {
+        "source_id": "FGDC-826",
+        "source_sha256": "d0d275249378d35f9febcd371ff628ecc965d421a86bdebad6c5a58d6b4b2f5c"
+      },
+      {
+        "source_id": "FGDC-827",
+        "source_sha256": "1863dad0ef4acdcd3f7fcbcd60a3b8bbbc383315242f67669e672355d60fa548"
+      },
+      {
+        "source_id": "FGDC-837",
+        "source_sha256": "04086f43cc00f35c83ef8968612925d0459c9f3b053d784c957a0a98ccc26ff4"
+      },
+      {
+        "source_id": "FGDC-838",
+        "source_sha256": "7ecab416121170d12a29635722fdfeb5440764470aaefc4a2be060abd73dc832"
+      },
+      {
+        "source_id": "FGDC-839",
+        "source_sha256": "6442533f4d02c6f846b172895d8dbf327b24aec0ed813c38bd1b40921ceb2f89"
+      },
+      {
+        "source_id": "FGDC-840",
+        "source_sha256": "ec3da8eaba0bd79a5519ef51f7f0e70e89c39ec9463a98cd0eabb99e810e7ce8"
+      },
+      {
+        "source_id": "FGDC-846",
+        "source_sha256": "ff0098d925741f3ca1e0610735227aea85171eaafb60a709dce4fe589c17503b"
+      },
+      {
+        "source_id": "FGDC-847",
+        "source_sha256": "5c99585404da0646afc2045e2b74a021b22c21aa816bb9c2ecf870b2fdc2d082"
+      },
+      {
+        "source_id": "FGDC-848",
+        "source_sha256": "0cc6dbfe352ab7a61590c3034042b17d06b96557a740ba3c12841121862cd4c9"
+      },
+      {
+        "source_id": "FGDC-871",
+        "source_sha256": "555891473bc8d6e400e8c86434eca35b07503612217119505140c4b92b03e6bb"
+      }
+    ],
+    "all110_supported_after": true,
+    "remaining_protected_held_count": 38,
+    "remaining_protected_membership_sha256": "e8f5c9866a03bc316eadb35c80af78ab874de7cd15a862f17b07a1815c0f0c3c",
+    "remaining_protected_members": [
+      {
+        "source_id": "FGDC-10",
+        "source_sha256": "d6058b56805804d05348d45dd3e4686acc258dfc3495107b1d06cf345bbb592c"
+      },
+      {
+        "source_id": "FGDC-1257",
+        "source_sha256": "343d0e1b6c7d96a3899dfe5173b84ce12f8a5174d77b7fbdf65a897a00416b42"
+      },
+      {
+        "source_id": "FGDC-1258",
+        "source_sha256": "fb72564a17bf0535a1cfeaab04dd92d674dcb164ce4d608cdd17c19a5b1bfac9"
+      },
+      {
+        "source_id": "FGDC-1262",
+        "source_sha256": "3b9761159b7036598d96e2fcee9651c8f1c32428840106c4edb5cf53483d93cc"
+      },
+      {
+        "source_id": "FGDC-1273",
+        "source_sha256": "02957d0e04f214f4f02b72487d71923b613c01d81133967b17c2381626b1309a"
+      },
+      {
+        "source_id": "FGDC-1643",
+        "source_sha256": "e47fa7716d05477ec49aa845e6e953f094a3d9379377cfe34c2c9968e4ac41dd"
+      },
+      {
+        "source_id": "FGDC-17",
+        "source_sha256": "0afb42c697a1d6828fb45b5f65c8e8cd9542cbec33991c14e42353d8a3a5a52e"
+      },
+      {
+        "source_id": "FGDC-1767",
+        "source_sha256": "4c82d4256cc2c3e33d9f31083c99206bbf7a50ea1281344d2e2bf4dfcd78c147"
+      },
+      {
+        "source_id": "FGDC-1800",
+        "source_sha256": "7028ba9a632c5aad7c1ee9a97142b9eab382b9fd52ebd494e753acefeaf46dea"
+      },
+      {
+        "source_id": "FGDC-1903",
+        "source_sha256": "63c017345d2328f74bda6acb9bd04f2a8a507714b5e106b8d089490348f12e56"
+      },
+      {
+        "source_id": "FGDC-218",
+        "source_sha256": "04fd251ef538126fc4a3bb1b963a76e6a22fa89d290915ee69e44eb64cf944e5"
+      },
+      {
+        "source_id": "FGDC-2197",
+        "source_sha256": "421c742efcfd50498a916673e4a4e4b257b67a2929205d40cff11e2a07ba1113"
+      },
+      {
+        "source_id": "FGDC-2228",
+        "source_sha256": "141b02ba492c39db7996678e24917a951d1acd5bb5fae5d105044f78b996e37e"
+      },
+      {
+        "source_id": "FGDC-2232",
+        "source_sha256": "8c0498452f5d0d971257c46731e690ab78297694f4c3f61f07a8df834f7b850f"
+      },
+      {
+        "source_id": "FGDC-2234",
+        "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+      },
+      {
+        "source_id": "FGDC-2244",
+        "source_sha256": "9703a1f5392dac8c872c70296b8d4eb7748096a66c1664e553bfeec5d2ca63ea"
+      },
+      {
+        "source_id": "FGDC-2302",
+        "source_sha256": "e5a27697c6965960ea2a8bd8184e4b8739c79ce0f0cfa98dd6701c6c8bdc6c15"
+      },
+      {
+        "source_id": "FGDC-2524",
+        "source_sha256": "bace4994cb6b32d9eca213fe1789afd21cdeb2269b2acdb5ca3ce720500130ce"
+      },
+      {
+        "source_id": "FGDC-2603",
+        "source_sha256": "6a3cbd4808b1446f3264f553d24750023b861171dae7bcaebfb07065b1a01f4c"
+      },
+      {
+        "source_id": "FGDC-2664",
+        "source_sha256": "993fb2c2ae8a94b5a7a3e55b6bd344ea57753a4ffee2e4de45baf1b322a448b3"
+      },
+      {
+        "source_id": "FGDC-2702",
+        "source_sha256": "8a9f23097d76bdde1a8118014bbde71d1a04047cbce4770f57f738b03b62a255"
+      },
+      {
+        "source_id": "FGDC-2817",
+        "source_sha256": "c18640475c937fa475ee45406d4a9cb1012ef8b96bb056f0b5435f995a13eb5c"
+      },
+      {
+        "source_id": "FGDC-4027",
+        "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92"
+      },
+      {
+        "source_id": "FGDC-4063",
+        "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076"
+      },
+      {
+        "source_id": "FGDC-4064",
+        "source_sha256": "1b3891fe9136b5a95182c3e0b5a06929a7524870ba09479fd59c5148da26806c"
+      },
+      {
+        "source_id": "FGDC-542",
+        "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c"
+      },
+      {
+        "source_id": "FGDC-565",
+        "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d"
+      },
+      {
+        "source_id": "FGDC-638",
+        "source_sha256": "2dff06bcff4abe5b6fbb18b8116efca7365c65ecef690017c22c754338fcf0f1"
+      },
+      {
+        "source_id": "FGDC-641",
+        "source_sha256": "d9755a80b7caf7abb56a46593cdb2a4410aa251cf245d2e2c61068fd4f226dbf"
+      },
+      {
+        "source_id": "FGDC-645",
+        "source_sha256": "3845169731c52fb192a6b91daa7527a917c04982602444ab45879f2e8b3861d1"
+      },
+      {
+        "source_id": "FGDC-669",
+        "source_sha256": "dc7de1b6fd1213657665f9c3110653bd3faceb35cec697e026fa87d6183b64ed"
+      },
+      {
+        "source_id": "FGDC-710",
+        "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a"
+      },
+      {
+        "source_id": "FGDC-859",
+        "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4"
+      },
+      {
+        "source_id": "FGDC-885",
+        "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+      },
+      {
+        "source_id": "FGDC-887",
+        "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+      },
+      {
+        "source_id": "FGDC-905",
+        "source_sha256": "eea983a9d7960e862367e644fcc2740c40e05e7727f4c37f94b2a128b77974b6"
+      },
+      {
+        "source_id": "FGDC-906",
+        "source_sha256": "26904ef9a38997f3cf55514fab3d9bda60f9e4de710734b7614e32bb5c70e04b"
+      },
+      {
+        "source_id": "FGDC-909",
+        "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae"
+      }
+    ],
+    "all38_held_after": true,
+    "remaining_protected_held_in238_access_residual_count": 29,
+    "remaining_protected_held_outside_access_lane_count": 9,
+    "outside_access_lane_held_ids": [
+      "FGDC-10",
+      "FGDC-1257",
+      "FGDC-1258",
+      "FGDC-1262",
+      "FGDC-1273",
+      "FGDC-2664",
+      "FGDC-2817",
+      "FGDC-4063",
+      "FGDC-4064"
+    ],
+    "scope_finding": "The110 clear from their individually bound source resource/acquisition/use evidence. The prior821 statement is not extended. All conditions and original terms remain; descriptive XML authority stays separately user-attested."
+  },
+  "access_lane_residual": {
+    "count": 238,
+    "membership_sha256": "161861df5dcd0c6b540cc4837d8c027f7b683ddb12998054b8443dccb50af88d",
+    "all238_held_in_completed_after_report": true,
+    "limit": "This is the exact frozen residual of the443 lane, not a finding that every residual is irreducible or that future source-supported finite corrections are exhausted."
+  },
+  "material_findings": [
+    {
+      "source_id": "FGDC-121",
+      "source_sha256": "a738d9405f8b2643db90693f08e29b793ff679137796dac443221d7848a8a6fd",
+      "meaning": "underlying_data_availability_and_quality",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Unless specifically annotated otherwise, and may be used freely by the public.",
+        "./idinfo/useconst": "Real-time data has undergone gross error checking only.  Use real-time data with discretion.",
+        "./metainfo/metac": "Unless specifically annotated otherwise, and may be used freely by the public.",
+        "./metainfo/metuc": "Real-time data has undergone gross error checking only.  Use real-time data with discretion."
+      },
+      "context_evidence_sha256": "dd87b8b1febc166e72aa96a1de097928f5b9e42a537572fe22fae83f1f7cd2d2",
+      "finding": "Unless specifically annotated otherwise and gross-error-checking caveats remain conditional data guidance; no overriding annotation in the bound XML."
+    },
+    {
+      "source_id": "FGDC-196",
+      "source_sha256": "5923d5aa0972d3a8e87c8c155b1ce0efa1ba9198791e3eb461d58caff675476d",
+      "meaning": "underlying_data_availability_and_citation",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "All data are available one year after collection.",
+        "./idinfo/useconst": "No use constraints after one year after collection other than giving proper citation to the data origin.",
+        "./metainfo/metac": "All data are available one year after collection.",
+        "./metainfo/metuc": "No use constraints after one year after collection other than giving proper citation to the data origin."
+      },
+      "context_evidence_sha256": "df6de23670f1c8e26a6a4b50f489482f525992dee9d2ff1f732312a737a8ee26",
+      "finding": "One-year-after-collection availability and proper citation are preserved; no passage-of-time permission is asserted."
+    },
+    {
+      "source_id": "FGDC-202",
+      "source_sha256": "3ac0af70017082390e9d11547bf469e547c7389833dee12aca99778cbff5a2e7",
+      "meaning": "underlying_data_archive_acquisition",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Contact custodian or Robin Brown, Manager (email: brownro@dfo-mpo.gc.ca). Cost recovery may apply.",
+        "./idinfo/useconst": "Contact custodian or Robin Brown, Data Manager (email: rmbrown@ios.bc.ca). These data will be added to the IOS/OSAP archive.",
+        "./metainfo/metac": "Contact custodian or Robin Brown, Manager (email: brownro@dfo-mpo.gc.ca). Cost recovery may apply.",
+        "./metainfo/metuc": "Contact custodian or Robin Brown, Data Manager (email: rmbrown@ios.bc.ca). These data will be added to the IOS/OSAP archive."
+      },
+      "context_evidence_sha256": "3a49e0c3fd2873e8f7897e33b89dcb6f9939c8b40e30a21d5fceec1ae1fdf894",
+      "finding": "Distinct literal custodian addresses/roles and future IOS/OSAP archive state are preserved without assuming archiving occurred."
+    },
+    {
+      "source_id": "FGDC-2293",
+      "source_sha256": "6e99db62f635043cb48edf38253ef029b7acfb3d0d5455d197d2c97854393320",
+      "meaning": "underlying_data_publication_and_physical_specimen_permission",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Should be publically available after publication",
+        "./idinfo/useconst": "None on data.  Further analysis (e.g., DNA) on bone may require permission.",
+        "./metainfo/metac": "Should be publically available after publication",
+        "./metainfo/metuc": "None on data.  Further analysis (e.g., DNA) on bone may require permission."
+      },
+      "context_evidence_sha256": "9fc59ec18facc54fcb24b093f1cd45c9e631426c5198836f0f53974a279ecfdd",
+      "finding": "Public-after-publication expectation concerns data; None on data is distinct from possible permission for bone/DNA analysis. Neither publication nor permission is assumed."
+    },
+    {
+      "source_id": "FGDC-230",
+      "source_sha256": "c7b1faebf4bf7ac8c320f840256bbaabc7554fe3b02c9384d6f6ef8d6e89fd5d",
+      "meaning": "underlying_resource_construction_status",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Database (including metafile of available information) is presently under construction and will be available in 1997.",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Database (including metafile of available information) is presently under construction and will be available in 1997.",
+        "./metainfo/metuc": "None"
+      },
+      "context_evidence_sha256": "22fcccc4d7d511c481b1cde05a28374ab51bfada6f65103035e9ad69e900d655",
+      "finding": "Historical construction expectation includes the resource database and its associated metafile. No construction completion is inferred and descriptive XML rehosting is independently user-attested."
+    },
+    {
+      "source_id": "FGDC-327",
+      "source_sha256": "f9e9d858bd942d3172eab64f87f68932690870b7486efe02ecd7b7a65768e970",
+      "meaning": "underlying_resource_availability_with_source_limits",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Data  available on request, usually within 2 days. See abstract for other comments on accessibility.",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Data  available on request, usually within 2 days. See abstract for other comments on accessibility.",
+        "./metainfo/metuc": "None"
+      },
+      "context_evidence_sha256": "d1b9971ce2421b78d4ae1a68c2a533ac91abe3cf27896fe90a2a9cec1b5c9a22",
+      "finding": "The whole mixed-content abstract explicitly preserves limited availability, work in progress and investigators who have not consented or supplied data. Metadata-development passages describe resource preparation rather than a descriptive-XML rehosting grant."
+    },
+    {
+      "source_id": "FGDC-520",
+      "source_sha256": "2b8944162579bc8579dab2821533d0cdb2ea46db8c512e3ca44e15a46c007bd5",
+      "meaning": "underlying_data_publication_contingency",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Data will only be made available to other sources after publications of findings by authors",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Data will only be made available to other sources after publications of findings by authors",
+        "./metainfo/metuc": "None"
+      },
+      "context_evidence_sha256": "6494f05454610d857cb2683afb74c4e801f211fded5d98df04e729981d9068f9",
+      "finding": "Access to study data is conditional on authors publishing findings; no publication or expiry is assumed."
+    },
+    {
+      "source_id": "FGDC-540",
+      "source_sha256": "238a93f4774206ed0e91da103e8cb56c565b21f9678e51e56aa224e9094d14ed",
+      "meaning": "underlying_data_publication_attribution",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "context_evidence_sha256": "89b76c481711a54b055b6655978dfe56fa49776ddab6e678e03a29a9b21290b6",
+      "finding": "Acknowledgement concerns the Native Foods data source publication. The descriptive record does not deposit the underlying community database or grant its use."
+    },
+    {
+      "source_id": "FGDC-541",
+      "source_sha256": "86d75a34737e771566e1a619676d9a1fe66e6f7a4f39ddb10fa57660e17efc72",
+      "meaning": "underlying_data_collection_attribution",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "When using this data, acknowledge the Unaami Data Collection and the original source of the data.",
+        "./idinfo/useconst": "When using this data, acknowledge the Unaami Data Collection and the original source of the data.",
+        "./metainfo/metac": "When using this data, acknowledge the Unaami Data Collection and the original source of the data.",
+        "./metainfo/metuc": "When using this data, acknowledge the Unaami Data Collection and the original source of the data."
+      },
+      "context_evidence_sha256": "ab1c62c98d54cfc7185b086cb0da143ce85996795ce9606b3cd3915b77a85c8b",
+      "finding": "Collection and original-data-source acknowledgement remains literal; attribution is unchanged, including existing creator objects, and XML authorship is not inferred."
+    },
+    {
+      "source_id": "FGDC-550",
+      "source_sha256": "703288a7c4460de563e91b6cab47ab41fcf62b6fc41f30c92910dedf8426d14b",
+      "meaning": "underlying_data_collection_attribution",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Please acknowledge the Unaami Data Collection and the original source of the data.",
+        "./idinfo/useconst": "Please acknowledge the Unaami Data Collection and the original source of the data.",
+        "./metainfo/metac": "Please acknowledge the Unaami Data Collection and the original source of the data.",
+        "./metainfo/metuc": "Please acknowledge the Unaami Data Collection and the original source of the data."
+      },
+      "context_evidence_sha256": "674721f505ae111f6d842f57352b34b4793879e47a741eb41620f4e0f41811d9",
+      "finding": "Source title names Atka Mackerel while abstract repeats Zonal Wind. This existing source inconsistency is preserved; the attribution interpretation does not reconcile or rewrite it."
+    },
+    {
+      "source_id": "FGDC-651",
+      "source_sha256": "010cfca9d043d0ae5fa52563268ce3e87c24d4bee7c0441626ea00cb3e86c9e5",
+      "meaning": "underlying_data_software_and_interpretation_guidance",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "No access restrictions, requires hypercard 2.0 or higher on a 2MB MacIntosh Plus or higher.",
+        "./idinfo/useconst": "Anyone wishing to use all or part of the data for purposes other than tracking the cleanup process of the EVOS should consult with NOAA HAZMAT to ensure accurate interpretation of data.",
+        "./metainfo/metac": "No access restrictions, requires hypercard 2.0 or higher on a 2MB MacIntosh Plus or higher.",
+        "./metainfo/metuc": "Anyone wishing to use all or part of the data for purposes other than tracking the cleanup process of the EVOS should consult with NOAA HAZMAT to ensure accurate interpretation of data."
+      },
+      "context_evidence_sha256": "c8c4ee54e416a77bf235ec5706b1a4eff81cb81cbcf1567deafb766ed8ae4ab9",
+      "finding": "CAMEO software requirements and NOAA HAZMAT consultation for non-cleanup data use remain; no consultation or use permission is claimed."
+    },
+    {
+      "source_id": "FGDC-658",
+      "source_sha256": "6f0b3011c63ecaacc05b432eed0d39aeafcc753465791855f0109ced84239e2c",
+      "meaning": "underlying_map_availability_and_navigation_limit",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Seasonal maps are available to the public free of charge, 1:63,360 maps are available but are very limited production. Maps can be copied.",
+        "./idinfo/useconst": "Not to be used for navigational purposes.",
+        "./metainfo/metac": "Seasonal maps are available to the public free of charge, 1:63,360 maps are available but are very limited production. Maps can be copied.",
+        "./metainfo/metuc": "Not to be used for navigational purposes."
+      },
+      "context_evidence_sha256": "4174993c743466760cdb6fa1c1e3a25409bbf746eff0ecf65d5776b91ea1df2e",
+      "finding": "Public seasonal-map/copy availability and navigation limits concern the map resource. No actual map or protected resource-location dataset is deposited."
+    },
+    {
+      "source_id": "FGDC-693",
+      "source_sha256": "146e77ac31722f3cb96ab5c7bd59b09118c84c5c14ed2b597e196298d98bc5be",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data",
+        "./idinfo/useconst": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order.",
+        "./metainfo/metac": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data",
+        "./metainfo/metuc": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+      },
+      "context_evidence_sha256": "d0b3d37eed84665c5e08285653eafdec6de01cf9d80ba16954c21fbb70aaa8c7",
+      "finding": "GIS Starter Kit Data Agreement and scale/order conditions describe the kit data. Agreement text has not been verified or deemed satisfied, and no terms are extended to descriptive XML."
+    },
+    {
+      "source_id": "FGDC-707",
+      "source_sha256": "c8f822b36240274dfbb61b91ca8781ce49d1f052b1fcbee8a1f01c515e3924df",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Requestor must complete GIS Starter  Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./idinfo/useconst": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order.",
+        "./metainfo/metac": "Requestor must complete GIS Starter  Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./metainfo/metuc": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+      },
+      "context_evidence_sha256": "4988200a93a6014fb8af20ef369cf622b2ffa5bd30e3b0d4cebb52aeb239fe85",
+      "finding": "Alyeska permission described in the abstract is specifically permission to include pipeline data in the DNR basemap; it is not an XML grant."
+    },
+    {
+      "source_id": "FGDC-715",
+      "source_sha256": "e1b36e7702814f7fa4fe104076d422df26252506785d4a61755e0a2f35ae5278",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./idinfo/useconst": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order.",
+        "./metainfo/metac": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./metainfo/metuc": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+      },
+      "context_evidence_sha256": "5258565d0284f965813e130620ff7fef7e0a8030b0079093896e36f5e6eb13a9",
+      "finding": "Public-domain wording in the abstract is a historical assertion about CIA World DataBank II data, not an XML license or a new determination of current rights."
+    },
+    {
+      "source_id": "FGDC-806",
+      "source_sha256": "5d6d99b6c0ccee10b14f5e0a4fc2e52d600e904a7d0a899ad1612fd61df0177f",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./idinfo/useconst": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order.",
+        "./metainfo/metac": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./metainfo/metuc": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+      },
+      "context_evidence_sha256": "91b2070c5df2dda8866d2744a0cf444b98c2c2f0ae1bc7cc478801ce225274fa",
+      "finding": "Nautical raster charts are explicitly not yet available in the source abstract. The kit interpretation does not assert that digitization or availability occurred."
+    },
+    {
+      "source_id": "FGDC-838",
+      "source_sha256": "7ecab416121170d12a29635722fdfeb5440764470aaefc4a2be060abd73dc832",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./idinfo/useconst": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order.",
+        "./metainfo/metac": "Requestor must complete GIS Starter Kit Data Agreement stating Terms and Conditions for use of Starter Kit Data.",
+        "./metainfo/metuc": "DNR does not recommend use of this data at a larger scale. Greater detail for each layer is provided from DNR, Land Records Information Section, for each data module upon receipt of order."
+      },
+      "context_evidence_sha256": "29b51c5e6b71bbf3d7876d4a10a0349ecd7278f9d2a46879bc83cf323f0bc073",
+      "finding": "ESRI permission described in the abstract is specifically inclusion of DCW-derived data in the ADNR basemap; it is not an XML grant."
+    },
+    {
+      "source_id": "FGDC-854",
+      "source_sha256": "623edfaed8114774343c99a60c2e9f721914b2206f339902f7730d4eff9e86f9",
+      "meaning": "underlying_nonrestricted_photo_acquisition_and_attribution",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.",
+        "./idinfo/useconst": "None, request that USGS be noted as data source.",
+        "./metainfo/metac": "Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.",
+        "./metainfo/metuc": "None, request that USGS be noted as data source."
+      },
+      "context_evidence_sha256": "0c07cee1fd8a88d0579a35a6c905b6f84274fccddfbf332350555f308974f572",
+      "finding": "Only non-restricted photo-data availability/cost is described; no unrestricted status is assigned to other data or to the XML."
+    },
+    {
+      "source_id": "FGDC-864",
+      "source_sha256": "202c2a1cdf6e6bc3424dc243bfebf74ff43b6f2bafcabdd5e709fc2c8de174c9",
+      "meaning": "underlying_resource_partial_availability_and_resolution",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Not all data are available. Contact USGS ESIC office for detailed availability information .",
+        "./idinfo/useconst": "For regional application only due to coarse resolution. No accuracy assessment was performed on component parts.",
+        "./metainfo/metac": "Not all data are available. Contact USGS ESIC office for detailed availability information .",
+        "./metainfo/metuc": "For regional application only due to coarse resolution. No accuracy assessment was performed on component parts."
+      },
+      "context_evidence_sha256": "825f866df81f418fcdf9f451260c1e4fc9459c33999aef2799e06eee1ecd41a5",
+      "finding": "Partial data availability, regional resolution and lack of accuracy assessment remain source caveats."
+    },
+    {
+      "source_id": "FGDC-866",
+      "source_sha256": "6c511c753f6d18abbc330a8907333a2364bffadd473623e61dc646d4eef71ab4",
+      "meaning": "underlying_resource_availability_and_application",
+      "exact_raw_constraints": {
+        "./idinfo/accconst": "Available to the public for the cost of reproduction.",
+        "./idinfo/useconst": "Not intended for site specific uses. Use of this data does not eliminate the need for on site investigation and testing.",
+        "./metainfo/metac": "Available to the public for the cost of reproduction.",
+        "./metainfo/metuc": "Not intended for site specific uses. Use of this data does not eliminate the need for on site investigation and testing."
+      },
+      "context_evidence_sha256": "600f5afd1ff530c3334e05c1cfaaeeaac1fb566bf89ebdbfc812656f7b2c0153",
+      "finding": "Soil-resource copy cost and need for site investigation/testing remain; source guidance is not a resource-use authorization."
+    }
+  ],
+  "mixed_metadata_resource_review": "No added205 case establishes a separate descriptive-XML prohibition or requires presumed satisfaction of a data condition. Historical database/metafile construction, metadata development, data-basemap permissions, CIA data public-domain assertion and Native Foods/sensitive-resource context are preserved literally and are distinguished from XML rehosting authority.",
+  "blockers": [],
+  "inventory": [
+    {
+      "source_id": "FGDC-121",
+      "source_sha256": "a738d9405f8b2643db90693f08e29b793ff679137796dac443221d7848a8a6fd",
+      "baseline_payload_sha256": "e16dd20748b6100de35fc2f4d8088edce051b1f4c7b7268aface0bd945ff0ac3",
+      "baseline_complete_metadata_sha256": "6652773990676cab446ebb69c198304cd8ba211d00ac73b19c5617b4095c97fd",
+      "meaning": "underlying_data_availability_and_quality",
+      "after_payload_sha256": "91fa7a7693a429614d928cf8cd598319929eba27c397471620f501a45d171a41"
+    },
+    {
+      "source_id": "FGDC-1256",
+      "source_sha256": "be0ebc8c43e6b66d3a73ec0d896a5379398165bc85233a239e9324166b56059a",
+      "baseline_payload_sha256": "1b81f237ccce0a186fff97c32efd090a3f419270451c145b2de8a3c909d60b42",
+      "baseline_complete_metadata_sha256": "1ca272cb1d4a21aa86e7c18cebb2c34f9677ad18ca2f5fa8fe08d7d1d53025e2",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "fe3e74b330538582cdfe7d7fd8afd2a3fac266e6fe8106f945303b4a9d155ae8"
+    },
+    {
+      "source_id": "FGDC-1259",
+      "source_sha256": "624b84b0cb1f08596a7c6212a64fad4eb5ec8b3ad7537815aee7f0a730c57a45",
+      "baseline_payload_sha256": "30b9872e69f9810c18505d5787674ca4ec6fe0d660e6a76c1839e6f5da1df2bb",
+      "baseline_complete_metadata_sha256": "7bfa822bcf46cf4503293c66c1fd47d69b3bdd58c0d95e9c0016869a8bf3ff92",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "a4ecf369f083e6e4332740f2579945e45d0ac0a8b1c9e6d88e4ea0f5726744af"
+    },
+    {
+      "source_id": "FGDC-1260",
+      "source_sha256": "d41dc30c9c88748add6513c12bb2fd2f8babd5fdede16e4f77106fc7745ae3af",
+      "baseline_payload_sha256": "460311e669848023d92ac14734a3d2866b8c57f224090787b7b9ea69ff32937c",
+      "baseline_complete_metadata_sha256": "3419fd3f39d1bd6bb5e402e16098a86ed9b35738dc9c8b262adc174e55e77801",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "2c7a1c7554b1e77ed8e25fc821a9408ec40bb8f6c7aee9907a956985eafdb5b8"
+    },
+    {
+      "source_id": "FGDC-1263",
+      "source_sha256": "470a654c76433c464cb35a8f95a2290014357b5109a742b65fe15428e753e44e",
+      "baseline_payload_sha256": "f20cb537136ffbe4dc5acd2f326e1ea602376f325129ac9d86503bb9652fd652",
+      "baseline_complete_metadata_sha256": "cfc22f66beb0ebc79c81973625881827bcd4749ef9773c891c4bbcc45f530d4b",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "55a3b7d2fd8e6b02b5971f166b42b2477192eb3ef118c05cc64d06bcc00c0a34"
+    },
+    {
+      "source_id": "FGDC-1264",
+      "source_sha256": "30591549ea992e68e92c358d5efb5a6b5970f756c6e4bead89d5483986943b37",
+      "baseline_payload_sha256": "18c2ecd8f8960b5005a88a9787c360a97cc16008b5fd53202cb09c816b9b5124",
+      "baseline_complete_metadata_sha256": "a7a3706aef26a234065dab1f0c13d671ecd9274da2cdb78c9e6611f21196287a",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "7ebccbd13741f70ef6a0435b46b5de6fba360b2882f061b4619892f17f7e4d05"
+    },
+    {
+      "source_id": "FGDC-1265",
+      "source_sha256": "822140d568756c49c6fc7cdccd24a4613755df799176b6480444479c16a113be",
+      "baseline_payload_sha256": "b44ceac0110bd20303c28a34b47ca12fa17e691d0fd20c4e5fe883b8e206c9b8",
+      "baseline_complete_metadata_sha256": "7eaf2d107c72cf31b4a9b10512ced8794476ed3ff9ae54410dbabd9289c91161",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "635db29c71ca8f08729ef914b29ebfe5e1b1aaff2ec2c48d1b3e4f56a1a10883"
+    },
+    {
+      "source_id": "FGDC-1266",
+      "source_sha256": "7560aada160eb6ed87113a8a68d2ce2000d249c27132c16e6a55f179cb1ffb8d",
+      "baseline_payload_sha256": "25be86bc1bb4a777c00b71d7c2b9c37679b650b16c36c3511d7e585c800f2378",
+      "baseline_complete_metadata_sha256": "67049ac776935ff04580249ed84d923164324d4f87573a5710667a74be6f21e3",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "c2eab3a2b93c6d936ac6dd1716cc12b9fbcd60c2799d14411a97b655af6a94fe"
+    },
+    {
+      "source_id": "FGDC-1267",
+      "source_sha256": "192658f64c7d9087d508d354fcf44ba8a2a8f2dca67654d69471e1ba2e62311e",
+      "baseline_payload_sha256": "17fec2721eb26827b91f4bcc4cf6a31657295186ba2be1cce5888433e33a372c",
+      "baseline_complete_metadata_sha256": "628e787802648a64aacd06335d4d1bba20beceeb854a28e13850d73ec79ca07a",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "e3b8e2a7507cd71f93316926382101f4b63379f8031091d56c15acb15612b924"
+    },
+    {
+      "source_id": "FGDC-1268",
+      "source_sha256": "c5636b682fd6b3ca395bf90475f38ace9fc6ee13132ff4fc0767bcdc483363c8",
+      "baseline_payload_sha256": "764443d18d771ffba5775adf2cc0d1f845a0def8bb72e3908721df13ad35a814",
+      "baseline_complete_metadata_sha256": "060f3dda333421284c9acb9e3646906dfd3f90f48cdbceb2d3bdc9d7a8cfe8da",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "249a42b7eda632dc1ce25bc9e7149f3a6c5b0aa3195fc9437690f858fefb1793"
+    },
+    {
+      "source_id": "FGDC-1269",
+      "source_sha256": "2f02acb43598afcbcff084d6c324e9672bb43185d2b85109a32936e43d994954",
+      "baseline_payload_sha256": "1cd9123b9767fe04b80c4e28f9748aa8b34dc3d7a47e4da6758b2cebdd11686d",
+      "baseline_complete_metadata_sha256": "78dfc0040acb6c6f285ace94620fb0f7cd85c8c87d8e5d587381d6d52277e39a",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "82516d6909e08d6b6bdcc7ee571ce68128a02b7ce3db21c321c235d930fc99d4"
+    },
+    {
+      "source_id": "FGDC-1270",
+      "source_sha256": "18986ea479ad1632974c7f4e64ce6b4aac285b289a41f1e895a965ed9b1dbf32",
+      "baseline_payload_sha256": "013a02f2fa64d3ce0db4c67aa99370d13d1b08c1b5710b60f90ad76a2d3fc22b",
+      "baseline_complete_metadata_sha256": "5930e6074c54d7ee877634f7268dd67059e86c2139552a1ef6f7fc9955d81892",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "46a2194b9458137d208dc985cb361d7cbb47984f749f89e56a7d6103ccd3dd49"
+    },
+    {
+      "source_id": "FGDC-1271",
+      "source_sha256": "96710d45ba9976dfc273123c061d8480e0b1875e82911aedf0e88179bb8d655d",
+      "baseline_payload_sha256": "fd4622669ad076034758d06179e23a8bf1f1161ef9e3d0cd6f0fe558fe3b64d7",
+      "baseline_complete_metadata_sha256": "4866c0171a39824b9add7c1b8dbb4cabe14f9e73889fb12e3301512114f21748",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "b72c0ee5f8d40794caaa3f1126f361d29baf231b1d1ea7c873c0ba362a75acc3"
+    },
+    {
+      "source_id": "FGDC-1274",
+      "source_sha256": "3dce349327454fe45092bd45d0f1bccef40ddfb2ce71074d5ebee5e6c85ffe69",
+      "baseline_payload_sha256": "5a5a7c9e08dace9f92f2f3960e181eb5a3fe0e4b794a761bd3bd03b3e06b4f13",
+      "baseline_complete_metadata_sha256": "110d77482fd2715287c6b5e46ac480339a0b0f7d7053d0ab52fb61f60e41a660",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "3932f2dfe36bb31af0c91383cb2b9249a473a445fb182a2f2a801dfbadbea25a"
+    },
+    {
+      "source_id": "FGDC-1275",
+      "source_sha256": "966545a815853f6d03b2ece5bc5dbf2b69efe1bbbed489a9a77a26dc467c8364",
+      "baseline_payload_sha256": "3883a519ecb163686375399efa57be31ca47efebdfa9bc425095d75dde31f25b",
+      "baseline_complete_metadata_sha256": "0ece59e2ffb5f11ce0f002e73fb88574798bfb62b18aadbd154dd0f02ec396b8",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "bb23dc8fd375ed0b389e5e1ef932da88975528b95d46de35549c334ae9abb226"
+    },
+    {
+      "source_id": "FGDC-1276",
+      "source_sha256": "7e3bca0cb64663760e202100c2ecbc288e079aad031a9f3964d738423d97ed45",
+      "baseline_payload_sha256": "ed40571d0af94a90671180d854a9f0d244e12839a3010a5477bf6489818f1070",
+      "baseline_complete_metadata_sha256": "e5b6fdb3c61f5479b7c2343026d099bede3090043cb3eb1d60d169129ed78f31",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "83cad9a7c090cb4a47b423fa35cc64936c86ffa77cef3be14788ca94240d43f1"
+    },
+    {
+      "source_id": "FGDC-1277",
+      "source_sha256": "96de30ee1303759eb5cd06cc32863ba3700135918ce0898c7fff36b3f2ae0e2a",
+      "baseline_payload_sha256": "86c34931ecc4466d96fff0e8427baccf66f313db89bf60e0d4c1e980bdb5825f",
+      "baseline_complete_metadata_sha256": "e446e9aa892c0370aec05e57259764d7f0c94fa30df5eae390864c34d61942c7",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "b120a015224848e869ad5bbd599e7bada43a157314e68d5012a52f9e26339bad"
+    },
+    {
+      "source_id": "FGDC-1278",
+      "source_sha256": "97fdbe9ca92de53855d8479a0b0d50fe91d02e02b8c5b26b10e2daee65375f20",
+      "baseline_payload_sha256": "bd79d4d88fb71df1686a99f403389217e03c8a16486877bf5b300da7d829bc8e",
+      "baseline_complete_metadata_sha256": "97dd741fc11cfff55e619506c8a71f4f07c9b7a8fb16e56259fdaf0ca73d79fb",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "068ba9f8c4fc245ab8cf33efaa6309ba5345cc129e5c31a0c367f06efa3504a9"
+    },
+    {
+      "source_id": "FGDC-1279",
+      "source_sha256": "565603d75e275e866a3031fde7be6914712ec15614d3882caa3e3b70d89f36e1",
+      "baseline_payload_sha256": "3a46a40288e07a5517e4b6bbcfa190254c10e41c9d89be305f47ef8783c190b1",
+      "baseline_complete_metadata_sha256": "d0ce229a345d075bb38d9408ea3f3b0a3dc4bcf95a10358c85694b9504116a7c",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "fb16f5a932240b00977f18d52aa0a7d44008b7f66635bcfb9463d07f7e3dde3a"
+    },
+    {
+      "source_id": "FGDC-1280",
+      "source_sha256": "0101a27d09ba1a64c71dfef160c3ff9ef828b687a61fb16cd0ee02936b1b7c15",
+      "baseline_payload_sha256": "ee7ebd9cdf14fae196d115f293e795d0000e4de833a8b252699fd2651d2629ea",
+      "baseline_complete_metadata_sha256": "f9d2a7a9baa6f4c61c9dc343e95d4622021d54b0cdfb0d8eef05280a80b7284b",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "d6d8b952467776d4241072168124f94e4274885fdfbd8965ddf997963cfe981c"
+    },
+    {
+      "source_id": "FGDC-1281",
+      "source_sha256": "c5e1c621fd9287ceb5335d4c245f43a721beffeaf9d5c492a7470b9938056dd7",
+      "baseline_payload_sha256": "1a70256da42020f48b073131a166b1a763b6ffb38c6b25d7bdd5fbaa10e34ef8",
+      "baseline_complete_metadata_sha256": "a5d0567dd877cac9a0b33ab5f164762f7ba5cab04bd324f5384dc08e4e192d44",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "4facc88302cf619bf9f7e21a1be02445af5ca852c6fdaa7e35ee769d0d5520fb"
+    },
+    {
+      "source_id": "FGDC-1282",
+      "source_sha256": "fdc0789aeab6e1e3b241eec81815ce0565919701bf0b038db4b02c7a9b1de627",
+      "baseline_payload_sha256": "cc84bf90f1df972e6678660eb9cb308b87b30d6b1de9b6e8203b2b4fc44620b2",
+      "baseline_complete_metadata_sha256": "6bd9fc553b7107061d94dfa018ea8a39ba558d277be1b0248f399d24ec3ccd4e",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "251fbe961d025e71c27be9faa3cca276946906970f3ea34b986488451b9408cf"
+    },
+    {
+      "source_id": "FGDC-1284",
+      "source_sha256": "db10d0a71624e8597b33e79d796300f97e9ef43be397961c7b78fbf926379553",
+      "baseline_payload_sha256": "992f1f716ff0dec11d94c6699747fcfa27063e9a7d898edf581b6b22ab8ab6f1",
+      "baseline_complete_metadata_sha256": "9d20d682055db18fb86b3bcdee56d88c329409b7a98dbbd170e588b5f9907528",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "7388372d7a64ab3260f8370c608f24821072bf1b000ebd8f4c4b17c7401c2619"
+    },
+    {
+      "source_id": "FGDC-1285",
+      "source_sha256": "fffc1fea76665395e6d1d3b39a08349617163dc86994e37a0511d79bcf52090d",
+      "baseline_payload_sha256": "d381bc88d8672804f5c9d0113e35fffbaf7ac07a7c36c34024bf24ae21d35cc9",
+      "baseline_complete_metadata_sha256": "0ad2d3121d125ff90feec50b80428814df9379c083916f1b7d4052e39fc464e8",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "674982d9299227c6481aeb99a5eccfec4df336f3802af7fa0e567362445d0054"
+    },
+    {
+      "source_id": "FGDC-1286",
+      "source_sha256": "166be4df4285137e5c2253287d73b7c52313b8e834d3876bb1dacc710a4d6b6d",
+      "baseline_payload_sha256": "50337082df41756cc0a1662d9c0b3ad7a71fa30d1ec1050bfcb5962eb6399adc",
+      "baseline_complete_metadata_sha256": "afbdd11f9e3b5a4fb0b8946453dee0579ea7c6446a8ef018a5fa4572c68559b5",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "72189326f4457f05381125fd3290c36239ee1bb182dcf94b5c1b9ab53961dbc4"
+    },
+    {
+      "source_id": "FGDC-1287",
+      "source_sha256": "bf037a4cc53536aa64b3c848af0c4f025f5b9935b02daffcb5f4e659f32139ac",
+      "baseline_payload_sha256": "20bc4fcaea138875a357a22b6775bf52c48e336cad9397c6bc2c7ed196df34c2",
+      "baseline_complete_metadata_sha256": "5ee83a9dcb13c058aafadd1234337208fd617f0acc85cb9c1145603f2daebf46",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "238fe16c4a02943f8537f129cbbe70a4a3be348d5f67644bc16fa5d331e47b39"
+    },
+    {
+      "source_id": "FGDC-1288",
+      "source_sha256": "1dcd39a1432d8e98e40e4b80e6b8b5ebb10fcfb58f5b0a2f4237f21eb2b0f2f1",
+      "baseline_payload_sha256": "1a0f3f099074ca90902f640067af9921e9f0f1c8c02ecae92089fa1d6ec9081d",
+      "baseline_complete_metadata_sha256": "aaa5e8fc230ac17e82dc054a4e2ee0680046f3387f38726253911d955c14b73e",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "057eb4ca756aaa9c014a86bdf8e8b1124c99aa2ab30f269aca119a2f5fdcf8e8"
+    },
+    {
+      "source_id": "FGDC-1289",
+      "source_sha256": "0b570b4165374be03471b99ea576db712d8b75639563641f2f818e9700edd022",
+      "baseline_payload_sha256": "d8f5598ac27458db00ca1cab6df0499095481683813e40d50a009d679d2f172f",
+      "baseline_complete_metadata_sha256": "053ba4b502a33df84e301674ab511263b458f0d53f2c7d8f02cdecd3707bc9b9",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "9ff9a2524c1854cbaf8799564aac33fb8cce610bfc258b750130706720c4badd"
+    },
+    {
+      "source_id": "FGDC-1290",
+      "source_sha256": "81e46a5f98f5b40a63bbda483eee0a54e0d258619e3ec7792f40dcd05a62a19f",
+      "baseline_payload_sha256": "dbd5eb830f038f002902fcb6662f537090003fc3f24888e903b19ff83294dce4",
+      "baseline_complete_metadata_sha256": "0f468e060ee7a30a82c00a16d76b656f51185b3741bceffe1178ccf337ffd30b",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "28d7df6919f0d7b861fe588b5bd6acd8645b5a82f0cbe20ea98a3c0340e0e175"
+    },
+    {
+      "source_id": "FGDC-1291",
+      "source_sha256": "5058840108166feafe018819f256dfb587224dc249be903cf309b5561972cacb",
+      "baseline_payload_sha256": "8846a117ceddef77d70c5563db3666997d731a4e6886dde91f0e20254674abe7",
+      "baseline_complete_metadata_sha256": "701675e563c31e8a8dbda00b08dd66e4e68c75e6082bba765847f76060f86de8",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "98374417b7f5af53bd4ae9ca23789cb78160497dc390d68cf59cd09a6ce3e84d"
+    },
+    {
+      "source_id": "FGDC-1292",
+      "source_sha256": "1b5fb0561a4cf1b4c74f19cc5aa2fccad915a84f8ccb40777fb9709336b2bf10",
+      "baseline_payload_sha256": "e0acd05726787565e608acf5e4aecad772e27e530c9c02b6d5356f23c4a0a00c",
+      "baseline_complete_metadata_sha256": "2db7d874c8aa6dbb1fdfab8125251a2b7ac598feca64c3393565e0a1fcf3824e",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "d8ccd5e1c18431eb0c6868f5f72e23151d3a18c09d03095295c2ac4977fec8c1"
+    },
+    {
+      "source_id": "FGDC-1293",
+      "source_sha256": "24d3ffaa8e1662e692984700179cb7673539c6915ea8f272e078ed5a239355f4",
+      "baseline_payload_sha256": "5f38d76c5981748800ce075fe35f67cd56826f16bf172e31122dbc7d7914940a",
+      "baseline_complete_metadata_sha256": "d1fed6bcf837c09ad03bd801a2b6bc848017d39a29a845fe6a64033e1cec8828",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "58deb1d860fbbd02a7f9bd6bbc82853ddd4084a0e6466368f722b611f7a76723"
+    },
+    {
+      "source_id": "FGDC-196",
+      "source_sha256": "5923d5aa0972d3a8e87c8c155b1ce0efa1ba9198791e3eb461d58caff675476d",
+      "baseline_payload_sha256": "1283d5a1536697e7fd4c82ba7c7e618daa3fa848f3ca049ce3bb02b216cae19e",
+      "baseline_complete_metadata_sha256": "5f05a0f74a566839ed298da400a35825a9a079ad7c3ba5fe9638c7152a23d40f",
+      "meaning": "underlying_data_availability_and_citation",
+      "after_payload_sha256": "b9e9b82d68fff9a66de5936fb68881e2936426ef025b7ec8f953d8a4684e4f9e"
+    },
+    {
+      "source_id": "FGDC-199",
+      "source_sha256": "5cc1683edf595fd96a6a50a6f8589de289f123184f407700ca76c83992ae146e",
+      "baseline_payload_sha256": "2a171d39ed2a424f1ac97ca2e56140676580798a6321e1cd31582f1fbd7dd27f",
+      "baseline_complete_metadata_sha256": "45bed4774bfe7e1825035f868c4eea3438f352806b328dca361897eda7406055",
+      "meaning": "underlying_data_archive_acquisition",
+      "after_payload_sha256": "0af1e2188757b2dd2de4ba37ae05d22f25aa16ee80909890bf7c065e8c0fb2c6"
+    },
+    {
+      "source_id": "FGDC-2",
+      "source_sha256": "469b7d524441f1486a4d3bee287817fe05f8eb12f14aa5e4eca327ee9bd04a04",
+      "baseline_payload_sha256": "57ae3e26629c553ef38b048f20b48201a0d55ba5733e44ab701f7e5c7a7359a7",
+      "baseline_complete_metadata_sha256": "a8cfcdaa8889715db42ab1b61fd629d4bf665cbbf4825e9d276339026d1df6e4",
+      "meaning": "underlying_data_publication_status",
+      "after_payload_sha256": "fcc09e707cf19985c0d4656f74c0df35dbce90a7a8cb85c21d0d77161378ef40"
+    },
+    {
+      "source_id": "FGDC-201",
+      "source_sha256": "455233b05ce7ca830aa7d6d807b4ebf7c18d89f1bdc105bfddca1687b7c4afb4",
+      "baseline_payload_sha256": "06a2cac6150e868c552c5f36947ccb1979ff9a966376aa9d6fa603517aa54021",
+      "baseline_complete_metadata_sha256": "4b8804a1f6d8206a312f83219825432ca74a917bc6a9258da23170ad48ae9b86",
+      "meaning": "underlying_data_archive_acquisition",
+      "after_payload_sha256": "de51304b582f7f8508665bb71d9051f6f5e8121bab3a0f86f6bef3c08a1b52c4"
+    },
+    {
+      "source_id": "FGDC-202",
+      "source_sha256": "3ac0af70017082390e9d11547bf469e547c7389833dee12aca99778cbff5a2e7",
+      "baseline_payload_sha256": "ace3f7321e9a0841ac8932d89703046e51bdff73ca03d111079c44a0062bdfa6",
+      "baseline_complete_metadata_sha256": "ad73b1bdf8774022f23ed08420ddd1eff6b06d7cce5fc55d9ac5b5a94b258b9b",
+      "meaning": "underlying_data_archive_acquisition",
+      "after_payload_sha256": "b7fd13a5cb2a8c8859a0ead227884d74228f57bb6a13ba1f8e1484e45e7d4d09"
+    },
+    {
+      "source_id": "FGDC-203",
+      "source_sha256": "d45461be9e63028a36cf44a2b07e8db6fdca350f700bf0690ed1b34ddc17d53a",
+      "baseline_payload_sha256": "58dd2156deac161b427b4fc1e50bbef2460fe3a6313b058258767c51f000e620",
+      "baseline_complete_metadata_sha256": "ec3998347ab68e7ba7d44acc029886da4d4641c10c4d19009ae880177f6a7478",
+      "meaning": "underlying_data_archive_acquisition",
+      "after_payload_sha256": "0e73996ca01f67d4d895f4783d45bc5f5f2812b026f67f6dd7925e2b116a4945"
+    },
+    {
+      "source_id": "FGDC-223",
+      "source_sha256": "fdce4cd830eaea90080fa1ce9807c76956ab37e798f3d3ace02a34f28b18e2e9",
+      "baseline_payload_sha256": "3cd58de1f8a52e04b64bea87f4aa7a91f66d0a662ca368ac292856ac3d3eec70",
+      "baseline_complete_metadata_sha256": "018da9b8af2bdd16d9a787a863206487b81795a835ef023c50416998bb387553",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "80c709c48c0e8c502c0eb8b6426d145ada5fe0b3bce68eb0bc5ea114a93c4569"
+    },
+    {
+      "source_id": "FGDC-224",
+      "source_sha256": "08cbacf5fbced78f6654e76c98e984b9208a6117f55b37893de74c6c87775f28",
+      "baseline_payload_sha256": "8bf5730a276e38d56fe327e21dedad6ffaa9edfdc92001db757a9d8f8460c901",
+      "baseline_complete_metadata_sha256": "41a7d9c5811d1de6c59d43425493ec6835787b8fca775992dbcce284b340e429",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "a978036129350035ed9e7952f027ab30ad50353cddcc3100bbea54727b3baeb6"
+    },
+    {
+      "source_id": "FGDC-2240",
+      "source_sha256": "e30ea7b60de9ce894b02ba01de05d336a68f7fcceaf6acac2d3bc831424cf0b2",
+      "baseline_payload_sha256": "b2df8c1a6a5691d96ac83b410698845007bf60138053c2cd2f1342d07fae9396",
+      "baseline_complete_metadata_sha256": "5807b5215932c67ab2c5a83426e27cc1704839a3dd2dd463ad90dc094bd31dd8",
+      "meaning": "underlying_resource_publication_status",
+      "after_payload_sha256": "bd8046225f0a207d2740572c2e904f4023a5e8f5da4d7035412c7262813849dd"
+    },
+    {
+      "source_id": "FGDC-2241",
+      "source_sha256": "c8d0f941df03d5180ccd9a3dad6fc7b0cd220270b96ff981e7725033f97dc013",
+      "baseline_payload_sha256": "ca10de8188f66d24d9693923e88e3ae8e60909a536b3f4f67f24a233532ba89b",
+      "baseline_complete_metadata_sha256": "c76c01cbca676407495a1e85ecf8373676ddc365ccc25eeb79c8a3d61e3a2fcf",
+      "meaning": "underlying_resource_publication_status",
+      "after_payload_sha256": "a2f23fc6799e3148fbae63e868b7e189f0b5711035a7e85eb4dd1f863b3bd71d"
+    },
+    {
+      "source_id": "FGDC-225",
+      "source_sha256": "5b6cde3d975155a56e06ad07442a017e308044b720b76affdf7811ba05ae43c6",
+      "baseline_payload_sha256": "8f8a4cd4135390ac3e7dbe48fa95df711311b2297f505a421be54de12d9c2260",
+      "baseline_complete_metadata_sha256": "86a0df809c3ed0c8773546998773eec3f8922bcadae7ba2bd0b3fa0499a7f636",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "ebfdc0cc25817c83a248061e8700a80f0a0aa51074bf90187d74e4c905cbd979"
+    },
+    {
+      "source_id": "FGDC-2268",
+      "source_sha256": "38e45c3c9ca310bf179d3bda1e0bcd5a9c1131c35a3dfa19a7aaf4936fb04a91",
+      "baseline_payload_sha256": "d1bdfbd91dd9d914fd586c54b2dbc84c4b8724d0c5097b2af6a9bc3a264ab135",
+      "baseline_complete_metadata_sha256": "39e22a071b7f43227554eeb6cf843606b8082b386add78d60b8e67eb4383876f",
+      "meaning": "underlying_resource_storage_status",
+      "after_payload_sha256": "ac48ff4a1d59be262202b71fabe0de127a5956a13aa6d3ec0feead85dd458df4"
+    },
+    {
+      "source_id": "FGDC-2275",
+      "source_sha256": "95f7b2d6055acf9b4cb9c8a93ee1618a6c0387beaf34475af294c9cb40c19718",
+      "baseline_payload_sha256": "b2beffe5356efcc34a51983946ce0b92cf25d64c0114d73608b9b0459c6a1cd0",
+      "baseline_complete_metadata_sha256": "3b10023dfcb7d56205b28bf9fe1f9a6dddf33aa3fcfb671c16d5bb032f8b492e",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "170f1c5c0753600db69f0310db4cb9a6bc596cc83d98066ff1cf79031175b57e"
+    },
+    {
+      "source_id": "FGDC-228",
+      "source_sha256": "d1e39737c3713a9e80cec91ced3e90e7818b54d8c643d51758147d0cf056908a",
+      "baseline_payload_sha256": "df90a1eb1756c907bc8546ae9215fa6f9003a3f17e3e0d93f929a60785040249",
+      "baseline_complete_metadata_sha256": "01f6eeac3744bbdc368718252cf0ef370e5421b68e4e66143b44eab347f21151",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "9b5bea3445f58a603ac9c70e5c4d28122106128b17a50dbea5f219e1e538bca7"
+    },
+    {
+      "source_id": "FGDC-2282",
+      "source_sha256": "abb54d2ddd83c1d6e3da53d071f6dcfb1b98d30e3e4cfa5c3f45c7009bbb6b0e",
+      "baseline_payload_sha256": "78684a584ffc081123c09d7e6ff2ed3fd4b0b1103633704c493cc3c7503a4fee",
+      "baseline_complete_metadata_sha256": "ba8bea0cb5ae154b1f30c8ca99c05ac5ecf3ff568f7c6f728a72a41d30412584",
+      "meaning": "underlying_resource_technical_guide",
+      "after_payload_sha256": "d8835c538557668875b25c1cda078804e860fabb78cdd855036cc05a2ac2b5d4"
+    },
+    {
+      "source_id": "FGDC-2283",
+      "source_sha256": "c32918ed93841fc97d0d483fa55546805f1aa88e3767d1003bcec2088285e1ce",
+      "baseline_payload_sha256": "5c7afbb1e13716e10a68f5d3e1a17edeb93f5f0fca6caa4000ef8eb1a710d49b",
+      "baseline_complete_metadata_sha256": "5210e2ad5ab5121fd68d6ef14570e5680a405e1fa2ed81352e427017946edf0b",
+      "meaning": "underlying_resource_acquisition_referral",
+      "after_payload_sha256": "6b52d30b9db2f3aaf321ac388bb3d316997179e0d1ca466f032f8b9c4f7cd5de"
+    },
+    {
+      "source_id": "FGDC-2288",
+      "source_sha256": "6fba84e343cc0bdb32038317ea5bf794c235711d61ce6e80e7be7de91e60f415",
+      "baseline_payload_sha256": "fbcd51f09a3860c8f4a096a9be0710e8864b2cd91fd3b830849f3384c18e613f",
+      "baseline_complete_metadata_sha256": "f7a71ec0c2b531364c99a75afa884bae8ad3c82909ab4c507721fde1700d0aac",
+      "meaning": "underlying_resource_temporal_availability",
+      "after_payload_sha256": "82a9608ce450c3322fb54ff4c0e10ed669350bbf04cf8d1526b683b2f2b6de79"
+    },
+    {
+      "source_id": "FGDC-2293",
+      "source_sha256": "6e99db62f635043cb48edf38253ef029b7acfb3d0d5455d197d2c97854393320",
+      "baseline_payload_sha256": "8cb98d4b4906e07df93662e58509b438ce3d32903524eff0cb61b951cd293382",
+      "baseline_complete_metadata_sha256": "882aa6422f76be0a7411ca1e208888c0b36a1dbc47b3e00a44a3dc2188a429b0",
+      "meaning": "underlying_data_publication_and_physical_specimen_permission",
+      "after_payload_sha256": "c3bd86a1ebb4439d2b826de49b2ff8c5efeb55419c9a570bcdb210826cfa6b11"
+    },
+    {
+      "source_id": "FGDC-230",
+      "source_sha256": "c7b1faebf4bf7ac8c320f840256bbaabc7554fe3b02c9384d6f6ef8d6e89fd5d",
+      "baseline_payload_sha256": "4161ec18a453dc1e264ee10b819dcc775d66ea270850bed76311f2b37caf690a",
+      "baseline_complete_metadata_sha256": "b4acaec2762c44e50dad690396e8d4d720a5c9bbb378c37634d3a58fb202a892",
+      "meaning": "underlying_resource_construction_status",
+      "after_payload_sha256": "5629f4262bcb5734768b7df63f05ef02c01504ea1598ffa3e6dd993f7ff4ab4e"
+    },
+    {
+      "source_id": "FGDC-240",
+      "source_sha256": "f3d568ad09f96789378ba18ae1eb5892855ad1112d12dfc2cb27893f39dece79",
+      "baseline_payload_sha256": "bcec874c63b16136a9fbd1ed85ae98f3b06c648aa81bbd2c637aa33254f04528",
+      "baseline_complete_metadata_sha256": "a5605a71bbb656e1a909896a5a3809f3faeea70b9b2c71af130046bb47cd9266",
+      "meaning": "underlying_data_inventory_acquisition",
+      "after_payload_sha256": "18d593e2fa30da4ca84f8998023361b9994cafd1a3198fd7b84890005a9f5439"
+    },
+    {
+      "source_id": "FGDC-241",
+      "source_sha256": "bdfe2ee94ccfcc59ee6588cfddc7b2b779134716290864779b2f64d5403a637e",
+      "baseline_payload_sha256": "e6ca4e25668cc1413a8da3a3c80ae3503413ad205fc5f8a488f485f0c67f32a9",
+      "baseline_complete_metadata_sha256": "e2e9c5fcae76c9ec9429bc1b462c5dce5ad3ba4a300c7e214d625344ce3fb719",
+      "meaning": "underlying_data_internet_acquisition_and_citation",
+      "after_payload_sha256": "5fd2d6e777361db58a018247cd0e5e5ed081d9e6c7bc99fec03cf383d85ae7e8"
+    },
+    {
+      "source_id": "FGDC-2413",
+      "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728",
+      "baseline_payload_sha256": "55f70ee46597406ba84e857ec67bdd31a1d06a5d80216da5d57bf277c876bec4",
+      "baseline_complete_metadata_sha256": "ba70908c8e18ae72174cac47b02394fc911fd2041f97c44f34c6e16790da5c03",
+      "meaning": "underlying_data_processing_availability",
+      "after_payload_sha256": "094818c66e074b37ac7a4667e0bb112427a390fddf7e0a4556d57478c59ba23b"
+    },
+    {
+      "source_id": "FGDC-247",
+      "source_sha256": "1d8771f966b317c97c2e5b095b46a075c88ea48ca0f3964ce7a80c3051b7a5be",
+      "baseline_payload_sha256": "cd8fc847fabfe8e94a9883f447b67cb8a8b2b9feb2b658ff938178dc2c5e6089",
+      "baseline_complete_metadata_sha256": "ebac710b66c9018afa846f89f98e2544b1aebb9fb288b89170760dbb8b63ffac",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "336550a96187a667a2340671dd98d4368582faa8486cca2633c5a69a01375064"
+    },
+    {
+      "source_id": "FGDC-248",
+      "source_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "baseline_payload_sha256": "c4c466e9309f5621de3e02eb128aee4c5654214e47c6878afbd58d543a97b175",
+      "baseline_complete_metadata_sha256": "981954dab1738f04e9ebfaa32fc5870529a89a105459451f7ba823e388a56775",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "3b1f52ebe935d15fa7989647f2ca357b4b3d52a120025874477d0358944b9d37"
+    },
+    {
+      "source_id": "FGDC-252",
+      "source_sha256": "d4a15a095c5be5cfadd075a23ce632af3a73969ae0ea017cf2c229af964eed7a",
+      "baseline_payload_sha256": "fc5a83c2269ac85b426a3224c53a49e36bf5aa6ee7c0f0f0e3856d0579438765",
+      "baseline_complete_metadata_sha256": "d803e7c352e86a6af26a204803525f2967b914e8d7a87de5088a5a3501b20380",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "c014db93b2b1054cba968abd73dd812df82f03fe1744ad5955d61095b756d8b3"
+    },
+    {
+      "source_id": "FGDC-2537",
+      "source_sha256": "acc8fb30d6c7ba15f3619378c3ec0c8c8509bf0ad8fa10311a3097d45af27cee",
+      "baseline_payload_sha256": "b0149469d7d416395806a0b5c00d688a6a2ff32e56d6286489771a98a4df4df5",
+      "baseline_complete_metadata_sha256": "ce1d9ea87ecb1d24d52333190150ab8125350806e53ffa9540e7be3d2c2e62ce",
+      "meaning": "underlying_data_ordering_referral",
+      "after_payload_sha256": "961d53cd888b7ad01eb891b7667d7b9dab370f262408be16fd47d3c366d37e63"
+    },
+    {
+      "source_id": "FGDC-2557",
+      "source_sha256": "7af86209edfe433dd32d116ad14ba12a516880fc9e3d99742e922d5180990575",
+      "baseline_payload_sha256": "df6a310c7bb684a0c17ce605a5b144fe564ae262f9945656c9d0cfac78cc2906",
+      "baseline_complete_metadata_sha256": "f77b063b080a025ae0888874ad667232c3d185cab79df9ff9101454717abe07d",
+      "meaning": "underlying_dataset_acquisition",
+      "after_payload_sha256": "bc30ff23b586fc1c16196831e046797222a66764d9220b240ae660f05fa7c057"
+    },
+    {
+      "source_id": "FGDC-259",
+      "source_sha256": "d7d17e98b357728ca0accabd332aa572579d1d0850a07d664d51b720b3214d4f",
+      "baseline_payload_sha256": "acf2e1b910161333a9339c84f1b28b07269aac8b876f2b4cf0f63245cc271ea4",
+      "baseline_complete_metadata_sha256": "a0df38f7520321658afb5e05e9fa475066e1787775603656a8d9c6fde66cff10",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "5bbce36424dddd1cedd44f8e5599aed51d5fd76f7dee29b670f6d8d6de902c9b"
+    },
+    {
+      "source_id": "FGDC-260",
+      "source_sha256": "4a6a562de9be7de402c84ca30b61d172c5489e036122621980634d57a6758711",
+      "baseline_payload_sha256": "0c5d8451f2a049526e4c3fb4e04b3151da5d53338e9f4818e8d4aacb955df3e9",
+      "baseline_complete_metadata_sha256": "bf5ece7b70ce6446cbb4b074a53b23d91f59a81018625e286f498ee7cc30d6f4",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "3e253bd40c188fca9e3626aaf9e3916a80d348cbdb4214c74aa56c93304bc68b"
+    },
+    {
+      "source_id": "FGDC-265",
+      "source_sha256": "752f0b18f02cc842b28309eb8f89e7830bc2bfdb99d6fa02426cff8771b39d9d",
+      "baseline_payload_sha256": "a6905306d8d8be0134154c815fd30c8f77fcd39328033a2362a8adba3bdf1638",
+      "baseline_complete_metadata_sha256": "6116c922a2743f45a5145666a7055826c617c25112248241a8aa9cad06ebefc8",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "f51f84818e966ba06f19f7af1870ab6e2087da2adb56e395b37aaaec443b8b79"
+    },
+    {
+      "source_id": "FGDC-2656",
+      "source_sha256": "bf5a1a37b9fb3a671be0cf99246a44fab08bf83fa6d7b4a1e809eda73c0eccb3",
+      "baseline_payload_sha256": "94dfdb4e84c1628466e768a87d56a7d9cc5209c724cc7ba511ecc30557cda388",
+      "baseline_complete_metadata_sha256": "8aa49f93a05ae0a6feabef123624d83b63e1daa3c252c3fb7bd7e1236f29d98c",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "1c957c5abfc1caefc7b224fd81204ab9230606597bf5bbe189c150f63b2b5910"
+    },
+    {
+      "source_id": "FGDC-2657",
+      "source_sha256": "de18a1fd7f4b80b0a23979df61d809809c985d6743f1cbe8003bf8555f8761c2",
+      "baseline_payload_sha256": "c5418a49c8b3c6315ef41ef5b1935a0b50f0644bec7a9a6e2018b3f99001aa52",
+      "baseline_complete_metadata_sha256": "c6c3050c9edff965dd3ca3a0b99bf312d6be02dfa17851f7b23b0eb0a1cb45ef",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "ecde77bd02342d92a8b64e1b92d7f32c03caed3b8206029c37763680e8b6ade2"
+    },
+    {
+      "source_id": "FGDC-2691",
+      "source_sha256": "888b6d0ca262e60fd13d2068a88e363e1bafa08ae9fa3ac02c7ef29002a4170f",
+      "baseline_payload_sha256": "ff3957de072de8bc2438f798c655aa15899ddb9af91b4f88bb601ddb4bba5533",
+      "baseline_complete_metadata_sha256": "7ab8daa143315a6a84b711047ab76cb34f28af4362b8c1220b9f804ea35b0b03",
+      "meaning": "underlying_dataset_acquisition",
+      "after_payload_sha256": "2a91ddba02671b69c2a4a91e27b12d554bdd2a83660988c69360c267621c80eb"
+    },
+    {
+      "source_id": "FGDC-2694",
+      "source_sha256": "dbf99e7f17e8ffbd7c5d40dad1991c92a182d8ffe7094c37d40af82b1f1e32ac",
+      "baseline_payload_sha256": "aab6579734b496acf69545e67eee2064285ffc7e8b0748e6aa23a42af7e0f29a",
+      "baseline_complete_metadata_sha256": "c699edbc3fdc69323d43ebe04912db679d41d1622981816e0b93d1ff90d3db6a",
+      "meaning": "underlying_dataset_acquisition",
+      "after_payload_sha256": "556fd48cdd8d7cfebf463d50f87c215e32572d8058292cc8e6ba2b79aebb21eb"
+    },
+    {
+      "source_id": "FGDC-2695",
+      "source_sha256": "d9a2552d05d01549a8fe7ca11d14e3f1975fe943981de5102d2703481c0bc739",
+      "baseline_payload_sha256": "796eeb631b14d24665d2db4685cb8da7feea7c0f2213e0ccbea8574af6b7d575",
+      "baseline_complete_metadata_sha256": "4ea9e02b33ca7f4f5e5d1ba214c52d66179d3de80ff66a0b780be3f4db77cd4f",
+      "meaning": "underlying_dataset_acquisition",
+      "after_payload_sha256": "959ff6fe6ec345eaff0df59edc6ff554c70516bb410124d931e14895560d18a1"
+    },
+    {
+      "source_id": "FGDC-2696",
+      "source_sha256": "677353dbf3d86429b6bce6dd4217a5451b8e2d51d50b4c99f07802a217062a19",
+      "baseline_payload_sha256": "6684d2784f64e5ee8d6b0384fb5339c635557ba65c05c0e06731620d9db3af8d",
+      "baseline_complete_metadata_sha256": "5a65fbbfb5ff50214871a21e62c8797f27a1bfeb1c845d1a810ccd11e6e9493b",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "78fc5821bb5bbf93ccb6463b033c9511f8a5e8cd2a64b9863196f2093f48d438"
+    },
+    {
+      "source_id": "FGDC-2697",
+      "source_sha256": "5413f6dd66808859f24b95974c5901d2d97d886c5f1126f92fc414a9c9e503d9",
+      "baseline_payload_sha256": "3ee2c93156325d7b6b348b19c3a77fdc4ee0d3c0e430f0f8c07bde259197a5d6",
+      "baseline_complete_metadata_sha256": "ec6b8b0bfbe857ee572071ba04db2d02e88b5070e94cce89a232b4fd4c5ebe22",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "46d180477e2f2e8e0197b2e1a5b13fb65c1be13023ab5e097c70feb1bdd13d36"
+    },
+    {
+      "source_id": "FGDC-2700",
+      "source_sha256": "a3510f867d4504a71b65b94d21f0f2dc068e34cf063bb4736c0f5ff7bd72c5c4",
+      "baseline_payload_sha256": "612e573258b089596651c9458a3efa19e3646621cb0e5f0766147ffc3ffeb1bb",
+      "baseline_complete_metadata_sha256": "0ade1c71e05bbd5db68d6de491e66db53078e27ac49f7eacdc7a8cc06f5fb1c1",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "3ec07e05bff13f06f817c1051a7f9ebd80e3ec6a288817c4e4d7aa4a7191dcad"
+    },
+    {
+      "source_id": "FGDC-2701",
+      "source_sha256": "12ec31120e833c61726e2d912f53baf2a00b8cc07b55fcf503e6f3a4553f7fbd",
+      "baseline_payload_sha256": "98c26f4d7f1c9d068fe475f71d672a4e99d4c85e31b4293cb5226de2a83255a2",
+      "baseline_complete_metadata_sha256": "954cecbf2c7f30adef6bf802d3b2862008cb8fd24fe0822a0a2dcc70c9ae3271",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "6de2fd1398d03248ab93184c77ce98022976eea26bfd128ccd04806dc50de433"
+    },
+    {
+      "source_id": "FGDC-2703",
+      "source_sha256": "95906d50e6a76e03cf3cf4e559b0fd7ab74aaf53ef2095fd7ac665c06ffd9409",
+      "baseline_payload_sha256": "23ff085b1b908af3e44c301d92891a67eef831f1ce6e7071cef09a8a89b8ddc0",
+      "baseline_complete_metadata_sha256": "1b928d58b32d073bd2269d838ac36bee41c3608570f1656b9269482869f5b85e",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "6734254e9a6abf2f275b3b1faeb7d3c2772ad0098a01c4b931f164c6b00db3e4"
+    },
+    {
+      "source_id": "FGDC-2704",
+      "source_sha256": "d59adc7e9cc3400d74c0aef3911da7c94978ce4bee8cb99015be6a5c3ce966e6",
+      "baseline_payload_sha256": "cc00a2973b9636dacc99b42baeefb5f791fccbf35a0749c72935aa3cc2ecd33e",
+      "baseline_complete_metadata_sha256": "f363d39c5647d94e39f6fd96f5016ca81477d0b02aad07ecb773198eb53cb4ba",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "545d80543f86a4d62a13591873341da2617348902b8af4690fbc2d53b380ea79"
+    },
+    {
+      "source_id": "FGDC-2705",
+      "source_sha256": "b169b499e371b4e6de6c3fb6ebd4d5128ac946a8b71e4725303343392facf766",
+      "baseline_payload_sha256": "98c72e176798c275a6df071dba874892650417e4875a6761c744807751d2a127",
+      "baseline_complete_metadata_sha256": "f8ab6971b35c0600e90bfde1f5939537a39211962dba73b06133cb0cc0d4afb3",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "64da3d6d39d375559dd744164ac9e524562d8671f57ea833ea8542dc2e1bdaa1"
+    },
+    {
+      "source_id": "FGDC-2706",
+      "source_sha256": "e61b964c0241beeed4586d2591be65073057a7da7bc2d50163b7861b45dbb133",
+      "baseline_payload_sha256": "ef2ab4ca0d449002870cf7e7a559f9fbd0d0c89f512e5601a4a8f1d956595f28",
+      "baseline_complete_metadata_sha256": "1492b235c64458364a435f3f4cab287e2ada08ab46fb6f9144e2ef5ba511b73a",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "1b9dfedcd923ce91ec18e4575a593aec27a0d34a4de8a964f81554f7e0f69bb6"
+    },
+    {
+      "source_id": "FGDC-2707",
+      "source_sha256": "b48d53a5c40febda5356e9ec015fccdcac1054b15e801e6cc17bc2e6d020e228",
+      "baseline_payload_sha256": "36b845411382f6a271cb7abf41f375a1599c5e1b8c00f55917a4be96e9248eaf",
+      "baseline_complete_metadata_sha256": "5f9ad1159ab410457783d25736a37f11063a62df2792cc59b90eadeda5592322",
+      "meaning": "underlying_publication_library_acquisition",
+      "after_payload_sha256": "b8fc97e3b7a2c507472e22ab9b46b2586fa49e8a8106dde73a45019571cd6aa4"
+    },
+    {
+      "source_id": "FGDC-289",
+      "source_sha256": "6401d899f886cc56fd12b18eef3f7aea0a2cab6a542c2fccfce198f190f6dade",
+      "baseline_payload_sha256": "90c198e3a9766a53f3ef92f5add269f35dd5216dd4f06022e2cb77f7a41776ce",
+      "baseline_complete_metadata_sha256": "8d8004d2027b579f6171f126a992658c1448ac4fa1a68853489c70b1d718579f",
+      "meaning": "underlying_data_use_contact",
+      "after_payload_sha256": "9989536a97e94f8a52d6999af3cc1474d7efe4ca376904b85644df649e18e085"
+    },
+    {
+      "source_id": "FGDC-295",
+      "source_sha256": "f5e5bb9fc4bc1b41a0169c2bdbe61dbba91e453f655268f4e2ad45ad4b635724",
+      "baseline_payload_sha256": "affbeec2536310fdd7bc153975f14fd3dce2bf93296d3fdb6db872a349357f17",
+      "baseline_complete_metadata_sha256": "07aaa5636e4ff25326cff3d4fb822b1c300b53ff6be9b20f01756531d884cc69",
+      "meaning": "underlying_data_availability_and_citation",
+      "after_payload_sha256": "d5b05b0f1e0004c87cb5ebc3e6279c4fe3d88e5d43de8436b2e50fc83f28870f"
+    },
+    {
+      "source_id": "FGDC-327",
+      "source_sha256": "f9e9d858bd942d3172eab64f87f68932690870b7486efe02ecd7b7a65768e970",
+      "baseline_payload_sha256": "109051bf0cc8ce4d8ee1ea619dfb2646a814da4e4d06e7eebe6024d6ad44c92a",
+      "baseline_complete_metadata_sha256": "d179595632e548e2ccd57e634755f2af6189d7e31f2aee9acaa6576d7c68b72e",
+      "meaning": "underlying_resource_availability_with_source_limits",
+      "after_payload_sha256": "6abd9ab7ab57aed0e6f0abfd51d9c1f62287ec974b839b8ac7b134382ac21c31"
+    },
+    {
+      "source_id": "FGDC-341",
+      "source_sha256": "c463df9466765d434a871d744157eeacfbbcd6b173ae22c4c2ca7bd76932ccb2",
+      "baseline_payload_sha256": "59f3d4f29ed8d4dd48137bf63471bf24d4842b7b6d6adf37e5873b32488d975b",
+      "baseline_complete_metadata_sha256": "f3d050a9e08da14bb37491bb150a20175996172a3a9d201606f2f0b200bbd467",
+      "meaning": "underlying_data_publication_contingency",
+      "after_payload_sha256": "40aabcefc8003d7aec64dee395a38d1657256f589b758586be14ad171ae98150"
+    },
+    {
+      "source_id": "FGDC-440",
+      "source_sha256": "6afca6a6a34a14a14698880869d6b78faf293c7774ebf01f63ec37a221b452d6",
+      "baseline_payload_sha256": "c85d3710cd264ae45cd139c7b36eaa13e3f9f696d64f878e86e195a4dd710d09",
+      "baseline_complete_metadata_sha256": "a74005a9271b27a94c1c18e2916bfc49a245fb0d110a3e5e70dc36302eb17386",
+      "meaning": "underlying_data_publication_contingency",
+      "after_payload_sha256": "070a9f5149aee26aa24a04cd8f903dbc801809c47670a7f6e07e01b605d61b1c"
+    },
+    {
+      "source_id": "FGDC-51",
+      "source_sha256": "871b661343a29457ae30e175b3b47295cd675717ac437e5ab886303d54c116a1",
+      "baseline_payload_sha256": "2fe88fc8f4a0ba3d186124e4ba2a4b5f0c4f7e0d2d325b53114e8f59760e621e",
+      "baseline_complete_metadata_sha256": "70f1717227f719171085c4a16e1a1b9997f825fcc4c0f1e8725bbd2cb9c7ab8a",
+      "meaning": "underlying_resource_archive_holdings",
+      "after_payload_sha256": "ec54762e26d96bc0e657f090c6d97726cae9529122615d690c75695c3b2f71f8"
+    },
+    {
+      "source_id": "FGDC-520",
+      "source_sha256": "2b8944162579bc8579dab2821533d0cdb2ea46db8c512e3ca44e15a46c007bd5",
+      "baseline_payload_sha256": "577ebec94d7b749868fd3e0e6a759ef8d6cf65ba161ef3d4f261811447c2b43b",
+      "baseline_complete_metadata_sha256": "64a9e1df8d87cec1c695dfc805c98e0ab0f81a309fd535794b1dab7e32a1c414",
+      "meaning": "underlying_data_publication_contingency",
+      "after_payload_sha256": "8df7d10275983ba21cc7d8bf63b51b1b4ff1739cbde44aa8603c0e816a7ca5f8"
+    },
+    {
+      "source_id": "FGDC-54",
+      "source_sha256": "25050cb8f51806a317febc2eebd194d63cebd65932d6a5750971dca6e8da0a41",
+      "baseline_payload_sha256": "bfa014550bbe18cf83d494d05177937cee9730659381f8c3374352a6c394df98",
+      "baseline_complete_metadata_sha256": "d6d55c355ad66cfda03f1952c0ef184087e6ca5f673b566c24decfe8a2605fb9",
+      "meaning": "underlying_resource_acquisition",
+      "after_payload_sha256": "3c25a431a0e15acdfdcacfbc450fb35c01c67cb5262effe5e24b1d5d77371799"
+    },
+    {
+      "source_id": "FGDC-540",
+      "source_sha256": "238a93f4774206ed0e91da103e8cb56c565b21f9678e51e56aa224e9094d14ed",
+      "baseline_payload_sha256": "d25c23fecfdb615a00d88353772a0d9d2f9947224e14117eb1103941f10abc84",
+      "baseline_complete_metadata_sha256": "a87d8d8e8464d7e89bb48d3f49f2ac7583323e46ad5629f583858a4264cde2fe",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "df09b5d7da30db03672ddaeb2ca8bbb73fbb824d0361cc92e75193687d5af089"
+    },
+    {
+      "source_id": "FGDC-541",
+      "source_sha256": "86d75a34737e771566e1a619676d9a1fe66e6f7a4f39ddb10fa57660e17efc72",
+      "baseline_payload_sha256": "39924bceac2046c7c0a56b09c723ac2b5d58f51b688c836beec0d842bb34e29e",
+      "baseline_complete_metadata_sha256": "18f474e09cf18790a58d34a23f94d4c65feb8645de1784449432087e8d4e91ad",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "a52ad00e14d2a4b1c04826e45e00e753174908bb5638219a3e425d1a3a70e18a"
+    },
+    {
+      "source_id": "FGDC-545",
+      "source_sha256": "82ac680b3d26bb8f80b4642d21e314813247a8ba74c3faddd7d73bfffbd89e23",
+      "baseline_payload_sha256": "91115332f038a842c9e2af5e231a25265b9240d39d10ecb5ff17b5dd41a1b31c",
+      "baseline_complete_metadata_sha256": "ad1dd0685acbf103e0dcf3c55465f0bd9848655f773f21d8fda191d4cc6b3dc6",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "29e5b31de21b7aee0d5daab448c65fe3dc5f7a9479d56a7c863f27251cf24899"
+    },
+    {
+      "source_id": "FGDC-546",
+      "source_sha256": "8f6d9e0d603255b0156a6c6b356e6973f2429c782672406a5b50827400483662",
+      "baseline_payload_sha256": "d8daf0fe843b04abc8a208e06d1c47122b53b2dca07ee6c07f7f610f81c5defc",
+      "baseline_complete_metadata_sha256": "22a0cc2efdac59141bf3af4410b717a8f3bfd3c25ee3e2e4ed4e8dce26418461",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "55d48ff30b3db1dd7d7fa1b53ad2e2d934a40aae273ccc45da9a59bb6e607f74"
+    },
+    {
+      "source_id": "FGDC-547",
+      "source_sha256": "777f31dd1bd7686f8a94a6559efc27bd11255d1c3ee7feeebdd1b180ae3b8724",
+      "baseline_payload_sha256": "812037fea22acce9ff0039139ed0a9c04b2f21737dbc6ba7142c7c5ffd037e82",
+      "baseline_complete_metadata_sha256": "b371589c5157a4b7d2d4b59b66578b97d502c8b99060e3598be236a27df7a9f3",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "e9a5a343f71099fd4a3322292149a7d6abad6ae78bd4a73841807175e0e9080f"
+    },
+    {
+      "source_id": "FGDC-548",
+      "source_sha256": "e48070eb5a688b732bce467796b932f80ecbe600e7e3297e68d5709538629c7c",
+      "baseline_payload_sha256": "129a1a850b1fc2f05aa590362c79ff1d783cd1a10521b2905fa6dd05bfc4252e",
+      "baseline_complete_metadata_sha256": "64307838cdc10a774e73e37277ce47dbb205569cef763c68fe5b5459c345808d",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "43af32ea6206fb94e05d3d2a6fffa1c07b5790f4444e454e2273368d0c43f181"
+    },
+    {
+      "source_id": "FGDC-549",
+      "source_sha256": "b27410843d7a077362d7348cfa5da3c0889dde6850ce97fe23515c2094ac06d3",
+      "baseline_payload_sha256": "850bd0c88a156804e4f2d7f33b323fef98bf3efd31b4d01c027564e4c4efa507",
+      "baseline_complete_metadata_sha256": "8cf94b689b0b94f41b53db00af909a5b64e5c752d35c11879e7eabe01c6ca006",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "f95690b217cf20d6f5b35104ee618660a8418696edd63d27d5fe0ccc765138a5"
+    },
+    {
+      "source_id": "FGDC-550",
+      "source_sha256": "703288a7c4460de563e91b6cab47ab41fcf62b6fc41f30c92910dedf8426d14b",
+      "baseline_payload_sha256": "e5ada278aa9f286c58abee7b7ad80b307f84d1161524f734a5c356e5ee5b2e63",
+      "baseline_complete_metadata_sha256": "8b1f34f4f683fef3cfc7718293504526f8f07d598f45eeae7c0a5006f93c1ccb",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "bfedbdc0633feecbdc33b8af5f1449d9162cd0ced3d7147b1668a9148ff4ce89"
+    },
+    {
+      "source_id": "FGDC-551",
+      "source_sha256": "26031acb0be2cd0ccf8b63623fbe5d4453d3415f748dcd083c5a55acc259a16a",
+      "baseline_payload_sha256": "9ac8bdf09199b0c272d95ef4102aca362f8fe552e57de438d069c9c1572cfe16",
+      "baseline_complete_metadata_sha256": "1460115195358237e5281ac0fb874d8544f0d2ad65f3e1d5d2dee2e0fb13b0c8",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "550fb10797788956dc439eec920700911060a2aedbd151dae156cdf67bbe41cf"
+    },
+    {
+      "source_id": "FGDC-552",
+      "source_sha256": "342928f5a48294371b35eca91d0303065d5dfdb1eb151195bfe20621ec9c7bd8",
+      "baseline_payload_sha256": "fcb80c61e879ef1e4e9a474d0f494383a5be7f1c656e89d88398c2b2f2b7bd80",
+      "baseline_complete_metadata_sha256": "2664542ad4dd105879b39f08c12840f7fa800fed5c7bfb18a95c034eb179d7d9",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "404d0b5bac9663a8b09ffcec7dd2140bc134cbdfb6a2f0c9dc1d381b208d2e1c"
+    },
+    {
+      "source_id": "FGDC-553",
+      "source_sha256": "ad5907dd4660cb821b828e980a023a08c7b65d4a2f59a0fcb4f484049a7191a8",
+      "baseline_payload_sha256": "5d1017fcb0bc2f21790dd76ff8803b43bb5b69adc4ee54cc8d045ce57a4cbf84",
+      "baseline_complete_metadata_sha256": "1f52292e7c446d69c41602c69c6fe05d251078354954fa37d09a0bc8ee3ad379",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "623713c2f037a4197473162e6c464e8a52fec2ba4f7e2b8dd1822f00050b7db3"
+    },
+    {
+      "source_id": "FGDC-554",
+      "source_sha256": "3189d71b2848856a1bdba644c05fbfeb33e09f7c1fe7bdef1c366f6ce00d7c21",
+      "baseline_payload_sha256": "0d9ebe5b6ccf56e20774a300b6cf472e79b4599c1537665ea14cd41ab0cb5dca",
+      "baseline_complete_metadata_sha256": "ab97b620a51f36982aa09caa187e6cf580f8e282a49f6de7875e7f80c1283b96",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "9857b1d1542f9dd131442b3e747a11bc4a638bab0762a6204735a35fa7302dbd"
+    },
+    {
+      "source_id": "FGDC-556",
+      "source_sha256": "006d4437d0049c3762958209ffe02ed4f0df5f1b1ef54acdd30276375ad0008f",
+      "baseline_payload_sha256": "51d6486625842f455f755e664888a6d46685b6643e654bff57ca5fee428b607a",
+      "baseline_complete_metadata_sha256": "781462c9d0df8905398ee9f1efcf37f562d1adb47936def3fcd81e89eb5a3b1a",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "da8ec938053a7a156396cdaf5c71baab0984a1d8921eab313cde238cf0f07df9"
+    },
+    {
+      "source_id": "FGDC-557",
+      "source_sha256": "b61781d15506505c3cec592f53250e0429944f5da578c5ac79a54959fff2a7c7",
+      "baseline_payload_sha256": "947aba14eeb408b455f71cd766fd1903e8dbd149f2b0fbb5b7421be2792ce47b",
+      "baseline_complete_metadata_sha256": "6895c78030ebfaa276b7fdfd02619caab03a707d44056372f044b59f5b27cf67",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "40c7ff6a756c90e2a2749b104f6a281886b34b74a23a8a47ea64a814ac291773"
+    },
+    {
+      "source_id": "FGDC-558",
+      "source_sha256": "07ff9e68edab62873e6db271c43f2908462478009d2ca861bafbd5f918dc60b9",
+      "baseline_payload_sha256": "380c423fa511380f14347e51dea646a57de9910522b5b518774f39e2dd1e5d69",
+      "baseline_complete_metadata_sha256": "ecb43db129a4390cd43e31e1bc1055f5949926f4f12a062b0d2ed998403a2bd5",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "cea3ee32329221f1bfa0ab5cf8618cbd6c5d187b16e95a9571257667b6ca0dd4"
+    },
+    {
+      "source_id": "FGDC-559",
+      "source_sha256": "facb54511675fc9c0403c9616998575af910b3e5b4cd948fe77fe5bab2042700",
+      "baseline_payload_sha256": "d16f210f67d830ccbb55572968cf14e8e78d155a461ba2b42af19572cf3aa322",
+      "baseline_complete_metadata_sha256": "ed0e64f24288c46d0b41833a5af8a0e1ac58dd8865d277d975906ce409078507",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "516eaad2ee54eedc6fb3d7ebd1524b64516343ca587424fe0e925a1b69d3c270"
+    },
+    {
+      "source_id": "FGDC-560",
+      "source_sha256": "e1701f70ad40d3b4f50c57239bc15c71de793d55e89e821b6ad9b66917c067cf",
+      "baseline_payload_sha256": "b9faa255adcf52e1e7fde6fd8895da3665a685e7db7cb85f5079218c71704d33",
+      "baseline_complete_metadata_sha256": "71199a1f4283c3c3b19725628073a301f337e4b1cec9d328ffd2316f5f39f847",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "745d6dbefdddc0dbf01072e7fa2469c479e5dcfd3984d9c44085fced70030d91"
+    },
+    {
+      "source_id": "FGDC-567",
+      "source_sha256": "316448057c9d9db983405831ffb62562010ac621d690cf7b95c0c611972da480",
+      "baseline_payload_sha256": "27b55974409e9a11b7bdb83f76c1ea3065d92f300160bf309c80e3f2071eda26",
+      "baseline_complete_metadata_sha256": "51071f5d477f784bd6a517747cab4b16cbcf9a4f0b769a23344a2b0504d95177",
+      "meaning": "underlying_data_transfer_format",
+      "after_payload_sha256": "50732634a27df4a5fd0617dac4ba84f867ab4e24ab26f3f7f7e9ba1ce66aba51"
+    },
+    {
+      "source_id": "FGDC-568",
+      "source_sha256": "a687ee4c1cc9072f356e9c674e05b7d6a2df4e81bf4ed82e7d764a0b081430f4",
+      "baseline_payload_sha256": "c6ad50e6d5686ac9b32478f34eea4bd6929b7e780a92adfe34bfc9f8bf04d74f",
+      "baseline_complete_metadata_sha256": "9b50e05bfa5455c083137ed4310ac89ebb4da0493a918abc3303a660b19fc6eb",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "ed25b4fe73426c6addb04698999a28331956802d636c446f3a31cf4abf53ac7c"
+    },
+    {
+      "source_id": "FGDC-569",
+      "source_sha256": "c9bde0fe841fb3c59dd8f1ec902efe2ba36e9fe8ca595622ece326b60a7f131a",
+      "baseline_payload_sha256": "7be062449e94015b1fc89e61e6c97db11ee5554c168160f35c2829cfdb5cb8d7",
+      "baseline_complete_metadata_sha256": "a3e4781a6468be15ea90652012ec1dc772f1d602fecf6dab559264cbfa8f968f",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "97f9f09dd05a7ee871b7de0007071c69ad3ab508ed708427ca71aed013ea0d09"
+    },
+    {
+      "source_id": "FGDC-573",
+      "source_sha256": "8f169b58da27c345ed4f4111d6419d89749fb6be11cfb042326d6f5563d8bbe9",
+      "baseline_payload_sha256": "8e79aac42317533b447f891f6ecc72b6c4ad473b35ed8618b3eb0f17b93f0899",
+      "baseline_complete_metadata_sha256": "6c0c9fb38f4ac2f330e386348b0f303e08ab1dcd0a9ca8ce1131bc9bebad8ff1",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "bda41bc8196d30882909887ffa44783d2b3138586b41585bba603699ffa276ff"
+    },
+    {
+      "source_id": "FGDC-574",
+      "source_sha256": "f76cfeb5103c7ebc9ba1108d9cbfd22b94a889a8aea800521b047bf8c02747ac",
+      "baseline_payload_sha256": "108eca5ed47b94dbe0c0ddd1b993fd810450166cd5735f8113df1b31b977c3af",
+      "baseline_complete_metadata_sha256": "5fcb2a579854bd20510d78bbcdd262f49b0f8b6b19ceea0d6e0e77d113eb9a41",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "f8eb0b92ab0421455921cae6e911800250c52c14ff3ad96a13a9c10091b9a3b4"
+    },
+    {
+      "source_id": "FGDC-575",
+      "source_sha256": "12f2a7bd8cf3c4587424b343414e61cbf7fcfe8cbd5378f13b219e746376d214",
+      "baseline_payload_sha256": "3419eeaaac4f5815f39690fca691079981d4ca16db5f21564bc78a7e222b13bb",
+      "baseline_complete_metadata_sha256": "0a856d590bfc565e6209e5ec7bf64562637fae88b720ce59126d8ec737606a54",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "0572c0e835c206d95317eed5c7d75a92f17ef7ba2abf20af3d1188d5de9bc763"
+    },
+    {
+      "source_id": "FGDC-576",
+      "source_sha256": "5ee0491be59e811aae0a1eda9508a22c6fa837bc893ac9f818d2147e38cbdaa9",
+      "baseline_payload_sha256": "0f3ec2a0a802efb0b938a703a24e88c680ae3228fd31c4ad015931c14743c607",
+      "baseline_complete_metadata_sha256": "a1919642f3e7ca00637811278e0f7d9f3fd149b3b3bea07050326adca125f65c",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "2e69689fcaf4db5dc80976ca07e926d88706f74b8a39150a5c318f0333400eb9"
+    },
+    {
+      "source_id": "FGDC-578",
+      "source_sha256": "734e45aec7e8eef957cacf29a479b54c16f21130260a97724016e2a75d17df09",
+      "baseline_payload_sha256": "c76e3f7e25776eb2178ab691b443ce02f01e7b32283843f3fde6f88e77439a44",
+      "baseline_complete_metadata_sha256": "529e26de8a4ac405baffbca7010be9235b582b58f34a1a567a0481c4d7a09ee8",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "4379152d82a8404b981b2ecc002463f31a39712666ff650cd669082a8fc8a602"
+    },
+    {
+      "source_id": "FGDC-579",
+      "source_sha256": "8bb135ccc245a35398d8279d887e6c2c5911b6d1029060bb3fea0f2584d8da1b",
+      "baseline_payload_sha256": "f6b26dcf13aedde038ca9b08c031f9260f58d620f4c3794a096ed7e76d819b66",
+      "baseline_complete_metadata_sha256": "72aace64ca8003a254cc5696aea172b6a53feb15568136cc1c8eda86f9902c8b",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "bdc1b099526410fe5fa82a91475d05df148db1380040fbf36d1676ac96edd6a4"
+    },
+    {
+      "source_id": "FGDC-580",
+      "source_sha256": "139a5568a7bbf46daacd63128812124fd9a0033c48532d8313d1735d4fdf95a4",
+      "baseline_payload_sha256": "4d3700f830d1b1b844b234422e8b44f420e1e9ce7560c3eeddfa3e43510ba00e",
+      "baseline_complete_metadata_sha256": "e350dcbee9d38259bae1b919eefb5983993bdfc62d06399222d4e666599dc609",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "7059769a6aec14fceef9d9b983dade375d58ff2b8ece84e2d1fd687877eb0d4f"
+    },
+    {
+      "source_id": "FGDC-581",
+      "source_sha256": "b384c383a8621f38a6b734b4f88690efb33add6f1123178dd7670385e021e23c",
+      "baseline_payload_sha256": "259606f110d1bcd9d85b08cac0d2c3d6d67c60a318e01c76dbd610404deaba58",
+      "baseline_complete_metadata_sha256": "ab7f1c9941caeed59897d8ab4134469fa608682bb1aa8a877837646f2395a8cb",
+      "meaning": "underlying_data_collection_attribution",
+      "after_payload_sha256": "2cf2a0093a2f25f1fc1e66987f5d90aab6368521b796027e9b6c6d9fe1a5906d"
+    },
+    {
+      "source_id": "FGDC-582",
+      "source_sha256": "4c42d4656b12bca412e41c52394e69e5cdb65cd1151431933f9dbdc16d2321ae",
+      "baseline_payload_sha256": "198eb917c1477e4b3820b050a58f169d0cc04a5eb4c0a41994fbc00a9b8656e6",
+      "baseline_complete_metadata_sha256": "55ad97bfbc1758872c65d1c940472a68323ea588547de8b1bdbb51f766b85e8e",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "2472d526fca8071d5cb247f6fbafbfab093467ac5347e153d46f32e147dcdf1e"
+    },
+    {
+      "source_id": "FGDC-583",
+      "source_sha256": "e412cdd5f9b1e2e6febe2719b2501698658128f0b579dd0164816ee93e761836",
+      "baseline_payload_sha256": "c35a09480e5431706c56796c8aa1a80df7fe6b791152fa8bf58e68242f9421a1",
+      "baseline_complete_metadata_sha256": "7433570b3e24736c5a6b1008c1de6ee72ef8fb6b48bbeea9fc63795ec7a7c412",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "ecaad6e7ed62d9bb21b99892aa45ef9ada3b2b9c243fc5233dae45e948cbae19"
+    },
+    {
+      "source_id": "FGDC-584",
+      "source_sha256": "3e2e8ce7f0cd927e7a668b8d388cba33b3ccefa80ab3662bdc567d2f76694e94",
+      "baseline_payload_sha256": "d8fbbac467f2642ec21845378b57c4fd7664857b0a0bc84e6264ec87f43dad93",
+      "baseline_complete_metadata_sha256": "91fe47f2c2bdb64562dc3b67ae71d46834b56671482bf0c83766d46142aae259",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "fa1ff08458719875f5097fbfdb45570ab6aec54287bed496f1ebd5894ee9dcae"
+    },
+    {
+      "source_id": "FGDC-585",
+      "source_sha256": "f379c1fed7b546ba0e6dfd09b561d49533031bfaa4c660ddcec821276d0d51d6",
+      "baseline_payload_sha256": "c6047ec4dd1d466b0dcf48549149604893ba265eedd3a8ee972eb24e82b0ab5f",
+      "baseline_complete_metadata_sha256": "f981b6ac6747f633f7ef6c53ecdf3e64f79c275c30db97ca2705ce70d5b517c5",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "dbac5a7dcb56fac42c2c3a95d9d966c9f5546032c56e29c1906f8fdcb7bf0888"
+    },
+    {
+      "source_id": "FGDC-586",
+      "source_sha256": "ad183fe6f252790e56f64858f27a9689c0ed4fb99e860f827660bb818093b5f2",
+      "baseline_payload_sha256": "22a6cafc7fedd09ff88589768644e73dffa6f7e2cb951114e8c79b722cd85164",
+      "baseline_complete_metadata_sha256": "ab9398dc3bf3e71356453153828b087782bc70ffc49ae60dcaa254e128f6f886",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "c0d7742b6e90fad6094e5e223b16aa3d5c19b57fa737f6631a1cc4d23ac151d2"
+    },
+    {
+      "source_id": "FGDC-587",
+      "source_sha256": "3ca31af9c69c150face049e551bd10ddf3962a39722fabd506d35a6ddbc015b2",
+      "baseline_payload_sha256": "589bd04010b1d2979c687708a2d20f0190f4dee77405da7bbc36e697c6b4fcd2",
+      "baseline_complete_metadata_sha256": "9b8d41ca640e9e61dc27be48ffe25f75a86328ba03232be46892742f1a48b024",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "64d1a4e69804a4fb5601910fbcccae1f60ac0bfe33a8ca19873104dd302156a2"
+    },
+    {
+      "source_id": "FGDC-589",
+      "source_sha256": "9105967d17abbbd3d53bc6d1611a2497ef7aa54b4ef7e727cf5e97732d937331",
+      "baseline_payload_sha256": "00ea126226e723f6bb79ae69dd6afcccbb07bf48249ae2d3715ee4b49ba4acc2",
+      "baseline_complete_metadata_sha256": "fa99ee37326f0966fc0222abbb68a5d059746a7188e6295b5d3925e705c0cd36",
+      "meaning": "underlying_data_publication_attribution",
+      "after_payload_sha256": "1213fc84bd546026ce161d1b2a52ae86db21374e9569b71aaea438b75029c3cc"
+    },
+    {
+      "source_id": "FGDC-590",
+      "source_sha256": "63095c3a46965b4470d6bcb8ca7eb6896a16526cde5b6b7c408088456607e375",
+      "baseline_payload_sha256": "672527c2e25c2ef04cec54bef19e33a80c876d74e56306bbd4675e5247958349",
+      "baseline_complete_metadata_sha256": "1294b06a2c319657d05f30ac613ba11fd28576ef9cca31f6f9f78b4e923fe17c",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "ea5b7ba747ec80722804a885a2ef85a1c52769eed5997f93e371ee7dae8b96cd"
+    },
+    {
+      "source_id": "FGDC-591",
+      "source_sha256": "45d79929e680f9969284f550381d0593a5a880b887ce39f47ca2d2c747db47e0",
+      "baseline_payload_sha256": "44a67ce1d4b48980c1610fb1b62ffef208df75fb612d18496f6eb2139de15623",
+      "baseline_complete_metadata_sha256": "6eec39b0d2d0174e6d796efb204e56eb507881cac1aee0274e4b02d66caeea4f",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "5707b0c6767063cfcd68c5b6fc8548addaec5640fe9b8b2fd03f7b6de44836a8"
+    },
+    {
+      "source_id": "FGDC-592",
+      "source_sha256": "e5483ae0060fd897ba65b6b46f165f21591cc3345e85046a12518347b0dba7f8",
+      "baseline_payload_sha256": "b85d308c3370d8daa141fb25463e5459f695c560daac8278df2913d812b0002d",
+      "baseline_complete_metadata_sha256": "b4b553eb190c7999d528dd25e6d272e34bce383502cf7b93a14091ad88038701",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "621e6cbf8e3a5241a5dba79a87bb2f788e3f50b6a2036678582a507d8f852449"
+    },
+    {
+      "source_id": "FGDC-593",
+      "source_sha256": "2cb88184d96b94ac8c26311f6deb8898b7877e7b09f0693edb0ccfdafad2d7c9",
+      "baseline_payload_sha256": "07c0e5ecec9fb173c96ea5eae4035d21065ca0761afbf3efd6d578a44288736f",
+      "baseline_complete_metadata_sha256": "001d55f5b983b843ba8e13e0b3498c92961df3cafc41c9bff859b4d4f858394e",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "6279c4a84be7b4c02e35c0a54cb6129dc5c0ccd4e85289a859a2054e538b7904"
+    },
+    {
+      "source_id": "FGDC-594",
+      "source_sha256": "3804100e341679fd3ded8d1b95505ab373c10c967ac07045913ab10a8ee4643f",
+      "baseline_payload_sha256": "44fad5c056e9815a276d9d546bd9b2048effa4e432a21aba71031c1ae43e8f5f",
+      "baseline_complete_metadata_sha256": "f85404dc59d08e13652e6bea81e5070b9a910df66de7b385e7b5e40e02fed571",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "07afa1d9dd8dcaf1caf99733cf32aceed410bff41b868df2b5d28b76b531e0d7"
+    },
+    {
+      "source_id": "FGDC-595",
+      "source_sha256": "fa058eb66392a2e3898b32242ac9f5355a3bd39ef1b386f964ea3457ae264964",
+      "baseline_payload_sha256": "549ff7af990c7c83a10107728a48cb121f98fa7a8bd8a26356f5a9ce6b4f3d82",
+      "baseline_complete_metadata_sha256": "0498d54602aa4adeeadfc1651343100ae103154aec22e6ce3a27e907b4eec382",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "fbbf5a2a1234b7b2942cfead2af4454be985c0a4566d8d85272d2a72c656973e"
+    },
+    {
+      "source_id": "FGDC-596",
+      "source_sha256": "745e875b402cae487062c5adff39a444591be1ffb5892d1685bd31378b65fb25",
+      "baseline_payload_sha256": "b8c92e27c628ebcdce502e8db706cfa8969ea4576632b9b7108f76f3bfc85317",
+      "baseline_complete_metadata_sha256": "ccd73352c1e9a8130475e6af3b7dac21e739f0077a5e690d439ec2335fab0b6a",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "4b9be90bb8f9b7ba63227c69777a45eaef99f524be4a404dd43c5be7564b63ac"
+    },
+    {
+      "source_id": "FGDC-597",
+      "source_sha256": "7f9226103e2f4907f30bbbedd2d5bf93f9a05458cc672650b0fd3e96867589ee",
+      "baseline_payload_sha256": "9c0c6ae9056f9eec45dd85d6ee58fd680854e4dbfd30c2978478f46349a215cc",
+      "baseline_complete_metadata_sha256": "6f0b6f5ca12856fd26aa2456d725a1e9c8c77932c698f04bf1041b29027ae272",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "75aa42becdc45b38b890593bd4dd829a23b006cdefd3ba152758e1f8f7eeb0ec"
+    },
+    {
+      "source_id": "FGDC-598",
+      "source_sha256": "dda4beb2f71b97be5c0a02660affa6968755b2cde09d14acd06b85fb7a6063d0",
+      "baseline_payload_sha256": "d6aaf4c730357e566fcd3558f2c43772500556a3ec4ed60d3ec6953328a8046d",
+      "baseline_complete_metadata_sha256": "d13dbdf3ee3f3d376bf49fa93cd560c26a5f49862de01c6f60f6044a36488e20",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "a80b468146edcb10a2be3008c7d63ac93c7f9f19447f034fc89991c503ce3019"
+    },
+    {
+      "source_id": "FGDC-604",
+      "source_sha256": "c87b4f234e85c9cfe635ff4d7ece85813160f72f0643aefe926392c5592bc960",
+      "baseline_payload_sha256": "3a5f8727c9e8f5fef43bdcb309eef15ee2819068cf40ddc2fba98d2f3ebafc9f",
+      "baseline_complete_metadata_sha256": "d9e1fe48118ad792a74c4231eab2ab39cf7f809cc8bcc76938782de75a2c67ed",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "d7b4d32883acbd369d6ed09083a315e68f77ee30b9ba54d40acbe8c1f7093a44"
+    },
+    {
+      "source_id": "FGDC-606",
+      "source_sha256": "fb7714c5f042db61774d68a3b5f8ac08d0d148236a2dbec2f2b6ed725751f5a4",
+      "baseline_payload_sha256": "cad11a59df3c81ccf3b26a5b57c770fb1650d8284c0ea65d5797aa02bfee1871",
+      "baseline_complete_metadata_sha256": "c70c0076eea5f37e4375b99aae0c7abb7fbdcb4cd4dae248a767ae5f116b6d7e",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "32b8a6d5145b3e15cd68ce9cfb65fe7ea79a60a89ec616a7c70f264d78da3d77"
+    },
+    {
+      "source_id": "FGDC-611",
+      "source_sha256": "67ea01c666381e5feb245028285ea6f6f785cd8a63136911695c035de07fdc65",
+      "baseline_payload_sha256": "3ab2bbeff7e4b311cf5348e538626733ef5b68e5194b12f0a12e7c4626ea6555",
+      "baseline_complete_metadata_sha256": "c2d88a5f4cc39a3fe409b39e1c5b77a641e60edc048e0bf34f1c6f8f72abc959",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "a19319bf62241eaafd01147a3f9f7651fc5934ce05a3b9ce3a378502d7dfe5e4"
+    },
+    {
+      "source_id": "FGDC-612",
+      "source_sha256": "f620e1ce42047f8095ff7b11d31721916fbf9bdec8cd7790376f2db7619f622b",
+      "baseline_payload_sha256": "99cd243f3863688712b00e2c42a3f3d25f4539215918d22732b2d78f70cc57c8",
+      "baseline_complete_metadata_sha256": "b157fe62d0e5d3262c96ac9b61d4b3bf6b933362a0572286fbe91744bd456a78",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "277f7261d2335d5b8d1267a099e4378d68facb44645e6436893dad6e455fbae2"
+    },
+    {
+      "source_id": "FGDC-637",
+      "source_sha256": "d159b2c47392ea53efccf889b55a3eafa343834b96b4ef63a15d92905bf78e14",
+      "baseline_payload_sha256": "8e8b60281b9d45c32dfcd1dccf723454f4fdecde9e6c4f1e01b71be97f422fd0",
+      "baseline_complete_metadata_sha256": "85b01a3c21e182cd19ff813de1850ff6f00d58d1ca72c6cad3e2e03a29d18cd9",
+      "meaning": "underlying_data_transfer_format",
+      "after_payload_sha256": "991127c75fc04df8aff267a243b0fc95adbd3dfba68f36d912f40a0b8c2cae3d"
+    },
+    {
+      "source_id": "FGDC-639",
+      "source_sha256": "5ae19a78055cc0f29cd82175769de147ec6a19f4d7f469a9ac2826cc0fc961aa",
+      "baseline_payload_sha256": "ea19fb14ca33e6baf5ad6e49716b6027def2588b37d4c9163164d570b32e91e4",
+      "baseline_complete_metadata_sha256": "03e3cd2dd112b0b54114dd3c42b5c2c7e8e2b3b575771f11b7dc39efc19ac5e9",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "c550a559f52f84890bb5d705a2d218f27d5466ca23a7728194a807a0da118c8c"
+    },
+    {
+      "source_id": "FGDC-640",
+      "source_sha256": "a7dbfed3c5b307c1bd393e5fbde7c9f85f3b09e25da97de356429d3d50d321e5",
+      "baseline_payload_sha256": "cfe83965c3e93fe05cc7b87249b886ff5b27e1f17deaf071f068c67d68539b07",
+      "baseline_complete_metadata_sha256": "b3b4ab4dceac930fdf51d3f0861e22951460cfdf74050662ee856b48db8d0952",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "d066823456ac66e530671398ee30e05a3fd4bb111bd162ffc3af63c6e169dc7e"
+    },
+    {
+      "source_id": "FGDC-643",
+      "source_sha256": "fd112d53911c968b50b34e919b07eb1775851e59de43e5dc19ad6d2b5340f757",
+      "baseline_payload_sha256": "e6786919ed1296aa3654560fe85df69f9611d4aa05a6d6d98d881382d7db033f",
+      "baseline_complete_metadata_sha256": "2cbc3b1401036d0cc480a059b7c97acf94619130f3ec4c34ae7e8229d35c317f",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "b1cebfae7f46592d3cbf879aa624066644630dc75272d6f35c7505ae1c451a87"
+    },
+    {
+      "source_id": "FGDC-644",
+      "source_sha256": "63009b67255b72887352c60e060cb479fe757fd9080be0d4adacfe7e6611a35b",
+      "baseline_payload_sha256": "01971d613def05adb4625d1e30a062791ed5bc9f5b54b83354ef759df9fd979e",
+      "baseline_complete_metadata_sha256": "20cc5991fd3625d441a141636d083dbf62a7a0b2f621b4aa2b990b773ddb297b",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "ecba8ceb01443dfc4fb9adf77de7435ddd380fe014fb0453d0eee4a1cdaaa3f2"
+    },
+    {
+      "source_id": "FGDC-651",
+      "source_sha256": "010cfca9d043d0ae5fa52563268ce3e87c24d4bee7c0441626ea00cb3e86c9e5",
+      "baseline_payload_sha256": "4883a279b0f42c131b7e926d971ae95eec11f36554906ab45fef6153c547eb09",
+      "baseline_complete_metadata_sha256": "a9c7980e0c7b5f09d1a86d31c37979acb9b7c7db5869d8bc8c4e8ee98251872e",
+      "meaning": "underlying_data_software_and_interpretation_guidance",
+      "after_payload_sha256": "373b5e2a4e7f72d2c70a0fce763574e1bb6b8404dcdc1cea7fe6d3195373eba2"
+    },
+    {
+      "source_id": "FGDC-658",
+      "source_sha256": "6f0b3011c63ecaacc05b432eed0d39aeafcc753465791855f0109ced84239e2c",
+      "baseline_payload_sha256": "225d067f2d0da8006666fd7ae3d4b264bfc562ff32b3b9d770fc6dacdcb4240b",
+      "baseline_complete_metadata_sha256": "56cec230e667d1829158598f512443d2bd058bd404f57b08c44ebc261a64703e",
+      "meaning": "underlying_map_availability_and_navigation_limit",
+      "after_payload_sha256": "de82e6aa684f76d8dbfc559a7d8e56587103be28887f453ea159a90b9fc9eaf6"
+    },
+    {
+      "source_id": "FGDC-689",
+      "source_sha256": "c92f84315947d1141be2dcf8bdac5a92e2188d83c10be5f8e1cb850fe2a92530",
+      "baseline_payload_sha256": "267f4fae80822486a0c37559cdd04489bed8729bb0d72ac03b590e34bfd1e43b",
+      "baseline_complete_metadata_sha256": "0e4ea8cedae2c279252bedb3c8f6c2c1e2899acbcabaa78acefbe07918617517",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "d6c009410e33ac85f384710761b300496cbd07b2a86ede2a7239589945952f0c"
+    },
+    {
+      "source_id": "FGDC-690",
+      "source_sha256": "f903532174d1f7b9fa5d9925e03beb160e684fe41b96099f52eac1f9dab83199",
+      "baseline_payload_sha256": "fe76a55d55316a1150e091cdef8009d3ba704fd2e0fd925f64658682b5afc9d3",
+      "baseline_complete_metadata_sha256": "ea15929b818a5ef1c204d72e7ca8ccd73d224f6c06ed5922d3ae02f794385f30",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "cb9d8bd3c61b796df48e66ab8f2d5da4e1f210c8c460a2e627f00f9b45817628"
+    },
+    {
+      "source_id": "FGDC-693",
+      "source_sha256": "146e77ac31722f3cb96ab5c7bd59b09118c84c5c14ed2b597e196298d98bc5be",
+      "baseline_payload_sha256": "2aae1960dbc1c5b1f1e31a2f542736f52a167f1ed0d8287a76acb9e0976c284b",
+      "baseline_complete_metadata_sha256": "7d8394d724b8c95fef464fc8a6f49ebbb7cee22628e2647f3e1735f3af707e46",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "c26ab4065ceef54ff4c039eb88b76f0dfe1e1ebbbfe5f897ce2dccf5959f62aa"
+    },
+    {
+      "source_id": "FGDC-696",
+      "source_sha256": "8aaceab215d24072301f48cdc76c7deb9d8174854e1d29d5860d7d990a6b78e4",
+      "baseline_payload_sha256": "65c64d90060826e255f817e11799e5648a93ca8e104bc4d616375e35b30c1892",
+      "baseline_complete_metadata_sha256": "38485e34bf2876a179a40845606121d1554af56287b6faadf8313e1aa4c9358c",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "791efa18e729d0ae1de97a462bb2a9570a783b92b64e0a509fd52d62e14004f7"
+    },
+    {
+      "source_id": "FGDC-699",
+      "source_sha256": "ab81f6202d09eb7ea218068e1581024a7f32f2b580acae2f9812f9797a29beb0",
+      "baseline_payload_sha256": "570b63ff123a48b4087c9065d27595b7c643106760742758df66e1f000e4f431",
+      "baseline_complete_metadata_sha256": "341af4cf6e783a6d6ab6a3f4d358f895c51353633b027c9105a6bb595a3a7f28",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "30ecb480cf45c063d4280c19572ffb504bd4727b6a32b133aa4c9c3d4e308b39"
+    },
+    {
+      "source_id": "FGDC-700",
+      "source_sha256": "69884fff5516e6568dddc4770b187452ec8cf378b73aea7f10b64c0b2ab85ab8",
+      "baseline_payload_sha256": "10f0f9fcea590abc81ba1885b15e3d86a566731efd1953443073c4beab7ec9ff",
+      "baseline_complete_metadata_sha256": "16d483d675f22ef074b7bb157b5399d391e6735041402d25f303c797133841ba",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "e35c7bc5393aa6c78069d50114dfb980999508e02964794398c134d99741e453"
+    },
+    {
+      "source_id": "FGDC-701",
+      "source_sha256": "4ba64f19613013f1fbd843280425a6fb893bdccc0540528872f2dd398083918c",
+      "baseline_payload_sha256": "0c77c5465ebfc88ad98ee50a14d2918d6bbe299ed125855657fb206ee6694bce",
+      "baseline_complete_metadata_sha256": "60b1f6e9430eef1c1a989cc172371c986d82cd24ae3b8f235d457e730c599619",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "229b5bfc981af6f288b83e2ee43801b95f07ec87e9929851d4430a00edb604bf"
+    },
+    {
+      "source_id": "FGDC-703",
+      "source_sha256": "b10770cc771fdf103289f2f03ae23ae7ad22a0cc6960b4f277442cac332b1a01",
+      "baseline_payload_sha256": "a7f018dc030c06a365d0c6b61b9478d3c4767ad695c6ddd7fef2b437b81b69cb",
+      "baseline_complete_metadata_sha256": "f35daee260e7db52065e6cf90c526b200395c5e183155b9d1397dead8ed2e5e6",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "9e5d0a74b76becdb7f2950c2a79033439db8ca095d54e521df1e408835db172e"
+    },
+    {
+      "source_id": "FGDC-705",
+      "source_sha256": "2eaa5e5e9eb760722a9cf6c6cbc6514a955e4be0f35c82f502b3c6d9875a413f",
+      "baseline_payload_sha256": "bf5ca98534bb30ff9603b0ecfaf5a7a38ac0cf8b098358ebca26707f2dc0f3fa",
+      "baseline_complete_metadata_sha256": "0870a042d1a307a97e187b3ac9d4d02dd8e56750f11197c3ce71af73c441d922",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "68b1570f851ef7599b3ba29acc25da336ea198c5559190d6209d63cb2d4bc9ae"
+    },
+    {
+      "source_id": "FGDC-706",
+      "source_sha256": "2bedff6577e76b8a31d99e9cd0cb8ec415ff50cc696fda6d4051d167220f5218",
+      "baseline_payload_sha256": "51682a75cedd5cfa0cf8b4f6673bf7c6da27258730895ec91c57b9ee44e6baa5",
+      "baseline_complete_metadata_sha256": "29b44b407cfc27dc7a928a04a148f190957b4ce9de0abcd89df54378fa9945d7",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "ed1c2a043edf717a5fbd68d1ad0be93db05270bf72125426e80439112249ae04"
+    },
+    {
+      "source_id": "FGDC-707",
+      "source_sha256": "c8f822b36240274dfbb61b91ca8781ce49d1f052b1fcbee8a1f01c515e3924df",
+      "baseline_payload_sha256": "e81a074a8934b4c6a29f67393581284c8f1aa7148dd9090f6e5d8c744510794d",
+      "baseline_complete_metadata_sha256": "7efa83ed8fb52b18c45aab46a43f15d64e99913c79caaa5826f9c61fb0b62305",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "f9a7c413f50dcc9728155779a8052ed2fcb69526c3106f50608a756c9176125c"
+    },
+    {
+      "source_id": "FGDC-714",
+      "source_sha256": "f997f0d3256ce80389ba9b2e18c40f113bdb09dde69196f0d2579ed50656a99e",
+      "baseline_payload_sha256": "8e146eac3423cddfda797e41733d9d85e57356b15ebe1265b6676c7788024b08",
+      "baseline_complete_metadata_sha256": "3361ec1e82d3b862e9658de2c2d8720891d893aeff452c6bdb199c144bf7633c",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "f17988fa3fbe8f4bda0b64a9d141bbe11b379886f58f969b1ac911c2217b7614"
+    },
+    {
+      "source_id": "FGDC-715",
+      "source_sha256": "e1b36e7702814f7fa4fe104076d422df26252506785d4a61755e0a2f35ae5278",
+      "baseline_payload_sha256": "b4fef319fa21053826260d15031e35f091c741d35ea65b4d9509bda7f7cf316b",
+      "baseline_complete_metadata_sha256": "ecd151f26beed25e53a686c8a13cd39d0de1dfddf2f2827f78bd63439acfe79d",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "dec0a60805e625b80b2923844832cbb7d1a82436f67ac52adf022d3235929990"
+    },
+    {
+      "source_id": "FGDC-733",
+      "source_sha256": "3436581e65139750bd075e84ff7fb79e5044cf58be24a2953b5c51ba8dbd9b5b",
+      "baseline_payload_sha256": "6cffeccee69a6bc8fe30f1067200d16ecd233f2f7f212f6a0084895f0b23dacb",
+      "baseline_complete_metadata_sha256": "cfc52be88f7a197053dde5daa84f099877e81b4819412a2fa45696a9aa9d44ae",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "35d3466e4e5e94c1794a629168d07ff719492ef83ec2263ce8aefb5db72d3332"
+    },
+    {
+      "source_id": "FGDC-734",
+      "source_sha256": "d205299ec3bd9d6f5fae69b314e39f8d46f5b34861944339e463902b4f749f2d",
+      "baseline_payload_sha256": "beadb4c2763f68ae6741b8476692abd61939f350a01f49bc3cf6a610f426c5bc",
+      "baseline_complete_metadata_sha256": "65f3b130431e4ffcb5107e16f9c96b205816257407969f69bdfc345276e0d13b",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "3c340bf2f37eecf13b6d59ac143c33d088212986ed72660b7f8ed434304ad54c"
+    },
+    {
+      "source_id": "FGDC-735",
+      "source_sha256": "89391f11dd67a1a3f162c1c3384cbe2a2c140030792a5a6e6325b2e18e912b1a",
+      "baseline_payload_sha256": "2f384d2379602631347abc796106014bbd8a98a4f17f81eab7248d6ca98cab85",
+      "baseline_complete_metadata_sha256": "610513115c14943234fbc36b001214bf44d500db13bf5c978ea3b9d771cf8666",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "d06a68c1c84df98c58761d028ad84b038f38b9602846a4cf21ef4562816ef757"
+    },
+    {
+      "source_id": "FGDC-736",
+      "source_sha256": "bc026cab2fd85aa0ff242b59382244ccd23ea5938c9cb8f3a643ddcd9cbb071d",
+      "baseline_payload_sha256": "951a67ad29fa03e01ffa0400334dae7a58408b387776236cdd1ac0c5ea017bfd",
+      "baseline_complete_metadata_sha256": "a3181826427850b12914d17097080329ac0fd6780dd604e3ff66e9999a3b1d21",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "a1f9e49998cca4a37457fb00f9c2c027c293ee746c1402c4d7cc34b821c5e761"
+    },
+    {
+      "source_id": "FGDC-742",
+      "source_sha256": "beb5e17956a4a349e56b5fa6fb715bdd249036eb51cdfd1be9315040c53ed731",
+      "baseline_payload_sha256": "21b5e9cf28c4abe59c9e346b12f15847563f9ccbc4f6b7e6743a6fb54cbe3298",
+      "baseline_complete_metadata_sha256": "3a9a0f70c4e59ad9a0f28e604d78380b9ac4ae6f70b59fa1d382940779d24707",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "15c4fad4f3485617d3d4b81a6f72b82f942f90a11cc20221029090f40a8dbe2c"
+    },
+    {
+      "source_id": "FGDC-743",
+      "source_sha256": "373c098d9777b7d1a13ed19122cc72f268d800eb875f47fe43897b749f99aee8",
+      "baseline_payload_sha256": "7704f74c46eeaae26b4c5bff11336887799846f3bc128f8c421b603f4494c437",
+      "baseline_complete_metadata_sha256": "459125f2a6b0ce65c46ecd81b722825ae461f3865af9717e09e40d6ad51363ec",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "12937b01d42b6b0d0ca188e238c967a8e62ba7d9ca846b6ee7caa0d563d17b64"
+    },
+    {
+      "source_id": "FGDC-767",
+      "source_sha256": "5b70be19fc0cecb3e0a37c960643702e86256dfba2abd5b09eb3a3f3cf393b6f",
+      "baseline_payload_sha256": "774e3692138905faebc2d374123d07f02ddb9cf5569930aed0cfd298c8192cde",
+      "baseline_complete_metadata_sha256": "353e600c57eaa5d09eedfc4357f6aeccc5277948d92dce45d61493dff1681d25",
+      "meaning": "underlying_soil_report_database_acquisition_and_scale",
+      "after_payload_sha256": "c956c6f88667b9538a14e8302691697043fb9cdc782969ca4aa49595514d4290"
+    },
+    {
+      "source_id": "FGDC-777",
+      "source_sha256": "38381f5bec5b96c18d9746c68416e6ca9abffa8c5a3782a87453643f614b64fa",
+      "baseline_payload_sha256": "c88a756c49e166efc7b17a801adc90c66f8684505aed9cc05f3cde13373efd6b",
+      "baseline_complete_metadata_sha256": "d281af0bc405edfb15fd458a58968eef4cb0829f251c159271322189a9b27711",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "07e56818305037bfd9f8990e15ed837dad50904972f3c043c32d12f307c25f84"
+    },
+    {
+      "source_id": "FGDC-780",
+      "source_sha256": "27fcf034a165be76f92e03b2f6dd70bb866cd420b6935c8dc38793abd84446b3",
+      "baseline_payload_sha256": "8f26fec7c0d4435789d0f3922f5704bf676c3e356af968bdb855a009fbfd9ba8",
+      "baseline_complete_metadata_sha256": "642040de7e7e46badc26c3e9f03a97b691738c9532b5c91b246ed8ea91ed7bc0",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "a1161d4e58091d196f1a30edb44a5c26322a301119fa228864eec9bb3fd7671c"
+    },
+    {
+      "source_id": "FGDC-781",
+      "source_sha256": "47e8b042663956a5e7009ce1ad7d0e8c8c0daa714941dfd659e9c712b7f6f944",
+      "baseline_payload_sha256": "cb2b05c9e53de1b2a883df6f0942136643141c017728aa85a5513a502c7c608b",
+      "baseline_complete_metadata_sha256": "07336f4cac8159b2b08dd2260f6dda205db6e819287afdf423795008bc06fb21",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "a0012ff314049c7a04a2c1df024911dd3ff9226a270bf5c177258162207a9ef7"
+    },
+    {
+      "source_id": "FGDC-782",
+      "source_sha256": "90234b5e7962d718d5dc1296d36141907dc85b683cb4c899754fb99c5e3ca361",
+      "baseline_payload_sha256": "859ec3d9c34ab0cacbaccd7a4fbbaa9e7544d5235a1279782cca6f3e5912643e",
+      "baseline_complete_metadata_sha256": "89502b0e23a87284ac23ba7d7e7f0f61b3afd4d11bf11651851d1a45e8370f41",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "3f55b09b3d9260a6cf4e891b2162484c1de59bdf20125db6f5a4529354bef73d"
+    },
+    {
+      "source_id": "FGDC-783",
+      "source_sha256": "357b75d88ad945f98490d93550e85add39f9333183ef9de4e2dbbeef034764a5",
+      "baseline_payload_sha256": "cfb03c84125f028356224e282b13336ca458c663236f02364603392c1661ddb6",
+      "baseline_complete_metadata_sha256": "2f98cbe79624e598fe6171b89204d14e1590a492d616df0b0b0364204a1ce8b3",
+      "meaning": "underlying_data_transfer_and_no_sale",
+      "after_payload_sha256": "3066ae12aaf13dbda4f57918f87762865c0f5a19472cfac48db31e66fec6ef05"
+    },
+    {
+      "source_id": "FGDC-799",
+      "source_sha256": "bbdec0ec44598a1cb4f9ca5bb9cbf67dd8b0ee4d9aa3d141ce6cbb443a6f351a",
+      "baseline_payload_sha256": "cde7f6d6813fdea408db97162431c9988e27b665ecb1ea6ccb809f5d6fc243ad",
+      "baseline_complete_metadata_sha256": "59842f242a45f1efe7875e2582b73fbaa2c477351408a0327131aa43481f6dcc",
+      "meaning": "underlying_resource_availability_and_scale",
+      "after_payload_sha256": "0ea6c9c24ef66109376f79bc560e46badf3d28d8b368f0ea89e332082ad80d85"
+    },
+    {
+      "source_id": "FGDC-801",
+      "source_sha256": "e732aab73a2811585c78bcaee7acad4bed65654aa342cafdd7100f2db67032d1",
+      "baseline_payload_sha256": "30cc74cec413c8c48f10300d40e2a3b2e964ebf5f2af4ebcd5f94090061a1d04",
+      "baseline_complete_metadata_sha256": "d48e4daee02665be43ae6d20be207da5f80aa3d1eb21464ddc7180e489d42fac",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "5ae87c1c7ee255a0f04dac4754b93cde82578ee34fdec5cf113c0f6837bcfc10"
+    },
+    {
+      "source_id": "FGDC-803",
+      "source_sha256": "01c4670955de7e98f61c89e47c96a66cee8088944dde46b0b9ec55762c791627",
+      "baseline_payload_sha256": "870c2216026581a7e47c6f0c4b6280122e95224dac5cc8a261f0ed0918d28226",
+      "baseline_complete_metadata_sha256": "df45a0c2f2791dda74fcbb32e5f7f758f4110b722ce39d808d9ed52cb5e7fa53",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "a86381b5a267ce12ed287a78b3e71742bb6f51759a8a9437d8084d7e5c480500"
+    },
+    {
+      "source_id": "FGDC-804",
+      "source_sha256": "7aa72a6aee743729f1491d932c355f4b509a17d4da55125059053e3c34c0db3a",
+      "baseline_payload_sha256": "cc46d6d06807b058a43184f84a3abb5b033a8a659a6d7ac005a634c494cf7041",
+      "baseline_complete_metadata_sha256": "ad77ecbce7bee3954440a0cb861c5b25db919280c49905d19e4266f1b97cb216",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "ed3450d550c7ed5c76fd406e9b71fe20f3b06febb17b7bf25eb83eed065fa27a"
+    },
+    {
+      "source_id": "FGDC-805",
+      "source_sha256": "81ebfb8ddc2b060449cd19e8889c205b2c5c42921b27ccf506dff571e1848044",
+      "baseline_payload_sha256": "3ce8ea14a043d800ac6d2bce9cca07f5889cc891a94ec91fcdc9c1032fcc52c8",
+      "baseline_complete_metadata_sha256": "fe077791c0cf1298100f6bd8566e1e83d71b52154fe729ee2c6b380a365b8552",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "01da234bafb4e9b58260ccbec1388a054d5245f607a260dc70228f67c2d0f3ef"
+    },
+    {
+      "source_id": "FGDC-806",
+      "source_sha256": "5d6d99b6c0ccee10b14f5e0a4fc2e52d600e904a7d0a899ad1612fd61df0177f",
+      "baseline_payload_sha256": "1ffa75a3e2c493cfc334d4dbde61bfd143711ed97f3109b80d881f08d70ff72e",
+      "baseline_complete_metadata_sha256": "d9b33641e44272626e7fa262c0401b6b61795be1bfe7091dc78fd52806e813d6",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "3e68bda058ab8f668b230048af0ecbf26ede08705f5f610cdad7ef05fd512653"
+    },
+    {
+      "source_id": "FGDC-807",
+      "source_sha256": "1ad9faf673c3792609fa3ed4b6c5cf8ab83c744c2ae47f1ab7023bf4dbfb5824",
+      "baseline_payload_sha256": "957e047d299b9b1fd5a13f15f3ddc8eaeda29db541577b7677f9d1e0e412e83a",
+      "baseline_complete_metadata_sha256": "c6559959018b1d97b164b03547394d4a3fbaaf8ee21214efea906a14fc52811a",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "a3fa5d92f1d65dfc5fcfb029082e28963c68183024b49367e989635b53223d46"
+    },
+    {
+      "source_id": "FGDC-809",
+      "source_sha256": "f60ed9d7dfc987240b947f79e4cae24a38668f7163c1eb8a7eef5078c0371db1",
+      "baseline_payload_sha256": "d092d7941c60f0502ce6425b39d190447b27ff28df442e06822a4fc5fd57124f",
+      "baseline_complete_metadata_sha256": "c1073e8f7efc248ea167517fe96476897281c29e7dcfa6bc3749522915e3fe8e",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "5511bf7feaccb53e91338287c55e7e7f0462988ecb3062415e38ddac1af41b36"
+    },
+    {
+      "source_id": "FGDC-810",
+      "source_sha256": "689320fd5814eca4575fe6ac265568105d614075768f669f03d84da372fd6ce7",
+      "baseline_payload_sha256": "b4ce20cd3faaf69217100551d3fb26920c75c03660c20d63f2f503c26faf61da",
+      "baseline_complete_metadata_sha256": "03999efd4808c140d820d382def247b59ee17a7df55c80259328ef8c25559cd9",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "244829da2e8cf6ff38654f89ec494a68792c6cef78be395a878dfa9e278cf66f"
+    },
+    {
+      "source_id": "FGDC-811",
+      "source_sha256": "2faf33e20e66df0da8d0638e2bc20f9a7b153b0cee0eb7e38521e6208f949d0e",
+      "baseline_payload_sha256": "5ab8c5dbc8a5a1a0aeca69dd25cacbee6dbffadff9d6fa2f90cad177c626db78",
+      "baseline_complete_metadata_sha256": "0ba35acd06fc96a72d207ed8a94b53e0d69fe22bf7e082586637ef00dce3391c",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "8280f3f49bbb37e3db71b5b815f977c4e33aa61254fbd082047fee22c4912342"
+    },
+    {
+      "source_id": "FGDC-812",
+      "source_sha256": "834eea16f2bdef7a7c5e48509edb0083bcdee8f224d30462bc21886d8608a3c7",
+      "baseline_payload_sha256": "cf9076c05aae2f61bfa947ea635d9a4861a87bf9b418cb34019ccd5c64c92aa9",
+      "baseline_complete_metadata_sha256": "c52eb83031df0056df3cbdbdbb0711d55e2cb2f58a5b6726d0cf0e71b9bec5f0",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "f82dad08b5756d238c4f64bad593269be4581b601e3db21582ea8ef872052921"
+    },
+    {
+      "source_id": "FGDC-813",
+      "source_sha256": "88ccfe936e38934a2b7afdf972a2c0644eacbaeb6983e8610e5f76a3210316ca",
+      "baseline_payload_sha256": "865c9eb84a8e8215b2d931eb52dc6eadad705153beec6322820a929f3742363f",
+      "baseline_complete_metadata_sha256": "3fc56f4dba3067c106bfd536235f263ebb2a13f164f01f5ea52d3365d5c6e3e1",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "5698dd56e5c3e31a42e6b3066a8acf47bae5cd55ffbb8890e9c94d93c1f2693e"
+    },
+    {
+      "source_id": "FGDC-816",
+      "source_sha256": "1e93d6a5969caeec8aa4efe81e08de90eccc579021a82caf66b432b9c6a18ca6",
+      "baseline_payload_sha256": "ec78d287ea1b59e5cc6b1ac17477598be2bf54896d23e3b99a39d5b0a976c540",
+      "baseline_complete_metadata_sha256": "771ee292a0e2df3db0406ffe906c7aa28520f0948d2e6ab9a6e8b3597a393299",
+      "meaning": "underlying_map_copy_cost_and_attribution",
+      "after_payload_sha256": "8867c927df3790d049b16501a231841cba7c6476c004445d7ec984ae3a9ca00a"
+    },
+    {
+      "source_id": "FGDC-818",
+      "source_sha256": "43fbf947c60427e7fb0450e41ea4a2614bf41e057c4a90486b68c97a8db7c5cf",
+      "baseline_payload_sha256": "f246001818bd6493c893de8a757d1b3c1acfc023dca9388c9cd9de86cb88ef88",
+      "baseline_complete_metadata_sha256": "6debdc05e2c7963d681e69ca31f5f73990e732f656447555a70d4c3e9907a3c3",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "cc1049e397b4113d4c630a8488f0d51ae81c3f332d01097cd3742d856f4a3f8c"
+    },
+    {
+      "source_id": "FGDC-820",
+      "source_sha256": "1d905c7e115a5fcccabcc1445c17bdc53458737409b7f086d5507a99ef568c6a",
+      "baseline_payload_sha256": "a53d599331bb9d83d5c5ee42737f6269c8d0cd2eea3912e5abc39976f6c39de7",
+      "baseline_complete_metadata_sha256": "6db381a9c4be29c5941e70a686f886ae2c35a1629547287cddb49c680793ada1",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "2a3a3b1cd2a33fd64b968995c0f575df0bf7bdc845797e7d87eca14767dc27e2"
+    },
+    {
+      "source_id": "FGDC-821",
+      "source_sha256": "998d0f111cb86cc6d806a6242eead974dd422d542cc439d693b97bed2fdb75d3",
+      "baseline_payload_sha256": "a991b7d236f59b116729ff1b644f5e5d0eea17ab03f863316f4489ac2a985c0d",
+      "baseline_complete_metadata_sha256": "b92d04f011ca404e9bdc3154e54d84e7219d9897b3885c1366bf481387c21ca7",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "74436253f121f3e37a1a80ee1f1490221069bdbefc9ce8dcf461d2455b542088"
+    },
+    {
+      "source_id": "FGDC-822",
+      "source_sha256": "c470eec4aefd39afc338bf2c00c743dcd56aa4e9d0288622effb51c7d74c8c6e",
+      "baseline_payload_sha256": "b0696186716d9344e09e87f6e39258fd2864d9b0c78a498a80c6d6341006c66c",
+      "baseline_complete_metadata_sha256": "f2ab7309b497807ea6911ff473b4c497a5c9cb8088fe2264c34cecb3675f02ce",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "5f180ecde94d98f3d5d4ad9b1f2f106e05a0d742a7c42831acb64c7ac72d8b5b"
+    },
+    {
+      "source_id": "FGDC-823",
+      "source_sha256": "43e61a2930678b13e539137addcb921a34c4076e6af5e8b859e2706c971939a8",
+      "baseline_payload_sha256": "071db11c415d0ecc2e1cda2f4ec3161872aec51a8ead2ea4f36debe9c5fd70fa",
+      "baseline_complete_metadata_sha256": "f504a5d6b7e73a364dd57d81b123f885ec456b0441ddde3c7c80307049795db0",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "bbac24415fa13b4cdb89a3c30260178fea73a88d43b36ba600e747271f87ce19"
+    },
+    {
+      "source_id": "FGDC-824",
+      "source_sha256": "a65f5b2edc7ce3898d7b69643163a0f74b812309fcbb58d791bedb65d7fe94d8",
+      "baseline_payload_sha256": "ce34861995ef26bd9562f5646955568a52fbec554f83638733335b61133031a1",
+      "baseline_complete_metadata_sha256": "1f0136146beae24d494513f99ce072cad544bfc5096e0ba6b5e67737d133fd8c",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "ee47340585f69f7ce4830bdf053fbf9affe7315c3c36e4b3941b37b64cef0dfc"
+    },
+    {
+      "source_id": "FGDC-825",
+      "source_sha256": "09b03cfe8f7fbaa3931d983d7cc72f6581c405b9609ba1b960c9f8a3c2379b32",
+      "baseline_payload_sha256": "074bbc9d773e7d5a229e3cc1774b572fd51b1dcc80e947a29330bade59bb1290",
+      "baseline_complete_metadata_sha256": "0cbdb360f3e793c118544e5517bdf3bf508a0cdc59b002a3774d4a170f29b5c0",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "b9fc79b4444258f83a6f2f77cc5ead0678e7b854b30c9aeafc79fa7f0603ab07"
+    },
+    {
+      "source_id": "FGDC-826",
+      "source_sha256": "d0d275249378d35f9febcd371ff628ecc965d421a86bdebad6c5a58d6b4b2f5c",
+      "baseline_payload_sha256": "23378e8479dcd7809478dbf75d0aa3ca52796f5d2536db3c781e24b686c30871",
+      "baseline_complete_metadata_sha256": "2d3f3c31a142d9b3916edc7100722f261e1e1210b2b8ed233415d839309e1cdc",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "9c6d287884607714e834bfb475cce393526932f9579d23aa7a1f78a94712808b"
+    },
+    {
+      "source_id": "FGDC-827",
+      "source_sha256": "1863dad0ef4acdcd3f7fcbcd60a3b8bbbc383315242f67669e672355d60fa548",
+      "baseline_payload_sha256": "fd2826761c551fdd4bf7afa57b10af36d1675a8aeb821da49edbe74d2986df7a",
+      "baseline_complete_metadata_sha256": "cf46c0028be85b4dee68d41970cf88898598e2139aa51da915443d718e9f6ac5",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "045dec551172e5c954b2058770525b377ccf64b30e4654c132825ad826d9e042"
+    },
+    {
+      "source_id": "FGDC-829",
+      "source_sha256": "fb4b9e09805671516c8a8e64fa5751a0cf28f776e5ab440e8ff7ea490a68658f",
+      "baseline_payload_sha256": "1d07a50bf28c1286b53862d6948de268950ebd448e891635639dfbd0f3c3ff84",
+      "baseline_complete_metadata_sha256": "9333f81a70dc6bb5e9978a4276506e96f728452dd8ba62f48a6561b2a72f6e7c",
+      "meaning": "underlying_data_ordering_and_attribution",
+      "after_payload_sha256": "8dbe07d0fd45da9a8ba889936f63522342d5feae6e31a4d0fd64f0b8b95587f8"
+    },
+    {
+      "source_id": "FGDC-837",
+      "source_sha256": "04086f43cc00f35c83ef8968612925d0459c9f3b053d784c957a0a98ccc26ff4",
+      "baseline_payload_sha256": "b30a0c7391165b1d2c8af0b451dd087512d4beec707186960694e7155b3e08dc",
+      "baseline_complete_metadata_sha256": "f61ba51d16e36c8e68921c7ca2c8e147e4d148610dae9dd91f7fcd2724a1126a",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "79b389a8f68a0da537db87f19f52fd5eb687b1843cd536d58dc7208b5852d10f"
+    },
+    {
+      "source_id": "FGDC-838",
+      "source_sha256": "7ecab416121170d12a29635722fdfeb5440764470aaefc4a2be060abd73dc832",
+      "baseline_payload_sha256": "3dd7775f1400be787936e9833d896eda4717e3836db6c2755a3cad632fb1b1f9",
+      "baseline_complete_metadata_sha256": "8f5a864b07c1a95de9841c65033dc4b02464348ac0823cbcda0ba9255a477a74",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "cb7b6e5c93fca96c8f001072cde419645bf8475cd601706e9b00a7b03d57e383"
+    },
+    {
+      "source_id": "FGDC-839",
+      "source_sha256": "6442533f4d02c6f846b172895d8dbf327b24aec0ed813c38bd1b40921ceb2f89",
+      "baseline_payload_sha256": "58d6528db02d0b00214cbe994103da4889962127ffcf7e241f691a4d0aa7fe00",
+      "baseline_complete_metadata_sha256": "937d0607f8c3afcfb183659f773d6b4528deeceaa7dfd35ba55ca235b7db6776",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "60979ef563ee93602fddffbb2b74d2431431fcbed3dad3a78ffee823a4600021"
+    },
+    {
+      "source_id": "FGDC-840",
+      "source_sha256": "ec3da8eaba0bd79a5519ef51f7f0e70e89c39ec9463a98cd0eabb99e810e7ce8",
+      "baseline_payload_sha256": "6b4225574c51e45bcbcdd5bbf12dd813bbb331f6db5aba1548f1ab96c2e03a70",
+      "baseline_complete_metadata_sha256": "eb9a7d625d024061ea5ecd43a989bd54919188cadfa9b01f6fc4d3d900ed5568",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "72be4d0db93dd7426d8c8df787cc46571543d2e3398923d344d057f88074a521"
+    },
+    {
+      "source_id": "FGDC-846",
+      "source_sha256": "ff0098d925741f3ca1e0610735227aea85171eaafb60a709dce4fe589c17503b",
+      "baseline_payload_sha256": "fae26272fed008dd461cac9c4c910ee32faf83cb511ac9a7c85eb57f3dbff40f",
+      "baseline_complete_metadata_sha256": "d2021a3ba7d5876a1cb8c406721abaa93383083ad9ec7bb202509528acd20121",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "ab8843854ab79ee27acba5ec61bb549bb1725acc0208d5a4f6ca6b9eb658dbf6"
+    },
+    {
+      "source_id": "FGDC-847",
+      "source_sha256": "5c99585404da0646afc2045e2b74a021b22c21aa816bb9c2ecf870b2fdc2d082",
+      "baseline_payload_sha256": "fdc9a57573f3c7e121da1cd116e6a71f201f3ea48e2148a7c77aeede94e5673e",
+      "baseline_complete_metadata_sha256": "b24b13e61b9b76e99da8feb133864f8af075a4a6794cb8de3f8fa3ddc18d8602",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "ef35eb63f1cea9a81d9bae3e834222093a5f1b8cb5066a25ac9a72342ebbf9e3"
+    },
+    {
+      "source_id": "FGDC-848",
+      "source_sha256": "0cc6dbfe352ab7a61590c3034042b17d06b96557a740ba3c12841121862cd4c9",
+      "baseline_payload_sha256": "cf275ee316aa5d8fc39ee0237955bb286bc2a122b64ae910c242d99a9ff8bdc3",
+      "baseline_complete_metadata_sha256": "03acfad342627a36fa35d4be737a62e16459a009c9ade0818fc8ef5df6ecf211",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "959245129d853591687b025c34798575960d0d9ba4fabbfae5027086ca9e6e4b"
+    },
+    {
+      "source_id": "FGDC-850",
+      "source_sha256": "9a4fdfc505da6073c51a01ca0b97ae9279747eee1d331aa3909c8f37bbbc8335",
+      "baseline_payload_sha256": "abb2a6a59ac9ef5bf628263079fd42c98639d5f6b2a141ef7d3d930bb8b0b9cc",
+      "baseline_complete_metadata_sha256": "f72dce56e64f8574dc5db52b7747d45a776de54e3ac682a4da029c40ec9f69ca",
+      "meaning": "underlying_GIS_Starter_Kit_acquisition_and_scale",
+      "after_payload_sha256": "d6bea0eafeb37ba677b6bd4cde1d99cc312cdc473806d5e7650c0d0364d2d9b5"
+    },
+    {
+      "source_id": "FGDC-854",
+      "source_sha256": "623edfaed8114774343c99a60c2e9f721914b2206f339902f7730d4eff9e86f9",
+      "baseline_payload_sha256": "dd267d676c54aa9f7b8762712f7aa23e611d9d1c388e217b94bf08607ec245e8",
+      "baseline_complete_metadata_sha256": "2c3df6cd304c100d88a9b0514ec3bc361015ab0fdf954d61f5340e22b1a9c820",
+      "meaning": "underlying_nonrestricted_photo_acquisition_and_attribution",
+      "after_payload_sha256": "56f3892d945111f2b2861b29d3531e95ed201a2f564e39c27d7507d373369473"
+    },
+    {
+      "source_id": "FGDC-856",
+      "source_sha256": "9b402f3a00d3ea90866a897aeb09fddfb34019b1f5cbc1004a6d294f16f3da5c",
+      "baseline_payload_sha256": "d3959b010ee6a17c5657e6892df76aa36f5f8ec4ecca2c6eb1a486e873c24fb6",
+      "baseline_complete_metadata_sha256": "54442c5bb54d4e9d5d94d57969548ae651cea4806d15e2500fe338d66998ea37",
+      "meaning": "underlying_resource_media_acquisition_and_attribution",
+      "after_payload_sha256": "efaef8156cd98857ebd2891deb39405a4d33cd33b1116d507dac9c2805d8964c"
+    },
+    {
+      "source_id": "FGDC-857",
+      "source_sha256": "d7c69c47afd672fe86032d7de1e319883afd53b21d55ced00f190633e9db1df9",
+      "baseline_payload_sha256": "a41f99380009e1b9092402b658ac7792b7ca5ff9294afadb526d2829cb97be95",
+      "baseline_complete_metadata_sha256": "1f65a49569b90c16752de8767d042c213e380014a966adaa933283dc71da3a63",
+      "meaning": "underlying_resource_availability_and_scale",
+      "after_payload_sha256": "8d7a197abcc2956374afe61e5067aae5d4f29208d7635fffcbf3657371c3296e"
+    },
+    {
+      "source_id": "FGDC-858",
+      "source_sha256": "f2ac8a072238f1634681a9895bc58e7af6016cd4d7435ce75742e2bee7743cc1",
+      "baseline_payload_sha256": "957cefa2ca882884f93797609a8b563f1f6a10e361fc5437dfe69c09f0a39bb6",
+      "baseline_complete_metadata_sha256": "d79b19d0ba9c13daf5da51ff5fcb34e388c39c865b9e85184f377e6e0b196fa8",
+      "meaning": "underlying_resource_availability_and_scale",
+      "after_payload_sha256": "a406d721a65360e92785dd79ee2820a8d37badc0635e1f31e54f6253088aa49f"
+    },
+    {
+      "source_id": "FGDC-864",
+      "source_sha256": "202c2a1cdf6e6bc3424dc243bfebf74ff43b6f2bafcabdd5e709fc2c8de174c9",
+      "baseline_payload_sha256": "e70074650b348ac00f44c5d7ca4a9520c025688a55b1d510dd8f7348be277cfe",
+      "baseline_complete_metadata_sha256": "cb71cefdeaaa3c76dc035b9458f2bcfd4405d28966a982e9c0f225ab725512e6",
+      "meaning": "underlying_resource_partial_availability_and_resolution",
+      "after_payload_sha256": "bc70d06e6509f965dae11845ca59066e02f0f22af24d1d8b947b4c6a7f246313"
+    },
+    {
+      "source_id": "FGDC-865",
+      "source_sha256": "5a2420a290e6e11d7dd35a267d5e5868ffa996a95922e90a7190c8c01aebd5f5",
+      "baseline_payload_sha256": "aec7d2b1d3589b0d60c05bde55efd562166cb2511e34bd7a5fae98d4e94b7c89",
+      "baseline_complete_metadata_sha256": "10103c3c631cab8d0fc05543105db0914c7416c51785f0d12df9546ed693b67b",
+      "meaning": "underlying_plant_data_inquiry_and_attribution",
+      "after_payload_sha256": "b12d4f5ddfc73c5bd1af07ae2582b497bedfbb25a13c647d2f510b757f201cf7"
+    },
+    {
+      "source_id": "FGDC-866",
+      "source_sha256": "6c511c753f6d18abbc330a8907333a2364bffadd473623e61dc646d4eef71ab4",
+      "baseline_payload_sha256": "53833e14614accf1c8fe495bda7fb14c2b4664b80cacd03e5b298b7a7dff8db8",
+      "baseline_complete_metadata_sha256": "c43b824d14f03e369a607ae60c75820e58497863b9c995df228a240e4fc2bfb4",
+      "meaning": "underlying_resource_availability_and_application",
+      "after_payload_sha256": "d0ed4df92047a4768010f2476b9250f0927a25e617c787b108cc336a37e70800"
+    },
+    {
+      "source_id": "FGDC-867",
+      "source_sha256": "151cf83e613d43de17b51dd74b8cec6230caf8ff04a3edaf44476394f470bc04",
+      "baseline_payload_sha256": "f5b61d0e9790de6f6fc64eb8346390aefd1def0f893ccc5ef1367e06925bf50a",
+      "baseline_complete_metadata_sha256": "a3d9ba1b9b05f7de0a1bfc88b2bf80c11dd72dd56394a8686d287449b3859721",
+      "meaning": "underlying_map_copy_cost_and_attribution",
+      "after_payload_sha256": "4745f2f6e2c1463c9f75341b2152f13464433fc9a9dc86bc2037ed800fe1d7b8"
+    },
+    {
+      "source_id": "FGDC-868",
+      "source_sha256": "50da491f33e1bdc27ca7c321ca4938414ebe411230f0f4f097e180527c79612a",
+      "baseline_payload_sha256": "a89051dd0eb321d343bf382a35280807de1009a50eb6b764f931f233887b8a76",
+      "baseline_complete_metadata_sha256": "c865121a0b7870c6654f70da92c4abc20235755dc1818fad7102f91f57a467e7",
+      "meaning": "underlying_map_copy_cost_and_attribution",
+      "after_payload_sha256": "fb612ea067fad13d56a98cf4b39549c685d08133635193a8d2ebaf942c47f92c"
+    },
+    {
+      "source_id": "FGDC-871",
+      "source_sha256": "555891473bc8d6e400e8c86434eca35b07503612217119505140c4b92b03e6bb",
+      "baseline_payload_sha256": "ee06a81d6a71ec387d24a26336017fd13835da122d126d5249dc476f017983e6",
+      "baseline_complete_metadata_sha256": "a1b7a897383d1af52f935991984964a44815eb147c051c14ce44cdfbcfb78add",
+      "meaning": "underlying_database_output_availability",
+      "after_payload_sha256": "8cd7386d7b2f8f4c342b52a89c4d3b82ff83ca19a0a542c7da1e2a7f2a7f0446"
+    }
+  ],
+  "activities": {
+    "repository_edits": 0,
+    "provider_requests": 0,
+    "credential_or_private_provider_reads": 0,
+    "tests_or_classifiers_run": 0,
+    "outputs": "/tmp reviewer artifacts only"
+  },
+  "implementation_limit": "This source receipt clears semantic evidence for exactly205 and checks their completed classification/metadata snapshots. It is not a new broad runtime/protection audit, and does not re-audit old264 or821 source decisions."
+}
