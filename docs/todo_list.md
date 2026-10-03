@@ -372,4 +372,4 @@ This local cohort has not been pushed or used for a provider operation.
 ## PR10 final-head integration review — 2026-10-03
 
 - [x] Address the substantive create201 credential-echo review: preserve a safe private untrusted candidate ID before rejection, with no trusted adoption/retry/reset or credential persistence. Add meaningful failure-first/reentry/privacy regressions; final runtime and validation bindings supersede the earlier canary pin.
-- [ ] Merge only after exact final-head tests/review/requirements pass. Live modern execution remains disabled pending the separate exact approval and parent dispatch; both prior spent ledgers remain preserved.
+- Code merge requires exact final-head tests/review/requirements to pass. Live modern execution remains disabled pending the separate exact approval and parent dispatch; both prior spent ledgers remain preserved.

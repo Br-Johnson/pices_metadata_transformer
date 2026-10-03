@@ -5,38 +5,21 @@
     "docs/handoff/modern-synthetic-canary-20261003-code-01/INVENTORY.json": "95d125ba6e47cb87cd89fcc981c8a179ee37127e0fe9ccab5711f9984b79787e",
     "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
     "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
-    "scripts/modern_synthetic_canary.py": "13d6499f8799a90490f098668be0b431fff965b0376fb81db66de3ff09aa16db",
+    "scripts/modern_synthetic_canary.py": "c88dd70b1c9fca0e7eac8b180f3b787b2e224562d095c29d44b975a8b6d8faf1",
     "tests/test_modern_canary_errors.py": "226d7b1d12710e2c86d074a0b0b90d1972af36f1c5922ea9a29f678b4511ad9b",
-    "tests/test_modern_synthetic_canary.py": "cdad5099120cd46294d55c14707477f654d654fe51d7b96119c015ed6d60d4f1"
-  },
-  "final_head_review_correction": {
-    "approval_plan_sha256": "0222b990118ce8543d70b07ff92e0cbf32f144b394b486d23e23096d71183e0c",
-    "comment_id": 4174229866,
-    "failing_first_reproduced": true,
-    "finding": "Create201 credential echo rejected before preserving safe reconciliation ID.",
-    "fix": "Persist only syntactically valid, credential-free candidate ID privately before token echo rejection; no trusted adoption, publicID or retry/reset.",
-    "github_review_thread": "PRRT_kwDOQAppos6oqJSa",
-    "independent_delta_review": "CLEAR;23 guarded modern contracts pass; prior source/privacy/timing/docs evidence retained",
-    "independent_delta_review_sha256": "e28f304afa9fc2c67c6484e524ea87ccf891172ce2c2f59bbd59b7d44d787226",
-    "independent_log_sha256": "385ce06630c2114182d3594c825b0b1ee3541453cf0b63d8bef476374996466f",
-    "new_regressions": [
-      "echoed201 retains private candidate ID, remains failed/pending/create spent and reentry produceszero calls",
-      "ID containing credential is not retained"
-    ],
-    "previous_validation_sha256": "fb233a7a4ae951c2195eabeb6d0852eae9654acd464bb724aa11ca1fd51f5d41"
+    "tests/test_modern_synthetic_canary.py": "ea8bd904ec20fb15b0cb0e3ff27da91362c256a4c880052a2037d7f55bb17edc"
   },
   "full_guarded_offline_tests": {
     "guards": "Requests default send and socketconnect/create_connection blocked; fixture send in one configuration test remains explicitly mocked.",
-    "log_sha256": "35cc3672b69957721f3fb767b1a8ff76fd0c8080e7e91c9f7a208bf7eca2f406",
-    "passed": 340,
-    "seconds": 37.773
+    "log_sha256": "df9a4ecac0784c9ff7e712d9933babad72883ed49ed8d8d1d299e2afb274ef64",
+    "passed": 338,
+    "seconds": 37.884
   },
-  "independent_final_guarded_modern_tests": 23,
+  "independent_final_guarded_modern_tests": 21,
   "independent_reviews_sha256": {
     "modern_synthetic_doc_review.json": "b39d83049df8571cea08b577d711623cb3f230a004d654f56feb9fd8f3e38d3a",
     "modern_synthetic_expiry_review.json": "d25b387f707a207dd1215ec448493acb39069e3d408d5855e546d7c4cb5ffd94",
     "modern_synthetic_implementation_review.json": "7d1b78bd666bdd317003d020a3f5575cac6c07aa57aca49e9959be5bc9a4bd73",
-    "modern_synthetic_safe_candidate_review.json": "e28f304afa9fc2c67c6484e524ea87ccf891172ce2c2f59bbd59b7d44d787226",
     "modern_synthetic_timestamp_review.json": "9c634da43fc994feff8f65107348efcef7de2e887fd708525ec08c26421ebcaa"
   },
   "limits": {
@@ -49,11 +32,10 @@
     "metadata": 1
   },
   "namespace": "pices-modern-synthetic-20261003-code-01",
-  "previous_runtime_commit": "b11a2b81738c48368669347673be2e805a4477e3",
   "provider_requests": 0,
   "remaining_blocker": "Separate exact approval for one new modern synthetic namespace/create and protocol ceiling, then parent dispatches sole provider executor. No account/email/production credential setup condition is introduced.",
   "ruff": "PASS",
-  "runtime_commit": "dc351b071df53c6d44f01491694916c1d44bd9f2",
+  "runtime_commit": "b11a2b81738c48368669347673be2e805a4477e3",
   "schema_version": 1,
   "source_and_production_protections": {
     "FGDC_tree": "6c509a3e62252888a6709d1df94bcf109b83241b",
