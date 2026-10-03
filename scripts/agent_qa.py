@@ -27,7 +27,8 @@ from scripts.verify_uploads import compare_metadata
 from scripts.matching.evidence import snapshot_inventory
 from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
 from scripts.source_access_interpretation import validate_interpretation
-from scripts.citation_creator_interpretation import validate_creator_interpretation
+from scripts.citation_creator_interpretation import validate_creator_metadata
+from scripts.source_link_interpretation import validate_source_link_policy
 from scripts.dataset_access_interpretation import validate_dataset_access_policy
 
 
@@ -87,11 +88,9 @@ def assess_source(json_file, paths):
     if creator_reference is not None:
         if not artifact:
             raise ValueError('Creator interpretation requires an original XML artifact policy')
-        expected = validate_creator_interpretation(creator_reference, Path(source_path).stem, source_hash, root)
         # Compare full objects: affiliations and unexpected identifiers must not
         # disappear through the remote comparison helper's name/type projection.
-        if metadata.get('creators') != expected:
-            raise ValueError('Creator objects differ from reviewed primary citation interpretation')
+        validate_creator_metadata(creator_reference, Path(source_path).stem, source_hash, root, payload['metadata'])
     else:
         expected = []
         for node, name in zip(origins, names):
@@ -110,6 +109,7 @@ def assess_source(json_file, paths):
     interpreted_access = False
     if artifact:
         policy = payload['artifact_policy']
+        validate_source_link_policy(policy, Path(source_path).stem, source_hash, root, payload['metadata'])
         authority = policy.get('rehosting_authority')
         if (policy.get('rights_scope') != 'original_fgdc_xml'
                 or policy.get('rights_source_xpath') != './metainfo/metuc'
@@ -227,7 +227,7 @@ def assess(entry, paths, snapshot_path, duplicate_path):
         _timestamp(raw_snapshot.get('retrieved_at', ''))
     # HEAD alone does not describe rules executing from an uncommitted working tree.
     rules = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py', 'source_access_interpretation.py', 'citation_creator_interpretation.py', 'dataset_access_interpretation.py')}
+             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py', 'source_access_interpretation.py', 'citation_creator_interpretation.py', 'dataset_access_interpretation.py', 'source_link_interpretation.py')}
     return {'checks': dict.fromkeys(QA_CHECKS, True), 'rules_sha256': rules, 'source_sha256': source_hash,
             'metadata_sha256': metadata_hash(metadata), 'artifact_contract': artifact,
             'remote_snapshot': {'path': str(Path(snapshot_path).resolve()), 'sha256': metadata_hash(snapshot),

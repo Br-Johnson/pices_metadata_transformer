@@ -17,7 +17,8 @@ from scripts.upload_service import assert_environment, atomic_json, metadata_has
 from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
 from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
 from scripts.source_access_interpretation import validate_interpretation
-from scripts.citation_creator_interpretation import validate_creator_interpretation
+from scripts.citation_creator_interpretation import validate_creator_metadata
+from scripts.source_link_interpretation import validate_source_link_policy
 from scripts.dataset_access_interpretation import validate_dataset_access_policy
 
 
@@ -107,6 +108,9 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, rem
     metadata, source_path, source_hash = prepare_metadata(entry['json_file'], paths)
     payload = read_json(entry['json_file'])
     artifact = prepare_artifact(payload, source_path)
+    if artifact:
+        validate_source_link_policy(payload['artifact_policy'], Path(source_path).stem, source_hash,
+                                    ET.parse(source_path).getroot(), payload['metadata'])
     if artifact and payload['artifact_policy'].get('rehosting_authority') is not None:
         # Human adjudication cannot preserve approval of a changed authority binding.
         validate_authority(payload['artifact_policy']['rehosting_authority'], Path(source_path).stem, source_hash)
@@ -123,11 +127,9 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, rem
         validate_interpretation(policy['source_access_interpretation'], Path(source_path).stem,
                                 source_hash, ET.parse(source_path).getroot(), policy.get('reviewed_at'))
     if artifact and payload['artifact_policy'].get('creator_interpretation') is not None:
-        expected_creators = validate_creator_interpretation(
+        validate_creator_metadata(
             payload['artifact_policy']['creator_interpretation'], Path(source_path).stem,
-            source_hash, ET.parse(source_path).getroot())
-        if metadata.get('creators') != expected_creators:
-            raise ValueError('Creator objects differ from reviewed primary citation interpretation')
+            source_hash, ET.parse(source_path).getroot(), payload['metadata'])
     assert_artifact_binding(entry, artifact)
     if record.get('artifact_contract') != artifact:
         raise ValueError('QA artifact approval is stale or missing')
