@@ -1,6 +1,6 @@
 # Reviewed remaining-source handoff
 
-Frozen integration runtime **d611e1ca02d06306b26649661e60ae4b64a37927** on `handoff/remaining-source-cohorts-20261003`, based on PR11 head08f561ebf117ea31c2c5bf824b44830c1e0f1261. Later commits contain documentation/receipts/helpers only; runtime scripts/tests and three profiles retain reviewed hashes. This is a normal stacked handoff targeting the PR11 source branch. Main remains e3fde4b4fa9e30435b6b1322536aca276eebc22b because automatic approval review rejected repository merges under the original trusted no-merge restriction. No merge workaround was attempted.
+Frozen integration runtime **d611e1ca02d06306b26649661e60ae4b64a37927** on `handoff/remaining-source-cohorts-20261003`, based on PR11 head08f561ebf117ea31c2c5bf824b44830c1e0f1261. Later reproducibility fixes correct guarded test discovery, format the new test/audit helpers and require a frozen baseline. The new test AST is identical; source validator/profile bytes remain unchanged. PR12 integration retains its separately reviewed modern runtime. This began as a normal stacked handoff and now targets main after dependency merges. The initial handoff recorded a merge rejection under the original trusted scope. After Brett’s exact direct instruction Sentinel_4dc5d70d7dac8191a8a5b60dff23ed9b was supplied, the single PR11 retry succeeded at b3d87f204697a1ba77a2c9d6ece00d99c4e1440d; PR12 then merged at8818c195cc9a1f24ef76eac274ecce65a0561d3d. PR13 now targets main; no bypass/new writer was used.
 
 Actual result **3468 supported /732 held /6 malformed**, **234 additional supported sources**:205 source-bound resource acquisition/use interpretations,27 complete display titles and2 creator promotions. Eight creators are repaired; six retain independent access holds.352 guarded offline tests pass, plus five focused independent runtime contracts. Source semantics and complete actual after-images were independently reviewed in disjoint lanes. No generic date/creator/title/rights heuristic or provider behavior changes.
 
@@ -27,14 +27,37 @@ Reproduce offline from this checkout with installed project requirements:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 python docs/readiness/2026-10-03/guarded_remaining_source_qa.py test
-ruff check scripts/citation_creator_interpretation.py scripts/dataset_access_interpretation.py scripts/source_title_interpretation.py tests/test_remaining_source_cohorts.py docs/readiness/2026-10-03/guarded_remaining_source_qa.py docs/readiness/2026-10-03/audit_remaining_source_cohorts.py
+ruff check --isolated --select E4,E7,E9,F,I,B scripts/citation_creator_interpretation.py scripts/dataset_access_interpretation.py scripts/source_title_interpretation.py tests/test_remaining_source_cohorts.py docs/readiness/2026-10-03/guarded_remaining_source_qa.py docs/readiness/2026-10-03/audit_remaining_source_cohorts.py
 PYTHONDONTWRITEBYTECODE=1 python docs/readiness/2026-10-03/guarded_remaining_source_qa.py classify --output /tmp/pices-remaining-before --reviewed-at 2026-10-03T21:52:00Z --old-profiles
 PYTHONDONTWRITEBYTECODE=1 python docs/readiness/2026-10-03/guarded_remaining_source_qa.py classify --output /tmp/pices-remaining-after --reviewed-at 2026-10-03T21:52:00Z
-PYTHONDONTWRITEBYTECODE=1 python docs/readiness/2026-10-03/audit_remaining_source_cohorts.py --before /tmp/pices-remaining-before --after /tmp/pices-remaining-after --output /tmp/pices-remaining-delta.json
+PYTHONDONTWRITEBYTECODE=1 python docs/readiness/2026-10-03/audit_remaining_source_cohorts.py --before /tmp/pices-remaining-before --after /tmp/pices-remaining-after --frozen-baseline /tmp/pices-frozen821-output --output /tmp/pices-remaining-delta.json
 ```
 
-Use fresh local output directories. The audit also accepts `--frozen-baseline` pointing to saved821 QA output; it verifies the pinned759b7c9 report and complete raw before objects. Root's same-time corpus lives in `/workspace/pices-remaining-cohorts-qa/{before,after}`. Both reproducibility helpers pass Ruff; the classifier helper's ten-source fixture returns7 supported/3held and the audit reproduces the complete cc6c05af delta. [Validation](remaining_source_cohorts_validation.json) binds test/log/file hashes and limitations. Provider calls and credential/private-stage reads are unnecessary.
+Use fresh local output directories. First reconstruct the frozen baseline with the commands below, or use the already-saved `/workspace/pices-source-scope821-qa/after` directory after verifying its pinned report hash. The audit requires `--frozen-baseline`; it verifies the pinned759b7c9 report and complete raw before objects. Root's same-time corpus lives in `/workspace/pices-remaining-cohorts-qa/{before,after}`. Both reproducibility helpers pass Ruff; the classifier helper's ten-source fixture returns7 supported/3held and the audit reproduces the complete cc6c05af delta. [Validation](remaining_source_cohorts_validation.json) binds test/log/file hashes and limitations. Provider calls and credential/private-stage reads are unnecessary.
 
 Parent's separate provider executor may now follow the [exact GET-only reconciliation dispatch](modern_readonly_reconciliation_dispatch.md): fixed owned modern inventory route plus canonical draft readback, maximum240 additional GET intents/200pages/30minutes,193historicalreads preserved/cumulative433,20seconds/request,32MiB inventory/64KiB details, no redirects/retries/link following. The modern create intent remains held with dispatch/cause unknown. Candidate evidence does not adopt/reset/replay/write. No root provider requests or stage changes occurred.
 
-PR11: https://github.com/Br-Johnson/pices_metadata_transformer/pull/11, final head08f561e, runtime503f72b,347 guarded tests plus seven independent contracts; exact821 and five-import preparation. PR12: https://github.com/Br-Johnson/pices_metadata_transformer/pull/12, final headdf2ee5b, runtimea43f4a1,349 guarded tests plus nine final independent diagnostic contracts; automatic pre-intent-attribution finding resolved. Both remain open/unmerged. A combined-main suite has not been run or claimed. [Merge gate receipt](pr11_pr12_merge_gate_receipt.json) retains final-head/check evidence and the actual rejection.
+PR11: https://github.com/Br-Johnson/pices_metadata_transformer/pull/11, final head08f561e, runtime503f72b,347 guarded tests plus seven independent contracts; exact821 and five-import preparation. PR12: https://github.com/Br-Johnson/pices_metadata_transformer/pull/12, final headdf2ee5b, runtimea43f4a1,349 guarded tests plus nine final independent diagnostic contracts; automatic pre-intent-attribution finding resolved. Both are merged under the supplied direct grant. The combined candidate’s documented suite is verified in the reproducibility correction receipt; exact merged main verification is recorded separately. [Merge gate receipt](pr11_pr12_merge_gate_receipt.json) retains final-head/check evidence and the actual rejection.
+
+## Required frozen821 baseline reconstruction
+
+Before the audit command above, reproduce the pinned759b7c9 report at its original code/timestamp. The current old-profile run intentionally uses the newer source runtime and21:52 timestamp; it is a same-time comparison baseline and cannot replace this frozen20:30 checkpoint. From the current checkout:
+
+```bash
+git worktree add --detach /tmp/pices-frozen821-source 08f561ebf117ea31c2c5bf824b44830c1e0f1261
+(cd /tmp/pices-frozen821-source && PYTHONDONTWRITEBYTECODE=1 python docs/readiness/2026-10-03/guarded_offline_classify.py \
+  --source-dir FGDC --output-dir /tmp/pices-frozen821-output --reviewed-at 2026-10-03T20:30:00Z \
+  --authority-manifest docs/readiness/2026-10-02/rehosting_authority.json \
+  --access-interpretation-manifest docs/readiness/2026-10-02/contact_source_interpretation.json \
+  --contributor-access-interpretation-manifest docs/readiness/2026-10-02/contributor_source_interpretation.json \
+  --creator-interpretation-manifest docs/readiness/2026-10-02/exxon_citation_interpretation.json \
+  --dataset-access-interpretation-manifest docs/readiness/2026-10-03/finite_source_resource_access_264.json \
+  --collective-creator-interpretation-manifest docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json \
+  --institution-creator-interpretation-manifest docs/readiness/2026-10-03/source_citation_credits_401.json \
+  --source-link-interpretation-manifest docs/readiness/2026-10-03/historical_dataset_linkage_21.json \
+  --source-title-interpretation-manifest docs/readiness/2026-10-03/source_display_titles_8.json \
+  --source-scope-attestation-manifest docs/readiness/2026-10-03/source_scope_attestation_821.json)
+python -c "import hashlib; from pathlib import Path; assert hashlib.sha256(Path('/tmp/pices-frozen821-output/classification.json').read_bytes()).hexdigest() == '759b7c924dc1452be1850635d4bee41230007883f7b94a4691160b067fa127dc'"
+```
+
+The historical early receipts record352 source-branch tests and original file hashes. The reproducibility correction receipt binds current helper/test bytes, explicit isolated lint selection (including E701/E702), failure-first discovery and corrected combined-suite evidence. No receipt is rewritten to claim earlier tests covered these later corrections.
