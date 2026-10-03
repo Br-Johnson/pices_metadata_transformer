@@ -22,17 +22,22 @@ No missing saved file/version input remains. No provider read was repeated.
 The paired preparation JSON independently binds all five local source bytes,
 prepared payloads and metadata after-images to source2bf5f8a and completed report
 `6213c25a1f3d71cdb08ae19a1ca91762fdad5b3f11524ed7ed137f1b7edb044e`.
-Three assessed supported metadata hashes match; two held after-images are locally
-reproduced proposals, not assessed eligibility. No source/creator/date/rights
-status or original XML changes here.
+These schema3 rows and94 comparisons remain historical. The added
+`source_scope_reassessment` binds the current source503f72b/report759b7c9 checkpoint:
+all five XML-artifact sources are now supported, including1238 and2731 under
+Brett's exact821 answer. Every raw constructed metadata object is unchanged.
+The normalized submission embeds active evidence in notes; its notes differ from
+the old frozen candidate, and exact before/after notes hashes and full normalized
+metadata hashes are bound separately. Every other normalized field is unchanged.
+Neither historical nor current candidate is an executable patch.
 
 | Source | Retained record /DOI suffix | Exact current date | Exact metd | XML-artifact date candidate | Source status |
 |---|---|---|---|---|---|
-| FGDC-1238 SeaMARC |17317855|1990-01-01|20010308|2001-03-08|Contributor access held|
+| FGDC-1238 SeaMARC |17317855|1990-01-01|20010308|2001-03-08|Source-supported under exact821 answer|
 | FGDC-2043|17317851|1220-01-01|20040723|2004-07-23|Source-supported|
 | FGDC-2057|17317859|1220-01-01|20040723|2004-07-23|Source-supported|
 | FGDC-2725|17317857|1981-01-01|19980203|1998-02-03|Source-supported|
-| FGDC-2731|17317853|1988-01-01|19980713|1998-07-13|Departmental republication scope held|
+| FGDC-2731|17317853|1988-01-01|19980713|1998-07-13|Source-supported under exact821 answer|
 
 All five version DOIs retain prefix`10.5281/zenodo.` plus the listed record ID.
 **The two confirmed date blockers are2043/17317851 and2057/17317859, each carrying
@@ -73,10 +78,12 @@ frozen after-image exactly:
 
 Retain access_right=`restricted`, blank license and all four literal “Check with
 Contributor” constraints. This missing-field proposal records uncertainty and
-rehosting scope; it does not clear1238.2731 likewise retains its “Requests for
-one or two pages…” and conditional departmental republication access hold. The
-[821 questions](remaining_source_scope_questions_821.md) cover these distinct
-Contributor and ADF&G decisions. No creator/contact role is inferred from the
+rehosting scope. The [exact821 answer](source_scope_attestation.md) now establishes
+USER_ATTESTED underlying-data scope for1238's Contributor wording and2731's
+“Requests for one or two pages…” /conditional departmental republication wording.
+Both source access holds clear; original terms, restricted XML, blank license,
+underlying-data restrictions and separate correction/release gates remain.
+No creator/contact role is inferred from the
 remote beforevalues; source-backed candidate roles stay attached to the
 XML-artifact mode rather than being inferred as authorship of the underlying work.
 
@@ -135,7 +142,7 @@ by this preparation. [Official version guidance](https://help.zenodo.org/docs/de
 
 The current one-XML upload contract does not cover the two-file/version action.
 Existing source approval, account credentials or publication authority supplies
-no permission to delete originals. Keep1238/2731 access-held, exclude poster10042430
+no permission to delete originals. Keep all existing-record correction gates, exclude poster10042430
 and unrelated15046283, and preserve all current beforevalues until exact reviewed
 corrections and the separate provider/release gates are satisfied.
 
@@ -149,5 +156,6 @@ bound to its original checkpoint. The migration replaces the pending file-list
 string with exact saved binding arrays, leaving live execution gates separate.
 PR10 code is merged at
 `e3fde4b4fa9e30435b6b1322536aca276eebc22b`, with reviewed runtime
-`dc351b071df53c6d44f01491694916c1d44bd9f2`. Modern live execution remains
-unapproved; both prior uncertain create allowances remain permanently spent.
+`dc351b071df53c6d44f01491694916c1d44bd9f2`. Parent approved and dispatched the
+modern trial, reporting one durable create intent with no established network
+dispatch or retained response/ID. All create allowances remain spent/held.

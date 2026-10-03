@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "scope": "Bounded independent implementation/gate review of exact821-source USER_ATTESTED scope; no complete after-corpus audit, broad suite or provider review",
+  "status": "CLEAR_BOUNDED_SOURCE_SCOPE_IMPLEMENTATION",
+  "worktree": "/workspace/pices-source-scope-attestation-821",
+  "branch": "handoff/source-scope-attestation-821-20261003",
+  "reviewed_base_commit": "7d221bff855235162a6f878b3f0ec1ee11c8f275",
+  "source_evidence_review": {
+    "path": "/tmp/pices-source-scope821-independent-evidence-review.json",
+    "sha256": "b789e84e5f36a92bffc61e35ca0a9bac940c0d3ad99e6ca6852e74b331e5cdcd",
+    "status": "CLEAR_BOUNDED_SOURCE_SCOPE_EVIDENCE",
+    "aggregate_membership_sha256": "fadd7400f24cb063303d4a294699b9bcdc0e362018ae5d74cbb44f9a28c0aca2"
+  },
+  "file_sha256": {
+    "scripts/source_scope_attestation.py": "14b61b38f53d83a02c3a82a2a1b293472f6afee6706c6ea157fcb3b358e15455",
+    "scripts/collection_qa.py": "8f5cbd97819a73c5940d3012f3f1d788d18364a14ae41ad5f7fe8c9a84320a98",
+    "scripts/agent_qa.py": "992e2e4449cbd860c7b42930679ccb069917e530f38e6689d7c04bd18287c59a",
+    "scripts/qa_manifest.py": "b164742379c5f26b121717a2ad874e2d827d56c9a83e2f3e86ae32ca9b2d2732",
+    "tests/test_source_scope_attestation.py": "94a9a75d776aa87725f3b6e0106479bef648573f48cd60944c2abc69125930af",
+    "docs/readiness/2026-10-03/source_scope_attestation_821.json": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657"
+  },
+  "attestation": {
+    "status": "USER_ATTESTED",
+    "statement": "they reply to the underlying data. all these metadata records were public before",
+    "attested_at": "2026-10-03T20:20:00Z",
+    "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+    "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+    "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+    "provenance_limit": "Exact message/time/reply evidence supplied by parent and preserved in pinned artifact; no independent legal/provider verification."
+  },
+  "membership": {
+    "count": 821,
+    "context_bindings": 821,
+    "cohorts": {
+      "Contributor": 361,
+      "ADF&G": 351,
+      "Unknown": 109
+    },
+    "question_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+    "census_sha256": "078fb02253bdf8d525ec11856e31a94cfafc6bc792e48cd9e8b8a877870a1997",
+    "bounded_scope": "Exact source ID/raw SHA, four plain constraint elements and full primary title/abstract/purpose context hashes; no generic wording/synonym/punctuation expansion."
+  },
+  "guarded_validation": {
+    "focused_pattern": "tests/test_source_scope_attestation.py",
+    "tests": 7,
+    "passed": 7,
+    "failures": 0,
+    "errors": 0,
+    "sources_stable_across_run": true,
+    "guard": "Requests request/send, socket connect/connect_ex/create_connection and DNS prohibited; credential-file paths and repository writes guarded; logger mocked to prevent repository output. Only temporary offline fixtures created.",
+    "log": "/tmp/pices-source-scope821-independent-guarded-focused.log",
+    "log_sha256": "f19c29a37f7f16ebdfef692499fd02151c4f41d13d161133db58f0f458791334",
+    "cases": [
+      "Exact three-cohort scope accepted with restricted access and blank license.",
+      "All821 source/raw hashes and complete question/context membership exercised by focused acceptance contract.",
+      "Changed/missing/duplicate/structured constraints or contexts, security/extensions, wrong ID/SHA, rehashed forged manifests and naive/pre-attestation/future timestamps rejected.",
+      "Opt-in, identical resume and withdrawal preserve prepared metadata and original XML; unrelated creator/title holds and release flags retained.",
+      "Missing/changed/forged scope evidence cannot select an exception or retain a scope policy reference.",
+      "Separate XML rehosting authority, restricted blank-license metadata/policy and original XML/date semantics mandatory; conflicting source/dataset interpretations rejected.",
+      "Both human QA schemas recheck external manifest bytes and invalidate withdrawal/stale artifact binding."
+    ]
+  },
+  "integration_review": {
+    "collection": "Explicit new argument/CLI opt-in and profile-hash reference; exact membership selection. Policies and semantic verdicts rederived before construction-cache reuse, and byte/hash/policy/classification comparison prevents stale scope reuse.",
+    "agent": "Common scope policy gate before interpreting access; exact attestation bytes revalidated, new module SHA added to rules fingerprint. Agent approval still requires separate source/artifact/remote/duplicate QA.",
+    "human": "Shared scope policy validation runs for both schema1/schema2 before artifact/fingerprint/QA acceptance. Existing explicit human reviewer authority does not make an old changed/withdrawn artifact approval current.",
+    "authority_and_rights": "Attestation grants neither rehosting nor a new license nor underlying rights. Separate rehosting authority, original XML artifact policy, restricted files, blank metadata/policy license and original constraints remain mandatory.",
+    "release": "Source-only support remains distinct from remote_verified/publication_approved; no live record, DOI, ownership, duplicate or publication gate cleared."
+  },
+  "expected_effect_only": {
+    "status": "Conditional expectation; complete after-corpus delta owned by root and not independently asserted here.",
+    "baseline": {
+      "supported": 2443,
+      "held": 1757,
+      "failed": 6
+    },
+    "expected_after": {
+      "supported": 3234,
+      "held": 966,
+      "failed": 6
+    },
+    "expected_promotions": 791,
+    "expected_independent_holds_within821": {
+      "creator": 2,
+      "long_title": 28
+    },
+    "known_creator_holds": [
+      "FGDC-10",
+      "FGDC-2664"
+    ],
+    "protected_queues": "30 of former176 protected access cases reassessed;28 expected to promote,2 creator holds remain;148 of former176 remain held. This corrects the earlier expectation that every86/90 queue member would remain held.",
+    "unchanged": "No creator/date/title/alias interpretation or source XML metadata mutation authorized by this scope clarification."
+  },
+  "open_implementation_findings": [],
+  "provider_requests": 0,
+  "credential_or_private_provider_stage_reads": 0,
+  "repository_edits": 0,
+  "broad_suite_runs": 0,
+  "modern_canary_runs": 0,
+  "remaining": "Root owns full-suite and complete4206 after-delta verification, final commit/receipt/document bindings and any external execution/release gates. This receipt supplies no provider or publication authorization."
+}

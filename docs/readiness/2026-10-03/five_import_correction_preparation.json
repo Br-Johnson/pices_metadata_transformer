@@ -48,14 +48,16 @@
     "version_parent_reported": 1
   },
   "modern_code_integration": {
-    "live_execution_approved": false,
+    "approval_reference": "Sentinel_05bb32e118508191b22e59ec4de7e833",
+    "live_execution_approved": true,
     "merged_commit": "e3fde4b4fa9e30435b6b1322536aca276eebc22b",
+    "parent_reported_trial": "One durable create intent; actual network dispatch unknown, no response/ID retained; allowance permanently spent/held. Root no provider action.",
     "pr": 10,
     "prior_canary_allowances_remain_spent": true,
     "reviewed_head": "c7363f3bcff575bf7997daa86258716833be7d60",
     "runtime": "dc351b071df53c6d44f01491694916c1d44bd9f2"
   },
-  "production_and_live_gates": "No production metadata PUT, publication, file/version action, live approval or source promotion follows from this evidence transfer.1238/2731 remain access-held and821 scope questions await Brett.",
+  "production_and_live_gates": "Exact821 USER_ATTESTED answer clears1238/2731 source access eligibility; all five XML-artifact sources now supported. Historical candidate/comparison rows remain frozen. No production PUT, publication, file/version action, license, underlying-date or live-create authority follows.2043/2057 narrow underlying-date mode remains held.",
   "provider_requests_by_root": 0,
   "provider_verification": {
     "files": "Exact saved files/record links/concept identities/modified times/captures now transferred and reconciled with all five fullmetadata beforeimages. Earlier file-content and version-history verification remains reader-reported at distinct timestamps; no new request or current-after-capture assertion.",
@@ -1713,6 +1715,110 @@
   "source_head": "2bf5f8a9758a4a3c5a6c1bb7258872eb14eb25e6",
   "source_merge": "d0f13930baa5fbcd6684038d03954aad2baba5a5",
   "source_report_sha256": "6213c25a1f3d71cdb08ae19a1ca91762fdad5b3f11524ed7ed137f1b7edb044e",
+  "source_scope_reassessment": {
+    "current_source_report_sha256": "759b7c924dc1452be1850635d4bee41230007883f7b94a4691160b067fa127dc",
+    "historical_rows_and_94_comparisons_preserved": true,
+    "normalized_notes_provenance_delta": "prepare_metadata embeds active policy/evidence in notes. Current normalized notes differ from the historical frozen candidate; other normalized metadata fields and every raw constructed metadata object are unchanged. Historical candidates and comparisons remain bound to the prior report. Current object is not an executable patch.",
+    "rows": [
+      {
+        "current_normalized_metadata_sha256": "7c9796f5216c0f30213f4c8693787a05c8f7ba86b0ed4a9d880712141c13426f",
+        "current_policy_scope_attestation": "USER_ATTESTED",
+        "current_prepared_payload_sha256": "631c30d981d54880275e2839588b76cf6eca3556ae940f02a82fd5da20735e9f",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "9c78431fb93d1018a2aec03af41167845d0cf969b301f37b8e0698edebb40e57",
+        "frozen_source_status": "held",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "4e7f05ffa32d89a4b094d6251ff0057acd3faae837a62135796faa6d4f4e02f0",
+        "normalized_notes_before_sha256": "32ff0e409c13d12988751ec5ac6954d770654b38a9554b67a89651ffe0f4ddbe",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317855,
+        "source_id": "FGDC-1238"
+      },
+      {
+        "current_normalized_metadata_sha256": "91f64cb9a84cac34f538afa961e65c0c631b5affdb0b17b2c375e9e675776829",
+        "current_policy_scope_attestation": null,
+        "current_prepared_payload_sha256": "71f5d4e96ebef578bd0b22172f53de9630d6c3069c72ab4f5e7534c68c7f4400",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "158a526d10f9163685527013f160c5ed61e3c5c37c479c0466fd0b9005998ef1",
+        "frozen_source_status": "supported",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "f18e877acb315aae8f1dd55020d52304eb9049eefa38ff2b829c18183b9a16a6",
+        "normalized_notes_before_sha256": "e1c08bfe8e3a64bdcdf65eeac190c147380fe53dad4bcfb8894f46e383b42963",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317851,
+        "source_id": "FGDC-2043"
+      },
+      {
+        "current_normalized_metadata_sha256": "ba24e7a3f24a61d561c1fac6def7ae257e6792bb8619995c6dcdafc2e67a9afe",
+        "current_policy_scope_attestation": null,
+        "current_prepared_payload_sha256": "2fd180df3a28ef28b5fbc173eab401f5a368d41d88a2182f7ee035f6d0d7dc4e",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "675c58c4ee2d3f6cd4840f712320f30e7712d59b198a15e1fbb0ff78d76bf196",
+        "frozen_source_status": "supported",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "a282d3326f3921f0c496a5d088755b4c0deb19a29f5cc81b7dab41e6e291ae1c",
+        "normalized_notes_before_sha256": "d2f725b68347fab40d575266e90929178e5ee3b5b85eb4147445fafdf58c2ebe",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317859,
+        "source_id": "FGDC-2057"
+      },
+      {
+        "current_normalized_metadata_sha256": "7bc054c36ffa7436d0becb98da8ef560d00939f69a101e44d5b4948eb78fd3c8",
+        "current_policy_scope_attestation": null,
+        "current_prepared_payload_sha256": "bd5eab1189cce05d66c483659d5c40161f02e40c2d3ca20d3b516778be9027e5",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "0189804a3098def117904c5bb0f6685bd0a09c1706a2fb4d7ee1767ccb500005",
+        "frozen_source_status": "supported",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "73f70cfab383fff1b4fc304f282b454a3460993976811944f18fff21e4889cb2",
+        "normalized_notes_before_sha256": "8acf525f8cbcff8a17e5a65667f4acc3061b31c7dc42ceed2bfe72db9b24beea",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317857,
+        "source_id": "FGDC-2725"
+      },
+      {
+        "current_normalized_metadata_sha256": "8b5986d5948d97df3b457933319f940e0aefce6f26caed520d453064b9665405",
+        "current_policy_scope_attestation": "USER_ATTESTED",
+        "current_prepared_payload_sha256": "8258e9f325650131dc931cb4f8495b0820a81a695ad503620aea5ba717273d01",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "7d7d5d9c15fae9e11b8c07ffa0c257930fd5df4a8eeaa99227910d5c877ea7be",
+        "frozen_source_status": "held",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "e09406191d25266e70546b8da4be578e64e9cee9b6265ef3f7da343a2d9b1a48",
+        "normalized_notes_before_sha256": "82edd593642ee1e7b6d6517ce1e70649e777c5f5e5b76acd131c91c3a20eeb74",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317853,
+        "source_id": "FGDC-2731"
+      }
+    ],
+    "runtime_commit": "503f72b15b0b5cf949096e6e7d4d2c3200001ac5",
+    "scope_manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657"
+  },
   "supersedes_preparation": {
     "commit": "c7363f3bcff575bf7997daa86258716833be7d60",
     "prior_review_preserved": "five_import_correction_preparation_review.json binds previous checkpoint only",

@@ -1,0 +1,43 @@
+{
+  "alias_identities_held": 456,
+  "complete_delta_sha256": "a0bd97202fc90ba88a856bf4178bb3b633f9f3785627287b8e3da2a10d5573f5",
+  "failing_first_acceptance_reproduced": true,
+  "file_sha256": {
+    "docs/readiness/2026-10-03/source_scope_attestation_821.json": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+    "scripts/agent_qa.py": "992e2e4449cbd860c7b42930679ccb069917e530f38e6689d7c04bd18287c59a",
+    "scripts/collection_qa.py": "8f5cbd97819a73c5940d3012f3f1d788d18364a14ae41ad5f7fe8c9a84320a98",
+    "scripts/qa_manifest.py": "b164742379c5f26b121717a2ad874e2d827d56c9a83e2f3e86ae32ca9b2d2732",
+    "scripts/source_scope_attestation.py": "14b61b38f53d83a02c3a82a2a1b293472f6afee6706c6ea157fcb3b358e15455",
+    "tests/test_source_scope_attestation.py": "94a9a75d776aa87725f3b6e0106479bef648573f48cd60944c2abc69125930af"
+  },
+  "full_guarded_tests": {
+    "log_sha256": "e4cbca259ed52e258977b63d38bc1b5f68294abccb91887361a9efb4282a2252",
+    "passed": 347,
+    "seconds": 45.065
+  },
+  "independent_evidence_review_sha256": "b789e84e5f36a92bffc61e35ca0a9bac940c0d3ad99e6ca6852e74b331e5cdcd",
+  "independent_focused_tests": 7,
+  "independent_implementation_review_sha256": "4b9678e2e06aa5e3da95db68d0370c1293e43749062a17f127b1f42ba075daf9",
+  "lint": "Full Ruff new module/test/auditor and critical E9/F63/F7/F82 changed legacy modules pass; legacy broader-style findings preexist",
+  "metadata_objects_unchanged": 4194,
+  "metadata_preservation_scope": "All4194 raw constructed complete metadata objects unchanged; normalized submission notes embed active evidence and remain separately bound in five-record preparation.",
+  "modern_execution": "Separate parent/soleexecutor task; approval and attempted outcome do not grant provider action in source task",
+  "modern_runtime_unchanged": "dc351b071df53c6d44f01491694916c1d44bd9f2",
+  "new_licenses": 0,
+  "originals_preserved": 4206,
+  "promotions": 791,
+  "protected_remaining_held": 148,
+  "provider_requests": 0,
+  "provider_writes": 0,
+  "publication_approved": false,
+  "remaining_selected_holds": 30,
+  "runtime_commit": "503f72b15b0b5cf949096e6e7d4d2c3200001ac5",
+  "schema_version": 1,
+  "selected": 821,
+  "source_status_counts": {
+    "held": 966,
+    "malformed": 6,
+    "supported": 3234
+  },
+  "underlying_data_rights_granted": false
+}

@@ -42,10 +42,11 @@ pices_md_2/
 
 The [bounded modern synthetic approval packet](docs/readiness/2026-10-03/modern_synthetic_approval_plan.md)
 provides an isolated offline-tested Sandbox adapter, fixed fictional payload and
-separate runtime/grant bindings. Live creation awaits the exact bounded approval;
-both earlier failed-create allowances remain spent. The
-[three exact source questions](docs/readiness/2026-10-03/remaining_source_scope_questions_821.md)
-retain 821 held records pending source-specific XML scope evidence.
+separate runtime/grant bindings. Parent dispatched the approved trial and reports
+one durable POST intent with no retained response or established network dispatch.
+All create allowances remain spent/held. The
+[exact821 source scope answer](docs/readiness/2026-10-03/source_scope_attestation.md)
+supports791 promotions while retaining30 independent holds.
 The [five retained-import preparation](docs/readiness/2026-10-03/five_import_correction_preparation.md)
 binds five independently received full metadata beforeimages and source-derived
 XML-artifact candidates, preserves existing DOIs/files, and identifies2043/2057's
@@ -61,7 +62,11 @@ alias holds and the separate production release gate.
 
 Follow the [draft and evidence-bound QA runbook](docs/draft_qa_runbook.md) before using operational commands. Production stays draft until supported human or delegated agent record QA and separate explicit publication release. The [pinned review and offline reproductions](docs/reviews/2026-09-30/README.md) document the original defects.
 
-The current [13-source credit/title checkpoint](docs/readiness/2026-10-03/source_credit_title_13.md)
+The current [exact821 scope checkpoint](docs/readiness/2026-10-03/source_scope_attestation.md)
+produces **3234 source-supported /966 held /six malformed**, with347 guarded
+offline tests. All4194 complete metadata objects and every original XML are unchanged;
+the user-attested clarification adds exact source-bound policy references only.
+The preceding [13-source credit/title checkpoint](docs/readiness/2026-10-03/source_credit_title_13.md)
 produces **2,443 source-supported /1,757 held / six malformed**, with 317 guarded
 offline tests. It includes the preceding 142 batch and adds five literal credits and
 eight bounded report titles, preserving full source context and every original XML.
@@ -76,7 +81,7 @@ adds 142 exact source/hash/context interpretations from merged `4b13126`:
 tests. All 4,194 prepared metadata objects and every original XML remain unchanged;
 source support still requires separate provider verification and release.
 The [grouped decision packet](docs/readiness/2026-10-03/remaining_source_decision_packet.md)
-retains 821 sources under the three largest unresolved wording questions and queues
+froze821 sources under three wording questions now answered by Brett, and queued
 13 smaller attribution/title proposals that are now implemented in the current checkpoint.
 
 ## 🚀 Quick Start
