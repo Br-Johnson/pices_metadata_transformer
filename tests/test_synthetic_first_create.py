@@ -156,7 +156,7 @@ class FirstCreateEvidenceTests(unittest.TestCase):
         atomic_json(self.old.folder / f.FAILURE_RECEIPT,result)
         pins = {}
         for name in f.PINNED_DIAGNOSTICS:
-            p = self.old.folder / name; atomic_json(p,{'dummy_offline_receipt':name})
+            p = self.old.folder.parents[2] / name; atomic_json(p,{'dummy_offline_receipt':name})
             pins[name] = c.sha(p.read_bytes())
         patches = [patch.object(f,'FAILED_STATE_SHA',c.sha((self.old.folder/c.RECOVERY_STATE).read_bytes())),
             patch.object(f,'FAILURE_RECEIPT_SHA',c.sha((self.old.folder/f.FAILURE_RECEIPT).read_bytes())),
@@ -176,7 +176,7 @@ class FirstCreateEvidenceTests(unittest.TestCase):
     def test_changed_failed_state_receipt_page_and_actual_diagnostic_are_rejected(self):
         files = [self.old.folder/c.RECOVERY_STATE,self.old.folder/f.FAILURE_RECEIPT,
                  self.old.folder/c.RECOVERY_PAGES/'page-100.json']
-        files += [self.old.folder/name for name in f.PINNED_DIAGNOSTICS]
+        files += [self.old.folder.parents[2]/name for name in f.PINNED_DIAGNOSTICS]
         for file in files:
             raw = file.read_bytes(); file.write_bytes(raw+b' ')
             with self.subTest(file=file.name), self.assertRaises(c.ZenodoAPIError): self.binding()
@@ -184,9 +184,9 @@ class FirstCreateEvidenceTests(unittest.TestCase):
         self.assertEqual(self.old.calls,[])
 
     def test_missing_or_unpinned_actual_receipts_fail_closed(self):
-        with patch.object(f,'PINNED_DIAGNOSTICS',{'unbound.json':'PENDING'}), self.assertRaises(c.ZenodoAPIError):
+        with patch.object(f,'PINNED_DIAGNOSTICS',{'unbound.json':'invalid-digest'}), self.assertRaises(c.ZenodoAPIError):
             self.binding()
-        p = self.old.folder/next(iter(f.PINNED_DIAGNOSTICS)); p.unlink()
+        p = self.old.folder.parents[2]/next(iter(f.PINNED_DIAGNOSTICS)); p.unlink()
         with self.assertRaises(FileNotFoundError): self.binding()
         self.assertEqual(self.old.calls,[])
 

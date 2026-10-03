@@ -14,11 +14,11 @@ from scripts.upload_service import atomic_json, metadata_hash, read_json
 FAILED_STATE_SHA = '158b34452cb43d102457bd6f700e3bd8bc0aabb7dd0412ba7d65a6e71116f23f'
 FAILURE_RECEIPT = 'synthetic-owned-recovery-failure-receipt.json'
 FAILURE_RECEIPT_SHA = 'b0d5826cc12866dde84ae92428ac9a82341dc0925b6969bee6892f7743a50d1b'
-# Pending exact parent-provided receipt hashes: intentionally fail closed until
-# the already completed diagnostics are bound. Never obtain new provider reads.
+# Exact parent-provided hashes of the already completed diagnostics. These files
+# stay at the original run root; no copy, provider read or new receipt is needed.
 PINNED_DIAGNOSTICS = {
-    'synthetic-owned-page-101-diagnostic-receipt.json': 'PENDING',
-    'synthetic-scoped-diagnostic-receipt.json': 'PENDING',
+    'diagnostic-page101-limit-receipt.json': '8134aa13052e97ebd11a3a50380fe597b00cf4d028d364f0232758ed0a129227',
+    'diagnostic-scoped-title-search-receipt.json': 'cbdb5267fa65be3ca0073d39045bb1d26611b6f7b40bf580702fd1eff31ba230',
 }
 
 
@@ -68,7 +68,7 @@ def evidence_binding(folder, metadata, owner):
     c.require(len(PINNED_DIAGNOSTICS) >= 2)
     for name, digest in PINNED_DIAGNOSTICS.items():
         c.require(c.valid_sha(digest))
-        raw = (folder / name).read_bytes()
+        raw = (folder.parents[2] / name).read_bytes()
         c.require(c.sha(raw) == digest and isinstance(json.loads(raw), dict))
         diagnostics[name] = digest
     return {'failed_state_sha256': FAILED_STATE_SHA, 'failure_receipt_sha256': FAILURE_RECEIPT_SHA,

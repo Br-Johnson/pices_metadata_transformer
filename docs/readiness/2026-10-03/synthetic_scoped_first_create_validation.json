@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "code_reviewed_checkpoint_dispatch_blocked_on_actual_diagnostic_pins",
+  "status": "ready_for_parent_dispatched_synthetic_first_create",
   "branch": "handoff/pr8-synthetic-scoped-first-create-20261003",
   "base_commit": "b64f9e0d9dc66d8bb59bb819503df7c313934b13",
   "inventory_scope": "synthetic_sealed_first_create_v4",
@@ -22,31 +22,39 @@
     "result": "passed",
     "f_lint": "passed",
     "new_module_lint": "passed",
-    "diff_check": "passed"
+    "diff_check": "passed",
+    "full_suite_context": "334passed at reviewed checkpoint; final change limited to exact receipt pins/path and temporary fixtures",
+    "final_pin_path_focused_tests": 12,
+    "final_pin_path_result": "passed"
   },
   "independent_validation": {
     "reviewer": "/root/canary_review",
     "guarded_offline_tests": 334,
     "result": "passed",
     "code_clearance": true,
-    "dispatch_clearance": false
+    "dispatch_clearance": true,
+    "final_pin_path_focused_tests": 12,
+    "final_pin_path_result": "passed",
+    "private_receipt_content_inspected": false
   },
   "file_sha256": {
     "scripts/synthetic_canary_controller.py": "4e5f331db7b8029235f0574c3556cf4668a8f29af98d25cac0035ce615c4b8a3",
-    "scripts/synthetic_first_create.py": "23c88d2a154f16e889fec9de28a627c271140b572f486c4902d44968d85646fe",
+    "scripts/synthetic_first_create.py": "0c336181fc47e1c09f9ee20eadabfca28088b6244dab2479d2b3689f5d549287",
     "scripts/upload_service.py": "267be88d7a1471a7f1537a553fb2b9cc40db052c28fc3824e733cf09c05a7065",
-    "tests/test_synthetic_first_create.py": "ec0781e1e6d9c64eec701fc564c504e34175486a4dd8be70f32b91315aff50cb"
+    "tests/test_synthetic_first_create.py": "22e3c97c5acf0de6e8f2a552b10c0f9af1113c675cce14fe945f4fe08d54986d"
   },
   "provider_actions": {
     "requests": 0,
     "writes": 0,
     "credential_inspections": 0
   },
-  "remaining_blockers": [
-    "Exact page101diagnostic filename/receipt SHA",
-    "Exact successful two-GET diagnostic filename(s)/receipt SHA(s)",
-    "Narrow final receipt-pin consistency review",
-    "Separate provider executor connection confirmation and parent dispatch"
-  ],
-  "source_qa_and_production_changes": false
+  "remaining_blockers": [],
+  "source_qa_and_production_changes": false,
+  "reviewed_checkpoint": "29d101c4adfe16ebb1d9794cdeac31bda523031f",
+  "actual_diagnostic_receipt_sha256": {
+    "/workspace/pices-sandbox-run-9379fd8-20261002/diagnostic-page101-limit-receipt.json": "8134aa13052e97ebd11a3a50380fe597b00cf4d028d364f0232758ed0a129227",
+    "/workspace/pices-sandbox-run-9379fd8-20261002/diagnostic-scoped-title-search-receipt.json": "cbdb5267fa65be3ca0073d39045bb1d26611b6f7b40bf580702fd1eff31ba230"
+  },
+  "parent_reported_provider_executor_available": true,
+  "parent_dispatch_required": true
 }

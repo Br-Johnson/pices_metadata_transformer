@@ -256,6 +256,6 @@ honestly reports incomplete historical inventory, retains10000known IDs as a
 partial reject set and never reconciles/recreates an uncertain empty POST.
 Production reconciliation is unchanged. Runtime starts a distinct authorized
 30-minute clock on execution; old failed state and clocks remain immutable.
-Exact successful diagnostic and page101 receipt hashes still require binding
-before the checkpoint becomes executable. See
+Exact successful diagnostic and page101 receipt hashes are now pinned at their
+existing original paths, without new provider reads or receipt reconstruction. See
 `docs/readiness/2026-10-03/synthetic_scoped_first_create.md`.
