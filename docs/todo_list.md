@@ -362,3 +362,9 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Queue precise wording/scope questions for361 Contributor,351 conditional ADF&G republication and109 Unknown sources, with exact bindings and independent holds preserved.
 - [x] Implement separate fixed fictional modern adapter and offline contracts, durable pre-send journal, no replay/reset, exact readback and completed retry. Bound4POST/2PUT/8GET and30minutes; no account/email or production credential blocker added.
 - [ ] Parent receives exact bounded execution approval, materializes separately pinned private grant and dispatches sole provider executor. Both old HTTP500 create allowances stay spent; no live newcreate occurred here.
+
+## Five existing-import correction preparation — 2026-10-03
+
+- [x] Retain parent-reported five completedHTTP200 verification reads without repeating them; distinguish source/localafterimage proof from unavailable private remote beforeimages. Bind exactfive source/payload hashes and metadata-date proposals; prepare missing SeaMARC access_conditions while preserving1238/2731 holds.
+- [x] Document sameDOI/files-preserving metadata edits separately from a reviewed new-version/two-file attachment contract; no deletion, production write or release implied.
+- [ ] Reader supplies from already retained evidence the two flagged date IDs/rawvalues and exactfive metadatahash/filelist/creator-contributor beforeimages. CurrentLibraryv1bytes could not be downloaded here; no new GET is requested.
