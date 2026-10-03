@@ -131,7 +131,11 @@ on an attempted/completed stage stops with no requests. Flock excludes concurren
 CLI execution. Before every transport the exact action count and pending intent
 are fsynced to state and a hash-bound journal. Missing/mismatched/pending/failed
 state blocks restart; no blind failed-state reset. Raw bodies, private owner and
-URLs never enter the public receipt. Same-ID exact metadata/DOI/count/size/checksum
+URLs never enter the public receipt. A syntactically valid create201 ID is retained
+privately as an untrusted reconciliation candidate before rejecting a credential
+echo elsewhere in the response. An ID containing the credential is never retained.
+The echo still permanently holds the attempt; neither that candidate nor a code
+merge authorizes adoption, another create or live execution. Same-ID exact metadata/DOI/count/size/checksum
 and byte readback is required. Modern embedded record file metadata is validated
 separately from the REST file transfer envelope; unrelated descriptive links are
 inert and only exact constructed action paths are used.

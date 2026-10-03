@@ -309,12 +309,15 @@ class Controller:
             require(complete and response.status_code == status,
                     'Provider response failed bounded status/body contract; attempt remains spent')
             data = raw if binary and method == 'GET' else json.loads(raw)
-            require(self.token.encode() not in raw and not credential_echoed(data, self.token),
-                    'Provider echoed credential; attempt remains spent')
+            # A safe candidate ID is a private reconciliation handle, never adoption
+            # authority. Persist it even when another response field echoes a token.
             if (kind == 'create' and isinstance(data, dict) and isinstance(data.get('id'), str)
-                    and re.fullmatch(r'[1-9][0-9]{0,19}', data['id'])):
+                    and re.fullmatch(r'[1-9][0-9]{0,19}', data['id'])
+                    and self.token not in data['id']):
                 self.state['uncertain_candidate_id'] = data['id']
                 self.persist()
+            require(self.token.encode() not in raw and not credential_echoed(data, self.token),
+                    'Provider echoed credential; attempt remains spent')
             return data
         except BaseException:  # noqa: BLE001 - interruption also permanently spends the attempted action
             # Pending identity/action is retained even on interruption or partial body.

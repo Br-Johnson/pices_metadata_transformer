@@ -368,3 +368,8 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Retain parent-reported five completedHTTP200 verification reads without repeating them; distinguish source/localafterimage proof from unavailable private remote beforeimages. Bind exactfive source/payload hashes and metadata-date proposals; prepare missing SeaMARC access_conditions while preserving1238/2731 holds.
 - [x] Document sameDOI/files-preserving metadata edits separately from a reviewed new-version/two-file attachment contract; no deletion, production write or release implied.
 - [ ] Reader supplies from already retained evidence the two flagged date IDs/rawvalues and exactfive metadatahash/filelist/creator-contributor beforeimages. CurrentLibraryv1bytes could not be downloaded here; no new GET is requested.
+
+## PR10 final-head integration review — 2026-10-03
+
+- [x] Address the substantive create201 credential-echo review: preserve a safe private untrusted candidate ID before rejection, with no trusted adoption/retry/reset or credential persistence. Add meaningful failure-first/reentry/privacy regressions; final runtime and validation bindings supersede the earlier canary pin.
+- [ ] Merge only after exact final-head tests/review/requirements pass. Live modern execution remains disabled pending the separate exact approval and parent dispatch; both prior spent ledgers remain preserved.

@@ -355,6 +355,38 @@ class ModernCanaryTests(unittest.TestCase):
                 self.assertEqual((self.stage / 'state.json').read_bytes(), before)
                 self.assertNotIn(TOKEN, json.dumps(state))
 
+    def test_echoed_create_retains_only_safe_reconciliation_id_and_stays_held(self):
+        self.mutate = 'credential'
+        controller = self.controller()
+        with self.assertRaises(m.Held):
+            controller.run()
+        state = m.load(self.stage / 'state.json')
+        self.assertEqual(state['uncertain_candidate_id'], '101')
+        self.assertIsNone(state['identity'])
+        self.assertTrue(state['failed'])
+        self.assertEqual(state['pending']['kind'], 'create')
+        self.assertEqual(state['counts'], {**dict.fromkeys(m.LIMITS, 0), 'create': 1})
+        self.assertNotIn(TOKEN, json.dumps(state))
+        self.assertNotIn('uncertain_candidate_id', controller.receipt())
+        before = (self.stage / 'state.json').read_bytes()
+        with self.assertRaises(m.Held):
+            self.controller().run()
+        self.assertEqual(len(self.calls), 1)
+        self.assertEqual((self.stage / 'state.json').read_bytes(), before)
+
+    def test_create_id_that_contains_credential_is_not_persisted(self):
+        def transport(*args, **kwargs):
+            self.calls.append((args[0], args[1]))
+            return Response(self.remote, 201)
+        controller = m.Controller(self.stage, '101', transport, lambda: self.clock)
+        with self.assertRaises(m.Held):
+            controller.run()
+        state = m.load(self.stage / 'state.json')
+        self.assertIsNone(state['uncertain_candidate_id'])
+        self.assertIsNone(state['identity'])
+        self.assertTrue(state['failed'])
+        self.assertEqual(len(self.calls), 1)
+
     def test_readback_and_commit_uncertainty_never_issue_more_writes(self):
         for mutation in ('commit500', 'readback_checksum', 'readback_doi'):
             with self.subTest(mutation=mutation):
