@@ -309,7 +309,7 @@ def response_projection(raw, response, method, token):
         elif result['body_format'] == 'html':
             parser = _HumanErrorText(heading_only=True)
             parser.feed(_normalized_error_text(raw.decode('utf-8', errors='replace')))
-            if parser.heading:
+            if parser.heading and parser.finished:
                 message, source = ''.join(parser.parts), 'html.' + parser.heading
         if message is not None:
             safe, redacted, truncated = _safe_message(message, token)

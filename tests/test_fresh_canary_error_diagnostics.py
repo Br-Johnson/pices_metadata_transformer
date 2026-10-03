@@ -187,3 +187,6 @@ class FreshErrorDiagnosticTests(unittest.TestCase):
         for trace_id, span_id in (('0' * 32, 'b' * 16), ('a' * 32, '0' * 16)):
             result = self.project({'message': 'Server error'}, headers={'traceparent': '00-' + trace_id + '-' + span_id + '-01'})
             self.assertEqual(result['trace_identifiers'], {})
+        malformed = self.project(b'<h1>Service unavailable<p>PRIVATE-BODY</p></body>', headers={'Content-Type': 'text/html'})
+        self.assertNotIn('error_message', malformed)
+        self.assertNotIn('PRIVATE-BODY', json.dumps(malformed))
