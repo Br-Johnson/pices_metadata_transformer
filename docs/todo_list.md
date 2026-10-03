@@ -3,7 +3,7 @@
 - [x] Independently review exact22 CNF/GIS copy-media resource descriptions, preserving Unknown and every underlying condition; defer60 other candidates and consolidate156 unresolved access cases into15 plain-language question families.
 - [x] Freeze additive491 profile preserving previous469 objects; two acceptance contracts fail before the exact new pin, five focused common-gate contracts pass, ten-source smoke then22-source bounded comparison preserves every complete metadata/XML object.
 - [x] Verify exact22 held→supported delta against frozen0ec37de baseline;3490supported/710held/6malformed is explicitly a baseline-plus-delta projection, not a full re-audit. All494 other identity/creator/date/title holds stay unchanged.
-- [ ] Complete independent code/delta review and guarded integrated tests; publish/review/integrate this one source PR before opening a dependent source batch. No provider action.
+- [x] Independent source/code/delta/handoff reviews clear;372 guarded integrated tests and isolated Ruff pass. Freeze the exact normal PR15 handoff; integrate it before opening a dependent source batch. No provider action.
 
 - [x] Freeze205 access,8 creator and27 title proposals in disjoint source/hash/context review lanes.
 - [x] Preserve old264/401/8 profiles and implement three additive immutable acceptance pins.
