@@ -23,7 +23,8 @@ from scripts.validate_zenodo import ZenodoValidator
 from scripts.source_access_interpretation import validate_interpretation, CONTRIBUTOR_WORDING
 from scripts.citation_creator_interpretation import validate_creator_interpretation
 from scripts.source_link_interpretation import validate_source_link_interpretation, apply_source_link_interpretation
-from scripts.dataset_access_interpretation import validate_dataset_access_interpretation, REGISTRATION_WORDING
+from scripts.dataset_access_interpretation import (validate_dataset_access_interpretation,
+    dataset_access_member_ids, REGISTRATION_WORDING)
 
 
 def text(root, xpath):
@@ -94,6 +95,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             dataset_access_digest = None
         dataset_access_reference = {'manifest_path': str(dataset_access_interpretation_manifest),
                                     'manifest_sha256': dataset_access_digest}
+    dataset_access_members = dataset_access_member_ids(dataset_access_reference) if dataset_access_reference else frozenset()
     profile_hash = metadata_hash({'rules': {str(file.relative_to(rules)): hashlib.sha256(file.read_bytes()).hexdigest()
                                  for file in sorted(rules.rglob('*.py'))},
                                  'authority_reference': authority_reference, 'access_reference': access_reference,
@@ -188,7 +190,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                     row['hold_reasons'].append(str(exc))
                 row['source_access_interpretation'] = 'USER_ATTESTED' if interpreted_access else 'not_established'
             interpreted_dataset_access = None
-            if dataset_access_reference and metac == REGISTRATION_WORDING:
+            if dataset_access_reference and (metac == REGISTRATION_WORDING or source.stem in dataset_access_members):
                 try:
                     if not authority:
                         raise ValueError('Dataset access interpretation requires separate rehosting authority')
@@ -338,7 +340,7 @@ def main():
     parser.add_argument('--access-interpretation-manifest', help='Exact Contact Source. dataset-acquisition interpretation; no license or release grant')
     parser.add_argument('--contributor-access-interpretation-manifest', help='Exact source-bound Contributor or Source attestation; no license or release grant')
     parser.add_argument('--creator-interpretation-manifest', help='Pinned Exxon primary citation attribution; no XML authorship or rights grant')
-    parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned source-backed database registration meaning; no authority or license grant')
+    parser.add_argument('--dataset-access-interpretation-manifest', help='Pinned finite source-backed data acquisition meaning; no authority or license grant')
     parser.add_argument('--collective-creator-interpretation-manifest', help='Pinned literal DFO Staff collective citation; no person, affiliation or institutional type inference')
     parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned institution/program or reviewed joint/collection citation profile; exact full creator objects')
     parser.add_argument('--source-link-interpretation-manifest', help='Pinned historical shared dataset linkage preservation; no XML identity or replacement relation')
