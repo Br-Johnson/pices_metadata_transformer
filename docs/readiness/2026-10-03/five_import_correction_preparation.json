@@ -1,30 +1,253 @@
 {
+  "beforeimage_transfer": {
+    "additional_provider_reads_for_transfer": 0,
+    "bytes": 16494,
+    "complete_metadata_hashes_independently_recomputed": 5,
+    "contains_credentials": false,
+    "contains_file_lists": false,
+    "fresh_provider_reads_by_root": 0,
+    "hash_algorithm": "SHA-256 of UTF-8 json.dumps(metadata,sort_keys=True,separators=(comma,colon),ensure_ascii=False)",
+    "sha256": "3f8b6da19071af5a0e454497794f8eb3dbc8b509a28f15097c78d4aa2391f923",
+    "status": "VERIFIED complete standalone Library text,303lines,has_morefalse"
+  },
+  "comparison_scope": "Current full metadata vs source-prepared XML-artifact metadata, not an API patch: differences in title,type,date,creator/distributor roles,rights and complete provenance must be reviewed as a coherent object policy. Missing candidate keys do not authorize deletion. Preserve DOI,prereserve_doi,concept/version identities and verified file bindings in any separately frozen actual afterimage.",
+  "file_binding_update": {
+    "extends_reviewed_preparation_commit": "b68927742f243ea607166b1de77f79aae357dff6",
+    "extends_reviewed_preparation_sha256": "2f67cc0094060a7a2dca3201f30826e774cbd99f12cfdd4b1a5f132d2a60531a",
+    "schema_migration": "schema2 pending before_files string becomes schema3 exact saved file binding array; metadata before/candidate/94 comparison values unchanged. Existing independent schema2 receipt remains bound to its original checkpoint only.",
+    "verification": "Root bounded five-record transfer/identity/capture/file/hash/history/absence reconciliation only; no broad audit or runtime test rerun"
+  },
+  "file_version_transfer": {
+    "additional_Zenodo_GETs": 0,
+    "bytes": 23142,
+    "complete_provider_response_hashes_recomputed_by_root": false,
+    "exact_files_and_links_retained_privately": true,
+    "file_bytes_recomputed_by_root": false,
+    "limits_retained_verbatim": [
+      "The latest saved deposition captures are dated 2026-10-03T17:26:37 through 17:26:44 UTC; this transfer makes no current-state assertion after those captures.",
+      "Version histories and actual file contents were checked earlier, at the exact timestamps attached to each record; neither was reread during the latest deposition captures.",
+      "All files and all links arrays are exact saved deposition values, including download URLs containing /draft/; no link has been silently rewritten or invoked during transfer.",
+      "The saved deposition responses have no version, revision, revision_id or versions fields. Numerical version ordinals are not inferred from a one-result history.",
+      "An earlier public-record response contained a top-level revision field, but its value was not preserved in the saved projection. A public-record revision baseline cannot be supplied from these saved files.",
+      "No modern API revision, ETag or concurrency token baseline is available in this artifact. Modern trial approval remains pending."
+    ],
+    "provider_writes": 0,
+    "public_link_hash_algorithm": "SHA256 of canonical UTF8 JSON value; exact saved URLs remain in private transfer",
+    "records_exactly_reconciled_with_fullmetadata_transfer": 5,
+    "revision_or_ETag_available": false,
+    "saved_urls_followed_by_root": 0,
+    "sha256": "876273e5a2ea4a3b043cfd790c4a686e11382e6b8c998114494997edf80434ff",
+    "snapshot_is_non_atomic": true,
+    "status": "VERIFIED complete standalone Library text,510lines,has_morefalse"
+  },
   "five_existing_records_and_dois_preserved": true,
-  "private_bundle_download": "FAILED; bytes/SHA/before-after deltas not independently checked here",
-  "private_bundle_sha256_parent_reported": "407816f4cba3a8855e91868481ae4b6287ad5dc0773eaeecf4f7e27381377799",
-  "private_bundle_version_parent_reported": 1,
+  "historical_zip_download": {
+    "current_metadata_evidence_blocker": false,
+    "sha256_parent_reported": "407816f4cba3a8855e91868481ae4b6287ad5dc0773eaeecf4f7e27381377799",
+    "status": "FAILED; bytes/SHA/before-after deltas not independently checked here",
+    "version_parent_reported": 1
+  },
+  "modern_code_integration": {
+    "approval_reference": "Sentinel_05bb32e118508191b22e59ec4de7e833",
+    "live_execution_approved": true,
+    "merged_commit": "e3fde4b4fa9e30435b6b1322536aca276eebc22b",
+    "parent_reported_trial": "One durable create intent; actual network dispatch unknown, no response/ID retained; allowance permanently spent/held. Root no provider action.",
+    "pr": 10,
+    "prior_canary_allowances_remain_spent": true,
+    "reviewed_head": "c7363f3bcff575bf7997daa86258716833be7d60",
+    "runtime": "dc351b071df53c6d44f01491694916c1d44bd9f2"
+  },
+  "production_and_live_gates": "Exact821 USER_ATTESTED answer clears1238/2731 source access eligibility; all five XML-artifact sources now supported. Historical candidate/comparison rows remain frozen. No production PUT, publication, file/version action, license, underlying-date or live-create authority follows.2043/2057 narrow underlying-date mode remains held.",
   "provider_requests_by_root": 0,
   "provider_verification": {
-    "evidence": "PARENT_REPORTED sole-reader five exact authenticated GETs, HTTP200,2026-10-03T17:26:37Z through17:26:44Z",
-    "ids_dois_ownership_full_metadata_hashes_and_files": "Reported unchanged and creator/contributor beforevalues retained; root does not repeat these reads or assume those unavailable hashes",
-    "metadata_findings": "Two out-of-range remote publication dates and missing SeaMARC access_conditions reported; affected date IDs/old values not supplied to root"
+    "files": "Exact saved files/record links/concept identities/modified times/captures now transferred and reconciled with all five fullmetadata beforeimages. Earlier file-content and version-history verification remains reader-reported at distinct timestamps; no new request or current-after-capture assertion.",
+    "metadata_evidence": "Current complete five metadata objects independently received and hashes recomputed against supplied beforeimages; original request success/ownership provenance remains reader-reported, not independently repeated",
+    "metadata_findings": "2043/17317851 and2057/17317859 both carry1220-01-01; all five licensecc-zero/access_conditions absent; current creators/contributors retained exactly",
+    "original_capture": "PARENT_REPORTED sole-reader five exact authenticated GETs HTTP200,2026-10-03T17:26:37Z through17:26:44Z",
+    "ownership": "All five captured owner values match the private known owner; owner ID and private Library IDs omitted from public receipt"
   },
   "publication_or_deletion_authority_inferred": false,
+  "remaining_execution_evidence": [
+    "No saved modern revision,ETag or concurrency baseline: obtain a fresh baseline only during separately authorized modern execution against these existing records; do not infer one from modified time or one-result history.",
+    "Complete actual correction afterimage/date/object-policy and provider/release authorization remain separate; no execution payload follows from this preparation."
+  ],
   "rows": [
     {
-      "before_creators_contributors": "PARENT_REPORTED retained; no values fabricated",
-      "before_files": "PARENT_REPORTED unchanged; exact list unavailable here",
-      "before_metadata_hash": null,
-      "before_publication_date": null,
+      "before_access_conditions_present": false,
+      "before_access_right": "restricted",
+      "before_complete_response_sha256_reader_reported": "a80bb2e3ecb7295547a7bb484d879d54a34d003a51f479831b8645d4315832f9",
+      "before_concept_doi": "10.5281/zenodo.17317854",
+      "before_concept_record_id": "17317854",
+      "before_created": "2025-10-11T05:04:52.144966+00:00",
+      "before_creators_contributors": {
+        "contributors": [
+          {
+            "affiliation": null,
+            "name": "Fox, Christopher G.",
+            "type": "ContactPerson"
+          }
+        ],
+        "creators": [
+          {
+            "affiliation": null,
+            "name": "Oceanic, National"
+          },
+          {
+            "affiliation": "NOAA",
+            "name": "Atmospheric Administration, Office of Oceanic"
+          },
+          {
+            "affiliation": "OAR",
+            "name": "Atmospheric Research, Pacific Marine Environmental Laboratory"
+          }
+        ]
+      },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:37.200937+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "0ba15e0de7cdabb668798480a31f8e83dadd4e2d63badc61f68868e1f9e28a10",
+        "started_at": "2026-10-03T17:26:36.186530+00:00"
+      },
+      "before_description_present": true,
+      "before_description_sha256": "99076b05ec83b44a6a145a39d18ebb298b62afcc18869091922aef3933d72036",
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:39.407808+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "c7070bdbc1f9dc53f1d4b851c8adc24a17b37594bf67c0e5218ca23546a970a8",
+          "started_at": "2026-10-03T15:24:39.008845+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "91cb0282-7079-4e48-94e8-0a67ad9d794d",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "91cb0282-7079-4e48-94e8-0a67ad9d794d",
+          "links_sha256": "2cacca446e7f64681693b1a269edbe0437e31cdab82d2e6ff1f5e0892e5fbce9",
+          "saved_download_link_contains_draft": true
+        }
+      ],
+      "before_license": "cc-zero",
+      "before_metadata_hash": "502ce81b143d387e95e8275d2480ab791e3448d6e7546a128c5eab6c22620272",
+      "before_modified": "2025-10-11T05:04:52.571132+00:00",
+      "before_observed_at": "2026-10-03T17:26:37.200937+00:00",
+      "before_publication_date": "1990-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "6eb54cd97cc280611d8fca5a17b80addaa095217b060b4476049689f073b95bf"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
+      "before_title": "Constrained Iterative Deconvolution Applied to SeaMARC I Sidescan Sonar Imagery",
+      "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:37.290034+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "b32060d62ba5b4c2ad7572aa10aab41f9f135a731dc766cb9ae8c1be31127cf7",
+          "started_at": "2026-10-03T15:24:36.908720+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317854",
+            "created": "2025-10-11T05:04:52.144966+00:00",
+            "doi": "10.5281/zenodo.17317855",
+            "id": 17317855,
+            "updated": "2025-10-11T05:04:52.571132+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "9c78431fb93d1018a2aec03af41167845d0cf969b301f37b8e0698edebb40e57",
+      "metadata_only_date_candidate_acceptable": null,
+      "metadata_only_date_decision": "Existing date shown for exact preservation comparison only; no known January1 or precise underlying-work publication date is newly asserted.",
       "metadata_only_edit_files": "retain exact verified existing list/bytes; do not attach XML through this mode",
+      "metadata_only_existing_date_preservation_candidate": "1990-01-01",
       "prepared_payload_sha256": "c6a0cf92d4d5fd6cdd06b0b446425286c9cd53a5910f6ee1a6dec0893158c4f5",
       "proposed_access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
       "proposed_access_right": "restricted",
       "proposed_license": "",
-      "proposed_publication_date": "2001-03-08",
+      "proposed_xml_artifact_creators_contributors": {
+        "contributors": [
+          {
+            "name": "Fox, Christopher G.",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Fox, Christopher G.",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+            "type": "Organization"
+          }
+        ]
+      },
+      "proposed_xml_artifact_description_sha256": "c70ffeda7eb589bcdcb518be022962e80156676c69678327908a96ce32348f3f",
+      "proposed_xml_artifact_publication_date": "2001-03-08",
+      "proposed_xml_artifact_title": "Constrained Iterative Deconvolution Applied to SeaMARC I Sidescan Sonar Imagery - FGDC XML metadata artifact",
+      "proposed_xml_artifact_upload_type": "other",
       "raw_metadata_date": [
         "20010308"
       ],
@@ -33,6 +256,135 @@
       ],
       "retained_doi": "10.5281/zenodo.17317855",
       "retained_record_id": 17317855,
+      "review_comparison_is_executable_patch": false,
+      "source_artifact_comparison": [
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "access_conditions",
+          "prepared_present": true,
+          "prepared_value_sha256": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "c40303c66100107a696559c98bd73c922dacd015d2cc9f4f4e6b20231cc8e399",
+          "field": "communities",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "97d7507b3159535c8c1dc6af9798552f666c644fb383ed2b6d4fd5295a740f69",
+          "field": "contributors",
+          "prepared_present": true,
+          "prepared_value_sha256": "8f71c3c0fd36138f4ace8ab95c52d912f9d55350a37d5e10f2039a4c94e05840"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "db26b23f97010b50ae5db518c1e999ed9e7110202064ad62679745d7934dd360",
+          "field": "creators",
+          "prepared_present": true,
+          "prepared_value_sha256": "43ef09aeba7b4f2abfa9dab7c465c68dd1fb468a5672ec4d9b8857d6d013ce0f"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "99076b05ec83b44a6a145a39d18ebb298b62afcc18869091922aef3933d72036",
+          "field": "description",
+          "prepared_present": true,
+          "prepared_value_sha256": "c70ffeda7eb589bcdcb518be022962e80156676c69678327908a96ce32348f3f"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "632d27fcb914d34dc1e1498b5da7c21cb0a4cc08014b5a0cb3bb76f67d5b36c8",
+          "field": "doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "16fd800a3458b9a465eaf6a9168b58e47aac2d57f5ee9d4e20e148f6ff3fe0ef",
+          "field": "imprint_publisher",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "5d55d71b530d4c5bf8fbacfeacdb9f4a24b044b72a816842ee3ebc366ff9edd8",
+          "field": "keywords",
+          "prepared_present": true,
+          "prepared_value_sha256": "eb7e774283fbe5500b2aa4b66ff7e35027a66d369b084dbb9fb6092059135ee7"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "48a48215f8f73625ded59470f267fc82e2f08136a6ae3490ff40834dfe635bb9",
+          "field": "license",
+          "prepared_present": true,
+          "prepared_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "de20fecb52f39acc61ec7d429405a4410ab36d09cb04203cfded47140dd3dc06",
+          "field": "notes",
+          "prepared_present": true,
+          "prepared_value_sha256": "32ff0e409c13d12988751ec5ac6954d770654b38a9554b67a89651ffe0f4ddbe"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "f5743213dfe2589af1db8e236583a17c5f8bd60ab0d0ef365a34820c526b8f57",
+          "field": "prereserve_doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "017f1870dd48ec1dab06c5de36d3b2ca0b24dc78ead57350c059d3afa7a94eae",
+          "field": "publication_date",
+          "prepared_present": true,
+          "prepared_value_sha256": "e74804ca4bbb570358dbf74971b6bfeb03e37b9d4b1648006eeb487a3f860812"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "publisher",
+          "prepared_present": true,
+          "prepared_value_sha256": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "references",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "related_identifiers",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "subjects",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "e66f6a2eca2d5c714c64167f4c767b9f2dbe0d62a3f4752feefde8e90652506b",
+          "field": "title",
+          "prepared_present": true,
+          "prepared_value_sha256": "c7edf19b0e54b4bef03133da2ec03ac23879e4ca17ceaaf6c45ff82b56dd8cac"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "e711122088c7d5a3efd85da265136b0964e17ed8b6ae01f7601296dd1b28f99a",
+          "field": "upload_type",
+          "prepared_present": true,
+          "prepared_value_sha256": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+        }
+      ],
       "source_hold_reasons": [
         "Metadata access terms need source-backed adjudication",
         "Contradictory or unsupported source access constraints require adjudication"
@@ -43,19 +395,185 @@
       "source_status": "held"
     },
     {
-      "before_creators_contributors": "PARENT_REPORTED retained; no values fabricated",
-      "before_files": "PARENT_REPORTED unchanged; exact list unavailable here",
-      "before_metadata_hash": null,
-      "before_publication_date": null,
+      "before_access_conditions_present": false,
+      "before_access_right": "open",
+      "before_complete_response_sha256_reader_reported": "51154c37f7d79a67737a7399e4e8c17b8f2d4ea76b41c350fa25dff395be5a73",
+      "before_concept_doi": "10.5281/zenodo.17317850",
+      "before_concept_record_id": "17317850",
+      "before_created": "2025-10-11T05:04:41.256032+00:00",
+      "before_creators_contributors": {
+        "contributors": [
+          {
+            "affiliation": null,
+            "name": "Bodkin, James L.",
+            "type": "ContactPerson"
+          }
+        ],
+        "creators": [
+          {
+            "affiliation": null,
+            "name": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska"
+          },
+          {
+            "affiliation": null,
+            "name": "Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California."
+          }
+        ]
+      },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:38.739000+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "fe84363a47583b97e64f008ae6d72c00979f13ec84b83f6af21189f930910a26",
+        "started_at": "2026-10-03T17:26:38.286673+00:00"
+      },
+      "before_description_present": true,
+      "before_description_sha256": "2a696ef1cc3a876a11cc3fd85448b6eba77a570805441614d976b9b17dce699d",
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:47.658795+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "9bfca14fb901e55dd1da640bd2a5cd1191fe64f6ef8549aa1d339d307e42a64a",
+          "started_at": "2026-10-03T15:24:47.409374+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "3df46266-073d-4e1a-bddb-c3d64c1b079d",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "3df46266-073d-4e1a-bddb-c3d64c1b079d",
+          "links_sha256": "6c3fd1861478e54f024410c14325d56c6a4f71c1f040c535d7a61ab9ca74290d",
+          "saved_download_link_contains_draft": true
+        }
+      ],
+      "before_license": "cc-zero",
+      "before_metadata_hash": "9b1524624fb3643976779f30aaf60f6bc6d9ff396d17c380f135a44700eb757e",
+      "before_modified": "2025-10-11T05:04:41.820009+00:00",
+      "before_observed_at": "2026-10-03T17:26:38.739000+00:00",
+      "before_publication_date": "1220-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "57a9ce55a36a13d59f4025655850af622c3fc7880db585ecd28ab3964c9025c9"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
+      "before_title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea",
+      "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:45.533644+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "08b5bfff7683bf4635561a3ae4db7423d58c94ab09aa3819a57679a9667480ee",
+          "started_at": "2026-10-03T15:24:45.309242+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317850",
+            "created": "2025-10-11T05:04:41.256032+00:00",
+            "doi": "10.5281/zenodo.17317851",
+            "id": 17317851,
+            "updated": "2025-10-11T05:04:41.820009+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "158a526d10f9163685527013f160c5ed61e3c5c37c479c0466fd0b9005998ef1",
+      "metadata_only_date_candidate_acceptable": false,
+      "metadata_only_date_decision": "HOLD: preserving1220-01-01 is not an acceptable date correction. Raw122003 meaning and underlying-work publication date remain unestablished;2004-07-23 is an FGDC metadata date only.",
       "metadata_only_edit_files": "retain exact verified existing list/bytes; do not attach XML through this mode",
+      "metadata_only_existing_date_preservation_candidate": "1220-01-01",
       "prepared_payload_sha256": "cec8d0a6f180145a2174a4cb21305ad62cf765d5d1f0d027beb1b79f88b8842c",
       "proposed_access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
       "proposed_access_right": "restricted",
       "proposed_license": "",
-      "proposed_publication_date": "2004-07-23",
+      "proposed_xml_artifact_creators_contributors": {
+        "contributors": [
+          {
+            "name": "Bodkin, James L.",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Bodkin, James L.",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": "Exxon Valdez Oil Spill Trustee Council",
+            "type": "Organization"
+          },
+          {
+            "affiliation": "U.S. Geological Survey, Anchorage, Alaska",
+            "name": "Bodkin, James"
+          },
+          {
+            "affiliation": "Coastal Resources Associates, Inc., Carlsbad, California",
+            "name": "Dean, Thomas A."
+          }
+        ]
+      },
+      "proposed_xml_artifact_description_sha256": "171559302f1361356467cc5693fd8d266bfb4b35d3096be646f4905eb92f8449",
+      "proposed_xml_artifact_publication_date": "2004-07-23",
+      "proposed_xml_artifact_title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea - FGDC XML metadata artifact",
+      "proposed_xml_artifact_upload_type": "other",
       "raw_metadata_date": [
         "20040723"
       ],
@@ -64,6 +582,142 @@
       ],
       "retained_doi": "10.5281/zenodo.17317851",
       "retained_record_id": 17317851,
+      "review_comparison_is_executable_patch": false,
+      "source_artifact_comparison": [
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "access_conditions",
+          "prepared_present": true,
+          "prepared_value_sha256": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5",
+          "field": "access_right",
+          "prepared_present": true,
+          "prepared_value_sha256": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "c40303c66100107a696559c98bd73c922dacd015d2cc9f4f4e6b20231cc8e399",
+          "field": "communities",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "2ef749cbcf3311109f618e4d75068d02adee69f0dcb0a4637a364a636f2aa8a9",
+          "field": "contributors",
+          "prepared_present": true,
+          "prepared_value_sha256": "645c9291870c7241e4564683fa4efc2ba39fe0216c6376cf09c157df381228a0"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "e72fbd10c7f1b82e1670214f0eddbcd6fd91a5e0905d949e592e587c589f6022",
+          "field": "creators",
+          "prepared_present": true,
+          "prepared_value_sha256": "a0d94d8585e6401ce97c7daa02b1105f18695c55aabf8eba44e9785182fd9356"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "2a696ef1cc3a876a11cc3fd85448b6eba77a570805441614d976b9b17dce699d",
+          "field": "description",
+          "prepared_present": true,
+          "prepared_value_sha256": "171559302f1361356467cc5693fd8d266bfb4b35d3096be646f4905eb92f8449"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "b8f946edb6aafdea57213b2a68976c292d38901064d7aa4ea2999df1b418af73",
+          "field": "doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "16fd800a3458b9a465eaf6a9168b58e47aac2d57f5ee9d4e20e148f6ff3fe0ef",
+          "field": "imprint_publisher",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "e076877b6b98758178e7712187bc8483579e7049199910b3fe6dab49b8b73c5d",
+          "field": "keywords",
+          "prepared_present": true,
+          "prepared_value_sha256": "6dd2bfaf102486cd9e1291a7259ec45e350e7ae544639bdc4f70fa2dc366c342"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "48a48215f8f73625ded59470f267fc82e2f08136a6ae3490ff40834dfe635bb9",
+          "field": "license",
+          "prepared_present": true,
+          "prepared_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "900d5e62aff0e3ab8e0d66c79c88eac746fa72234ee85fae707a9c1f61a25a36",
+          "field": "notes",
+          "prepared_present": true,
+          "prepared_value_sha256": "e1c08bfe8e3a64bdcdf65eeac190c147380fe53dad4bcfb8894f46e383b42963"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "71a495b19ef6f84bb7bc6a82b13c8dab645ad86518efcc4bb79973dc2a4c6884",
+          "field": "prereserve_doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "8b47c6a36391788d48b8d2cd1af88a9b1edbfbb830c5a82497e391ddd31bd16e",
+          "field": "publication_date",
+          "prepared_present": true,
+          "prepared_value_sha256": "9748d9fffc0ccc9b5ea4838541eaa705705685e5e13f394f088d403bc7f3c731"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "publisher",
+          "prepared_present": true,
+          "prepared_value_sha256": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "references",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "related_identifiers",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "subjects",
+          "prepared_present": true,
+          "prepared_value_sha256": "e6395ad9e975f695049bf473c37b13191025b486be8e9b9b027bae953eee7020"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "1463065e2e8d6a50d6cd3fdf783460a7560046faff87f54336e1b69df9590aac",
+          "field": "title",
+          "prepared_present": true,
+          "prepared_value_sha256": "ecfcbf8198779159752bfb38c250297b50fd6dcc4eaf3798eac8c4aaec9639b0"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "e711122088c7d5a3efd85da265136b0964e17ed8b6ae01f7601296dd1b28f99a",
+          "field": "upload_type",
+          "prepared_present": true,
+          "prepared_value_sha256": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+        }
+      ],
       "source_hold_reasons": [],
       "source_id": "FGDC-2043",
       "source_qa_assessed_metadata_sha256": "158a526d10f9163685527013f160c5ed61e3c5c37c479c0466fd0b9005998ef1",
@@ -71,19 +725,185 @@
       "source_status": "supported"
     },
     {
-      "before_creators_contributors": "PARENT_REPORTED retained; no values fabricated",
-      "before_files": "PARENT_REPORTED unchanged; exact list unavailable here",
-      "before_metadata_hash": null,
-      "before_publication_date": null,
+      "before_access_conditions_present": false,
+      "before_access_right": "open",
+      "before_complete_response_sha256_reader_reported": "3eb2a57a1070db7d3c1b7196425476f335d8ded01eda441fa775e2395bb0a4dc",
+      "before_concept_doi": "10.5281/zenodo.17317858",
+      "before_concept_record_id": "17317858",
+      "before_created": "2025-10-11T05:05:02.787261+00:00",
+      "before_creators_contributors": {
+        "contributors": [
+          {
+            "affiliation": null,
+            "name": "Bodkin, James L.",
+            "type": "ContactPerson"
+          }
+        ],
+        "creators": [
+          {
+            "affiliation": null,
+            "name": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska"
+          },
+          {
+            "affiliation": null,
+            "name": "Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California."
+          }
+        ]
+      },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:40.671479+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "d86ceae515f75b1a3f1805f8a16926be1582e8fdf0c64cf30c715f2ef53e37b4",
+        "started_at": "2026-10-03T17:26:40.386791+00:00"
+      },
+      "before_description_present": true,
+      "before_description_sha256": "8dc58be6ce9d6e0458c57b0d39378f88db20c764f400ad5c5db19f3204aaa86d",
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:30.846338+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "a1888a3d2af733a7949f47c45ad0beba674237b7ad3e03f67793ddf3836c7a43",
+          "started_at": "2026-10-03T15:24:30.608321+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "94caad20-1076-4f4e-9883-c4448f674ecf",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "94caad20-1076-4f4e-9883-c4448f674ecf",
+          "links_sha256": "550fbdb28914af292d1e4ce9b974d4b3559bbaf45f2abd497041246ed19a8101",
+          "saved_download_link_contains_draft": true
+        }
+      ],
+      "before_license": "cc-zero",
+      "before_metadata_hash": "9a2338434bc42d06b08899a3661728442c7a97050c010af180de0bc44a784222",
+      "before_modified": "2025-10-11T05:05:03.202131+00:00",
+      "before_observed_at": "2026-10-03T17:26:40.671479+00:00",
+      "before_publication_date": "1220-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "e5624beffee912ed207d1b009b76f20cc8c8092152fc59e364bd1cbff2d27f76"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
+      "before_title": "An Intersection Model for Estimating Sea Otter Mortality Along the Kenai Peninsula. Marine Mammals and the Exxon Valdez",
+      "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:29.547940+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "b5fb5c1b412c2a4dea409cd83d41cc9974fa15f1857314b03b440ba5066b9102",
+          "started_at": "2026-10-03T15:24:28.508170+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317858",
+            "created": "2025-10-11T05:05:02.787261+00:00",
+            "doi": "10.5281/zenodo.17317859",
+            "id": 17317859,
+            "updated": "2025-10-11T05:05:03.202131+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "675c58c4ee2d3f6cd4840f712320f30e7712d59b198a15e1fbb0ff78d76bf196",
+      "metadata_only_date_candidate_acceptable": false,
+      "metadata_only_date_decision": "HOLD: preserving1220-01-01 is not an acceptable date correction. Raw122003 meaning and underlying-work publication date remain unestablished;2004-07-23 is an FGDC metadata date only.",
       "metadata_only_edit_files": "retain exact verified existing list/bytes; do not attach XML through this mode",
+      "metadata_only_existing_date_preservation_candidate": "1220-01-01",
       "prepared_payload_sha256": "20f617d63037c4688d72d746ba6637a9cb1df4904fc388f83d31e2c9e5267d8a",
       "proposed_access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
       "proposed_access_right": "restricted",
       "proposed_license": "",
-      "proposed_publication_date": "2004-07-23",
+      "proposed_xml_artifact_creators_contributors": {
+        "contributors": [
+          {
+            "name": "Bodkin, James L.",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Bodkin, James L.",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": "Exxon Valdez Oil Spill Trustee Council",
+            "type": "Organization"
+          },
+          {
+            "affiliation": "U.S. Geological Survey, Anchorage, Alaska",
+            "name": "Bodkin, James"
+          },
+          {
+            "affiliation": "Coastal Resources Associates, Inc., Carlsbad, California",
+            "name": "Dean, Thomas A."
+          }
+        ]
+      },
+      "proposed_xml_artifact_description_sha256": "bc37d791ef281761a8053ca3fbb07eea824d0f5a34b3f9ed030354e3274c2bf6",
+      "proposed_xml_artifact_publication_date": "2004-07-23",
+      "proposed_xml_artifact_title": "An Intersection Model for Estimating Sea Otter Mortality Along the Kenai Peninsula. Marine Mammals and the Exxon Valdez - FGDC XML metadata artifact",
+      "proposed_xml_artifact_upload_type": "other",
       "raw_metadata_date": [
         "20040723"
       ],
@@ -92,6 +912,142 @@
       ],
       "retained_doi": "10.5281/zenodo.17317859",
       "retained_record_id": 17317859,
+      "review_comparison_is_executable_patch": false,
+      "source_artifact_comparison": [
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "access_conditions",
+          "prepared_present": true,
+          "prepared_value_sha256": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5",
+          "field": "access_right",
+          "prepared_present": true,
+          "prepared_value_sha256": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "c40303c66100107a696559c98bd73c922dacd015d2cc9f4f4e6b20231cc8e399",
+          "field": "communities",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "2ef749cbcf3311109f618e4d75068d02adee69f0dcb0a4637a364a636f2aa8a9",
+          "field": "contributors",
+          "prepared_present": true,
+          "prepared_value_sha256": "645c9291870c7241e4564683fa4efc2ba39fe0216c6376cf09c157df381228a0"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "e72fbd10c7f1b82e1670214f0eddbcd6fd91a5e0905d949e592e587c589f6022",
+          "field": "creators",
+          "prepared_present": true,
+          "prepared_value_sha256": "a0d94d8585e6401ce97c7daa02b1105f18695c55aabf8eba44e9785182fd9356"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "8dc58be6ce9d6e0458c57b0d39378f88db20c764f400ad5c5db19f3204aaa86d",
+          "field": "description",
+          "prepared_present": true,
+          "prepared_value_sha256": "bc37d791ef281761a8053ca3fbb07eea824d0f5a34b3f9ed030354e3274c2bf6"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "85829eab43b7983f83b616611bd07c11069f125c51a4920666616752f7c93f99",
+          "field": "doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "16fd800a3458b9a465eaf6a9168b58e47aac2d57f5ee9d4e20e148f6ff3fe0ef",
+          "field": "imprint_publisher",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "46e8551b5f66d63740790b24eb66e18a5a2d048ddd63db030e1ed0f8067eca5c",
+          "field": "keywords",
+          "prepared_present": true,
+          "prepared_value_sha256": "2b5f61275d666c914ec624f48d02d4152ea57b9b2062c05649242693125c8ce9"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "48a48215f8f73625ded59470f267fc82e2f08136a6ae3490ff40834dfe635bb9",
+          "field": "license",
+          "prepared_present": true,
+          "prepared_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "900d5e62aff0e3ab8e0d66c79c88eac746fa72234ee85fae707a9c1f61a25a36",
+          "field": "notes",
+          "prepared_present": true,
+          "prepared_value_sha256": "d2f725b68347fab40d575266e90929178e5ee3b5b85eb4147445fafdf58c2ebe"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "cc383f43823442de15af4173ba5ff4e481ad9591fe1b8b668f5e3c72bb2e3611",
+          "field": "prereserve_doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "8b47c6a36391788d48b8d2cd1af88a9b1edbfbb830c5a82497e391ddd31bd16e",
+          "field": "publication_date",
+          "prepared_present": true,
+          "prepared_value_sha256": "9748d9fffc0ccc9b5ea4838541eaa705705685e5e13f394f088d403bc7f3c731"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "publisher",
+          "prepared_present": true,
+          "prepared_value_sha256": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "references",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "related_identifiers",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "subjects",
+          "prepared_present": true,
+          "prepared_value_sha256": "b86604acb9d2b1673e2688399bbe0a47256f7428448671aa640ec7d132e8f098"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "c7ba030f96f864ebec589bc74582e78f7fcd3963049ecdfa153ada92673ffda9",
+          "field": "title",
+          "prepared_present": true,
+          "prepared_value_sha256": "406be8b8a7730098dd59fe140705b5d12cddc95f4b0ddc10924aa9362eca045b"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "e711122088c7d5a3efd85da265136b0964e17ed8b6ae01f7601296dd1b28f99a",
+          "field": "upload_type",
+          "prepared_present": true,
+          "prepared_value_sha256": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+        }
+      ],
       "source_hold_reasons": [],
       "source_id": "FGDC-2057",
       "source_qa_assessed_metadata_sha256": "675c58c4ee2d3f6cd4840f712320f30e7712d59b198a15e1fbb0ff78d76bf196",
@@ -99,19 +1055,181 @@
       "source_status": "supported"
     },
     {
-      "before_creators_contributors": "PARENT_REPORTED retained; no values fabricated",
-      "before_files": "PARENT_REPORTED unchanged; exact list unavailable here",
-      "before_metadata_hash": null,
-      "before_publication_date": null,
+      "before_access_conditions_present": false,
+      "before_access_right": "open",
+      "before_complete_response_sha256_reader_reported": "a2463c4597a3d01cf45bab2fd8d6c91a70922bf78aa14eaea96db18f4ac8df0e",
+      "before_concept_doi": "10.5281/zenodo.17317856",
+      "before_concept_record_id": "17317856",
+      "before_created": "2025-10-11T05:04:57.500044+00:00",
+      "before_creators_contributors": {
+        "contributors": [
+          {
+            "affiliation": null,
+            "name": "Librarian",
+            "type": "ContactPerson"
+          }
+        ],
+        "creators": [
+          {
+            "affiliation": null,
+            "name": "Oceanic, National"
+          },
+          {
+            "affiliation": "NOAA",
+            "name": "Atmospheric Administration, Office of Oceanic"
+          },
+          {
+            "affiliation": "OAR",
+            "name": "Atmospheric Research, Pacific Marine Environmental Laboratory"
+          }
+        ]
+      },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:42.907364+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "9fa502c9e65ff27c9edc459cffd396d49c8856160772d28fb0292c5cd46c10d4",
+        "started_at": "2026-10-03T17:26:42.486908+00:00"
+      },
+      "before_description_present": false,
+      "before_description_sha256": null,
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:35.046527+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "69819cc4fbbf34c43e77b5f09fb13eae8c1657f98a0a0905cbcd69ad0e534d9a",
+          "started_at": "2026-10-03T15:24:34.808596+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "4ba924fd-3740-41ee-bf6d-97eda70bf83b",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "4ba924fd-3740-41ee-bf6d-97eda70bf83b",
+          "links_sha256": "0276782e0dc6cbbb915c76e3228745ed464a6321da716087cab495c6942318f1",
+          "saved_download_link_contains_draft": true
+        }
+      ],
+      "before_license": "cc-zero",
+      "before_metadata_hash": "552e3289ce2645ff2c52b4975d09c2c4cc145ce2bd65f85639f83b2801aed290",
+      "before_modified": "2025-10-11T05:04:57.926178+00:00",
+      "before_observed_at": "2026-10-03T17:26:42.907364+00:00",
+      "before_publication_date": "1981-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "3dbcf6bd2c079786a810aa5cdbde906f57eda557ec79a8f5429154e79f0d74a7"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
+      "before_title": "Distribution of Dissolved LMW Hydrocarbons in Bristol Bay, Alaska: Implications for Future Gas and Oil Development",
+      "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:32.935520+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "174d2e04631809bbe08982dd2d9fd167a16d0f2a35b75ac0d031750829e3fd29",
+          "started_at": "2026-10-03T15:24:32.708453+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317856",
+            "created": "2025-10-11T05:04:57.500044+00:00",
+            "doi": "10.5281/zenodo.17317857",
+            "id": 17317857,
+            "updated": "2025-10-11T05:04:57.926178+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "0189804a3098def117904c5bb0f6685bd0a09c1706a2fb4d7ee1767ccb500005",
+      "metadata_only_date_candidate_acceptable": null,
+      "metadata_only_date_decision": "Existing date shown for exact preservation comparison only; no known January1 or precise underlying-work publication date is newly asserted.",
       "metadata_only_edit_files": "retain exact verified existing list/bytes; do not attach XML through this mode",
+      "metadata_only_existing_date_preservation_candidate": "1981-01-01",
       "prepared_payload_sha256": "7230d675678e07b8d6e91aeca7c16e5446e8d033fc6b7fa847d50d2478e29c29",
       "proposed_access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
       "proposed_access_right": "restricted",
       "proposed_license": "",
-      "proposed_publication_date": "1998-02-03",
+      "proposed_xml_artifact_creators_contributors": {
+        "contributors": [
+          {
+            "name": "Librarian",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Librarian",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": "National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+            "type": "Organization"
+          }
+        ]
+      },
+      "proposed_xml_artifact_description_sha256": "6bef2d4ef17665e0af729ed8a1c3480635d19454295ac5a40fd76b6b7ea1ec80",
+      "proposed_xml_artifact_publication_date": "1998-02-03",
+      "proposed_xml_artifact_title": "Distribution of Dissolved LMW Hydrocarbons in Bristol Bay, Alaska: Implications for Future Gas and Oil Development - FGDC XML metadata artifact",
+      "proposed_xml_artifact_upload_type": "other",
       "raw_metadata_date": [
         "19980203"
       ],
@@ -120,6 +1238,142 @@
       ],
       "retained_doi": "10.5281/zenodo.17317857",
       "retained_record_id": 17317857,
+      "review_comparison_is_executable_patch": false,
+      "source_artifact_comparison": [
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "access_conditions",
+          "prepared_present": true,
+          "prepared_value_sha256": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5",
+          "field": "access_right",
+          "prepared_present": true,
+          "prepared_value_sha256": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "c40303c66100107a696559c98bd73c922dacd015d2cc9f4f4e6b20231cc8e399",
+          "field": "communities",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "03ba20d06b6e297f90c1f2f6e47f18e99ddab8ac968ec9cd5c769b58a5135782",
+          "field": "contributors",
+          "prepared_present": true,
+          "prepared_value_sha256": "cc0618d494d4f77d4a65e219f2f91c8a165500646cab4fa175919c0593959365"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "db26b23f97010b50ae5db518c1e999ed9e7110202064ad62679745d7934dd360",
+          "field": "creators",
+          "prepared_present": true,
+          "prepared_value_sha256": "43ef09aeba7b4f2abfa9dab7c465c68dd1fb468a5672ec4d9b8857d6d013ce0f"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "description",
+          "prepared_present": true,
+          "prepared_value_sha256": "6bef2d4ef17665e0af729ed8a1c3480635d19454295ac5a40fd76b6b7ea1ec80"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "52cc92e9cb99050b23b276d22f015baf35b2689c052a47c320fb247d78d87d1d",
+          "field": "doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "16fd800a3458b9a465eaf6a9168b58e47aac2d57f5ee9d4e20e148f6ff3fe0ef",
+          "field": "imprint_publisher",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "ea0d4cfdfdf58bde8b79bbebd786972e62310bd40a5e09f5de5d8a8a57a39aff",
+          "field": "keywords",
+          "prepared_present": true,
+          "prepared_value_sha256": "2b1de1bb4d5f0ea2758f7b4e1bd421b5e9710224b33c9dee4ac33613ded2ad7a"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "48a48215f8f73625ded59470f267fc82e2f08136a6ae3490ff40834dfe635bb9",
+          "field": "license",
+          "prepared_present": true,
+          "prepared_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "14006a8920b03e34cf5d9ab8754253cbd5d50bcd947d91c9555d489eba2f8540",
+          "field": "notes",
+          "prepared_present": true,
+          "prepared_value_sha256": "8acf525f8cbcff8a17e5a65667f4acc3061b31c7dc42ceed2bfe72db9b24beea"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "f8af5374f2ea9fcd7130133711447fec982fbfeeebc0db6218565a70e0c3e4da",
+          "field": "prereserve_doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "705dbf8a401e5e5aa0eaede649aa642a19013359efa10880a80f52a0063c3bbc",
+          "field": "publication_date",
+          "prepared_present": true,
+          "prepared_value_sha256": "9b589198237279ae0669c8adc56ec76570f0a2d824f0fd282385b6b87b2e56ef"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "publisher",
+          "prepared_present": true,
+          "prepared_value_sha256": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "references",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "related_identifiers",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "subjects",
+          "prepared_present": true,
+          "prepared_value_sha256": "46c450434d1d13daf20c4bf18dc253a44ed72b82cc6ec9d41cf9f06211ca0c69"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "c35401e18bc4b35370be242ca8022b1754b972cc93d489761b7ba84d096b0d4b",
+          "field": "title",
+          "prepared_present": true,
+          "prepared_value_sha256": "7b9a20ffcc0e6ff511fcd6254d5ca45179426dc667c16063c03ad437f24617de"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "e711122088c7d5a3efd85da265136b0964e17ed8b6ae01f7601296dd1b28f99a",
+          "field": "upload_type",
+          "prepared_present": true,
+          "prepared_value_sha256": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+        }
+      ],
       "source_hold_reasons": [],
       "source_id": "FGDC-2725",
       "source_qa_assessed_metadata_sha256": "0189804a3098def117904c5bb0f6685bd0a09c1706a2fb4d7ee1767ccb500005",
@@ -127,19 +1381,181 @@
       "source_status": "supported"
     },
     {
-      "before_creators_contributors": "PARENT_REPORTED retained; no values fabricated",
-      "before_files": "PARENT_REPORTED unchanged; exact list unavailable here",
-      "before_metadata_hash": null,
-      "before_publication_date": null,
+      "before_access_conditions_present": false,
+      "before_access_right": "open",
+      "before_complete_response_sha256_reader_reported": "7a91fda34ceee5b6349dcc24aa11a74ca27923e9b932fbc87c6f4f1dbf57c28c",
+      "before_concept_doi": "10.5281/zenodo.17317852",
+      "before_concept_record_id": "17317852",
+      "before_created": "2025-10-11T05:04:46.761968+00:00",
+      "before_creators_contributors": {
+        "contributors": [
+          {
+            "affiliation": null,
+            "name": "Regnart, Jeff",
+            "type": "ContactPerson"
+          }
+        ],
+        "creators": [
+          {
+            "affiliation": null,
+            "name": "Fish, Alaska Department of"
+          },
+          {
+            "affiliation": "ADF&G",
+            "name": "Game, Division of Commercial Fisheries, Management"
+          },
+          {
+            "affiliation": null,
+            "name": "Division, Development"
+          }
+        ]
+      },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:44.829468+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "4fd96c9f8c1501cd85b225881f99efdf2e1208b8b3d4b17216744f12604080dc",
+        "started_at": "2026-10-03T17:26:44.587012+00:00"
+      },
+      "before_description_present": true,
+      "before_description_sha256": "f091d02f48fee018aaeacaa53cec72ba05d48cb2ed09a64525d89c9ad12fea54",
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:43.436390+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "cba8011be528d85e17360ab1543e8d5f61eacc3d6078b83ed4ce22abd28f2aaa",
+          "started_at": "2026-10-03T15:24:43.209111+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "b0363dd5-95ce-46e3-a2c1-6cbd80306354",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "b0363dd5-95ce-46e3-a2c1-6cbd80306354",
+          "links_sha256": "fb84f96492a2a93d971c2208b24a7de00b0ebaea14c92b24a4445a0708d8dc95",
+          "saved_download_link_contains_draft": true
+        }
+      ],
+      "before_license": "cc-zero",
+      "before_metadata_hash": "a8e7e744a82de2eb5c633e81fbfb771d6901b62e428cbf86dd81aeed5aff64ee",
+      "before_modified": "2025-10-11T05:04:47.267757+00:00",
+      "before_observed_at": "2026-10-03T17:26:44.829468+00:00",
+      "before_publication_date": "1988-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "9c96ce22e48675437c23ff0f5b4eb3cad552ca29eff9d97c3d6f6605dd761a17"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
+      "before_title": "89-04 Nushagak River Chinook Salmon Escapement  Estimation From Subsistence Catch Monitoring in 1988.  Brian G. Bue.  March 1989.  14pp",
+      "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:41.345983+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "a22c16f6bdd94623ec5d4ba1138a3d16d3ee93abd6c30f1828712e65ad46c891",
+          "started_at": "2026-10-03T15:24:41.108972+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317852",
+            "created": "2025-10-11T05:04:46.761968+00:00",
+            "doi": "10.5281/zenodo.17317853",
+            "id": 17317853,
+            "updated": "2025-10-11T05:04:47.267757+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "7d7d5d9c15fae9e11b8c07ffa0c257930fd5df4a8eeaa99227910d5c877ea7be",
+      "metadata_only_date_candidate_acceptable": null,
+      "metadata_only_date_decision": "Existing date shown for exact preservation comparison only; no known January1 or precise underlying-work publication date is newly asserted.",
       "metadata_only_edit_files": "retain exact verified existing list/bytes; do not attach XML through this mode",
+      "metadata_only_existing_date_preservation_candidate": "1988-01-01",
       "prepared_payload_sha256": "30689f750f8dffb3655348867f2ba0d2ebc3c6a118b380bc14fe1453b3b2506b",
       "proposed_access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
       "proposed_access_right": "restricted",
       "proposed_license": "",
-      "proposed_publication_date": "1998-07-13",
+      "proposed_xml_artifact_creators_contributors": {
+        "contributors": [
+          {
+            "name": "Regnart, Jeff",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Regnart, Jeff",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": "Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, Management and Development Division",
+            "type": "Organization"
+          }
+        ]
+      },
+      "proposed_xml_artifact_description_sha256": "e51dc239af321007c774948015ebd184b9d8b14ac7613915862888f03b2af391",
+      "proposed_xml_artifact_publication_date": "1998-07-13",
+      "proposed_xml_artifact_title": "89-04 Nushagak River Chinook Salmon Escapement Estimation From Subsistence Catch Monitoring in 1988. Brian G. Bue. March 1989. 14pp - FGDC XML metadata artifact",
+      "proposed_xml_artifact_upload_type": "other",
       "raw_metadata_date": [
         "19980713"
       ],
@@ -148,6 +1564,142 @@
       ],
       "retained_doi": "10.5281/zenodo.17317853",
       "retained_record_id": 17317853,
+      "review_comparison_is_executable_patch": false,
+      "source_artifact_comparison": [
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "access_conditions",
+          "prepared_present": true,
+          "prepared_value_sha256": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "35ff74aeea25311f4fe759a6b762c8cd41a79adb23dd5615b92cf215175a63e5",
+          "field": "access_right",
+          "prepared_present": true,
+          "prepared_value_sha256": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "c40303c66100107a696559c98bd73c922dacd015d2cc9f4f4e6b20231cc8e399",
+          "field": "communities",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "00857781a2282a4f2cb47380f8fa889b0462e46efe9fe089e3f23477551e616e",
+          "field": "contributors",
+          "prepared_present": true,
+          "prepared_value_sha256": "b22452754037f266597ed29937d958b6cda11022556223a8576ab3907b92e1af"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "43c2523cd35ed77e49c60bd0d90c793f2c6ce805533f92b5deb394f73d3feba4",
+          "field": "creators",
+          "prepared_present": true,
+          "prepared_value_sha256": "6e703f7fc9a463fbfd06847d7ecb849aa4fc80e937e7c49a1d0a96e0f0537ce2"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "f091d02f48fee018aaeacaa53cec72ba05d48cb2ed09a64525d89c9ad12fea54",
+          "field": "description",
+          "prepared_present": true,
+          "prepared_value_sha256": "e51dc239af321007c774948015ebd184b9d8b14ac7613915862888f03b2af391"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "8029c52693445ce7a3da302790715d2a03b0e3ef46bfeef9a6a5152f8d76d01e",
+          "field": "doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "16fd800a3458b9a465eaf6a9168b58e47aac2d57f5ee9d4e20e148f6ff3fe0ef",
+          "field": "imprint_publisher",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "a59e92de6e16dc0b4c7a2923131182f0abe63f4bae096f2698f60b6e73380979",
+          "field": "keywords",
+          "prepared_present": true,
+          "prepared_value_sha256": "2e83111910bcb94258bc64f4a57ed3fb01bcf97af9f5cd0eb2a1a5bfa60103dd"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "48a48215f8f73625ded59470f267fc82e2f08136a6ae3490ff40834dfe635bb9",
+          "field": "license",
+          "prepared_present": true,
+          "prepared_value_sha256": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "32217cae0979ab319a53ad39c3b4fd2c327f6b975c3d26a0d14ffb60443fdd29",
+          "field": "notes",
+          "prepared_present": true,
+          "prepared_value_sha256": "82edd593642ee1e7b6d6517ce1e70649e777c5f5e5b76acd131c91c3a20eeb74"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "d3f59a92eb0c608b3ab8212fc5a91da791cd0a8ee6a8b47c5651b8ad16ec2cd7",
+          "field": "prereserve_doi",
+          "prepared_present": false,
+          "prepared_value_sha256": null
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "04c33b286c2227a00acfa2bb8779f4717ae9022d58a32b77dd8431a2a4c59d57",
+          "field": "publication_date",
+          "prepared_present": true,
+          "prepared_value_sha256": "8343e8dca5eb756130be52e12a913676e7cdfdc65620dd5baf4336c1ee47a774"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "publisher",
+          "prepared_present": true,
+          "prepared_value_sha256": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "references",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "related_identifiers",
+          "prepared_present": true,
+          "prepared_value_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "before_present": false,
+          "before_value_sha256": null,
+          "field": "subjects",
+          "prepared_present": true,
+          "prepared_value_sha256": "80fd5adebbb4fbc656301073668836da3517800cfc5f8ec3e79e03ab99f189a4"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "0ca38328efe590738eb910af34e76362df3d2a636c5c3dce8b22bea8c48bb063",
+          "field": "title",
+          "prepared_present": true,
+          "prepared_value_sha256": "cdef023df032b032a6c008660d9561feff8a2ba6f3146235b0c552dbde455094"
+        },
+        {
+          "before_present": true,
+          "before_value_sha256": "e711122088c7d5a3efd85da265136b0964e17ed8b6ae01f7601296dd1b28f99a",
+          "field": "upload_type",
+          "prepared_present": true,
+          "prepared_value_sha256": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+        }
+      ],
       "source_hold_reasons": [
         "Metadata access terms need source-backed adjudication",
         "Contradictory or unsupported source access constraints require adjudication"
@@ -158,14 +1710,120 @@
       "source_status": "held"
     }
   ],
-  "schema_version": 1,
-  "source_date_decision": "No new date invention is needed for the reviewed XML-artifact date role: use the exact metd days bound below. Underlying citation dates remain raw;122003 is not silently converted and1988 - Present is not narrowed. If a different date role is desired, hold for source-specific evidence and a separately reviewed afterimage.",
+  "schema_version": 3,
+  "source_date_decision": "Prepared source XML-artifact candidates use exact metd days. They do not establish the underlying-work publication date and are not silent replacements for narrow metadata-only existing-object edits.2043/2057 preservation-only1220 candidates remain held. Raw122003 is not decoded as December2003 and no research/coverage/current date is borrowed.",
   "source_head": "2bf5f8a9758a4a3c5a6c1bb7258872eb14eb25e6",
   "source_merge": "d0f13930baa5fbcd6684038d03954aad2baba5a5",
   "source_report_sha256": "6213c25a1f3d71cdb08ae19a1ca91762fdad5b3f11524ed7ed137f1b7edb044e",
-  "unresolved_exact_before_bindings": [
-    "Two flagged record/source IDs and their exact before publication_date values",
-    "Current full metadata hashes/file lists/creator-contributor beforeimages for five records from existing reader evidence, not new GETs"
-  ],
+  "source_scope_reassessment": {
+    "current_source_report_sha256": "759b7c924dc1452be1850635d4bee41230007883f7b94a4691160b067fa127dc",
+    "historical_rows_and_94_comparisons_preserved": true,
+    "normalized_notes_provenance_delta": "prepare_metadata embeds active policy/evidence in notes. Current normalized notes differ from the historical frozen candidate; other normalized metadata fields and every raw constructed metadata object are unchanged. Historical candidates and comparisons remain bound to the prior report. Current object is not an executable patch.",
+    "rows": [
+      {
+        "current_normalized_metadata_sha256": "7c9796f5216c0f30213f4c8693787a05c8f7ba86b0ed4a9d880712141c13426f",
+        "current_policy_scope_attestation": "USER_ATTESTED",
+        "current_prepared_payload_sha256": "631c30d981d54880275e2839588b76cf6eca3556ae940f02a82fd5da20735e9f",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "9c78431fb93d1018a2aec03af41167845d0cf969b301f37b8e0698edebb40e57",
+        "frozen_source_status": "held",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "4e7f05ffa32d89a4b094d6251ff0057acd3faae837a62135796faa6d4f4e02f0",
+        "normalized_notes_before_sha256": "32ff0e409c13d12988751ec5ac6954d770654b38a9554b67a89651ffe0f4ddbe",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317855,
+        "source_id": "FGDC-1238"
+      },
+      {
+        "current_normalized_metadata_sha256": "91f64cb9a84cac34f538afa961e65c0c631b5affdb0b17b2c375e9e675776829",
+        "current_policy_scope_attestation": null,
+        "current_prepared_payload_sha256": "71f5d4e96ebef578bd0b22172f53de9630d6c3069c72ab4f5e7534c68c7f4400",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "158a526d10f9163685527013f160c5ed61e3c5c37c479c0466fd0b9005998ef1",
+        "frozen_source_status": "supported",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "f18e877acb315aae8f1dd55020d52304eb9049eefa38ff2b829c18183b9a16a6",
+        "normalized_notes_before_sha256": "e1c08bfe8e3a64bdcdf65eeac190c147380fe53dad4bcfb8894f46e383b42963",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317851,
+        "source_id": "FGDC-2043"
+      },
+      {
+        "current_normalized_metadata_sha256": "ba24e7a3f24a61d561c1fac6def7ae257e6792bb8619995c6dcdafc2e67a9afe",
+        "current_policy_scope_attestation": null,
+        "current_prepared_payload_sha256": "2fd180df3a28ef28b5fbc173eab401f5a368d41d88a2182f7ee035f6d0d7dc4e",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "675c58c4ee2d3f6cd4840f712320f30e7712d59b198a15e1fbb0ff78d76bf196",
+        "frozen_source_status": "supported",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "a282d3326f3921f0c496a5d088755b4c0deb19a29f5cc81b7dab41e6e291ae1c",
+        "normalized_notes_before_sha256": "d2f725b68347fab40d575266e90929178e5ee3b5b85eb4147445fafdf58c2ebe",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317859,
+        "source_id": "FGDC-2057"
+      },
+      {
+        "current_normalized_metadata_sha256": "7bc054c36ffa7436d0becb98da8ef560d00939f69a101e44d5b4948eb78fd3c8",
+        "current_policy_scope_attestation": null,
+        "current_prepared_payload_sha256": "bd5eab1189cce05d66c483659d5c40161f02e40c2d3ca20d3b516778be9027e5",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "0189804a3098def117904c5bb0f6685bd0a09c1706a2fb4d7ee1767ccb500005",
+        "frozen_source_status": "supported",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "73f70cfab383fff1b4fc304f282b454a3460993976811944f18fff21e4889cb2",
+        "normalized_notes_before_sha256": "8acf525f8cbcff8a17e5a65667f4acc3061b31c7dc42ceed2bfe72db9b24beea",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317857,
+        "source_id": "FGDC-2725"
+      },
+      {
+        "current_normalized_metadata_sha256": "8b5986d5948d97df3b457933319f940e0aefce6f26caed520d453064b9665405",
+        "current_policy_scope_attestation": "USER_ATTESTED",
+        "current_prepared_payload_sha256": "8258e9f325650131dc931cb4f8495b0820a81a695ad503620aea5ba717273d01",
+        "current_source_hold_reasons": [],
+        "current_source_status": "supported",
+        "frozen_normalized_metadata_sha256": "7d7d5d9c15fae9e11b8c07ffa0c257930fd5df4a8eeaa99227910d5c877ea7be",
+        "frozen_source_status": "held",
+        "live_correction_authorized": false,
+        "metadata_only_date_hold_preserved": true,
+        "normalized_metadata_differing_fields": [
+          "notes"
+        ],
+        "normalized_notes_after_sha256": "e09406191d25266e70546b8da4be578e64e9cee9b6265ef3f7da343a2d9b1a48",
+        "normalized_notes_before_sha256": "82edd593642ee1e7b6d6517ce1e70649e777c5f5e5b76acd131c91c3a20eeb74",
+        "raw_constructed_metadata_unchanged": true,
+        "retained_record_id": 17317853,
+        "source_id": "FGDC-2731"
+      }
+    ],
+    "runtime_commit": "503f72b15b0b5cf949096e6e7d4d2c3200001ac5",
+    "scope_manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657"
+  },
+  "supersedes_preparation": {
+    "commit": "c7363f3bcff575bf7997daa86258716833be7d60",
+    "prior_review_preserved": "five_import_correction_preparation_review.json binds previous checkpoint only",
+    "sha256": "ebb8bb3c3a24198f9071804c97216434efaed987c8f4cbda7a78e02340a22adb"
+  },
+  "unresolved_exact_before_bindings": [],
   "xml_attachment_mode": "Not implemented. Requires versioning plus reviewed two-file contract retaining original placeholders and XML as separate role/hash bindings. New version has its own PID; never assign retained old DOI to a newly created distinct object."
 }

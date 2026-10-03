@@ -1,5 +1,22 @@
 # FGDC → Zenodo Sandbox TODO List
 
+## Exact821 source scope answer — 2026-10-03
+
+- [x] Bind Brett's20:20UTC answer to the original three questions and exact821 source/hash/raw-constraint/context members; retain USER_ATTESTED provenance and separate XML authority.
+- [x] Verify791 promotions:3234 supported /966 held /6 malformed;347 guarded offline tests,7 independent focused contracts and complete4206-source delta audit pass.
+- [x] Preserve all4194 complete metadata objects,4200 XML copies,456 alias holds and all unrelated decisions. Reassess only30 protected members within the explicitly answered821:28 promote,148 protected cases remain held.
+- [x] Complete bounded final delta/document reconciliation and freeze normal handoff PR11; source/runtime/evidence/delta/five-record comparisons are independently clear. PR remains open because this coding delegation excludes repository merges.
+- Remaining selected holds:2 creator ambiguities and28 long titles. No license, underlying-data rights or production/provider release is inferred.
+
+## Five retained-import beforeimages — 2026-10-03
+
+- [x] Receive the standalone16494-byte Library text with supplied SHA; independently recompute five complete metadata hashes and retain exact date/creator/contributor/rights beforevalues without new provider requests.
+- [x] Bind current2043/2057 publication_date1220-01-01 and distinguish an unacceptable narrow preservation candidate from the source2004-07-23 XML metadata date; preserve all original dates and access holds.
+- [x] Independently review the bounded schema2 comparison: all five complete beforeimages and94 differing-field presence/value-hash comparisons clear at0f09049.
+- [x] Receive and reconcile the complete510-line saved file/version transfer: all five IDs/concept DOIs/file IDs/checksums/capture times match, with exact links preserved privately and no new provider request.
+- [ ] Freeze a fresh modern revision/concurrency baseline during any separately authorized execution against these existing records; none was retained in saved evidence and none is inferred here.
+- PR10 is merged at e3fde4b with reviewed runtime dc351b0. Parent dispatched the approved modern trial; one durable create intent remains held with network dispatch unknown. All create allowances remain spent. Brett's exact821 answer is implemented above; existing-record correction/release gates remain separate.
+
 ## Five source credits and eight display titles — 2026-10-03
 
 - [x] Implement exact additive401 creator profile and eight title selections with source/hash/element/full-metadata bindings; preserve all prior396 and every original title/credit/context.
@@ -15,7 +32,7 @@
 - [x] Verify the complete actual delta and independent implementation/source review; freeze the grouped decision packet. Provider execution remains with its separate executor.
 - Actual finite142 batch: 2,430 supported / 1,770 held / six malformed; 312 guarded offline tests and six independently reproduced focused contracts. All 4,194 whole metadata objects, 4,206 originals, 4,200 copies, 176 protected access holds and 456 aliases are preserved. See `readiness/2026-10-03/finite_source_resource_access.md` and its validation receipt.
 - [x] Implement the separately prepared five source-credit and eight bounded-title proposals in the source13 checkpoint; all13 are source-supported. The earlier finite142 checkpoint counts remain historical.
-- [ ] Obtain the exact remaining source-scope evidence, prioritizing Contributor361 / ADF&G351 / Unknown109, and preserve original terms, blank licenses and independent holds.
+- [x] Obtain and implement the exact Contributor361 /ADF&G351 /Unknown109 scope answer; preserve original terms, blank licenses and independent holds. Historical finite142 counts remain unchanged.
 
 _Last updated: 2026-10-03_
 
@@ -367,9 +384,9 @@ This local cohort has not been pushed or used for a provider operation.
 
 - [x] Retain parent-reported five completedHTTP200 verification reads without repeating them; distinguish source/localafterimage proof from unavailable private remote beforeimages. Bind exactfive source/payload hashes and metadata-date proposals; prepare missing SeaMARC access_conditions while preserving1238/2731 holds.
 - [x] Document sameDOI/files-preserving metadata edits separately from a reviewed new-version/two-file attachment contract; no deletion, production write or release implied.
-- [ ] Reader supplies from already retained evidence the two flagged date IDs/rawvalues and exactfive metadatahash/filelist/creator-contributor beforeimages. CurrentLibraryv1bytes could not be downloaded here; no new GET is requested.
+- [x] Receive standalone saved metadata and file/version evidence for all five; retain2043/2057's1220 dates and lack of revision/ETag. No new GET or date inference.
 
 ## PR10 final-head integration review — 2026-10-03
 
 - [x] Address the substantive create201 credential-echo review: preserve a safe private untrusted candidate ID before rejection, with no trusted adoption/retry/reset or credential persistence. Add meaningful failure-first/reentry/privacy regressions; final runtime and validation bindings supersede the earlier canary pin.
-- Code merge requires exact final-head tests/review/requirements to pass. Live modern execution remains disabled pending the separate exact approval and parent dispatch; both prior spent ledgers remain preserved.
+- PR10 exact-head tests/reviews passed and code merged. Parent approved/dispatched the modern trial; the durable create intent remains held without dispatch evidence. Preserve all historical ledgers and allowances; no automatic retry/reset.

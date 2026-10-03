@@ -31,6 +31,7 @@ from scripts.citation_creator_interpretation import validate_creator_metadata
 from scripts.source_link_interpretation import validate_source_link_policy
 from scripts.source_title_interpretation import validate_source_title_policy
 from scripts.dataset_access_interpretation import validate_dataset_access_policy
+from scripts.source_scope_attestation import validate_scope_policy
 
 
 def _text(root, path):
@@ -143,6 +144,9 @@ def assess_source(json_file, paths):
             validate_interpretation(policy['source_access_interpretation'], Path(source_path).stem,
                                     source_hash, root, policy.get('reviewed_at'))
             interpreted_access = True
+        if policy.get('source_scope_attestation') is not None:
+            validate_scope_policy(policy, Path(source_path).stem, source_hash, root, metadata)
+            interpreted_access = True
     else:
         authority = None
         license_id = _explicit_license(_text(root, './idinfo/useconst'))
@@ -233,7 +237,7 @@ def assess(entry, paths, snapshot_path, duplicate_path):
         _timestamp(raw_snapshot.get('retrieved_at', ''))
     # HEAD alone does not describe rules executing from an uncommitted working tree.
     rules = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py', 'source_access_interpretation.py', 'citation_creator_interpretation.py', 'dataset_access_interpretation.py', 'source_link_interpretation.py')}
+             for name in ('agent_qa.py', 'qa_manifest.py', 'rehosting_authority.py', 'source_access_interpretation.py', 'citation_creator_interpretation.py', 'dataset_access_interpretation.py', 'source_link_interpretation.py', 'source_scope_attestation.py')}
     return {'checks': dict.fromkeys(QA_CHECKS, True), 'rules_sha256': rules, 'source_sha256': source_hash,
             'metadata_sha256': metadata_hash(metadata), 'artifact_contract': artifact,
             'remote_snapshot': {'path': str(Path(snapshot_path).resolve()), 'sha256': metadata_hash(snapshot),
