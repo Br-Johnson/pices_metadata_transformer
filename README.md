@@ -49,8 +49,9 @@ retain 821 held records pending source-specific XML scope evidence.
 The [five retained-import preparation](docs/readiness/2026-10-03/five_import_correction_preparation.md)
 binds five independently received full metadata beforeimages and source-derived
 XML-artifact candidates, preserves existing DOIs/files, and identifies2043/2057's
-1220 date holds. Exact current file bindings remain with the reader; no live
-correction follows from this review.
+1220 date holds. Saved file/version bindings are received and reconciled; a
+modern revision baseline was not preserved. No live correction follows from
+this preparation.
 
 Use [reviewed correction batches](docs/curation_batches.md) for exact source-ID/hash
 membership, overlap checks and explicit field precedence after common FGDC

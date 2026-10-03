@@ -11,6 +11,35 @@
     "status": "VERIFIED complete standalone Library text,303lines,has_morefalse"
   },
   "comparison_scope": "Current full metadata vs source-prepared XML-artifact metadata, not an API patch: differences in title,type,date,creator/distributor roles,rights and complete provenance must be reviewed as a coherent object policy. Missing candidate keys do not authorize deletion. Preserve DOI,prereserve_doi,concept/version identities and verified file bindings in any separately frozen actual afterimage.",
+  "file_binding_update": {
+    "extends_reviewed_preparation_commit": "b68927742f243ea607166b1de77f79aae357dff6",
+    "extends_reviewed_preparation_sha256": "2f67cc0094060a7a2dca3201f30826e774cbd99f12cfdd4b1a5f132d2a60531a",
+    "schema_migration": "schema2 pending before_files string becomes schema3 exact saved file binding array; metadata before/candidate/94 comparison values unchanged. Existing independent schema2 receipt remains bound to its original checkpoint only.",
+    "verification": "Root bounded five-record transfer/identity/capture/file/hash/history/absence reconciliation only; no broad audit or runtime test rerun"
+  },
+  "file_version_transfer": {
+    "additional_Zenodo_GETs": 0,
+    "bytes": 23142,
+    "complete_provider_response_hashes_recomputed_by_root": false,
+    "exact_files_and_links_retained_privately": true,
+    "file_bytes_recomputed_by_root": false,
+    "limits_retained_verbatim": [
+      "The latest saved deposition captures are dated 2026-10-03T17:26:37 through 17:26:44 UTC; this transfer makes no current-state assertion after those captures.",
+      "Version histories and actual file contents were checked earlier, at the exact timestamps attached to each record; neither was reread during the latest deposition captures.",
+      "All files and all links arrays are exact saved deposition values, including download URLs containing /draft/; no link has been silently rewritten or invoked during transfer.",
+      "The saved deposition responses have no version, revision, revision_id or versions fields. Numerical version ordinals are not inferred from a one-result history.",
+      "An earlier public-record response contained a top-level revision field, but its value was not preserved in the saved projection. A public-record revision baseline cannot be supplied from these saved files.",
+      "No modern API revision, ETag or concurrency token baseline is available in this artifact. Modern trial approval remains pending."
+    ],
+    "provider_writes": 0,
+    "public_link_hash_algorithm": "SHA256 of canonical UTF8 JSON value; exact saved URLs remain in private transfer",
+    "records_exactly_reconciled_with_fullmetadata_transfer": 5,
+    "revision_or_ETag_available": false,
+    "saved_urls_followed_by_root": 0,
+    "sha256": "876273e5a2ea4a3b043cfd790c4a686e11382e6b8c998114494997edf80434ff",
+    "snapshot_is_non_atomic": true,
+    "status": "VERIFIED complete standalone Library text,510lines,has_morefalse"
+  },
   "five_existing_records_and_dois_preserved": true,
   "historical_zip_download": {
     "current_metadata_evidence_blocker": false,
@@ -29,17 +58,25 @@
   "production_and_live_gates": "No production metadata PUT, publication, file/version action, live approval or source promotion follows from this evidence transfer.1238/2731 remain access-held and821 scope questions await Brett.",
   "provider_requests_by_root": 0,
   "provider_verification": {
-    "files": "Parent reports unchanged; exact current file lists not part of the standalone metadata transfer",
+    "files": "Exact saved files/record links/concept identities/modified times/captures now transferred and reconciled with all five fullmetadata beforeimages. Earlier file-content and version-history verification remains reader-reported at distinct timestamps; no new request or current-after-capture assertion.",
     "metadata_evidence": "Current complete five metadata objects independently received and hashes recomputed against supplied beforeimages; original request success/ownership provenance remains reader-reported, not independently repeated",
     "metadata_findings": "2043/17317851 and2057/17317859 both carry1220-01-01; all five licensecc-zero/access_conditions absent; current creators/contributors retained exactly",
     "original_capture": "PARENT_REPORTED sole-reader five exact authenticated GETs HTTP200,2026-10-03T17:26:37Z through17:26:44Z",
     "ownership": "All five captured owner values match the private known owner; owner ID and private Library IDs omitted from public receipt"
   },
   "publication_or_deletion_authority_inferred": false,
+  "remaining_execution_evidence": [
+    "No saved modern revision,ETag or concurrency baseline: obtain a fresh baseline only during separately authorized modern execution against these existing records; do not infer one from modified time or one-result history.",
+    "Complete actual correction afterimage/date/object-policy and provider/release authorization remain separate; no execution payload follows from this preparation."
+  ],
   "rows": [
     {
       "before_access_conditions_present": false,
       "before_access_right": "restricted",
+      "before_complete_response_sha256_reader_reported": "a80bb2e3ecb7295547a7bb484d879d54a34d003a51f479831b8645d4315832f9",
+      "before_concept_doi": "10.5281/zenodo.17317854",
+      "before_concept_record_id": "17317854",
+      "before_created": "2025-10-11T05:04:52.144966+00:00",
       "before_creators_contributors": {
         "contributors": [
           {
@@ -63,15 +100,115 @@
           }
         ]
       },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:37.200937+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "0ba15e0de7cdabb668798480a31f8e83dadd4e2d63badc61f68868e1f9e28a10",
+        "started_at": "2026-10-03T17:26:36.186530+00:00"
+      },
       "before_description_present": true,
       "before_description_sha256": "99076b05ec83b44a6a145a39d18ebb298b62afcc18869091922aef3933d72036",
-      "before_files": "PARENT_REPORTED unchanged at capture; exact current file list is not included in this metadata-only Library transfer. Use retained reader file evidence, no additional GET.",
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:39.407808+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "c7070bdbc1f9dc53f1d4b851c8adc24a17b37594bf67c0e5218ca23546a970a8",
+          "started_at": "2026-10-03T15:24:39.008845+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "91cb0282-7079-4e48-94e8-0a67ad9d794d",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "91cb0282-7079-4e48-94e8-0a67ad9d794d",
+          "links_sha256": "2cacca446e7f64681693b1a269edbe0437e31cdab82d2e6ff1f5e0892e5fbce9",
+          "saved_download_link_contains_draft": true
+        }
+      ],
       "before_license": "cc-zero",
       "before_metadata_hash": "502ce81b143d387e95e8275d2480ab791e3448d6e7546a128c5eab6c22620272",
+      "before_modified": "2025-10-11T05:04:52.571132+00:00",
       "before_observed_at": "2026-10-03T17:26:37.200937+00:00",
       "before_publication_date": "1990-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "6eb54cd97cc280611d8fca5a17b80addaa095217b060b4476049689f073b95bf"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
       "before_title": "Constrained Iterative Deconvolution Applied to SeaMARC I Sidescan Sonar Imagery",
       "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:37.290034+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "b32060d62ba5b4c2ad7572aa10aab41f9f135a731dc766cb9ae8c1be31127cf7",
+          "started_at": "2026-10-03T15:24:36.908720+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317854",
+            "created": "2025-10-11T05:04:52.144966+00:00",
+            "doi": "10.5281/zenodo.17317855",
+            "id": 17317855,
+            "updated": "2025-10-11T05:04:52.571132+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "9c78431fb93d1018a2aec03af41167845d0cf969b301f37b8e0698edebb40e57",
@@ -258,6 +395,10 @@
     {
       "before_access_conditions_present": false,
       "before_access_right": "open",
+      "before_complete_response_sha256_reader_reported": "51154c37f7d79a67737a7399e4e8c17b8f2d4ea76b41c350fa25dff395be5a73",
+      "before_concept_doi": "10.5281/zenodo.17317850",
+      "before_concept_record_id": "17317850",
+      "before_created": "2025-10-11T05:04:41.256032+00:00",
       "before_creators_contributors": {
         "contributors": [
           {
@@ -277,15 +418,115 @@
           }
         ]
       },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:38.739000+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "fe84363a47583b97e64f008ae6d72c00979f13ec84b83f6af21189f930910a26",
+        "started_at": "2026-10-03T17:26:38.286673+00:00"
+      },
       "before_description_present": true,
       "before_description_sha256": "2a696ef1cc3a876a11cc3fd85448b6eba77a570805441614d976b9b17dce699d",
-      "before_files": "PARENT_REPORTED unchanged at capture; exact current file list is not included in this metadata-only Library transfer. Use retained reader file evidence, no additional GET.",
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:47.658795+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "9bfca14fb901e55dd1da640bd2a5cd1191fe64f6ef8549aa1d339d307e42a64a",
+          "started_at": "2026-10-03T15:24:47.409374+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "3df46266-073d-4e1a-bddb-c3d64c1b079d",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "3df46266-073d-4e1a-bddb-c3d64c1b079d",
+          "links_sha256": "6c3fd1861478e54f024410c14325d56c6a4f71c1f040c535d7a61ab9ca74290d",
+          "saved_download_link_contains_draft": true
+        }
+      ],
       "before_license": "cc-zero",
       "before_metadata_hash": "9b1524624fb3643976779f30aaf60f6bc6d9ff396d17c380f135a44700eb757e",
+      "before_modified": "2025-10-11T05:04:41.820009+00:00",
       "before_observed_at": "2026-10-03T17:26:38.739000+00:00",
       "before_publication_date": "1220-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "57a9ce55a36a13d59f4025655850af622c3fc7880db585ecd28ab3964c9025c9"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
       "before_title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea",
       "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:45.533644+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "08b5bfff7683bf4635561a3ae4db7423d58c94ab09aa3819a57679a9667480ee",
+          "started_at": "2026-10-03T15:24:45.309242+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317850",
+            "created": "2025-10-11T05:04:41.256032+00:00",
+            "doi": "10.5281/zenodo.17317851",
+            "id": 17317851,
+            "updated": "2025-10-11T05:04:41.820009+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "158a526d10f9163685527013f160c5ed61e3c5c37c479c0466fd0b9005998ef1",
@@ -484,6 +725,10 @@
     {
       "before_access_conditions_present": false,
       "before_access_right": "open",
+      "before_complete_response_sha256_reader_reported": "3eb2a57a1070db7d3c1b7196425476f335d8ded01eda441fa775e2395bb0a4dc",
+      "before_concept_doi": "10.5281/zenodo.17317858",
+      "before_concept_record_id": "17317858",
+      "before_created": "2025-10-11T05:05:02.787261+00:00",
       "before_creators_contributors": {
         "contributors": [
           {
@@ -503,15 +748,115 @@
           }
         ]
       },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:40.671479+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "d86ceae515f75b1a3f1805f8a16926be1582e8fdf0c64cf30c715f2ef53e37b4",
+        "started_at": "2026-10-03T17:26:40.386791+00:00"
+      },
       "before_description_present": true,
       "before_description_sha256": "8dc58be6ce9d6e0458c57b0d39378f88db20c764f400ad5c5db19f3204aaa86d",
-      "before_files": "PARENT_REPORTED unchanged at capture; exact current file list is not included in this metadata-only Library transfer. Use retained reader file evidence, no additional GET.",
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:30.846338+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "a1888a3d2af733a7949f47c45ad0beba674237b7ad3e03f67793ddf3836c7a43",
+          "started_at": "2026-10-03T15:24:30.608321+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "94caad20-1076-4f4e-9883-c4448f674ecf",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "94caad20-1076-4f4e-9883-c4448f674ecf",
+          "links_sha256": "550fbdb28914af292d1e4ce9b974d4b3559bbaf45f2abd497041246ed19a8101",
+          "saved_download_link_contains_draft": true
+        }
+      ],
       "before_license": "cc-zero",
       "before_metadata_hash": "9a2338434bc42d06b08899a3661728442c7a97050c010af180de0bc44a784222",
+      "before_modified": "2025-10-11T05:05:03.202131+00:00",
       "before_observed_at": "2026-10-03T17:26:40.671479+00:00",
       "before_publication_date": "1220-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "e5624beffee912ed207d1b009b76f20cc8c8092152fc59e364bd1cbff2d27f76"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
       "before_title": "An Intersection Model for Estimating Sea Otter Mortality Along the Kenai Peninsula. Marine Mammals and the Exxon Valdez",
       "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:29.547940+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "b5fb5c1b412c2a4dea409cd83d41cc9974fa15f1857314b03b440ba5066b9102",
+          "started_at": "2026-10-03T15:24:28.508170+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317858",
+            "created": "2025-10-11T05:05:02.787261+00:00",
+            "doi": "10.5281/zenodo.17317859",
+            "id": 17317859,
+            "updated": "2025-10-11T05:05:03.202131+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "675c58c4ee2d3f6cd4840f712320f30e7712d59b198a15e1fbb0ff78d76bf196",
@@ -710,6 +1055,10 @@
     {
       "before_access_conditions_present": false,
       "before_access_right": "open",
+      "before_complete_response_sha256_reader_reported": "a2463c4597a3d01cf45bab2fd8d6c91a70922bf78aa14eaea96db18f4ac8df0e",
+      "before_concept_doi": "10.5281/zenodo.17317856",
+      "before_concept_record_id": "17317856",
+      "before_created": "2025-10-11T05:04:57.500044+00:00",
       "before_creators_contributors": {
         "contributors": [
           {
@@ -733,15 +1082,115 @@
           }
         ]
       },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:42.907364+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "9fa502c9e65ff27c9edc459cffd396d49c8856160772d28fb0292c5cd46c10d4",
+        "started_at": "2026-10-03T17:26:42.486908+00:00"
+      },
       "before_description_present": false,
       "before_description_sha256": null,
-      "before_files": "PARENT_REPORTED unchanged at capture; exact current file list is not included in this metadata-only Library transfer. Use retained reader file evidence, no additional GET.",
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:35.046527+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "69819cc4fbbf34c43e77b5f09fb13eae8c1657f98a0a0905cbcd69ad0e534d9a",
+          "started_at": "2026-10-03T15:24:34.808596+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "4ba924fd-3740-41ee-bf6d-97eda70bf83b",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "4ba924fd-3740-41ee-bf6d-97eda70bf83b",
+          "links_sha256": "0276782e0dc6cbbb915c76e3228745ed464a6321da716087cab495c6942318f1",
+          "saved_download_link_contains_draft": true
+        }
+      ],
       "before_license": "cc-zero",
       "before_metadata_hash": "552e3289ce2645ff2c52b4975d09c2c4cc145ce2bd65f85639f83b2801aed290",
+      "before_modified": "2025-10-11T05:04:57.926178+00:00",
       "before_observed_at": "2026-10-03T17:26:42.907364+00:00",
       "before_publication_date": "1981-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "3dbcf6bd2c079786a810aa5cdbde906f57eda557ec79a8f5429154e79f0d74a7"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
       "before_title": "Distribution of Dissolved LMW Hydrocarbons in Bristol Bay, Alaska: Implications for Future Gas and Oil Development",
       "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:32.935520+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "174d2e04631809bbe08982dd2d9fd167a16d0f2a35b75ac0d031750829e3fd29",
+          "started_at": "2026-10-03T15:24:32.708453+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317856",
+            "created": "2025-10-11T05:04:57.500044+00:00",
+            "doi": "10.5281/zenodo.17317857",
+            "id": 17317857,
+            "updated": "2025-10-11T05:04:57.926178+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "0189804a3098def117904c5bb0f6685bd0a09c1706a2fb4d7ee1767ccb500005",
@@ -932,6 +1381,10 @@
     {
       "before_access_conditions_present": false,
       "before_access_right": "open",
+      "before_complete_response_sha256_reader_reported": "7a91fda34ceee5b6349dcc24aa11a74ca27923e9b932fbc87c6f4f1dbf57c28c",
+      "before_concept_doi": "10.5281/zenodo.17317852",
+      "before_concept_record_id": "17317852",
+      "before_created": "2025-10-11T05:04:46.761968+00:00",
       "before_creators_contributors": {
         "contributors": [
           {
@@ -955,15 +1408,115 @@
           }
         ]
       },
+      "before_deposition_capture": {
+        "exact_url_retained_privately": true,
+        "finished_at": "2026-10-03T17:26:44.829468+00:00",
+        "http_status": 200,
+        "saved_url_sha256": "4fd96c9f8c1501cd85b225881f99efdf2e1208b8b3d4b17216744f12604080dc",
+        "started_at": "2026-10-03T17:26:44.587012+00:00"
+      },
       "before_description_present": true,
       "before_description_sha256": "f091d02f48fee018aaeacaa53cec72ba05d48cb2ed09a64525d89c9ad12fea54",
-      "before_files": "PARENT_REPORTED unchanged at capture; exact current file list is not included in this metadata-only Library transfer. Use retained reader file evidence, no additional GET.",
+      "before_file_content_verification": {
+        "bytes": 102,
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:43.436390+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "cba8011be528d85e17360ab1543e8d5f61eacc3d6078b83ed4ce22abd28f2aaa",
+          "started_at": "2026-10-03T15:24:43.209111+00:00"
+        },
+        "checksum_algorithm": "md5",
+        "checksum_and_size_verified": true,
+        "evidence": "READER_REPORTED earlier byte verification; root verifies saved size/checksum/identity consistency only, without fetching content",
+        "file_bytes_downloaded_at_fresh_deposition_capture": false,
+        "file_id": "b0363dd5-95ce-46e3-a2c1-6cbd80306354",
+        "filename": "metadata.txt",
+        "fresh_deposition_file_binding_matches_prior_verified_content": true,
+        "md5": "af04b271a8f0c834b1c31389d4669b32",
+        "sha256": "871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4"
+      },
+      "before_files": [
+        {
+          "checksum": "af04b271a8f0c834b1c31389d4669b32",
+          "checksum_algorithm": "md5",
+          "exact_links_retained_privately": true,
+          "filename": "metadata.txt",
+          "filesize": 102,
+          "id": "b0363dd5-95ce-46e3-a2c1-6cbd80306354",
+          "links_sha256": "fb84f96492a2a93d971c2208b24a7de00b0ebaea14c92b24a4445a0708d8dc95",
+          "saved_download_link_contains_draft": true
+        }
+      ],
       "before_license": "cc-zero",
       "before_metadata_hash": "a8e7e744a82de2eb5c633e81fbfb771d6901b62e428cbf86dd81aeed5aff64ee",
+      "before_modified": "2025-10-11T05:04:47.267757+00:00",
       "before_observed_at": "2026-10-03T17:26:44.829468+00:00",
       "before_publication_date": "1988-01-01",
+      "before_record_links": {
+        "exact_links_retained_privately": true,
+        "keys": [
+          "badge",
+          "bucket",
+          "conceptbadge",
+          "discard",
+          "doi",
+          "edit",
+          "files",
+          "html",
+          "latest",
+          "latest_draft",
+          "latest_draft_html",
+          "latest_html",
+          "newversion",
+          "parent_doi",
+          "publish",
+          "record",
+          "record_html",
+          "self"
+        ],
+        "links_followed": 0,
+        "sha256": "9c96ce22e48675437c23ff0f5b4eb3cad552ca29eff9d97c3d6f6605dd761a17"
+      },
+      "before_revision_baseline": {
+        "deposition_fields_absent": [
+          "version",
+          "revision",
+          "revision_id",
+          "versions"
+        ],
+        "inferred_from_modified_or_single_history": false,
+        "metadata_version_field_present": false,
+        "modern_execution_against_existing_record": "Requires a fresh revision/concurrency baseline during a separately authorized execution; this preparation issues no request",
+        "revision_or_ETag_preserved": false
+      },
+      "before_state": "done",
+      "before_submitted": true,
       "before_title": "89-04 Nushagak River Chinook Salmon Escapement  Estimation From Subsistence Catch Monitoring in 1988.  Brian G. Bue.  March 1989.  14pp",
       "before_upload_type": "dataset",
+      "before_version_history": {
+        "capture": {
+          "exact_url_retained_privately": true,
+          "finished_at": "2026-10-03T15:24:41.345983+00:00",
+          "http_status": 200,
+          "saved_url_sha256": "a22c16f6bdd94623ec5d4ba1138a3d16d3ee93abd6c30f1828712e65ad46c891",
+          "started_at": "2026-10-03T15:24:41.108972+00:00"
+        },
+        "evidence": "READER_REPORTED earlier history; no ordinal or current-state completeness inferred beyond saved result",
+        "next_page_link_present": false,
+        "reread_at_fresh_deposition_capture": false,
+        "total": 1,
+        "version_ordinal": "not captured; not inferred",
+        "versions": [
+          {
+            "conceptrecid": "17317852",
+            "created": "2025-10-11T05:04:46.761968+00:00",
+            "doi": "10.5281/zenodo.17317853",
+            "id": 17317853,
+            "updated": "2025-10-11T05:04:47.267757+00:00"
+          }
+        ]
+      },
       "date_role": "explicit metadata creation/last-update day; not dataset publication",
       "live_correction_authorized": false,
       "locally_reproduced_prepared_metadata_sha256": "7d7d5d9c15fae9e11b8c07ffa0c257930fd5df4a8eeaa99227910d5c877ea7be",
@@ -1155,7 +1708,7 @@
       "source_status": "held"
     }
   ],
-  "schema_version": 2,
+  "schema_version": 3,
   "source_date_decision": "Prepared source XML-artifact candidates use exact metd days. They do not establish the underlying-work publication date and are not silent replacements for narrow metadata-only existing-object edits.2043/2057 preservation-only1220 candidates remain held. Raw122003 is not decoded as December2003 and no research/coverage/current date is borrowed.",
   "source_head": "2bf5f8a9758a4a3c5a6c1bb7258872eb14eb25e6",
   "source_merge": "d0f13930baa5fbcd6684038d03954aad2baba5a5",
@@ -1165,8 +1718,6 @@
     "prior_review_preserved": "five_import_correction_preparation_review.json binds previous checkpoint only",
     "sha256": "ebb8bb3c3a24198f9071804c97216434efaed987c8f4cbda7a78e02340a22adb"
   },
-  "unresolved_exact_before_bindings": [
-    "Exact current file lists/bytes/version bindings from already retained reader evidence; not another provider GET"
-  ],
+  "unresolved_exact_before_bindings": [],
   "xml_attachment_mode": "Not implemented. Requires versioning plus reviewed two-file contract retaining original placeholders and XML as separate role/hash bindings. New version has its own PID; never assign retained old DOI to a newly created distinct object."
 }

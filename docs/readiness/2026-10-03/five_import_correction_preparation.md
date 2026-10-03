@@ -10,11 +10,14 @@ IDs, version DOIs, captured owner and exact creator/contributor values match the
 supplied evidence. Root made no provider request. The earlier ZIP download
 failure remains historical evidence and no longer blocks metadata comparison.
 
-The standalone transfer contains metadata, not current file lists or file bytes.
-Those exact file/version bindings remain with the reader and must be transferred
-from existing evidence before a live correction is frozen. Do not repeat GETs,
-substitute October1 public file lists for the latest captures, or reopen the
-already supported same-import identity adjudication.
+The separate saved file/version transfer is now received in full:510lines,
+23142bytes, SHA-256
+`876273e5a2ea4a3b043cfd790c4a686e11382e6b8c998114494997edf80434ff`.
+All five record/concept DOIs, file IDs, capture times and saved file bindings
+reconcile with the metadata transfer. Exact links remain privately preserved;
+public field hashes bind them without rewriting or following any URL. The
+historical transfers do not establish current state after their capture times.
+No missing saved file/version input remains. No provider read was repeated.
 
 The paired preparation JSON independently binds all five local source bytes,
 prepared payloads and metadata after-images to source2bf5f8a and completed report
@@ -36,7 +39,7 @@ All five version DOIs retain prefix`10.5281/zenodo.` plus the listed record ID.
 1220-01-01.** The narrow metadata-only preservation proposal also carried1220;
 that is not an acceptable date correction. Their replacement underlying-work
 publication date remains unestablished. The exact current metadata hashes and
-creator/contributor beforevalues are now bound in the paired schema2 receipt.
+creator/contributor beforevalues are now bound in the paired schema3 receipt.
 
 No invented date is needed for the already reviewed XML-artifact date role: these
 five exact days are metadata creation/last-update dates, not underlying dataset
@@ -77,6 +80,37 @@ Contributor and ADF&G decisions. No creator/contact role is inferred from the
 remote beforevalues; source-backed candidate roles stay attached to the
 XML-artifact mode rather than being inferred as authorship of the underlying work.
 
+## Saved file and version bindings
+
+Every saved17:26:37–44UTC deposition lists one metadata.txt,102bytes, with MD5
+`af04b271a8f0c834b1c31389d4669b32`. Earlier reader-reported content checks bind
+SHA-256 `871cf5441bc0c6c2048c025b1efc5672ba00bcdd6620138b4fcd66d09518a3f4`.
+Root verifies transfer/identity/checksum/size consistency; it does not claim to
+have fetched or recomputed those file bytes. Exact earlier content and history
+capture times and latest deposition created/modified times are retained per row.
+This is a non-atomic snapshot, with distinct content/history/deposition captures.
+
+| Source | Exact saved metadata.txt file ID | Retained concept record |
+|---|---|---|
+| FGDC-1238 |91cb0282-7079-4e48-94e8-0a67ad9d794d|17317854|
+| FGDC-2043 |3df46266-073d-4e1a-bddb-c3d64c1b079d|17317850|
+| FGDC-2057 |94caad20-1076-4f4e-9883-c4448f674ecf|17317858|
+| FGDC-2725 |4ba924fd-3740-41ee-bf6d-97eda70bf83b|17317856|
+| FGDC-2731 |b0363dd5-95ce-46e3-a2c1-6cbd80306354|17317852|
+
+The exact saved download URLs contain /draft/; this is preserved as evidence,
+not rewritten or invoked, and does not override captured state=done and
+submitted=true. Each earlier version-history capture has one result without a
+next-page link. No numerical version ordinal was captured or inferred.
+
+**No modern revision, ETag or concurrency baseline is available.** The saved
+deposition projections have no version/revision/revision_id/versions fields;
+an earlier public response's revision value was not retained. Modified times
+and one-result histories cannot supply it. Any separately authorized modern
+execution against these existing records must obtain and freeze a fresh baseline
+then. This preparation adds no provider request, executable correction payload,
+new synthetic grant or change to the merged synthetic controller.
+
 ## Exact file-preserving action choices
 
 **Metadata edit:** retain the same record/DOI and every verified original file,
@@ -109,6 +143,10 @@ corrections and the separate provider/release gates are satisfied.
 The [previous independent review](five_import_correction_preparation_review.json)
 continues to bind the earlier checkpoint; the [schema2 bounded review](five_import_beforeimage_reconciliation_review.json)
 clears all five complete beforeimages and94 differing-field comparisons at0f09049.
+Schema3 adds the root-verified saved file/version evidence only; those metadata
+beforevalues/candidates/comparisons remain unchanged and the older review remains
+bound to its original checkpoint. The migration replaces the pending file-list
+string with exact saved binding arrays, leaving live execution gates separate.
 PR10 code is merged at
 `e3fde4b4fa9e30435b6b1322536aca276eebc22b`, with reviewed runtime
 `dc351b071df53c6d44f01491694916c1d44bd9f2`. Modern live execution remains
