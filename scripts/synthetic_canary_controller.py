@@ -408,6 +408,9 @@ def inventory(stage, owner, *, resume=False, recovery=False):
 
 def authorize_scoped_inventory(safe, environment, controller):
     """A reduced-scope grant is usable only inside this exact active controller."""
+    if safe.get('inventory_scope') == 'synthetic_fresh_separate_run_v5':
+        from scripts.synthetic_fresh_canary import authorize_fresh_inventory
+        return authorize_fresh_inventory(safe, environment, controller)
     require(type(controller) is SyntheticTransport and environment == 'sandbox')
     require(safe.get('inventory_scope') == controller.inventory_scope and
             requests.sessions.Session.send is controller.active_send and
@@ -426,6 +429,7 @@ class SyntheticTransport:
         require(type(owner) is int and owner > 0)
         self.inventory_guard = SandboxInventoryGuard(token, owner, max_requests=1)
         self.token, self.owner, self.paths = token, owner, paths
+        self.source = SOURCE
         self.metadata, self.artifact, self.plan = metadata, artifact, plan
         self.path = Path(paths.state_dir) / 'sandbox' / 'synthetic-controller.json'
         safe = read_json(paths.safe_to_upload_path, {})
@@ -585,7 +589,7 @@ class SyntheticTransport:
         self.save()
 
     def check_ledger(self):
-        entry = read_json(self.paths.uploads_registry_path, {}).get(SOURCE, {})
+        entry = read_json(self.paths.uploads_registry_path, {}).get(self.source, {})
         require(entry.get('environment') == 'sandbox' and
                 entry.get('source_sha256') == self.plan['source_sha256'] and
                 entry.get('metadata_sha256') == metadata_hash(self.metadata) and
@@ -605,7 +609,7 @@ class SyntheticTransport:
             method = request.method
             deposition = '/api/deposit/depositions'
             target = deposition + '/' + str(self.state['id'])
-            file_path = (self.state['bucket'] or '') + '/' + quote(SOURCE + '.xml', safe='')
+            file_path = (self.state['bucket'] or '') + '/' + quote(self.source + '.xml', safe='')
             constructor = method == 'GET' and path == deposition and self.state['phase'] == 'initial'
             download = method == 'GET' and path == file_path and self.state['phase'] == 'download'
             if constructor or download or (method == 'GET' and self.state['id'] and path == target):

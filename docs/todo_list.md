@@ -1,5 +1,11 @@
 # FGDC → Zenodo Sandbox TODO List
 
+## Separately authorized fresh synthetic canary — 2026-10-03
+
+- [x] Add a distinct fixed-source run entry point, separate stage/grant/ledger/30-minute clock and durable 8 GET / one POST / two distinct PUT bounds. Preserve original spent uncertain-create state and all prior evidence.
+- [x] Test exact new artifact bindings, unchanged retry/ID reuse, failed/lost state, expiry, redirects, production/generic rejection and sanitized server-error retention without provider requests. All 346 guarded offline tests pass, including 12 fresh-run contracts.
+- [ ] Obtain independent runtime/artifact/instructions review, freeze an exact transferable commit and publish a normal handoff branch for parent relay to the sole provider executor.
+
 _Last updated: 2025-10-14_
 
 This checklist tracks everything required to shepherd FGDC metadata through the Zenodo sandbox pipeline and keep the project healthy. Update it whenever a task is finished, deferred, or newly discovered. Capture timestamps or short notes when changing scope so the team always understands current progress.
