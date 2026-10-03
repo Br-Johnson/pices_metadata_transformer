@@ -60,7 +60,11 @@ class ModernTransportDiagnosticTests(unittest.TestCase):
     def test_adapter_failure_is_evidence_of_entry_not_transmission(self):
         self.live_fixture()
         failure = requests.exceptions.ConnectionError('Bearer ' + TOKEN)
-        with patch('requests.adapters.HTTPAdapter.send', side_effect=failure) as send:
+        def dispatch(session, request, **options):
+            # Allow only this in-memory adapter fixture under the suite's send guard.
+            return session.get_adapter(request.url).send(request, **options)
+        with patch('requests.sessions.Session.send', dispatch), \
+                patch('requests.adapters.HTTPAdapter.send', side_effect=failure) as send:
             diagnostic = self.held(lambda: m.execute(self.stage, TOKEN))
             self.assertEqual(send.call_count, 1)
         self.assertTrue(diagnostic['send_call_started'])
