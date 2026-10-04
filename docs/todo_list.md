@@ -458,5 +458,5 @@ This local cohort has not been pushed or used for a provider operation.
 
 - [x] Reproduce mode0755workspace ancestry, separate failed stage, complete353-file history and public unrelated sibling using dummy private fixtures; retain old origin exactly.
 - [x] Replace broad provenance-tree selection with sealed exact manifest plus whole actual evidence subtrees. Preserve private leaves, canonical ancestry, hashes, no links/overlap and all prior counters.
-- [ ] Complete read-only full-input preflight plus real Controller/Session prepared-send fixture, guarded full regression and independent review in one repair PR; merge exact reviewed tree.
+- [x] Complete read-only full-input preflight plus real Controller/Session prepared-send fixture,422 guarded tests and12 independent contracts in the same repair PR; exact reviewed/tested tree is ready for merge.
 - [ ] Parent receives sole executor's successful offline preflight receipt before beginning another bounded execution window. No root/provider requests; historical197 unchanged.

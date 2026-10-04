@@ -1,0 +1,79 @@
+{
+  "actual_old_origin_or_workspace_permissions_changed": false,
+  "actual_private_evidence_or_credentials_read": false,
+  "actual_private_manifest_completeness": "PARENT_AND_SOLE_EXECUTOR_PREVIOUS_SEALED_INVENTORY_REQUIRED",
+  "actual_provider_requests": 0,
+  "fixture_declared_historical_files": 353,
+  "fixture_full_real_controller_and_shared_prepared_send_route": true,
+  "fixture_old_bytes_modes_and0755ancestor_unchanged": true,
+  "fixture_total_inventory_with_new_manifest": 354,
+  "full_guard_runner_sha256": "d74c5755a688fd0d85d39d06af54efc27db0e86ede2fa486912764bb1d3d4a55",
+  "full_guarded_tests": {
+    "code_profiles_tests_unchanged": true,
+    "dummy_environment_cleared_before_imports": true,
+    "elapsed_seconds": 811.345,
+    "errors": 0,
+    "failures": 0,
+    "file_sha256": {
+      "contracts/examples/run02_subjects_repair.json": "f2fbc4da7e4bb5c989a3f49aadb106f1ce546db53d762a8817ef302e5140aa23",
+      "scripts/modern_canary_errors.py": "f6393fde1dddb6e2c751e7ab8d8ec18261d55c93bf29603e531117f0c361aa54",
+      "scripts/modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
+      "scripts/modern_run02_subjects_repair.py": "085cefe5ff18b6c5c06d9d7598f267ec19c6bfe6a6a0953588c3477d7c7f46e2",
+      "scripts/modern_synthetic_canary.py": "9d3c27b6b2d31f59b054971108f0a8abb87e5a069eae56fed94498323d3237cd",
+      "tests/test_modern_run02_subjects_repair.py": "7b8485b4591fb73b89bfe9d95b44642c820549ce373036869379bba881d78b67",
+      "tests/test_run02_evidence_layout.py": "2fcc3f404541ca792fcb90d13f91cd433b661e3e96a971d38f4b892bb8465024"
+    },
+    "guards": {
+      "network_attempts_blocked": 0,
+      "private_reads_blocked": 0,
+      "repository_writes_blocked": 0
+    },
+    "network_transports_sockets_DNS_blocked": true,
+    "repo_writes_and_private_files_guarded": true,
+    "successful": true,
+    "test_module": "all_unittest_modules_including_evidence_layout",
+    "tests_run": 422
+  },
+  "full_test_log": {
+    "path": "/tmp/pices-evidence-layout-reviewed-full-guarded.log",
+    "sha256": "132cd480c2f933724180fb216ebffde7bdf9dff13c991c7fd8bb6f4de02b5211"
+  },
+  "independent_focused_tests": {
+    "elapsed_seconds": 20.3,
+    "full_suite_independently_rerun": false,
+    "guards": [
+      "environment cleared; bytecode disabled",
+      "Session.send and HTTPAdapter.send blocked except exact test mocks",
+      "socket connect/connect_ex/create_connection and DNS getaddrinfo blocked",
+      "dummy private stages/tokens only; no provider or actual private evidence reads"
+    ],
+    "harness_path": "/tmp/pices-review-evidence-layout-focused.py",
+    "harness_sha256": "50810372cb902118ad887bb6db1b81bcbc70fedab38af2cf1148c5844ec73690",
+    "interpreter": "/tmp/pices-code-venv/bin/python",
+    "log_path": "/tmp/pices-evidence-layout-independent-15bba74-focused.log",
+    "log_sha256": "c5fbbe2c4660d55e07f1ec33610bde168eac2fe091f0e590055d9eaef8735ec9",
+    "modules": [
+      "tests.test_modern_run02_subjects_repair",
+      "tests.test_run02_evidence_layout"
+    ],
+    "repository_cwd": "/workspace/pices-repair-layout",
+    "result": "PASS",
+    "tests_run": 12
+  },
+  "independent_review_sha256": "706deb26f5fb47c1f4c33ec4964ff85939fb4b0b98c942b3a5a9a0bab032b0af",
+  "next_step": "SOLE_EXECUTOR_OFFLINE_STAGE_AND_PREFLIGHT_FIRST; PARENT_STARTS_FRESH_MAX600SECOND_BOUND_GRANT_ONLY_AFTER_RECEIPT",
+  "original_FGDC_or_source_profiles_or_classifier_changes": false,
+  "parent_reported_existing_evidence_files_untouched": 353,
+  "parent_reported_historical_get_intents_retained": 197,
+  "physical_copy4_independent_review_sha256": "269edf22039c5e2ff7479353cc53eb8fc689f9a5b6b8f13f3011b9f715324190",
+  "prior_main": "b003c429e5aa7bc0a1466119ec70ab0dd3af57f4",
+  "reviewed_code_checkpoint": "15bba74be120f5585c34c9dbdedca342acee81e7",
+  "schema_version": 1,
+  "scope": "IMMUTABLE_EVIDENCE_LAYOUT_AND_READ_ONLY_FULL_INPUT_PREFLIGHT_ONLY",
+  "source_counts_unchanged": {
+    "held": 562,
+    "malformed": 6,
+    "supported": 3638
+  },
+  "status": "PASS_OFFLINE_GUARDED_VALIDATION"
+}

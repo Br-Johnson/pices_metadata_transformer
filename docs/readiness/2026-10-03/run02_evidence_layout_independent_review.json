@@ -1,0 +1,114 @@
+{
+  "activities": {
+    "provider_network_requests": 0,
+    "provider_writes": 0,
+    "real_credentials_environment_values_reads": false,
+    "real_private_stage_reads": false,
+    "repository_edits": false,
+    "reviewer_files_written_only_under_tmp": true,
+    "source_classification_runs": 0
+  },
+  "checked_invariants": [
+    "Historical /workspace0755 ancestry is preserved literally; no chmod or origin rewrite; shared nonwritable canonical ancestors allowed with private regular single-link leaves.",
+    "Complete manifest required at stage and verification; copied manifest and original manifest source both hash-bound; declared expected digests must match, not rebaseline current bytes.",
+    "Complete original/prior stage leaves and pinned latest beforeimage required; whole subtree additions, changed leaves, public leaves, writable ancestors, symlinks, hardlinks and stage overlap hold.",
+    "Synthetic353 historical leaves plus source manifest yield354 inventory entries; public unrelated sibling is not read; all353 old leaf bytes/modes and original ancestry unchanged.",
+    "Read-only no-grant preflight uses complete Controller local checks and exact494-byte prepared body; no send, grant mint/load, ledger write or intent consumption; run/request refuse with grant=None.",
+    "Mocked full shared Session.prepare/request/send route performs exactly PUT then GET; no real adapter/socket/DNS entry; exact metadata/access/identity/empty-files/DOI-absence checks remain.",
+    "Parent bound approved grant remains required, maximum600seconds and limits metadata1/get1; cumulative historical GET197\u2192198, original create1 and prior metadata1 remain spent.",
+    "Uncertain or failed PUT spends its intent and prevents readback; failed GET never repeats actions; redirect/credential/error/privacy/deadline checks unchanged; old grants and partially staged directories never migrated/reset.",
+    "Four runtime contract hashes match code; only repair provider module changed from main; FGDC originals, source profiles/classifier and three shared provider modules unchanged.",
+    "Copied four-source analysis receipt member hashes match repository originals and explicitly proposes zero promotions, licenses or live release authority."
+  ],
+  "file_sha256": {
+    "contracts/examples/run02_subjects_repair.json": "f2fbc4da7e4bb5c989a3f49aadb106f1ce546db53d762a8817ef302e5140aa23",
+    "docs/readiness/2026-10-03/physical_copy4_independent_source_review.json": "269edf22039c5e2ff7479353cc53eb8fc689f9a5b6b8f13f3011b9f715324190",
+    "docs/readiness/2026-10-03/run02_evidence_layout_handoff.md": "592d6c6acd8d1551ad359c64ec2ba890e7e8093acdd3b9dc3fc7d64f2b5b9b60",
+    "docs/readiness/2026-10-03/run02_subjects_repair_handoff.md": "28158ff1822c273bfe4081dacdc4ad5bd3a90e5f1fa3cc986ad4ca49f937f1e2",
+    "scripts/modern_canary_errors.py": "f6393fde1dddb6e2c751e7ab8d8ec18261d55c93bf29603e531117f0c361aa54",
+    "scripts/modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
+    "scripts/modern_run02_subjects_repair.py": "085cefe5ff18b6c5c06d9d7598f267ec19c6bfe6a6a0953588c3477d7c7f46e2",
+    "scripts/modern_synthetic_canary.py": "9d3c27b6b2d31f59b054971108f0a8abb87e5a069eae56fed94498323d3237cd",
+    "tests/test_modern_run02_subjects_repair.py": "7b8485b4591fb73b89bfe9d95b44642c820549ce373036869379bba881d78b67",
+    "tests/test_run02_evidence_layout.py": "2fcc3f404541ca792fcb90d13f91cd433b661e3e96a971d38f4b892bb8465024"
+  },
+  "frozen_commit": "15bba74be120f5585c34c9dbdedca342acee81e7",
+  "handoff": {
+    "allowed_actions": [
+      "one corrected metadata PUT",
+      "one canonical draft GET only after durably validated PUT"
+    ],
+    "approved_public_contract": false,
+    "controller_input_revision": 2,
+    "forbidden_actions": [
+      "CREATE",
+      "PID allocation",
+      "file operations",
+      "publish",
+      "delete",
+      "production writes",
+      "retry",
+      "old-state reset"
+    ],
+    "maximum_get_cumulative": 198,
+    "maximum_run02_metadata_put_intents": 2,
+    "maximum_window_seconds": 600,
+    "per_request_wall_seconds": 20,
+    "prepared_put_bytes": 494,
+    "prepared_put_sha256": "4e47c3b2340483500d99ec9807fd9c90201532713b8b48e4adfe2e539fc0fb74",
+    "requires_parent_dispatch_and_sole_provider_executor": true,
+    "requires_previous_sealed_expected_hashes_not_current_byte_rebaseline": true,
+    "requires_successful_offline_preflight_before_starting_bound_window": true,
+    "response_bytes_max": 65536,
+    "run02_create_intents_preserved": 1,
+    "status": "CLEAR"
+  },
+  "independent_guarded_focused_tests": {
+    "elapsed_seconds": 20.3,
+    "full_suite_independently_rerun": false,
+    "guards": [
+      "environment cleared; bytecode disabled",
+      "Session.send and HTTPAdapter.send blocked except exact test mocks",
+      "socket connect/connect_ex/create_connection and DNS getaddrinfo blocked",
+      "dummy private stages/tokens only; no provider or actual private evidence reads"
+    ],
+    "harness_path": "/tmp/pices-review-evidence-layout-focused.py",
+    "harness_sha256": "50810372cb902118ad887bb6db1b81bcbc70fedab38af2cf1148c5844ec73690",
+    "interpreter": "/tmp/pices-code-venv/bin/python",
+    "log_path": "/tmp/pices-evidence-layout-independent-15bba74-focused.log",
+    "log_sha256": "c5fbbe2c4660d55e07f1ec33610bde168eac2fe091f0e590055d9eaef8735ec9",
+    "modules": [
+      "tests.test_modern_run02_subjects_repair",
+      "tests.test_run02_evidence_layout"
+    ],
+    "repository_cwd": "/workspace/pices-repair-layout",
+    "result": "PASS",
+    "tests_run": 12
+  },
+  "practical_limits": [
+    "Actual353 historical file completeness and its previous sealed expected hashes are parent/executor evidence; reviewer inspected no real private files and exercised dummy353 topology only.",
+    "Offline clearance is not a live grant or proof of deployed endpoint/payload success. Root full-suite result is separate evidence; no classifier/full-corpus or full-suite rerun by this reviewer."
+  ],
+  "remaining_runtime_or_handoff_blockers": [],
+  "repository": "/workspace/pices-repair-layout",
+  "resolved_findings": [
+    {
+      "finding": "Sparse manifest leaf roots previously allowed creation inside protected original/prior directories before refusal.",
+      "repro_log": "/tmp/pices-evidence-layout-sparse-gap-repro.log",
+      "repro_log_sha256": "473415ba3a3aab9b7e97426fadb024756405830df10d6d18e45b5a383f78b73c",
+      "reproduced_commit": "7502c8bad8aabcbf0379895745f694dab0663b88",
+      "resolution": "Actual original/prior directory overlap checked before mkdir independent of leaf roots; both dummy regressions pass."
+    },
+    {
+      "finding": "Noncanonical sibling/../protected destination spelling bypassed lexical overlap checks before later refusal.",
+      "repro_log": "/tmp/pices-evidence-layout-dotdot-repro.log",
+      "repro_log_sha256": "a72a4e387bad7d193bddd004dc5a240c09a6f7423c577f2d0d3465ee621dc028",
+      "reproduced_commit": "a757186f7c08ea1bba2d5e0beb3f47f22638e5d6",
+      "resolution": "Destination must equal its resolved canonical path before any inventory/mkdir/copy; both original/prior regressions pass without creating resolved destination."
+    }
+  ],
+  "reviewed_at": "2026-10-04T03:01:00.021314+00:00",
+  "reviewer": "/root/canary_review",
+  "schema_version": 1,
+  "status": "CLEAR_OFFLINE_RUNTIME_AND_HANDOFF_REVIEW"
+}
