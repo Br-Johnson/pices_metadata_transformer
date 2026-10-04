@@ -78,8 +78,8 @@ The [fixed synthetic subjects correction](docs/readiness/2026-10-03/modern_subje
 projects the immutable fictional input to the modern subjects schema and retains
 closed validation-error field flags before contract failure. All404 guarded tests
 pass. Parent reports canonical GET197 still lacks all intended metadata; that
-schema-correction handoff remains offline-only. Source counts remain3596/604/6;
-the independently cleared next42 are identified only, awaiting separate integration.
+schema-correction handoff remains offline-only. Its historical source checkpoint
+was3596/604/6; the selected42 are now integrated in the source increment above.
 The [same-draft controlled repair](docs/readiness/2026-10-03/run02_subjects_repair_handoff.md)
 provides one explicitly bound corrected metadata PUT and one canonical GET within
 a fresh ten-minute parent-dispatch window. All411 guarded tests pass; no new create,
