@@ -1,3 +1,11 @@
+# Same-draft controlled subjects repair — 2026-10-04
+
+- [x] Implement separate immutable-lineage repair stage: one corrected metadata PUT and one canonical GET; preserve original201, spent PUT, GET197 and all historical inventory.
+- [x] Bind exact494-byte prepared body before send and<=ten-minute explicit parent window; forbid create/PID/file/publish/delete/retry/reset routes.
+- [x] Pass411 guarded tests and seven independent repair contracts; require durably validated PUT before readback and permanently hold every interrupted/spent intent.
+- [x] Freeze concrete same-owner/draft parent dispatch instructions within approved newer-API trial, naming the additional PUT/GET allowance and fresh window.
+- [ ] Sole executor to execute only under the parent-bound exact grant and return sanitized persistence/validation evidence; root issues no provider request.
+
 # Fixed synthetic subjects correction — 2026-10-04
 
 - [x] Reconcile parent-reported canonical GET197: retained identity/owner/first-draft/links/files match, all six metadata fields absent, file access mismatches, GET errors absent; preserve failed stages and expired mutation authority.
@@ -5,7 +13,7 @@
 - [x] Persist closed credential-free validation-error flags before status/identity rejection, including400/200/201; no messages/unknown paths or extra provider action.
 - [x] Pass404 guarded tests,44 focused tests, seven independently repeated new contracts and isolated Ruff; old grants reject before transport and failed attempts remain spent.
 - [x] Freeze modern and historical offline body captures and identify largest currently cleared42-source cohort among604 holds; no profile integration or count change.
-- [ ] Parent to commission any separately reviewed same-draft recovery plan/authority; current handoff authorizes no PUT/create/read/stage reset.
+- [x] Parent commissioned the specifically bounded same-draft repair above; the earlier schema-correction handoff itself remains offline-only.
 - [ ] Integrate the selected42 only in a subsequent source PR with measured exact delta and preservation review after this correction merges.
 
 # Remaining-source finite cohorts — 2026-10-03

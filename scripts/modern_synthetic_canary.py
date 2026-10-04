@@ -619,6 +619,9 @@ def _execute_controller(stage, token, controller_type, retry=False):
                 controller.observe('request_prepared')
                 require(result.headers.get('Authorization') == 'Bearer ' + token
                         and result.url == request.url and result.method == request.method)
+                checker = getattr(controller, 'check_prepared', None)
+                if checker is not None:
+                    checker(result)
                 require(datetime.now(timezone.utc) < datetime_aware(controller.grant['valid_until']))
                 return result
 

@@ -1,5 +1,18 @@
 # Tech Debt Log
 
+## Explicit same-draft repair ledger — 2026-10-04
+
+A known wire-schema defect justifies a separately counted controlled repair under
+the parent directive; it does not reopen the failed mutation allowance. The new
+stage binds latest GET197, original201/creation interval, the spent PUT lineage and
+complete preserved-file inventory, then accepts only one corrected PUT and one
+GET. An optional shared prepared-request checker verifies the actual494-byte body
+before send; existing controllers without the hook retain their route. A ten-minute
+window is explicitly bound by parent dispatch, never minted/extended by staging.
+Metadata-only completion does not finish the remaining PID/file trial. Any failure
+or interruption needs evidence-based parent reconciliation, with no reentry/reset.
+See `readiness/2026-10-03/run02_subjects_repair_handoff.md`.
+
 ## Fixed modern subjects schema and transient errors — 2026-10-04
 
 The immutable fictional code02 input used legacy keywords in a modern draft body.

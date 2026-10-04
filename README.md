@@ -70,9 +70,14 @@ recovery expiry. Both spent failed stages remain held; no repeated PUT or create
 The [fixed synthetic subjects correction](docs/readiness/2026-10-03/modern_subjects_correction_handoff.md)
 projects the immutable fictional input to the modern subjects schema and retains
 closed validation-error field flags before contract failure. All404 guarded tests
-pass. Parent reports canonical GET197 still lacks all intended metadata; the same
-draft remains held without a repaired PUT plan. Source counts remain3596/604/6;
+pass. Parent reports canonical GET197 still lacks all intended metadata; that
+schema-correction handoff remains offline-only. Source counts remain3596/604/6;
 the independently cleared next42 are identified only, awaiting separate integration.
+The [same-draft controlled repair](docs/readiness/2026-10-03/run02_subjects_repair_handoff.md)
+provides one explicitly bound corrected metadata PUT and one canonical GET within
+a fresh ten-minute parent-dispatch window. All411 guarded tests pass; no new create,
+old-state reset or root provider request. The grant and historical ledgers remain
+separate, and successful repair verifies metadata only.
 The
 [exact821 source scope answer](docs/readiness/2026-10-03/source_scope_attestation.md)
 supports791 promotions while retaining30 independent holds.

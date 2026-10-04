@@ -1,0 +1,57 @@
+{
+  "actual_private_stage_or_credential_reads": 0,
+  "additional_limits": {
+    "get": 1,
+    "metadata": 1
+  },
+  "all_prior_ledgers_and_history_preserved": true,
+  "base_commit": "b71dc16a656c6deb2aceb0b1e3e861ce66560339",
+  "beforeimage197_sha256": "866775b60653bd5b25b1a59d9965fb070e07213a9310948f152df5d300fcee1b",
+  "contract_sha256": "2c64d6f0fd91dd72c275423d43ce3cb26a2ae03f55e7d2be53ac1368c1fd63bc",
+  "exact_prepared_put_bytes": 494,
+  "focused_tests": {
+    "count": 7,
+    "log_sha256": "a963f65eb93bee3d68a517f4fb0f392eed5f22f8efb4b51cdc946897d28e4bf3",
+    "result": "PASS",
+    "seconds": 0.603
+  },
+  "full_guarded_tests": {
+    "cleared_environment_fixture_tokens": true,
+    "count": 411,
+    "log_sha256": "45d6616a1712c07a1af208e5669614fd38d1e8f7093a862aaba6f14bad2cb51a",
+    "requests_socket_dns_blocked": true,
+    "result": "PASS",
+    "seconds": 98.414
+  },
+  "handoff_sha256": "341ab7d674e981d656dbaf8916bf69b704b2616b784d5535c9e80ba3ca8da011",
+  "historical_get_intents": 197,
+  "independent_focused_tests": {
+    "count": 7,
+    "log_sha256": "298a8c334b29238d503210434e0dcbd80c02264f6834341160cbbaec5e7c24cc",
+    "result": "PASS",
+    "seconds": 0.597
+  },
+  "maximum_cumulative_get_intents": 198,
+  "maximum_run02_metadata_put_intents": 2,
+  "new_test_sha256": "e57af7c9b1a9ef34c08c5a2ab6ad5e734e785b9d9facc35c136be8d056bb3d37",
+  "parent_dispatch_required": true,
+  "prepared_put_sha256": "4e47c3b2340483500d99ec9807fd9c90201532713b8b48e4adfe2e539fc0fb74",
+  "provider_requests": 0,
+  "provider_writes": 0,
+  "replay_reset_create_pid_file_publish_delete_supported": false,
+  "ruff": {
+    "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "result": "PASS",
+    "rules": "E4,E7,E9,F,I,B"
+  },
+  "run02_create_intents_preserved": 1,
+  "runtime_sha256": {
+    "modern_canary_errors.py": "f6393fde1dddb6e2c751e7ab8d8ec18261d55c93bf29603e531117f0c361aa54",
+    "modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
+    "modern_run02_subjects_repair.py": "f6d6b867b375298015af60c622d644796f0857061b26b563adce1af08ad4bd7d",
+    "modern_synthetic_canary.py": "9d3c27b6b2d31f59b054971108f0a8abb87e5a069eae56fed94498323d3237cd"
+  },
+  "schema_version": 1,
+  "scope": "Offline one additional same-draft subjects PUT and canonical GET controller; root/provider review dispatch separate",
+  "window_seconds_max": 600
+}

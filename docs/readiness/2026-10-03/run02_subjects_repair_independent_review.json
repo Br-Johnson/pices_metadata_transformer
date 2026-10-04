@@ -1,0 +1,109 @@
+{
+  "base_commit": "b71dc16a656c6deb2aceb0b1e3e861ce66560339",
+  "final_handoff_sha256": {
+    "README.md": "0674b56deabf189cc60e18ccd870fc5b1cef74b338048e40a2836e79258b0417",
+    "contracts/examples/run02_subjects_repair.json": "2c64d6f0fd91dd72c275423d43ce3cb26a2ae03f55e7d2be53ac1368c1fd63bc",
+    "docs/readiness/2026-10-03/run02_subjects_repair_handoff.md": "341ab7d674e981d656dbaf8916bf69b704b2616b784d5535c9e80ba3ca8da011",
+    "docs/readiness/2026-10-03/run02_subjects_repair_validation.json": "4af981a2e40bad477c7e781a59cb0acb26d37cd832c0eff1fb5c0cbb214d958f",
+    "docs/tech-debt.md": "83e52605be1eca13ec0b842b03cbde48815b439a4a016bf298520e1a043f10f9",
+    "docs/todo_list.md": "fc027133e861424853d1816743975b39c55f18da78de414dcfef7e78f9fd8076"
+  },
+  "handoff_checks": {
+    "197_to_at_most198_reads_metadata_put1_to_at_most2_originalcreate1_preserved": true,
+    "README_current_status_clarifies_earlier_schema_correction_scope": true,
+    "all_current_private_facts_explicitly_parent_reported_not_reviewer_verified": true,
+    "all_history_inventory_computed_and_parent_bound_minimum338_not_rewrite_of305_or312": true,
+    "all_runtime_test_body_contract_and_validation_hashes_match": true,
+    "exact494_byte_body_and_pre_send_checks_match_runtime_and_contract": true,
+    "example_approved_false_actual_parent_grant_separate": true,
+    "fresh_explicit_parent_window_at_most600_seconds_old_expiry_not_reused": true,
+    "get_requires_durably_validated_put_no_failed_put_readback": true,
+    "local_links_resolve_except_planned_final_receipt_copy": true,
+    "metadata_only_completion_does_not_finish_file_trial": true,
+    "module_commands_canonical_python_m_and_flags_match_cli": true,
+    "no_create_doi_file_publish_delete_search_or_reset_capability": true,
+    "old_records_grants_ledgers_and_packet_remain_unmodified": true,
+    "only_explicit_parent_dispatched_one_metadata_put_and_one_canonical_get": true,
+    "standing_trial_and_current_directive_named_no_generic_permission_loop": true
+  },
+  "handoff_review": "CLEARED",
+  "head_at_runtime_review": "b71dc16a656c6deb2aceb0b1e3e861ce66560339",
+  "independent_focused_tests": {
+    "actual_environment_cleared": true,
+    "count": 7,
+    "dummy_fixture_tokens_and_stages_only": true,
+    "harness_path": "/tmp/pices-review-run02-subjects-repair-focused.py",
+    "harness_sha256": "2b5597e47c12706ad96aa79e4526248812e1ae60a195552def8360ca4d1f1862",
+    "log_path": "/tmp/pices-run02-subjects-repair-independent-focused.log",
+    "log_sha256": "298a8c334b29238d503210434e0dcbd80c02264f6834341160cbbaec5e7c24cc",
+    "result": "PASS",
+    "seconds": 0.597,
+    "send_adapter_socket_dns_blocked_except_exact_dummy_mocks": true
+  },
+  "material_findings": [],
+  "practical_limits": [
+    "All private/live facts are supplied by parent; no actual provider state or history inventory was read.",
+    "Seven meaningful fixture contracts were independently run; full suite is root-owned verification.",
+    "Stage approval must be supplied by parent for the sole executor; this review does not mint it or dispatch.",
+    "Unknown or unexpected beforeimage/access/schema facts remain held; no automatic provider fallback."
+  ],
+  "prepared_put": {
+    "actual_shared_prepare_hook_checked_before_send": true,
+    "bytes": 494,
+    "content_length": "494",
+    "content_type": "application/json",
+    "sha256": "4e47c3b2340483500d99ec9807fd9c90201532713b8b48e4adfe2e539fc0fb74"
+  },
+  "repository": "/workspace/pices-run02-subjects-repair",
+  "resolved_prose_findings": [
+    {
+      "finding": "Earlier README paragraph stated no repaired PUT plan immediately before the newly ready plan.",
+      "resolution": "Final README describes that earlier schema-correction handoff as offline-only.",
+      "test_repeat_needed": false
+    }
+  ],
+  "result": "CLEARED_NO_MATERIAL_BLOCKER",
+  "review_activity": {
+    "actual_credential_env_or_private_stage_reads": 0,
+    "full_suite_or_classification_runs": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "repository_edits": 0
+  },
+  "reviewed_commit": "14a35200b37257ca0cadcc6ef60c4ed0a2352676",
+  "root_full_guarded_tests": {
+    "count": 411,
+    "log_sha256": "45d6616a1712c07a1af208e5669614fd38d1e8f7093a862aaba6f14bad2cb51a",
+    "provenance": "Root-reported and matched validation; not independently rerun.",
+    "result": "PASS",
+    "seconds": 98.414
+  },
+  "runtime_and_test_sha256": {
+    "scripts/modern_canary_errors.py": "f6393fde1dddb6e2c751e7ab8d8ec18261d55c93bf29603e531117f0c361aa54",
+    "scripts/modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
+    "scripts/modern_run02_subjects_repair.py": "f6d6b867b375298015af60c622d644796f0857061b26b563adce1af08ad4bd7d",
+    "scripts/modern_synthetic_canary.py": "9d3c27b6b2d31f59b054971108f0a8abb87e5a069eae56fed94498323d3237cd",
+    "tests/test_modern_run02_subjects_repair.py": "e57af7c9b1a9ef34c08c5a2ab6ad5e734e785b9d9facc35c136be8d056bb3d37"
+  },
+  "runtime_checks": {
+    "all_reentry_retry_completed_and_interrupted_repair_replay_refused": true,
+    "complete_parent_bound_preserved_file_inventory_checked_before_every_request": true,
+    "counts_journal_and_pending_durable_before_transport": true,
+    "explicit_parent_approval_binding_new_window_at_most600_seconds_no_automatic_window": true,
+    "historical_get197_to_at_most198_and_modern_run02_metadata_put1_to_at_most2": true,
+    "latest_beforeimage_original201_and_failed_prior_metadata_lineage_sealed": true,
+    "limits_exact_one_put_and_one_get_no_other_route": true,
+    "new_stage_disjoint_from_entire_preserved_roots_with_symlink_and_hardlink_refusal": true,
+    "old_grant_journal_counts_private_stages_and_immutable_packet_not_migrated_or_reset": true,
+    "ordinary_proven_session_environment_CA_route_TLS_no_retry_or_redirect_and20_second_wall_cap_preserved": true,
+    "original201_create_interval_preserved_separately_from_new_repair_window": true,
+    "put_failure_keeps_get_unspent_and_no_followup": true,
+    "raw_and_decoded_credential_checks_closed_error_flags_and_safe_failure_diagnostics_preserved": true,
+    "same_owner_id_parent_created_first_draft_empty_files_and_doi_absent_required": true,
+    "sole_get_requires_durably_validated_put": true
+  },
+  "runtime_result": "CLEARED_NO_MATERIAL_BLOCKER",
+  "schema_version": 1,
+  "scope": "Independent offline code/test review of one explicitly authorized corrected-subjects PUT and canonical GET on the sealed run02 draft; no provider execution by reviewer",
+  "sealed_beforeimage197_sha256": "866775b60653bd5b25b1a59d9965fb070e07213a9310948f152df5d300fcee1b"
+}
