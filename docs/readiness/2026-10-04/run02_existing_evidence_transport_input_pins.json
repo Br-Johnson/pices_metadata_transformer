@@ -1,0 +1,129 @@
+{
+  "kind": "pices_existing_evidence_transport_recommendation_v1",
+  "reviewer": "/root/astra_transport_boundary",
+  "reviewed_at": "2026-10-04T19:37:11.851376+00:00",
+  "repository": "/workspace/pices-creator7-residual-20261004",
+  "head": "173a4b0613e915b2915ae815b01f9f8823f2ced8",
+  "tree": "537034d399de0825f4aa3ea68197cb82f8405c52",
+  "scope": "Committed public sanitized evidence and code only; chronology through PUT2, corrected517 staged repair distinguished from actual execution.",
+  "memo": {
+    "path": "/tmp/pices-run02-existing-evidence-transport-recommendation-20261004.md",
+    "sha256": "759145f6b9eed5066f861e22a5623dacbbfc5dc4188090f7e52543722704c624"
+  },
+  "input_pins": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 6367,
+      "sha256": "92a7b59b9187bfa8a64a8d73ff5636e97e5e8a378e68767e0400489543d4b995",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/run02_response_receipt_update_handoff.md",
+      "bytes": 6576,
+      "sha256": "fdb51f633d090d4d67b7073c96122a31d3f1882c12f654d3fb179e630fd26a5a",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/run02_complete_schema_repair_handoff.md",
+      "bytes": 8248,
+      "sha256": "04b72ccab9e87d684101bf75242afda13e01e78eb9cea15e173d545b99f29835",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/run02_body_diagnostics_handoff.md",
+      "bytes": 8929,
+      "sha256": "319c73c1dacca9a0100a6ad8a9ebfb0229929dcb3a48a5c73f62b12117b7934e",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/run02_body_serialization_independent_review.json",
+      "bytes": 13780,
+      "sha256": "e0fba38ca59addd245c3837dab0cf1bb7a97fa42b63bc8b8c23969f5eb68149a",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/run02_body_helper_independent_review.json",
+      "bytes": 4251,
+      "sha256": "12f0a78a65d1939bb30ccdb1bead8dbb2ead8f1d014cfa0ef813aa03751ccf5f",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/run02_body_diagnostics_fixture_capture.json",
+      "bytes": 1871,
+      "sha256": "bc9122fc27367214398cc687cf3f9a50ef6152e37b208ca815ef49f4d4acd54d",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/run02_complete_schema_repair_validation.json",
+      "bytes": 9623,
+      "sha256": "a156517bbc1a28e5a0ac15f7a2cc1e12399b101cf5e0ad5d089e47ef180c1ecb",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/run02_complete_schema_repair_independent_review.json",
+      "bytes": 12824,
+      "sha256": "d089a209cdc697c4604040a350b9b437f50e54e7572c733ee35041a9c634e6e4",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/modern_complete_schema_independent_research.json",
+      "bytes": 10329,
+      "sha256": "dfc408d93f3703fd5d2eb33a535b93a3255c5c45ffd7a77b4f2f0101571be691",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "docs/readiness/2026-10-03/modern_transport_diagnostics.md",
+      "bytes": 8410,
+      "sha256": "f0fb8a439085c39258f0feab7286f2c2effc7e5bb6de4ff7aed13a74794d73ee",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "contracts/schemas/zenodo-modern/README.md",
+      "bytes": 3415,
+      "sha256": "7b43ca51232b45b1db1f890875189cf179f910217ce7ad2775e8af1e26f084ee",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "scripts/modern_run02_schema_repair.py",
+      "bytes": 26079,
+      "sha256": "5ff24753aca5e5338e918ed35d205897320ad669c617a59852302430c8cb118b",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "scripts/modern_run02_subjects_repair.py",
+      "bytes": 26083,
+      "sha256": "085cefe5ff18b6c5c06d9d7598f267ec19c6bfe6a6a0953588c3477d7c7f46e2",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "scripts/modern_request_body_diagnostics.py",
+      "bytes": 11388,
+      "sha256": "792609c4f07038ef63d244623cdd6613906fb5c10251179d707eefebdab2eda6",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "scripts/modern_canary_errors.py",
+      "bytes": 12587,
+      "sha256": "c77945516a61236951b3e17252fd1abe1087c3c28f2c50e8b3f7a0712fd21bc9",
+      "matches_committed_HEAD": true
+    },
+    {
+      "path": "scripts/modern_synthetic_canary.py",
+      "bytes": 39267,
+      "sha256": "26e5a500b59061cbd1c57ac05c1c7bbe6c0300771116e0d6fef817e886798941",
+      "matches_committed_HEAD": true
+    }
+  ],
+  "independent_code_reader": "/root/astra_transport_boundary/observer_api_review",
+  "activity": {
+    "provider_requests": 0,
+    "network_requests": 0,
+    "private_stage_reads": 0,
+    "credential_settings_environment_reads": 0,
+    "runtime_edits": 0,
+    "repository_edits": 0,
+    "tests_run": 0
+  },
+  "result": "CAUSE_UNRESOLVED_MINIMAL_EXISTING_ATTEMPT_INGRESS_PARSER_CORRELATION_RECOMMENDED",
+  "remaining_limit": "No actual private receipt, deployed-version verification, historical raw request entity observation, or origin-parser evidence inspected."
+}

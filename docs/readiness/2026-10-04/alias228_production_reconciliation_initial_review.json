@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "verdict": "REQUIRES_HISTORICAL_CAPTURE_PROVENANCE_SUMMARY_CORRECTION",
+  "reviewer": "Codex GPT-6 Astra independent saved-output and static review",
+  "scope": "Pair reconciliation input only; eleven named public repository evidence files and saved /tmp artifacts. No raw-pair re-audit, fresh classification, full suite, current provider state, or live inventory review.",
+  "reviewed_artifacts": [
+    {
+      "path": "/tmp/build_alias228_production_reconciliation_input.py",
+      "sha256": "97351105db851edcf426ed94b89a6e4134e9d97a4484e291027885542c10e7eb"
+    },
+    {
+      "path": "/tmp/pices-alias228-production-reconciliation-input.json",
+      "sha256": "7f730c629684b48e33217269f4b0f643dd07f0f2a02c443a9e0906b8b42f8b71"
+    },
+    {
+      "path": "/tmp/pices-alias228-production-reconciliation-checks.json",
+      "sha256": "e9aa09861b86b76633d50e70804503a04fc0bc77e05b89f61ec75d294b5be2c9"
+    },
+    {
+      "path": "/tmp/pices-alias228-production-reconciliation-handoff.md",
+      "sha256": "09353cab0064723bd7c0eabca35b9d3398b9f4bf74696cc4e78a086f5e2ffdb4"
+    }
+  ],
+  "frozen_baseline_commit": "173a4b0613e915b2915ae815b01f9f8823f2ced8",
+  "evidence_inventory": [
+    {
+      "bytes": 37724,
+      "path": "docs/readiness/2026-10-01/five_imports_correction_proposal.json",
+      "sha256": "d2e5875ea809aabd4565480799c23930f943e24d659af042697ea25e645b49f3"
+    },
+    {
+      "bytes": 8115,
+      "path": "docs/readiness/2026-10-01/production_readiness_plan.md",
+      "sha256": "412261898d88e974829b7fb82193881913004bc6d5b03e9d7d61f65f902466d6"
+    },
+    {
+      "bytes": 4268,
+      "path": "docs/readiness/2026-10-01/public_source_associations.json",
+      "sha256": "ff22622eb0b396dc52a5af4c66e6eedc56b8d2b4b4dd2421d69d4ca38322a2ad"
+    },
+    {
+      "bytes": 2849,
+      "path": "docs/readiness/2026-10-03/production_identity_adjudication.md",
+      "sha256": "4d65315e4bf232fdc121aebc2a601cf69dec433be812c644dcc039c7ade0f6db"
+    },
+    {
+      "bytes": 6214,
+      "path": "docs/readiness/2026-10-03/production_source_identity_review_3.json",
+      "sha256": "eb4e3d9c14e31564c4c83aed7a3cfdcd9200cfec1fc36bf6fda66c7ce7a1bb51"
+    },
+    {
+      "bytes": 904940,
+      "path": "docs/readiness/2026-10-03/source_alias_candidates.json",
+      "sha256": "d1b5aae5446e230d86fd4a91b6385548b8d6c4fa93a3b98a0ccc26fc731f22d5"
+    },
+    {
+      "bytes": 1310909,
+      "path": "docs/readiness/2026-10-04/alias228_record_targets.json",
+      "sha256": "fd9bcba857c5d9816f44bbca0ac4c826c10527f64a7e6330468ee2fe814981d4"
+    },
+    {
+      "bytes": 9189,
+      "path": "docs/readiness/2026-10-04/alias456_canonical_evidence_review.json",
+      "sha256": "14094d058d55d136160ce68e05995a22079161263b65ceaa91a5220428c74d13"
+    },
+    {
+      "bytes": 801386,
+      "path": "docs/readiness/2026-10-04/alias456_source_to_content.json",
+      "sha256": "9c110638bd161483727aed1b42e516fdc7a3c9d8134c97a9a70abff690750bbb"
+    },
+    {
+      "bytes": 120570,
+      "path": "docs/readiness/2026-10-04/approved_alias_representation_228.json",
+      "sha256": "9e45fc869b0fe03220b44734cf429129f78dc93eb9fd20bf9b802398b684dda6"
+    },
+    {
+      "bytes": 879342,
+      "path": "docs/readiness/2026-10-04/residual_evidence15_integrated_source_status.json",
+      "sha256": "4a4ef82f9da793c0a83cd58f6388991dd38f7a5f92947b2d089855b259af4e4a"
+    }
+  ],
+  "evidence_inventory_canonical_sha256": "e8aa6b17a2e0e154f53c79e824259f518ed1e677c5d24435956e8cb085238b87",
+  "targets_canonical_sha256": "245219cb1a22224e2a0d3db8394bd260433231fcd15b3fd9598577572e9f37f9",
+  "independent_checks": {
+    "all_eleven_public_input_bytes_and_inventory_digest_verified": true,
+    "all228_ordered_targets_both456_ids_filenames_hashes_and_hints_equal_pinned_inputs": true,
+    "both_member_assessments_preserved_all456_legacy_rows_remain_held": true,
+    "every_pair_identity_action_grant_and_absence_field_remains_closed": true,
+    "target_rows_canonical_digest_independently_recomputed": true,
+    "PR28_frozen_baseline_counts_and_file_versus_target_accounting_recomputed": true,
+    "five_outside_pair_records_exact_ids_dois_hashes_and_later_three_adjudications_preserved": true,
+    "no_exact_source_id_or_raw_hash_match_in_all_four_pinned_explicit_crosswalks": true,
+    "both_different_title_collision_pairs_retained_without_DOI_inheritance": true,
+    "excluded_poster_and_unrelated_wellbeing_record_do_not_attach_to_pairs": true,
+    "missing_current_inventory_readback_and_export_remain_explicit_unknowns": true,
+    "preparation_only_boundary_preserves_sole_executor_and_all_operation_holds": true,
+    "helper_static_imports_stdlib_without_provider_network_environment_or_process_modules": true
+  },
+  "independent_check_count": 13,
+  "distinct_public_crosswalk_pairs_verified": [
+    {
+      "record_id": 17317851,
+      "source_id": "FGDC-2043"
+    },
+    {
+      "record_id": 17317853,
+      "source_id": "FGDC-2731"
+    },
+    {
+      "record_id": 17317855,
+      "source_id": "FGDC-1238"
+    },
+    {
+      "record_id": 17317857,
+      "source_id": "FGDC-2725"
+    },
+    {
+      "record_id": 17317859,
+      "source_id": "FGDC-2057"
+    }
+  ],
+  "count_scope": "Frozen PR28 source/target counts only. Root must report new creator/residual ledger deltas separately.",
+  "material_findings": [
+    {
+      "severity": "evidence_summary_correction",
+      "location": "/tmp/build_alias228_production_reconciliation_input.py:184 and handoff Exact evidence gap",
+      "finding": "The claim that exact provider capture times are unknown is contradicted by the pinned five_imports_correction_proposal.json. All five records retain exact public_snapshot_provenance timestamps/endpoints/status, captured metadata and file-list fields.",
+      "required_change": "Preserve or explicitly reference the five historical snapshot objects. Say current freshness, ownership and inventory completeness remain unverified. No identity or grant change is warranted."
+    }
+  ],
+  "known_historical_snapshot_provenance": [
+    {
+      "record_id": 17317859,
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317859",
+        "retrieved_at": "2026-10-01T18:33:11.000122+00:00",
+        "status": 200
+      },
+      "captured_public_file_count": 1,
+      "evidence_path": "docs/readiness/2026-10-01/five_imports_correction_proposal.json"
+    },
+    {
+      "record_id": 17317857,
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317857",
+        "retrieved_at": "2026-10-01T18:33:11.662722+00:00",
+        "status": 200
+      },
+      "captured_public_file_count": 1,
+      "evidence_path": "docs/readiness/2026-10-01/five_imports_correction_proposal.json"
+    },
+    {
+      "record_id": 17317855,
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317855",
+        "retrieved_at": "2026-10-01T18:33:12.233011+00:00",
+        "status": 200
+      },
+      "captured_public_file_count": 0,
+      "evidence_path": "docs/readiness/2026-10-01/five_imports_correction_proposal.json"
+    },
+    {
+      "record_id": 17317853,
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317853",
+        "retrieved_at": "2026-10-01T18:33:12.825557+00:00",
+        "status": 200
+      },
+      "captured_public_file_count": 1,
+      "evidence_path": "docs/readiness/2026-10-01/five_imports_correction_proposal.json"
+    },
+    {
+      "record_id": 17317851,
+      "public_snapshot_provenance": {
+        "endpoint": "https://zenodo.org/api/records/17317851",
+        "retrieved_at": "2026-10-01T18:33:13.396282+00:00",
+        "status": 200
+      },
+      "captured_public_file_count": 1,
+      "evidence_path": "docs/readiness/2026-10-01/five_imports_correction_proposal.json"
+    }
+  ],
+  "initial_saved_output_only_audit": {
+    "path": "/tmp/pices-alias228-production-reconciliation-initial-output-checks.json",
+    "sha256": "13df6f99182da46206ac3819eea3af15af31387a7c2203769a0dce8b39712079",
+    "status": "Superseded by this combined review; initial output checks omitted the later static evidence-summary finding."
+  },
+  "retained_limitations": [
+    "Zero exact matches is limited to the four named captured source crosswalks and eleven-file evidence inventory. It is not remote absence or a create grant.",
+    "Complete current owner inventory and controlled ownership/file/version/readback evidence remain unavailable in these files.",
+    "Identity adjudication can use documented same-work source evidence; historical upload receipts are not made a universal prerequisite.",
+    "All 228 class targets stay unresolved and upload-ineligible. This preparation artifact cannot clear runtime guards.",
+    "Author-reported twelve local checks are bound as a separate artifact. Reviewer independently audited saved objects and did not rerun those checks or execute the generator."
+  ],
+  "repo_edits": 0,
+  "provider_requests": 0,
+  "private_reads": 0,
+  "classification_runs": 0,
+  "full_test_runs": 0,
+  "review_helper_sha256": "2e0488423eddb0f0c2def9de1308d15df100159d230f138d5c1db22ade5c75db"
+}

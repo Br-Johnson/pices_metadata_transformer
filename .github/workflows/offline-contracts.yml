@@ -61,5 +61,7 @@ jobs:
           scripts/content_class_targets.py tests/test_content_class_targets.py
           tests/test_content_class_guards.py tests/test_content_class_review_gaps.py
           docs/readiness/2026-10-04/measure_alias228_targets.py
+          tests/test_derived_creator_extension.py
+          docs/readiness/2026-10-04/validate_creator8_current.py
       - name: Run guarded offline contracts
         run: python -B ci/run_offline_tests.py

@@ -1,3 +1,26 @@
+# Eight creator credits and captured identity inputs — 2026-10-04
+
+Profile423 retains all415 prior members and adds seven exact JMA derived-product
+credits and one four-author bibliographic match. Complete raw metadata changes
+only in creators and preservation notes. Product responsibility cannot expand to
+all raw GTS observations; the later1314 bibliography is evidence for the matching
+work, not an inspected original byline. Source dates, coordinate literals,
+licenses and restoration authority remain intact. Actual same-output phase
+snapshots support eight promotions and exact retry/withdrawal.
+
+The source ledger is now3704/496/6; the separate3978-target view is3908/64/6.
+The228 class rows remain historical PR28 evidence, all upload-ineligible; only
+eight singleton statuses changed. Exact remaining gaps are40 held and six malformed
+nonalias sources plus24 held classes. The [handoff](readiness/2026-10-04/creator8_handoff.md)
+links their source-specific inventory instead of broadening interpretation rules.
+
+The captured production packet preserves five historical snapshot timestamps,
+metadata and file-list objects. Current ownership, inventory completeness, versions
+and files remain unverified for the228 pairs. Title collisions remain separate,
+and no absent match implies a missing production record. The next transport
+diagnostic needs correlated existing-attempt ingress/parser evidence; local
+prepared bytes and the earlier GET cannot prove what arrived at the service.
+
 # Finite identical-pair representation — 2026-10-04
 
 The approved 228 pairs now have separate offline record targets retaining both

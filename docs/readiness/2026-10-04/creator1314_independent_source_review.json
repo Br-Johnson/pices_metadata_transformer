@@ -1,0 +1,792 @@
+{
+  "schema_version": 1,
+  "kind": "Independent finite FGDC-1314 same-work bibliographic creator review",
+  "reviewer": "/root/astra_transport_boundary",
+  "reviewed_at": "2026-10-04T19:42:04.651315+00:00",
+  "source_head": "173a4b0613e915b2915ae815b01f9f8823f2ced8",
+  "verdict": "APPROVE_EXACT_FGDC1314_COHORT_PENDING_IMPLEMENTATION_AND_CURRENT_OUTPUT_MEASUREMENT",
+  "material_findings": [],
+  "proposal": {
+    "path": "/tmp/pices-creator1314-proposal.json",
+    "sha256": "4526cb842a91a889932378a2e6e2375c331e9632094f4c20a7a160189ad698e3"
+  },
+  "primary_excerpt": {
+    "path": "/tmp/pices-creator1314-primary-excerpt.json",
+    "sha256": "733cf866f85df3a61e5871709c58e9e52dcd0b95519367b0fd727afe73463237"
+  },
+  "independent_public_source_check": {
+    "url": "https://link.springer.com/article/10.1134/S1990519X09060133",
+    "publisher_page_title": "Seasonal characteristics of gametogenesis of some marketable hydrobionts",
+    "locator": "References, sixth entry (parsed line91); citing author heading lines24–25; volume/year lines13–15",
+    "retrieval": "Direct URL open failed; reopening the previously returned public reference succeeded. Independently inspected parsed publisher page. Unrelated fallback search results were not evidence.",
+    "short_verbatim_credit": "Evdokimov, V.V., Rodin, V.E., Viktorovskaya, G.I., and Pavlyuchkov, V.A.",
+    "same_work_reasoning": "The cited study concerns reproduction of sea urchins and scallops in coastal communities of the Sea of Japan. Source and bibliography agree on 1997 and journal volume28/issue1; the source journal origin names its English journal/translation as well. Off/of is the disclosed title preposition difference. This combination supports same-work attribution. The later paper shares the first credited author initials; its own two-person byline is not used as the target creator list.",
+    "original_remote_HTML_or_PDF_bytes_sha256": null,
+    "original_1997_byline_inspected": false
+  },
+  "source": {
+    "path": "FGDC/FGDC-1314.xml",
+    "bytes": 4391,
+    "sha256": "ae5faad99f4b0abedd01767ffba167cadbc0a8236598c4d39a5346226903ba8b",
+    "full_root_sha256_canonical_utf8": "2ef5c690da53026eb00060b174178f0ec6f102afce2328b7a6f40dc33bf459ad",
+    "full_root": {
+      "tag": "metadata",
+      "attributes": {},
+      "text": "\n  ",
+      "tail": null,
+      "children": [
+        {
+          "tag": "idinfo",
+          "attributes": {},
+          "text": "\n    ",
+          "tail": "\n  ",
+          "children": [
+            {
+              "tag": "citation",
+              "attributes": {},
+              "text": "\n      ",
+              "tail": "\n    ",
+              "children": [
+                {
+                  "tag": "citeinfo",
+                  "attributes": {},
+                  "text": "\n        ",
+                  "tail": "\n    ",
+                  "children": [
+                    {
+                      "tag": "origin",
+                      "attributes": {},
+                      "text": "Journal Ontogenesis Vol 28, No 1, 1997, Russian Journal of Developmental Biology",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "pubdate",
+                      "attributes": {},
+                      "text": "19970201",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "title",
+                      "attributes": {},
+                      "text": "Reproduction of Sea Urchins and Scallops in Coastal Communities Off the Sea of Japan",
+                      "tail": "\n      ",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "descript",
+              "attributes": {},
+              "text": "\n      ",
+              "tail": "\n    ",
+              "children": [
+                {
+                  "tag": "abstract",
+                  "attributes": {},
+                  "text": "Interaction between the organisms in the natural community and affects on this production capacity.",
+                  "tail": "\n      ",
+                  "children": []
+                },
+                {
+                  "tag": "purpose",
+                  "attributes": {},
+                  "text": "Study of hydrobionts biology in communities.",
+                  "tail": "\n    ",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "timeperd",
+              "attributes": {},
+              "text": "\n      ",
+              "tail": "\n    ",
+              "children": [
+                {
+                  "tag": "timeinfo",
+                  "attributes": {},
+                  "text": "\n        ",
+                  "tail": "\n      ",
+                  "children": [
+                    {
+                      "tag": "rngdates",
+                      "attributes": {},
+                      "text": "\n          ",
+                      "tail": "\n      ",
+                      "children": [
+                        {
+                          "tag": "begdate",
+                          "attributes": {},
+                          "text": "19970101",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "enddate",
+                          "attributes": {},
+                          "text": "19980101",
+                          "tail": "\n        ",
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "tag": "current",
+                  "attributes": {},
+                  "text": "Publication Date",
+                  "tail": "\n    ",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "status",
+              "attributes": {},
+              "text": "\n      ",
+              "tail": "\n    ",
+              "children": [
+                {
+                  "tag": "progress",
+                  "attributes": {},
+                  "text": "Planned",
+                  "tail": "\n      ",
+                  "children": []
+                },
+                {
+                  "tag": "update",
+                  "attributes": {},
+                  "text": "Annually",
+                  "tail": "\n    ",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "tag": "spdom",
+              "attributes": {},
+              "text": "\n      ",
+              "tail": "\n    ",
+              "children": [
+                {
+                  "tag": "bounding",
+                  "attributes": {},
+                  "text": "\n        ",
+                  "tail": "\n    ",
+                  "children": [
+                    {
+                      "tag": "westbc",
+                      "attributes": {},
+                      "text": "163",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "eastbc",
+                      "attributes": {},
+                      "text": "-157",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "northbc",
+                      "attributes": {},
+                      "text": "65.5",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "southbc",
+                      "attributes": {},
+                      "text": "52",
+                      "tail": "\n      ",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "keywords",
+              "attributes": {},
+              "text": "\n      ",
+              "tail": "\n    ",
+              "children": [
+                {
+                  "tag": "theme",
+                  "attributes": {},
+                  "text": "\n        ",
+                  "tail": "\n      ",
+                  "children": [
+                    {
+                      "tag": "themekt",
+                      "attributes": {},
+                      "text": "North Pacific Ecosystem Metadatabase",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Biology",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Fish",
+                      "tail": "\n      ",
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "tag": "theme",
+                  "attributes": {},
+                  "text": "\n        ",
+                  "tail": "\n    ",
+                  "children": [
+                    {
+                      "tag": "themekt",
+                      "attributes": {},
+                      "text": "Other",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Sea of Japan/East Sea",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Elevation",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Fur Seals",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Commercial Invertebrate Fishers",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Aleutian Islands",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Models",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Sea Surface Temperature (SST)",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Evaporation",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "Regression Coefficients",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "themekey",
+                      "attributes": {},
+                      "text": "North Pacific Ocean",
+                      "tail": "\n      ",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "accconst",
+              "attributes": {},
+              "text": "None",
+              "tail": "\n    ",
+              "children": []
+            },
+            {
+              "tag": "useconst",
+              "attributes": {},
+              "text": "None",
+              "tail": "\n    ",
+              "children": []
+            },
+            {
+              "tag": "ptcontac",
+              "attributes": {},
+              "text": "\n      ",
+              "tail": "\n  ",
+              "children": [
+                {
+                  "tag": "cntinfo",
+                  "attributes": {},
+                  "text": "\n        ",
+                  "tail": "\n    ",
+                  "children": [
+                    {
+                      "tag": "cntperp",
+                      "attributes": {},
+                      "text": "\n          ",
+                      "tail": "\n        ",
+                      "children": [
+                        {
+                          "tag": "cntper",
+                          "attributes": {},
+                          "text": "Evdokimov, Vladimir V.",
+                          "tail": "\n        ",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "cntaddr",
+                      "attributes": {},
+                      "text": "\n          ",
+                      "tail": "\n        ",
+                      "children": [
+                        {
+                          "tag": "addrtype",
+                          "attributes": {},
+                          "text": "Mailing and Physical Address",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "address",
+                          "attributes": {},
+                          "text": "4 Shevchenko Alley",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "city",
+                          "attributes": {},
+                          "text": "Vladivostok",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "state",
+                          "attributes": {},
+                          "text": "Primorye Region",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "postal",
+                          "attributes": {},
+                          "text": "690600",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "country",
+                          "attributes": {},
+                          "text": "Russia",
+                          "tail": "\n        ",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "cntvoice",
+                      "attributes": {},
+                      "text": "4232-25-78-38",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "cntfax",
+                      "attributes": {},
+                      "text": "4232-25-77-83",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "cntemail",
+                      "attributes": {},
+                      "text": "root@tinro.marine.su",
+                      "tail": "\n      ",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tag": "distinfo",
+          "attributes": {},
+          "text": "\n    ",
+          "tail": "\n  ",
+          "children": [
+            {
+              "tag": "distrib",
+              "attributes": {},
+              "text": "\n      ",
+              "tail": "\n    ",
+              "children": [
+                {
+                  "tag": "cntinfo",
+                  "attributes": {},
+                  "text": "\n        ",
+                  "tail": "\n    ",
+                  "children": [
+                    {
+                      "tag": "cntperp",
+                      "attributes": {},
+                      "text": "\n          ",
+                      "tail": "\n        ",
+                      "children": [
+                        {
+                          "tag": "cntper",
+                          "attributes": {},
+                          "text": "Evdokimov, Vladimir V.",
+                          "tail": "\n        ",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "cntaddr",
+                      "attributes": {},
+                      "text": "\n          ",
+                      "tail": "\n        ",
+                      "children": [
+                        {
+                          "tag": "addrtype",
+                          "attributes": {},
+                          "text": "Mailing and Physical Address",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "address",
+                          "attributes": {},
+                          "text": "4 Shevchenko Alley",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "city",
+                          "attributes": {},
+                          "text": "Vladivostok",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "state",
+                          "attributes": {},
+                          "text": "Primorye Region",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "postal",
+                          "attributes": {},
+                          "text": "690600",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "country",
+                          "attributes": {},
+                          "text": "Russia",
+                          "tail": "\n        ",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "cntvoice",
+                      "attributes": {},
+                      "text": "4232-25-78-38",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "cntfax",
+                      "attributes": {},
+                      "text": "4232-25-77-83",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "cntemail",
+                      "attributes": {},
+                      "text": "root@tinro.marine.su",
+                      "tail": "\n      ",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "distliab",
+              "attributes": {},
+              "text": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+              "tail": "\n  ",
+              "children": []
+            }
+          ]
+        },
+        {
+          "tag": "metainfo",
+          "attributes": {},
+          "text": "\n    ",
+          "tail": "\n",
+          "children": [
+            {
+              "tag": "metd",
+              "attributes": {},
+              "text": "19970903",
+              "tail": "\n    ",
+              "children": []
+            },
+            {
+              "tag": "metc",
+              "attributes": {},
+              "text": "\n      ",
+              "tail": "\n    ",
+              "children": [
+                {
+                  "tag": "cntinfo",
+                  "attributes": {},
+                  "text": "\n        ",
+                  "tail": "\n    ",
+                  "children": [
+                    {
+                      "tag": "cntperp",
+                      "attributes": {},
+                      "text": "\n          ",
+                      "tail": "\n        ",
+                      "children": [
+                        {
+                          "tag": "cntper",
+                          "attributes": {},
+                          "text": "Kimberly Bahl",
+                          "tail": "\n        ",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "cntaddr",
+                      "attributes": {},
+                      "text": "\n          ",
+                      "tail": "\n        ",
+                      "children": [
+                        {
+                          "tag": "addrtype",
+                          "attributes": {},
+                          "text": "Mailing and Physical Address",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "address",
+                          "attributes": {},
+                          "text": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "city",
+                          "attributes": {},
+                          "text": "Seattle",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "state",
+                          "attributes": {},
+                          "text": "WA",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "postal",
+                          "attributes": {},
+                          "text": "98115",
+                          "tail": "\n          ",
+                          "children": []
+                        },
+                        {
+                          "tag": "country",
+                          "attributes": {},
+                          "text": "USA",
+                          "tail": "\n        ",
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "tag": "cntvoice",
+                      "attributes": {},
+                      "text": "206-526-4314",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "cntfax",
+                      "attributes": {},
+                      "text": "206-526-6485",
+                      "tail": "\n        ",
+                      "children": []
+                    },
+                    {
+                      "tag": "cntemail",
+                      "attributes": {},
+                      "text": "kimberly.bahl@noaa.gov",
+                      "tail": "\n      ",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "tag": "metstdn",
+              "attributes": {},
+              "text": "Content Standards for Digital Geospatial Metadata",
+              "tail": "\n    ",
+              "children": []
+            },
+            {
+              "tag": "metstdv",
+              "attributes": {},
+              "text": "FGDC-STD-001-1998",
+              "tail": "\n    ",
+              "children": []
+            },
+            {
+              "tag": "metac",
+              "attributes": {},
+              "text": "None",
+              "tail": "\n    ",
+              "children": []
+            },
+            {
+              "tag": "metuc",
+              "attributes": {},
+              "text": "None",
+              "tail": "\n  ",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "approved_exact_member": {
+    "source_id": "FGDC-1314",
+    "source_sha256": "ae5faad99f4b0abedd01767ffba167cadbc0a8236598c4d39a5346226903ba8b"
+  },
+  "approved_exact_creators": [
+    {
+      "name": "Evdokimov, V.V."
+    },
+    {
+      "name": "Rodin, V.E."
+    },
+    {
+      "name": "Viktorovskaya, G.I."
+    },
+    {
+      "name": "Pavlyuchkov, V.A."
+    }
+  ],
+  "approved_cohort_sha256_canonical_utf8": "108681ed7ca4c70a05da9b84466e51188e434602b5c60d0b875d07af5a958693",
+  "approved_context_note_sha256_utf8": "957139109b1668781bf30747d50366b2dec56f927e2f803c4911bedca783aa93",
+  "before": {
+    "payload_path": "/tmp/pices-creator-current-before10/prepared/data/zenodo_json/FGDC-1314.json",
+    "payload_sha256": "55f461316fc4f2aded0a2b58d5f6b66518ccf9d7d40c68a20c0c2750cf0b075f",
+    "complete_raw_metadata_sha256_canonical_utf8": "36fc11319e72b537f806c12f13e2796328cb2abef0cefb6795763af1ac4b99f7",
+    "classification_row_sha256_canonical_utf8": "bc090502877817a8ea8dc78126973c7f011effc26390537fd6340fa680b64671",
+    "source_status": "held",
+    "hold_reasons": [
+      "Creator semantics are ambiguous"
+    ]
+  },
+  "projected_after": {
+    "complete_raw_metadata_sha256_canonical_utf8": "76264aecad0d79d52b382dd486266da9ae6cecb26c721cf5ff9a504049c214ef",
+    "changed_fields": [
+      "creators",
+      "notes"
+    ],
+    "existing_notes_exact_prefix": true,
+    "remaining_metadata_objects_exact": true,
+    "actual_afterimage_claimed": false
+  },
+  "preservation_verified": {
+    "original_copy_byte_exact": true,
+    "complete_root_exact": true,
+    "primary_origin_and_supplemental_full_root_exact": true,
+    "current_saved_before_metadata_exact": true,
+    "all_input_hashes_match": true,
+    "old415_profile_excludes1314": true,
+    "prior415_profile_sha256": "ae4404c40238542c517822fe4424d14a0cbe93efef542bf42d359717fd4ba2e3",
+    "source_title_dates_description_spatial_keywords_constraints_unchanged": true,
+    "contact_and_distributor_roles_unchanged": true,
+    "no_expanded_names_person_types_affiliations_identifiers_added": true,
+    "no_rights_license_release_or_XML_authorship_inference": true
+  },
+  "integration_requirements": [
+    "Add only this exact member/cohort to the reviewed next finite creator profile; preserve all415 prior cohort objects and independently reviewed other seven additions.",
+    "Pin the proposal, short primary excerpt and this independent review as live external evidence references for the new cohort.",
+    "Measure actual complete after metadata and preserve all non-creators/non-notes fields; any normalizer rewrite of derived Curator decision text must be explicitly accounted for, not mislabeled byte-identical notes.",
+    "This receipt does not itself promote classification, change production identities/DOIs, release aliases, or authorize a provider action."
+  ],
+  "activity": {
+    "public_primary_page_inspected": true,
+    "provider_requests": 0,
+    "private_stage_or_credential_reads": 0,
+    "repository_edits": 0,
+    "tests_or_classifier_runs": 0,
+    "local_evidence_hash_and_object_comparisons_only": true
+  },
+  "limits": [
+    "Later author bibliography supports exact-work citation attribution; original1997 byline/full text was not inspected.",
+    "Local evidence hashes bind parsed source XML and reviewer transcription/proposal, not remote HTML or PDF bytes.",
+    "Projected after metadata is source-review evidence; implementation/output validation and existing authority/QA gates remain necessary.",
+    "Unrelated-looking source geography/keywords, Planned status and all dates remain intact; no bibliographic reconstruction of those fields."
+  ]
+}

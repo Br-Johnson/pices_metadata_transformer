@@ -23,11 +23,13 @@ do not assert that CI passed.
 
 ## Latest finite source preparation
 
-The [source15 handoff](docs/readiness/2026-10-04/residual_evidence15_handoff.md)
-records the current source profiles: resource access 607, citation credits 415,
-display titles 36, and the earlier complementary profiles. Its immutable source
-ledger contains **3,696 supported / 504 held / 6 malformed** original files.
-All 4,206 originals and earlier evidence remain preserved.
+The [creator8 handoff](docs/readiness/2026-10-04/creator8_handoff.md)
+records the current source profiles: resource access 607, citation credits 423,
+display titles 36, and the earlier complementary profiles. Its measured source
+ledger contains **3,704 supported / 496 held / 6 malformed** original files;
+the separate unique-target projection is **3,908 supported / 64 held / 6 malformed**.
+All 4,206 originals and earlier evidence remain preserved. The handoff identifies
+the exact remaining evidence gaps and gives the guarded reproduction command.
 
 Brett separately approved one restored record per identical pair, retaining both
 source identities and files. The [class-target handoff](docs/readiness/2026-10-04/alias228_target_handoff.md)
@@ -36,6 +38,9 @@ reproduction command. It creates a separate target view and version-2 two-file
 contracts. Legacy singleton operations refuse these pairs. Every class target
 remains upload-ineligible pending existing production record/DOI reconciliation
 and reviewed class execution support; source support is separate from release.
+The [captured identity packet](docs/readiness/2026-10-04/alias228_production_reconciliation_handoff.md)
+retains five historical production snapshots and all228 unresolved pair inputs,
+with the precise current read-only evidence needed by the sole provider executor.
 
 ## 🏗️ Project Structure
 

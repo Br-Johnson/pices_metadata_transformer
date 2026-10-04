@@ -1,0 +1,92 @@
+{
+  "accessed_date": "2026-10-04",
+  "entries": [
+    {
+      "accessed_date": "2026-10-04",
+      "assessment": "The official RDMDB catalogue individually names the global temperature/salinity decode, global wind decode, regional subsurface decode, separate subsurface decode-error, wind decode, separate wind decode-error and version2 wind products. Each exact entry links the corresponding JMA format manual. The code/version and geographic scope match each original title and abstract; these are derived files rather than the separately listed raw GTS reports.",
+      "evidence_id": "OFFICIAL_PRODUCT_CATALOGUE",
+      "limits": "An archive filename, download host, or data-receipt/collection by JMA alone would not establish creator credit. This catalogue is only the exact-product crosswalk to the separately credited derived-product manuals.",
+      "locator": "Sections and linked format manuals: GLBTS lines168-180; GLBWIND182-194; SUBST328-340; SUBST_ERROR341-353; WIND369-381; WIND_ERROR383-395; WIND2 396-408",
+      "original_external_document_bytes_sha256": null,
+      "publisher": "Japan Oceanographic Data Center / official historical NEAR-GOOS RDMDB product documentation",
+      "quote": "yyyy_mm.glbts\nyyyy_mm.glbwind\nyyyy_mm.subst\nyyyy_mm.subst_error\nyyyy_mm.wind\nyyyy_mm.wind_error\nyyyy_mm.wind2",
+      "retention_limit": "Local object hash binds the short reviewer-transcribed excerpt and assessment, not original remote HTML bytes. No original external HTML bytes were obtained.",
+      "retrieved_via": "Public web tool parsed text; reviewer-transcribed short excerpt and assessment",
+      "reviewer_extraction_sha256": "4059b20b1d199183cb69248c53c2a929876b666283dd4d8fc0821e09ec73bc59",
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/datalist.html"
+    },
+    {
+      "accessed_date": "2026-10-04",
+      "assessment": "The manual names JMA in the derived-product heading. It describes decoding reports into prepared CSV files and preparing separate primary quality-control information, retaining pointers to the original reports. It specifies both the decoded temperature file and its distinct error-information file. This supports citation responsibility for the prepared decode/QC products, without assigning JMA creation of every underlying observation.",
+      "evidence_id": "SUBST_DERIVED_PRODUCT_V101",
+      "limits": "The JMA copyright annotation is retained as context, not used alone to infer authorship or to supply a reuse license. No program author, contact or report-observation provider is added.",
+      "locator": "Heading line0; Introduction lines12-18; decoded file lines23-31; error/QC file lines61-92",
+      "original_external_document_bytes_sha256": null,
+      "publisher": "Japan Oceanographic Data Center / official historical NEAR-GOOS RDMDB product documentation",
+      "quote": "Japan Meteorological Agency (JMA) sub surface temperature decode result and error reports\ndecoded and stored in specially prepared files",
+      "retention_limit": "Local object hash binds the short reviewer-transcribed excerpt and assessment, not original remote HTML bytes. No original external HTML bytes were obtained.",
+      "retrieved_via": "Public web tool parsed text; reviewer-transcribed short excerpt and assessment",
+      "reviewer_extraction_sha256": "1a571273867305080535707800c781e14252cad106d8b1a02691cdbfc8cfe1df",
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/subst_v101.html"
+    },
+    {
+      "accessed_date": "2026-10-04",
+      "assessment": "The earlier June1997-January1998 manual has the same JMA product heading and separately documents decode and error products with pointers to original reports. It corroborates historical product continuity without assigning a particular version to a source lacking one.",
+      "evidence_id": "SUBST_HISTORICAL_V100",
+      "limits": "Manual/version dates remain external evidence context; no source publication or metadata date is replaced.",
+      "locator": "Heading line0; version line2; decoded file lines11-44; separate error file lines48-72",
+      "original_external_document_bytes_sha256": null,
+      "publisher": "Japan Oceanographic Data Center / official historical NEAR-GOOS RDMDB product documentation",
+      "quote": "Japan Meteorological Agency (JMA) sub surface temperature decode result and error reports",
+      "retention_limit": "Local object hash binds the short reviewer-transcribed excerpt and assessment, not original remote HTML bytes. No original external HTML bytes were obtained.",
+      "retrieved_via": "Public web tool parsed text; reviewer-transcribed short excerpt and assessment",
+      "reviewer_extraction_sha256": "0b082738e2806b77662c84b693e333478f2592d8f482fdbfbf116c46d0e92746",
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/subst_v100.html"
+    },
+    {
+      "accessed_date": "2026-10-04",
+      "assessment": "The manual names JMA in the wind decode/QC product heading. It describes creating prepared decoded CSV files and separate primary quality-control information from received reports, retaining original-report locators. Both wind decode and wind decode-error catalogue products link this exact manual.",
+      "evidence_id": "WIND_DERIVED_PRODUCT_V100",
+      "limits": "JMA receives underlying observations from other sources; the proposed institutional credit is limited to the derived decoding/QC product. Copyright text is preserved context, not a license or sufficient creator evidence by itself.",
+      "locator": "Heading line0; Introduction lines12-20; decoded wind file lines23-55; separate error/QC file lines61-87",
+      "original_external_document_bytes_sha256": null,
+      "publisher": "Japan Oceanographic Data Center / official historical NEAR-GOOS RDMDB product documentation",
+      "quote": "Japan Meteorological Agency (JMA) wind decode result and error reports\ndecoded and stored in specially prepared files",
+      "retention_limit": "Local object hash binds the short reviewer-transcribed excerpt and assessment, not original remote HTML bytes. No original external HTML bytes were obtained.",
+      "retrieved_via": "Public web tool parsed text; reviewer-transcribed short excerpt and assessment",
+      "reviewer_extraction_sha256": "b8207b70d0cab3392288c58075e7ba1d559906c8583ef4d498682d3233e73b7c",
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/wind_v100.html"
+    },
+    {
+      "accessed_date": "2026-10-04",
+      "assessment": "This exact version2 manual names the same JMA derived-product responsibility and specifies warning flags, decoded wind values, precision and original-report locators. The official WIND2 and GLBWIND catalogue entries both link it; the source3968 explicitly names version2, while3969 names the global derived product.",
+      "evidence_id": "WIND_DERIVED_PRODUCT_V200",
+      "limits": "No version date is substituted for the original source date, and no copyright or observing-platform attribution is inferred as a license or additional creator.",
+      "locator": "Heading line0; version line2; sample data-file header line13; decode/QC structure lines14-56",
+      "original_external_document_bytes_sha256": null,
+      "publisher": "Japan Oceanographic Data Center / official historical NEAR-GOOS RDMDB product documentation",
+      "quote": "Japan Meteorological Agency (JMA) wind decode result and error reports\nVer.2.0",
+      "retention_limit": "Local object hash binds the short reviewer-transcribed excerpt and assessment, not original remote HTML bytes. No original external HTML bytes were obtained.",
+      "retrieved_via": "Public web tool parsed text; reviewer-transcribed short excerpt and assessment",
+      "reviewer_extraction_sha256": "be335e19ffc4319c67ea4e4ee8c0f1f137f782782dd871f3b510b55698146f9e",
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/wind_v200.html"
+    },
+    {
+      "accessed_date": "2026-10-04",
+      "assessment": "The linked GLBTS format manual explicitly names JMA for the temperature/salinity data-file product and specifies decoded temperature/salinity warning flags, precision, layered values and original-report locators. The catalogue links this named manual to the exact global decode product; the institutional credit applies to that prepared decoding product.",
+      "evidence_id": "GLOBAL_TS_DERIVED_PRODUCT_V200",
+      "limits": "The file header also records a copyright claim, preserved as context. Neither copyright alone nor database operation alone establishes the proposed creator responsibility; the credited product heading, exact catalogue link and derived-file structure form the combined evidence.",
+      "locator": "Heading line0; version line2; sample header line14; decoding-warning/precision and original-report locators lines15-59",
+      "original_external_document_bytes_sha256": null,
+      "publisher": "Japan Oceanographic Data Center / official historical NEAR-GOOS RDMDB product documentation",
+      "quote": "Japan Meteorological Agency (JMA) Temperature and Salinity Data files",
+      "retention_limit": "Local object hash binds the short reviewer-transcribed excerpt and assessment, not original remote HTML bytes. No original external HTML bytes were obtained.",
+      "retrieved_via": "Public web tool parsed text; reviewer-transcribed short excerpt and assessment",
+      "reviewer_extraction_sha256": "d86da033cf4fdc94b7c10062ca02412198e01e6ba55e98d84025aa25e79f73b2",
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/TempandSal.html"
+    }
+  ],
+  "provider_requests": 0,
+  "schema_version": 1,
+  "status": "FROZEN_PRIMARY_SOURCE_EXCERPTS_FOR_INDEPENDENT_ROLE_REVIEW"
+}

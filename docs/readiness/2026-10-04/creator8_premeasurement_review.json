@@ -1,0 +1,405 @@
+{
+  "schema_version": 1,
+  "kind": "Independent creator8 premeasurement implementation review",
+  "reviewer": "/root/astra_transport_boundary",
+  "reviewed_at": "2026-10-04T19:46:21.213822+00:00",
+  "base_head": "173a4b0613e915b2915ae815b01f9f8823f2ced8",
+  "worktree": "/workspace/pices-creator7-residual-20261004",
+  "status": "CLEAR_FOR_BOUNDED_MEASUREMENT_NOT_FINAL_OUTPUT_OR_HEAD_REVIEW",
+  "material_findings": [],
+  "runtime_review": [
+    "Only the new finite423 digest and its inclusion in three existing dispatch tuples changes runtime behavior.",
+    "Both null origin and non-null journal origin use exact primary origin elements; supplemental entire-root comparison and source hash membership remain required.",
+    "Every external reference is locally hash-checked at runtime, including source proposals, excerpts and independent review. No network resolver or broad creator fallback added.",
+    "Prior profile digests and validation paths remain supported; no rights, source date, alias, production identity or release logic changed."
+  ],
+  "profile_review": {
+    "all239_prior_cohort_objects_and415_members_verbatim": true,
+    "exact_new_member_count": 8,
+    "total_members": 423,
+    "unrelated_previous_top_fields_preserved": true,
+    "exact_proposal_cohorts_preserved_except_added_live_evidence_references": true,
+    "source_rows": [
+      {
+        "source_id": "FGDC-1314",
+        "source_sha256": "ae5faad99f4b0abedd01767ffba167cadbc0a8236598c4d39a5346226903ba8b",
+        "cohort_sha256_canonical_utf8": "96d9ece0dff8d701180705d9c4f7e2ef7132a332987a7620831b636480ace3af",
+        "root_sha256_canonical_utf8": "2ef5c690da53026eb00060b174178f0ec6f102afce2328b7a6f40dc33bf459ad",
+        "proposal_object_verbatim_except_added_live_references": true,
+        "external_references": [
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator1314_proposal.json",
+            "manifest_sha256": "4526cb842a91a889932378a2e6e2375c331e9632094f4c20a7a160189ad698e3"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator1314_primary_excerpt.json",
+            "manifest_sha256": "733cf866f85df3a61e5871709c58e9e52dcd0b95519367b0fd727afe73463237"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator1314_independent_source_review.json",
+            "manifest_sha256": "019f655dbeee84b9757a43b18461c217f61b3851309aed4a25da7405cca260b6"
+          }
+        ]
+      },
+      {
+        "source_id": "FGDC-3951",
+        "source_sha256": "e7a32206e486a6d2524921888e19074ce8e328e1ca5101e2e14e80bf72988ee5",
+        "cohort_sha256_canonical_utf8": "89d4730e94eb575b07873dcacb248949581ef84dc08237aa2766eda69ad738f9",
+        "root_sha256_canonical_utf8": "704bc3b5841101bf8cbdb740b6633a5797eacf7a0da25f4c42c9268b855b921e",
+        "proposal_object_verbatim_except_added_live_references": true,
+        "external_references": [
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_source_proposals.json",
+            "manifest_sha256": "13c6924f046c2d6035058ea8d46c70a2764dd7658c5802ac0d5c636bad8ba0ff"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_primary_excerpts.json",
+            "manifest_sha256": "8126b7fed3be622d76dcad17b91e8c8fd3755537e24cf973a0e65cf0af6c9bca"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_independent_source_review.json",
+            "manifest_sha256": "5899ec3baf618911c2ba562036278045eae4deb99d0772f670a19436489becf4"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_binding_review.json",
+            "manifest_sha256": "76e1391d80a034961222ed10ed856c6c3b256e1ed1349c12ebbdd3627e196614"
+          }
+        ]
+      },
+      {
+        "source_id": "FGDC-3952",
+        "source_sha256": "0d36dc527b4ad8448205c07faf65125fa7a251174b4c27239dbe29a48243ce6c",
+        "cohort_sha256_canonical_utf8": "7d9911183112d47b0d1cbf9e717037d61e524b8960794e4b66f193ca2fe5f447",
+        "root_sha256_canonical_utf8": "c1fcc1b47549f955572fc625a5e812194e5f1bbcab992b214a3f9b774334e07c",
+        "proposal_object_verbatim_except_added_live_references": true,
+        "external_references": [
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_source_proposals.json",
+            "manifest_sha256": "13c6924f046c2d6035058ea8d46c70a2764dd7658c5802ac0d5c636bad8ba0ff"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_primary_excerpts.json",
+            "manifest_sha256": "8126b7fed3be622d76dcad17b91e8c8fd3755537e24cf973a0e65cf0af6c9bca"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_independent_source_review.json",
+            "manifest_sha256": "5899ec3baf618911c2ba562036278045eae4deb99d0772f670a19436489becf4"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_binding_review.json",
+            "manifest_sha256": "76e1391d80a034961222ed10ed856c6c3b256e1ed1349c12ebbdd3627e196614"
+          }
+        ]
+      },
+      {
+        "source_id": "FGDC-3953",
+        "source_sha256": "3a6d35878b8f35f0db0c709fea2b37b77e13a5663097affe07642eaa989bb2ac",
+        "cohort_sha256_canonical_utf8": "fb30b9bab8d7be46522e569f588f512b1c9f519029c701e6b219bc91fd62a7d3",
+        "root_sha256_canonical_utf8": "151237af1e83692d66a68f414e2e84f8c37612780072c17e65c3fe1ec1246d37",
+        "proposal_object_verbatim_except_added_live_references": true,
+        "external_references": [
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_source_proposals.json",
+            "manifest_sha256": "13c6924f046c2d6035058ea8d46c70a2764dd7658c5802ac0d5c636bad8ba0ff"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_primary_excerpts.json",
+            "manifest_sha256": "8126b7fed3be622d76dcad17b91e8c8fd3755537e24cf973a0e65cf0af6c9bca"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_independent_source_review.json",
+            "manifest_sha256": "5899ec3baf618911c2ba562036278045eae4deb99d0772f670a19436489becf4"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_binding_review.json",
+            "manifest_sha256": "76e1391d80a034961222ed10ed856c6c3b256e1ed1349c12ebbdd3627e196614"
+          }
+        ]
+      },
+      {
+        "source_id": "FGDC-3966",
+        "source_sha256": "05679bc5934eacc9e8fb781c777c879a07887afbd02e757a8c394f4846a6cc07",
+        "cohort_sha256_canonical_utf8": "d3a5bf5c388d92e4a044fc8f81139f6566ddf95ff43fee741826645a3b2dbb33",
+        "root_sha256_canonical_utf8": "c9e8b505ba6a11eecdd7510d4d5da81dbce5a6bcee0460d583a76fabebe9dbfb",
+        "proposal_object_verbatim_except_added_live_references": true,
+        "external_references": [
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_source_proposals.json",
+            "manifest_sha256": "13c6924f046c2d6035058ea8d46c70a2764dd7658c5802ac0d5c636bad8ba0ff"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_primary_excerpts.json",
+            "manifest_sha256": "8126b7fed3be622d76dcad17b91e8c8fd3755537e24cf973a0e65cf0af6c9bca"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_independent_source_review.json",
+            "manifest_sha256": "5899ec3baf618911c2ba562036278045eae4deb99d0772f670a19436489becf4"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_binding_review.json",
+            "manifest_sha256": "76e1391d80a034961222ed10ed856c6c3b256e1ed1349c12ebbdd3627e196614"
+          }
+        ]
+      },
+      {
+        "source_id": "FGDC-3967",
+        "source_sha256": "80234c29ec0d251f055a2316a038daf4f1f005d90bdbb7b19e90a0317b947f77",
+        "cohort_sha256_canonical_utf8": "8e0bca49a8e8dcff1b53d6a65536f84de4aa579e82830a70feacb746771da175",
+        "root_sha256_canonical_utf8": "00d8a6b1cf6bf840e19cdd3c2087df7dbf03859fff8ecf2f5779644bf5d53024",
+        "proposal_object_verbatim_except_added_live_references": true,
+        "external_references": [
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_source_proposals.json",
+            "manifest_sha256": "13c6924f046c2d6035058ea8d46c70a2764dd7658c5802ac0d5c636bad8ba0ff"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_primary_excerpts.json",
+            "manifest_sha256": "8126b7fed3be622d76dcad17b91e8c8fd3755537e24cf973a0e65cf0af6c9bca"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_independent_source_review.json",
+            "manifest_sha256": "5899ec3baf618911c2ba562036278045eae4deb99d0772f670a19436489becf4"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_binding_review.json",
+            "manifest_sha256": "76e1391d80a034961222ed10ed856c6c3b256e1ed1349c12ebbdd3627e196614"
+          }
+        ]
+      },
+      {
+        "source_id": "FGDC-3968",
+        "source_sha256": "e9680a57712405e0df4486f4507a10f9357b8b33af0f06ffeee7b38f08c697d2",
+        "cohort_sha256_canonical_utf8": "16f7dbe31931d7ca7b7a05c59565b26ce5f833d10784562cb75469870a773fa4",
+        "root_sha256_canonical_utf8": "bf5a80dcabe4240c063f42fc8edd343f32c244e0811ec1fd0d4c5185e2be7a21",
+        "proposal_object_verbatim_except_added_live_references": true,
+        "external_references": [
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_source_proposals.json",
+            "manifest_sha256": "13c6924f046c2d6035058ea8d46c70a2764dd7658c5802ac0d5c636bad8ba0ff"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_primary_excerpts.json",
+            "manifest_sha256": "8126b7fed3be622d76dcad17b91e8c8fd3755537e24cf973a0e65cf0af6c9bca"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_independent_source_review.json",
+            "manifest_sha256": "5899ec3baf618911c2ba562036278045eae4deb99d0772f670a19436489becf4"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_binding_review.json",
+            "manifest_sha256": "76e1391d80a034961222ed10ed856c6c3b256e1ed1349c12ebbdd3627e196614"
+          }
+        ]
+      },
+      {
+        "source_id": "FGDC-3969",
+        "source_sha256": "9bae14e8ac15ad1001fc0a21c6aa93b8f2d8ba36eb911995a95b292c90ac505f",
+        "cohort_sha256_canonical_utf8": "2eb7bc5e6b5096b1901313657189604916e44ed88642ed961a3df53323f8d3da",
+        "root_sha256_canonical_utf8": "2f1a6f3261a12cea523e5682e2e1cc2171172e213b9ca252993b17c620dc8091",
+        "proposal_object_verbatim_except_added_live_references": true,
+        "external_references": [
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_source_proposals.json",
+            "manifest_sha256": "13c6924f046c2d6035058ea8d46c70a2764dd7658c5802ac0d5c636bad8ba0ff"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_primary_excerpts.json",
+            "manifest_sha256": "8126b7fed3be622d76dcad17b91e8c8fd3755537e24cf973a0e65cf0af6c9bca"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_independent_source_review.json",
+            "manifest_sha256": "5899ec3baf618911c2ba562036278045eae4deb99d0772f670a19436489becf4"
+          },
+          {
+            "manifest_path": "docs/readiness/2026-10-04/creator422_binding_review.json",
+            "manifest_sha256": "76e1391d80a034961222ed10ed856c6c3b256e1ed1349c12ebbdd3627e196614"
+          }
+        ]
+      }
+    ],
+    "derived7_context_precision_verified": [
+      "Individual decoded versus separate error/QC product scope",
+      "No chronology derived from catalogue filename examples or manual version dates",
+      "No coordinate repair or validation; FGDC3969 -180/-180 retained",
+      "No source observation/XML/sole authorship inferred from institutional product credit"
+    ]
+  },
+  "focused_tests_static_review": {
+    "file": "tests/test_derived_creator_extension.py",
+    "test_methods": 4,
+    "reviewer_executed": false,
+    "covers": [
+      "Exact additive membership, whole roots and untyped creator objects",
+      "Actual same-output before/after/repeat/withdrawal; metadata only creators+notes change; controls unchanged metadata",
+      "Live evidence missing/tampered rejection at agent and both human QA schemas; source/context/creator forgery",
+      "Restoration authority withdrawal and excluded raw-GTS control"
+    ]
+  },
+  "measurement_helper_static_review": {
+    "file": "docs/readiness/2026-10-04/validate_creator8_current.py",
+    "executed_by_reviewer": false,
+    "smoke10": [
+      "FGDC-1314",
+      "FGDC-3951",
+      "FGDC-3952",
+      "FGDC-3953",
+      "FGDC-3954",
+      "FGDC-3966",
+      "FGDC-3967",
+      "FGDC-3968",
+      "FGDC-3969",
+      "FGDC-3975"
+    ],
+    "candidates_plus_held909": [
+      "FGDC-1314",
+      "FGDC-3951",
+      "FGDC-3952",
+      "FGDC-3953",
+      "FGDC-3966",
+      "FGDC-3967",
+      "FGDC-3968",
+      "FGDC-3969",
+      "FGDC-909"
+    ],
+    "checks": [
+      "Installed OfflineGuard, cleared environment/dummy credentials and new /tmp-only output",
+      "All4206 original hashes checked before/after; guard records actual public input hashes",
+      "Existing415 cohort objects and exact finite eight membership validated before preparation",
+      "All four same-output phases copied to separate retained snapshots; exact repeat and withdrawal comparisons",
+      "Only raw creators+notes permitted; notes remove exact preservation additions and normalize only creator decision field",
+      "Supported control3954 requires unchanged full raw metadata and validated old/new reference equivalence; only exact derived artifact-contract suffix/hash may change",
+      "All4198 unselected ledger rows preserved; only measured eight source statuses updated",
+      "Historical228 class rows, source-to-target index and payload/contract pins preserved; no fresh class assessment, rebuild, identity reconciliation or upload eligibility implied",
+      "Expected source-file3704/496/6 and distinct-target3908/64/6 counts are conditional on actual measurement success"
+    ]
+  },
+  "nonblocking_followups": [
+    "Root already planned indentation-only runtime/test formatting cleanup.",
+    "Copied transport memo links must be made repository-relative before final documentation freeze."
+  ],
+  "limits": [
+    "Actual measured afterimages/repeated snapshots/withdrawn outputs have not yet been supplied or reviewed.",
+    "No focused or full tests rerun by reviewer; reported results require final receipt/current-head CI binding.",
+    "Receipt binds evolving uncommitted files listed below; final frozen tree/head review remains required."
+  ],
+  "file_pins": [
+    {
+      "path": "FGDC/FGDC-1314.xml",
+      "sha256": "ae5faad99f4b0abedd01767ffba167cadbc0a8236598c4d39a5346226903ba8b",
+      "bytes": 4391
+    },
+    {
+      "path": "FGDC/FGDC-3951.xml",
+      "sha256": "e7a32206e486a6d2524921888e19074ce8e328e1ca5101e2e14e80bf72988ee5",
+      "bytes": 4461
+    },
+    {
+      "path": "FGDC/FGDC-3952.xml",
+      "sha256": "0d36dc527b4ad8448205c07faf65125fa7a251174b4c27239dbe29a48243ce6c",
+      "bytes": 4476
+    },
+    {
+      "path": "FGDC/FGDC-3953.xml",
+      "sha256": "3a6d35878b8f35f0db0c709fea2b37b77e13a5663097affe07642eaa989bb2ac",
+      "bytes": 4372
+    },
+    {
+      "path": "FGDC/FGDC-3966.xml",
+      "sha256": "05679bc5934eacc9e8fb781c777c879a07887afbd02e757a8c394f4846a6cc07",
+      "bytes": 4318
+    },
+    {
+      "path": "FGDC/FGDC-3967.xml",
+      "sha256": "80234c29ec0d251f055a2316a038daf4f1f005d90bdbb7b19e90a0317b947f77",
+      "bytes": 4306
+    },
+    {
+      "path": "FGDC/FGDC-3968.xml",
+      "sha256": "e9680a57712405e0df4486f4507a10f9357b8b33af0f06ffeee7b38f08c697d2",
+      "bytes": 4323
+    },
+    {
+      "path": "FGDC/FGDC-3969.xml",
+      "sha256": "9bae14e8ac15ad1001fc0a21c6aa93b8f2d8ba36eb911995a95b292c90ac505f",
+      "bytes": 4268
+    },
+    {
+      "path": "docs/readiness/2026-10-04/creator1314_independent_source_review.json",
+      "sha256": "019f655dbeee84b9757a43b18461c217f61b3851309aed4a25da7405cca260b6",
+      "bytes": 29553
+    },
+    {
+      "path": "docs/readiness/2026-10-04/creator1314_primary_excerpt.json",
+      "sha256": "733cf866f85df3a61e5871709c58e9e52dcd0b95519367b0fd727afe73463237",
+      "bytes": 2978
+    },
+    {
+      "path": "docs/readiness/2026-10-04/creator1314_proposal.json",
+      "sha256": "4526cb842a91a889932378a2e6e2375c331e9632094f4c20a7a160189ad698e3",
+      "bytes": 55317
+    },
+    {
+      "path": "docs/readiness/2026-10-04/creator422_binding_review.json",
+      "sha256": "76e1391d80a034961222ed10ed856c6c3b256e1ed1349c12ebbdd3627e196614",
+      "bytes": 13458
+    },
+    {
+      "path": "docs/readiness/2026-10-04/creator422_current_beforeimages.json",
+      "sha256": "ae09de2c2ab656951b4d4eae607b666b7354ccec5b631de158ba7a51c2057702",
+      "bytes": 28050
+    },
+    {
+      "path": "docs/readiness/2026-10-04/creator422_independent_source_review.json",
+      "sha256": "5899ec3baf618911c2ba562036278045eae4deb99d0772f670a19436489becf4",
+      "bytes": 18199
+    },
+    {
+      "path": "docs/readiness/2026-10-04/creator422_primary_excerpts.json",
+      "sha256": "8126b7fed3be622d76dcad17b91e8c8fd3755537e24cf973a0e65cf0af6c9bca",
+      "bytes": 10921
+    },
+    {
+      "path": "docs/readiness/2026-10-04/creator422_source_proposals.json",
+      "sha256": "13c6924f046c2d6035058ea8d46c70a2764dd7658c5802ac0d5c636bad8ba0ff",
+      "bytes": 304704
+    },
+    {
+      "path": "docs/readiness/2026-10-04/creator8_current_before10_receipt.json",
+      "sha256": "b97d4c91d8d7b9f79b45bf496caae5773617dc0ea4665c01bf43c43df1d90430",
+      "bytes": 2215
+    },
+    {
+      "path": "docs/readiness/2026-10-04/source_citation_credits_415.json",
+      "sha256": "ae4404c40238542c517822fe4424d14a0cbe93efef542bf42d359717fd4ba2e3",
+      "bytes": 539742
+    },
+    {
+      "path": "docs/readiness/2026-10-04/source_citation_credits_423.json",
+      "sha256": "c720de8c0775adf3b432fc4bc5e28bdfbb36c67ceb91b73b719d0179cf8f8bf6",
+      "bytes": 815853
+    },
+    {
+      "path": "docs/readiness/2026-10-04/validate_creator8_current.py",
+      "sha256": "e8f6695e2460359164c922a5acbb7ed997aec680b9fdda2fef0c19ed683f2f00",
+      "bytes": 35572
+    },
+    {
+      "path": "scripts/citation_creator_interpretation.py",
+      "sha256": "32fae44cd1af4edade6f74fa0d2af7e220cc4f4989f1489eff99ec0882cf14aa",
+      "bytes": 7533
+    },
+    {
+      "path": "tests/test_derived_creator_extension.py",
+      "sha256": "e5eec20f6718250fce5d656e335c6873ef5616fe288f90d1cbe4397c9221572a",
+      "bytes": 11441
+    }
+  ],
+  "activity": {
+    "provider_requests": 0,
+    "private_evidence_credential_reads": 0,
+    "repository_edits": 0,
+    "tests_or_classifications": 0,
+    "new_source_research": 0,
+    "evidence_hash_object_comparisons_only": true
+  }
+}

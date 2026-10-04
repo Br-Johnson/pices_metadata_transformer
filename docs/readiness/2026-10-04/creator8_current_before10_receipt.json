@@ -1,0 +1,66 @@
+{
+  "status": "CURRENT_PROFILE_BEFOREIMAGES_ONLY",
+  "base": "173a4b0613e915b2915ae815b01f9f8823f2ced8",
+  "reviewed_at": "2026-10-04T19:36:58.169480+00:00",
+  "source_ids": [
+    "FGDC-1314",
+    "FGDC-3951",
+    "FGDC-3952",
+    "FGDC-3953",
+    "FGDC-3954",
+    "FGDC-3966",
+    "FGDC-3967",
+    "FGDC-3968",
+    "FGDC-3969",
+    "FGDC-3975"
+  ],
+  "summary": {
+    "source_files": 10,
+    "source_status_counts": {
+      "supported": 1,
+      "held": 9,
+      "failed": 0
+    },
+    "technical_metadata_counts": {
+      "pass": 2,
+      "held": 8
+    },
+    "exact_copy_groups": 0,
+    "files_in_copy_groups": 0,
+    "unique_raw_contents": 10,
+    "publication_approved": 0,
+    "remote_verified": 0,
+    "rehosting_authority_counts": {
+      "USER_ATTESTED": 10
+    },
+    "coverage": "Every raw file hashed; strict source-only agent profile on constructed XML artifacts; no recovery or remote/API/duplicate-service assessment"
+  },
+  "helper_sha256": "245ed99e591c86c11e1ee9938a9d0b5f9b2c1f695914ce8e12367440050ba5a2",
+  "guard": {
+    "bootstrap": {
+      "network": 4,
+      "private_reads": 1,
+      "writes": 1,
+      "processes": 1
+    },
+    "tests": {
+      "network": 0,
+      "private_reads": 0,
+      "writes": 0,
+      "processes": 0
+    }
+  },
+  "provider_requests": 0,
+  "payload_sha256": {
+    "FGDC-3975.json": "03cd132c7e7342040560b793abb8f5e3bd1ed35f4a2fd925890eb626820f1f37",
+    "FGDC-3969.json": "c8ea95ec46d567a8f6045b1b2129e12049c53305466b57668edcf310111ef61a",
+    "FGDC-3968.json": "2d905fb993ee1f3a7e3c26be14191d7faaaf5adf3ee2c56b1056f5e5d4179e18",
+    "FGDC-3967.json": "3173a2230f859adaaa0acfed58cf7aa912ce2783962cef3e7f47f8582c29e6d8",
+    "FGDC-3966.json": "e081ca74a9b3693cb7d9702cdb3f346ff998d406d4f477aeac32a94b5148ec74",
+    "FGDC-3954.json": "f891f7ba61d36e8f598d03e3df9d739e1f443b51321255143cf9d5f6262c6821",
+    "FGDC-3953.json": "164a67e60cfd9d5e69752695be3331376fad5f527756c5be954fb5091849a279",
+    "FGDC-3952.json": "e4e777d85b4a7b59173219616e6057df8bd9a14a9ce122c9e27085fd43ab5742",
+    "FGDC-3951.json": "68cc5f529b4332fbb84ee046f2a531033cd787c91ad0542f80a503a0ac3a55c2",
+    "FGDC-1314.json": "55f461316fc4f2aded0a2b58d5f6b66518ccf9d7d40c68a20c0c2750cf0b075f"
+  }
+}
