@@ -1,5 +1,17 @@
 # Tech Debt Log
 
+## Persistent repository authorization — 2026-10-04
+
+Older instructions required implementation confirmation and prohibited agents
+from editing AGENTS.md. Brett now authorizes merges after passing CI and Codex
+review, plus direct-main rules/documentation commits. The current rules and README
+record that standing authority, and the workspace rules apply it across existing
+checkouts. Frozen historical handoffs retain their bytes and do not override the
+current user instruction. PR22 was merged under Brett's explicit exact-head
+approval, with 422 guarded offline tests and 12 independent contracts; those
+receipts do not claim a CI run. Configured CI remains a separate tooling debt.
+Provider grants, immutable source evidence and production release remain separate.
+
 ## Finite42 reviewer provenance — 2026-10-04
 
 The556 profile retains all514 source/context objects and adds42 reviewer contexts.

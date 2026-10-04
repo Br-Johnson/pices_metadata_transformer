@@ -3,16 +3,30 @@
 ## Global Principles
 
 - Plan before coding. Execute in atomic, reversible increments.
-- Explain reasoning and request confirmation before implementation.
+- Explain decisions and continue work within the user's authorized scope. Ask only for missing information or authority needed to proceed.
 - Maintain reproducibility, determinism, and traceability.
 - Avoid technical debt and unbounded complexity.
 - Prefer simplicity, composability, and transparency over cleverness.
-- Never edit this AGENTS.md file yourself
+- Keep this ruleset current when the user changes repository workflow rules; rules and documentation updates may be committed directly to `main`.
+
+## Standing Repository Authorization — 2026-10-04
+
+Brett explicitly authorized the following repository workflow. It supersedes older
+instructions requiring separate approval to merge or prohibiting agents from
+editing this ruleset, including those retained in historical plans and handoffs.
+
+- Merge pull requests without another approval when CI passes and the PR has had a Codex review. Verify the checks and review apply to the current PR head, and resolve material review findings before merging.
+- Commit rules changes and other documentation updates directly to `main` without another approval. Keep those commits limited to rules/documentation and run the appropriate documentation checks.
+- Carry forward this authorization across tasks; do not ask the user to approve the same repository workflow again.
+- Preserve frozen historical receipts and instructions as evidence. Apply this current authorization when an older repository approval instruction conflicts with it.
+
+This repository authorization leaves the existing provider executor, bounded
+action grants, source evidence, and production release requirements in force.
 
 ## Agent Protocol
 
 1. **Plan:** Outline the system shape, data models, endpoints, dependencies, and risks.
-2. **Ask:** Confirm design assumptions or key uncertainties before writing code.
+2. **Resolve:** Investigate design assumptions and ask only about unresolved decisions that materially affect the work; existing user authorization remains effective.
 3. **Code:** Implement minimal, self-contained diffs with meaningful commit messages.
 4. **Test:** Run smoke + contract tests; verify invariants and side effects.
 5. **Doc:** Update README, `.env.example`, and contracts as needed.
@@ -52,7 +66,7 @@
 
 ## Notes for Agents
 
-- When uncertain, ask for clarification rather than guessing.
+- Investigate uncertainty using available evidence; ask for clarification when a necessary decision cannot be resolved from that evidence or existing user instructions.
 - When confident, act deterministically and document reasoning.
 - Prefer small, composable contributions that others (human or agent) can review easily.
 - Maintain internal consistency — code, docs, and tests must always reflect the same truth.

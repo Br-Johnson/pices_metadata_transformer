@@ -2,6 +2,15 @@
 
 This project transforms 4,206 FGDC XML metadata records to Zenodo JSON format and uploads them to the Zenodo sandbox for the PICES (North Pacific Marine Science Organization) metadata migration project.
 
+## Agent repository workflow
+
+Brett's standing authorization of 2026-10-04 permits agents to merge pull requests
+without another approval after passing CI and a Codex review of the current PR
+head. Agents may also commit rules changes and other documentation updates
+directly to `main`. The current [agent rules](AGENTS.md) supersede older repository
+approval instructions retained in historical plans and handoffs. Provider action
+grants and production release requirements continue to apply independently.
+
 ## 🏗️ Project Structure
 
 ```
@@ -85,6 +94,13 @@ provides one explicitly bound corrected metadata PUT and one canonical GET withi
 a fresh ten-minute parent-dispatch window. All411 guarded tests pass; no new create,
 old-state reset or root provider request. The grant and historical ledgers remain
 separate, and successful repair verifies metadata only.
+The merged [evidence-layout repair](docs/readiness/2026-10-03/run02_evidence_layout_handoff.md)
+accepts the historical 0755 workspace ancestor while validating a mandatory exact
+evidence manifest and private leaves. Its 422 guarded offline tests and 12 independent
+contracts include complete 353-file staging, read-only controller preflight and
+prepared-send execution with mocked transport. The sole executor must complete
+the actual private offline preflight before the parent starts a fresh bounded
+action grant; no live provider result is claimed by these tests.
 The
 [exact821 source scope answer](docs/readiness/2026-10-03/source_scope_attestation.md)
 supports791 promotions while retaining30 independent holds.

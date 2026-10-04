@@ -1,3 +1,9 @@
+# Standing repository authorization — 2026-10-04
+
+- [x] Record Brett's authorization: merge PRs after passing CI and a Codex review of the current head without another approval; commit rules and documentation changes directly to main.
+- [x] Update AGENTS.md and README, applying the current rule across older plans/handoffs while preserving frozen historical evidence and independent provider/release gates.
+- [x] Merge explicitly approved PR22 at f3184eca00656118746c3f92a171bb8f26c4c45f, preserving the exact reviewed f366d465f5843c17c6f97a67fa931cee73a81027 tree and its 422 guarded offline/12 independent test receipts. These are offline results, not a configured CI run.
+
 # Exact42 resource reconciliation — 2026-10-04
 
 - [x] Integrate41 resource contexts plus4060 actual disclaimer in additive556, preserving514 objects and821/904 evidence.
@@ -458,5 +464,5 @@ This local cohort has not been pushed or used for a provider operation.
 
 - [x] Reproduce mode0755workspace ancestry, separate failed stage, complete353-file history and public unrelated sibling using dummy private fixtures; retain old origin exactly.
 - [x] Replace broad provenance-tree selection with sealed exact manifest plus whole actual evidence subtrees. Preserve private leaves, canonical ancestry, hashes, no links/overlap and all prior counters.
-- [x] Complete read-only full-input preflight plus real Controller/Session prepared-send fixture,422 guarded tests and12 independent contracts in the same repair PR; exact reviewed/tested tree is ready for merge.
+- [x] Complete read-only full-input preflight plus real Controller/Session prepared-send fixture,422 guarded tests and12 independent contracts in the same repair PR; merge the exact reviewed/tested tree through PR22 at f3184eca00656118746c3f92a171bb8f26c4c45f.
 - [ ] Parent receives sole executor's successful offline preflight receipt before beginning another bounded execution window. No root/provider requests; historical197 unchanged.
