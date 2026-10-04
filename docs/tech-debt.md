@@ -1,3 +1,29 @@
+# Finite source15 and current alias evidence — 2026-10-04
+
+Fifteen exact source corrections preserve every prior resource596, creator412
+and title35 member while retaining whole-source and metadata bindings. The title
+uses all work-title words; its report identifier remains in the complete citation
+note. Creator responsibility comes from matching institutional work/product
+credits rather than collection, contacts or method authors. Resource conditions
+remain literal, with separate existing restoration authority and no generic
+metadata exemption or legal clearance. Full before/after/retry/withdrawal output
+and twelve focused guarded contracts pass; final CI and independent exact-head
+review remain PR gates.
+
+The actual ledger delta is 3,696 supported / 504 held / six malformed, with all
+4,191 other rows and all 4,206 original hashes unchanged. Old31 exception
+membership is historical; twenty still hold. Policy19 and pending3 research
+narrows missing historical applicability without claiming exhausted user-only
+questions. Further creator proposals remain separate.
+
+Fresh immutable-baseline alias QA confirms 204 otherwise-supported classes and
+24 classes with additional holds, all456 final files held. Preserve the corrected
+first mixed-runtime run as evidence. Brett's later one-record-per-identical-pair
+approval permits the next finite content-class increment, retaining both original
+IDs/files/provenance. It does not identify a historical canonical filename or
+permit production writes; existing records/DOIs must be reconciled before upload.
+See [the complete handoff](readiness/2026-10-04/residual_evidence15_handoff.md).
+
 # Tech Debt Log
 
 ## Four resource contexts and content-addressed alias evidence — 2026-10-04

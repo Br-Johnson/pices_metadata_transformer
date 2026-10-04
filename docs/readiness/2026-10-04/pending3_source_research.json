@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "status": "RESEARCH_PROGRESS_EXACT3_KEEP_HELD_NOT_IRREDUCIBLE_USER_QUESTIONS",
+  "source_head": "05d699e93572345c0591ca932a03089a9dd9ba9c",
+  "reviewer": "/root/remaining_sensitive_policy_research",
+  "reviewed_at": "2026-10-04T18:10:00.599413+00:00",
+  "rows": [
+    {
+      "source_id": "FGDC-1318",
+      "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b",
+      "full_root_sha256": "ac42df2c02767ee5f0da2e4bafee0a21f0058d97dc414bd4b4f76fe212dfb9b1",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Resource Data, Inc.</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Alaska Basemap CD, version 2.0</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>The Alaska Basemap CD is a compilation of more than 150 maps and tables all about Alaska. Version 2.0 of the CD also contains ESRI's free ArcExplorer software so that the 650 megabytes of Alaskan information can be accessed on Windows 95/NT platforms without the need to purchase any specialized geographic information systems (GIS) software. These pages contain specific metadata about each of the maps, drawings, and tables on the CD.</abstract>\n      <purpose>To provide information about Alaska.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Publication Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>0</westbc>\n        <eastbc>0</eastbc>\n        <northbc>0</northbc>\n        <southbc>0</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Alaska</themekey>\n        <themekey>Digital Maps</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Must purchase the CD</accconst>\n    <useconst>Refer to vendor policy.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Resource Data, Inc.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1205 E. International Airport Road Ste. 100</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99518-1559</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-563-8100</cntvoice>\n        <cntfax>907-561-0159</cntfax>\n        <cntemail>info@resdat.com</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Resource Data, Inc.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1205 E. International Airport Road Ste. 100</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99518-1559</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-563-8100</cntvoice>\n        <cntfax>907-561-0159</cntfax>\n        <cntemail>info@resdat.com</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20030610</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Must purchase the CD</metac>\n    <metuc>Refer to vendor policy.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "constraints": {
+        "./idinfo/accconst": "Must purchase the CD",
+        "./idinfo/useconst": "Refer to vendor policy.",
+        "./metainfo/metac": "Must purchase the CD",
+        "./metainfo/metuc": "Refer to vendor policy."
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Must purchase the CD</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Refer to vendor policy.</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Must purchase the CD</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Refer to vendor policy.</metuc>"
+        ]
+      },
+      "spatial_fields": {
+        "westbc": "0",
+        "eastbc": "0",
+        "northbc": "0",
+        "southbc": "0"
+      },
+      "verdict": "KEEP_HELD_HISTORICAL_VENDOR_POLICY_NOT_RECOVERED",
+      "source_object": "Resource Data, Inc. Alaska Basemap CD version2.0, more than150 maps/tables,650MB, accompanying ArcExplorer and per-map/drawing/table metadata pages.",
+      "actual_XML_content": "The complete XML has a single product abstract and purpose, institutional contact/distribution details, zero-valued bounding fields and mirrored purchase/vendor-policy constraints. It does not include map/tabular files or identify the individual metadata pages.",
+      "material_gap": "The source explicitly incorporates an unidentified vendor policy; the abstract refers to metadata pages, so the missing historical policy could concern those descriptive components as well as CD/maps. Source restoration authority is settled, but this object-specific coverage has not been reconciled.",
+      "exact_source_quotes": [
+        "Must purchase the CD",
+        "Refer to vendor policy.",
+        "These pages contain specific metadata about each of the maps, drawings, and tables on the CD."
+      ],
+      "research_outcome": "Exact product-title searches and the current identified vendor domain did not yield the version2.0 terms. The old resdat.com homepage redirects to current resourcedata.com; that current services page is not substituted for historical terms. An Internet Archive CDX query and date-directed homepage retrieval were inaccessible via the tool. This is incomplete archive recovery, not proof the policy no longer exists.",
+      "next_agent_action": "Recover a contemporaneous Resource Data product page, version2.0 README/license insert or CD documentation through a working public archive or bibliographic holding, then compare the policy object to the exact XML. No owner follow-up is asserted irreducible while that lead remains unavailable."
+    },
+    {
+      "source_id": "FGDC-1994",
+      "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb",
+      "full_root_sha256": "2165dd46bbe65aca8f95413e9647208ede8c1e5b762a25a3058d3a15b5fef589",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.</origin>\n        <pubdate>122003</pubdate>\n        <title>A Fish and Wildlife Resource Inventory of the Cook Inlet and Kodiak Areas</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>This report references harvest data of fish species (Clupea pallasi) from Kodiak Island and Cook Inlet and harvest data of invertebrate species (Siliqua patula) from Cook Inlet, Alaska.\n\n  The aforementioned data are referenced in citation: Alaska Department of Fish and Game.  1977.  A fish and wildlife resource inventory of the Cook Inlet and Kodiak areas. Volume 2.  Alaska Coastal Management Program, Division of Policy Development and Planning, 443 p.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #22 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.</abstract>\n      <purpose>Part of the design effort of the \"Alternative Sampling Designs for Nearshore Monitoring\" (Gulf Ecosystem Monitoring and Research Project).  Provides a comprehensive historical perspective of locations and types of past studies conducted in the nearshore marine communities within Gulf of Alaska in the form of a geographical information system database.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <mdattim>\n          <sngdate>\n            <caldate>1914-1928, 1939-1959, 1962-1974, 1965-1976, 1969-1976.</caldate>\n          </sngdate>\n        </mdattim>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-154.01</westbc>\n        <eastbc>-152.44</eastbc>\n        <northbc>59.51</northbc>\n        <southbc>57.84</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Fish</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Fish Species (Clupea pallasi)</themekey>\n        <themekey>Invertebrate Species (Siliqua patula)</themekey>\n        <themekey>Cook Inlet, Alaska</themekey>\n        <themekey>Kodiak Island, Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact Source</accconst>\n    <useconst>Contact Source</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bodkin, James L.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3550</cntvoice>\n        <cntfax />\n        <cntemail>james_bodkin@usgs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bodkin, James L.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3550</cntvoice>\n        <cntfax />\n        <cntemail>james_bodkin@usgs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20040723</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact Source</metac>\n    <metuc>Contact Source</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Contact Source</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Contact Source</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Contact Source</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Contact Source</metuc>"
+        ]
+      },
+      "spatial_fields": {
+        "westbc": "-154.01",
+        "eastbc": "-152.44",
+        "northbc": "59.51",
+        "southbc": "57.84"
+      },
+      "verdict": "KEEP_HELD_IDENTIFIED_PROJECT_REPORT_RECOVERY_PENDING",
+      "source_object": "A bibliographic record for the1977 Cook Inlet/Kodiak inventory, integrated into the nearshore project in three named formats: ArcView3.3, Excel2002 and ProCite; source pointer ProCite#22.",
+      "actual_XML_content": "The XML supplies a literature description, harvested species and regions, sample-date ranges, purpose, one bounding extent and database-format/custodian instructions. It contains no ArcView geometry, Excel rows, harvest values or complete ProCite database. It does reproduce one literature metadata summary, making the exact relationship to the metadata-product terms worth resolving.",
+      "material_gap": "The attached2003 G-030687 report is the positive source-identified explanation of the three products. It was not retrieved here; no report content or release wording is inferred from its citation. Contact Source meaning and rehosting authority are settled and not reopened.",
+      "exact_source_quotes": [
+        "Reference Procite #22 for this literature's metadata.",
+        "The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska."
+      ],
+      "research_outcome": "The source URL and current EVOSTC report-index URL failed accessible retrieval (web timeout/inaccessible URL, local public fetch Tunnel connection failed:403Forbidden). Publisher-hosted EVOSTC search results independently cite the exact report title in2004/2006 materials and an annual/final report index, confirming a concrete recovery lead. No full report was read or hashed.",
+      "next_agent_action": "Use a functioning EVOSTC report archive or USGS Alaska Science Center bibliographic/archive mirror to recover G-030687 and its database appendices. The network/path failures are not an exhausted archival search or a user-only decision."
+    },
+    {
+      "source_id": "FGDC-909",
+      "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae",
+      "full_root_sha256": "adb8d7ef1981c90a24a5433f327068267c27f04a5178c3786019b349d3d33907",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Dr. Wieslaw Maslowski, Naval Postgraduate School, Monterey, California, USA</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Results from the Naval Postgraduate School Arctic Modeling Effort</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>The Naval Postgraduate School 18-km coupled Arctic Ocean and sea ice model\nemploys the Parallel Ocean Program (POP) adapted to the Pan-Arctic region and coupled to a parallel version of the Hibler dynamic-thermodynamic sea ice model with viscous-plastic rheology and a zero-layer thermodynamics approximation. The model grid is configured on a rotated spherical coordinate system and its resolution is 1/6° (~18 km) with 30 levels. The model domain extends from Bering Strait through the Central Arctic, Nordic and Barents Seas into the sub-polar North Atlantic (to ~45°N) and it includes the Canadian Archipelago. Daily-averaged operational atmospheric fields from the European Centre for Medium-range Weather (ECMWF) for 1994-98 are used to force the model in addition to the 1979-93 reanalyzed data. It is important to note that the only interannual forcing in the model comes from the prescribed atmospheric fields. The model has been integrated initially for 200 years forced with 1990-94 atmospheric fields. It was then spun up for 20 years using the repeated 1979 annual cycle, which was followed by an additional 2-decade integration using 1979-1998 atmospheric data.\nThe new 9-km coupled ice-ocean model, developed at the Naval Postgraduate School (NPS) in Monterey, California, USA, is configured on a 1/12° and 45-level rotated spherical grid.  It consists of a regional adaptation of the POP, developed at the Los Alamos National Laboratory, coupled to a parallel version of the original Hibler dynamic-thermodynamic model with a viscous-plastic rheology.  The model uses ECMWF daily-averaged reanalyzed data for 1979-1993 and 1994-2002 operational products, including the surface incoming long wave and shortwave radiation, 2-m air temperature and dew point temperature, and 10-m winds.  The model incorporates a 2.5-km bathymetry field, developed by the International Bathymetry Charting of the Arctic Ocean project, interpolated to the 9-km grid.  The model domain extends from the\nPacific Ocean (~30°N) through the Central Arctic, Nordic and Barents Seas into the North Atlantic (to ~40°N) and it allows realistic exchanges through Bering Strait.  Results from the ongoing model integration are just becoming available.</abstract>\n      <purpose>To advance the knowledge of Arctic Ocean dynamics and variability.  The model\nprovides large scale and long term data, while maintaining high resolution for better analysis.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19790101</begdate>\n          <enddate>20021201</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Continually</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-180</westbc>\n        <eastbc>180</eastbc>\n        <northbc>90</northbc>\n        <southbc>30</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Atmosphere</themekey>\n        <themekey>Meteorology</themekey>\n        <themekey>Ice Physics</themekey>\n        <themekey>Oceanography</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Model</themekey>\n        <themekey>Physical Oceanography</themekey>\n        <themekey>Global Change</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Permission of Contributor required. Department of Defense Sensitive data</accconst>\n    <useconst>Permission of Contributor required. Department of Defense Sensitive data</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Masklowski, Wieslaw</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>Dept of Oceanography, Building 232,  833 Dyer Road</address>\n          <city>Monterey</city>\n          <state>CA</state>\n          <postal>93943</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>831-656-3162</cntvoice>\n        <cntfax>831-656-2712</cntfax>\n        <cntemail>maslowsk@nps.navy.mil</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Masklowski, Wieslaw</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>Dept of Oceanography, Building 232,  833 Dyer Road</address>\n          <city>Monterey</city>\n          <state>CA</state>\n          <postal>93943</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>831-656-3162</cntvoice>\n        <cntfax>831-656-2712</cntfax>\n        <cntemail>maslowsk@nps.navy.mil</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20030213</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Permission of Contributor required. Department of Defense Sensitive data</metac>\n    <metuc>Permission of Contributor required. Department of Defense Sensitive data</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "constraints": {
+        "./idinfo/accconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./idinfo/useconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metac": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metuc": "Permission of Contributor required. Department of Defense Sensitive data"
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Permission of Contributor required. Department of Defense Sensitive data</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Permission of Contributor required. Department of Defense Sensitive data</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Permission of Contributor required. Department of Defense Sensitive data</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Permission of Contributor required. Department of Defense Sensitive data</metuc>"
+        ]
+      },
+      "spatial_fields": {
+        "westbc": "-180",
+        "eastbc": "180",
+        "northbc": "90",
+        "southbc": "30"
+      },
+      "verdict": "KEEP_HELD_EXACT_SOURCE_CONFIGURATION_SCOPE_PARTLY_CORROBORATED",
+      "source_object": "NPS18km/30level and9km/45level Arctic ice/ocean model results and detailed model setup.",
+      "actual_XML_content": "The XML contains substantive description of algorithms, grid resolutions, vertical levels, geographic domain, forcing products/periods, spin-up history and bathymetric input. It has no code/configuration file, forcing arrays, grid coordinates or model-output field. Its -180/180/90/30 coverage box is consistent with a pan-Arctic model domain, but broad bounds are not a confidentiality determination.",
+      "material_gap": "Two primary papers support much of the described scientific architecture, but differ in domain/forcing endpoints and do not expressly delimit the source permission/DOD-sensitive clause. They do not prove every configuration statement in the exact2003 XML was released, nor that sensitive model outputs are now unrestricted.",
+      "exact_source_quotes": [
+        "Permission of Contributor required. Department of Defense Sensitive data",
+        "Results from the ongoing model integration are just becoming available."
+      ],
+      "research_outcome": "Primary NPS-author papers were read at publisher/author-institution URLs. The2000 paper substantially corroborates the18km setup/spinup; the2004 paper corroborates the9km setup. The old official NPS department page links to a NAME page that now returns404. The2003 Polar Research paper independently links the18km and9km model comparison, but is not blanket release authority.",
+      "next_agent_action": "Seek the original public2002–2003 NAME model-description page or a release-scoped contemporaneous report, compare every unmatched source clause, and preserve source restrictions. Public scientific similarity is useful evidence, not declassification. An independent reviewer may assess whether source-positive results/object context plus existing separate restoration authority suffices, but this packet does not recommend clearing909 now."
+    }
+  ],
+  "rows_sha256": "ea4ad47aeb859f5be8d2468e70a253abace426194cf4039d6913c893c76dac6f",
+  "external_evidence": [
+    {
+      "evidence_key": "nps2000",
+      "title": "Modeling Recent Climate Variability in the Arctic Ocean",
+      "url": "https://ocp.ldeo.columbia.edu/res/div/ocp/pub/martinson/1999GL011227.pdf",
+      "doi": "10.1029/1999GL011227",
+      "publication_date": "2000-11-15",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "location": "pp3743–3744, Model Description and The Experiment",
+      "exact_quote": "The Bering Strait is closed.",
+      "summary": "Author-institution PDF describes a rotated18km/30level grid, parallel Hibler viscous-plastic model and ECMWF forcing. A200-year integration with1990–94 forcing precedes20-year spin-up repeating1979. The subsequent experiment ends1993; the source XML extends to1998. The paper places its Atlantic boundary near50N, while the XML says approximately45N. These differences prevent claiming an exact configuration match.",
+      "raw_download_hash": null,
+      "snapshot_kind": "bounded exact quote plus located paraphrase; web PDF extraction succeeded, no raw PDF downloaded"
+    },
+    {
+      "evidence_key": "nps2004",
+      "title": "On climatological mass, heat, and salt transports through the Barents Sea and Fram Strait from a pan-Arctic coupled ice-ocean model simulation",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JC001039",
+      "doi": "10.1029/2001JC001039",
+      "publication_date": "2004-03-20",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "location": "section2, paragraphs12–19",
+      "exact_quote": "Vertically, the model is divided into 45 z coordinate levels.",
+      "summary": "Publisher fulltext describes a9km rotated grid, POP, viscous-plastic sea ice, zero-layer thermodynamics,2.5km IBCAO bathymetry, the Arctic/North-Pacific/North-Atlantic domain and atmospheric forcing fields. Its simulation covers1979–2001 rather than the XML operational-products endpoint2002. This supports matching architecture, not identical-version release or permission for the XML or model outputs.",
+      "raw_download_hash": null,
+      "snapshot_kind": "bounded exact quote plus located paraphrase; publisher HTML extraction succeeded"
+    },
+    {
+      "evidence_key": "nps2003",
+      "title": "High resolution simulations of Arctic sea ice,1979–1993",
+      "url": "https://polarresearch.net/index.php/polar/article/view/2098",
+      "doi": "10.3402/polar.v22i1.6445",
+      "publication_date": "2003-01-06",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "location": "publisher abstract",
+      "exact_quote": "18-km and 9-km",
+      "summary": "The primary article compares both horizontal-resolution versions and identifies POP and1979–93 ECMWF reanalysis. Its abstract supports the model lineage; it does not establish release of every source configuration statement.",
+      "raw_download_hash": null,
+      "snapshot_kind": "bounded exact quote plus located paraphrase; publisher abstract read"
+    },
+    {
+      "evidence_key": "nps_link",
+      "url": "https://www.oc.nps.edu/",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "page_last_updated": "2019-08-20",
+      "exact_quote": "All information contained herein has been approved for release by the NPS Public Affairs Officer",
+      "scope_limit": "This footer belongs to the fetched department page. It is not extended to the missing NAME page or FGDC909.",
+      "linked_model_url": "https://www.oc.nps.edu/NAME/name.html",
+      "linked_model_result": "404NotFound"
+    },
+    {
+      "evidence_key": "evostc_legacy_report",
+      "url": "http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "result": "Tool attemptedhttps URL; inaccessible. Shell publichttps fetch received403Tunnel failure. No body/report hash."
+    },
+    {
+      "evidence_key": "evostc_index",
+      "url": "https://evostc.state.ak.us/media/4291/finalandannualreports.pdf",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "result": "Title search returned a report-title citation, but open timed out. Shell public fetch received403Tunnel failure. No complete index read/hash."
+    },
+    {
+      "evidence_key": "evostc_citation2004",
+      "url": "https://evostc.state.ak.us/media/3197/182.pdf",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "result": "Search result gives a2004-04-07 document citing the exact alternative-sampling report and G-030687. Discovery only; complete report not retrieved."
+    },
+    {
+      "evidence_key": "evostc_citation2006",
+      "url": "https://evostc.state.ak.us/media/2185/2004-040776-final.pdf",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "result": "Search result gives a2006 document citing the exact alternative-sampling report as a draft final report G-030687. Discovery only; complete report not retrieved."
+    },
+    {
+      "evidence_key": "vendor_current",
+      "url": "https://www.resdat.com/",
+      "final_url": "https://www.resourcedata.com/",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "result": "Current vendor services homepage; no version2.0 CD policy recovered. No present-day website policy substituted."
+    },
+    {
+      "evidence_key": "vendor_archive_index",
+      "url": "https://web.archive.org/cdx/search/cdx?url=resdat.com/*&output=json&filter=urlkey:.*basemap.*&filter=statuscode:200&collapse=urlkey",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "result": "Inaccessible via web tool. No negative archive-existence conclusion."
+    },
+    {
+      "evidence_key": "vendor_archive_page",
+      "url": "https://web.archive.org/web/20030601000000/http://www.resdat.com/",
+      "retrieved_at_utc": "2026-10-04T18:10:00.599413+00:00",
+      "result": "Date-directed archive lookup inaccessible.20030601000000 was a lookup target, not a verified snapshot date."
+    }
+  ],
+  "external_evidence_sha256": "5a6c98b755332a1bcfe06a11b804b48938a13b5bba037cbf9399797cd3e3ebb3",
+  "web_quote_budget": "Each primary article/page has at most25quotedwords. Paraphrases are compact and below200words/source. Original source XML is separately user-provided and remains complete.",
+  "independent_archive_leads_exhausted": false,
+  "source_owner_request": null,
+  "no_repeated_authority_question": true,
+  "activities": {
+    "repository_edits": 0,
+    "source_XML_edits": 0,
+    "provider_requests": 0,
+    "private_or_credential_reads": 0,
+    "classifier_runs": 0,
+    "promotions": 0
+  },
+  "digest_recipe": "Raw file bytes SHA256; objectSHA256 of UTF8 json.dumps(sort_keys=True,ensure_ascii=False,separators=(comma,colon)); ET full-root serialization outertailNone."
+}

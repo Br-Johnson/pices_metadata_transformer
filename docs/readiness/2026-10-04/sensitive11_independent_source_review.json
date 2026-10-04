@@ -1,0 +1,864 @@
+{
+  "schema_version": 1,
+  "kind": "Independent complete-source review of exact11 resource interpretation candidates",
+  "reviewer": "/root/astra_transport_boundary",
+  "reviewed_at": "2026-10-04T18:10:19.881118+00:00",
+  "source_worktree": "/workspace/pices-residual-evidence-next-20261004",
+  "source_head": "05d699e93572345c0591ca932a03089a9dd9ba9c",
+  "verdict": "APPROVE_ALL11_EXACT_FINITE_SOURCE_INTERPRETATIONS_PENDING_MEASURED_INTEGRATION",
+  "material_findings": [],
+  "proposal": {
+    "path": "/tmp/pices-sensitive11-source-candidates.json",
+    "sha256": "392ad8e2f9941ec0d1711b192667ca186c599a00179ff70932cefd1059a05e8a"
+  },
+  "old31": {
+    "path": "docs/readiness/2026-10-03/pices-remaining31-exception-decisions.json",
+    "sha256": "2edf6b9f599329ebff9f5449ff5e9c363baa3a049521edb3f88a55066416e387"
+  },
+  "current596": {
+    "path": "docs/readiness/2026-10-04/finite_source_resource_access_596.json",
+    "sha256": "4719b46cfe46a2b950b3abc695fd8778ffc7bd3041e5bb0bae253c613c55ec2c",
+    "member_count": 596
+  },
+  "current_ledger": {
+    "path": "docs/readiness/2026-10-04/residual_resource4_integrated_source_status.json",
+    "sha256": "4e24fbe4859644d7fe1ddfbd87bf207df8dd6f4f8a9ea288713a1fb9a15aed7b",
+    "counts": {
+      "supported": 3681,
+      "held": 519,
+      "malformed": 6
+    }
+  },
+  "members": [
+    {
+      "source_id": "FGDC-2086",
+      "source_sha256": "bd773c3800492e488e84f228dae101eb196ecff16380e3b523bde65fe4eaacca"
+    },
+    {
+      "source_id": "FGDC-2234",
+      "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+    },
+    {
+      "source_id": "FGDC-53",
+      "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45"
+    },
+    {
+      "source_id": "FGDC-563",
+      "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28"
+    },
+    {
+      "source_id": "FGDC-564",
+      "source_sha256": "2638d5dbf5ca41f28037d2a291321e34693c3172152858644d2fe65086e2f8aa"
+    },
+    {
+      "source_id": "FGDC-565",
+      "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d"
+    },
+    {
+      "source_id": "FGDC-627",
+      "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29"
+    },
+    {
+      "source_id": "FGDC-754",
+      "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62"
+    },
+    {
+      "source_id": "FGDC-755",
+      "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+    },
+    {
+      "source_id": "FGDC-757",
+      "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+    },
+    {
+      "source_id": "FGDC-760",
+      "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+    }
+  ],
+  "membership_sha256": "f2397e1a95c27c5d802760cb6d9073d61ce068c778d71463d288a7b6527ef749",
+  "acquisition_contexts": {
+    "FGDC-2086": {
+      "constraints": {
+        "./idinfo/accconst": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available.",
+        "./idinfo/useconst": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available.",
+        "./metainfo/metac": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available.",
+        "./metainfo/metuc": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available."
+      },
+      "meaning": "derived_existing_authority_underlying_ferhri_observation_database_foreign_user_classification_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Far Eastern Regional Hydrometeorlogical Institute (FERHRI), 24 Fontannaya Street, Vladivostok, Russia 690600</origin>\n        <pubdate>Unpublished Material</pubdate>\n        <title>Oceanographic Database (1894-1987) for the Bering Sea</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>There are about 40,000 oceanographic stations for the period 1894-1987. 3,500 stations are available for the period 1986-1996 from the Pacific Research Oceanographic Institute. Temperature, salinity, oxygen are the major parameters, but some additional measurements of chemical parameters are available.</abstract>\n      <purpose>Investigation of the large-scale variability of environmental conditions of the Bering Sea region. These data are not available for analysis but can be processed in Russia, and results could be published.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>18940101</begdate>\n          <enddate>19961230</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>162</westbc>\n        <eastbc>-158</eastbc>\n        <northbc>70</northbc>\n        <southbc>50</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Oceanography</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Bering Sea</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>These data are classified for foreign users. Russian scientists can process these data and results of research will be available.</accconst>\n    <useconst>These data are classified for foreign users. Russian scientists can process these data and results of research will be available.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Luchin, Vladimir A.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>24 Fontannaya Street</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax />\n        <cntemail>hydromet@online.ru</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Luchin, Vladimir A.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>24 Fontannaya Street</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax />\n        <cntemail>hydromet@online.ru</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19970825</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>These data are classified for foreign users. Russian scientists can process these data and results of research will be available.</metac>\n    <metuc>These data are classified for foreign users. Russian scientists can process these data and results of research will be available.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The title, abstract and purpose identify a FERHRI oceanographic station database and an explicit workflow in which the observations remain in Russia for processing while research results may become available. The XML reports approximate station totals, survey date spans and measured parameter categories; it contains no station identifiers, station coordinates, profile rows, measured temperature/salinity/oxygen values, processing instructions or computed research results. The spatial values 162/-158/70/50 identify the regional Bering Sea coverage, not station locations. Custodian identity/address is explicitly a data contact. This source-specific positive data-processing context supports restoring the exact description under separate existing authority while preserving the foreign-user classification, unavailable-for-analysis statement and Russia-processing condition. No declassification, entitlement of foreign users, processing permission or finding that results were released is asserted."
+    },
+    "FGDC-2234": {
+      "constraints": {
+        "./idinfo/accconst": "Database is maintained on a standalone system and is considered sensitive.",
+        "./idinfo/useconst": "Information is sensitive and subject to certain restrictions under the Freedom of Information Act.",
+        "./metainfo/metac": "Database is maintained on a standalone system and is considered sensitive.",
+        "./metainfo/metuc": "Information is sensitive and subject to certain restrictions under the Freedom of Information Act."
+      },
+      "meaning": "derived_existing_authority_underlying_uscg_inspection_database_sensitivity_foia_limits_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>CWO3  James Mike Anderson</origin>\n        <pubdate>Unpublished Material</pubdate>\n        <title>Database of USCG Underway Inspections of Alaska Fishing Vessels</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Information on vessels boarded by Coast Guard cutters in the Bering Sea and Gulf of Alaska.  It includes the name and document number of the vessels boarded, the name of the cutter, the NMFS management zone, the fishing vessel's targeted species and any noted violations.</abstract>\n      <purpose>The data is used to provide information for operational planning and inventory of the activities around Bering Sea and Gulf of Alaska</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19970101</begdate>\n          <enddate>19981231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Daily</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-175</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>75</northbc>\n        <southbc>40</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Birds</themekey>\n        <themekey>Fish</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Gulf of Alaska</themekey>\n        <themekey>Bering Sea</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Database is maintained on a standalone system and is considered sensitive.</accconst>\n    <useconst>Information is sensitive and subject to certain restrictions under the Freedom of Information Act.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Busch, Gregory C.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>P.O. Box 25517</address>\n          <city>Juneau</city>\n          <state>AK</state>\n          <postal>99802-5517</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-463-2223</cntvoice>\n        <cntfax>907-463-2216</cntfax>\n        <cntemail>gbusch@CGAlaska.uscg.mil</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Busch, Gregory C.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>P.O. Box 25517</address>\n          <city>Juneau</city>\n          <state>AK</state>\n          <postal>99802-5517</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-463-2223</cntvoice>\n        <cntfax>907-463-2216</cntfax>\n        <cntemail>gbusch@CGAlaska.uscg.mil</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19980723</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Database is maintained on a standalone system and is considered sensitive.</metac>\n    <metuc>Information is sensitive and subject to certain restrictions under the Freedom of Information Act.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The title and abstract identify a standalone USCG database of vessel boardings, describing its fields: vessel name/document number, cutter, NMFS zone, target species and noted violations. The purpose links that database to operational planning and activity inventory. The XML lists those field types but contains no vessel or cutter name, document number, specific boarding event, NMFS zone value, target-species value, violation allegation or operational plan. CWO3 James Mike Anderson is the citation origin; Gregory Busch and Kimberly Bahl are explicit custodian/distributor/metadata contacts, not inspection subjects. Dates and -175/-130/75/40 bounds describe coverage only. The finite interpretation preserves database sensitivity and the source FOIA restriction literally; it neither decides a FOIA exemption, releases inspection records, nor treats institutional contacts as protected vessel data. Restoration relies on separate existing authority."
+    },
+    "FGDC-53": {
+      "constraints": {
+        "./idinfo/accconst": "Contact custodian or PICES Secretariat for inventory information",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian or PICES Secretariat for inventory information",
+        "./metainfo/metuc": "None"
+      },
+      "meaning": "derived_existing_authority_underlying_tcode_profile_inventory_contact_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Pacific Fisheries Research Center (TINRO-Center)</origin>\n        <pubdate>Unknown</pubdate>\n        <title>T&amp;S profiles - NW Pacific, Bering, Okhotsk (Russia)</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Standard transects at various locations in the NW Pacific. Bering Sea and Sea of Okhotsk.\n\nGeographical Area:\nNW Pacific, Sea of Okhotsk and Bering Sea\n\nDistributions of observations by year/by month available from PICES office, as well as details on the location of the sections. Some of these data may be included in the World Ocean Atlas 1994\n\nA TCODE project</abstract>\n      <purpose />\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19520101</begdate>\n          <enddate />\n        </rngdates>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Continually</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>163</westbc>\n        <eastbc>-157</eastbc>\n        <northbc>65.5</northbc>\n        <southbc>52</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Temperature</themekey>\n        <themekey>Salinity</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact custodian or PICES Secretariat for inventory information</accconst>\n    <useconst>None</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bocharov, Lev</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>4 Shevchenko Alley</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax>7-4232-257-783</cntfax>\n        <cntemail>root@tinro.marine.su</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bocharov, Lev</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>4 Shevchenko Alley</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax>7-4232-257-783</cntfax>\n        <cntemail>root@tinro.marine.su</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19990720</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact custodian or PICES Secretariat for inventory information</metac>\n    <metuc>None</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The abstract positively distinguishes standard temperature/salinity transects from an inventory held elsewhere: distributions by year/month and section locations are available from the PICES office. The access instruction explicitly names that inventory information and the custodian/Secretariat. This XML describes the TCODE project, parameters and region; it does not supply year/month observation counts, a section list or temperature/salinity profiles. The west/east/north/south values 163/-157/65.5/52 describe regional coverage across the dateline, not transect coordinates. The source-specific contact operation can therefore be retained as acquisition of the separate profile inventory while restoring this exact description under existing separate authority. None remains the literal use wording; neither inventory delivery nor access has occurred."
+    },
+    "FGDC-563": {
+      "constraints": {
+        "./idinfo/accconst": "Not available; secure data",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Not available; secure data",
+        "./metainfo/metuc": "Unknown"
+      },
+      "meaning": "derived_existing_authority_underlying_cnf_cultural_site_inventory_secure_unknown_use_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>USDA Forest Service, Chugach National Forest</origin>\n        <pubdate>1950-1980</pubdate>\n        <title>Archeological / Cultural Sites - CNF</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Cultural Resources;  Archeological and cultural resource described with codes for inside of buffered area, unique FS Cultural Resource Inventory Number, BLM serial file designator, and national register status.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19500101</begdate>\n          <enddate>19891231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-148</westbc>\n        <eastbc>-145</eastbc>\n        <northbc>61</northbc>\n        <southbc>59.45</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Geology</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Archeology</themekey>\n        <themekey>Cultural Sites</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Not available; secure data</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020424</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Not available; secure data</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The abstract identifies a coded cultural-resource inventory whose records include buffered-area codes, unique Forest Service inventory numbers, BLM serial designators and national-register status. Not available; secure data refers contextually to that named inventory. This XML lists those field categories but contains no actual inventory number, serial designator, site name, individual site status, buffered geometry or archaeological-site record. Its single spatial extent -148/-145/61/59.45 occurs only in spdom/bounding for the Chugach collection; no site-specific coordinate or directions are present anywhere in the full root. Karen Oakley and Kimberly Bahl are explicitly point/distributor/metadata contacts, not cultural informants. This supports a finite inventory-object reading under separate restoration authority, preserving secure unavailability and Unknown use. It does not declassify the inventory or infer a general exemption for cultural metadata."
+    },
+    "FGDC-564": {
+      "constraints": {
+        "./idinfo/accconst": "Contact John Johnson to determine availability of specific products.",
+        "./idinfo/useconst": "Chugach Alaska will be automating data 1995",
+        "./metainfo/metac": "Contact John Johnson to determine availability of specific products.",
+        "./metainfo/metuc": "Chugach Alaska will be automating data 1995"
+      },
+      "meaning": "derived_existing_authority_underlying_chugach_cultural_products_availability_automation_statement_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Chugach Alaska Corporation</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Cultural Resource and Subsistence Use</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Cultural Resources; Data on native cultural resources as collected over majority of Chugach Alaska Regional Native Corporation lands and associated village corporation lands. Includes oral history recordings and data on historic and pre-historic sites and subsistence uses.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-154</westbc>\n        <eastbc>-141</eastbc>\n        <northbc>62</northbc>\n        <southbc>58</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Cultural Resource</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Prince William Sound Ecosystem</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact John Johnson to determine availability of specific products.</accconst>\n    <useconst>Chugach Alaska will be automating data 1995</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020424</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact John Johnson to determine availability of specific products.</metac>\n    <metuc>Chugach Alaska will be automating data 1995</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The access instruction explicitly asks the reader to determine availability of specific products. The abstract positively identifies those product types as oral-history recordings, historic/pre-historic site data and subsistence-use data collected across Chugach Alaska and village corporation lands. The complete XML contains only a collection description: no recording, transcript, speaker narrative, site listing, land-use observation or village-linked site geometry. The extent -154/-141/62/58 is one coverage box; its values are not attached to individual cultural sites. John Johnson appears only in the availability instruction; Karen Oakley and Kimberly Bahl are custodial/metadata contacts, not interview subjects. The literal future-tense automation statement about 1995 remains unchanged; no completion is inferred. The proposed finite reading preserves product-by-product availability and rests on existing separate restoration authority, not presumed consent for cultural material."
+    },
+    "FGDC-565": {
+      "constraints": {
+        "./idinfo/accconst": "Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "meaning": "derived_existing_authority_underlying_evos_ahrs_extraction_nonpublic_spill_response_limits_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>USDA Forest Service, Alaska Department of Natural Resources</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Archeology Preliminary Sites - EVOS</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Cultural Resources; This data contains pre-edited archeological site data, that is an extraction of data from the Alaska Heritage Resource Survey. Data was provided by Dept. of Natural Resources, Office of History for the spill affected area of the Exxon Valdez oil spill. This data was released to provide information for spill response, and damage assessment only. These data are closed to the general public as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-156.5</westbc>\n        <eastbc>-146.5</eastbc>\n        <northbc>61.25</northbc>\n        <southbc>57.25</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Geology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Archeology</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Alaska Heritage</themekey>\n        <themekey>History</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020424</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The abstract positively identifies the restricted object: a pre-edited extraction from the Alaska Heritage Resource Survey supplied for spill response and damage assessment only. It repeats the public-closure rule and its exact historical citations. The complete XML contains no extracted AHRS site record, AHRS site identifier, archaeological feature description, coordinates tied to a site, or access directions; it describes the extraction and its purpose. The bounding values -156.5/-146.5/61.25/57.25 label collection coverage of the spill-affected area and do not encode site geometries. Names and Anchorage/Seattle addresses are explicitly custodial/metadata contact fields. This supports only a finite description-versus-extraction reading under separate restoration authority. Preserve all closure, spill-response-only, damage-assessment-only, Unknown-use and historical-law wording; do not correct AS 9.25.120, claim legal expiry, or claim AHRS approval. The current public DNR policy is corroborative of the object distinction only, not substituted historical terms or new authority."
+    },
+    "FGDC-627": {
+      "constraints": {
+        "./idinfo/accconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "meaning": "derived_existing_authority_underlying_copper_river_allotment_layer_site_publication_restriction_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Boundaries:14(C)1, 14(H)1 and Native Allotments</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Boundaries; Automation of the locations in the Copper River Basin of 14(c)1, 14(h)1 and native allotments. This dataset is part of the multilayered subsistence database compiled by UAA ISER for Copper River Native Association (Record #061)</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-145.5</westbc>\n        <eastbc>-141.5</eastbc>\n        <northbc>63</northbc>\n        <southbc>60.42</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Boundaries</themekey>\n        <themekey>Copper River, Alaska</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Survey</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020423</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The title and abstract identify an automated layer of 14(c)1, 14(h)1 and Native allotment locations within the separate multilayered Copper River Native Association database (Record #061). The restriction expressly targets publication of subsistence site information where it could lead to trespass/vandalism. This XML states the layer subject and database relationship, but contains no allotment identifiers, owner/household names, parcel boundaries, subsistence sites, point locations or access routes. The sole spatial box -145.5/-141.5/63/60.42 is not a parcel polygon or coordinate list. The exact-source reading therefore distinguishes this catalogue description from the restricted boundary/site data and preserves the entire conditional publication restriction. No permission to publish site information, risk determination for any site, or exemption for all regional metadata is inferred."
+    },
+    "FGDC-754": {
+      "constraints": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "meaning": "derived_existing_authority_underlying_ahtna_clan_layer_names_and_site_publication_restrictions_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska, Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Ahtna Clan Boundaries</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Subsistence/Traditional Knowledge;   This data layer is part of the larger Copper River Native Association Subsistence Database (Record#061) compiled on contract through the Institute of Social and Economic Research, University of Alaska Anchorage and depicts the Ahtna clan boundaries.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-145.5</westbc>\n        <eastbc>-141.5</eastbc>\n        <northbc>63</northbc>\n        <southbc>60.42</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Ahtna Clan Boundaries</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Traditional Knowledge</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>A version of the database with individual names removed will be delivered to BLM and NPS.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020430</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>A version of the database with individual names removed will be delivered to BLM and NPS.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The abstract identifies a particular data layer within the Copper River Native Association Subsistence Database (Record#061), depicting clan boundaries. The access clause describes delivery of a separate database version with individual names removed, and the use clause targets harmful publication of subsistence-site information. The full XML names the layer and contractor, but contains no clan/member roster, named boundary segment, boundary geometry, subsistence-site record, or individual subsistence-user name. Its only spatial values -145.5/-141.5/63/60.42 are the collection coverage box, not clan-boundary coordinates. Karen Oakley and Kimberly Bahl occur in explicit custodial and metadata contact roles. This finite interpretation preserves the future delivery/name-removal and site-publication conditions under existing separate restoration authority; no delivery, redaction, site-risk clearance or culturally sensitive dataset release is asserted."
+    },
+    "FGDC-755": {
+      "constraints": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "meaning": "derived_existing_authority_underlying_ahtna_place_name_layer_names_and_site_publication_restrictions_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska, Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Ahtna Place Names</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Subsistence/Traditional Knowledge;   Automation of the Ahtna place names as provided by James Kari Ahtna Place Names. This is a layer in the Copper River Native Association Subsistence Database 1995.(Record#061)</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-145.5</westbc>\n        <eastbc>-141.5</eastbc>\n        <northbc>63</northbc>\n        <southbc>60.42</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Traditional Knowledge</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Ahtna, Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>A version of the database with individual names removed will be delivered to BLM and NPS.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020430</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>A version of the database with individual names removed will be delivered to BLM and NPS.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The abstract identifies automation of a cited James Kari place-name source as one layer of the separate 1995 Copper River Native Association database (Record#061). The XML does not enumerate Ahtna place names or translations, identify a named cultural site, reproduce a map, supply place-name coordinates, or name subsistence participants. James Kari is explicitly credited as the source of the place-name work, not identified as a protected participant; Karen Oakley and Kimberly Bahl are custodial/metadata contacts. The box -145.5/-141.5/63/60.42 expresses layer coverage only, with no individual site linkage. The delivery clause and trespass/vandalism condition thus have a concrete separate database context. Preserve both without claiming that database names were removed, a redacted version delivered, publication risk assessed, or underlying cultural-data rights granted."
+    },
+    "FGDC-757": {
+      "constraints": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "meaning": "derived_existing_authority_underlying_copper_river_multilayer_database_names_and_site_publication_restrictions_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska, Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Copper River Basin Subsistence</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Subsistence/Traditional Knowledge;   This dataset is a multi-layered subsistence database pulling together existing data sources. Layers include drainage, hypsography, supplemental hypsography, political boundaries and ocean net, populated places, park boundaries, land selection status, 1:250,000 USGS Quadrangle boundaries,  Ahtna Clan boundaries, native corporation boundaries, traditional use, Ahtna place names, Native routes, registered traplines, trapping areas, woodcutting areas4/88, hunting areas, fishing, boating, and camping areas, wood cutting areas 3/86, hunting areas 3/86, subsistence hunt areas for large mammals, Game Management Units ADF&amp;G. Intended use of information is to aid CRNA meet criteria to establish permanent rights for Ahtna shareholders to pursue subsistence activities in Wrangell St. Elias National Park and preserve and protect Ahtna subsistence use areas and resources from urban competition. This database is part of a cooperative agreement with NPS and BLM to develop information relevant to Customary and Traditional Use determinations, the establishment of Residential Zones for subsistence use in the park and to establish a roster of eligible subsistence users in the Park/Preserve under section 1344 of ANILCA. Copies of the final dataset will reside at BLM, Ahtna, Copper River Native Assoc., and NPS. Some layers of this dataset have been extracted as separate records in the metadata database as they represent data that was automated as a result of this dataset compilation and are new electronic products. See metadata record #118,119,116, and 117.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-146</westbc>\n        <eastbc>-144</eastbc>\n        <northbc>62</northbc>\n        <southbc>60</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Traditional Knowledge</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Copper River, Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>A version of the database with individual names removed will be delivered to BLM and NPS.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020430</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>A version of the database with individual names removed will be delivered to BLM and NPS.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The abstract positively distinguishes the final multilayer dataset from its catalogue records: copies will reside with BLM, Ahtna, CRNA and NPS, and extracted new electronic layers have separate metadata record numbers. It lists layer classes and program purposes, including establishment of an eligible-subsistence-user roster, but includes no roster entries, participant names, household activity records, trapline/hunt/fish/camp locations or layer geometry. The dates 4/88 and 3/86 identify named layer vintages rather than household events. Record #118/119/116/117 are described as metadata references, not inferred source catalogue identities. The sole -146/-144/62/60 box is collection coverage. Institutional contact names are not roster entries. The finite reading preserves the stated name-removal delivery and harmful-site-publication restrictions, with no claim of redaction, delivery, cultural consent, safe publication of site data or grant of data rights."
+    },
+    "FGDC-760": {
+      "constraints": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "meaning": "derived_existing_authority_underlying_ahtna_native_route_layer_names_and_site_publication_restrictions_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska, Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Native Routes in The Ahtna Region</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Subsistence/Traditional Knowledge;   Automation of the Ahtna native routes as provided by James Kari in Tatl'ahwt'aenn nenn, the headwaters People's Country. This is a layer in the Copper River Native Association Subsistence Database 1995. (Record#061)</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-145.5</westbc>\n        <eastbc>-141.5</eastbc>\n        <northbc>63</northbc>\n        <southbc>60.42</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Traditional Knowledge</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>A version of the database with individual names removed will be delivered to BLM and NPS.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020430</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>A version of the database with individual names removed will be delivered to BLM and NPS.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The abstract identifies automation of native routes from a specifically named James Kari work as one layer of the separate CRNA Subsistence Database (Record#061). The quoted Ahtna phrase is the work title and its English gloss, not a route itinerary or protected participant record. The complete XML supplies no trail/route names, endpoints, path geometry, traversals, site locations or subsistence-user roster. Its spatial values -145.5/-141.5/63/60.42 are one collection box; no coordinate is tied to a route. James Kari is a source-author reference and the other individual names are explicit custodial/metadata contacts. This supports a finite separate-route-layer interpretation preserving the names-removed delivery clause and trespass/vandalism publication restriction without claiming delivery, prior redaction, permission to reproduce routes, or culturally sensitive data release."
+    }
+  },
+  "acquisition_contexts_sha256": "d1b68015079bce1224567c79ee8b29ffb7d00e85f5eb684a45ac2e535e47b883",
+  "rows": [
+    {
+      "source_id": "FGDC-2086",
+      "source_sha256": "bd773c3800492e488e84f228dae101eb196ecff16380e3b523bde65fe4eaacca",
+      "full_root_sha256": "49786ad8260e2ebee0c797c24c229b17ffd3a431a05d5a60ca41cc81aac74e5c",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Far Eastern Regional Hydrometeorlogical Institute (FERHRI), 24 Fontannaya Street, Vladivostok, Russia 690600</origin>\n        <pubdate>Unpublished Material</pubdate>\n        <title>Oceanographic Database (1894-1987) for the Bering Sea</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>There are about 40,000 oceanographic stations for the period 1894-1987. 3,500 stations are available for the period 1986-1996 from the Pacific Research Oceanographic Institute. Temperature, salinity, oxygen are the major parameters, but some additional measurements of chemical parameters are available.</abstract>\n      <purpose>Investigation of the large-scale variability of environmental conditions of the Bering Sea region. These data are not available for analysis but can be processed in Russia, and results could be published.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>18940101</begdate>\n          <enddate>19961230</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>162</westbc>\n        <eastbc>-158</eastbc>\n        <northbc>70</northbc>\n        <southbc>50</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Oceanography</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Bering Sea</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>These data are classified for foreign users. Russian scientists can process these data and results of research will be available.</accconst>\n    <useconst>These data are classified for foreign users. Russian scientists can process these data and results of research will be available.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Luchin, Vladimir A.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>24 Fontannaya Street</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax />\n        <cntemail>hydromet@online.ru</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Luchin, Vladimir A.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>24 Fontannaya Street</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax />\n        <cntemail>hydromet@online.ru</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19970825</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>These data are classified for foreign users. Russian scientists can process these data and results of research will be available.</metac>\n    <metuc>These data are classified for foreign users. Russian scientists can process these data and results of research will be available.</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Oceanographic Database (1894-1987) for the Bering Sea",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available.",
+        "./idinfo/useconst": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available.",
+        "./metainfo/metac": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available.",
+        "./metainfo/metuc": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available."
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "162",
+        "eastbc": "-158",
+        "northbc": "70",
+        "southbc": "50"
+      },
+      "positive_source_object_quotes": [
+        "These data are not available for analysis but can be processed in Russia, and results could be published.",
+        "These data are classified for foreign users. Russian scientists can process these data and results of research will be available."
+      ],
+      "independent_source_reasoning": "The purpose and four constraints positively distinguish the underlying oceanographic observations from a process in Russia whose research results could be made available. The XML contains approximate station totals, date spans and parameter categories, but no station observations or research-result table.",
+      "strongest_counterargument_and_limit": "Foreign-user classification is fully preserved; the review is not declassification, access eligibility, processing permission or a finding that any results were released. The counts and regional extent remain public descriptive metadata under existing restoration authority.",
+      "original_held_record": {
+        "source_id": "FGDC-2086",
+        "source_sha256": "bd773c3800492e488e84f228dae101eb196ecff16380e3b523bde65fe4eaacca",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-2234",
+      "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095",
+      "full_root_sha256": "59054abf1851e19942242b034b3fc1ee63e523ee3b60e6782b28c638cb8afce3",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>CWO3  James Mike Anderson</origin>\n        <pubdate>Unpublished Material</pubdate>\n        <title>Database of USCG Underway Inspections of Alaska Fishing Vessels</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Information on vessels boarded by Coast Guard cutters in the Bering Sea and Gulf of Alaska.  It includes the name and document number of the vessels boarded, the name of the cutter, the NMFS management zone, the fishing vessel's targeted species and any noted violations.</abstract>\n      <purpose>The data is used to provide information for operational planning and inventory of the activities around Bering Sea and Gulf of Alaska</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19970101</begdate>\n          <enddate>19981231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Daily</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-175</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>75</northbc>\n        <southbc>40</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Birds</themekey>\n        <themekey>Fish</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Gulf of Alaska</themekey>\n        <themekey>Bering Sea</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Database is maintained on a standalone system and is considered sensitive.</accconst>\n    <useconst>Information is sensitive and subject to certain restrictions under the Freedom of Information Act.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Busch, Gregory C.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>P.O. Box 25517</address>\n          <city>Juneau</city>\n          <state>AK</state>\n          <postal>99802-5517</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-463-2223</cntvoice>\n        <cntfax>907-463-2216</cntfax>\n        <cntemail>gbusch@CGAlaska.uscg.mil</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Busch, Gregory C.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>P.O. Box 25517</address>\n          <city>Juneau</city>\n          <state>AK</state>\n          <postal>99802-5517</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-463-2223</cntvoice>\n        <cntfax>907-463-2216</cntfax>\n        <cntemail>gbusch@CGAlaska.uscg.mil</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19980723</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Database is maintained on a standalone system and is considered sensitive.</metac>\n    <metuc>Information is sensitive and subject to certain restrictions under the Freedom of Information Act.</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Database of USCG Underway Inspections of Alaska Fishing Vessels",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "Database is maintained on a standalone system and is considered sensitive.",
+        "./idinfo/useconst": "Information is sensitive and subject to certain restrictions under the Freedom of Information Act.",
+        "./metainfo/metac": "Database is maintained on a standalone system and is considered sensitive.",
+        "./metainfo/metuc": "Information is sensitive and subject to certain restrictions under the Freedom of Information Act."
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "-175",
+        "eastbc": "-130",
+        "northbc": "75",
+        "southbc": "40"
+      },
+      "positive_source_object_quotes": [
+        "Information on vessels boarded by Coast Guard cutters in the Bering Sea and Gulf of Alaska.",
+        "Database is maintained on a standalone system and is considered sensitive."
+      ],
+      "independent_source_reasoning": "The access clause names a standalone sensitive database; title/abstract/purpose identify vessel inspections, the database field types and operational-planning use. The complete XML contains none of the vessel/cutter/document/event/zone/violation instance values; citation/contact people are explicitly in those roles.",
+      "strongest_counterargument_and_limit": "The broad Information is sensitive clause and FOIA reference stay intact. This review makes no FOIA exemption/release determination and does not clear inspection records or operational plans for access.",
+      "original_held_record": {
+        "source_id": "FGDC-2234",
+        "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-53",
+      "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45",
+      "full_root_sha256": "c1180c64c55d19c8b2e7cb1db761de2e3deaf3f3b7895b60c126ca1d4f6e128d",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Pacific Fisheries Research Center (TINRO-Center)</origin>\n        <pubdate>Unknown</pubdate>\n        <title>T&amp;S profiles - NW Pacific, Bering, Okhotsk (Russia)</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Standard transects at various locations in the NW Pacific. Bering Sea and Sea of Okhotsk.\n\nGeographical Area:\nNW Pacific, Sea of Okhotsk and Bering Sea\n\nDistributions of observations by year/by month available from PICES office, as well as details on the location of the sections. Some of these data may be included in the World Ocean Atlas 1994\n\nA TCODE project</abstract>\n      <purpose />\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19520101</begdate>\n          <enddate />\n        </rngdates>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Continually</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>163</westbc>\n        <eastbc>-157</eastbc>\n        <northbc>65.5</northbc>\n        <southbc>52</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Temperature</themekey>\n        <themekey>Salinity</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact custodian or PICES Secretariat for inventory information</accconst>\n    <useconst>None</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bocharov, Lev</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>4 Shevchenko Alley</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax>7-4232-257-783</cntfax>\n        <cntemail>root@tinro.marine.su</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bocharov, Lev</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>4 Shevchenko Alley</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax>7-4232-257-783</cntfax>\n        <cntemail>root@tinro.marine.su</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19990720</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact custodian or PICES Secretariat for inventory information</metac>\n    <metuc>None</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "T&S profiles - NW Pacific, Bering, Okhotsk (Russia)",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "Contact custodian or PICES Secretariat for inventory information",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian or PICES Secretariat for inventory information",
+        "./metainfo/metuc": "None"
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "163",
+        "eastbc": "-157",
+        "northbc": "65.5",
+        "southbc": "52"
+      },
+      "positive_source_object_quotes": [
+        "Distributions of observations by year/by month available from PICES office, as well as details on the location of the sections.",
+        "Contact custodian or PICES Secretariat for inventory information"
+      ],
+      "independent_source_reasoning": "The positive acquisition referent is an inventory held by the custodian/PICES office: observation distributions and section locations. The full XML supplies only the project description and one bounding extent; it does not deliver that enumerated inventory.",
+      "strongest_counterargument_and_limit": "The phrase inventory information could include descriptions generally; this finite reading rests on the explicit separate office-held distributions/sections plus existing restoration authority, not on a blanket inventory/metadata exemption.",
+      "original_held_record": {
+        "source_id": "FGDC-53",
+        "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "metadata_product",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-563",
+      "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28",
+      "full_root_sha256": "f3c26c35dffe723071d3cca1d2ea90bd7efda832a916d8d527091177932e947a",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>USDA Forest Service, Chugach National Forest</origin>\n        <pubdate>1950-1980</pubdate>\n        <title>Archeological / Cultural Sites - CNF</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Cultural Resources;  Archeological and cultural resource described with codes for inside of buffered area, unique FS Cultural Resource Inventory Number, BLM serial file designator, and national register status.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19500101</begdate>\n          <enddate>19891231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-148</westbc>\n        <eastbc>-145</eastbc>\n        <northbc>61</northbc>\n        <southbc>59.45</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Geology</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Archeology</themekey>\n        <themekey>Cultural Sites</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Not available; secure data</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020424</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Not available; secure data</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Archeological / Cultural Sites - CNF",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "Not available; secure data",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Not available; secure data",
+        "./metainfo/metuc": "Unknown"
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "-148",
+        "eastbc": "-145",
+        "northbc": "61",
+        "southbc": "59.45"
+      },
+      "positive_source_object_quotes": [
+        "Archeological and cultural resource described with codes for inside of buffered area, unique FS Cultural Resource Inventory Number, BLM serial file designator, and national register status.",
+        "Not available; secure data"
+      ],
+      "independent_source_reasoning": "The abstract identifies a coded cultural-resource inventory with individual Forest Service numbers, BLM serial designators and register status. None of those instance values or buffered site geometries appears in this full root; the extent is collection-level and the names have explicit contact roles.",
+      "strongest_counterargument_and_limit": "Not available; secure data remains fully operative for the referenced inventory. Unknown use stays Unknown. No cultural consent, legal exemption or declassification is found or asserted.",
+      "original_held_record": {
+        "source_id": "FGDC-563",
+        "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-564",
+      "source_sha256": "2638d5dbf5ca41f28037d2a291321e34693c3172152858644d2fe65086e2f8aa",
+      "full_root_sha256": "59657bb2f30fe2eb752ef537dba3789fb49dadeb015e1d83d4945f2cec29670f",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Chugach Alaska Corporation</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Cultural Resource and Subsistence Use</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Cultural Resources; Data on native cultural resources as collected over majority of Chugach Alaska Regional Native Corporation lands and associated village corporation lands. Includes oral history recordings and data on historic and pre-historic sites and subsistence uses.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-154</westbc>\n        <eastbc>-141</eastbc>\n        <northbc>62</northbc>\n        <southbc>58</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Cultural Resource</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Prince William Sound Ecosystem</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact John Johnson to determine availability of specific products.</accconst>\n    <useconst>Chugach Alaska will be automating data 1995</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020424</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact John Johnson to determine availability of specific products.</metac>\n    <metuc>Chugach Alaska will be automating data 1995</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Cultural Resource and Subsistence Use",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "Contact John Johnson to determine availability of specific products.",
+        "./idinfo/useconst": "Chugach Alaska will be automating data 1995",
+        "./metainfo/metac": "Contact John Johnson to determine availability of specific products.",
+        "./metainfo/metuc": "Chugach Alaska will be automating data 1995"
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "-154",
+        "eastbc": "-141",
+        "northbc": "62",
+        "southbc": "58"
+      },
+      "positive_source_object_quotes": [
+        "Contact John Johnson to determine availability of specific products.",
+        "Includes oral history recordings and data on historic and pre-historic sites and subsistence uses."
+      ],
+      "independent_source_reasoning": "The access clause explicitly targets availability of specific products; the abstract names oral histories, site data and subsistence-use products. The full XML contains the collection description, not recordings, narratives, participant data or individual cultural-site data.",
+      "strongest_counterargument_and_limit": "The description can itself remain publicly visible, including the named product classes and broad region. This is acknowledged rather than treated as protected merely by restricting the attached XML. Automation in1995 is future source wording, not a proven completed event.",
+      "original_held_record": {
+        "source_id": "FGDC-564",
+        "source_sha256": "2638d5dbf5ca41f28037d2a291321e34693c3172152858644d2fe65086e2f8aa",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-565",
+      "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d",
+      "full_root_sha256": "c6a2e1580d922a0cc2c08e4a02111cf848e357dd8a87256997dd721913036379",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>USDA Forest Service, Alaska Department of Natural Resources</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Archeology Preliminary Sites - EVOS</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Cultural Resources; This data contains pre-edited archeological site data, that is an extraction of data from the Alaska Heritage Resource Survey. Data was provided by Dept. of Natural Resources, Office of History for the spill affected area of the Exxon Valdez oil spill. This data was released to provide information for spill response, and damage assessment only. These data are closed to the general public as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-156.5</westbc>\n        <eastbc>-146.5</eastbc>\n        <northbc>61.25</northbc>\n        <southbc>57.25</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Geology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Archeology</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Alaska Heritage</themekey>\n        <themekey>History</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020424</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Archeology Preliminary Sites - EVOS",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "-156.5",
+        "eastbc": "-146.5",
+        "northbc": "61.25",
+        "southbc": "57.25"
+      },
+      "positive_source_object_quotes": [
+        "This data was released to provide information for spill response, and damage assessment only.",
+        "Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200."
+      ],
+      "independent_source_reasoning": "The abstract positively identifies a pre-edited AHRS extraction released for spill response and damage assessment. Its closure clauses refer to archaeological/historical site information. The complete source contains the extraction description and wide coverage extent, with no individual site record, locator, archaeological feature, route or access directions.",
+      "strongest_counterargument_and_limit": "This is the strongest broad-wording counterexample: metac repeats the closure and cites historical laws/policy. Approval is the finite description-versus-extraction interpretation under separate restoration authority; no XML exemption, AHRS approval, legal conclusion, expired restriction or replacement historical-policy text is asserted. The proposed modern DNR corroboration is not used as decision evidence in this independent review.",
+      "original_held_record": {
+        "source_id": "FGDC-565",
+        "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-627",
+      "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29",
+      "full_root_sha256": "1131959d2bfbbef8519eb4570c72a56b52856efb7c72e01e105669f9b181cbeb",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Boundaries:14(C)1, 14(H)1 and Native Allotments</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Boundaries; Automation of the locations in the Copper River Basin of 14(c)1, 14(h)1 and native allotments. This dataset is part of the multilayered subsistence database compiled by UAA ISER for Copper River Native Association (Record #061)</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-145.5</westbc>\n        <eastbc>-141.5</eastbc>\n        <northbc>63</northbc>\n        <southbc>60.42</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Boundaries</themekey>\n        <themekey>Copper River, Alaska</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Survey</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020423</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Boundaries:14(C)1, 14(H)1 and Native Allotments",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "-145.5",
+        "eastbc": "-141.5",
+        "northbc": "63",
+        "southbc": "60.42"
+      },
+      "positive_source_object_quotes": [
+        "This dataset is part of the multilayered subsistence database compiled by UAA ISER for Copper River Native Association (Record #061)",
+        "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      ],
+      "independent_source_reasoning": "The specific object is the Native allotment/boundary layer in the named multilayer database. The publication clause expressly concerns subsistence-site information that could enable trespass/vandalism. Full-root content supplies no parcel/allotment instance, owner, site or access route; its only four spatial fields are collection bounds.",
+      "strongest_counterargument_and_limit": "The review is not a risk clearance for a real site and does not permit publishing boundary/site data. The source database record-number string remains unmodified and is not treated as an archival source-ID crosswalk.",
+      "original_held_record": {
+        "source_id": "FGDC-627",
+        "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-754",
+      "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62",
+      "full_root_sha256": "4d95bb6f9e151f10da80be15082d0934d3b0babeb67a5f5ad1d9a61d484bc3ed",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska, Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Ahtna Clan Boundaries</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Subsistence/Traditional Knowledge;   This data layer is part of the larger Copper River Native Association Subsistence Database (Record#061) compiled on contract through the Institute of Social and Economic Research, University of Alaska Anchorage and depicts the Ahtna clan boundaries.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-145.5</westbc>\n        <eastbc>-141.5</eastbc>\n        <northbc>63</northbc>\n        <southbc>60.42</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Ahtna Clan Boundaries</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Traditional Knowledge</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>A version of the database with individual names removed will be delivered to BLM and NPS.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020430</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>A version of the database with individual names removed will be delivered to BLM and NPS.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Ahtna Clan Boundaries",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "-145.5",
+        "eastbc": "-141.5",
+        "northbc": "63",
+        "southbc": "60.42"
+      },
+      "positive_source_object_quotes": [
+        "This data layer is part of the larger Copper River Native Association Subsistence Database (Record#061)",
+        "A version of the database with individual names removed will be delivered to BLM and NPS."
+      ],
+      "independent_source_reasoning": "The abstract identifies a clan-boundary layer in a separate CRNA database. Access is a delivery workflow for a names-removed version, paired with a restriction on harmful publication of subsistence sites. The XML contains no clan-member roster, boundary segment, geometry, participant name or site instance.",
+      "strongest_counterargument_and_limit": "Future delivery and name removal are unverified and remain conditions. Ahtna as a collection/people reference and the broad coverage box are not silently removed, nor taken as permission or cultural consent.",
+      "original_held_record": {
+        "source_id": "FGDC-754",
+        "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-755",
+      "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f",
+      "full_root_sha256": "78c6505ba5286a6e67fba583fefb017d951e82fb12b0851b13e3efd4e883754c",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska, Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Ahtna Place Names</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Subsistence/Traditional Knowledge;   Automation of the Ahtna place names as provided by James Kari Ahtna Place Names. This is a layer in the Copper River Native Association Subsistence Database 1995.(Record#061)</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-145.5</westbc>\n        <eastbc>-141.5</eastbc>\n        <northbc>63</northbc>\n        <southbc>60.42</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Traditional Knowledge</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Ahtna, Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>A version of the database with individual names removed will be delivered to BLM and NPS.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020430</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>A version of the database with individual names removed will be delivered to BLM and NPS.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Ahtna Place Names",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "-145.5",
+        "eastbc": "-141.5",
+        "northbc": "63",
+        "southbc": "60.42"
+      },
+      "positive_source_object_quotes": [
+        "Automation of the Ahtna place names as provided by James Kari Ahtna Place Names.",
+        "This is a layer in the Copper River Native Association Subsistence Database 1995.(Record#061)"
+      ],
+      "independent_source_reasoning": "The positive object is automation of a named James Kari place-name work as a CRNA database layer. The abstract credits that source without reproducing any individual place-name entry, translation or coordinates; the remaining names have explicit custodial/metadata roles.",
+      "strongest_counterargument_and_limit": "The phrase Ahtna, Alaska and regional extent remain public description. No redacted version delivery, safe-site-publication determination or right to distribute the underlying place-name layer is asserted.",
+      "original_held_record": {
+        "source_id": "FGDC-755",
+        "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-757",
+      "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392",
+      "full_root_sha256": "37ff9294a1b7227943a49455136d98e4836ab107e368ae493175c637d19a22d6",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska, Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Copper River Basin Subsistence</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Subsistence/Traditional Knowledge;   This dataset is a multi-layered subsistence database pulling together existing data sources. Layers include drainage, hypsography, supplemental hypsography, political boundaries and ocean net, populated places, park boundaries, land selection status, 1:250,000 USGS Quadrangle boundaries,  Ahtna Clan boundaries, native corporation boundaries, traditional use, Ahtna place names, Native routes, registered traplines, trapping areas, woodcutting areas4/88, hunting areas, fishing, boating, and camping areas, wood cutting areas 3/86, hunting areas 3/86, subsistence hunt areas for large mammals, Game Management Units ADF&amp;G. Intended use of information is to aid CRNA meet criteria to establish permanent rights for Ahtna shareholders to pursue subsistence activities in Wrangell St. Elias National Park and preserve and protect Ahtna subsistence use areas and resources from urban competition. This database is part of a cooperative agreement with NPS and BLM to develop information relevant to Customary and Traditional Use determinations, the establishment of Residential Zones for subsistence use in the park and to establish a roster of eligible subsistence users in the Park/Preserve under section 1344 of ANILCA. Copies of the final dataset will reside at BLM, Ahtna, Copper River Native Assoc., and NPS. Some layers of this dataset have been extracted as separate records in the metadata database as they represent data that was automated as a result of this dataset compilation and are new electronic products. See metadata record #118,119,116, and 117.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-146</westbc>\n        <eastbc>-144</eastbc>\n        <northbc>62</northbc>\n        <southbc>60</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Traditional Knowledge</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Copper River, Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>A version of the database with individual names removed will be delivered to BLM and NPS.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020430</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>A version of the database with individual names removed will be delivered to BLM and NPS.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Copper River Basin Subsistence",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "-146",
+        "eastbc": "-144",
+        "northbc": "62",
+        "southbc": "60"
+      },
+      "positive_source_object_quotes": [
+        "Copies of the final dataset will reside at BLM, Ahtna, Copper River Native Assoc., and NPS.",
+        "Some layers of this dataset have been extracted as separate records in the metadata database as they represent data that was automated as a result of this dataset compilation and are new electronic products."
+      ],
+      "independent_source_reasoning": "The full abstract itself separates the final multilayer dataset, intended institutional copies and selected metadata records. It enumerates layer classes and a roster purpose, but supplies no roster entries, household records, trapline/hunt/fish/camp locations or geometry. This is positive source differentiation, beyond the mere absence of data rows.",
+      "strongest_counterargument_and_limit": "Named program purposes and law reference are preserved without construing eligibility or rights. Record#118/119/116/117 are literal metadata references, not resolved source IDs. Future redaction/delivery and site-publication conditions remain unfulfilled.",
+      "original_held_record": {
+        "source_id": "FGDC-757",
+        "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    },
+    {
+      "source_id": "FGDC-760",
+      "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4",
+      "full_root_sha256": "85359e7f23da0e9c9e9255f72d8a1508e7ddeb9f1fd5976db8bee0bec83a7be7",
+      "complete_root_serialization": "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska, Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Native Routes in The Ahtna Region</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Subsistence/Traditional Knowledge;   Automation of the Ahtna native routes as provided by James Kari in Tatl'ahwt'aenn nenn, the headwaters People's Country. This is a layer in the Copper River Native Association Subsistence Database 1995. (Record#061)</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-145.5</westbc>\n        <eastbc>-141.5</eastbc>\n        <northbc>63</northbc>\n        <southbc>60.42</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Traditional Knowledge</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>A version of the database with individual names removed will be delivered to BLM and NPS.</accconst>\n    <useconst>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020430</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>A version of the database with individual names removed will be delivered to BLM and NPS.</metac>\n    <metuc>The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.</metuc>\n  </metainfo>\n</metadata>",
+      "title_verbatim": "Native Routes in The Ahtna Region",
+      "full_root_and_all_leaves_reviewed": true,
+      "constraints_verbatim": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "spatial_fields_verbatim": {
+        "westbc": "-145.5",
+        "eastbc": "-141.5",
+        "northbc": "63",
+        "southbc": "60.42"
+      },
+      "positive_source_object_quotes": [
+        "Automation of the Ahtna native routes as provided by James Kari in Tatl'ahwt'aenn nenn, the headwaters People's Country.",
+        "This is a layer in the Copper River Native Association Subsistence Database 1995. (Record#061)"
+      ],
+      "independent_source_reasoning": "The abstract explicitly places native-route automation from a James Kari work into a CRNA database layer. The quoted Ahtna phrase appears as that work title in the source sentence. No route names, endpoints, itinerary or geometry appears in the complete root; the coverage box remains unmodified.",
+      "strongest_counterargument_and_limit": "No bibliographic lookup or new authorship claim is inferred. This does not authorize route reproduction or treat the source as culturally unrestricted; the complete publication and delivery conditions remain.",
+      "original_held_record": {
+        "source_id": "FGDC-760",
+        "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "old31_family": "sensitive_or_cultural_content",
+      "verdict": "APPROVE_EXACT_FINITE_REVIEWER_RECONCILIATION_WITH_SEPARATE_EXISTING_AUTHORITY",
+      "proposed_context_accepted_verbatim": true
+    }
+  ],
+  "rows_sha256": "923d0ccef1c20646a6d1eaafb9992f747cf6cd36e03e5962c06922b5c524415e",
+  "proposed_separate_review_block_key": "sensitive_resource11_review",
+  "proposed_separate_review_block": {
+    "status": "REVIEWER_RECONCILED",
+    "reviewer": "/root/astra_transport_boundary",
+    "reviewed_at": "2026-10-04T18:10:19.881118+00:00",
+    "meaning": "Eleven exact resource/inventory/database conditions read in complete source context under separate historical metadata restoration authority; no confidentiality release or condition fulfillment",
+    "members": [
+      {
+        "source_id": "FGDC-2086",
+        "source_sha256": "bd773c3800492e488e84f228dae101eb196ecff16380e3b523bde65fe4eaacca"
+      },
+      {
+        "source_id": "FGDC-2234",
+        "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+      },
+      {
+        "source_id": "FGDC-53",
+        "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45"
+      },
+      {
+        "source_id": "FGDC-563",
+        "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28"
+      },
+      {
+        "source_id": "FGDC-564",
+        "source_sha256": "2638d5dbf5ca41f28037d2a291321e34693c3172152858644d2fe65086e2f8aa"
+      },
+      {
+        "source_id": "FGDC-565",
+        "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d"
+      },
+      {
+        "source_id": "FGDC-627",
+        "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29"
+      },
+      {
+        "source_id": "FGDC-754",
+        "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62"
+      },
+      {
+        "source_id": "FGDC-755",
+        "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+      },
+      {
+        "source_id": "FGDC-757",
+        "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+      },
+      {
+        "source_id": "FGDC-760",
+        "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+      }
+    ],
+    "original_statement_references": [
+      {
+        "key": "restoration_authority",
+        "manifest_path": "docs/readiness/2026-10-02/rehosting_authority.json",
+        "manifest_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+        "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+        "original_attested_at": "2026-10-02",
+        "original_provenance": null,
+        "original_scope": "historical_geonetwork_metadata",
+        "original_limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority."
+      },
+      {
+        "key": "contact_source_meaning",
+        "manifest_path": "docs/readiness/2026-10-02/contact_source_interpretation.json",
+        "manifest_sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+        "statement": "It means contact someone (source) to obtain the underlying dataset",
+        "original_attested_at": "2026-10-02T18:26:45Z",
+        "original_provenance": {
+          "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+          "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+          "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+          "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+          "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+          "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+        },
+        "original_scope": "historical_geonetwork_contact_source_access",
+        "original_limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+      },
+      {
+        "key": "contributor_source_meaning",
+        "manifest_path": "docs/readiness/2026-10-02/contributor_source_interpretation.json",
+        "manifest_sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+        "statement": "yes",
+        "original_attested_at": "2026-10-02T23:43:00Z",
+        "original_provenance": {
+          "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+          "question": "in the PICES records, does “Check with Contributor or Source.” mean contacting them to obtain the underlying dataset, just like “Contact Source.”, rather than restricting reposting the metadata?",
+          "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+          "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+          "timestamp_precision": "minute"
+        },
+        "original_scope": "historical_geonetwork_contributor_or_source_access",
+        "original_limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+      },
+      {
+        "key": "original_three_questions",
+        "manifest_path": "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+        "manifest_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+        "statement": null,
+        "original_attested_at": null,
+        "original_provenance": null,
+        "original_scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+        "original_limits": null
+      },
+      {
+        "key": "original_821_direct_reply",
+        "manifest_path": "docs/readiness/2026-10-03/source_scope_attestation_821.json",
+        "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+        "statement": "they reply to the underlying data. all these metadata records were public before",
+        "original_attested_at": "2026-10-03T20:20:00Z",
+        "original_provenance": {
+          "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+          "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+          "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+        },
+        "original_scope": "exact_three_question_groups_821_historical_geonetwork_metadata",
+        "original_limits": "All original constraints and XML remain intact. The attestation clarifies scope only; existing separate user-attested rehosting authority keeps XML restricted and unlicensed. No attribution/date/title/alias hold is cleared by this scope decision."
+      }
+    ],
+    "new_user_attestation_event": false,
+    "original_direct_question_membership_enlarged": false,
+    "underlying_conditions_satisfied": false,
+    "underlying_data_rights_granted": false,
+    "grants_rehosting": false,
+    "grants_new_license": false,
+    "publication_approved": false
+  },
+  "original_statement_references": [
+    {
+      "key": "restoration_authority",
+      "manifest_path": "docs/readiness/2026-10-02/rehosting_authority.json",
+      "manifest_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+      "original_attested_at": "2026-10-02",
+      "original_provenance": null,
+      "original_scope": "historical_geonetwork_metadata",
+      "original_limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority."
+    },
+    {
+      "key": "contact_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contact_source_interpretation.json",
+      "manifest_sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+      "statement": "It means contact someone (source) to obtain the underlying dataset",
+      "original_attested_at": "2026-10-02T18:26:45Z",
+      "original_provenance": {
+        "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+        "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+        "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+        "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+      },
+      "original_scope": "historical_geonetwork_contact_source_access",
+      "original_limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+    },
+    {
+      "key": "contributor_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contributor_source_interpretation.json",
+      "manifest_sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+      "statement": "yes",
+      "original_attested_at": "2026-10-02T23:43:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+        "question": "in the PICES records, does “Check with Contributor or Source.” mean contacting them to obtain the underlying dataset, just like “Contact Source.”, rather than restricting reposting the metadata?",
+        "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "timestamp_precision": "minute"
+      },
+      "original_scope": "historical_geonetwork_contributor_or_source_access",
+      "original_limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+    },
+    {
+      "key": "original_three_questions",
+      "manifest_path": "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+      "manifest_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+      "statement": null,
+      "original_attested_at": null,
+      "original_provenance": null,
+      "original_scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+      "original_limits": null
+    },
+    {
+      "key": "original_821_direct_reply",
+      "manifest_path": "docs/readiness/2026-10-03/source_scope_attestation_821.json",
+      "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+      "statement": "they reply to the underlying data. all these metadata records were public before",
+      "original_attested_at": "2026-10-03T20:20:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+        "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+      },
+      "original_scope": "exact_three_question_groups_821_historical_geonetwork_metadata",
+      "original_limits": "All original constraints and XML remain intact. The attestation clarifies scope only; existing separate user-attested rehosting authority keeps XML restricted and unlicensed. No attribution/date/title/alias hold is cleared by this scope decision."
+    }
+  ],
+  "checks": {
+    "exact11_members_raw_hashes_complete_roots_and_four_constraints_match": true,
+    "all_current_ledger_and_old31_records_hash_bound_and_held": true,
+    "all11_outside_existing596_and_original_direct821": true,
+    "all11_have_exact_existing_restoration_authority_membership": true,
+    "all_five_original_reference_hashes_and_original_fields_match": true,
+    "original_five_reference_rows_equal_current596_verbatim": true,
+    "all_spatial_fields_and_full_root_leaves_reviewed": true,
+    "no_actual_site_or_participant_or_inspection_or_observation_record_found_in_these_complete_roots": true
+  },
+  "interpretation_limits": [
+    "The positive source referent/workflow and separate existing restoration authority supply the finite interpretation. Absence of data rows or site geometry alone does not supply permission.",
+    "Repeated metac/metuc constraints are not erased or treated as an express metadata-XML exemption. Every source field, including sensitivity/closure/Unknown wording and historical citations, remains in unchanged XML and metadata.",
+    "Restricted attachment access does not hide public descriptions. The reviewed descriptions include regional bounds, collection details, institutional contacts and resource categories, all retained.",
+    "No new license, cultural consent, release/declassification, FOIA determination, legal expiry, redaction, delivery or satisfied access condition is inferred.",
+    "The contemporary AHRS policy cited by the proposal author is not used as authority or recovered historical evidence in this independent review. No raw PDF or remote snapshot hash was invented or independently claimed.",
+    "No underlying data, creator/date/title/alias/source identity/DOI resolution or provider release is authorized. Poster10042430 exclusion and all independent gates remain.",
+    "Prior596 complete members/contexts/review blocks/review times must remain unchanged; add only these11 contexts and a separate exact review block.",
+    "Current complete before/after metadata preservation, repeated run/withdrawal behavior, representative controls and final-head CI/code review are still required before measured integration/merge. Current accounting remains3681/519/6 until measured."
+  ],
+  "activities": {
+    "complete_original_xml_reads": 11,
+    "network_requests": 0,
+    "provider_requests": 0,
+    "private_or_credential_reads": 0,
+    "repository_edits": 0,
+    "source_xml_edits": 0,
+    "tests_or_classifier_runs": 0,
+    "write_scope": "/tmp review artifacts only"
+  },
+  "digest_recipe": "Raw file bytes SHA256; object SHA256 of json.dumps(sort_keys=True, ensure_ascii=False, separators=(comma,colon)). Complete root strings use ElementTree.tostring(unicode) with outer tail None; full_root_sha256 hashes the canonical JSON singleton list containing that string, matching the proposal recipe."
+}

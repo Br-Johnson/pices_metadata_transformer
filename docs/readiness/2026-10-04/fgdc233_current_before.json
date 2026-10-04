@@ -1,0 +1,33 @@
+{
+  "base_main": "05d699e93572345c0591ca932a03089a9dd9ba9c",
+  "status": "CURRENT_BEFORE_IMAGE_MEASURED",
+  "reviewed_at": "2026-10-04T18:01:31.832650+00:00",
+  "selected_source_ids": [
+    "FGDC-233",
+    "FGDC-621",
+    "FGDC-4063"
+  ],
+  "statuses": {
+    "FGDC-233": "held",
+    "FGDC-4063": "held",
+    "FGDC-621": "supported"
+  },
+  "source233_metadata_sha256": "4155448bfe0a7eff4e4f9491073bf88b04cf7393a11cb8b35efa660d1ca84954",
+  "source233_metadata_equals_proposal_complete_before_image": true,
+  "source233_payload_sha256": "d160cd55530040374c51dd174a6e20d1ea9a4218cd10cbd646fc20ca12313a57",
+  "guard_counts": {
+    "bootstrap": {
+      "network": 4,
+      "private_reads": 1,
+      "writes": 1,
+      "processes": 1
+    },
+    "tests": {
+      "network": 0,
+      "private_reads": 0,
+      "writes": 0,
+      "processes": 0
+    }
+  },
+  "provider_requests": 0
+}

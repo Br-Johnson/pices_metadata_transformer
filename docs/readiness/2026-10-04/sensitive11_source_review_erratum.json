@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "Additive source-review erratum pin for the sole external quote word-count correction",
+  "reviewer": "/root/astra_transport_boundary",
+  "reviewed_at": "2026-10-04T18:12:00.442014+00:00",
+  "verdict": "PRIOR_ALL11_FINITE_SOURCE_APPROVAL_UNCHANGED",
+  "material_findings": [],
+  "original_independent_source_review": {
+    "path": "/tmp/pices-sensitive11-independent-source-review.json",
+    "sha256": "77aeb0dc961a3a3a721cf844c7f6d0c170bca96a1e42e812c267fc465021bbad"
+  },
+  "original_proposal_sha256": "392ad8e2f9941ec0d1711b192667ca186c599a00179ff70932cefd1059a05e8a",
+  "corrected_final_proposal": {
+    "path": "/tmp/pices-sensitive11-source-candidates.json",
+    "sha256": "2423187aa6cbc0ccaee39f498aa4be1f1b9545ad14a73820f87580f975432f5a"
+  },
+  "sole_delta": {
+    "json_path": "external_context.quote_word_count",
+    "before": 14,
+    "after": 12
+  },
+  "verification": "Changing only the corrected raw JSON word_count value12 back to14 exactly reproduces the original reviewed file SHA256; no other byte differs. Splitting the unchanged quoted excerpt on whitespace gives12 words.",
+  "members_contexts_rows_original_references_and_all_other_objects_unchanged": true,
+  "old_raw_reconstruction": {
+    "path": "/tmp/pices-sensitive11-proposal-pre-wordcount-reconstructed.json",
+    "sha256": "392ad8e2f9941ec0d1711b192667ca186c599a00179ff70932cefd1059a05e8a",
+    "boundary": "Reconstructed solely by reversing the one count literal, with exact original hash verification; not represented as a separately captured historical download."
+  },
+  "source_audit_repeated": false,
+  "scope_limit": "The contemporary external policy excerpt was not independent decision evidence in the original source review. No source/legal interpretation or approval boundary changes. Preserve original review file and its timestamp unchanged; integration may pin this additive receipt and corrected proposal."
+}

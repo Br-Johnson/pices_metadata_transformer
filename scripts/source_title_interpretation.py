@@ -14,16 +14,18 @@ from scripts.source_link_interpretation import fingerprint
 
 MANIFEST_SHA256 = 'fa08a25108bbd90a03fe0c107d5b4398403deabd76df2b839830fde05eb46780'
 EXTENDED_MANIFEST_SHA256 = 'db24d027d65b9e4392ede772172b04ada1fca4d14e576df70998d759303fe5c5'
+TITLE233_MANIFEST_SHA256 = 'c776b324f43a3e7560ef016f12b7a345bbb2f21cc016b74bd5298b8ed1e10781'
 SOURCE_IDS = frozenset(f'FGDC-{i}' for i in (
     1917, 1922, 1923, 1924, 1925, 1930, 1933, 1935,
     1369, 1447, 1458, 1644, 1655, 1666, 1677, 1820, 2199, 2200, 2206, 2218,
-    273, 3410, 3565, 3619, 3630, 3741, 3752, 3763, 3773, 3783, 3821, 3843, 4047, 588, 621))
+    273, 3410, 3565, 3619, 3630, 3741, 3752, 3763, 3773, 3783, 3821, 3843, 4047, 588, 621, 233))
 
 
 def validate_source_title_interpretation(reference, source_id, source_sha256, root):
     if (not isinstance(reference, dict) or set(reference) != {'manifest_path', 'manifest_sha256'}
             or not isinstance(reference.get('manifest_path'), str) or not reference['manifest_path'].strip()
-            or reference.get('manifest_sha256') not in (MANIFEST_SHA256, EXTENDED_MANIFEST_SHA256)):
+            or reference.get('manifest_sha256') not in
+            (MANIFEST_SHA256, EXTENDED_MANIFEST_SHA256, TITLE233_MANIFEST_SHA256)):
         raise ValueError('Display title requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()
