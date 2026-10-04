@@ -65,5 +65,7 @@ jobs:
           docs/readiness/2026-10-04/validate_creator8_current.py
           tests/test_residual_target_corrections.py
           docs/readiness/2026-10-04/validate_residual_target_corrections.py
+          scripts/publication_plan.py tests/test_publication_plan.py
+          docs/readiness/2026-10-04/validate_publication_plan.py
       - name: Run guarded offline contracts
         run: python -B ci/run_offline_tests.py

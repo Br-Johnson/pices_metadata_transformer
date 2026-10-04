@@ -1,0 +1,34 @@
+{
+  "commit": "47d6a47e09f834b8ecc12d98641974c6f3417da6",
+  "environment_cleared_dummy_credentials_only": true,
+  "errors": 0,
+  "failures": 0,
+  "guard_blocks": {
+    "bootstrap": {
+      "network": 4,
+      "private_reads": 1,
+      "processes": 1,
+      "writes": 1
+    },
+    "tests": {
+      "network": 0,
+      "private_reads": 0,
+      "processes": 0,
+      "writes": 0
+    }
+  },
+  "in_process_read_only_git_queries": 0,
+  "log_sha256": "9ca8ef6696683b516f8759b1fdd776cc762a5467f6303e6b1cfb3a4eea89e0fc",
+  "scope": "Focused guarded checks on final DOI-conflict correction on local47d6a47, source baseline6825c2c. Actual runtime/test/workflow bindings identify tested inputs; final-head GitHub CI remains separate.",
+  "seconds": 5.032,
+  "selected_modules": [
+    "tests.test_publication_plan",
+    "tests.test_upload_batch_selection",
+    "tests.test_content_class_guards"
+  ],
+  "source_bindings_unchanged": true,
+  "source_tree_sha256": "5a0475ab5f472b56369bf5cc75aff8b23fa85bb28fae2afa79873ba838778fac",
+  "successful": true,
+  "tests_run": 25,
+  "unexpected_guard_call_sites": []
+}
