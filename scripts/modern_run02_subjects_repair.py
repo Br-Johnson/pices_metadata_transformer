@@ -128,6 +128,8 @@ def verify_origin(stage):
     original_grant, original_state = owned.verify_origin(prior)
     roots = list(origin['inventory'])
     declared = manifest(modern.load(stage / 'preserved-manifest.json'))
+    modern.require(len(declared['files_sha256']) >= MIN_PRESERVED_FILES,
+                   'Complete historical evidence manifest required')
     modern.require(inventory(roots, stage, declared) == origin['inventory'], 'Preserved history changed; repair held')
     beforeimage = Path(origin['beforeimage197_path'])
     verify_coverage(origin['inventory'], prior, beforeimage, stage)
