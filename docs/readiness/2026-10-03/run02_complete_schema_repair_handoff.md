@@ -48,6 +48,9 @@ is `approved:false`; code, staging and preflight never issue an action grant.
 
 1. Use the frozen reviewed checkout and install its requirements, including
    `jsonschema>=4.23,<5`. Preserve every old stage, grant, journal and counter.
+   The sole executor uses its already configured `ZENODO_SANDBOX_TOKEN` for
+   staging, preflight and execution. Do not print or replace that credential;
+   root and reviewers do not read it.
 2. Create a new0600 manifest at a fresh canonical absolute path. Convert the
    previous sealed expected path/hash inventory for **all357** retained evidence
    entries to the schema below. Do not adopt the current filesystem as a new hash
@@ -100,7 +103,15 @@ owner/known-id set, historical GET197, and limits `{"metadata":1,"get":1}`.
 Copy the public contract's allowance and warning policy exactly; it grants no
 create, PID, file, publication, deletion, replay or reset route.
 
-The sole executor calls `execute` once. It may perform one additional metadata
+After parent binds the fresh grant in the new stage's private `approval.json`,
+the sole executor calls this command once:
+
+```sh
+python -m scripts.modern_run02_schema_repair execute \
+  --stage /absolute/new-parent/pices-modern-synthetic-20261003-code-02-schema-repair
+```
+
+It may perform one additional metadata
 PUT at the same sealed canonical `/api/records/{id}/draft`, then one GET only
 after the PUT is fully validated and durably acknowledged. Each request remains
 bounded to20 seconds/65536 response bytes with TLS, no redirects and zero retry.
@@ -119,3 +130,8 @@ No live success is claimed by the local schemas, source-method or mocked executi
 fixtures. Provider dispatch and subsequent evidence reconciliation remain with
 parent and the sole executor. Source accounting remains3638 supported/562 held/
 six malformed, with all XML/raw metadata, aliases, DOIs and existing files intact.
+
+The [offline validation receipt](run02_complete_schema_repair_validation.json)
+records436 passing guarded tests and the final14-test affected rerun. The
+[independent review receipt](run02_complete_schema_repair_independent_review.json)
+records47 passing distinct affected contracts. No configured CI run is claimed.

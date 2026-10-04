@@ -121,9 +121,9 @@ class ModernSchemaTests(unittest.TestCase):
         for can_toggle, items, expected in ((True, [], [schema.EMPTY_FILE_MESSAGES[0]]),
                                            (False, [], [schema.EMPTY_FILE_MESSAGES[1]]), (True, [object()], [])):
             component = method('BaseRecordFilesComponent', 'update_draft', FileBase)()
-            component.service = SimpleNamespace(check_permission=lambda *a, **k: can_toggle,
+            component.service = SimpleNamespace(check_permission=lambda *a, value=can_toggle, **k: value,
                                                 config=SimpleNamespace(default_files_enabled=True))
-            record = SimpleNamespace(files=SimpleNamespace(enabled=True, items=lambda: items))
+            record = SimpleNamespace(files=SimpleNamespace(enabled=True, items=lambda value=items: value))
             found = []
             component.update_draft(None, data={'files': {'enabled': True}}, record=record, errors=found)
             self.assertEqual([message for error in found for message in error['messages']], expected)

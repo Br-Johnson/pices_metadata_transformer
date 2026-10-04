@@ -4,7 +4,7 @@
 - [x] Pin official full modern record/definition schemas and service-required checks; validate all fictional writable fields locally. Add only documented publisher Zenodo to the synthetic projection; preserve original/source publishers.
 - [x] Reproduce official publisher and enabled-empty-file methods with dummy fixtures. Require a separately bound narrow missing-upload-warning policy after complete seven-field metadata/access/sameidentity/emptyfiles/absentDOI checks; generic controllers retain their error policy.
 - [x] Implement token-bound finite field-name diagnostics, a separate permanently bounded PUT1/GET1 ledger and complete357 expected-hash coverage with read-only preflight; no grants/provider operations by root.
-- [ ] Complete guarded regression suite, independent implementation/handoff review and freeze the runnable single-PR repair.
+- [x] Pass436 guarded offline regressions, final14 affected tests,47 independent distinct contracts and isolated Ruff; freeze the reviewed runnable PR23 handoff. No configured CI run is claimed; the passing-CI automatic merge condition is not established.
 - [ ] Sole executor passes actual private offline preflight before parent binds any fresh <=600-second grant; execute once only under that dispatch.
 
 # Standing repository authorization — 2026-10-04

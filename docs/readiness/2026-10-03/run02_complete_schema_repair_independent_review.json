@@ -1,0 +1,174 @@
+{
+  "status": "CLEAR",
+  "base_commit": "8f3606982fd8d8b245df25845277f6f3c5889df3",
+  "scope": "Read-only independent review of localized run02 complete-schema repair, shared diagnostic callers, pinned schemas/method fixtures and executable handoff. No provider requests, actual credentials/settings/stages, repository edits or corpus reruns.",
+  "tests": {
+    "distinct_tests_passed": 47,
+    "new_schema_repair_tests": 14,
+    "related_tests": 33,
+    "runs": [
+      {
+        "path": "/tmp/pices-schema-repair-independent-focused.log",
+        "sha256": "1b5795a5a8d8e30d6e66ce4b59e40ba503e7d6f30e5bfe14fe5ef76feeb4f2a1",
+        "tests_run": 47,
+        "passed": 46,
+        "seconds": 49.409,
+        "failure": "Reviewer audit guard rejected tempfile cleanup relative unlink(dir_fd); product assertions had passed. No product failure."
+      },
+      {
+        "path": "/tmp/pices-schema-repair-independent-harness-correction.log",
+        "sha256": "8b60a32a193276c232513c6bc1d86bdf7bd1ae8ac4ccfbc4e19f9d7f6c9fae05",
+        "tests_run": 1,
+        "passed": 1,
+        "seconds": 0.003,
+        "case": "tests.test_modern_schema_repair.ModernSchemaTests.test_pinned_schema_tampering_and_unsealed_source_reject_locally",
+        "change": "Only guard resolution of dummy directory-relative mutations was corrected; network/private/repo-write exclusions preserved."
+      }
+    ],
+    "harness": {
+      "path": "/tmp/pices-schema-repair-independent-focused.py",
+      "sha256": "48a7e8443b94f76ff4e609e7ac2e10ff1f5f81161b7ff2750aa6ec313fa67f75"
+    },
+    "guards": [
+      "Cleared environment; dummy tokens only",
+      "Mocked netrc lookup",
+      "Requests Session.send and HTTPAdapter.send blocked except explicit test fixture mocks",
+      "Socket connect/connect_ex/create_connection and DNS getaddrinfo blocked",
+      "Actual workspace/private evidence reads outside reviewed repository blocked",
+      "Repository writes and subprocesses blocked; mutations allowed only in reviewer dummy temp root"
+    ],
+    "full_suite_independently_repeated": false,
+    "tested_new_module_sha256_before_callback_only_delta": "4a71724a1bbec17c62c2b327364b94152c35e7730c42a05432d1347558174767",
+    "final_oracle_rerun": {
+      "path": "/tmp/pices-schema-repair-independent-final-oracle.log",
+      "sha256": "d938c1bb26ae07e19a8e62a563e52b6ff0c2d43850b500b31847bc6e4f10f4c2",
+      "tests_run": 1,
+      "passed": 1,
+      "seconds": 0.002,
+      "case": "tests.test_modern_schema_repair.ModernSchemaTests.test_exact_official_component_methods_reproduce_publisher_and_empty_file_errors",
+      "reason": "Final test-only lambda default captures reviewed and independently exercised; source fixture copyright-comment corrections preserve exact two upstream method ASTs. No broad rerun."
+    }
+  },
+  "findings_fixed": [
+    {
+      "issue": "Required token argument broke retained body diagnostic caller",
+      "resolution": "Wrapper now forwards optional token and canonical readback passes its verified token",
+      "verified": "Existing related body diagnostics and subject contracts passed"
+    },
+    {
+      "issue": "Present errors:null incorrectly accepted and stripped",
+      "resolution": "Only missing errors or [] represent no warning; null/malformed containers hold",
+      "verified": "New pure contract and response null fault tests passed"
+    },
+    {
+      "issue": "files.enabled numeric 1 accepted by equality",
+      "resolution": "Exact bool True required",
+      "verified": "Numeric/bool boundary regression passed"
+    }
+  ],
+  "checks": [
+    "Exact parent expected-hash manifest required; >=357 is a sanity floor, not an independent completeness claim. All known original/owned/spent stages and GET197 anchor revalidated; source manifest is the only additional permitted leaf.",
+    "Canonical distinct stage, private single-link leaves, symlink/noncanonical/overlapping stages rejected before mkdir; whole selected subtree additions or old hash changes hold.",
+    "Old subject-repair runtime hashes and spent PUT2 lineage remain frozen, with same-attempt six missing-field/access-mismatch flags; original create and failed owned continuation evidence revalidated before every request.",
+    "New six-runtime plus four-schema binding, immutable packet input hashes and exact prepared 517-byte/SHA contract. Publisher Zenodo added only to sealed fictional projection.",
+    "New explicit <=600-second grant requires exact owner/known-id set, existing candidate only, no create/reset and exact warning policy. Only canonical PUT1/GET1; GET requires durable validated PUT; cumulative GET197->198, run02 PUT2->3, create remains1.",
+    "Full seven-field metadata, same owner/id/parent/aware created/first-draft, canonical links, public record/restricted file access, enabled zero-entry/count/bytes files and absent DOI must pass before an exact one-entry upstream missing-upload warning is accepted.",
+    "Both fixed upstream English warning variants and no-warning completion tested. Additional/malformed/null/publisher/permission errors, missing metadata, changed identity/access/files/DOI, HTTP400/redirect/credential echo/uncertain PUT transport and failed readback remain spent and held without replay.",
+    "Error paths token-bound, syntax/length/count bounded; unsafe/encoded credential paths suppressed; messages/values not copied by validation error projection. Prior closed flags remain usable without a token.",
+    "Preflight uses full controller initialization and exact prepared request checks with grant=None, no ledger write/intent/send; old bindings cannot execute under changed runtime.",
+    "Four official schema bytes match pinned hashes; local registry excludes remote schema retrieval. Exact two method ASTs match pinned primary full-source methods.",
+    "Historical packet/source profiles/classifier and production behavior unchanged.",
+    "Final handoff/contract match namespace, 517-byte/hash body, six-runtime/four-schema binding, mandatory expected-hash manifest/private preflight, explicit warning flag, <=600-second parent grant, canonical PUT1 then GET1, 197->198/PUT2->3/create1 accounting, no replay/reset/PID/files/publish/delete, no CI/live-success claim."
+  ],
+  "primary_source_checks": {
+    "DataCitePIDProvider_validate": {
+      "source": "/workspace/pices-schema-research-rdm/invenio_rdm_records/services/pids/providers/datacite.py",
+      "commit": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+      "sha256": "ae3d745b0f5a8a8088f746989dda4bb6bb40c008863a73c947ab0f431419719a",
+      "fixture_ast_equal": true
+    },
+    "BaseRecordFilesComponent_update_draft": {
+      "source": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/services/records/components/base.py",
+      "version": "invenio-drafts-resources11.0.3",
+      "sha256": "7d7ff9d9fff566c28e1ad42cd129cb414484cea73c0ed8c6e129d73cc951ba97",
+      "fixture_ast_equal": true
+    }
+  },
+  "limits": [
+    "Offline schemas/AST fixtures do not validate deployed vocabulary state, permissions or whole service integration.",
+    "Discarded historical second error field remains unknown; upstream warning reproduction does not identify the live error or explain prior missing metadata.",
+    "Completion means only validated synthetic metadata repair, not DOI/file trial completion, publication readiness or production approval.",
+    "Parent/sole executor must verify actual sealed complete evidence and pass actual private preflight before granting/dispatching; reviewer did not inspect those bytes."
+  ],
+  "review_date_utc": "2026-10-04",
+  "repository_checkpoint": "0f8651a3c4d413b7e17d2bbde2601943ec6034c3",
+  "tested_runtime_checkpoint": "c303c95d4b79fdc928ed6a59806631dd61528f0f",
+  "checkpoint_relation": "0f8651a3 tree is identical to c303c95d; final changed files after 0f8651a3 are individually SHA-bound below.",
+  "file_sha256": {
+    "scripts/modern_run02_subjects_repair.py": "085cefe5ff18b6c5c06d9d7598f267ec19c6bfe6a6a0953588c3477d7c7f46e2",
+    "scripts/modern_synthetic_canary.py": "40b59fb3488c723bf2f5db6cab92770ba0af1802833dee1f6a8fd80c08b42bff",
+    "scripts/modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
+    "scripts/modern_canary_errors.py": "f4f8584606b8739d5ddfc0e386f822a15ef6552d30216c56bf2056bcdbfe7f84",
+    "scripts/modern_request_body_diagnostics.py": "792609c4f07038ef63d244623cdd6613906fb5c10251179d707eefebdab2eda6",
+    "scripts/modern_draft_schema.py": "b0a9a5cbdbcfdbc8ae8265ce2e5378a4e5b4027f364df4caad3bf7ef84fb912c",
+    "scripts/modern_run02_schema_repair.py": "ab06dd0ff6916f8d5c062f8d19602f81a4aa773eca984ee28d90b9ece97ab7b3",
+    "tests/test_modern_schema_repair.py": "df613109f59805b5ba3476570978b0b38b6da0ca97ebbe043f7e874cf2df4aed",
+    "tests/fixtures/zenodo-modern/components.py": "a6cc0677dad3d2416ab32ab0f463fa5ddbdc1d7003636b8180b6ff5ac52b3a0a",
+    "docs/readiness/2026-10-03/run02_complete_schema_repair_handoff.md": "04b72ccab9e87d684101bf75242afda13e01e78eb9cea15e173d545b99f29835",
+    "contracts/examples/run02_schema_repair.json": "1c8078911b51e338e20e5c49b2e67f5194a35c2aacd3878c733e1e28ac9b9b92",
+    "contracts/schemas/zenodo-modern/README.md": "7b43ca51232b45b1db1f890875189cf179f910217ce7ad2775e8af1e26f084ee",
+    "contracts/schemas/zenodo-modern/LICENSE": "08fa54ff51eda1a6441e3caa4c1826367283268ec668a19f27110049518ae27c",
+    "contracts/schemas/zenodo-modern/sources.json": "66f5abd1c76f3a940a5aff37387763b985cf8e4b4b69c5ae2ab939c4d6bf11d0",
+    "requirements.txt": "4fc695ab95de13d2f849c9f0f83d2aa158dc60b822246668164093760e8e33dc",
+    "contracts/schemas/zenodo-modern/record-v6.0.0.json": "bf029b1a74d851ff9c5474a9a528a0c4a0530026abf1698caf67f8efe6b95b88",
+    "contracts/schemas/zenodo-modern/record-definitions-v2.0.0.json": "09060efec922d22bee3103e6b259e11a3fc0c1bdfa8eafc3df6335aba0199865",
+    "contracts/schemas/zenodo-modern/definitions-v1.0.0.json": "eeb99397c4c4712990222c969b8f8a22566eecf32818434f32b1982ed5eaab74",
+    "contracts/schemas/zenodo-modern/definitions-v2.0.0.json": "319e15bd15d15d7947c3298bee7c2db30f1b6c1de6e9500b869631b0828e13d6",
+    "docs/readiness/2026-10-03/run02_complete_schema_repair_validation.json": "a156517bbc1a28e5a0ac15f7a2cc1e12399b101cf5e0ad5d089e47ef180c1ecb"
+  },
+  "root_suite_evidence": {
+    "independently_executed": false,
+    "read_only_summary_verified": true,
+    "summary_path": "/tmp/pices-modern-schema-full-summary.json",
+    "summary_sha256": "e4e25b1c6c1ac4f6ae8793acc16ecb44943b46c52e1dc0ea9daea01b42a9a2c2",
+    "tests_run": 436,
+    "successful": true,
+    "elapsed_seconds": 1160.201,
+    "guard_counters": {
+      "network_attempts_blocked": 0,
+      "private_reads_blocked": 0,
+      "repository_writes_blocked": 0
+    },
+    "runtime_unchanged_after_suite": true,
+    "post_suite_delta": "Only copyright comment notices, handoff/token/execute/receipt prose and immediate-callback default captures. Root separately reran all14 affected tests successfully; no independent full-suite claim.",
+    "configured_CI_claimed": false
+  },
+  "handoff_findings_fixed": [
+    "Existing privately configured ZENODO_SANDBOX_TOKEN explicitly named for sole executor; no printing/replacement or reviewer access.",
+    "Exact python -m execute command and new private approval.json stage binding added after parent grant.",
+    "Exact DataCite and draft-files upstream copyright notices preserved, including Graz attribution."
+  ],
+  "remaining_runtime_blockers": [],
+  "required_before_provider_dispatch": [
+    "Actual sole-executor private offline staging/preflight succeeds against complete previously sealed expected file hashes.",
+    "Parent binds fresh explicit <=600-second matching grant, including narrow exact missing-upload warning policy.",
+    "Sole provider executor dispatches only the frozen canonical PUT/GET allowance; old failed/spent stages remain immutable."
+  ],
+  "root_final_affected_suite_evidence": {
+    "independently_executed": false,
+    "read_only_summary_verified": true,
+    "summary_path": "/tmp/pices-modern-schema-focused-summary.json",
+    "summary_sha256": "ecf8bc489e202d8c72fbc2a20d5224b975cd5712c7ae2c62e805252d76a02c78",
+    "log_path": "/tmp/pices-modern-schema-focused-final.log",
+    "log_sha256": "e6726df18ddb0b761bf3f9fc2627d1a55820afbcca0e7c1ae0e291c454db0e80",
+    "tests_run": 14,
+    "successful": true,
+    "elapsed_seconds": 35.624,
+    "guard_counters": {
+      "network_attempts_blocked": 0,
+      "private_reads_blocked": 0,
+      "repository_writes_blocked": 0
+    }
+  },
+  "validation_receipt_review": "Final root validation receipt cross-checked against actual public offline summary hashes, final runtime/test/fixture/schema/contract/handoff hashes and unchanged dispatch/accounting limits; no inconsistency."
+}

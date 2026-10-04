@@ -1,5 +1,3 @@
-# SPDX-FileCopyrightText: 2020-2024 CERN.
-# SPDX-FileCopyrightText: 2020-2021 Northwestern University.
 # SPDX-License-Identifier: MIT
 """Exact upstream method excerpts; compiled with dummy bases in offline tests.
 
@@ -7,6 +5,10 @@ DataCite: RDM d4a4ef21; draft files: invenio-drafts-resources11.0.3.
 See contracts/schemas/zenodo-modern/README.md for provenance and limits.
 """
 
+# Exact notices from the DataCite source excerpt:
+# SPDX-FileCopyrightText: 2021-2024 CERN.
+# SPDX-FileCopyrightText: 2023 Northwestern University.
+# SPDX-FileCopyrightText: 2023-2024 Graz University of Technology.
 class DataCitePIDProvider:
     def validate(self, record, identifier=None, provider=None, **kwargs):
         """Validate the attributes of the identifier.
@@ -44,6 +46,8 @@ class DataCitePIDProvider:
 
         return not bool(errors), errors
 
+# Exact notice from the draft-files source excerpt:
+# SPDX-FileCopyrightText: 2021-2025 CERN.
 class BaseRecordFilesComponent:
     def update_draft(self, identity, data=None, record=None, errors=None):
         """Assigns files.enabled and warns if files are missing.
@@ -108,4 +112,3 @@ class BaseRecordFilesComponent:
                     "messages": e.messages,
                 }
             )
-
