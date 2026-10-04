@@ -11,6 +11,7 @@ from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+from scripts import modern_canary_errors as modern_errors
 from scripts import modern_draft_schema as schema
 from scripts import modern_owned_continuation as owned
 from scripts import modern_run02_subjects_repair as prior
@@ -298,12 +299,30 @@ class Controller(prior.Controller):
         else:
             modern.require(prepared.method == 'GET' and prepared.body is None)
 
-    def record(self, data, expected, *args, **kwargs):
-        diagnostics = owned.metadata_diagnostics(data, expected)
+    def response_contract_diagnostics(self, data):
+        """Per-response observed facts; recognition never waives validation."""
+        diagnostics = owned.metadata_diagnostics(data, self.updated)
         actual = data.get('metadata') if isinstance(data, dict) else None
         diagnostics['publisher_present'] = isinstance(actual, dict) and 'publisher' in actual
+        diagnostics['publisher_type'] = modern_errors.JSON_TYPES.get(type(actual['publisher']), 'other') if diagnostics['publisher_present'] else 'missing'
         diagnostics['publisher_matches'] = isinstance(actual, dict) and actual.get('publisher') == schema.PUBLISHER
+        errors = data.get('errors') if isinstance(data, dict) else None
+        exact = isinstance(errors, list) and any(
+            isinstance(item, dict) and set(item) == {'field', 'messages'}
+            and item['field'] == 'files.enabled' and isinstance(item['messages'], list)
+            and len(item['messages']) == 1 and item['messages'][0] in schema.EMPTY_FILE_MESSAGES
+            for item in errors)
+        diagnostics['exact_missing_upload_warning_present'] = bool(exact)
+        diagnostics['only_exact_missing_upload_warning'] = bool(exact and len(errors) == 1)
+        diagnostics['exact_missing_upload_warning_accepted'] = False
+        diagnostics['record_contract_validated'] = False
         self.state['record_contract_diagnostics'] = diagnostics
+        return diagnostics
+
+    def record(self, data, expected, *args, **kwargs):
+        diagnostics = self.response_contract_diagnostics(data)
+        if self.state['pending'] and self.state['responses']:
+            self.state['responses'][-1]['record_contract_diagnostics'] = diagnostics
         self.persist()
         modern.require(diagnostics['publisher_matches'])
         warning = schema.expected_empty_file_warning(data)
@@ -311,11 +330,13 @@ class Controller(prior.Controller):
         checked.pop('errors', None)
         identity = modern.Controller.record(self, checked, expected, allow_no_doi=True)
         modern.require(identity['doi'] is None)
+        diagnostics['record_contract_validated'] = True
+        diagnostics['exact_missing_upload_warning_accepted'] = bool(warning)
         # Full metadata/access, same owner/draft, zero files and absent DOI have
         # now passed. Only this ledger accepts the exact source-backed warning.
         if warning:
             self.state['accepted_empty_file_warnings'] += 1
-            self.persist()
+        self.persist()
         return identity
 
     def run(self, retry=False):
@@ -334,7 +355,8 @@ class Controller(prior.Controller):
             return self.receipt()
         except BaseException as error:
             diagnostic = {'attempt': self.capture_failure(error),
-                          'record_contract_diagnostics': self.state['record_contract_diagnostics']}
+                          'record_contract_diagnostics': self.state['record_contract_diagnostics'],
+                          'responses': deepcopy(self.state['responses'])}
             raise modern.Held('Complete-schema repair held; preserve every stage, no replay', diagnostic) from None
 
     def receipt(self):

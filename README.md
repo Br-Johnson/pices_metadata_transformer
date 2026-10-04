@@ -59,6 +59,15 @@ pices_md_2/
 
 ## Production safety and review
 
+The [run02 response update](docs/readiness/2026-10-03/run02_response_receipt_update_handoff.md)
+corrects PUT2's receipt interpretation and captures distinct PUT/GET container,
+metadata/access, error-path, warning and transport facts before validation stops.
+It changes diagnostic runtime bindings while preserving the 517-byte payload and
+PUT1/GET1 limits. The sole executor must refresh actual private preflight for the
+final runtime before parent dispatch; the earlier successful preflight remains
+preserved. Successful metadata repair still leaves the DOI/file/readback/retry
+trial and source-aware production adapter to complete.
+
 The [exact42 resource reconciliation](docs/readiness/2026-10-03/resource_reconciliation_42_handoff.md)
 adds reviewed finite contexts to the compatible556 profile, preserving all514
 previous objects and unchanged821/904 evidence. Its measured delta and integrated
@@ -114,7 +123,7 @@ action grant; no live provider result is claimed by these tests.
 Parent reports the controlled PUT2 exposed a publisher error and a discarded
 second label. The [complete-schema repair](docs/readiness/2026-10-03/run02_complete_schema_repair_handoff.md)
 validates every submitted fictional field locally, adds the documented host
-publisher only to that fixture, and preserves PUT2 and all 357 prior entries.
+publisher only to that fixture, and preserves PUT2 and all selected historical entries.
 Its separate grant can accept only the exact upstream enabled-empty-file warning
 after full metadata/access/identity checks. Bounded field-name diagnostics make
 other validation errors readable without retaining messages or values. No source

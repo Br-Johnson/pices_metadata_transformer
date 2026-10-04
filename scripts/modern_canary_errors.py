@@ -19,6 +19,20 @@ VALIDATION_ERROR_FIELDS = (
     'metadata.publisher', 'metadata.description', 'access', 'access.files', 'files',
 )
 
+JSON_TYPES = {str: 'string', dict: 'object', list: 'array', int: 'integer',
+              float: 'number', bool: 'boolean', type(None): 'null'}
+RECORD_MIME = 'application/vnd.inveniordm.v1+json'
+
+
+def response_containers_projection(data):
+    """Distinguish absent and malformed fixed containers without retaining values."""
+    result = {'body_type': JSON_TYPES.get(type(data), 'other')}
+    for name in ('metadata', 'access', 'files', 'errors', 'pids', 'parent'):
+        present = isinstance(data, dict) and name in data
+        result[name + '_present'] = present
+        result[name + '_type'] = JSON_TYPES.get(type(data[name]), 'other') if present else 'missing'
+    return result
+
 
 def validation_errors_projection(data, token):
     """Flags and bounded schema paths only; never messages or provider values.
@@ -29,10 +43,8 @@ def validation_errors_projection(data, token):
     """
     present = isinstance(data, dict) and 'errors' in data
     errors = data.get('errors') if present else None
-    labels = {str: 'string', dict: 'object', list: 'array', int: 'integer',
-              bool: 'boolean', type(None): 'null'}
     result = {'errors_present': present,
-              'errors_type': labels.get(type(errors), 'other') if present else 'missing',
+              'errors_type': JSON_TYPES.get(type(errors), 'other') if present else 'missing',
               'errors_count': len(errors) if isinstance(errors, list) else None,
               'errors_shape_supported': isinstance(errors, list), 'unknown_error_field_present': False,
               'error_fields': [], 'error_field_names_suppressed': False,
@@ -106,6 +118,12 @@ def _credential_variants(token):
     return (token, quote(token, safe=''), html.escape(token), standard, urlsafe,
             standard.rstrip('='), urlsafe.rstrip('='))
 
+
+def body_credential_echoed(raw, data, token):
+    """Apply the existing credential variants to both bytes and decoded strings."""
+    return any(value.encode('ascii') in raw or credential_echoed(data, value)
+               for value in _credential_variants(token))
+
 class _HumanErrorText(HTMLParser):
     """Collect human heading/message text while excluding active markup content."""
     def __init__(self, heading_only=False):
@@ -174,12 +192,14 @@ def _safe_trace_headers(response, token):
             result[key] = value
     return result
 
-def response_projection(raw, response, method, token):
+def response_projection(raw, response, method, token, body_complete=True):
     """Retain selected redacted diagnostics; no other body, keys, values or headers."""
     status = response.status_code
     mime = response.headers.get('Content-Type', '').split(';', 1)[0].strip().lower()
     result = {'method': method, 'status': status if type(status) is int and 100 <= status <= 599 else None,
-              'content_type': mime if mime in ('application/json', 'text/html', 'text/plain', 'application/xml') else 'other',
+              'content_type': mime if mime in ('application/json', RECORD_MIME, 'text/html', 'text/plain', 'application/xml') else 'other',
+              'expected_record_mime': mime == RECORD_MIME,
+              'body_complete': body_complete, 'record_contract_diagnostics_available': False,
               'observed_bytes': len(raw), 'body_sha256': hashlib.sha256(raw).hexdigest()}
     data = None
     try:
@@ -191,7 +211,12 @@ def response_projection(raw, response, method, token):
         result['body_format'] = 'html' if b'<' in raw[:256] else 'other'
     text = raw.decode('utf-8', errors='replace').lower()
     result['error_categories'] = [phrase for phrase in ERROR_PHRASES if phrase in text] if result['status'] and result['status'] >= 400 else []
-    result['credential_echo_detected'] = token.encode('ascii') in raw or credential_echoed(data, token)
+    result['credential_echo_detected'] = body_credential_echoed(raw, data, token)
+    if result['credential_echo_detected']:
+        result['body_sha256'] = None
+    result['container_projection_available'] = body_complete and result['body_format'] == 'json' and not result['credential_echo_detected']
+    if result['container_projection_available']:
+        result['containers'] = response_containers_projection(data)
     if result['status'] and result['status'] >= 400:
         result['trace_identifiers'] = _safe_trace_headers(response, token)
         message, source = None, None

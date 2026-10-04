@@ -346,6 +346,10 @@ class Controller:
     def filebase(self):
         return self.base() + '/files/' + quote(self.key, safe='')
 
+    def response_contract_diagnostics(self, data):
+        """Selected controllers may project fixed comparisons before validation."""
+        return None
+
     def request(self, kind, method, path, status, body=None, binary=False):
         """Spend exact action before invoking a transport; never follow response URLs."""
         require(method in ('GET', 'POST', 'PUT') and path.startswith('/api/records'))
@@ -372,6 +376,8 @@ class Controller:
         self.state['attempt_diagnostics'].append({'action': kind, 'phase': 'intent',
             'send_call_started': False, 'adapter_entered': False,
             'response_seen': False, 'status': None})
+        if 'record_contract_diagnostics' in self.state:
+            self.state['record_contract_diagnostics'] = None
         self.persist()
         raw = b''
         response = None
@@ -404,20 +410,27 @@ class Controller:
                     break
             require(self.now() < datetime_aware(self.grant['valid_until']))
             self.observe('response_projection')
-            projection = response_projection(raw, response, method, self.token)
+            projection = response_projection(raw, response, method, self.token, body_complete=complete)
             projection.update(action=kind, body_complete=complete)
             self.state['responses'].append(projection)
             projected = True
             self.persist()
-            if complete and not binary and self.token.encode() not in raw:
+            if complete and not binary and not projection['credential_echo_detected']:
                 # Capture safe schema flags even on HTTP400 before status rejection.
                 # Never persist parsed data, messages or credential-bearing fields.
                 try:
                     diagnostic_data = json.loads(raw)
                 except (ValueError, RecursionError):
                     diagnostic_data = None
-                if isinstance(diagnostic_data, dict) and not credential_echoed(diagnostic_data, self.token):
+                    decoded = False
+                else:
+                    decoded = True
+                if decoded and not credential_echoed(diagnostic_data, self.token):
                     projection['validation_errors'] = validation_errors_projection(diagnostic_data, self.token)
+                    contract = self.response_contract_diagnostics(diagnostic_data)
+                    if contract is not None:
+                        projection['record_contract_diagnostics'] = contract
+                        projection['record_contract_diagnostics_available'] = True
                     self.persist()
             self.observe('response_validation')
             require(complete and response.status_code == status,
@@ -432,7 +445,7 @@ class Controller:
                 self.state['uncertain_candidate_id'] = data['id']
                 self.persist()
             self.observe('credential_validation')
-            require(self.token.encode() not in raw and not credential_echoed(data, self.token),
+            require(not projection['credential_echo_detected'] and not credential_echoed(data, self.token),
                     'Provider echoed credential; attempt remains spent')
             self.observe('identity_validation')
             return data
@@ -441,7 +454,7 @@ class Controller:
             diagnostic = self.capture_failure(error)
             if response is not None and not projected:
                 try:
-                    projection = response_projection(raw, response, method, self.token)
+                    projection = response_projection(raw, response, method, self.token, body_complete=False)
                     projection.update(action=kind, body_complete=False)
                     self.state['responses'].append(projection)
                     self.persist()

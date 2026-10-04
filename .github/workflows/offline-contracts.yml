@@ -44,6 +44,6 @@ jobs:
           ci/run_offline_tests.py tests/test_offline_ci.py tests/test_curation_batches.py
           scripts/modern_canary_errors.py scripts/modern_synthetic_canary.py
           scripts/modern_request_body_diagnostics.py scripts/modern_draft_schema.py
-          scripts/modern_run02_schema_repair.py tests/test_modern_schema_repair.py
+          scripts/modern_run02_schema_repair.py tests/test_modern_canary_errors.py tests/test_modern_schema_repair.py
       - name: Run guarded offline contracts
         run: python -B ci/run_offline_tests.py

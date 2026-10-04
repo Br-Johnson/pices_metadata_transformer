@@ -236,6 +236,17 @@ class ModernSchemaRepairTests(unittest.TestCase):
             raise RuntimeError('PRIVATE ' + fixture.TOKEN)
         if self.fault == 'redirect':
             return fixture.Response({}, 302, {'Location': 'https://bad.invalid/' + fixture.TOKEN})
+        if method == 'GET' and self.fault == 'malformed_get':
+            return fixture.Response(b'{"metadata":')
+        if method == 'GET' and self.fault == 'partial_get':
+            response = fixture.Response({})
+
+            def interrupted(chunk_size):
+                yield b'{}'
+                raise RuntimeError('PRIVATE ' + fixture.TOKEN)
+
+            response.iter_content = interrupted
+            return response
         if method == 'PUT':
             self.assertTrue(schema.validate_payload(body))
             self.remote['metadata'], self.remote['access'] = deepcopy(body['metadata']), deepcopy(body['access'])
@@ -251,7 +262,7 @@ class ModernSchemaRepairTests(unittest.TestCase):
             data['metadata'] = {}
             data['errors'].append({'field': 'metadata.publisher', 'messages': ['private-message']})
         if self.fault == 'http400':
-            return fixture.Response(data, 400)
+            return fixture.Response(data, 400, {'Content-Type': modern.ACCEPT})
         if self.fault == 'publisher':
             data['metadata'].pop('publisher')
             data['errors'].append({'field': 'metadata.publisher', 'messages': ['private-message']})
@@ -376,6 +387,61 @@ class ModernSchemaRepairTests(unittest.TestCase):
         with self.assertRaises(modern.Held):
             self.controller()
         self.assert_preserved()
+
+    def test_status_and_error_holds_return_complete_put_facts_before_identity_comparisons(self):
+        for fault in ('http400', 'unknown'):
+            with self.subTest(fault=fault):
+                if self.calls:
+                    self.doCleanups()
+                    self.setUp()
+                self.stage_and_grant()
+                self.fault = fault
+                with self.assertRaises(modern.Held) as caught:
+                    self.controller().run()
+                response = caught.exception.diagnostic['responses'][0]
+                self.assertEqual((response['method'], response['action']), ('PUT', 'metadata'))
+                self.assertGreater(response['observed_bytes'], 0)
+                self.assertEqual(len(response['body_sha256']), 64)
+                self.assertTrue(response['body_complete'])
+                self.assertEqual(response['containers']['metadata_type'], 'object')
+                self.assertTrue(response['record_contract_diagnostics_available'])
+                facts = response['record_contract_diagnostics']
+                self.assertTrue(facts['publisher_matches'])
+                self.assertTrue(facts['exact_missing_upload_warning_present'])
+                self.assertFalse(facts['record_contract_validated'])
+                self.assertFalse(facts['exact_missing_upload_warning_accepted'])
+                if fault == 'http400':
+                    self.assertTrue(response['expected_record_mime'])
+                else:
+                    self.assertFalse(facts['only_exact_missing_upload_warning'])
+                    self.assertIn('metadata.future_field', response['validation_errors']['error_fields'])
+                self.assertEqual(self.calls, ['PUT'])
+                self.assertNotIn('private-message', json.dumps(caught.exception.diagnostic))
+                self.assert_preserved()
+
+    def test_malformed_or_interrupted_get_does_not_reuse_validated_put_diagnostics(self):
+        for fault in ('malformed_get', 'partial_get'):
+            with self.subTest(fault=fault):
+                if self.calls:
+                    self.doCleanups()
+                    self.setUp()
+                self.stage_and_grant()
+                self.fault = fault
+                with self.assertRaises(modern.Held) as caught:
+                    self.controller().run()
+                responses = caught.exception.diagnostic['responses']
+                self.assertEqual([row['method'] for row in responses], ['PUT', 'GET'])
+                self.assertTrue(responses[0]['record_contract_diagnostics']['record_contract_validated'])
+                self.assertTrue(responses[0]['record_contract_diagnostics']['exact_missing_upload_warning_accepted'])
+                self.assertFalse(responses[1]['record_contract_diagnostics_available'])
+                self.assertFalse(responses[1]['container_projection_available'])
+                self.assertNotIn('record_contract_diagnostics', responses[1])
+                self.assertIsNone(caught.exception.diagnostic['record_contract_diagnostics'])
+                self.assertEqual(responses[1]['body_complete'], fault == 'malformed_get')
+                self.assertEqual(responses[1]['observed_bytes'], 2 if fault == 'partial_get' else len(b'{"metadata":'))
+                self.assertEqual(modern.load(self.stage / 'state.json')['counts'], repair.LIMITS)
+                self.assertNotIn(fixture.TOKEN, json.dumps(caught.exception.diagnostic))
+                self.assert_preserved()
 
     def test_missing_inventory_or_unsafe_destination_rejects_before_staging(self):
         manifest = modern.load(self.manifest)

@@ -1,5 +1,23 @@
 # Tech Debt Log
 
+## Actual response facts before validation — 2026-10-04
+
+PUT2's nonempty errors stopped before identity comparisons; its phase label was
+not evidence of an identity mismatch. The observed body size is3282 bytes, and
+GET197 predates that PUT. Publisher omission is verified, but neither the
+unknown second error nor all-field absence is explained by publisher omission.
+The source-backed empty-file warning remains a hypothesis for the discarded label.
+PR23 now attaches fixed container types, seven expected-field/access comparisons,
+safe error paths and warning recognition/acceptance to each complete response
+before checks stop. Held output carries both PUT and GET observations; malformed
+or interrupted GET cannot inherit the validated PUT's latest flat diagnostic.
+The expected vendor MIME is recognized, and credential echoes suppress the
+body fingerprint/projections. The517-byte request and all action limits remain
+unchanged. Three runtime hashes change, so the prior380-file/381-entry private
+preflight must be preserved and refreshed against a new immutable stage binding.
+After metadata repair, a phase-specific DOI/file/readback/retry continuation and
+source-aware production adapter remain engineering work under existing authority.
+
 ## Portable guarded CI — 2026-10-04
 
 PR23 originally had no workflow or automated check. The same PR now adds a

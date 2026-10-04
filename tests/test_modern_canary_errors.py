@@ -20,6 +20,55 @@ class ModernErrorDiagnosticTests(unittest.TestCase):
         raw = body if isinstance(body, bytes) else json.dumps(body).encode()
         return f.response_projection(raw, response, 'POST', self.token)
 
+    def test_vendor_mime_and_fixed_container_types_distinguish_missing_from_invalid(self):
+        body = {'metadata': None, 'access': [], 'files': {}, 'errors': [],
+                'parent': {'private': 'UNRELATED-PRIVATE-VALUE'}}
+        result = self.project(body, status=200, headers={
+            'Content-Type': 'Application/Vnd.InvenioRDM.V1+Json; charset=utf-8'})
+        self.assertEqual(result['content_type'], f.RECORD_MIME)
+        self.assertTrue(result['expected_record_mime'])
+        self.assertTrue(result['container_projection_available'])
+        shapes = result['containers']
+        self.assertEqual(shapes['body_type'], 'object')
+        for name, kind in (('metadata', 'null'), ('access', 'array'), ('files', 'object'),
+                           ('errors', 'array'), ('parent', 'object')):
+            self.assertTrue(shapes[name + '_present'])
+            self.assertEqual(shapes[name + '_type'], kind)
+        self.assertFalse(shapes['pids_present'])
+        self.assertEqual(shapes['pids_type'], 'missing')
+        self.assertNotIn('UNRELATED-PRIVATE-VALUE', json.dumps(result))
+        for body, kind in (([], 'array'), (None, 'null')):
+            result = self.project(body, status=200)
+            self.assertEqual(result['containers']['body_type'], kind)
+            self.assertFalse(result['containers']['metadata_present'])
+        other = self.project({}, status=200, headers={'Content-Type': 'private/UNRELATED-MIME'})
+        self.assertEqual(other['content_type'], 'other')
+        self.assertFalse(other['expected_record_mime'])
+        self.assertNotIn('UNRELATED-MIME', json.dumps(other))
+
+    def test_partial_parseable_body_cannot_claim_container_or_contract_observations(self):
+        response = requests.Response()
+        response.status_code = 200
+        raw = b'{"metadata":{}}'
+        result = f.response_projection(raw, response, 'GET', self.token, body_complete=False)
+        self.assertEqual(result['observed_bytes'], len(raw))
+        self.assertFalse(result['body_complete'])
+        self.assertFalse(result['container_projection_available'])
+        self.assertFalse(result['record_contract_diagnostics_available'])
+        self.assertNotIn('containers', result)
+
+    def test_encoded_credential_echo_suppresses_containers_and_body_fingerprint(self):
+        for value in (self.token, quote(self.token, safe=''), html.escape(self.token),
+                      base64.b64encode(self.token.encode()).decode(),
+                      base64.urlsafe_b64encode(self.token.encode()).decode().rstrip('=')):
+            with self.subTest(encoding=value):
+                result = self.project({'metadata': {'private': value}}, status=200)
+                self.assertTrue(result['credential_echo_detected'])
+                self.assertFalse(result['container_projection_available'])
+                self.assertIsNone(result['body_sha256'])
+                self.assertNotIn('containers', result)
+                self.assertNotIn(value, json.dumps(result))
+
     def test_json_human_message_and_request_identifier_are_retained(self):
         response = requests.Response()
         response.status_code = 500
@@ -93,7 +142,9 @@ class ModernErrorDiagnosticTests(unittest.TestCase):
             result = self.project({'message': 'Server error'}, headers={'X-Request-ID': value})
             self.assertEqual(result['trace_identifiers'], {})
         token = 'a' * 32
-        response = requests.Response(); response.status_code = 500; response.headers['X-Request-ID'] = token
+        response = requests.Response()
+        response.status_code = 500
+        response.headers['X-Request-ID'] = token
         result = f.response_projection(b'{"message":"Error"}', response, 'POST', token)
         self.assertEqual(result['trace_identifiers'], {})
 
@@ -103,14 +154,16 @@ class ModernErrorDiagnosticTests(unittest.TestCase):
             echo = token
             for _ in range(layers):
                 echo = quote(echo, safe='')
-            response = requests.Response(); response.status_code = 500
+            response = requests.Response()
+            response.status_code = 500
             result = f.response_projection(json.dumps({'message': 'Failure: ' + echo}).encode(), response, 'POST', token)
             message = result['error_message']
             for private in (token, echo, 'test%252Fsecret'):
                 self.assertNotIn(private, message)
         token = '??>'
         echo = base64.urlsafe_b64encode(token.encode()).decode()
-        response = requests.Response(); response.status_code = 500
+        response = requests.Response()
+        response.status_code = 500
         result = f.response_projection(json.dumps({'message': 'Failure: ' + echo}).encode(), response, 'POST', token)
         self.assertNotIn(echo, result['error_message'])
         result = self.project({'message': r'Cannot open \\corp\private\run\file.pem'})
