@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-04T01:49:52.782316+00:00",
+  "status": "CLEAR_FINITE42_SOURCE_AND_REVIEWER_PROVENANCE_DESIGN_IMPLEMENTATION_NOT_YET_REVIEWED",
+  "worktree": "/workspace/pices-resource42",
+  "reviewed_source_commit": "b71dc16a656c6deb2aceb0b1e3e861ce66560339",
+  "scope": "Independent bounded design/current binding crosscheck of already independently cleared42; no repeat broad semantic source review, code change, classifier or provider work",
+  "inputs": [
+    {
+      "path": "/tmp/pices-resource42-reconciliation-proposals.json",
+      "sha256": "25475fc285f8e4377a051de6b7876436e43f81eaca91ed62dd5693cf82c10198"
+    },
+    {
+      "path": "/tmp/pices-resource41-and4060-independent-review.json",
+      "sha256": "e16e097b3c514898dec823e2fff2b3d2ef9fedf44713e36d1c9720e10f686f75"
+    },
+    {
+      "path": "/tmp/pices-resource42-independent-design-bindings.py",
+      "sha256": "9d93103cbcd278a8686acdf699946e4e4b43fd7dad36e62caf4a9648c9f480ea"
+    },
+    {
+      "path": "/tmp/pices-resource42-independent-design-bindings.json",
+      "sha256": "c13a5a11b2a179a60bdddf42a0e7c4cbc6cd5cd32370c414909b94a3f7d81a07"
+    },
+    {
+      "path": "/workspace/pices-resource42/docs/readiness/2026-10-03/finite_source_resource_access_514.json",
+      "sha256": "203c050735a9dc755712acde70c0447b91f2bd6131dde53dd8195a0f2923d9a2"
+    },
+    {
+      "path": "/workspace/pices-resource42/docs/readiness/2026-10-03/source_scope_reconciliation_904.json",
+      "sha256": "242024bcf750e0fd3ea0097ee34eb47fb86f0674fb554fe2e0b78ddce4a589c1"
+    }
+  ],
+  "member_count": 42,
+  "membership_sha256": "fc52e96d2a333c2ba1842ca4198fa53e69d8665fed512e818eddaf38b71bf8dd",
+  "acquisition_contexts_sha256": "be837c4b0db6fc4846bbb4dc92d366145b66c1ed8ae0458279a978ff6baeeeff",
+  "members": [
+    {
+      "source_id": "FGDC-112",
+      "source_sha256": "8ee7aa67841553eb633092cdb0a64deea186ef26da16fd39ddf8c76059f46d93"
+    },
+    {
+      "source_id": "FGDC-1342",
+      "source_sha256": "13176c489b4da25b22f7c09f659066aca88ad307eba74fb0f1c3f7989b75566b"
+    },
+    {
+      "source_id": "FGDC-14",
+      "source_sha256": "8341b9a7eb0ec219042493f0b6a684fabc838ca70ba5fa2b74201a4fa69df424"
+    },
+    {
+      "source_id": "FGDC-16",
+      "source_sha256": "a4a4246519809eceffe52f57a9b856ddf4c7cc13adb3ceec1714fc3f1bde11f1"
+    },
+    {
+      "source_id": "FGDC-17",
+      "source_sha256": "0afb42c697a1d6828fb45b5f65c8e8cd9542cbec33991c14e42353d8a3a5a52e"
+    },
+    {
+      "source_id": "FGDC-1800",
+      "source_sha256": "7028ba9a632c5aad7c1ee9a97142b9eab382b9fd52ebd494e753acefeaf46dea"
+    },
+    {
+      "source_id": "FGDC-2628",
+      "source_sha256": "e4542cff7b85c83e1e549b467fef7785e20b2ff129107522f63efe6f463af5ff"
+    },
+    {
+      "source_id": "FGDC-2663",
+      "source_sha256": "f5eed071c6413972bef6af95ebc4fbc81808af9bbd5a64829570998c8c810af2"
+    },
+    {
+      "source_id": "FGDC-2809",
+      "source_sha256": "cff8179be75bca4d027c4c61e8c1304d95e883721f6883b387b1f02593dc3355"
+    },
+    {
+      "source_id": "FGDC-2810",
+      "source_sha256": "796ac4d8b03838daf7c157a3f56d5a91c23ccb4260e5f9bad9c5c6efe7e581bd"
+    },
+    {
+      "source_id": "FGDC-2813",
+      "source_sha256": "7df49a7257e5c0a8d36afedb8b26665f5b98556c9b88938b1be60e8f11e79d37"
+    },
+    {
+      "source_id": "FGDC-2814",
+      "source_sha256": "f0024841d2f02c04064384fb37a0d054b16036347755112b64b1cd70672880d7"
+    },
+    {
+      "source_id": "FGDC-2816",
+      "source_sha256": "b155310f26523ed208a4a52eadb5f2108d8a09851727f698ce006cdf3c055955"
+    },
+    {
+      "source_id": "FGDC-2818",
+      "source_sha256": "26535f8732a23cb0c6ef8e686f1f14362c3bc5f5aa71bc40b1f236c0c6dbaf79"
+    },
+    {
+      "source_id": "FGDC-2824",
+      "source_sha256": "e277e932e0fb1fe8e8efb5e1d1d9af4606a4dfe20c40e61884a4e34fa9dd1a6e"
+    },
+    {
+      "source_id": "FGDC-2827",
+      "source_sha256": "268cce241836e311d79f3ee5f21c533db09f1708e49e78fb72727a8055fc1f89"
+    },
+    {
+      "source_id": "FGDC-2836",
+      "source_sha256": "8497675950fa012c55d269f02a163bb71de30f02ea26db356ce34160a2212744"
+    },
+    {
+      "source_id": "FGDC-306",
+      "source_sha256": "b7201be8ec6965bac70d7e681edafeae9f29f09cadf779d3b670fa67883ab078"
+    },
+    {
+      "source_id": "FGDC-3398",
+      "source_sha256": "9f4f4e3cb943d6f642f556bf4ab52627db01d6ea27a90bdeca25c14bc0a18901"
+    },
+    {
+      "source_id": "FGDC-345",
+      "source_sha256": "b592322538bab39ad02af8a2b8c119923025245da2ecd0a21b851b4e9e94dfba"
+    },
+    {
+      "source_id": "FGDC-362",
+      "source_sha256": "062c4d5c436407dcb7e57fc2a976d0dcac40191ea3690f61fe106ee5e1668b24"
+    },
+    {
+      "source_id": "FGDC-363",
+      "source_sha256": "b308a9b07ba6e59cf6767dc5967a51279e14a0a10567f6f0b0f3408cebddde2b"
+    },
+    {
+      "source_id": "FGDC-364",
+      "source_sha256": "3bea4dab8c16d410b699df671a70d2350061b075ff2dc722112b0650b994eb71"
+    },
+    {
+      "source_id": "FGDC-365",
+      "source_sha256": "f67c317b4cca84199051a66a3be609ff55ddf441624146b9113b56f1814fc48b"
+    },
+    {
+      "source_id": "FGDC-366",
+      "source_sha256": "6ba7161d0a5ed2d136f76a20d7786f4b8d2abbcf9e94ca4b06fa889a6b49362f"
+    },
+    {
+      "source_id": "FGDC-368",
+      "source_sha256": "f5b7ceb7f48083c024a6a703bcd3dbd4fc35e040a2115a4b413197b5a2264cf0"
+    },
+    {
+      "source_id": "FGDC-3688",
+      "source_sha256": "b13f16d4fdfd7581d5d854877462ba0686eed29cec5ee8517c7e10b0aaab5da4"
+    },
+    {
+      "source_id": "FGDC-370",
+      "source_sha256": "307eddf2854ea053f9546a92c78ba4d387224738c30287520501dc4def953021"
+    },
+    {
+      "source_id": "FGDC-371",
+      "source_sha256": "7663479e72024ea50cba9581074c99a7b8eafbd1ead079d968247edd1a8debf5"
+    },
+    {
+      "source_id": "FGDC-4036",
+      "source_sha256": "9cd26b5fbe3656e1ec02bbceac4a0c0abe0ac89fabe69a97d8fa97a55582ebec"
+    },
+    {
+      "source_id": "FGDC-4060",
+      "source_sha256": "81aefae301a9e7aa6e972970109225a5f8052b054731b3f4d6ed6536e6868892"
+    },
+    {
+      "source_id": "FGDC-5",
+      "source_sha256": "d88193245f6651b6273588bdf19688f63fbdb3b0d588b18985f4419aa4ed1322"
+    },
+    {
+      "source_id": "FGDC-542",
+      "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c"
+    },
+    {
+      "source_id": "FGDC-748",
+      "source_sha256": "2fd4842489495a3bd67e28ca8ec11e6ebf70f42ab8cb6b8884c93687b31fb905"
+    },
+    {
+      "source_id": "FGDC-749",
+      "source_sha256": "f5aa2285264b6d91cc644686cd341d297a5b7a5a79c21dd54acc66a4553cba76"
+    },
+    {
+      "source_id": "FGDC-750",
+      "source_sha256": "e839df865ad5d8b858511ae88131bd0ab60e78c81adf5b520facd9bf241afc36"
+    },
+    {
+      "source_id": "FGDC-751",
+      "source_sha256": "8171588d0c511b01e99cdb6b16f8faaed27ba4c29dde7aba9c00c50868ff3f14"
+    },
+    {
+      "source_id": "FGDC-800",
+      "source_sha256": "307a0dadff0829d0a54389238c0ec489d82da98c8244827210a1f7a1a7f7d658"
+    },
+    {
+      "source_id": "FGDC-831",
+      "source_sha256": "e228a6e09d3035fac1b69206e2e8d55ee5b3dc52a8af8c2b5d9265cc6442293a"
+    },
+    {
+      "source_id": "FGDC-905",
+      "source_sha256": "eea983a9d7960e862367e644fcc2740c40e05e7727f4c37f94b2a128b77974b6"
+    },
+    {
+      "source_id": "FGDC-906",
+      "source_sha256": "26904ef9a38997f3cf55514fab3d9bda60f9e4de710734b7614e32bb5c70e04b"
+    },
+    {
+      "source_id": "FGDC-907",
+      "source_sha256": "b182b3c619ae351fc5bbe2825a0b62a5b7edf5f3017bfb9b20c8c78ba64c164f"
+    }
+  ],
+  "bindings": {
+    "status": "CLEAR_EXACT42_SOURCE_PROFILE_AND_PROVENANCE_BINDINGS_BEFORE_IMPLEMENTATION",
+    "worktree": "/workspace/pices-resource42",
+    "source_count": 42,
+    "proposal_sha256": "25475fc285f8e4377a051de6b7876436e43f81eaca91ed62dd5693cf82c10198",
+    "prior_independent_review_sha256": "e16e097b3c514898dec823e2fff2b3d2ef9fedf44713e36d1c9720e10f686f75",
+    "membership_sha256": "fc52e96d2a333c2ba1842ca4198fa53e69d8665fed512e818eddaf38b71bf8dd",
+    "acquisition_contexts_sha256": "be837c4b0db6fc4846bbb4dc92d366145b66c1ed8ae0458279a978ff6baeeeff",
+    "all42_exact_original_whole_root_four_plain_constraints_baseline_copies_payloads_and_complete_metadata_match": true,
+    "all42_current_source_status_held": true,
+    "all41_prior_complete_member_context_and_row_objects_verbatim": true,
+    "disjoint514_904_456aliases_and_remaining31": true,
+    "full_metadata_after_images_identical_to_before": true,
+    "rows_sha256": "51bd55fb09c6ace0f3ead32276a580b4ce7154b51e169c2cdd8016d7e278b8e8",
+    "material_findings": [],
+    "provider_requests": 0,
+    "classification_calls": 0,
+    "repository_edits": 0
+  },
+  "subcohorts": [
+    {
+      "key": "named_program_resource_permission12",
+      "count": 12,
+      "meaning": "derived_existing_authority_named_resource_permission_collaboration_preserved",
+      "membership_sha256": "3ad03a047291c19424419365bdc1f1b766d96fd9349e6daea57395a4cecbd88a"
+    },
+    {
+      "key": "resource_permission_acknowledgement4",
+      "count": 4,
+      "meaning": "derived_existing_authority_resource_permission_acknowledgement_preserved",
+      "membership_sha256": "2e734d16d3fddf9dc77ecfef0d9c55fb46e8d904a7e98b861fe3fe766fbdab0f"
+    },
+    {
+      "key": "dated_contributor_conditions3",
+      "count": 3,
+      "meaning": "derived_existing_authority_dated_underlying_resource_permission_preserved",
+      "membership_sha256": "fd6deb8d6682105419b1599bbdc9a28604abc79200a0e248a674bbd85d032ead"
+    },
+    {
+      "key": "adfg_habitat_maps_stream_resource2",
+      "count": 2,
+      "meaning": "derived_existing_authority_underlying_habitat_maps_streams_permission_unknown_use",
+      "membership_sha256": "3a0ce588f432efc73e8284d364ee26800402993fc5b3149b35cf98e972aa3c2c"
+    },
+    {
+      "key": "bibliographic_CSA_referral14",
+      "count": 14,
+      "meaning": "derived_existing_authority_bibliographic_contributor_and_CSA_referral_preserved",
+      "membership_sha256": "55441a400da8a2e74b53da20600c6bb3ba6766689f9104d86ac7feb37cebc5a9"
+    },
+    {
+      "key": "commercial_Copper_River_imagery4",
+      "count": 4,
+      "meaning": "derived_existing_authority_named_commercial_imagery_inquiry_preserved",
+      "membership_sha256": "c395252baecdd3446ed79961cc1e0b5e87dc265ffd326e50512230b5f08568d1"
+    },
+    {
+      "key": "CAS_data_specimen_conditions1",
+      "count": 1,
+      "meaning": "derived_existing_authority_CAS_catalogue_data_and_physical_specimen_conditions_preserved",
+      "membership_sha256": "6652000ff193672684a09186f13430a6233bfa78ac51ec5ebd8a6d12749c7b70"
+    },
+    {
+      "key": "MIRAI_reports_data_referral1",
+      "count": 1,
+      "meaning": "derived_existing_authority_MIRAI_cruise_report_data_review_referral_preserved",
+      "membership_sha256": "8907a518a391e95ea386515df159814e91c06caab85dd4585081f2b5d813d9ea"
+    },
+    {
+      "key": "model_resource_contact_in_document_disclaimer1",
+      "count": 1,
+      "meaning": "derived_existing_authority_model_contact_and_in_document_disclaimer_preserved",
+      "membership_sha256": "198c95ac3091ac1f58d5cd26a66786fbc8a76b29b623cb07acf647a75147c8c8"
+    }
+  ],
+  "source_interpretation_limits": [
+    "Existing recorded all4206 restoration authority and underlying-resource/public-metadata statements are the dependency for this finite reviewer reconciliation; no new human answer about these42 or original821 enlargement is claimed.",
+    "Approval, consent, collaboration, intellectual property, acknowledgements and dated conditions remain literal and unresolved; no satisfaction, expiry or underlying-resource permission is inferred.",
+    "CSA and JAMSTEC referrals, purchased imagery rights and CAS non-profit/loan/advisor/manipulation rules are preserved without fetching, supplying or asserting their fulfilment.",
+    "FGDC4060 has the exact in-document NOAA distliab disclaimer already in notes; its earlier missing-disclaimer premise is corrected, without inventing a separate UW/model agreement or resolving its liability terms.",
+    "Catalogue XML contains actual scientific summaries/results, quantities and ordinary coordinates where present; no blanket absence of information, results or coordinates is asserted.",
+    "Exact source spelling, complete metadata, original XML, attribution/roles, dates, rights, notes, links and independent holds remain intact; restricted XML with blank license and separate authority/remote/publication gates remain mandatory."
+  ],
+  "required_minimal_compatible_runtime_design": {
+    "new_profile": "Finite additive556 resource profile; all514 member/source/acquisition/full prior review objects preserved verbatim,42 exact proposal member/context objects added;904 and821 bytes unchanged.",
+    "accepted_pin": "Add only reviewed556 raw-file hash to current finite validator allowlist; no generic term or arbitrary evidence-type acceptance.",
+    "reconciliation_record": "Immutable explicit added42 ID/hash inventory, review time and existing-statement references identify reviewer-dependent members; full exact root context and four plain constraints retained.",
+    "original_provenance": "For new556, re-read/hash-check the five original authority/contact/contributor/question/821 JSON evidence files. Original821 full raw pin and question pin stay immutable; do not append42 to821/904 or reinterpret the original direct answer.",
+    "validator_result": "Return REVIEWER_RECONCILED only for exact added42; preserve SOURCE_BACKED result/behavior for all prior514. Add explicit false new_human_reply/new_user_attestation/original_direct_question_membership_enlarged/underlying_data_rights_granted flags and reference the bounded review.",
+    "minimal_time_signature": "Optional reviewed_at argument on validate_dataset_access_interpretation; mandatory current aware assessment time at/after bounded review for added42 only. Existing four-argument calls on old members remain compatible.",
+    "classifier": "Pass its reviewed_at into the dataset validator and record interpreted_dataset_access[status], replacing its current hardcoded SOURCE_BACKED label.",
+    "shared_QA": "Pass policy.reviewed_at from validate_dataset_access_policy. Agent QA and both human approval schemas already call this function, so the same provenance/timing/profile/context/authority/license/conflict checks must apply to every route.",
+    "preserved_common_gates": "Source-bound separate rehosting authority; restricted blank-license original_fgdc_xml policy; rights_source_xpath metuc; source_metadata_date; source-security/extensions and conflicting-interpretation rejection; alias/provider/production/readback/release protections unchanged.",
+    "withdrawal_and_cache": "Missing/changed/unaccepted profile or underlying original evidence selects no new source; source-specific validation and common QA must fail closed, including cached payload reuse."
+  },
+  "current_concrete_code_findings": {
+    "scripts/dataset_access_interpretation.py": {
+      "sha256": "606b5452a5cee6a274d786d56e59726435cfbd9245e69903a9c682d381732b7c",
+      "finding": "Current return always SOURCE_BACKED; requires typed bounded reviewer branch and provenance/timing dependency checks."
+    },
+    "scripts/collection_qa.py": {
+      "sha256": "0fc5f1772463f32de6a603d96a8b2c32c44c878fb1abe63d2b8e7556e363fd4f",
+      "finding": "Current dataset status label hardcoded SOURCE_BACKED; record validator actual status and supply review time."
+    },
+    "scripts/agent_qa.py": {
+      "sha256": "992e2e4449cbd860c7b42930679ccb069917e530f38e6689d7c04bd18287c59a",
+      "finding": "Existing shared dataset policy call supplies common agent route; no alternate bypass needed."
+    },
+    "scripts/qa_manifest.py": {
+      "sha256": "b164742379c5f26b121717a2ad874e2d827d56c9a83e2f3e86ae32ca9b2d2732",
+      "finding": "Existing shared dataset policy call precedes schema1/2 route split; keep same validation on both."
+    }
+  },
+  "remaining_implementation_verification": [
+    "Frozen556 profile and immutable514 object compatibility; new42 typed result and unchanged904/821 and original statement provenance.",
+    "Focused shared-agent/human contracts, aware timing, missing/withdrawn/forged/tampered profile/original evidence, full-context mutation and unrelated-held preservation.",
+    "Mixed10 then actual42 selected-source delta with full baseline/before/after metadata and original/copy preservation; root will supply tested artifacts for independent final review."
+  ],
+  "material_source_design_blockers": [],
+  "actual_promotions": 0,
+  "raw_metadata_changes": 0,
+  "source_XML_changes": 0,
+  "activities": {
+    "repository_edits": 0,
+    "provider_requests": 0,
+    "credential_private_provider_reads": 0,
+    "tests": 0,
+    "classifier_calls": 0,
+    "broad_source_reaudit": 0,
+    "bounded_source_and_payload_object_crosscheck": 42,
+    "tmp_reviewer_artifacts_written": true
+  }
+}

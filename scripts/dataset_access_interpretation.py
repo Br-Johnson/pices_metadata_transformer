@@ -8,6 +8,7 @@ import hashlib
 import json
 import re
 import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
 from pathlib import Path
 
 MANIFEST_SHA256 = '2d18139656b78f96404561afcee7d2ae77022655873958c3fa98619a2717bdee'
@@ -15,6 +16,7 @@ ACQUISITION_MANIFEST_SHA256 = '5c141ea3e0fae8e9b6673a2dc3f5aadba0d16c949767f80b5
 EXTENDED_ACQUISITION_MANIFEST_SHA256 = '76a5ca8a8cdadbe0c1b0157d559068c98b16e18619a8561ff66a203a5008730a'
 CNF_COPY_MEDIA_MANIFEST_SHA256 = '13e82e2375da3bf17cf352fff7a8cda43fa6d781a3e436ca7321c8428ac77abe'
 RESOURCE_CONFIDENTIALITY_MANIFEST_SHA256 = '203c050735a9dc755712acde70c0447b91f2bd6131dde53dd8195a0f2923d9a2'
+RESOURCE_RECONCILIATION_MANIFEST_SHA256 = '81c719c546146eb7ad39e04db115710747935df6cb142aaf5854127bf8ddcc6a'
 REGISTRATION_WORDING = 'First time users must register to gain database access.'
 
 
@@ -25,7 +27,8 @@ def _manifest(reference):
             or reference.get('manifest_sha256') not in (MANIFEST_SHA256, ACQUISITION_MANIFEST_SHA256,
                                                       EXTENDED_ACQUISITION_MANIFEST_SHA256,
                                                       CNF_COPY_MEDIA_MANIFEST_SHA256,
-                                                      RESOURCE_CONFIDENTIALITY_MANIFEST_SHA256)):
+                                                      RESOURCE_CONFIDENTIALITY_MANIFEST_SHA256,
+                                                      RESOURCE_RECONCILIATION_MANIFEST_SHA256)):
         raise ValueError('Dataset access interpretation requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()
@@ -33,7 +36,16 @@ def _manifest(reference):
         raise ValueError('Dataset access interpretation manifest is unavailable') from exc
     if hashlib.sha256(raw).hexdigest() != reference['manifest_sha256']:
         raise ValueError('Dataset access interpretation manifest differs from the reviewed profile')
-    return json.loads(raw)
+    manifest = json.loads(raw)
+    if reference['manifest_sha256'] == RESOURCE_RECONCILIATION_MANIFEST_SHA256:
+        for evidence in manifest['resource_reconciliation_review']['original_statement_references']:
+            try:
+                raw_evidence = (Path(__file__).resolve().parents[1] / evidence['manifest_path']).read_bytes()
+            except OSError as exc:
+                raise ValueError('Original resource-scope statement evidence is unavailable') from exc
+            if hashlib.sha256(raw_evidence).hexdigest() != evidence['manifest_sha256']:
+                raise ValueError('Resource reconciliation requires unchanged original statement evidence')
+    return manifest
 
 
 def dataset_access_member_ids(reference):
@@ -54,7 +66,7 @@ def _elements(root, xpath):
     return result
 
 
-def validate_dataset_access_interpretation(reference, source_id, source_sha256, root):
+def validate_dataset_access_interpretation(reference, source_id, source_sha256, root, reviewed_at=None):
     """Return source-backed meaning only for the pinned exact source membership."""
     manifest = _manifest(reference)
     if not any(member['source_id'] == source_id and member['source_sha256'] == source_sha256
@@ -82,9 +94,24 @@ def validate_dataset_access_interpretation(reference, source_id, source_sha256, 
                 or hashlib.sha256(ET.tostring(abstracts[0], encoding='utf-8')).hexdigest() != context['abstract_xml_sha256']
                 or re.sub(r'\s+', ' ', ''.join(abstracts[0].itertext())).strip() != context['abstract_text']):
             raise ValueError('Dataset access interpretation requires exact audited abstract context')
-    return {'status': 'SOURCE_BACKED', 'meaning': acquisition['meaning'] if acquisition else 'underlying_dataset_acquisition',
+    review = manifest.get('resource_reconciliation_review')
+    reconciled = review is not None and {'source_id': source_id, 'source_sha256': source_sha256} in review['members']
+    if reconciled:
+        try:
+            stamp = datetime.fromisoformat(reviewed_at.replace('Z', '+00:00'))
+            reviewed = datetime.fromisoformat(review['reviewed_at'])
+            if stamp.tzinfo is None or stamp < reviewed or stamp > datetime.now(timezone.utc):
+                raise ValueError
+        except (AttributeError, TypeError, ValueError) as exc:
+            raise ValueError('Resource reconciliation requires current aware assessment time after review') from exc
+    result = {'status': 'REVIEWER_RECONCILED' if reconciled else 'SOURCE_BACKED',
+            'meaning': acquisition['meaning'] if acquisition else 'underlying_dataset_acquisition',
             'source_id': source_id, 'source_sha256': source_sha256,
             'grants_rehosting': False, 'grants_new_license': False, 'publication_approved': False}
+    if reconciled:
+        result.update(reconciliation_reviewed_at=review['reviewed_at'], new_user_attestation_event=False,
+                      original_direct_question_membership_enlarged=False, underlying_data_rights_granted=False)
+    return result
 
 
 def validate_dataset_access_policy(policy, source_id, source_sha256, root, metadata):
@@ -105,4 +132,4 @@ def validate_dataset_access_policy(policy, source_id, source_sha256, root, metad
             or policy.get('date_semantics') != 'source_metadata_date'):
         raise ValueError('Dataset access interpretation requires restricted unlicensed XML policy')
     return validate_dataset_access_interpretation(policy.get('dataset_access_interpretation'),
-                                                  source_id, source_sha256, root)
+                                                  source_id, source_sha256, root, policy.get('reviewed_at'))

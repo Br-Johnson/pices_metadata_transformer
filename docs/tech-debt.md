@@ -1,5 +1,16 @@
 # Tech Debt Log
 
+## Finite42 reviewer provenance — 2026-10-04
+
+The556 profile retains all514 source/context objects and adds42 reviewer contexts.
+The common validator returns actual provenance instead of a universal SOURCE_BACKED
+label and requires current aware time after review; old profiles/calls stay
+compatible. Five original statements remain live dependencies;821/904 are not
+expanded. Cached measured22/106/42 accounting is not a new whole-corpus audit.
+Literal conditions, restricted blank-license XML and source/provider/release holds
+remain. The37 deferred candidates and31 exceptions need separate evidence.
+See `readiness/2026-10-03/resource_reconciliation_42_handoff.md`.
+
 ## Explicit same-draft repair ledger — 2026-10-04
 
 A known wire-schema defect justifies a separately counted controlled repair under

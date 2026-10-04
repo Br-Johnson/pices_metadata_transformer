@@ -40,6 +40,13 @@ pices_md_2/
 
 ## Production safety and review
 
+The [exact42 resource reconciliation](docs/readiness/2026-10-03/resource_reconciliation_42_handoff.md)
+adds reviewed finite contexts to the compatible556 profile, preserving all514
+previous objects and unchanged821/904 evidence. Its measured delta and integrated
+ledger yield **3638 supported /562 held /six malformed**. All raw metadata/XML and
+456 alias/31 exception holds remain intact; new cases are REVIEWER_RECONCILED with
+restricted unlicensed XML and separate provider gates.
+
 The [exact22 forestry GIS cohort](docs/readiness/2026-10-03/cnf_copy_media_handoff.md)
 adds finite copy-media acquisition interpretations while preserving literal
 Unknown use, all raw metadata and original XML. Its measured22-source delta plus

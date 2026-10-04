@@ -1,0 +1,983 @@
+{
+  "schema_version": 1,
+  "status": "CLEAR_BOUNDED_SOURCE_REVIEW_ONLY_NO_PROMOTIONS",
+  "reviewer": "/root/ecotrust_role_access",
+  "reviewed_at": "2026-10-04T00:37:27.513561+00:00",
+  "source_worktree": "/workspace/pices-next-residual-cohort",
+  "source_head": "ad49ba3b4c475b75ee16c2ca45df5548c08eda3d",
+  "source_tree": "363b1a0de190f32f6cc85d2f4e93e9cc20382fc8",
+  "review_scope": "Crosscheck the frozen41 finite reconciliation against actual existing statements and exact complete source contexts, independently assess FGDC4060 supplied disclaimer correction; preserve prior packets and do not integrate or enable execution.",
+  "input41": {
+    "path": "/tmp/pices-resource41-reconciliation-proposals.json",
+    "sha256": "6bb26d187dba137ada5ca00e92dcb8887fc0bcd40be3ee3d87664807e81ed22b",
+    "selected_members": 41
+  },
+  "input4060": {
+    "path": "/tmp/pices-fgdc4060-disclaimer-reconciliation.json",
+    "sha256": "66c04fe8ccbc8b7b5dae2c5205d2ecee12e369bb148fe8a30a207091d96baf25",
+    "selected_members": 1
+  },
+  "verified_actual_statement_inputs": {
+    "oct2_rehosting_authority": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-02/rehosting_authority.json",
+      "sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8"
+    },
+    "oct2_rehosting_document": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-02/rehosting_attestation.md",
+      "sha256": "4f30bff936d7fe0b96718732bc2ff3a78d1eebcbfb287aa9cecc8863922e47e0"
+    },
+    "oct2_contact_interpretation": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-02/contact_source_interpretation.json",
+      "sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a"
+    },
+    "oct2_contact_document": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-02/contact_source_cohort.md",
+      "sha256": "e41dde3f1f26217faebb6ab38c41475ce06a272d467dd5988eb0812cc4ad01da"
+    },
+    "oct2_contributor_interpretation": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-02/contributor_source_interpretation.json",
+      "sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d"
+    },
+    "oct2_contributor_document": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-02/contributor_source_profile.md",
+      "sha256": "4acf6a98ea99c8aff261c03d5319632012d1efd2efc812e67c1a59c73f311a03"
+    },
+    "oct3_scope_manifest": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-03/source_scope_attestation_821.json",
+      "sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657"
+    },
+    "oct3_scope_document": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-03/source_scope_attestation.md",
+      "sha256": "f0f99402c2c654a225d0ccb075e873896c505cbcebbedb8b45e9fe0f7c8b133a"
+    },
+    "original_three_questions": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+      "sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca"
+    },
+    "original_three_questions_document": {
+      "path": "/workspace/pices-next-residual-cohort/docs/readiness/2026-10-03/remaining_source_scope_questions_821.md",
+      "sha256": "91dd5c286a57cbc14d638b83d3cd62c04adc21a0430fca9b6d38140bd24fc2d9"
+    }
+  },
+  "baseline_report_path": "/workspace/pices-remaining-cohorts-qa/after/classification.json",
+  "baseline_report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+  "bounded_source_bindings": [
+    {
+      "source_id": "FGDC-112",
+      "source_sha256": "8ee7aa67841553eb633092cdb0a64deea186ef26da16fd39ddf8c76059f46d93",
+      "complete_xml_context_sha256": "be12fb88c2d44eecefc21b11e92c7720407a1b06e3eeebd28b4407d9c31a3bc8",
+      "copied_source_sha256": "8ee7aa67841553eb633092cdb0a64deea186ef26da16fd39ddf8c76059f46d93",
+      "baseline_prepared_payload_sha256": "a30ef3cb16be7809ee5bde812c32aaf5c5d774bb47f6b8a2371fb84111aa80e3",
+      "complete_baseline_raw_metadata_sha256": "4905d4b915b1b611ef79002507dbce51c0e44976a57ffcaaab7d4d2a94f0e992",
+      "raw_notes_sha256": "cf763e03d714a45620f4fc04d4e9ae0dfd25b1c690e9cbb951acdfeecb352ed6",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-1342",
+      "source_sha256": "13176c489b4da25b22f7c09f659066aca88ad307eba74fb0f1c3f7989b75566b",
+      "complete_xml_context_sha256": "b8641c28e2ed169e8b17b07ea6aada74447dad1894d07916d211e03a7a112227",
+      "copied_source_sha256": "13176c489b4da25b22f7c09f659066aca88ad307eba74fb0f1c3f7989b75566b",
+      "baseline_prepared_payload_sha256": "94129038bb4dc038b4988b02cf1d370b799cdddc00e6f3b9969819a47809da88",
+      "complete_baseline_raw_metadata_sha256": "8ef29f15ece31ffad23409217ebbfce03702b9598c82c78e8d466c72e7ec3d6e",
+      "raw_notes_sha256": "4b508ba5c0ebf79128f99869c5e7dca6ea74552cf79b6b6408e657eb35e3225c",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-14",
+      "source_sha256": "8341b9a7eb0ec219042493f0b6a684fabc838ca70ba5fa2b74201a4fa69df424",
+      "complete_xml_context_sha256": "570df71652037daa643f218bd56ab6df21bf7f609110809051437e765ea68b15",
+      "copied_source_sha256": "8341b9a7eb0ec219042493f0b6a684fabc838ca70ba5fa2b74201a4fa69df424",
+      "baseline_prepared_payload_sha256": "c9303495fe4ad967b5dcde0b0de62ab43d50972574180d739264c41084adaf98",
+      "complete_baseline_raw_metadata_sha256": "5d0c57a79324f32cde0ab7754d25cf1f771a5c3b0244b6d4fcae6a417384d777",
+      "raw_notes_sha256": "87ead3bbd1e400723226766030b6bd8d2b49af233f41b0662f2e4b8cdf415398",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-16",
+      "source_sha256": "a4a4246519809eceffe52f57a9b856ddf4c7cc13adb3ceec1714fc3f1bde11f1",
+      "complete_xml_context_sha256": "1f6eb23659c0c0bea508037bdaec1c652374d9d7524166171cea094092d3d568",
+      "copied_source_sha256": "a4a4246519809eceffe52f57a9b856ddf4c7cc13adb3ceec1714fc3f1bde11f1",
+      "baseline_prepared_payload_sha256": "913822c2d1210acb7e2e9ce2164996904402f7947f7dc7fa6508a9951cc71064",
+      "complete_baseline_raw_metadata_sha256": "54597997cb35a56567191cb8d1946042428aac9f864bbde887f44f7dac533a49",
+      "raw_notes_sha256": "939616604969cab1b108d8e785467e9d422bd943600223eba0736355cb28c9d6",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-17",
+      "source_sha256": "0afb42c697a1d6828fb45b5f65c8e8cd9542cbec33991c14e42353d8a3a5a52e",
+      "complete_xml_context_sha256": "4f37c03fc13bc55e215035ecdb3ae278631bb878b0a82ab089ab6a2bda3d24cb",
+      "copied_source_sha256": "0afb42c697a1d6828fb45b5f65c8e8cd9542cbec33991c14e42353d8a3a5a52e",
+      "baseline_prepared_payload_sha256": "08d88feab3b91bfa9722d82862ea9eaaace9dbc58349325c6c123d45ba2c4961",
+      "complete_baseline_raw_metadata_sha256": "a03ad46507adacf9005da7a25c17e34765cea9c4cf49a926cb70ab70715a20e4",
+      "raw_notes_sha256": "d0dcd46ecde4db91bc0aa2e997175bce1bfb831f07c152241978fd85a4e86962",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-1800",
+      "source_sha256": "7028ba9a632c5aad7c1ee9a97142b9eab382b9fd52ebd494e753acefeaf46dea",
+      "complete_xml_context_sha256": "f5e77d8ecb012d3acc24f54ac03b205d6cbbdcc0610429e42e7eebb4f0277927",
+      "copied_source_sha256": "7028ba9a632c5aad7c1ee9a97142b9eab382b9fd52ebd494e753acefeaf46dea",
+      "baseline_prepared_payload_sha256": "bb006b4706239f9c3af48fac643f85e24b18e53de4b23afac00d122c08046031",
+      "complete_baseline_raw_metadata_sha256": "abeb9ff757c67235522257073cb248d291c5594e2d0c1f40ba0a71a5cfcbdb23",
+      "raw_notes_sha256": "7a2ed837b978451563f40bc1db59f0e018158ccb7618ab00dca74d556c1c9876",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2628",
+      "source_sha256": "e4542cff7b85c83e1e549b467fef7785e20b2ff129107522f63efe6f463af5ff",
+      "complete_xml_context_sha256": "e6404df18abd7cea29236b7257899d5cf59ad1605aa0fb1c7f1474674eff9dd5",
+      "copied_source_sha256": "e4542cff7b85c83e1e549b467fef7785e20b2ff129107522f63efe6f463af5ff",
+      "baseline_prepared_payload_sha256": "dc86aa91f3a647bbf45185f9a37a33ba761871161f13ef6d96c83a109e62e6e6",
+      "complete_baseline_raw_metadata_sha256": "a3a11056334fa46663acb695d45428ea564a25b5aa46ad9979562686062f6142",
+      "raw_notes_sha256": "62ecfb8b46773a15b00627ef181f926a7d2054016ddfe31966b5d16ee63cd908",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2663",
+      "source_sha256": "f5eed071c6413972bef6af95ebc4fbc81808af9bbd5a64829570998c8c810af2",
+      "complete_xml_context_sha256": "955e1f182c3d8e30dbeed768de8eb861354b2962a1cc50b04d20519345c36e15",
+      "copied_source_sha256": "f5eed071c6413972bef6af95ebc4fbc81808af9bbd5a64829570998c8c810af2",
+      "baseline_prepared_payload_sha256": "717e66776d36313cac9c53c4a012b32e0c4065b316faefacc245e31eacc51b23",
+      "complete_baseline_raw_metadata_sha256": "1ce37499a3a07058c8570b88898b01ab7d6bf1599834126adc25325aaa9f048d",
+      "raw_notes_sha256": "eb3a7d05c8c5bc8e25e6b29c2047f074d223783b7aab4dfa59b2731c0a4b9ed1",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2809",
+      "source_sha256": "cff8179be75bca4d027c4c61e8c1304d95e883721f6883b387b1f02593dc3355",
+      "complete_xml_context_sha256": "db7441e3d5d6ce56c72ee71ba63c4bad5d641e2ddf9e2d55f9be197f6df50617",
+      "copied_source_sha256": "cff8179be75bca4d027c4c61e8c1304d95e883721f6883b387b1f02593dc3355",
+      "baseline_prepared_payload_sha256": "59d81a6a3b0f2d847a3df908c76d16f2c2a7860875d4f2ad24eb1c50ba601c9d",
+      "complete_baseline_raw_metadata_sha256": "afc865c720fc0404bd78a037cb8d7b45c5a26f3662b426ebe88bb6169b394b54",
+      "raw_notes_sha256": "543883b726b438217407df6473f23724ba8294c039a24bb317b4a0ee6be18df2",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2810",
+      "source_sha256": "796ac4d8b03838daf7c157a3f56d5a91c23ccb4260e5f9bad9c5c6efe7e581bd",
+      "complete_xml_context_sha256": "acf4e7fec892fdb1f024643adc34e38d056a6fff11198dfe2d990641c463ba7a",
+      "copied_source_sha256": "796ac4d8b03838daf7c157a3f56d5a91c23ccb4260e5f9bad9c5c6efe7e581bd",
+      "baseline_prepared_payload_sha256": "46cc9d8f3aa2d9777ecec51a4d5b1a98aa92d3d9f60ad115ee4648138386f904",
+      "complete_baseline_raw_metadata_sha256": "2bfff5a7903f824aa470b8171f78e27655de1a2d2ec92eda3dd60dc05b4cf048",
+      "raw_notes_sha256": "f5422ac13ad9d3992f83b352f78a10c37ad8cf34a462943a175eae60cf4f88cd",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2813",
+      "source_sha256": "7df49a7257e5c0a8d36afedb8b26665f5b98556c9b88938b1be60e8f11e79d37",
+      "complete_xml_context_sha256": "95d7a45834ccf2a7507b809fcea5b8f07a1334f8fbb47474d251745bc8afe5d3",
+      "copied_source_sha256": "7df49a7257e5c0a8d36afedb8b26665f5b98556c9b88938b1be60e8f11e79d37",
+      "baseline_prepared_payload_sha256": "288e694fb560f6058592fbb2e6e56d62c2e0997428caa245a8b7af00503260f9",
+      "complete_baseline_raw_metadata_sha256": "3c878557780c5f6c30c7a879b50d966c7021564ee52f3c6b430c6ea022421ffc",
+      "raw_notes_sha256": "d083cb16688185b446277abf2eb46323f3be13d1f36b12e36012a824ced24b9e",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2814",
+      "source_sha256": "f0024841d2f02c04064384fb37a0d054b16036347755112b64b1cd70672880d7",
+      "complete_xml_context_sha256": "1c639039e8758bd81b3dc7dd2195c5d2cbaccf4e49cf505a8edf8a451030984e",
+      "copied_source_sha256": "f0024841d2f02c04064384fb37a0d054b16036347755112b64b1cd70672880d7",
+      "baseline_prepared_payload_sha256": "d901bdb1e90fd392cc087956c732b03eaaa7e223f67f4eb7c8ff258ab6ec8f9b",
+      "complete_baseline_raw_metadata_sha256": "ad843a05c663526f1e992f61e547c41a5858fd241428324ca2fdf4fad97df7c3",
+      "raw_notes_sha256": "8f6baf4db678442aca2eeb495eb028900dcd99edcbde59431696421561d6fe88",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2816",
+      "source_sha256": "b155310f26523ed208a4a52eadb5f2108d8a09851727f698ce006cdf3c055955",
+      "complete_xml_context_sha256": "451ec716bbe6feaddb457dc8633d3b15c433685a11e4df10ab81e8231ee9da86",
+      "copied_source_sha256": "b155310f26523ed208a4a52eadb5f2108d8a09851727f698ce006cdf3c055955",
+      "baseline_prepared_payload_sha256": "48ce9c0c70d4661ae3b071948abcb0b207eb22428f9e285559d6e7e10ec3caf3",
+      "complete_baseline_raw_metadata_sha256": "1855ab94656a0e2421a2c62910f3ec95e16941d878960160db48f69ef65c92a3",
+      "raw_notes_sha256": "3481b452113db56b5f1a99ebfa54441d847f2030a8288f234d65b5d6dfc109d3",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2818",
+      "source_sha256": "26535f8732a23cb0c6ef8e686f1f14362c3bc5f5aa71bc40b1f236c0c6dbaf79",
+      "complete_xml_context_sha256": "74182d3ee40866fecc06b3d586255e2680ff5eb7cff688b99d76e020c0c20a15",
+      "copied_source_sha256": "26535f8732a23cb0c6ef8e686f1f14362c3bc5f5aa71bc40b1f236c0c6dbaf79",
+      "baseline_prepared_payload_sha256": "3fb33d44ff0e390cc68df8910979f061790ac2d65c53efe2c24f19df00b7109e",
+      "complete_baseline_raw_metadata_sha256": "f461224d83ca0717a675117da8583f2e323e5b4d468b419434fcc5bef2dbdeaa",
+      "raw_notes_sha256": "89a7f220fa254ca37e0596834ec024fac4f275fea2ea082e5db360be63b43a69",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2824",
+      "source_sha256": "e277e932e0fb1fe8e8efb5e1d1d9af4606a4dfe20c40e61884a4e34fa9dd1a6e",
+      "complete_xml_context_sha256": "7108c3271e61caa4d8e0b07ab3ed6a9df8ba3fe80e88cf6bd7d70e08ae656a31",
+      "copied_source_sha256": "e277e932e0fb1fe8e8efb5e1d1d9af4606a4dfe20c40e61884a4e34fa9dd1a6e",
+      "baseline_prepared_payload_sha256": "fb221224a1a64aac06ecb1b27a35b7f61aea098909f6bb98ddfa292db3df60b0",
+      "complete_baseline_raw_metadata_sha256": "73add236220dd83f5778434e0149636153711377d245663c064cfac4a5f79a8f",
+      "raw_notes_sha256": "edd3a1957ee8de69d0f65e3c940700ae6c8b3ca71b11cbf7a5120d0ed1fcef29",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2827",
+      "source_sha256": "268cce241836e311d79f3ee5f21c533db09f1708e49e78fb72727a8055fc1f89",
+      "complete_xml_context_sha256": "da5aec5e022dcd23c5076df6cd5005299280956ad08635c629cdc82ee0967d65",
+      "copied_source_sha256": "268cce241836e311d79f3ee5f21c533db09f1708e49e78fb72727a8055fc1f89",
+      "baseline_prepared_payload_sha256": "ed5df38ef29d521c3261c7fca316b103d24fcd31258351155080c92db0fecf52",
+      "complete_baseline_raw_metadata_sha256": "fc5bac6fa1980f04afb9e50ea22ea4883f13a13c62eb6fe9738a17cbd63b7ca3",
+      "raw_notes_sha256": "0b7027906e9c48145e968aa22cd30e65cd33e1aa869d643ed86a123bc4888dbc",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-2836",
+      "source_sha256": "8497675950fa012c55d269f02a163bb71de30f02ea26db356ce34160a2212744",
+      "complete_xml_context_sha256": "9cda3fd887751313354a27cb2be4ac07e664bcb72440f6aadfbdad4bea114a4b",
+      "copied_source_sha256": "8497675950fa012c55d269f02a163bb71de30f02ea26db356ce34160a2212744",
+      "baseline_prepared_payload_sha256": "45897adde781b5d1857808c0c272ffbf003db851143032a59c6f5c5ded96c13a",
+      "complete_baseline_raw_metadata_sha256": "71c0fb1b03ed4ae85ba666844721ca2bd8afd25c0eecaec4f3bccbc47cc61c3e",
+      "raw_notes_sha256": "bd6a9bdfbfc03daccc5ebdb62fb367313a7efbdf8f362e9930c4eba05cb84b40",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-306",
+      "source_sha256": "b7201be8ec6965bac70d7e681edafeae9f29f09cadf779d3b670fa67883ab078",
+      "complete_xml_context_sha256": "8613662bc6cb0e4385e18b74f1e0f63928d3abaa76fb21cb7952a658422e2bca",
+      "copied_source_sha256": "b7201be8ec6965bac70d7e681edafeae9f29f09cadf779d3b670fa67883ab078",
+      "baseline_prepared_payload_sha256": "4ecf0b02680f2d564e8ec42b1771e27850357450a69d965a42bf641b1e4130de",
+      "complete_baseline_raw_metadata_sha256": "23e2e2283e5ff663c32cfc167344f839907381c15d6839ef52b3a286b43ecef8",
+      "raw_notes_sha256": "af84712146ddbefbb6d632536a7f7dcc71b769c522464baaeb5591a15eff35c7",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-3398",
+      "source_sha256": "9f4f4e3cb943d6f642f556bf4ab52627db01d6ea27a90bdeca25c14bc0a18901",
+      "complete_xml_context_sha256": "bad0bd1c8fd847dc38e76d0183b8483f56457610976a9307272911cb23751317",
+      "copied_source_sha256": "9f4f4e3cb943d6f642f556bf4ab52627db01d6ea27a90bdeca25c14bc0a18901",
+      "baseline_prepared_payload_sha256": "f47b092d65e9599b91947eec6cbf1c8fb571a79c4df07ca0cd91d1f329c5ddb3",
+      "complete_baseline_raw_metadata_sha256": "9e25a2471aa33677eeb02b2ff27e103197fcfd1842de55098a1e58ecde1f8380",
+      "raw_notes_sha256": "15fa8c397e363dfca02fab8e178990c50e378d8fafc1ab306518f01059e92d4f",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-345",
+      "source_sha256": "b592322538bab39ad02af8a2b8c119923025245da2ecd0a21b851b4e9e94dfba",
+      "complete_xml_context_sha256": "6961a5abf32603e4ff5c14ceca6e3dee9bea2ef87c2cf01448eac2b1a4ff128e",
+      "copied_source_sha256": "b592322538bab39ad02af8a2b8c119923025245da2ecd0a21b851b4e9e94dfba",
+      "baseline_prepared_payload_sha256": "d6b07e0b7df276e62cb692ac94f70e01149d4841694243e7ca2efb71926a00ef",
+      "complete_baseline_raw_metadata_sha256": "8e261b3b2bf6d8fe9ce8bd9c4d26ca04e7979d0cc4f0dc2757f9420f2223777d",
+      "raw_notes_sha256": "a5646e70e39bda963cc010f308dff267a40258f7bfbf651a0baaa5841a7787af",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-362",
+      "source_sha256": "062c4d5c436407dcb7e57fc2a976d0dcac40191ea3690f61fe106ee5e1668b24",
+      "complete_xml_context_sha256": "dab08403697cf12835eea46feafbb5282a7d4fbd65482c4cb42b127917759d20",
+      "copied_source_sha256": "062c4d5c436407dcb7e57fc2a976d0dcac40191ea3690f61fe106ee5e1668b24",
+      "baseline_prepared_payload_sha256": "1739fc94d5ece60214b61c4f570acad6126bf7d31eee188619b05eb940465874",
+      "complete_baseline_raw_metadata_sha256": "86f986975e488a7d79c20196b8dde68c8934fec84cee79d391a7905d93897556",
+      "raw_notes_sha256": "2c1fc7036ba490ac885bb98632cf03d5c3250acc2a505434c02fa7b7e51f5ce0",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-363",
+      "source_sha256": "b308a9b07ba6e59cf6767dc5967a51279e14a0a10567f6f0b0f3408cebddde2b",
+      "complete_xml_context_sha256": "9bad4d69fd6cf78b2b33d27f31634b14c57325d79920f6c785124af2aea7b346",
+      "copied_source_sha256": "b308a9b07ba6e59cf6767dc5967a51279e14a0a10567f6f0b0f3408cebddde2b",
+      "baseline_prepared_payload_sha256": "c93fffc2ac25a585a2d0d3396a02148c1f60af0c7af6ea074fbe887a8e34be74",
+      "complete_baseline_raw_metadata_sha256": "020f5ac2ab1807a8b64fd13d82339216fdc40276fb60eed6c616d12ccd54be8d",
+      "raw_notes_sha256": "315a082a4cd9d3d8d611ae16d29041fccd85a080ec6e09646ece6257ea443a71",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-364",
+      "source_sha256": "3bea4dab8c16d410b699df671a70d2350061b075ff2dc722112b0650b994eb71",
+      "complete_xml_context_sha256": "0c9b12c0bbf52e2a86f073048f92696835495b27963d71e4aa2e1d7d379263dc",
+      "copied_source_sha256": "3bea4dab8c16d410b699df671a70d2350061b075ff2dc722112b0650b994eb71",
+      "baseline_prepared_payload_sha256": "f734e79d3193018498778e380e0628d0446bb8c099ad9810e8b6f4e8249ddf9a",
+      "complete_baseline_raw_metadata_sha256": "66782a54ed2253d62202a40a1202d74df58428bd4659dbdabde74b4308360751",
+      "raw_notes_sha256": "447cb554171831a52f53e6c9edc889baf9b0771cc6edfe0cf10b09d4d905cab7",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-365",
+      "source_sha256": "f67c317b4cca84199051a66a3be609ff55ddf441624146b9113b56f1814fc48b",
+      "complete_xml_context_sha256": "f95ddb2e34e37111a76310ba814f2bf922bc6e2d394194bf3da8280dc9101b4d",
+      "copied_source_sha256": "f67c317b4cca84199051a66a3be609ff55ddf441624146b9113b56f1814fc48b",
+      "baseline_prepared_payload_sha256": "23a6bf6d35ff85d081f497add483d6e9c654aa45f789dea54632d172423ad859",
+      "complete_baseline_raw_metadata_sha256": "9e941cb0f192d3eada99f34b52870cb6f73d4d0308199e039d1bd97121516ece",
+      "raw_notes_sha256": "05f281bb05984d590fad9f4a08b7d1d1a6b9849c11c6bdf5313c9f043bf1a242",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-366",
+      "source_sha256": "6ba7161d0a5ed2d136f76a20d7786f4b8d2abbcf9e94ca4b06fa889a6b49362f",
+      "complete_xml_context_sha256": "bd1e0d7788e4ea585f38d4b9cf51a7cbb569c1debca1e993038469f56cb48aaf",
+      "copied_source_sha256": "6ba7161d0a5ed2d136f76a20d7786f4b8d2abbcf9e94ca4b06fa889a6b49362f",
+      "baseline_prepared_payload_sha256": "dbabce5675e82801a507bb54db51cf6666897cb3d2192468a0ce2cef7d73af8b",
+      "complete_baseline_raw_metadata_sha256": "0d0c62196f99be2bfca710f3d75a81fd387cf2e552ba7cb2067097a43a6adc70",
+      "raw_notes_sha256": "f9c007fd8516759b686e73e9d69902de3374637aa7782b9b87c5c06c0040e014",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-368",
+      "source_sha256": "f5b7ceb7f48083c024a6a703bcd3dbd4fc35e040a2115a4b413197b5a2264cf0",
+      "complete_xml_context_sha256": "55c44c7811dacd8141ae208d59eaa99e1a0cb34362c658bfb828f964ec1d510f",
+      "copied_source_sha256": "f5b7ceb7f48083c024a6a703bcd3dbd4fc35e040a2115a4b413197b5a2264cf0",
+      "baseline_prepared_payload_sha256": "c5b422f8f718cbdf9e29ec4e57609a770e4d7c77c48d12427cd9c676244fcd16",
+      "complete_baseline_raw_metadata_sha256": "b2db880b03a557ebb896d391e37ffbf84d2b8a1f32095696b57f6cfbb0dbb06a",
+      "raw_notes_sha256": "3c335bd97880075752f54bfa3732c3551a760a55c648e03f6124fd7b6a35f30f",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-3688",
+      "source_sha256": "b13f16d4fdfd7581d5d854877462ba0686eed29cec5ee8517c7e10b0aaab5da4",
+      "complete_xml_context_sha256": "05a6214157de84f121e3bdcdc6a4ca1020cc68773f03e8581343e2fa44a2dfb6",
+      "copied_source_sha256": "b13f16d4fdfd7581d5d854877462ba0686eed29cec5ee8517c7e10b0aaab5da4",
+      "baseline_prepared_payload_sha256": "20368ce42a144976218ecc73b22dcb611dbcbeea05e6e969fad928364ec0a9e4",
+      "complete_baseline_raw_metadata_sha256": "48051b4932b12feef3876ce5970bd96d4f1a85fe2bb58c0cee983daa150ba5a8",
+      "raw_notes_sha256": "1b8bf54353dc8f7e798e0fc055dedf0525575da26ecd95bdcb455f0f92fdf6d0",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-370",
+      "source_sha256": "307eddf2854ea053f9546a92c78ba4d387224738c30287520501dc4def953021",
+      "complete_xml_context_sha256": "38ed0d0448583ceae08aec1c0e5790c67132da2dcdeb85c8deda2f004669965f",
+      "copied_source_sha256": "307eddf2854ea053f9546a92c78ba4d387224738c30287520501dc4def953021",
+      "baseline_prepared_payload_sha256": "87c8980ee0c613793bf753d9df89b0e88d002492bb0b8efa64d70b06434aa201",
+      "complete_baseline_raw_metadata_sha256": "77d9ca632745810265c2cf23d0165a324a6cc4bbfff8436636c8b70ec134ac99",
+      "raw_notes_sha256": "967bfd10fe9483efd5bb9e3e05616fac74346afedbfb2931033844f504b26a65",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-371",
+      "source_sha256": "7663479e72024ea50cba9581074c99a7b8eafbd1ead079d968247edd1a8debf5",
+      "complete_xml_context_sha256": "747202776d29fb733adc55145687b899929ee83d597dd712d83b9a1c950bcd0d",
+      "copied_source_sha256": "7663479e72024ea50cba9581074c99a7b8eafbd1ead079d968247edd1a8debf5",
+      "baseline_prepared_payload_sha256": "8dd8c169cb3c15f3e5216dc455044afce07cf7bc56b749181be053d906bb3cda",
+      "complete_baseline_raw_metadata_sha256": "cf5f9397181358ef7114255e67bfbab05d6ca5e8435aa17c0f0e5da97b9c4757",
+      "raw_notes_sha256": "bb7c25ff6708d1ebe754e9d7c9d3724830f76e8648062302f5779b16deb4d6d2",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-4036",
+      "source_sha256": "9cd26b5fbe3656e1ec02bbceac4a0c0abe0ac89fabe69a97d8fa97a55582ebec",
+      "complete_xml_context_sha256": "29e47572939d191aa0560a36b26f6b570b181822b0c9581f54fa48bb54a2097c",
+      "copied_source_sha256": "9cd26b5fbe3656e1ec02bbceac4a0c0abe0ac89fabe69a97d8fa97a55582ebec",
+      "baseline_prepared_payload_sha256": "57ef99f76bc9356e70b578dd0531dd9af202c5a57f44088924a65a2693687d34",
+      "complete_baseline_raw_metadata_sha256": "44e4971341a2c78b2e07d235cec67d0d0239ad1352588b2f5aabac9da5d8ad05",
+      "raw_notes_sha256": "d1d2e0229cdc97f90e20c930962cfac7d6270dd705510488a6702029aa8d7d8a",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-4060",
+      "source_sha256": "81aefae301a9e7aa6e972970109225a5f8052b054731b3f4d6ed6536e6868892",
+      "complete_xml_context_sha256": "029a93daa08fd8634ad798ce6ddda95ababa5c5807336ca1ffeefa5afb12c0e7",
+      "copied_source_sha256": "81aefae301a9e7aa6e972970109225a5f8052b054731b3f4d6ed6536e6868892",
+      "baseline_prepared_payload_sha256": "fefdc2338d003c23ebd5fca05efddf13016a5e272b553dc3273550e0fb505758",
+      "complete_baseline_raw_metadata_sha256": "2078346b0443ae36e759752ffadf909cc6b6d4310763e18d8ff5e324dbfd5036",
+      "raw_notes_sha256": "98bb85764b39731f21e3c1d582fcb25f612417fd2c8f6d2f6c5d2f695abb511f",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-5",
+      "source_sha256": "d88193245f6651b6273588bdf19688f63fbdb3b0d588b18985f4419aa4ed1322",
+      "complete_xml_context_sha256": "2b4b68c6c4a01a0092c535596507fd4b52e362aaf9fb80539fd6d82b0ffc8b95",
+      "copied_source_sha256": "d88193245f6651b6273588bdf19688f63fbdb3b0d588b18985f4419aa4ed1322",
+      "baseline_prepared_payload_sha256": "8cba2667ff2e551eba01b0420d9a4f01e2f4b3e5e17c2930fd19a53a8f283a9c",
+      "complete_baseline_raw_metadata_sha256": "3f1503a65c9cd77662bab479416db34f304365eca02974c9af27d6807843ba9a",
+      "raw_notes_sha256": "6d2557c1d8924dff646291b2ceb62c06da6995131dae6a67975da0e894be1d70",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-542",
+      "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c",
+      "complete_xml_context_sha256": "3fa281f9b2fdf05dd1f38ce67e583210d1689f59ace7bb7f2c53c33c78f772e1",
+      "copied_source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c",
+      "baseline_prepared_payload_sha256": "631a464f3efa47bdfa5b00efe920ad75ff8a11a9af3d3906fe2c961528811ee5",
+      "complete_baseline_raw_metadata_sha256": "1975b6f04727085fdb8e2a756f58d4a584ee06c10c47868e7c048d85b1a6021b",
+      "raw_notes_sha256": "73ba3c6067685a1c494e19d6ff17cd1710a99c6c60f88c5cf4b1fee29603b2e2",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-748",
+      "source_sha256": "2fd4842489495a3bd67e28ca8ec11e6ebf70f42ab8cb6b8884c93687b31fb905",
+      "complete_xml_context_sha256": "ebc714b6fb0e50e99c8ff46fc9dd507dab57f34f0871c86c58132c01ecde24ec",
+      "copied_source_sha256": "2fd4842489495a3bd67e28ca8ec11e6ebf70f42ab8cb6b8884c93687b31fb905",
+      "baseline_prepared_payload_sha256": "b070c11d84a463642c971399385a24a05729efa680abbc12ab47dfb90d7cf3f4",
+      "complete_baseline_raw_metadata_sha256": "5af7cd85e8da5e81ae690719ca27ba724de5a5d4be6954f35365ae004a8fe9ab",
+      "raw_notes_sha256": "b736022ae2e10be0dc22340cce685c61e899ac2fc497dd60c46e54e9e054def9",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-749",
+      "source_sha256": "f5aa2285264b6d91cc644686cd341d297a5b7a5a79c21dd54acc66a4553cba76",
+      "complete_xml_context_sha256": "95d896ff695161e1d7b77fd79dd3855db2ba85589c6da64b9847989dd75075b5",
+      "copied_source_sha256": "f5aa2285264b6d91cc644686cd341d297a5b7a5a79c21dd54acc66a4553cba76",
+      "baseline_prepared_payload_sha256": "20ecea6d9f0a3331fcd2d8d4b666fae67fe25b361fff19cabf68da3683882df6",
+      "complete_baseline_raw_metadata_sha256": "2ce1884b6baef3129a27a4b72d03f07f034afaee9cbd1c6fe1d0fbb0b4ee4d50",
+      "raw_notes_sha256": "0dae8d17af487cf7d824279fe3da8387fbe39d2c1c02ba63d75983c6e7701659",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-750",
+      "source_sha256": "e839df865ad5d8b858511ae88131bd0ab60e78c81adf5b520facd9bf241afc36",
+      "complete_xml_context_sha256": "e4040d10fbd5ec2f84633369352936c8b04353db5ab16b3071d55c27e232e449",
+      "copied_source_sha256": "e839df865ad5d8b858511ae88131bd0ab60e78c81adf5b520facd9bf241afc36",
+      "baseline_prepared_payload_sha256": "dffc317b7bde3b115ab24bf0c261056d3b9a3f623cd19d14669662cb16c7432b",
+      "complete_baseline_raw_metadata_sha256": "4945c65ae47f8dd583170fbc88219a72abc65bb034f9310252a9b3df1e5e1b30",
+      "raw_notes_sha256": "a9f10d15a7baa9b4d25ebac1fd8ca280999dfe0bd0b66fd3da2c28f0dcdcfae2",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-751",
+      "source_sha256": "8171588d0c511b01e99cdb6b16f8faaed27ba4c29dde7aba9c00c50868ff3f14",
+      "complete_xml_context_sha256": "824958fb0538b1852219d6d169de3d087d9f0aa19a402dd5f5db00556c42c329",
+      "copied_source_sha256": "8171588d0c511b01e99cdb6b16f8faaed27ba4c29dde7aba9c00c50868ff3f14",
+      "baseline_prepared_payload_sha256": "236a8b2d2e1c52348c56b80e0a99f0c09a87992a2ae527b1e1f79ab69fe8e5b7",
+      "complete_baseline_raw_metadata_sha256": "65a48af9091eee99fcd2733972d6a393bfb63c677b93711d9d25d8c7e674fcf4",
+      "raw_notes_sha256": "a9f10d15a7baa9b4d25ebac1fd8ca280999dfe0bd0b66fd3da2c28f0dcdcfae2",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-800",
+      "source_sha256": "307a0dadff0829d0a54389238c0ec489d82da98c8244827210a1f7a1a7f7d658",
+      "complete_xml_context_sha256": "1637b3fdae3113a41b9d74a61d6efae6a004c7272ad495db2ade96b41141fb68",
+      "copied_source_sha256": "307a0dadff0829d0a54389238c0ec489d82da98c8244827210a1f7a1a7f7d658",
+      "baseline_prepared_payload_sha256": "79d0b9f2fbe467dea8a349f72ef4359cb4dc4a23c0a833766ea79dbe1dcc5dd3",
+      "complete_baseline_raw_metadata_sha256": "49065634f357744847d4774f9a89912aaa7e26ca9ae1a2d9c77ded8a86e692e0",
+      "raw_notes_sha256": "e47f35a80780d8f18271081800786707d6c225ba4375ca9242d4e2e8b2912264",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-831",
+      "source_sha256": "e228a6e09d3035fac1b69206e2e8d55ee5b3dc52a8af8c2b5d9265cc6442293a",
+      "complete_xml_context_sha256": "26c5578d5259d6ea5fe84036a1bd4a9ca90421439d58bdd50bd2acb27bb94c23",
+      "copied_source_sha256": "e228a6e09d3035fac1b69206e2e8d55ee5b3dc52a8af8c2b5d9265cc6442293a",
+      "baseline_prepared_payload_sha256": "0a383c6d920d867da90975290469669e2175595a107a711c09cb7ac75ca3c417",
+      "complete_baseline_raw_metadata_sha256": "daebbc482e363a88089bb9b126afe240a55297a781be9d80cd7c789f7206ee07",
+      "raw_notes_sha256": "8e199a2563aaf8604af43ffe4746e21a9be7645ea570133d94317b0746603a52",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-905",
+      "source_sha256": "eea983a9d7960e862367e644fcc2740c40e05e7727f4c37f94b2a128b77974b6",
+      "complete_xml_context_sha256": "96e81c8d2e8e8e6ab2d2583a76694555f8594f265f6a08f0922381135bfa7e0b",
+      "copied_source_sha256": "eea983a9d7960e862367e644fcc2740c40e05e7727f4c37f94b2a128b77974b6",
+      "baseline_prepared_payload_sha256": "b7553a80e6427717737287b3e9c643c151ef6a8c9d8f62c7e5fceb0daf807fbf",
+      "complete_baseline_raw_metadata_sha256": "c70aedb52491a305f1d8c4abaabb5832d45dfcab04d4bc687e6db225f0ca10b2",
+      "raw_notes_sha256": "dd3ac5db5a50a9b886a15918336b8fc571e29a46daa8df5e8e70315aef6491f9",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-906",
+      "source_sha256": "26904ef9a38997f3cf55514fab3d9bda60f9e4de710734b7614e32bb5c70e04b",
+      "complete_xml_context_sha256": "189f41f688742019493c24aae0350b42d3757524e43b7cadc2fe8b2b22800ba9",
+      "copied_source_sha256": "26904ef9a38997f3cf55514fab3d9bda60f9e4de710734b7614e32bb5c70e04b",
+      "baseline_prepared_payload_sha256": "cf6b422207f345d47e7730ed5fc1c7dfc7b692a6ca104622d5761a30b4fde074",
+      "complete_baseline_raw_metadata_sha256": "8585108ea11743515b07b9f833bd4f180b31cbdd47a74e5eb0daec3510c26ac7",
+      "raw_notes_sha256": "67fdb00112f893df1c402147af36d2a8cdfabbe7a1801be59c010f0ca1fe6b04",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    },
+    {
+      "source_id": "FGDC-907",
+      "source_sha256": "b182b3c619ae351fc5bbe2825a0b62a5b7edf5f3017bfb9b20c8c78ba64c164f",
+      "complete_xml_context_sha256": "97bfc3436bc3057dff664001bfa091597f22469f3b207c6315c0be7165feef76",
+      "copied_source_sha256": "b182b3c619ae351fc5bbe2825a0b62a5b7edf5f3017bfb9b20c8c78ba64c164f",
+      "baseline_prepared_payload_sha256": "596a40eb1ec6368ae7e7d5c9d62975af59ef656a5f16bb5c87f11fad85cb978d",
+      "complete_baseline_raw_metadata_sha256": "c4737819e376a6199d1b312dd2aae9bdad0a968124a82718da15fb8a7873929e",
+      "raw_notes_sha256": "bec5197d0b91b4caf6da29bc837a3fb4e3c21bbba1b703a0364df4b8389aacb6",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "baseline_status": "held",
+      "baseline_holds": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "source_root_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ]
+    }
+  ],
+  "bounded_source_bindings_sha256": "28ee888150e3878ada52153816852973f7eb4f9e023aa417fa8420d2694026a6",
+  "forty_one_verdict": {
+    "status": "CLEAR_FOR_FINITE_REVIEWER_RECONCILED_NEXT_COHORT",
+    "membership_sha256": "13f62d5e42cb1324479080b9c6a750f2cfaa4196e3f32bc6b578d6ebdef853c2",
+    "acquisition_contexts_sha256": "c5faa5b91d49c6dee47ae46aa95917e240f0838d91f156148ee4593ae8861bf9",
+    "finite_partition_counts": {
+      "named_program_resource_permission12": 12,
+      "resource_permission_acknowledgement4": 4,
+      "dated_contributor_conditions3": 3,
+      "adfg_habitat_maps_stream_resource2": 2,
+      "bibliographic_CSA_referral14": 14,
+      "commercial_Copper_River_imagery4": 4,
+      "CAS_data_specimen_conditions1": 1,
+      "MIRAI_reports_data_referral1": 1
+    },
+    "exact_member_scope_verified": 41,
+    "content_or_named_omitted_term_exception_found": 0,
+    "new_direct_human_reply_claimed": false,
+    "conditions_satisfied": false,
+    "reason": "Actual all4206 metadata-restoration authority already covers each exact original. The complete named resource contexts support bounded interpretation using the recorded underlying-resource/public-metadata distinction. Vocabulary differences alone do not establish absence of a second permission. All conditions and external referrals remain literal and unresolved; the direct821 answer is not broadened."
+  },
+  "fgdc4060_verdict": {
+    "status": "CLEAR_SEPARATELY_REVIEWED_DISCLAIMER_RECONCILIATION",
+    "source_sha256": "81aefae301a9e7aa6e972970109225a5f8052b054731b3f4d6ed6536e6868892",
+    "exact_four_fields": {
+      "./idinfo/accconst": "Contact Source",
+      "./idinfo/useconst": "See disclaimer",
+      "./metainfo/metac": "Contact Source",
+      "./metainfo/metuc": "See disclaimer"
+    },
+    "actual_disclaimer_xpath": "./distinfo/distliab",
+    "actual_disclaimer_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+    "disclaimer_already_in_raw_notes": true,
+    "other_named_disclaimer_or_external_policy_identified": false,
+    "prior_missing_disclaimer_claim_factually_corrected": true,
+    "new_permission_question_required_by_that_missing_disclaimer_premise": false,
+    "source_context_sha256": "029a93daa08fd8634ad798ce6ddda95ababa5c5807336ca1ffeefa5afb12c0e7",
+    "full_raw_metadata_sha256": "2078346b0443ae36e759752ffadf909cc6b6d4310763e18d8ff5e324dbfd5036",
+    "raw_payload_sha256": "fefdc2338d003c23ebd5fca05efddf13016a5e272b553dc3273550e0fb505758",
+    "conditions_satisfied": false
+  },
+  "future42_packet": {
+    "path": "/tmp/pices-resource42-reconciliation-proposals.json",
+    "sha256": "25475fc285f8e4377a051de6b7876436e43f81eaca91ed62dd5693cf82c10198",
+    "membership_sha256": "fc52e96d2a333c2ba1842ca4198fa53e69d8665fed512e818eddaf38b71bf8dd",
+    "acquisition_contexts_sha256": "be837c4b0db6fc4846bbb4dc92d366145b66c1ed8ae0458279a978ff6baeeeff",
+    "complete_raw_metadata_inventory_sha256": "5b24c22b0b51668d534fb85b17105af60947fd0164355ff8d92de865a65b269d"
+  },
+  "checks": {
+    "selected_original_copy_payload_raw_metadata_bindings_verified": 42,
+    "matching_existing_restoration_hash_members": 42,
+    "old491_overlap": 0,
+    "direct821_overlap": 0,
+    "separate106_overlap": 0,
+    "original41_objects_contexts_and_rows_unchanged": true,
+    "original_input_files_unchanged": true,
+    "source_bytes_or_raw_metadata_changes": 0,
+    "actual_eligibility_changes": 0,
+    "no_aliases_or_independent_holds_released": true,
+    "restricted_blank_license_preserved": true
+  },
+  "blockers_to_source_proposal": [],
+  "remaining_implementation_and_release_gates": [
+    "Root finishes the separate106-member handoff before this dependent cohort.",
+    "Future runtime pin/profile, shared QA/tamper/source/withdrawal/cache checks and measured classification delta have not been reviewed or executed here.",
+    "Provider execution/readback, record identity and publication/release remain separate; no authorization is created by this source review."
+  ],
+  "activities": {
+    "provider_requests": 0,
+    "network_requests": 0,
+    "repo_edits": 0,
+    "code_changes": 0,
+    "tests_or_classifier_runs": 0,
+    "private_provider_stage_or_credential_reads": 0,
+    "writes": "Reviewer evidence/proposal files under /tmp only"
+  },
+  "digest_recipe": "SHA256 over raw file bytes or UTF-8 json.dumps(sort_keys=True,ensure_ascii=False,separators=(comma,colon)); members and inventories sorted source_id as supplied41. XML contexts use deepcopy/outer tail=None/ElementTree unicode serialization matching frozen reviews."
+}
