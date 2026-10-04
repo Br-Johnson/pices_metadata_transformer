@@ -23,6 +23,15 @@ do not assert that CI passed.
 
 ## Latest finite source preparation
 
+The [publication batch handoff](docs/readiness/2026-10-04/publication_batch_readiness_handoff.md)
+provides a guarded offline plan for all 3,978 targets. Its 394 prospective batches
+contain 3,933 supported targets and preserve all 4,161 associated original files.
+The 45 held/malformed targets remain excluded from batching. All targets are
+nonexecutable pending their identity, payload, transport, recovery and release
+gates. The plan preserves the five existing record/DOI associations and records
+the fresh owner-inventory result as parent-reported evidence pending raw-capture
+review. Missing restart state never grants permission to create.
+
 The [residual-target handoff](docs/readiness/2026-10-04/residual_targets_handoff.md)
 records the current source profiles: resource access 655, citation credits 426,
 display titles 42, and the earlier complementary profiles. Its measured source

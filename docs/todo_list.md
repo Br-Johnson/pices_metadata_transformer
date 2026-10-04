@@ -1,4 +1,17 @@
-## Active increment: 25 residual target corrections — 2026-10-04
+## Active increment: publication batch readiness — 2026-10-04
+
+Base main `6825c2cda6b8932e2c053af9a76582452524dca3` preserves 3933 supported,
+39 held and six malformed record targets. This code lane performs no provider
+requests or mutations; the separate Mac diagnostic remains with Brett and parent.
+
+- [x] Verify PR30's merged tree, 532 passing actual CI tests and independent current-head Codex review.
+- [x] Reconcile the parent-reported completed inventory into228 explicitly reported pair decisions, retaining raw-capture review as a gap and preserving five existing IDs/DOIs and two title hints. The reader is outside the reachable agent tree; parent must relay the durable capture.
+- [x] Audit existing batch/restart guards and implement only the missing offline publication/dry-run support; all live guards remain intact.
+- [x] Validate3978 targets,4206 originals and394 whole-target prospective batches; unchanged repeat and25 focused guarded tests pass with zero unexpected I/O.
+- [x] Reduce the remaining45 packet to two staged initial artifact questions and one conditional creator-evidence request; send none to Brett or source owners.
+- [ ] Complete independent current-head review and actual CI before merging; preserve the exact runnable handoff and current capture limit.
+
+## Completed increment: 25 residual target corrections — 2026-10-04
 
 Base main `9bac0ace68c83a2082168f022315c05a1192210b` preserves the measured
 3704/496/6 original-file ledger and 3908/64/6 unique-target view. The sole API
@@ -10,7 +23,7 @@ no provider requests or permissions.
 - [x] Independently review resource655, creator426 and title42 with exact source/context bindings and unchanged prior members.
 - [x] Measure 24 paired targets plus FGDC-2664 with preserved originals, exact retry/withdrawal and separate accounting: 3705/495/6 source files; 3933/39/6 record targets. Independent saved-output audit and 24 focused guarded tests pass.
 - [x] Retain source-specific research for the remaining 39 held and six malformed targets; incorporate the parent's completed inventory summary without duplicate provider requests.
-- [ ] Complete current-head Codex review and actual CI before merging a correction; avoid a status-only commit when no correction is supported.
+- [x] Merge PR30 as 6825c2cda6b8932e2c053af9a76582452524dca3 after 532 actual guarded CI tests and current-head Codex review; remote main/tree/parents verified.
 
 See [the current handoff](readiness/2026-10-04/residual_targets_handoff.md) and
 [remaining evidence questions](readiness/2026-10-04/residual_targets_remaining45.md).

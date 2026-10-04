@@ -1,3 +1,22 @@
+# Offline publication batch plan — 2026-10-04
+
+The new planner closes the missing whole-target preparation view without changing
+live entry points. It joins the finite PR30 ledger/projection to current reported
+owner-inventory coverage, preserves five known record/DOI beforeimages and keeps
+every other singleton identity unassessed. Its 394 prospective batches represent
+3,933 source-supported targets and 4,161 original files; all45 unresolved targets
+remain excluded. Raw file hashes are distinct from prepared policy/payload
+contracts, and24 fresh class references remain distinct from204 historical ones.
+
+All plans and restart hints remain nonexecutable. An explicitly supplied sanitized
+snapshot may describe a same-draft readback need, never restore a consumed create
+allowance. Production recovery still depends on preserving its durable registry;
+class-aware execution and verified source-aware transport are separate work.
+The reader's raw capture is not available through this task's coordination tools;
+parent must relay it before independent identity evidence review. No completed
+provider request should be repeated merely to fill this code-lane handoff.
+See [the runnable handoff](readiness/2026-10-04/publication_batch_readiness_handoff.md).
+
 # Residual target correction and remaining evidence — 2026-10-04
 
 Resource655, creator426 and title42 retain every earlier profile member and add

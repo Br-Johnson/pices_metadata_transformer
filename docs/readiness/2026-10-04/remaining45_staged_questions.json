@@ -1,0 +1,328 @@
+{
+  "kind": "remaining45_staged_artifact_briefing",
+  "status": "PREPARATION_ONLY_NO_CONTACT_NO_STATUS_CHANGE",
+  "source_packet": {
+    "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_targets_remaining45.json",
+    "sha256": "3d97a03ce1343aa745b32ed374b601d5a7bdf5e9b889f4a514ff169f4f4e6bf2",
+    "paired_markdown_path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_targets_remaining45.md",
+    "paired_markdown_sha256": "cedefc83d108538cf1bf45fa875e25907b9d4c292c1784d033d0b532e68d11b9",
+    "packet_base_main": "9bac0ace68c83a2082168f022315c05a1192210b",
+    "packet_snapshot_reviewed_at": "2026-10-04T20:31:15Z"
+  },
+  "coverage": {
+    "source_count": 45,
+    "held": 39,
+    "malformed": 6,
+    "group_count": 21,
+    "routing_partition_counts": [
+      14,
+      21,
+      10
+    ]
+  },
+  "routes": [
+    {
+      "route": "original_catalogue_archive",
+      "stage": "initial_question_1",
+      "prompt": "Do you still have the original NPEM/GeoNetwork catalogue database or export, backups, metadata history and field definitions, including linked attachments/access annotations—or know where that archive or its custodian is?",
+      "request": "An existing artifact/location/custodian, not replacement dates, selected XML components, passwords or renewed restoration authority.",
+      "limits": "Receipt of an archive is a lead; its provenance and exact source-ID/content mapping must still be reviewed.",
+      "groups": [
+        {
+          "group_id": "date_or_malformed/DATE_BLANK",
+          "source_ids": [
+            "FGDC-1422",
+            "FGDC-1423",
+            "FGDC-3850"
+          ],
+          "source_count": 3
+        },
+        {
+          "group_id": "date_or_malformed/DATE_MALFORMED",
+          "source_ids": [
+            "FGDC-4139",
+            "FGDC-4161",
+            "FGDC-4181"
+          ],
+          "source_count": 3
+        },
+        {
+          "group_id": "date_or_malformed/intact_source_recovery",
+          "source_ids": [
+            "FGDC-3373",
+            "FGDC-3484"
+          ],
+          "source_count": 2
+        },
+        {
+          "group_id": "date_or_malformed/component_identity_and_disposition",
+          "source_ids": [
+            "FGDC-21",
+            "FGDC-4077",
+            "FGDC-4184",
+            "FGDC-4185"
+          ],
+          "source_count": 4
+        },
+        {
+          "group_id": "policy/gem_metadata_product1",
+          "source_ids": [
+            "FGDC-1994"
+          ],
+          "source_count": 1
+        },
+        {
+          "group_id": "policy/post_password_referent1",
+          "source_ids": [
+            "FGDC-4063"
+          ],
+          "source_count": 1
+        }
+      ],
+      "source_ids": [
+        "FGDC-1422",
+        "FGDC-1423",
+        "FGDC-3850",
+        "FGDC-4139",
+        "FGDC-4161",
+        "FGDC-4181",
+        "FGDC-3373",
+        "FGDC-3484",
+        "FGDC-21",
+        "FGDC-4077",
+        "FGDC-4184",
+        "FGDC-4185",
+        "FGDC-1994",
+        "FGDC-4063"
+      ],
+      "source_count": 14
+    },
+    {
+      "route": "historical_reference_bundle",
+      "stage": "initial_question_2",
+      "prompt": "Is there a saved bundle of the historical policies, agreements or source correspondence referenced by the catalogue—or an original custodian/contact list that would let us locate those exact versions?",
+      "request": "Original documents or their locations/custodians. Agents will first compare the recovered terms with the exact XML; no blanket permission or metadata exemption is requested.",
+      "limits": "A current policy, public website, adjacent document or elapsed time does not establish the incorporated version or which XML content it covers.",
+      "groups": [
+        {
+          "group_id": "policy/alaska_public_information8",
+          "source_ids": [
+            "FGDC-572",
+            "FGDC-710",
+            "FGDC-711",
+            "FGDC-758",
+            "FGDC-759",
+            "FGDC-761",
+            "FGDC-766",
+            "FGDC-870"
+          ],
+          "source_count": 8
+        },
+        {
+          "group_id": "policy/pacfin_confidentiality1",
+          "source_ids": [
+            "FGDC-227"
+          ],
+          "source_count": 1
+        },
+        {
+          "group_id": "policy/sebscc_policy1",
+          "source_ids": [
+            "FGDC-288"
+          ],
+          "source_count": 1
+        },
+        {
+          "group_id": "policy/shoreline_agreement1",
+          "source_ids": [
+            "FGDC-648"
+          ],
+          "source_count": 1
+        },
+        {
+          "group_id": "policy/dcw_far_conditions1",
+          "source_ids": [
+            "FGDC-802"
+          ],
+          "source_count": 1
+        },
+        {
+          "group_id": "policy/university_alaska_draft1",
+          "source_ids": [
+            "FGDC-862"
+          ],
+          "source_count": 1
+        },
+        {
+          "group_id": "policy/nasa_restriction2",
+          "source_ids": [
+            "FGDC-1770",
+            "FGDC-1771"
+          ],
+          "source_count": 2
+        },
+        {
+          "group_id": "policy/iode_rules1",
+          "source_ids": [
+            "FGDC-1864"
+          ],
+          "source_count": 1
+        },
+        {
+          "group_id": "policy/cas_imagebase_policy1",
+          "source_ids": [
+            "FGDC-3687"
+          ],
+          "source_count": 1
+        },
+        {
+          "group_id": "policy/jamstec_incorporated_policies2",
+          "source_ids": [
+            "FGDC-4027",
+            "FGDC-4039"
+          ],
+          "source_count": 2
+        },
+        {
+          "group_id": "policy/basemap_vendor_metadata_product1",
+          "source_ids": [
+            "FGDC-1318"
+          ],
+          "source_count": 1
+        },
+        {
+          "group_id": "policy/nps_model_description_sensitive1",
+          "source_ids": [
+            "FGDC-909"
+          ],
+          "source_count": 1
+        }
+      ],
+      "source_ids": [
+        "FGDC-572",
+        "FGDC-710",
+        "FGDC-711",
+        "FGDC-758",
+        "FGDC-759",
+        "FGDC-761",
+        "FGDC-766",
+        "FGDC-870",
+        "FGDC-227",
+        "FGDC-288",
+        "FGDC-648",
+        "FGDC-802",
+        "FGDC-862",
+        "FGDC-1770",
+        "FGDC-1771",
+        "FGDC-1864",
+        "FGDC-3687",
+        "FGDC-4027",
+        "FGDC-4039",
+        "FGDC-1318",
+        "FGDC-909"
+      ],
+      "source_count": 21
+    },
+    {
+      "route": "exact_work_and_product_responsibility",
+      "stage": "conditional_question_3_after_agent_role_review",
+      "prompt": "For any creator cases still unresolved after the catalogue/manual review, do you have the original title pages/bylines or historical product-responsibility records, or know their source custodian?",
+      "request": "Exact-work/edition or exact-product evidence; do not ask Brett to supply or guess creator names.",
+      "limits": "The global GTS five have an existing agent-actionable compilation-versus-distribution role lead. This is a routing family, not a reason to ask about all ten now.",
+      "groups": [
+        {
+          "group_id": "creator/exact_publication3",
+          "source_ids": [
+            "FGDC-1206",
+            "FGDC-2586",
+            "FGDC-2817"
+          ],
+          "source_count": 3
+        },
+        {
+          "group_id": "creator/global_GTS5",
+          "source_ids": [
+            "FGDC-3683",
+            "FGDC-3975",
+            "FGDC-3976",
+            "FGDC-3977",
+            "FGDC-3978"
+          ],
+          "source_count": 5
+        },
+        {
+          "group_id": "creator/regional_GTS2",
+          "source_ids": [
+            "FGDC-3919",
+            "FGDC-3920"
+          ],
+          "source_count": 2
+        }
+      ],
+      "source_ids": [
+        "FGDC-1206",
+        "FGDC-2586",
+        "FGDC-2817",
+        "FGDC-3683",
+        "FGDC-3975",
+        "FGDC-3976",
+        "FGDC-3977",
+        "FGDC-3978",
+        "FGDC-3919",
+        "FGDC-3920"
+      ],
+      "source_count": 10
+    }
+  ],
+  "agent_actionable_before_followup": [
+    {
+      "source_ids": [
+        "FGDC-3683",
+        "FGDC-3975",
+        "FGDC-3976",
+        "FGDC-3977",
+        "FGDC-3978"
+      ],
+      "action": "Independently review existing exact global catalogue links and JODC monthly-file compilation evidence for compilation responsibility versus distribution packaging; do not transfer regional-manual credit or select a creator prematurely."
+    },
+    {
+      "source_ids": [
+        "FGDC-3850"
+      ],
+      "action": "Use the already identified NOAA OCM/InPort 47995 lead to seek an exact historical metadata version/source crosswalk if that lane is continued. Current catalogue dates do not replace the blank original metd."
+    },
+    {
+      "source_ids": [
+        "FGDC-1206",
+        "FGDC-2586",
+        "FGDC-2817",
+        "FGDC-3919",
+        "FGDC-3920"
+      ],
+      "action": "Continue exact-work/edition and historical product-role comparison from existing bibliography, holding, translation and catalogue leads before escalating a narrowly defined missing artifact."
+    },
+    {
+      "source_ids": [
+        "FGDC-288",
+        "FGDC-648",
+        "FGDC-909",
+        "FGDC-1994"
+      ],
+      "action": "Existing new primary leads can narrow the historical policy/product question; they do not currently settle operative terms or complete exact-content coverage."
+    }
+  ],
+  "followup_sequence": [
+    "Ask only the two initial artifact-location/custodian questions if parent chooses to follow up; this briefing sends nothing.",
+    "Review any supplied archive/reference materials against the existing source-bound questions and provenance. Do not treat one broad reply as resolving every routed source.",
+    "Complete the pending finite creator role review; use the third question only for the exact still-missing work/product evidence.",
+    "If no artifact or custodian is identified, retain the holds and select a consequential exact group question from the frozen packet, rather than forwarding all 21 group prompts."
+  ],
+  "preservation": "All 45 original source rows/per-source questions and the 21 group prompts remain in the pinned committed packet, unchanged. Routing does not replace or answer them.",
+  "boundaries": [
+    "No new research, source-owner/user contact, provider calls, repository edits, classification or tests were performed for this briefing.",
+    "No restoration, Contact Source interpretation, deduplication, license or provider authorization is requested again.",
+    "All original source bytes, literal constraints, restricted XML and blank-license requirements remain; no date, creator, identity, satisfied condition, expiry or legal scope is inferred.",
+    "The packet snapshot remains 39 held plus 6 malformed nonalias targets; previously resolved FGDC-2664 and the content-class reconciliation/upload queue are outside these 45.",
+    "New exact evidence may resolve a case through source review. Research is not declared exhausted, and a failed retrieval or missing answer is not proof of absence."
+  ]
+}

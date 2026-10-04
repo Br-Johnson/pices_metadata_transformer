@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "kind": "read_only_publication_batch_readiness_design",
+  "reviewed_main": "6825c2cda6b8932e2c053af9a76582452524dca3",
+  "reviewed_local_head": "1353c7eaac961c04a2b7d2acd06c3f629b4ef824",
+  "identical_tree": "59d6ddeff4aee49f112019af02c2c2615d6bb9e2",
+  "design": {
+    "path": "/tmp/pices-publication-batch-readiness-design.md",
+    "sha256": "8c0bd547a1ecc2de0af57fce0152286bfc88c9425a0bfd18fb48a41820c8962e"
+  },
+  "recommended_scope": "One pure offline publication_plan module, distinct versioned dry-run contract and focused tests; no mutation adapters or gate changes.",
+  "source_status": "3,933 supported target plans: 3,705 singletons plus 228 classes; retain 45 exclusions. All 3,978 targets, 4,206 originals and 4,161 original files in supported targets.",
+  "reported_parent_inventory": {
+    "provenance": "relayed parent summary only; raw captures not reviewed here",
+    "gets": 42,
+    "concepts": 20,
+    "published": 19,
+    "drafts": 1,
+    "files": 24,
+    "exact_pair_candidates": 0,
+    "proof_of_global_or_singleton_absence": false,
+    "creation_authorized": false
+  },
+  "material_execution_gaps": [
+    "Raw owner inventory capture not yet available for source/identity/file/DOI correlation review.",
+    "All class live operations intentionally remain unsupported and guarded.",
+    "Existing legacy production transport and sealed modern canary are not one demonstrated general source-record route.",
+    "Source-supported status and raw file hashes do not alone provide exact prepared artifact/wire payload bindings.",
+    "Unknown create outcomes or lost local registry state require reconciliation; no automatic recreate."
+  ],
+  "runtime_bindings": {
+    "scripts/batch_upload.py": "6dd48183fdd2ca834f64ced8d06186c4b4fa90c6d51dbc34186803893fcc82c4",
+    "scripts/upload_service.py": "2d89d7bedc3ec6e13fbc3051a71481ad0fe0aad5d38b04b89cca40032a310cfe",
+    "scripts/reconcile_draft.py": "3d3bd8eaadec44114787211d5863cc7f149447b62cd0b8621892bc7983b56ca0",
+    "scripts/artifact_contract.py": "dadbc40a4aa818a1d85a321e03183f7692c6a00aa1f2e46a6804d3b5d1188f95",
+    "scripts/content_class_targets.py": "d6572f7d11797cb013652344210a6c2fdf9ecf487c80d8300e606d222060fe3d",
+    "scripts/qa_manifest.py": "350e676cebb587c27dcea388ba1dee94033e622f9a3a0447cf01390319019e87",
+    "scripts/agent_qa.py": "4a60b6c73d3ed823c7fd3f6a155acca406ece1689034e6751d93cb42960d82ed",
+    "scripts/release_manifest.py": "33964dbffe8b1d3fe1ee1fc6ffdb6fa0c665a441893100b7fa7c316f904fb813",
+    "scripts/publish_records.py": "bbd1d0a0f8dcba5c5adbf002d0df26433b99d453ddbe8fb9a21cecb2539bdb24",
+    "scripts/zenodo_api.py": "67d74f9a1f55bd6c5d2294ed1d969b238113e629dbb8492f003fa4093b9f4e47"
+  },
+  "input_bindings": {
+    "residual_targets_integrated_source_status.json": "7d5da663101ceee2228e72913ec65a8c30756325dd440a86e416c8489a1157f7",
+    "residual_targets_record_target_projection.json": "8ff370c759b0e4434918364dc6d340a37adf0c7a3ef3533e1ecb99aabf4fa5fd",
+    "alias228_production_reconciliation_input.json": "a5b34f430a3b0b3a14776987e9828b4a1cf701ce2dc2172bd4cbb472759e37e5"
+  },
+  "operations": {
+    "tests": 0,
+    "classifications": 0,
+    "provider_requests": 0,
+    "private_state_reads": 0,
+    "credential_reads": 0,
+    "repository_edits": 0
+  },
+  "limits": "Static audit of named implementation and existing contract test sources. No new test pass, deployment compatibility, publication readiness or provider authorization is claimed."
+}
