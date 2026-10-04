@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "status": "MEASURED_OFFLINE",
+  "base_main": "e998e9c97945da60cf9c15fb39ab5fc2a5b11d47",
+  "reviewed_at": "2026-10-04T17:32:40.710635+00:00",
+  "scope": "Seven-source guarded smoke/before/after/repeat/withdrawal; frozen4206 ledger plus measuredfour delta, not fresh full-corpus QA",
+  "prior_ledger_sha256": "8d70adb44b599f7b0707f3565d43b2356ee7973054ca66c5592f3826a2c555f2",
+  "prior592_sha256": "7dc625fe5fac625d1fe36f3fdf481c0ba63bd40acb0acc2c9b148079a6f9d550",
+  "profile596_sha256": "4719b46cfe46a2b950b3abc695fd8778ffc7bd3041e5bb0bae253c613c55ec2c",
+  "constant_creator412_sha256": "c6aa4f9c2e4c80ea565b3a92d66d0e066b12f77534bd23feb92807bd18894ee3",
+  "current_counts_recounted": {
+    "supported": 3677,
+    "held": 523,
+    "failed": 6
+  },
+  "combined_counts_computed": {
+    "supported": 3681,
+    "held": 519,
+    "failed": 6
+  },
+  "combined_status_rows_sha256": "ebd5ca4e1570acbbdbf012cbb0a5aeee58cad430db6595f261e6a7775f14ef14",
+  "measured_promotions": 4,
+  "new4_provenance_counts": {
+    "REVIEWER_RECONCILED": 4
+  },
+  "measured_source_ids": [
+    "FGDC-2244",
+    "FGDC-762",
+    "FGDC-849",
+    "FGDC-859"
+  ],
+  "held_control_ids": [
+    "FGDC-1770",
+    "FGDC-288",
+    "FGDC-4063"
+  ],
+  "all592_prior_members_context_review_objects_times_unchanged": true,
+  "all4202_unselected_ledger_objects_unchanged": true,
+  "all4206_original_xml_sha256_verified_before_and_after": true,
+  "original_xml_inventory_sha256": "66dbe250d3a91f0b377cdfc0a5054423516666d798273f1e30858a36f8f758a5",
+  "all456_alias_identities_and31_exceptions_and_three_controls_still_held": true,
+  "phase_counts": {
+    "before": {
+      "supported": 0,
+      "held": 7,
+      "failed": 0
+    },
+    "after": {
+      "supported": 4,
+      "held": 3,
+      "failed": 0
+    },
+    "repeat": {
+      "supported": 4,
+      "held": 3,
+      "failed": 0
+    },
+    "withdrawn": {
+      "supported": 0,
+      "held": 7,
+      "failed": 0
+    }
+  },
+  "repeat_identical": true,
+  "withdrawal_restores_holds_and_payload_bytes": true,
+  "provider_requests": 0,
+  "new_remote_verifications_or_publication_approvals": 0,
+  "rows": [
+    {
+      "source_id": "FGDC-1770",
+      "source_sha256": "d9a3ebc23ac26962bccd4827e4a79fd74bcd5f01105255155ea24b37dc02835d",
+      "before_status": "held",
+      "after_status": "held",
+      "before_payload_sha256": "13bad27eab11bcfb06e770ae9c8b21b3cb5feb73f7d5209e77a8bc0c689b07b4",
+      "after_payload_sha256": "13bad27eab11bcfb06e770ae9c8b21b3cb5feb73f7d5209e77a8bc0c689b07b4",
+      "unchanged_metadata_canonical_sha256": "6cefe1e403e7eee9bf16869c07b29c2b6e3659f2bd5720511bb02620b08f06ef",
+      "unchanged_notes_sha256": "d7ccd7226e4b162282b3e558d5abd081cd402b79450a90ca201d921631f6c1aa",
+      "complete_metadata_and_original_input_prepared_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-2244",
+      "source_sha256": "9703a1f5392dac8c872c70296b8d4eb7748096a66c1664e553bfeec5d2ca63ea",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_sha256": "bd9c7bf013f23b488929dc34757d4064a56cfa77fb0492be5f4e79f4eb15b17b",
+      "after_payload_sha256": "ce46d70b42fa3aad56a43780d4e303dc5fe357dffce27481753787ea7ccb016e",
+      "unchanged_metadata_canonical_sha256": "a1dca6ccd3b86abd2e42f9a677276c1bf6de972a9816d176b5b51ae6c044b615",
+      "unchanged_notes_sha256": "01181d992b6b769da39c6d909c215c6f08cea065e01896820fcae49b98c6c9a5",
+      "complete_metadata_and_original_input_prepared_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-288",
+      "source_sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff",
+      "before_status": "held",
+      "after_status": "held",
+      "before_payload_sha256": "d9bfbcffc199a739a3df60b783d25091c499383738aec512402a95e24109dfde",
+      "after_payload_sha256": "d9bfbcffc199a739a3df60b783d25091c499383738aec512402a95e24109dfde",
+      "unchanged_metadata_canonical_sha256": "08730ea48eaee41f76f33bc3e4415b58f636aa6c0a7910858662cb3b67f62664",
+      "unchanged_notes_sha256": "5fb777e3d1c27e028aed9a30e5731de7a36e576217d704917b57cfc82dd3fd9c",
+      "complete_metadata_and_original_input_prepared_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-4063",
+      "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076",
+      "before_status": "held",
+      "after_status": "held",
+      "before_payload_sha256": "713a61aa1a5ca7050d14aaa76b98d81d1506504e4fc94e071437e4a4f3718b3c",
+      "after_payload_sha256": "713a61aa1a5ca7050d14aaa76b98d81d1506504e4fc94e071437e4a4f3718b3c",
+      "unchanged_metadata_canonical_sha256": "188a931fc14bb04dad0a7e2b23d33ddb00f47271de357bad21d0752423b4de9a",
+      "unchanged_notes_sha256": "dfd60bd6beeb194896b903f07aa1fcaf91f6789614358a1db578660577875b89",
+      "complete_metadata_and_original_input_prepared_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-762",
+      "source_sha256": "44889c90b4acd4fbcce4a36e640a0a18247cf051ba382b74112c0df48500dc63",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_sha256": "17f7c3ecc15d6f80317a9a38b501eb26cdfab1628764862788770a0912c21121",
+      "after_payload_sha256": "81acf1b5b11595f39f9e0688f816abc421d6ad8d63ed8518b242f59b4b442ab6",
+      "unchanged_metadata_canonical_sha256": "95229206adf13ede7e5bc7ed0726b413f7e57885a1bf114f9628b69d6d20a6a7",
+      "unchanged_notes_sha256": "0e79c145b80374bbc637749f8671ba29950bad3c00475a5fe2a64e15ffcaece3",
+      "complete_metadata_and_original_input_prepared_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-849",
+      "source_sha256": "182762f207a3f2efa609ec95b68a13ddc2634b64408243523def0e2f00a35f05",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_sha256": "6542b2734671f5d9fe3730f60cdf32041d8b858d540f1492352f9fbc094830a2",
+      "after_payload_sha256": "736116d194c5cea3c26bcc5fcf2e782eb87fee9a2d42f522879f64b30aa70285",
+      "unchanged_metadata_canonical_sha256": "6d350d73be2597b77ece725b46a9cb6500c830561ee9bb02311de1d29ae193b0",
+      "unchanged_notes_sha256": "65925141e034c6603709fb904bcfbe72fa9624f19e7919305a2f3f9f305a80ba",
+      "complete_metadata_and_original_input_prepared_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-859",
+      "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_sha256": "c8ea30fa591383489c96131a1f10e91b2d21307e2ce6e174d6ba2ee5c4e8aa1b",
+      "after_payload_sha256": "b16ffaf1ddf9df069a07021615507f9238487c197d760a09cd7707a6bd69e2a0",
+      "unchanged_metadata_canonical_sha256": "fa8e73a345fec0736d7e629715c2d40f41236986346547fa113872c4b9d5e77d",
+      "unchanged_notes_sha256": "76bcc352e6ed60f98cd3b592dc3181b7595d1b10a2d9ec9f9e4eca98cf98945d",
+      "complete_metadata_and_original_input_prepared_xml_unchanged": true
+    }
+  ]
+}

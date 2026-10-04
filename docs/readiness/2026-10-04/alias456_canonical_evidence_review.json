@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "scope": "Bounded read-only local alias identity evidence review; no scientific re-review of 228 groups, source-status remeasurement, provider/private/output search, or network request.",
+  "source_root": "/workspace/pices-residual-resource4-20261004",
+  "head_observed": "e998e9c97945da60cf9c15fb39ab5fc2a5b11d47",
+  "evidence_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "92a7b59b9187bfa8a64a8d73ff5636e97e5e8a378e68767e0400489543d4b995"
+    },
+    {
+      "path": "docs/readiness/2026-10-03/source_alias_candidates.json",
+      "sha256": "d1b5aae5446e230d86fd4a91b6385548b8d6c4fa93a3b98a0ccc26fc731f22d5"
+    },
+    {
+      "path": "docs/readiness/2026-10-03/source_alias_reconciliation.md",
+      "sha256": "d8ad4c1fadf07c854800969a9d6ea3ea5221bf970aaa9f6d38be71ba5c1e4a02"
+    },
+    {
+      "path": "docs/readiness/2026-10-03/remaining_source_date_identity_review.json",
+      "sha256": "b7632a12341c7320b4a6d07502057437c9e4ef10c0a97998899de0ea558d9feb"
+    },
+    {
+      "path": "docs/readiness/2026-10-04/residual_alias_source_evidence.json",
+      "sha256": "82b923a4c8bccdc791924e298189eb23b8879076f25dff41e7a3a755770e3a61"
+    },
+    {
+      "path": "docs/readiness/2026-10-04/residual_alias_malformed_handoff.json",
+      "sha256": "78fc76a387ccac351c24b3d2c0096407af3ef451a820edf8cf831de1bc264419"
+    },
+    {
+      "path": "docs/readiness/2026-10-04/residual_source32_handoff.md",
+      "sha256": "7fd27462c1cfe6a85df9df63052da904ec9b8ba5ca4643c4e9b5f1cc788072fb"
+    },
+    {
+      "path": "docs/fgdc_to_zenodo_crosswalk_exhaustive.csv",
+      "sha256": "1744e583e9e3a09dbaad069890c3b3e2da0be1b768f89f21e27a28e2c3ab0495"
+    }
+  ],
+  "conclusion": {
+    "authoritative_canonical_source_ids_proved": 0,
+    "source_identity_count_in_frozen_map": 456,
+    "byte_group_count": 228,
+    "what_follows": "Exact XML equality establishes identical exported metadata content and descriptive assertions within a pair. Shared bibliography references can help locate the cited literature metadata. Neither establishes historical catalogue priority, source-node lineage, owner preference, a unique scientific dataset entity, or an existing provider identity.",
+    "neutral_review_identity": "fgdc-xml-sha256:<shared-original-SHA-256>",
+    "representative_limit": "The smallest numerical member in the existing map is explicitly a stable review-display representative; it is not an authoritative canonical_source_id. The +228 offset is an observed numbering pattern only."
+  },
+  "bounded_embedded_identifier_check": {
+    "method": "Parsed one already-frozen representative original XML per byte group with stdlib ElementTree. Verified each representative SHA-256 against the existing map. Enumerated every tag name and attribute; examined nonempty explicit ID/UUID/onlink/resdesc/othercit/docid/fileid/metid/datasetid values and raw FGDC-number, UUID-pattern, DOI, and Zenodo literals. The choice of representative is purely for scanning identical content.",
+    "representatives_checked": 228,
+    "hash_mismatches": [],
+    "attributes_found": [],
+    "explicit_identifier_values_found": [],
+    "fgdc_filename_uuid_doi_zenodo_literals_found": [],
+    "pair_byte_hash_audit_repeated": false,
+    "limit": "This is a bounded absence check in the frozen XML, not proof that external catalogue IDs or existing remote records do not exist."
+  },
+  "existing_reference_tiers": {
+    "nonzero_procite_literal_groups": 191,
+    "nonzero_procite_literals_unique_within_frozen_groups": 191,
+    "reused_procite_zero_groups": 12,
+    "report_number_title_groups": 21,
+    "no_stated_unique_reference_groups": 4,
+    "crosswalk_interpretation": "ProCite identifies historical bibliography/Excel rows. Uniqueness within these 228 groups does not establish a global identifier, choose between duplicate local filenames, or identify a provider record."
+  },
+  "exact_source_quotes": [
+    {
+      "path": "FGDC/FGDC-2953.xml",
+      "line": 15,
+      "quote": "The ProCite database record number corresponds to the Excel Procite Number.",
+      "additional_literal": "Reference Procite #493 for this literature's metadata.",
+      "named_artifacts": [
+        "GEM Nearshore Metadata Set",
+        "GEM Nearshore Metadata References"
+      ]
+    },
+    {
+      "path": "FGDC/FGDC-2953.xml",
+      "line": 17,
+      "quote": "The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska."
+    },
+    {
+      "path": "FGDC/FGDC-3032.xml",
+      "line": 15,
+      "quote": "Reference Procite #0 for this literature's metadata.",
+      "limit": "The same zero literal occurs in 12 different byte groups and is not a unique key."
+    }
+  ],
+  "selected_source_bindings": [
+    {
+      "path": "FGDC/FGDC-2953.xml",
+      "source_sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "members": [
+        "FGDC-2953",
+        "FGDC-3181"
+      ]
+    },
+    {
+      "path": "FGDC/FGDC-3032.xml",
+      "source_sha256": "0d60030cf5cb6089f0cae8dd276fb7f7b1819478dd400fb2014bba32d7c7b2b9",
+      "members": [
+        "FGDC-3032",
+        "FGDC-3260"
+      ]
+    },
+    {
+      "path": "FGDC/FGDC-2920.xml",
+      "source_sha256": "66097bbcd0f102a76e6fd464be17ded1cbc3ae33ddfcad625f066689f42dcd21",
+      "members": [
+        "FGDC-2920",
+        "FGDC-3148"
+      ]
+    },
+    {
+      "path": "FGDC/FGDC-3027.xml",
+      "source_sha256": "06230e76144e6129de3b4daa58aa06614005b7c088089619eab5089ad02b20a9",
+      "members": [
+        "FGDC-3027",
+        "FGDC-3255"
+      ]
+    },
+    {
+      "path": "FGDC/FGDC-2837.xml",
+      "source_sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "members": [
+        "FGDC-2837",
+        "FGDC-3065"
+      ]
+    },
+    {
+      "path": "FGDC/FGDC-2838.xml",
+      "source_sha256": "3545d2a03e23dd16f246ba2e836dc33f76dbe1394aa645e0debf85c5f55a3d96",
+      "members": [
+        "FGDC-2838",
+        "FGDC-3066"
+      ]
+    },
+    {
+      "path": "FGDC/FGDC-2948.xml",
+      "source_sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "members": [
+        "FGDC-2948",
+        "FGDC-3176"
+      ]
+    },
+    {
+      "path": "FGDC/FGDC-3059.xml",
+      "source_sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "members": [
+        "FGDC-3059",
+        "FGDC-3287"
+      ]
+    }
+  ],
+  "title_collision_protection": {
+    "groups": [
+      {
+        "members": [
+          "FGDC-2920",
+          "FGDC-3148"
+        ],
+        "procite": "438"
+      },
+      {
+        "members": [
+          "FGDC-3027",
+          "FGDC-3255"
+        ],
+        "procite": "604"
+      }
+    ],
+    "retained_source": "FGDC-2043",
+    "retained_procite": "104",
+    "record_id": 17317851,
+    "doi": "10.5281/zenodo.17317851",
+    "consequence": "A shared title must not attach these two different byte groups to the retained record. Different ProCite values and abstracts are preserved. No current remote state is asserted."
+  },
+  "prior_public_context_reused_without_network": {
+    "evidence_path": "docs/readiness/2026-10-04/residual_alias_source_evidence.json",
+    "locator": "new_public_primary_context",
+    "original_url": "https://meetings.pices.int/projects/npem",
+    "retained_quote": "The redundancies were created by importing each other’s metadata records to expand individual metadata holdings.",
+    "limit": "Historical federation context motivates import/export provenance research. It does not prove the cause or canonical member of any specific local pair."
+  },
+  "field_crosswalk_is_not_identity_crosswalk": {
+    "path": "docs/fgdc_to_zenodo_crosswalk_exhaustive.csv",
+    "header": "FGDC element,FGDC path,FGDC short name,What it means (FGDC),Zenodo JSON target,Mapping rationale / notes,Transform / normalization,Fallback if not supported",
+    "meaning": "Schema field mappings only; not an original catalogue-record-to-export-filename or provider-record crosswalk."
+  },
+  "smallest_irreducible_source_crosswalk_question": "Can the original catalogue/export owner provide the manifest and field definitions mapping both FGDC filenames in each frozen byte group to original catalogue record ID/UUID and source/import provenance, including the GEM ProCite-to-Excel mapping where applicable, and identify any authoritative primary/preferred source designation? Without that designation, source canonical priority remains unknown.",
+  "separate_provider_requirement": "Any provider canonical target still requires authoritative existing IDs/DOIs, owner/version, and exact source-file or notes bindings plus explicit disposition preserving existing records. A source bibliography crosswalk does not supply these facts.",
+  "historical_receipt_limits": "Prior receipt status totals and non-alias diagnostics are historical; this task does not restate them as current measurements. Parent independently measures current all-456 mapping/status.",
+  "repository_edits": 0,
+  "network_requests": 0,
+  "provider_requests": 0,
+  "private_reads": 0,
+  "tests_run": 0,
+  "canonical_selections": 0
+}
