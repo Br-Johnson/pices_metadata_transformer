@@ -1,0 +1,137 @@
+{
+  "activity": {
+    "actual_env_credential_private_stage_reads": 0,
+    "full_suite_or_classification_runs": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "repository_edits": 0
+  },
+  "artifact_checks": {
+    "contracts/examples/modern_subjects_wire.json": {
+      "approved": false,
+      "canonical_encoding": "modern.encoded: sorted indent2 ensure_ascii JSON followed by newline",
+      "exact_source_and_wire_objects_hashes_verified": true,
+      "sha256": "1d71e0c465f9863e76fc70ce974c924c21616ec713a3aaef0286e47b2030565e"
+    },
+    "docs/readiness/2026-10-03/modern_subjects_fixture_wire_capture.json": {
+      "prepared_wire_bytes": [
+        471,
+        494
+      ],
+      "prepared_wire_sha256": [
+        "85c6d0f0b2a72fadfcc8632d68cbacdb58cc500cc1b462e2cc4ae3d443d67c2f",
+        "4e47c3b2340483500d99ec9807fd9c90201532713b8b48e4adfe2e539fc0fb74"
+      ],
+      "sha256": "2890a81841318e67e077a4e2c6e58102b1029b2e0a44456dcb83dccf881ad4de",
+      "source_sha_and_exact_standard_json_serialization_independently_verified": true
+    }
+  },
+  "base_commit": "51eeefa0a2d874de8c11ef86a343d1033d7ec678",
+  "final_handoff_sha256": {
+    "README.md": "27ad1b95ec2ab26408ac1f2d2d80de439d9ab2759c6967d08a99028331c4deda",
+    "contracts/examples/modern_subjects_wire.json": "1d71e0c465f9863e76fc70ce974c924c21616ec713a3aaef0286e47b2030565e",
+    "docs/adr/0002-bounded-modern-synthetic-canary.md": "e4aa77558d77e96c9f0f68bbd470c13d1f4f64b33492bac01127150ecf10b434",
+    "docs/readiness/2026-10-03/modern_subjects_correction_handoff.md": "fecfd1b507f9219212106b92c47333443d33390fbca1a2eae1412b3a124c165e",
+    "docs/readiness/2026-10-03/modern_subjects_correction_validation.json": "7c01006c86109538e4c9f26bc8885975b215b366adaa77aa18452c7c01a014b4",
+    "docs/readiness/2026-10-03/modern_subjects_fixture_wire_capture.json": "2890a81841318e67e077a4e2c6e58102b1029b2e0a44456dcb83dccf881ad4de",
+    "docs/readiness/2026-10-03/modern_subjects_schema_independent_review.json": "784480ceda0a19e83aae40fbb803eba2e7b2c1cf2dc31919779299944068c0c3",
+    "docs/readiness/2026-10-03/remaining604_next_cohort_selection.json": "d46cd89eaeaa66fb24f3c53eade665f1641bc6c2fda7067faf19689277db6cce",
+    "docs/tech-debt.md": "99691f364983d2e92356f90586a3c6c5051f786f4ff6352774df4bc63011aeff",
+    "docs/todo_list.md": "03b5e5e5a505682cddfbeb4dd8112820c3b5ec9ed49fecba7616b7a31055ea18"
+  },
+  "handoff_checks": {
+    "all_validation_runtime_test_artifact_and_log_hashes_match": true,
+    "binary_readback_precision_correction_matches_unchanged_controller": true,
+    "exact31_exceptions_and456_alias_identity_holds_preserved": true,
+    "expired_mutation_window_remains_held_no_read_or_write_grant_dispatch": true,
+    "historical_packet_receipts_source_bodies_and_prepared458_481_proof_separate_from_projected471_494_wire": true,
+    "local_links_resolve_except_planned_byte_for_byte_copy_of_this_final_receipt": true,
+    "no_publisher_identifiers_affiliations_dates_or_license_inference": true,
+    "other_held_partition562_plus_selected42_equals604": true,
+    "parent_reported_canonical_get197_no_errors_and_missing_metadata_not_live_cause_claim": true,
+    "proposal_and_independent_source_review_sha256_links_match": true,
+    "root404_full_and44_focused_distinguished_from_independent7": true,
+    "selection42_matches_complete_source_proposal_members_and_membership_digest": true,
+    "source42_is_selection_only_no_profile_or_status_integration": true,
+    "source_counts3596_604_6_unchanged_and3638_562_6_explicitly_conditional": true
+  },
+  "handoff_review": "CLEARED",
+  "head_at_runtime_review": "51eeefa0a2d874de8c11ef86a343d1033d7ec678",
+  "independent_tests": {
+    "count": 7,
+    "dummy_environment_cleared": true,
+    "harness_path": "/tmp/pices-review-modern-subjects-focused.py",
+    "harness_sha256": "b53ba0e7e25b25355599c42aad7bff84253974ebc11edeb07dbc75d90ab372cb",
+    "log_path": "/tmp/pices-modern-subjects-independent-focused.log",
+    "log_sha256": "2dfdb392c1d898d3d585041acbe00bef9cbae9a8d656bbb327dbbd17913cd212",
+    "requests_send_adapter_sockets_dns_blocked_except_exact_test_mocks": true,
+    "result": "PASS",
+    "seconds": 0.087
+  },
+  "material_findings": [],
+  "practical_limits": [
+    "No actual private Sandbox response or stage was read; current live facts are parent-reported only.",
+    "This correction addresses a demonstrated schema defect, not a proven cause of all missing metadata or file access.",
+    "Validation shape describes flat container and field entries; error-message contents are not validated or returned.",
+    "There is no new grant, stage, create allowance, GET authority, reset or live execution approval."
+  ],
+  "repository": "/workspace/pices-modern-subjects-correction",
+  "resolved_document_findings": [
+    {
+      "finding": "Binary responses were listed as always stopping; valid unchanged binary content readback exists.",
+      "resolution": "Final prose explicitly distinguishes skipped JSON validation flags from the existing binary file/checksum readback contract.",
+      "runtime_change_or_test_repeat_needed": false
+    }
+  ],
+  "result": "CLEARED_NO_MATERIAL_BLOCKER",
+  "reviewed_commit": "5dece06ff2ff7ef526ead8091b7de35446d1ea65",
+  "reviewed_file_sha256": {
+    "scripts/modern_canary_errors.py": "f6393fde1dddb6e2c751e7ab8d8ec18261d55c93bf29603e531117f0c361aa54",
+    "scripts/modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
+    "scripts/modern_request_body_diagnostics.py": "70c303d5302ae1fb4698739bc304b8cd44e0c0424d8b449c7b948b38d457c29d",
+    "scripts/modern_synthetic_canary.py": "3a28f4d42640a9ab19485334178db724df8c15bcbdc490e4d2d3d2327478685d",
+    "tests/test_modern_owned_continuation.py": "d8791d960dc82d5f16619942efddb65c43022e218aac702b2012a11c782fcdaa",
+    "tests/test_modern_request_body_diagnostics.py": "6ce226eef19ad061f2cc057793bd43fa861902b55170c3971ac189500e05b951",
+    "tests/test_modern_subjects_contract.py": "83b32d3b0530424064106bf4b782b366b324093c24d238b21a1b553f5c234d01",
+    "tests/test_modern_synthetic_canary.py": "439c052b29a82f6bdab47d8290e34e3c9af0f406e80b590c956e5d5286cfad43"
+  },
+  "root_test_evidence": {
+    "focused": {
+      "count": 44,
+      "log_sha256": "b36ae660ef604525dcd8eb17656f07f2c40c5adeda09fa7056a21bbe0e7b8ec0",
+      "result": "PASS",
+      "seconds": 1.35
+    },
+    "full_guarded": {
+      "count": 404,
+      "log_sha256": "39baee32ec990d8187d560e5748be81594fdb64b88794bc2811c49bfaa34fc40",
+      "result": "PASS",
+      "seconds": 100.201
+    },
+    "provenance": "Root execution; logs/digests inspected, suites not independently repeated."
+  },
+  "runtime_checks": [
+    "Exact deep-copy projection changes only metadata.keywords to one subject-only namespace dictionary.",
+    "All historical packet files remain bound to immutable packet SHA0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13.",
+    "Shared and owned controller bodies use projected expected metadata and strict full subject equality; legacy keyword response fails.",
+    "Runtime and error helper hashes invalidate historical binding before transport or stage mutation.",
+    "Complete bounded nonbinary JSON is checked for raw and decoded credential echo before adding any validation field projection.",
+    "Safe validation flags persist before expected-status rejection, including HTTP400 and subsequent full identity/metadata rejection.",
+    "No parsed payload, error messages, unknown paths, private header/URL/identity values are added to state.",
+    "Failed or uncertain attempts stay spent; no automatic followup or replay.",
+    "Existing deadline, redirect, send-route, TLS, credential, owner/created/PID/file checks and 4POST/2PUT/8GET ceilings are preserved.",
+    "Capture mode explicitly distinguishes historical input SHA from prepared wire-body SHA; historical capture remains separately selectable."
+  ],
+  "runtime_review_result": "CLEARED_NO_MATERIAL_BLOCKER",
+  "schema_version": 1,
+  "scope": "Independent guarded runtime tests and read-only final prose/contract/validation review; no provider action authority",
+  "source_schema_review_path": "/tmp/pices-modern-subjects-schema-independent-review.json",
+  "source_schema_review_sha256": "784480ceda0a19e83aae40fbb803eba2e7b2c1cf2dc31919779299944068c0c3",
+  "source_selection_evidence": {
+    "exact42_membership_sha256": "fc52e96d2a333c2ba1842ca4198fa53e69d8665fed512e818eddaf38b71bf8dd",
+    "independent_review_sha256": "e16e097b3c514898dec823e2fff2b3d2ef9fedf44713e36d1c9720e10f686f75",
+    "promotions_or_release_approved": false,
+    "proposal_sha256": "25475fc285f8e4377a051de6b7876436e43f81eaca91ed62dd5693cf82c10198",
+    "source_semantics_review_repeated": false
+  }
+}
