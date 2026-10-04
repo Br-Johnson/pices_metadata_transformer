@@ -409,3 +409,9 @@ This local cohort has not been pushed or used for a provider operation.
 
 - [x] Address the substantive create201 credential-echo review: preserve a safe private untrusted candidate ID before rejection, with no trusted adoption/retry/reset or credential persistence. Add meaningful failure-first/reentry/privacy regressions; final runtime and validation bindings supersede the earlier canary pin.
 - PR10 exact-head tests/reviews passed and code merged. Parent approved/dispatched the modern trial; the durable create intent remains held without dispatch evidence. Preserve all historical ledgers and allowances; no automatic retry/reset.
+
+## Run02 owned empty-draft continuation — 2026-10-04
+
+- [x] Retain parent-reported201 create and canonical200 readback hashes; distinguish strict owned empty identity from absent submitted metadata. No explanation of the initial body failure is invented.
+- [x] Implement a separate no-CREATE ledger and exact parent grant, preserving the old failed ledger and create/diagnostic allowances. Apply full metadata/access checks immediately after one PUT before upload; three-read readback plus unchanged retry fits the remaining lifetime budget.
+- [x] Complete382 guarded tests and independent source/runtime/handoff review; freeze the eligible recovery PR for parent sole-executor dispatch. No provider operation by root; new active bound parent grant is still required.

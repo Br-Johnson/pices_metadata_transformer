@@ -1,0 +1,285 @@
+{
+  "activity": {
+    "cached_primary_source_reads": true,
+    "credential_reads": 0,
+    "environment_value_reads": 0,
+    "new_public_primary_source_reads": 2,
+    "private_stage_reads": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "repository_edits": 0,
+    "tests_run": 0
+  },
+  "additional_pinned_primary_sources": [
+    {
+      "finding": "FileList dumps every entry with service.file_schema and expands item/transfer links identically to FileItem. Source read publicly; no claim of a local raw-byte hash.",
+      "lines": [
+        17,
+        54,
+        92,
+        140
+      ],
+      "primary_url": "https://github.com/inveniosoftware/invenio-records-resources/blob/12ca933194d9f5c4ea15eacc72ec220ee2cec197/invenio_records_resources/services/files/results.py",
+      "source_pin": "12ca933194d9f5c4ea15eacc72ec220ee2cec197"
+    },
+    {
+      "finding": "Default item and list classes share FileSchema.",
+      "lines": [
+        30,
+        35
+      ],
+      "primary_url": "https://github.com/inveniosoftware/invenio-records-resources/blob/12ca933194d9f5c4ea15eacc72ec220ee2cec197/invenio_records_resources/services/files/config.py",
+      "source_pin": "12ca933194d9f5c4ea15eacc72ec220ee2cec197"
+    }
+  ],
+  "findings": [
+    "Canonical owner is one object with string user. No source support for integer-owner/list-owner coercion.",
+    "Canonical first unreviewed version1 status is draft. Other source review/version statuses are legitimate generally, but incompatible with this test identity.",
+    "Files aggregates/entries can be omitted by serialization permission or missing attribute; omission is not proof of empty files. Actual reported beforeimage has all matching empty fields.",
+    "PID dictionary may be empty; identifier/provider strings are required when DOI exists; client is optional. No null/list PID coercion or provider/client fallback.",
+    "Modern application/json creation forwards parsed data. create uses raise_errors=False, so HTTP201 does not prove complete metadata persisted. No source proof of the deployed reason for absent metadata or a body-version mismatch.",
+    "update_draft also reports rather than raises validation errors. Require full exact expected metadata/access and no errors after PUT before any upload.",
+    "Current file-list validation already applies the same complete file predicate used by detail GET. Pinned source supports omitting the redundant detail read if actual list entry passes every unchanged predicate."
+  ],
+  "kind": "pices_run02_empty_draft_source_contract_independent_review_v1",
+  "parent_reported_evidence_not_privately_read": {
+    "access_files_string_mismatches_expected": true,
+    "beforeimage_sha256": "316073505991baeca08490de43bc3dc5f0334917c0bcee4a60abc77e2a03f662",
+    "candidate_id_and_owner_values": "PRIVATE_NOT_READ_OR_INCLUDED",
+    "canonical_get_status": 200,
+    "create_received_at": "2026-10-03T23:31:56.662044Z",
+    "create_started_at": "2026-10-03T23:31:54.267249Z",
+    "create_status": 201,
+    "cumulative_gets": 196,
+    "diagnostics_sha256": "3ea2e9ad7da503b7ad62277258b1b0f8936f03d3712025197f68c80e672cdbf6",
+    "doi_absent": true,
+    "expiry": "PRIVATE_ORIGINAL_VALUE_NOT_INVENTED",
+    "id_owner_unpublished_first_draft_version_aware_creation_links_and_empty_files_match": true,
+    "preserved_old_files": 305,
+    "required_initial_metadata_absent": true,
+    "spent_create": 1,
+    "spent_file_writes": 0,
+    "spent_metadata_put": 0
+  },
+  "pure_fixed_field_diagnostic_contract": {
+    "inputs": "Decoded JSON plus private exact expected fixture/id/owner/create interval; no transport, writes or environment access.",
+    "outputs": "Fixed known paths only, each with present boolean, closed-vocabulary type label, and independently computed match booleans. No values, arbitrary key names, links, timestamps, IDs, DOI strings, credentials, exception text or single adoption flag.",
+    "predicates": [
+      "safe_id_and_same_retained_id",
+      "not_in_partial_known_old_ids",
+      "safe_parent_id",
+      "owner_object_string_and_exact_match",
+      "unpublished_false",
+      "draft_status",
+      "integer_version1",
+      "aware_created_in_original_interval",
+      "exact_canonical_self_and_files_links",
+      "metadata_required_fields_present_and_exact",
+      "metadata_no_unexpected_user_content",
+      "exact_record_and_file_access",
+      "enabled_files_true",
+      "entries_object_empty",
+      "count_integer_zero",
+      "total_bytes_integer_zero",
+      "pids_object_allowed_scheme",
+      "doi_absent_or_valid_provider_prefix_optional_client",
+      "errors_absent_or_empty"
+    ],
+    "redaction": "Bound raw body and decoded credential checks precede any persistence or diagnostic projection. Missing nested objects produce fixed false/type results rather than exceptions. bool is distinct from int.",
+    "type_labels": [
+      "missing",
+      "null",
+      "boolean",
+      "integer",
+      "number",
+      "string",
+      "array",
+      "object"
+    ]
+  },
+  "remaining_blockers": [
+    "Review concrete continuation implementation/grant/immutable evidence validation and mock tests before parent dispatch. This source review is not provider execution or a grant."
+  ],
+  "review_date": "2026-10-03",
+  "runtime": {
+    "path": "/workspace/pices-modern-supported-route/scripts/modern_synthetic_canary.py",
+    "readback_lines": [
+      497,
+      509
+    ],
+    "record_lines": [
+      428,
+      481
+    ],
+    "sha256": "8b96b63ca66ec4e27546ce3980abb98cb8f5f7b696eb2c7d3f590ac7a61e9b24"
+  },
+  "separate_continuation_contract": {
+    "authority": "Parent explicitly authorized preparing this exact verified owned empty draft; concrete frozen implementation and parent-dispatched bound grant still required.",
+    "binding": "Separate exclusive controller/ledger pins original failed02 grant/state/journal/201 create intent and response hashes, canonical GET beforeimage/diagnostics hashes, exact private candidate ID/owner/parent/created, packet and runtimes. Original failed state, counters and old files remain byte-immutable.",
+    "clock": "Preserve original private absolute expiry; any separately explicit parent continuation window must be a reviewed bounded mapping, never automatic extension. Enforce unchanged20s per-request wall and64KiB response bounds.",
+    "doi_preservation": "If DOI is already present, persist and preserve exact PID through metadata PUT; never allocate a replacement. Current report says absent.",
+    "durability": "Exact ID/parent/created and returned DOI durable before subsequent mutations. Consume and fsync every remaining action intent before transport; interruption/uncertain mutation permanently holds that continuation and cannot replay.",
+    "failure": "Any partial/malformed/wrong-owner/identity/nonempty-beforeimage/metadata/access/PID/list-entry/content uncertainty stops before the next mutation; no fallback or blind relaxation.",
+    "identity_before_metadata": "Validate exact sealed empty beforeimage and original create causal handle/time, first-draft identity, owner, links and complete empty files. This bounded empty-draft phase does not require missing initial metadata or already-correct access.files, and is not generic cached-ID adoption.",
+    "limits": {
+      "additional_get_max": 7,
+      "content_put_max": 1,
+      "lifetime_get_max": 8,
+      "metadata_put_max": 1,
+      "new_create": 0,
+      "planned_additional_get": 6,
+      "remaining_post_max": 3,
+      "used_diagnostic_get": 1
+    },
+    "no_create": "CREATE action/route absent and historical create permanently consumed; no failed-state reopening/reset/new namespace/new version/publish/delete.",
+    "readback": "Three reads each pass: draft record; full file list exactly one entry validated using unchanged complete file predicate; exact content bytes. No detail GET fallback. Final plus unchanged retry spend6 further GETs,7 including diagnostic,<=8 lifetime.",
+    "transport": "Use already reviewed ordinary Session.request route, opaque intended-auth equality, TLS/CA, zero redirect/retry/probe/constructor GET.",
+    "write_order": "One metadata/access PUT first; immediately require complete exact updated payload/access/no errors with DOI absent permitted. Reserve DOI once only if still absent, then validate same updated draft identity and strict DOI before file init/content/commit."
+  },
+  "sources": [
+    {
+      "lines": [
+        72,
+        102
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/parent/access.py",
+      "primary_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/schemas/parent/access.py",
+      "purpose": "canonical single owner object and string user",
+      "sha256": "7f5c1c83be58c315971fe751f48944f930eaafa2869ef9301706f94d404da0b5",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3"
+    },
+    {
+      "lines": [
+        70,
+        115
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/record.py",
+      "primary_url": null,
+      "purpose": "canonical record/PID/status/files types and partial nested defaults",
+      "sha256": "010721368d635dc6727245d1a05589eda8a3d656fae662d8224cc4521e679e11",
+      "source_pin": null
+    },
+    {
+      "lines": [
+        43,
+        110
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/files.py",
+      "primary_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/schemas/files.py",
+      "purpose": "embedded file schema, protected aggregate/entry fields and attribute lookup",
+      "sha256": "1baa64f7ea8504e8f5357e02e4e0c133317851841e45fc89fa332062f8682c07",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3"
+    },
+    {
+      "lines": [
+        11,
+        16
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/pids.py",
+      "primary_url": null,
+      "purpose": "PID identifier/provider required and client optional",
+      "sha256": "d325a74284cad27dad882b4bd34191e6acea087d19ab3df2369687ab035c1e0a",
+      "source_pin": null
+    },
+    {
+      "lines": [
+        29,
+        83
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/records/systemfields/draft_status.py",
+      "primary_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/records/systemfields/draft_status.py",
+      "purpose": "first unreviewed draft status versus review/new-version statuses",
+      "sha256": "994928994ab266a1ce025236400e35d4e18f6b014ec3a5ba6dec4f0814ceefaf",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3"
+    },
+    {
+      "lines": [
+        275,
+        280
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/resources/config.py",
+      "primary_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/resources/config.py",
+      "purpose": "modern application/json body uses JSONDeserializer",
+      "sha256": "d51e1636513bd7f12ee421452edfd34e0850e94274876f626d3cce4fd1fafabe",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3"
+    },
+    {
+      "lines": [
+        84,
+        93
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/resources/records/resource.py",
+      "primary_url": null,
+      "purpose": "create forwards parsed body and returns201",
+      "sha256": "56cfcc2f9cb97884fe650738bc04332525aaa4819aa33c11181fef99fe2c9934",
+      "source_pin": null
+    },
+    {
+      "lines": [
+        275,
+        334
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/services/records/service.py",
+      "primary_url": "https://files.pythonhosted.org/packages/be/8d/5ee92357e8837d887ec4c56c8c5fc30360fa23546a9542312c46bf5a1504/invenio_drafts_resources-11.0.3.tar.gz",
+      "purpose": "create and update allow partial draft validation errors",
+      "sha256": "66cebef20154f1b5a180eb5faca38f1f2215e06c12085e9c86d2ca59bd139aff",
+      "source_pin": "locked sdist11.0.3 SHA24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0"
+    },
+    {
+      "lines": [
+        85,
+        147
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/files/schema.py",
+      "primary_url": "https://github.com/inveniosoftware/invenio-records-resources/blob/12ca933194d9f5c4ea15eacc72ec220ee2cec197/invenio_records_resources/services/files/schema.py",
+      "purpose": "REST file status/transfer/links/key/size/checksum serializer",
+      "sha256": "b2308bd485a195e61e4778bea7ccaeb952d8175fbca918f92f5416a3dabc7f4b",
+      "source_pin": "12ca933194d9f5c4ea15eacc72ec220ee2cec197"
+    },
+    {
+      "lines": [
+        145,
+        176
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/files/service.py",
+      "primary_url": null,
+      "purpose": "list uses all record file values and item link template",
+      "sha256": "fdc5a63bc430f880772d1248eb4b7272136ebc4eb4cd3927a034dbafdb235c74",
+      "source_pin": null
+    },
+    {
+      "lines": [
+        238,
+        255
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/files/service.py",
+      "primary_url": null,
+      "purpose": "detail uses same file object and item link template",
+      "sha256": "fdc5a63bc430f880772d1248eb4b7272136ebc4eb4cd3927a034dbafdb235c74",
+      "source_pin": null
+    },
+    {
+      "lines": [
+        467,
+        485
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/config.py",
+      "primary_url": null,
+      "purpose": "canonical file self/content/commit item links",
+      "sha256": "3fed5ee56d9a7170d8fe18007f1ac61ca7b8d3e0b0b9a4b1fc31096169a41956",
+      "source_pin": null
+    },
+    {
+      "lines": [
+        112,
+        130
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/pids/service.py",
+      "primary_url": null,
+      "purpose": "DOI reservation returns whole draft record",
+      "sha256": "b396a81024f3dbf7f539713d4a6400d2df6c2617eeb24fac436e64a9b3c0cca3",
+      "source_pin": null
+    }
+  ],
+  "status": "SOURCE_CONTRACT_CLEARED_CONTINUATION_CODE_NOT_YET_REVIEWED"
+}

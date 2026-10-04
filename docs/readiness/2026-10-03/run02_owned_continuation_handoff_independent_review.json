@@ -1,0 +1,66 @@
+{
+  "activity": {
+    "credential_reads": 0,
+    "private_provider_stage_reads": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "real_environment_value_reads": 0,
+    "repository_edits": 0,
+    "tests_repeated": 0
+  },
+  "checks": {
+    "305_inventory_attestation_distinguished_from_seven_controller_origin_files": true,
+    "canonical_python_m_module_commands_match_cli_flags": true,
+    "contract_relative_link_resolves_to_actual_file": true,
+    "credential_privately_already_configured_no_print_or_route_changes": true,
+    "doi_absent_conditional_single_allocation_and_exact_preservation": true,
+    "exclusive_new_stage_outside_entire_named_preserved_root": true,
+    "file_list_entry_full_existing_validator_no_detail_fallback": true,
+    "historical196_to202_max_no_replenishment": true,
+    "metadata_put_first_full_exact_metadata_access_gate_before_any_doi_or_upload": true,
+    "no_automatic_expiry_extension_or_generated_grant": true,
+    "no_create_or_old_failed_state_reset": true,
+    "no_production_or_real_source_scope_change": true,
+    "original_expiry_clip_or_explicit_parent_issued_continuation_window_at_most1800s": true,
+    "private_paths_ids_owner_body_values_kept_out_of_prose": true,
+    "redirect_retry_TLS_wall_body_uncertainty_guards_retained": true,
+    "same_candidate_sealed_201_beforeimage_diagnostic_and_packet_hashes": true,
+    "source_and_actual_receipt_distinguished_no_body_cause_claim": true,
+    "three_final_plus_three_retry_reads_after_diagnostic1_total7_of8": true,
+    "three_remaining_post_two_put_max": true
+  },
+  "document": {
+    "path": "/workspace/pices-run02-owned-continuation/docs/readiness/2026-10-03/run02_owned_continuation_handoff.md",
+    "sha256": "1fa9ff0be9cb86225e1731e2286eb4f3a9554047c85bb69149eb8a35a94d0784"
+  },
+  "fictional_grant_contract": {
+    "deliberately_unusable_unapproved_placeholders": true,
+    "exact_key_set_verified": true,
+    "path": "/workspace/pices-run02-owned-continuation/contracts/examples/run02_owned_continuation.json",
+    "sha256": "e8b52e9eb21338cb7579d9890ea33d4042d9d5c9705a874344cf76a279059618"
+  },
+  "implementation_review": {
+    "path": "/tmp/pices-run02-owned-continuation-implementation-independent-review.json",
+    "sha256": "0ff40ace6fe37e5bb7ffc887fc0f3929f6206014af8d482342e7c13794566e53"
+  },
+  "kind": "pices_run02_owned_continuation_handoff_independent_review_v1",
+  "material_document_findings": [],
+  "parent_reported_final_full_suite": {
+    "independently_repeated": false,
+    "result": "PASS",
+    "runtime_hashes_unchanged": true,
+    "seconds": 69.565,
+    "tests": 382
+  },
+  "remaining_requirements": [
+    "Immutable code/document freeze; parent/executor privately validates complete preservation inventory and issues the exact active bound grant. This receipt issues no grant or provider request."
+  ],
+  "review_date": "2026-10-04",
+  "status": "HANDOFF_DOCUMENT_AND_GRANT_CONTRACT_CLEARED_BOUND_PARENT_DISPATCH_REQUIRED",
+  "unchanged_runtime_hashes": {
+    "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "scripts/modern_owned_continuation.py": "5fb1b8275db0aa72f8175ad971bf8ceb1345cf240c4737e584229a603dc4c9c2",
+    "scripts/modern_synthetic_canary.py": "4865590399aa47d5a24ce52605500b5c2fcf12a4479d49cda1ec18d40566e435",
+    "tests/test_modern_owned_continuation.py": "185d4de18d68f3abfbdd2c7d94259519872569d22b7926c919832e6731b27848"
+  }
+}

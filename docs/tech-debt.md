@@ -405,3 +405,20 @@ re-audit is claimed. Normalized submission evidence/notes may still change.
 remain held/deferred and need a later coherent reviewed increment. All494 separate
 creator/date/title/alias identities remain held. No provider release follows.
 See readiness/2026-10-03/cnf_copy_media_handoff.md.
+
+## Empty modern draft and explicit owned continuation — 2026-10-04
+
+Run02's201 followed by sealed canonical200 proves one owned first empty draft,
+not persistence of submitted metadata. Service creation permits incomplete drafts;
+the root cause of this deployment's missing metadata/file-policy mismatch remains
+unknown. A separate parent-bound continuation validates exact identity and empty
+beforeimage, then requires full committed metadata/access after one PUT before
+file operations. It inherits spent create/read counts rather than clearing the
+old failed state. The same file-list entry validator replaces the redundant item
+GET, retaining byte/checksum/identity proof within the original eight-read ceiling.
+
+Any renewed window is an explicit parent grant decision and preserves original
+expiry/counters; no controller-generated extension or new create exists. Original
+controlled files are hash-checked before requests; the full305-file historical
+inventory is parent/executor evidence and must not be described as root-verified.
+See readiness/2026-10-03/run02_owned_continuation_handoff.md.

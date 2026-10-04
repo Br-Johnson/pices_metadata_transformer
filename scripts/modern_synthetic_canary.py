@@ -237,6 +237,11 @@ def validate_metadata(actual, expected):
 
 class Controller:
     """One exact sequence; injectable transport supports meaningful offline tests."""
+    validate_stage = staticmethod(secure_stage)
+
+    def stage_binding(self):
+        return binding(self.stage)
+
     def __init__(self, stage, token, transport, now=None):
         self.stage = secure_stage(stage)
         self.now = now or (lambda: datetime.now(timezone.utc))
@@ -270,7 +275,7 @@ class Controller:
         self.key = self.plan['file_key']
 
     def persist(self):
-        secure_stage(self.stage)
+        self.validate_stage(self.stage)
         save(self.stage, self.state)
 
     def fail(self):
@@ -336,7 +341,7 @@ class Controller:
             require(routes.get(kind) == (method, path))
         require(self.now() < datetime_aware(self.grant['valid_until']) and self.state['counts'][kind] < LIMITS[kind])
         require(sha((self.stage / 'approval.json').read_bytes()) == self.state['grant_sha256'])
-        require(binding(self.stage) == self.state['binding'])
+        require(self.stage_binding() == self.state['binding'])
         for name in ('synthetic.xml', 'create.json', 'metadata-put.json'):
             require((self.stage / name).read_bytes() == (PACKET / name).read_bytes())
         self.state['counts'][kind] += 1
@@ -439,7 +444,11 @@ class Controller:
                 and doi.get('client') in (None, 'datacite'))
         return deepcopy(doi)
 
-    def record(self, data, expected, file_completed=False, allow_no_doi=False):
+    def creation_grant(self):
+        return self.grant
+
+    def identity_fields(self, data, file_completed=False):
+        """Ownership, first-draft and file identity; metadata is checked separately."""
         require(isinstance(data, dict) and ('errors' not in data or data['errors'] == []))
         rid = record_id(data.get('id'))
         require(rid not in self.grant['known_ids'] and data.get('is_published') is False
@@ -452,12 +461,9 @@ class Controller:
         if self.state['identity'] is None:
             started = datetime_aware(self.state['create_started_at'])
             received = datetime_aware(self.state['create_received_at'])
-            require(datetime_aware(self.grant['started_at']) <= started <= received
+            require(datetime_aware(self.creation_grant()['started_at']) <= started <= received
                     <= started + timedelta(seconds=20)
                     and started - timedelta(seconds=5) <= created <= received + timedelta(seconds=5))
-        validate_metadata(data.get('metadata'), expected['metadata'])
-        require(data.get('access', {}).get('record') == expected['access']['record']
-                and data.get('access', {}).get('files') == expected['access']['files'])
         links = data.get('links')
         require(isinstance(links, dict) and links.get('self') == ORIGIN + '/api/records/' + rid + '/draft'
                 and links.get('files') == ORIGIN + '/api/records/' + rid + '/draft/files')
@@ -467,18 +473,24 @@ class Controller:
         require(type(files.get('count')) is int and files['count'] == (1 if file_completed else 0)
                 and type(files.get('total_bytes')) is int
                 and files['total_bytes'] == (len(self.content) if file_completed else 0))
-        identity = {'id': rid, 'parent_id': parent_id, 'created': data['created'], 'doi': self.doi(data, not allow_no_doi)}
+        identity = {'id': rid, 'parent_id': parent_id, 'created': data['created']}
         if self.state['identity'] is not None:
-            require(identity['id'] == self.state['identity']['id']
-                    and identity['parent_id'] == self.state['identity']['parent_id']
-                    and identity['created'] == self.state['identity']['created'])
-            if self.state['identity']['doi'] is not None:
-                require(identity['doi'] == self.state['identity']['doi'])
+            require(all(identity[k] == self.state['identity'][k] for k in identity))
         if file_completed:
             entry = files['entries'][self.key]
             require(isinstance(entry, dict) and entry.get('key') == self.key
                     and type(entry.get('size')) is int and entry['size'] == len(self.content)
                     and entry.get('checksum') == 'md5:' + hashlib.md5(self.content).hexdigest())
+        return identity
+
+    def record(self, data, expected, file_completed=False, allow_no_doi=False):
+        identity = self.identity_fields(data, file_completed)
+        validate_metadata(data.get('metadata'), expected['metadata'])
+        require(data.get('access', {}).get('record') == expected['access']['record']
+                and data.get('access', {}).get('files') == expected['access']['files'])
+        identity['doi'] = self.doi(data, not allow_no_doi)
+        if self.state['identity'] is not None and self.state['identity']['doi'] is not None:
+            require(identity['doi'] == self.state['identity']['doi'])
         return identity
 
     def file(self, data, completed):
@@ -558,9 +570,9 @@ class Controller:
                 'controller_failure': self.state['controller_failure']}
 
 
-def execute(stage, token, retry=False):
-    """Provider executor only, following separate approval; no account/probe requests."""
-    stage = secure_stage(stage)
+def _execute_controller(stage, token, controller_type, retry=False):
+    """Shared approved Session route; each fixed controller validates its own ledger."""
+    stage = controller_type.validate_stage(stage)
     fd = os.open(stage / 'controller.lock', os.O_WRONLY | os.O_CREAT | os.O_NOFOLLOW, 0o600)
     try:
         fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
@@ -619,7 +631,7 @@ def execute(stage, token, retry=False):
                 signal.signal(signal.SIGALRM, expired)
                 signal.setitimer(signal.ITIMER_REAL, min(20, remaining))
                 return transport(*args, **kwargs)
-            class DeadlineController(Controller):
+            class DeadlineController(controller_type):
                 def request(self, *args, **kwargs):
                     try:
                         return super().request(*args, **kwargs)
@@ -647,6 +659,11 @@ def execute(stage, token, retry=False):
         raise Held('Modern stage already locked; no concurrent execution') from None
     finally:
         os.close(fd)
+
+
+def execute(stage, token, retry=False):
+    """Provider executor only, following separate approval; no account/probe requests."""
+    return _execute_controller(stage, token, Controller, retry)
 
 
 def main():

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "source_base_commit": "5111657181e41e64b4653db3f0281c86a15ff6f5",
+  "status": "OFFLINE_TESTED_INDEPENDENTLY_REVIEWED_PARENT_DISPATCH_REQUIRED",
+  "runtime_and_contract_sha256": {
+    "scripts/modern_owned_continuation.py": "5fb1b8275db0aa72f8175ad971bf8ceb1345cf240c4737e584229a603dc4c9c2",
+    "scripts/modern_synthetic_canary.py": "4865590399aa47d5a24ce52605500b5c2fcf12a4479d49cda1ec18d40566e435",
+    "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "tests/test_modern_owned_continuation.py": "185d4de18d68f3abfbdd2c7d94259519872569d22b7926c919832e6731b27848",
+    "contracts/examples/run02_owned_continuation.json": "e8b52e9eb21338cb7579d9890ea33d4042d9d5c9705a874344cf76a279059618",
+    "docs/readiness/2026-10-03/run02_owned_continuation_handoff.md": "1fa9ff0be9cb86225e1731e2286eb4f3a9554047c85bb69149eb8a35a94d0784",
+    "docs/readiness/2026-10-03/run02_owned_continuation_source_contract_independent_review.json": "ecb5b4da98037055a8c9aa984c2d4c400e142257ee5d686ad6a3f788c9bafbbf"
+  },
+  "tests": {
+    "new_focused_count": 10,
+    "new_focused_seconds": 0.448,
+    "normal_modern_count": 18,
+    "normal_modern_seconds": 0.707,
+    "full_guarded_count": 382,
+    "full_guarded_seconds": 69.565,
+    "network_socket_DNS_blocked": true,
+    "fixture_tokens_only": true,
+    "ruff_select": [
+      "E4",
+      "E7",
+      "E9",
+      "F",
+      "I",
+      "B"
+    ]
+  },
+  "parent_reported_evidence": {
+    "create_status": 201,
+    "canonical_read_status": 200,
+    "create_response_sha256": "20e8f71aad83b1f045c5657288f38896ab6a5931e4b1424e22310be25729dabf",
+    "canonical_beforeimage_sha256": "316073505991baeca08490de43bc3dc5f0334917c0bcee4a60abc77e2a03f662",
+    "diagnostics_sha256": "3ea2e9ad7da503b7ad62277258b1b0f8936f03d3712025197f68c80e672cdbf6",
+    "historical_get_intents": 196,
+    "preserved_file_count": 305,
+    "root_private_readback_seen": false
+  },
+  "budgets": {
+    "prior_create_spent": 1,
+    "prior_diagnostic_get_spent": 1,
+    "additional_create": 0,
+    "maximum_additional_post": 3,
+    "maximum_additional_put": 2,
+    "maximum_additional_get": 6,
+    "maximum_lifetime_get": 7,
+    "original_lifetime_get_ceiling": 8,
+    "maximum_cumulative_historical_get": 202,
+    "window_seconds_max": 1800,
+    "window_extended_automatically": false,
+    "request_wall_seconds_max": 20,
+    "response_bytes_max": 65536,
+    "redirects": false,
+    "retries": 0,
+    "publish_delete_newversion": false
+  },
+  "remaining_limits": "Original expiry unless parent explicitly issues specifically reviewed new continuation grant; no grant minted by root/code. Strict post-PUT owner/identity/metadata/access before file init. No new CREATE ever.",
+  "provider_requests_by_root": 0,
+  "source_profiles_changed": false,
+  "original_FGDC_changed": false,
+  "production_identity_or_dedup_changed": false,
+  "initial_missing_metadata_root_cause": "unknown",
+  "independent_review_sha256": {
+    "implementation": "0ff40ace6fe37e5bb7ffc887fc0f3929f6206014af8d482342e7c13794566e53",
+    "handoff": "1070d947a72c595460ffa7b0636c73bb088c8742452c8d7b30f5602e6ac12292"
+  }
+}
