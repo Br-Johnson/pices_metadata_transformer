@@ -204,6 +204,13 @@ class EvidenceLayoutTests(unittest.TestCase):
             with self.assertRaises(modern.Held):
                 repair.stage_packet(candidate, self.prior, self.latest, [], fixture.TOKEN, self.manifest)
             self.assertFalse(candidate.exists())
+        sibling = self.base / 'unrelated'
+        sibling.mkdir(mode=0o700)
+        for protected in (self.original, self.prior):
+            candidate = sibling / '..' / protected.relative_to(self.base) / repair.NAMESPACE
+            with self.assertRaises(modern.Held):
+                repair.stage_packet(candidate, self.prior, self.latest, [], fixture.TOKEN, self.manifest)
+            self.assertFalse(candidate.resolve().exists())
         self.assert_old_unchanged()
 
     def test_public_leaf_writable_directory_symlinks_and_hardlinks_are_rejected(self):

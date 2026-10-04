@@ -47,8 +47,9 @@ recursively select the entire workspace. Select the actual preserved evidence:
 whole original failed stage, failed owned continuation, complete GET197 diagnostic
 tree and all other historical evidence trees/leaves. The sole executor seals a
 private0600 manifest `{"schema_version":1,"files_sha256":{"/absolute/file":"sha256"}}`
-from the existing retained evidence, covering every353 previously reported file.
-No inferred replacement count or reconstructed history is acceptable.
+from the previous sealed inventory, retaining every expected path/hash for all353
+previously reported files. Convert its format without adopting current bytes as a
+new hash baseline. No replacement count or reconstructed history is acceptable.
 
 Use `--preserved-manifest` plus nonoverlapping `--preserved-root` evidence subtrees;
 manifest-only selection also supports exact loose leaves under shared directories.

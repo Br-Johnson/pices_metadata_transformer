@@ -202,7 +202,8 @@ def validate_prepared_put(prepared, token, path):
 def stage_packet(stage, prior_continuation, beforeimage197, preserved_roots, token, preserved_manifest=None):
     """Sole executor offline staging only; no approval or provider request."""
     stage = Path(stage)
-    modern.require(stage.is_absolute() and stage.name == NAMESPACE and not stage.exists())
+    modern.require(stage.is_absolute() and stage.resolve() == stage
+                   and stage.name == NAMESPACE and not stage.exists())
     modern.require(all(not p.is_symlink() for p in (stage, *stage.parents)))
     modern.require(isinstance(token, str) and token and token.isascii())
     prior = owned.secure_stage(prior_continuation)

@@ -14,8 +14,9 @@ have made no provider request and have read no real credential/private evidence.
    Select actual evidence subtrees/leaves, not the entire workspace. A complete
    manifest is mandatory; count alone never supplies historical completeness.
 2. Seal a0600 `schema_version:1,files_sha256` manifest containing every previously
-   retained353 historical evidence file with canonical absolute paths and exact
-   SHA256 values. Include original/failed stages and the complete GET197 diagnostic
+   retained353 historical evidence file with canonical absolute paths and the
+   expected SHA256 values from the previous sealed inventory. Convert that existing
+   inventory without adopting current bytes as a new baseline or changing old files. Include original/failed stages and the complete GET197 diagnostic
    evidence. Feed it through `--preserved-manifest`, alongside nonoverlapping whole
    `--preserved-root` evidence trees. Loose leaves can be manifest-selected.
 3. Stage into a fresh0700 destination with the same namespace basename, outside
@@ -57,7 +58,8 @@ Old file bytes/modes and workspace mode are unchanged. Sparse manifest selection
 also passes; no unrelated sibling is inventoried. Invalid/missing manifest entries,
 public leaves, writable directories, symlink ancestors/leaves, hardlinks, overlap
 and subtree additions reject. Manifest-only destinations nested within original
-or failed stages also reject before any mkdir/copy. Existing repair tests preserve uncertain/redirect/
+or failed stages also reject before any mkdir/copy. Noncanonical destination
+spellings containing `..` reject before creation, rather than being normalized. Existing repair tests preserve uncertain/redirect/
 credential/error and permanently spent-intent behavior.
 
 [Validation](run02_evidence_layout_validation.json) and
