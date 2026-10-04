@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "scope": "Exact23SOURCE_BACKED +83REVIEWER_RECONCILED source-only interpretation; not a new human grant",
+  "source_base_commit": "b471a7ab2798314c6a501b795362bc76bd5b9570",
+  "profiles": {
+    "finite_source_resource_access_491.json": "13e82e2375da3bf17cf352fff7a8cda43fa6d781a3e436ca7321c8428ac77abe",
+    "finite_source_resource_access_514.json": "203c050735a9dc755712acde70c0447b91f2bd6131dde53dd8195a0f2923d9a2",
+    "source_scope_attestation_821.json": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+    "source_scope_reconciliation_904.json": "242024bcf750e0fd3ea0097ee34eb47fb86f0674fb554fe2e0b78ddce4a589c1"
+  },
+  "new_members": {
+    "resource": 23,
+    "ordinary_reconciled": 83,
+    "total": 106
+  },
+  "old821_direct_answer_immutable": true,
+  "old491_member_context_objects_immutable": true,
+  "runtime_statuses": [
+    "SOURCE_BACKED",
+    "REVIEWER_RECONCILED"
+  ],
+  "required_policy": {
+    "object_kind": "original_fgdc_xml",
+    "access_right": "restricted",
+    "license": "",
+    "date_semantics": "source_metadata_date",
+    "separate_rehosting_authority": "USER_ATTESTED existingall4206authority",
+    "exact_source_hash_and_four_plain_constraints": true,
+    "complete_XML_context_bound": true
+  },
+  "forbidden_inferences": [
+    "Unknown means None",
+    "new user answer",
+    "expanded original821 question membership",
+    "conditions satisfied",
+    "new license",
+    "release approval",
+    "creator/date/title change"
+  ],
+  "source_status_delta_expected": {
+    "before": {
+      "supported": 0,
+      "held": 106,
+      "failed": 0
+    },
+    "after": {
+      "supported": 106,
+      "held": 0,
+      "failed": 0
+    }
+  },
+  "baseline_chain": {
+    "full_report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+    "full_counts": {
+      "supported": 3468,
+      "held": 732,
+      "malformed": 6
+    },
+    "prior_actual_delta22_sha256": "f7c74308d39bed987971a9702e5095b5ecb1ec0944754c9a86e250f4dde50d1a",
+    "current_main_projected_counts": {
+      "supported": 3490,
+      "held": 710,
+      "malformed": 6
+    },
+    "new106_projection_pending_actual_bounded_verification": {
+      "supported": 3596,
+      "held": 604,
+      "malformed": 6
+    }
+  },
+  "preservation": {
+    "all4206originals": true,
+    "complete_raw_metadata": true,
+    "source_copies": true,
+    "source_alias_ids456": true,
+    "all_other_holds": true,
+    "provider_requests": 0,
+    "production_dedup_and_identities_unchanged": true
+  }
+}

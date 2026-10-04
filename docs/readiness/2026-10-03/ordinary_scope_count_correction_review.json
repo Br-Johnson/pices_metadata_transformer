@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "CLEAR_COUNT_PROJECTION_CORRECTION_ONLY",
+  "reviewer": "/root/usda_dnr_role_access",
+  "reviewed_at": "2026-10-04T00:09:21.190283+00:00",
+  "original_proposal": {
+    "path": "/tmp/pices-ordinary83-reconciliation-proposals.json",
+    "sha256": "06d19863cb30cfdbea6c58463111e5aa9a1969a779fe25623f26737a848d113a",
+    "bytes_unchanged": true
+  },
+  "original_source_review": {
+    "path": "/tmp/pices-ordinary83-reconciliation-review.json",
+    "sha256": "3fae37d6de951ec3cd94901d4cebf68e7779246c34fd0645ea6f523685ca36b6",
+    "bytes_unchanged": true
+  },
+  "reused_independent_source_and_complete_object_review": {
+    "path": "/tmp/pices-ordinary83-source-independent-review.json",
+    "sha256": "fb504eec0d46c514f07932c54c870379e1e1c5f896e09d33179689f03b2cf4a6"
+  },
+  "correction": {
+    "json_pointer": "/runtime_representation_recommendation/conditional_count_expectation/combined_after_if_only_exact106_change",
+    "old_value": {
+      "supported": 3574,
+      "held": 626,
+      "failed": 6
+    },
+    "corrected_value": {
+      "supported": 3596,
+      "held": 604,
+      "failed": 6
+    },
+    "reason": "The frozen 0ec source-evidence report predates the already merged 22 CNF delta. The current main 511 starting count is 3490/710/6, so its next 106-source delta projects 3596/604/6. The old 3574/626 projection incorrectly used the pre-CNF22 report as the current main starting count."
+  },
+  "count_chain": [
+    {
+      "stage": "frozen pre-CNF22 source-evidence report0ec",
+      "report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+      "counts": {
+        "supported": 3468,
+        "held": 732,
+        "failed": 6
+      }
+    },
+    {
+      "stage": "already merged CNF22 delta",
+      "supported_delta": 22,
+      "held_delta": -22,
+      "malformed_delta": 0
+    },
+    {
+      "stage": "current main511",
+      "head": "5111657181e41e64b4653db3f0281c86a15ff6f5",
+      "tree": "363b1a0de190f32f6cc85d2f4e93e9cc20382fc8",
+      "counts": {
+        "supported": 3490,
+        "held": 710,
+        "failed": 6
+      },
+      "count_provenance": "Parent correction supplies the completed current-main report counts; this review checks the bounded arithmetic chain without rerunning classification."
+    },
+    {
+      "stage": "independently clear proposed23 plus83",
+      "supported_delta": 106,
+      "held_delta": -106,
+      "malformed_delta": 0
+    },
+    {
+      "stage": "conditional after only the exact next106 delta",
+      "counts": {
+        "supported": 3596,
+        "held": 604,
+        "failed": 6
+      },
+      "actual_classification_run_or_promotion_claim": false
+    }
+  ],
+  "unchanged_source_evidence": {
+    "exact83_membership_sha256": "5b353acbd667f547167fcbc96eb6ca89221d20758f47f00ed00d29e43facbafd",
+    "full83_members_sha256": "bbd51eb1f508400058d8873b2a8291ea3bb183a072812cfaabc65ea0545ac4ed",
+    "full83_rows_sha256": "c99376d76e47409b472cfca7eb58fbe964ec450193d7c40a0e498a7ebae23652",
+    "complete_xml_context_inventory_sha256": "2bd122ee0403978f3d0dd24d6a0094cb655824d9e5774fe499d10288827c411a",
+    "original821_object_canonical_sha256": "a07feaa7f99b0b0f22dd274036bf660346cf8acfdcfc61d2103f1ec8951b2a6f",
+    "corrected23_proposal_sha256": "aca894b7a71756b96b21b604c8d6ca88136c07545bf2cbdbf8000994028d91ce",
+    "new_source_or_4060_members_added": 0,
+    "all_source_members_roles_contexts_raw_metadata_and_statement_provenance_unchanged": true
+  },
+  "effect": "This receipt supersedes only the indicated conditional count projection. It does not alter the frozen83 proposal, prior source-clear decisions, original receipts, sources, metadata, provenance, or membership. Root should use the explicit0ec+22+106 chain in integration documentation and audit expectations.",
+  "activities": {
+    "repository_or_runtime_edits": false,
+    "source_or_metadata_edits": false,
+    "provider_or_network_requests": 0,
+    "credentials_or_private_stage_reads": false,
+    "source_audits_repeated": false,
+    "tests_or_classifiers_run": false
+  }
+}

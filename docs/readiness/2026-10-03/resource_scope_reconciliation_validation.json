@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "base_commit": "e580b4136dc07f479ec6c4ea7223705fb4851a17",
+  "scope": "Exact23 resource interpretations plus83 reviewer-reconciled descriptions; cached integrated status accounting",
+  "provider_requests": 0,
+  "provider_writes": 0,
+  "original_XML_edits": 0,
+  "fresh_full_corpus_audit": false,
+  "smoke": {
+    "count": 10,
+    "mixed_resource_and_scope_counts": [5, 5],
+    "result": "PASS",
+    "delta_sha256": "0ae334ac9ad2160a410b00b1c8d7ec1ef4dc8450bd2aec1c7552775fa4f796b9"
+  },
+  "actual_bounded_delta": {
+    "count": 106,
+    "before": {"supported": 0, "held": 106, "malformed": 0},
+    "after": {"supported": 106, "held": 0, "malformed": 0},
+    "delta_sha256": "dd559b5767dd3e8193b3a668176a58d8a018bb27ec13388bd8ff6c7976ef026d",
+    "before_classification_sha256": "baab54d1e4072233545e4bb650bf6ac5f286f95ee77dbbc2053830ae9b5695fd",
+    "after_classification_sha256": "d2e7ff393e8b31ae55a78050f3e6be02c51a4cbe4c5c7b75911087d051514102",
+    "complete_raw_metadata_and_XML_unchanged": true,
+    "only_exact_artifact_policy_reference_added": true,
+    "source_provenance_split": {"SOURCE_BACKED": 23, "REVIEWER_RECONCILED": 83}
+  },
+  "full_guarded_tests": {
+    "count": 397,
+    "seconds": 98.157,
+    "result": "PASS",
+    "log_sha256": "f041d916f9b6eb3820da0063a57faeea9410801c68629faf9bcdcb34d1f1e6b8",
+    "cleared_environment_fixture_tokens": true,
+    "requests_socket_dns_blocked": true
+  },
+  "independent_focused_tests": {
+    "count": 6,
+    "seconds": 35.866,
+    "result": "PASS",
+    "receipt_sha256": "e0d565f9fefd67f01abc96a3ce3f73a8815f5e82bb3f4a8a890837d24f381e33",
+    "log_sha256": "a73cd8f0cc2be63ce9e36b1379f0211ad04a7881b2794e141ddc8880685cee4f"
+  },
+  "integrated_source_status_accounting": {
+    "source_count": 4206,
+    "counts": {"supported": 3596, "held": 604, "malformed": 6},
+    "basis": "Exact complete frozen baseline3468/732/6 plus independently measured disjoint22/106 deltas",
+    "artifact_sha256": "02c82da229487ccfe77284cf019e0d9b8516eb736e1a2ba79e8ddd7403c381a0",
+    "per_source_status_sha256": "e2de4e8faf42b4d72eb43396a94eeeef34d954554536757605357532a8b2572c",
+    "every_unselected_baseline_status_unchanged": true,
+    "all456_alias_identities_still_held": true,
+    "all31_exact_exceptions_and4060_still_held": true,
+    "fresh_full_corpus_or_remote_verification_claimed": false
+  },
+  "ruff": {
+    "new_and_source_runtime_files": "E4,E7,E9,F,I,B PASS",
+    "collection_qa_changed_logic": "E4,E7,E9,F,B PASS",
+    "collection_qa_unchanged_legacy_imports": "Two preexisting I001 formatting findings; unrelated imports unchanged"
+  },
+  "reviewed_runtime_sha256": {
+    "scripts/dataset_access_interpretation.py": "606b5452a5cee6a274d786d56e59726435cfbd9245e69903a9c682d381732b7c",
+    "scripts/source_scope_attestation.py": "315c8aabaca8909c64b0e014e622f808e02370d2e3915a55fb60b509d2aa1eaf",
+    "scripts/collection_qa.py": "0fc5f1772463f32de6a603d96a8b2c32c44c878fb1abe63d2b8e7556e363fd4f",
+    "tests/test_resource_scope_reconciliation.py": "2658d5b2e1d611f6a535291c14d754c61a2bcab61034ce62a6e1117f1b9ee6cc",
+    "docs/readiness/2026-10-03/integrate_source_scope_counts.py": "3b59f1b70d6595f24849d7fff2537ae5a52161de41fe1397f081271c789469c9"
+  },
+  "preservation": {
+    "original821_entire_question_answer_membership_object": true,
+    "prior491_complete_member_context_objects": true,
+    "all_separate_authority_license_access_alias_date_creator_title_gates": true,
+    "all_existing_provider_IDs_DOIs_files_and_unrelated_poster_exclusions": true,
+    "modern_controller_runtime_and_spent_failed_state": true,
+    "no_new_mutation_or_publication_authority": true
+  }
+}

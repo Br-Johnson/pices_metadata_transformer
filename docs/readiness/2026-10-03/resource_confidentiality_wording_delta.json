@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "EXACT_WORDING_CORRECTION_ONLY",
+  "original_path": "/tmp/pices-next-confidentiality23-proposals.json",
+  "original_sha256": "106adb1932d68425350670bb7b72ab9b1f16e80488d1f8797576d5cff97ea028",
+  "original_preserved": true,
+  "corrected_path": "/tmp/pices-next-confidentiality23-proposals-final.json",
+  "corrected_sha256": "aca894b7a71756b96b21b604c8d6ca88136c07545bf2cbdbf8000994028d91ce",
+  "source_ids": [
+    "FGDC-2228",
+    "FGDC-2229"
+  ],
+  "changed_json_paths": [
+    "acquisition_contexts.FGDC-2228.rationale",
+    "acquisition_contexts.FGDC-2229.rationale",
+    "acquisition_contexts_sha256",
+    "rows[3].rationale",
+    "rows[4].rationale"
+  ],
+  "old_sentence": "Existing citation/role handling is preserved and the source does not supply a new byline.",
+  "new_sentence": "This access review proposes no creator/byline change; existing source citation/reference and role handling are preserved.",
+  "old_acquisition_contexts_sha256": "7bc37db981b2ffadce05a19415c66abe128e92ebfa47bba076fb72220c3dbfd3",
+  "new_acquisition_contexts_sha256": "36b63b09016459127bc9ab9b9fdc9a47793eb10b2e52414ec772eca0ddfe6df9",
+  "membership_sha256_unchanged": "86507623373d04fbb1ab6982ad49c09dfc904920957267c94774c1185a655e0d",
+  "clarification": "FGDC-2228 retains its explicit Susanne F. McDermott/Sandra A. Lowe article-reference authorship evidence. FGDC-2229 retains its sparse Thesis context without contact-author inference. This access review proposes no creator/byline change.",
+  "unchanged": [
+    "All23 member objects/source hashes",
+    "All exact four-field constraints",
+    "All whole-root XML contexts/context-element hashes",
+    "All source/copy/baseline payload/full raw metadata/notes/access-conditions hashes and metadata objects",
+    "Meanings/counts/protected-item absence findings",
+    "Prior491/821 disjointness and source-review provenance",
+    "All scope/permission/license/publication limitations"
+  ],
+  "activities": {
+    "repo_or_code_edits": false,
+    "provider_calls": false,
+    "new_source_audit": false,
+    "tests": false
+  }
+}

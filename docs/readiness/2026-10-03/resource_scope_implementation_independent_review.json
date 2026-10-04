@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-04T00:55:59.173699+00:00",
+  "reviewer": "Independent delegated read-only source/runtime reviewer",
+  "status": "CLEAR_EXACT106_IMPLEMENTATION_COMMON_QA_PROVENANCE_AND_ACTUAL_BOUNDED_DELTA",
+  "scope": "Exact23 SOURCE_BACKED resource cases plus83 REVIEWER_RECONCILED ordinary cases; no new human attestation, license, underlying-resource permission, or release approval",
+  "worktree": "/workspace/pices-next-confidentiality-cohort",
+  "declared_source_base_commit": "b471a7ab2798314c6a501b795362bc76bd5b9570",
+  "head_at_review_freeze": "aec3e8b7d1da0a1b7be2db7e56fa8036c17e9b26",
+  "head_tree_at_review_freeze": "9dd67c7d2dcc40e140577a27c8434957b49e4b5e",
+  "review_binding": "Exact reviewed working-file bytes. Scope/classifier/test additions remain uncommitted at this freeze; a later final commit must contain the same reviewed bytes.",
+  "final_integrated_source_commit_not_yet_supplied": true,
+  "runtime_example_profile_test_sha256": {
+    "scripts/source_scope_attestation.py": "315c8aabaca8909c64b0e014e622f808e02370d2e3915a55fb60b509d2aa1eaf",
+    "scripts/dataset_access_interpretation.py": "606b5452a5cee6a274d786d56e59726435cfbd9245e69903a9c682d381732b7c",
+    "scripts/collection_qa.py": "0fc5f1772463f32de6a603d96a8b2c32c44c878fb1abe63d2b8e7556e363fd4f",
+    "scripts/agent_qa.py": "992e2e4449cbd860c7b42930679ccb069917e530f38e6689d7c04bd18287c59a",
+    "scripts/qa_manifest.py": "b164742379c5f26b121717a2ad874e2d827d56c9a83e2f3e86ae32ca9b2d2732",
+    "tests/test_resource_scope_reconciliation.py": "2658d5b2e1d611f6a535291c14d754c61a2bcab61034ce62a6e1117f1b9ee6cc",
+    "docs/readiness/2026-10-03/finite_source_resource_access_514.json": "203c050735a9dc755712acde70c0447b91f2bd6131dde53dd8195a0f2923d9a2",
+    "docs/readiness/2026-10-03/source_scope_reconciliation_904.json": "242024bcf750e0fd3ea0097ee34eb47fb86f0674fb554fe2e0b78ddce4a589c1",
+    "contracts/examples/resource_scope_reconciliation_106.json": "b52cc91b170f2ca582a5ebc3231ae01524a309773fc1b22c92aaa5b7aefc551c"
+  },
+  "inputs": [
+    {
+      "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/finite_source_resource_access_491.json",
+      "sha256": "13e82e2375da3bf17cf352fff7a8cda43fa6d781a3e436ca7321c8428ac77abe"
+    },
+    {
+      "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/finite_source_resource_access_514.json",
+      "sha256": "203c050735a9dc755712acde70c0447b91f2bd6131dde53dd8195a0f2923d9a2"
+    },
+    {
+      "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/source_scope_attestation_821.json",
+      "sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657"
+    },
+    {
+      "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/source_scope_reconciliation_904.json",
+      "sha256": "242024bcf750e0fd3ea0097ee34eb47fb86f0674fb554fe2e0b78ddce4a589c1"
+    },
+    {
+      "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/guarded_scope_reconciliation_qa.py",
+      "sha256": "72f0816474bdba6f99c94e5fcd21b135d824b77e0d50ae4b74dfae36e9d900a7"
+    },
+    {
+      "path": "/tmp/pices-next-confidentiality23-proposals-final.json",
+      "sha256": "aca894b7a71756b96b21b604c8d6ca88136c07545bf2cbdbf8000994028d91ce"
+    },
+    {
+      "path": "/tmp/pices-confidentiality23-source-independent-review.json",
+      "sha256": "20c6b87173755d5f3a329220738ab4e2ba571f87c32d68d94588c532fa343cff"
+    },
+    {
+      "path": "/tmp/pices-ordinary83-reconciliation-proposals.json",
+      "sha256": "06d19863cb30cfdbea6c58463111e5aa9a1969a779fe25623f26737a848d113a"
+    },
+    {
+      "path": "/tmp/pices-ordinary83-source-independent-review.json",
+      "sha256": "fb504eec0d46c514f07932c54c870379e1e1c5f896e09d33179689f03b2cf4a6"
+    },
+    {
+      "path": "/tmp/pices-remaining31-exception-decisions-independent-review.json",
+      "sha256": "74229405a7cca08b2a92378fc585dff6bef40698d626e96ca84f1147e7b50035"
+    },
+    {
+      "path": "/tmp/pices-scope106-actual/bounded_delta.json",
+      "sha256": "dd559b5767dd3e8193b3a668176a58d8a018bb27ec13388bd8ff6c7976ef026d"
+    },
+    {
+      "path": "/tmp/pices-scope106-actual/before/classification.json",
+      "sha256": "baab54d1e4072233545e4bb650bf6ac5f286f95ee77dbbc2053830ae9b5695fd"
+    },
+    {
+      "path": "/tmp/pices-scope106-actual/after/classification.json",
+      "sha256": "d2e7ff393e8b31ae55a78050f3e6be02c51a4cbe4c5c7b75911087d051514102"
+    },
+    {
+      "path": "/tmp/pices-scope106-actual.log",
+      "sha256": "80425fedf632ac400ee24c896504094d38c09b99988fd2395a58ec002fc639b4"
+    },
+    {
+      "path": "/tmp/pices-source106-independent-actual-delta-check.py",
+      "sha256": "ada015ce77015509ef817cd8f874cea35cbf8096dfb4745c25e6d59a497162e8"
+    },
+    {
+      "path": "/tmp/pices-source106-independent-actual-delta-check.json",
+      "sha256": "ba400a71ac936318e2765e14b8addee6f603b24f32b4396bc307ccc89cd3f583"
+    },
+    {
+      "path": "/tmp/pices-source106-independent-guarded-tests.py",
+      "sha256": "a74ac9d01d56630bda753233fc0b7bd39c698a31b843180bbfa007e476899d03"
+    },
+    {
+      "path": "/tmp/pices-source106-independent-focused-tests.log",
+      "sha256": "a73cd8f0cc2be63ce9e36b1379f0211ad04a7881b2794e141ddc8880685cee4f"
+    },
+    {
+      "path": "/tmp/pices-source106-independent-focused-test-summary.json",
+      "sha256": "4f865a9423ab8eac68772e32c91f979d520024c2f78a18fa0c8cdb8e1bbdc0c9"
+    }
+  ],
+  "runtime_security_provenance_findings": [
+    "Only three existing runtime scripts differ from base; no tracked original XML, provider, upload, production deduplication, identity, or publication code changes.",
+    "Dataset access accepts one additional immutable514 pin; no generic term, Unknown, age, public-site, external-rule, or satisfied-condition inference is introduced.",
+    "Entire original821 profile object is restored by dropping only the added review and members83, then checked against canonical object pin a07feaa7f99b0b0f22dd274036bf660346cf8acfdcfc61d2103f1ec8951b2a6f.",
+    "New904 reference re-reads and hash-checks all five original statement/question/profile files. Missing or changed evidence cannot select sources or validate a policy.",
+    "Original821 status remains USER_ATTESTED. Added83 status is REVIEWER_RECONCILED, with separate review time and explicit false new-attestation/original-question-enlargement flags; classifier records actual status.",
+    "New83 source hash, four plain constraint elements, complete root/context, metadata security/extensions and current aware assessment time after reconciliation are mandatory.",
+    "The same source-scope and dataset-access validators are called by agent QA and both human approval schemas. Separate source-bound XML authority, restricted access, blank license, original-FGDC object scope, source metadata date and conflicting-interpretation checks remain mandatory.",
+    "Cached payload construction does not bypass current semantic/profile/source evidence validation; source-only status and remote/publication flags are regenerated."
+  ],
+  "profile_compatibility": {
+    "old491_full_members_source_contexts_and_acquisition_contexts_verbatim": true,
+    "original821_entire_object_verbatim": true,
+    "new23_full_members_and_contexts_equal_corrected_frozen_aca894_proposal": true,
+    "new83_full_members_and_review_equal_frozen_06d198_proposal": true,
+    "original_statement_files_live_and_exact": [
+      {
+        "key": "restoration_authority",
+        "manifest_path": "docs/readiness/2026-10-02/rehosting_authority.json",
+        "manifest_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+        "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+        "original_attested_at": "2026-10-02",
+        "original_provenance": null,
+        "original_scope": "historical_geonetwork_metadata",
+        "original_limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority."
+      },
+      {
+        "key": "contact_source_meaning",
+        "manifest_path": "docs/readiness/2026-10-02/contact_source_interpretation.json",
+        "manifest_sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+        "statement": "It means contact someone (source) to obtain the underlying dataset",
+        "original_attested_at": "2026-10-02T18:26:45Z",
+        "original_provenance": {
+          "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+          "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+          "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+          "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+          "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+          "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+        },
+        "original_scope": "historical_geonetwork_contact_source_access",
+        "original_limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+      },
+      {
+        "key": "contributor_source_meaning",
+        "manifest_path": "docs/readiness/2026-10-02/contributor_source_interpretation.json",
+        "manifest_sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+        "statement": "yes",
+        "original_attested_at": "2026-10-02T23:43:00Z",
+        "original_provenance": {
+          "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+          "question": "in the PICES records, does \u201cCheck with Contributor or Source.\u201d mean contacting them to obtain the underlying dataset, just like \u201cContact Source.\u201d, rather than restricting reposting the metadata?",
+          "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+          "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+          "timestamp_precision": "minute"
+        },
+        "original_scope": "historical_geonetwork_contributor_or_source_access",
+        "original_limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+      },
+      {
+        "key": "original_three_questions",
+        "manifest_path": "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+        "manifest_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+        "statement": null,
+        "original_attested_at": null,
+        "original_provenance": null,
+        "original_scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+        "original_limits": null
+      },
+      {
+        "key": "original_821_direct_reply",
+        "manifest_path": "docs/readiness/2026-10-03/source_scope_attestation_821.json",
+        "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+        "statement": "they reply to the underlying data. all these metadata records were public before",
+        "original_attested_at": "2026-10-03T20:20:00Z",
+        "original_provenance": {
+          "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+          "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+          "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+        },
+        "original_scope": "exact_three_question_groups_821_historical_geonetwork_metadata",
+        "original_limits": "All original constraints and XML remain intact. The attestation clarifies scope only; existing separate user-attested rehosting authority keeps XML restricted and unlicensed. No attribution/date/title/alias hold is cleared by this scope decision."
+      }
+    ]
+  },
+  "independent_focused_tests": {
+    "module": "tests.test_resource_scope_reconciliation",
+    "tests_run": 6,
+    "passed": 6,
+    "failures": 0,
+    "errors": 0,
+    "unittest_seconds": 35.866,
+    "harness_elapsed_seconds": 35.903,
+    "dummy_environment_cleared_before_imports": true,
+    "requests_sockets_DNS_blocked": true,
+    "actual_attempt_counts": {
+      "network_attempts_blocked": 0,
+      "private_reads_blocked": 0,
+      "repository_writes_blocked": 0
+    },
+    "runtime_profiles_example_tests_unchanged": true,
+    "coverage": "Mixed10 then exact106 raw metadata/XML/status delta, unchanged resume, withdrawal, full old profile compatibility, explicit resource context/security mutation rejection, missing authority, forged/missing/withdrawn profile, unrelated held controls, and agent plus human schemas1/2 for both policy types.",
+    "rerun_reason": "Two initial harness-only failures arose during tempfile cleanup: descriptor-relative mutation and open paths were resolved against cwd. Corrected only the /tmp audit harness to resolve dir_fd; repository implementation assertions and bytes did not change.",
+    "preserved_initial_harness_failure_evidence": [
+      {
+        "path": "/tmp/pices-source106-independent-initial-harness-failure.log",
+        "sha256": "18c3cbcc1c0a9097122c1352041f1c38c7d4e68dcf2f56e64f63cb6ae590269c"
+      },
+      {
+        "path": "/tmp/pices-source106-independent-initial-harness-failure-summary.json",
+        "sha256": "be0d520ae9ad3e2a2e6555068422f5b82b7b75b495db52202c69b8801a76889f"
+      },
+      {
+        "path": "/tmp/pices-source106-independent-second-harness-failure.log",
+        "sha256": "5134f5ec4770113865582e94ad60d115e7295ffea97c661240bc238765a013c9"
+      },
+      {
+        "path": "/tmp/pices-source106-independent-second-harness-failure-summary.json",
+        "sha256": "041bc044f2f8575d07bb9e4c4a4cdc53c212ef7b9570fb7f7eadc4979f861268"
+      }
+    ]
+  },
+  "independent_actual106_saved_artifact_comparison": {
+    "receipt": {
+      "path": "/tmp/pices-source106-independent-actual-delta-check.json",
+      "sha256": "ba400a71ac936318e2765e14b8addee6f603b24f32b4396bc307ccc89cd3f583"
+    },
+    "membership_sha256": "b892d69350a76fda2a96e858b315b98d9995cfb6a6e26d40a51c2f496238c9bb",
+    "inventory_sha256": "0ccd6c0aee824d23dcfc77211d5640f564495fa504570f6edf0578f8b8b1a24d",
+    "before": {
+      "supported": 0,
+      "held": 106,
+      "failed": 0
+    },
+    "after": {
+      "supported": 106,
+      "held": 0,
+      "failed": 0
+    },
+    "source_backed23": 23,
+    "reviewer_reconciled83": 83,
+    "original_and_prior_original_baseline_copy_before_copy_after_copy_all106_equal": true,
+    "complete_baseline_before_after_raw_metadata_all106_equal": true,
+    "only_expected_policy_reference_added_all106_existing_values_verbatim": true,
+    "restricted_blank_license_date_creator_title_description_relations_type_all106_unchanged": true,
+    "remote_verified_and_publication_approved_all106_false": true,
+    "all106_disjoint_original821_old491_prior22_and456_alias_ids": true
+  },
+  "bounded_helper_review": {
+    "exact_cli_limit_choices": [
+      10,
+      106
+    ],
+    "mixed10_is_five_from_each_new_cohort": true,
+    "frozen_baseline_and_prior22_hash_pins_enforced": true,
+    "guards_use_explicit_ValueError_require_not_optimizable_assert": true,
+    "exact106_sources_statuses_payload_metadata_copy_and_policy_delta_checked": true,
+    "helper_not_executed_by_independent_reviewer": true
+  },
+  "projection_and_limits": {
+    "full_frozen_baseline_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+    "full_frozen_baseline_counts": {
+      "supported": 3468,
+      "held": 732,
+      "malformed": 6
+    },
+    "prior_independently_reviewed_actual22_delta_sha256": "f7c74308d39bed987971a9702e5095b5ecb1ec0944754c9a86e250f4dde50d1a",
+    "actual106_delta_sha256": "dd559b5767dd3e8193b3a668176a58d8a018bb27ec13388bd8ff6c7976ef026d",
+    "baseline_plus22_plus106_projected_counts": {
+      "supported": 3596,
+      "held": 604,
+      "malformed": 6
+    },
+    "fresh_full_corpus_audit": false,
+    "all4206_originals_independently_rehashed_in_this_review": false,
+    "other_holds_preservation_evidence": "Immutable old profiles, exact new disjoint membership, unchanged generic decision/provider gates and eight focused unrelated-held controls; no fresh all-record after audit."
+  },
+  "provider_requests": 0,
+  "repository_edits": 0,
+  "credential_or_private_provider_reads": 0,
+  "material_defects": [],
+  "remaining_source_meaning_questions": "No new questions within selected106. Exact31 conservative exception shortlist remains KEEP_HELD in its separate frozen receipt; all unrelated unresolved cases retain existing gates."
+}

@@ -239,7 +239,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                     interpreted_scope = validate_scope_attestation(scope_reference, source.stem, digest, root, reviewed_at)
                 except ValueError as exc:
                     row['hold_reasons'].append(str(exc))
-                row['source_scope_attestation'] = 'USER_ATTESTED' if interpreted_scope else 'not_established'
+                row['source_scope_attestation'] = interpreted_scope['status'] if interpreted_scope else 'not_established'
             row.update(raw_primary_date=primary_date, raw_metadata_date=metadata_date,
                        raw_metadata_rights=metuc, raw_metadata_access=metac,
                        has_supported_xml_grant=bool(grant),
@@ -394,7 +394,7 @@ def main():
     parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned institution/program or reviewed joint/collection citation profile; exact full creator objects')
     parser.add_argument('--source-link-interpretation-manifest', help='Pinned historical shared dataset linkage preservation; no XML identity or replacement relation')
     parser.add_argument('--source-title-interpretation-manifest', help='Pinned eight source display titles with full original context and complete before/after metadata')
-    parser.add_argument('--source-scope-attestation-manifest', help='Pinned exact821 question-bound USER_ATTESTED underlying-data restriction scope; separate XML authority required')
+    parser.add_argument('--source-scope-attestation-manifest', help='Pinned exact821 USER_ATTESTED scope or additive83 REVIEWER_RECONCILED profile; separate XML authority required')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):

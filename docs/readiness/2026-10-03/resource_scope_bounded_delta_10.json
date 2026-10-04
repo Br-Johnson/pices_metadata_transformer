@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "scope": "actual bounded selected-source delta; no fresh full-corpus audit",
+  "baseline_report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+  "limit": 10,
+  "selected_before": {
+    "supported": 0,
+    "held": 10,
+    "failed": 0
+  },
+  "selected_after": {
+    "supported": 10,
+    "held": 0,
+    "failed": 0
+  },
+  "baseline_counts": {
+    "supported": 3468,
+    "held": 732,
+    "malformed": 6
+  },
+  "prior22_delta_sha256": "f7c74308d39bed987971a9702e5095b5ecb1ec0944754c9a86e250f4dde50d1a",
+  "current_main_projected_counts": {
+    "supported": 3490,
+    "held": 710,
+    "malformed": 6
+  },
+  "projected_counts_from_frozen_baseline_and_exact_delta": {
+    "supported": 3500,
+    "held": 700,
+    "malformed": 6
+  },
+  "all_other_source_memberships_unchanged_by_additive_profile": true,
+  "rows": [
+    {
+      "source_id": "FGDC-1313",
+      "source_sha256": "49a8d87f50f0ab5806c769dbd1aacd5992fe6ba8104a2f41b9d7467b2095ac56",
+      "baseline_payload_sha256": "0b4d650a7ffe169cd37d49983f9336deaf6cf535c34cbd1cc57e4cf369f4020c",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-218",
+      "source_sha256": "04fd251ef538126fc4a3bb1b963a76e6a22fa89d290915ee69e44eb64cf944e5",
+      "baseline_payload_sha256": "78a2f8b6cf48c96f1c170436d4aed6fa7cced9ce9165f50154f940d440f080d9",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-2197",
+      "source_sha256": "421c742efcfd50498a916673e4a4e4b257b67a2929205d40cff11e2a07ba1113",
+      "baseline_payload_sha256": "f770161dcff8e0f83ef64791a301e057612b265fcbb04dcb5223f3ddc24d060f",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-2228",
+      "source_sha256": "141b02ba492c39db7996678e24917a951d1acd5bb5fae5d105044f78b996e37e",
+      "baseline_payload_sha256": "a021431798b7449c57f9de853586e47002e22675b31ba30c389118cf2e9dc6bb",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-2229",
+      "source_sha256": "1b76d5b088aa37631ce835434285121f22f0ac39f048a27d0fbedbb19895f8ee",
+      "baseline_payload_sha256": "9498d9f75325dc6292dc37d1937ca99086b890a55675a1676e090395f00f6394",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-1041",
+      "source_sha256": "e429cf50b06a9044d84786d09744262b87fa9542c29c158e77378aafca90b30f",
+      "cohort": "ordinary_contact_unknown_placeholder83",
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Check with Source.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Check with Source.</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Check with Source.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Check with Source.</metuc>"
+        ]
+      },
+      "plain_constraints": {
+        "./idinfo/accconst": "Check with Source.",
+        "./idinfo/useconst": "Check with Source.",
+        "./metainfo/metac": "Check with Source.",
+        "./metainfo/metuc": "Check with Source."
+      },
+      "context_elements_sha256": {
+        ".": "7c377da35a29eb902b777a44d5d0f4d00b776d0a093eb6ab2b13902ecc461986",
+        "./idinfo/citation/citeinfo/title": "5394576af5d1a372e1d603b0e1daa00001d404e9d990f59aef1f9d70802a6839",
+        "./idinfo/descript/abstract": "d2fc0458a17055fdb2bfc2beb35e57e48dc581edfcda48890cc53cb90ad643bb",
+        "./idinfo/descript/purpose": "9441c1f383be7dbd7f3c2a72d2f2d090e9017815ec4b39fedfd7fa524ca36eb0"
+      },
+      "review_membership_sha256": "5b353acbd667f547167fcbc96eb6ca89221d20758f47f00ed00d29e43facbafd",
+      "review_provenance_ref": "reconciled_scope_review",
+      "baseline_payload_sha256": "a058c125d53c6be24343ae33dd5c9532671f50daaac1e7cebf71ee360ab96015",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-1643",
+      "source_sha256": "e47fa7716d05477ec49aa845e6e953f094a3d9379377cfe34c2c9968e4ac41dd",
+      "cohort": "ordinary_contact_unknown_placeholder83",
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>FAX and email</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>None</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>FAX and email</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>None</metuc>"
+        ]
+      },
+      "plain_constraints": {
+        "./idinfo/accconst": "FAX and email",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "FAX and email",
+        "./metainfo/metuc": "None"
+      },
+      "context_elements_sha256": {
+        ".": "09867172cb6be7a55144ba40174078f0a66b7083df9ebbb13658b8cdb2ef7436",
+        "./idinfo/citation/citeinfo/title": "0514a638237831515b0dfd1d59dbb5a69fdac35a95cf7e20a0fbde96c4536f24",
+        "./idinfo/descript/abstract": "13ee8e7acb570b01d97ae80fbffb12d18419e622e2b024b038b16b815e97db17",
+        "./idinfo/descript/purpose": "9a97db9ed771c139c95967612222bc65c8dbe398d57292407e4370c6230ce4c1"
+      },
+      "review_membership_sha256": "5b353acbd667f547167fcbc96eb6ca89221d20758f47f00ed00d29e43facbafd",
+      "review_provenance_ref": "reconciled_scope_review",
+      "baseline_payload_sha256": "c4aee201856a04f3c32fdd00b1a1f643766f394e27f6fbd1602513b482dd29a9",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-1748",
+      "source_sha256": "a263f5b1ea888e417621973aa18b2bec61d444a753657da88740f2d772ee0e49",
+      "cohort": "ordinary_contact_unknown_placeholder83",
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Contact Source</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Contact Source</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Contact Source</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Contact Source</metuc>"
+        ]
+      },
+      "plain_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "context_elements_sha256": {
+        ".": "ae0f6ffbac1c317240c4c3df51adbb0cbced87cdf8ae31974584d892942ee1b1",
+        "./idinfo/citation/citeinfo/title": "7b33888a96af27e6e74732db958885d25410fcc6d9736b6816980ca7f3e22b26",
+        "./idinfo/descript/abstract": "380a8729d34d80099b1e5d3b92af63ab8654912cab890de4d3017e47b34827bd",
+        "./idinfo/descript/purpose": "a4fa1e6d95ec53a565c718383014c7187e9fcfb39184b217bfe854b34d3f1ced"
+      },
+      "review_membership_sha256": "5b353acbd667f547167fcbc96eb6ca89221d20758f47f00ed00d29e43facbafd",
+      "review_provenance_ref": "reconciled_scope_review",
+      "baseline_payload_sha256": "eaf1031327bc9e5f19312d2933e474e49524a5af6ba6bb55d60472a927e5eabc",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-1749",
+      "source_sha256": "460b45e30952ea2f552748abe4a368e41d33ef0cbc763e741a1e1dca9dc8363b",
+      "cohort": "ordinary_contact_unknown_placeholder83",
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Contact Source</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Contact Source</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Contact Source</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Contact Source</metuc>"
+        ]
+      },
+      "plain_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "context_elements_sha256": {
+        ".": "1f8bffbf948268b93be3dd5b0c530ce026edbe2cbfae40c886594be0e697c9db",
+        "./idinfo/citation/citeinfo/title": "1b44f89e6f3f87ee6f6fc9d33c808a809f58b3e0831797c9413deefa17c947a4",
+        "./idinfo/descript/abstract": "fb586a2c26113d6207ac6a5b4830020f40ab2e3cf52b5cb560ddb1c393640835",
+        "./idinfo/descript/purpose": "72ad124324dabb8af9956f0bb5903c783eeb1eb32f055b0ac2ab84c5c2d3cebd"
+      },
+      "review_membership_sha256": "5b353acbd667f547167fcbc96eb6ca89221d20758f47f00ed00d29e43facbafd",
+      "review_provenance_ref": "reconciled_scope_review",
+      "baseline_payload_sha256": "f00643097ca3bee69a3a89fed5265bcb8ef173f057264c6493812253a39e4ec5",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-1750",
+      "source_sha256": "dd50a022d9454415d940e2fc1573f895c9b5b8f6e1fb68570c0af53e4fe00746",
+      "cohort": "ordinary_contact_unknown_placeholder83",
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Contact Source</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Contact Source</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Contact Source</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Contact Source</metuc>"
+        ]
+      },
+      "plain_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "context_elements_sha256": {
+        ".": "b6bf815c1007f30dc8535bd087cf199aeb52389645f4227c635029b205eefbff",
+        "./idinfo/citation/citeinfo/title": "f5078230deb6fcc0d3bcb68812f8a54496a99a09f76e21c17800cf6eca85f71c",
+        "./idinfo/descript/abstract": "b0f89b84be21250eaf01067b844391ec9267babc459d79286354708336c87c43",
+        "./idinfo/descript/purpose": "72ad124324dabb8af9956f0bb5903c783eeb1eb32f055b0ac2ab84c5c2d3cebd"
+      },
+      "review_membership_sha256": "5b353acbd667f547167fcbc96eb6ca89221d20758f47f00ed00d29e43facbafd",
+      "review_provenance_ref": "reconciled_scope_review",
+      "baseline_payload_sha256": "bb8c1a86d6063445eb5ab289b1711018808c3b1324bb56abaad263552b8ff78f",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    }
+  ],
+  "provider_requests": 0
+}

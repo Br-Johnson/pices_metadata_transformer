@@ -45,8 +45,14 @@ adds finite copy-media acquisition interpretations while preserving literal
 Unknown use, all raw metadata and original XML. Its measured22-source delta plus
 the frozen full baseline yields **3490 source-supported /710 held /six malformed**;
 this bounded comparison does not claim a fresh full-corpus or remote audit.
+The [exact106 source integration](docs/readiness/2026-10-03/resource_scope_reconciliation_handoff.md)
+adds23 source-backed resource contexts and83 reviewer-reconciled descriptions.
+Its reproducible integrated ledger records **3596 source-supported /604 held /six
+malformed**, using the frozen complete baseline and measured disjoint deltas.
+All XML/raw metadata remain intact; [31 exact exceptions](docs/readiness/2026-10-03/pices-remaining31-exception-decisions.md)
+remain held with source wording and specific questions.
 The [remaining plain-language questions](docs/readiness/2026-10-03/pices-next-residual-questions.md)
-separate156 unresolved access sources from60 deferred candidates and existing
+retain the preceding156/60 inventory and existing
 creator/date/title/alias holds.
 
 The [bounded modern synthetic approval packet](docs/readiness/2026-10-03/modern_synthetic_approval_plan.md)

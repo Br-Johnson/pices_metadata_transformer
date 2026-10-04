@@ -1,0 +1,1803 @@
+{
+  "status": "CLEAR_EXACT106_SAVED_ARTIFACTS_AND_PROFILE_COMPATIBILITY",
+  "scope": "Pure saved-artifact/source-byte comparison; no classification, provider or broad corpus run",
+  "new_source_count": 106,
+  "source_backed_count": 23,
+  "reviewer_reconciled_count": 83,
+  "source_membership_sha256": "b892d69350a76fda2a96e858b315b98d9995cfb6a6e26d40a51c2f496238c9bb",
+  "inventory_sha256": "0ccd6c0aee824d23dcfc77211d5640f564495fa504570f6edf0578f8b8b1a24d",
+  "old491_full_members_source_and_acquisition_contexts_verbatim": true,
+  "old821_entire_object_verbatim": true,
+  "new23_and83_full_members_and_contexts_equal_independently_reviewed_frozen_proposals": true,
+  "original_statement_live_byte_checks": [
+    {
+      "key": "restoration_authority",
+      "manifest_path": "docs/readiness/2026-10-02/rehosting_authority.json",
+      "manifest_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+      "original_attested_at": "2026-10-02",
+      "original_provenance": null,
+      "original_scope": "historical_geonetwork_metadata",
+      "original_limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority."
+    },
+    {
+      "key": "contact_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contact_source_interpretation.json",
+      "manifest_sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+      "statement": "It means contact someone (source) to obtain the underlying dataset",
+      "original_attested_at": "2026-10-02T18:26:45Z",
+      "original_provenance": {
+        "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+        "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+        "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+        "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+      },
+      "original_scope": "historical_geonetwork_contact_source_access",
+      "original_limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+    },
+    {
+      "key": "contributor_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contributor_source_interpretation.json",
+      "manifest_sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+      "statement": "yes",
+      "original_attested_at": "2026-10-02T23:43:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+        "question": "in the PICES records, does \u201cCheck with Contributor or Source.\u201d mean contacting them to obtain the underlying dataset, just like \u201cContact Source.\u201d, rather than restricting reposting the metadata?",
+        "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "timestamp_precision": "minute"
+      },
+      "original_scope": "historical_geonetwork_contributor_or_source_access",
+      "original_limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+    },
+    {
+      "key": "original_three_questions",
+      "manifest_path": "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+      "manifest_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+      "statement": null,
+      "original_attested_at": null,
+      "original_provenance": null,
+      "original_scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+      "original_limits": null
+    },
+    {
+      "key": "original_821_direct_reply",
+      "manifest_path": "docs/readiness/2026-10-03/source_scope_attestation_821.json",
+      "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+      "statement": "they reply to the underlying data. all these metadata records were public before",
+      "original_attested_at": "2026-10-03T20:20:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+        "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+      },
+      "original_scope": "exact_three_question_groups_821_historical_geonetwork_metadata",
+      "original_limits": "All original constraints and XML remain intact. The attestation clarifies scope only; existing separate user-attested rehosting authority keeps XML restricted and unlicensed. No attribution/date/title/alias hold is cleared by this scope decision."
+    }
+  ],
+  "all106_original_prior_original_baseline_copy_before_copy_after_copy_equal": true,
+  "all106_complete_baseline_before_after_raw_metadata_equal": true,
+  "all106_only_expected_policy_reference_added_existing_policy_values_verbatim": true,
+  "actual_before": {
+    "supported": 0,
+    "held": 106,
+    "failed": 0
+  },
+  "actual_after": {
+    "supported": 106,
+    "held": 0,
+    "failed": 0
+  },
+  "alias_ids456_disjoint_new106": true,
+  "old491_original821_prior22_disjoint_new106": true,
+  "all4206_originals_rehashed": false,
+  "fresh_full_corpus_audit": false,
+  "baseline_plus_independently_reviewed22_plus_actual106_projected_counts": {
+    "supported": 3596,
+    "held": 604,
+    "malformed": 6
+  },
+  "provider_requests": 0,
+  "material_defects": [],
+  "inventory": [
+    {
+      "source_id": "FGDC-1313",
+      "source_sha256": "49a8d87f50f0ab5806c769dbd1aacd5992fe6ba8104a2f41b9d7467b2095ac56",
+      "baseline_payload_sha256": "0b4d650a7ffe169cd37d49983f9336deaf6cf535c34cbd1cc57e4cf369f4020c",
+      "before_payload_sha256": "fc0b9562edec45c2dc19bda1855ae7e5ee5ecf2d49459fb439b712c73edf1e6b",
+      "after_payload_sha256": "bce0c4f995f583613ec21859cbe7ad77bbe9d333846b6657baa77c6988c8dbdb",
+      "complete_raw_metadata_sha256_utf8": "99e5d2ce83a37dc5b9f4da0d81cb4e2d00cc6b78ba479486b9dd11549dd4c4a4",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Only available to authorized agencies and staff",
+        "./idinfo/useconst": "Check with Source.",
+        "./metainfo/metac": "Only available to authorized agencies and staff",
+        "./metainfo/metuc": "Check with Source."
+      }
+    },
+    {
+      "source_id": "FGDC-218",
+      "source_sha256": "04fd251ef538126fc4a3bb1b963a76e6a22fa89d290915ee69e44eb64cf944e5",
+      "baseline_payload_sha256": "78a2f8b6cf48c96f1c170436d4aed6fa7cced9ce9165f50154f940d440f080d9",
+      "before_payload_sha256": "76e628554eb55093ba17d4aaee4eb840d0ba8e05832972e39a1eb919983968dc",
+      "after_payload_sha256": "b04aa475d96cdd497701b899602df367879f990a045ef15277aaf4fccd2becd5",
+      "complete_raw_metadata_sha256_utf8": "1446673a4637587d6dc4424bf506856e5b6feb6efe604a0825e918849aa3676b",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Upon request",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Upon request",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-2197",
+      "source_sha256": "421c742efcfd50498a916673e4a4e4b257b67a2929205d40cff11e2a07ba1113",
+      "baseline_payload_sha256": "f770161dcff8e0f83ef64791a301e057612b265fcbb04dcb5223f3ddc24d060f",
+      "before_payload_sha256": "fff2c31c3f2d531a0fea6c1e5bc97d43e6c90d2b2cdefdaf360d025264254075",
+      "after_payload_sha256": "19de44f9b2a724190a1807f3c7e89812746ef216d1ae42024b55ba08e46e655c",
+      "complete_raw_metadata_sha256_utf8": "40e342edcb62703933e3758d6b1494a891b5682776a16ae7c868899cfa3ef877",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./idinfo/useconst": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./metainfo/metac": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./metainfo/metuc": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged."
+      }
+    },
+    {
+      "source_id": "FGDC-2228",
+      "source_sha256": "141b02ba492c39db7996678e24917a951d1acd5bb5fae5d105044f78b996e37e",
+      "baseline_payload_sha256": "a021431798b7449c57f9de853586e47002e22675b31ba30c389118cf2e9dc6bb",
+      "before_payload_sha256": "850537735331c3eada32e37003535c9ea7760d9d723b9cc128f07937f55c1fe1",
+      "after_payload_sha256": "0ddb9e0887f7e7a719aa61a43e243175c98fff403003f41f0c9b7c8e29a86446",
+      "complete_raw_metadata_sha256_utf8": "386aa0a59aff8efe42f5206cb67782136158e46927c34c50ecd44aeeefbee176",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "If data were collected by observer, vessel name is confidential",
+        "./idinfo/useconst": "Contact contributor",
+        "./metainfo/metac": "If data were collected by observer, vessel name is confidential",
+        "./metainfo/metuc": "Contact contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-2229",
+      "source_sha256": "1b76d5b088aa37631ce835434285121f22f0ac39f048a27d0fbedbb19895f8ee",
+      "baseline_payload_sha256": "9498d9f75325dc6292dc37d1937ca99086b890a55675a1676e090395f00f6394",
+      "before_payload_sha256": "8a65536281d39ec2f6aa39ce64bf96dd034ed70c58d483acc3439c7c2adb13d2",
+      "after_payload_sha256": "4099b001bc7431a5819638d3b5cedd07e189a84c8848f838d79bcefecaa8585e",
+      "complete_raw_metadata_sha256_utf8": "94e505b10699be9a24f2445c7aeda5e2b8804ff41e61ba7185fb12116d352db5",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "If data were collected by observer, vessel name is confidential",
+        "./idinfo/useconst": "Contact contributor",
+        "./metainfo/metac": "If data were collected by observer, vessel name is confidential",
+        "./metainfo/metuc": "Contact contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-2230",
+      "source_sha256": "c9d928ce2f652bed7d8f0856ff74e8e7ce7d9a3644db6d81652bfe70da21862f",
+      "baseline_payload_sha256": "57888520c98fa3833ad5b373c028f172394b31025ef5deb038c05a62b599d64e",
+      "before_payload_sha256": "ef01fde6b56d6fcc84d837e5e8c747db9da35b4522112ffda33200cdeabb5c46",
+      "after_payload_sha256": "a78ab2f9da8bd26831f6bc5aecb9db0b2c9cd739f67e23d8775f87af5b831982",
+      "complete_raw_metadata_sha256_utf8": "c821d1156466d3a4cdb2665888225386f0e62b77bf3ea82a599dd0540ad5950d",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "State of Alaska protects confidentiality of fisheries information linked to individual participants",
+        "./idinfo/useconst": "State of Alaska protects confidentiality of fisheries information linked to individual participants",
+        "./metainfo/metac": "State of Alaska protects confidentiality of fisheries information linked to individual participants",
+        "./metainfo/metuc": "State of Alaska protects confidentiality of fisheries information linked to individual participants"
+      }
+    },
+    {
+      "source_id": "FGDC-2232",
+      "source_sha256": "8c0498452f5d0d971257c46731e690ab78297694f4c3f61f07a8df834f7b850f",
+      "baseline_payload_sha256": "412d2752ce1606afa43933ed1e83f8eb2340fab4cfd1295324c4eadef685b816",
+      "before_payload_sha256": "ad2c1d649454f1df86f611ee734e999d79489f297b706b96d0769ad3ed37e2ab",
+      "after_payload_sha256": "ff6bb079b5ab0368b1268c84626b7cf85ba95d1f20c029ea89f1a694de203592",
+      "complete_raw_metadata_sha256_utf8": "beb8c8148b2305a3230ae23dbd381145e4c5db587f0c1d39c039016d98bd85da",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Federal Government maintained database which does contain Privacy Act Material",
+        "./idinfo/useconst": "Quality of information is uneven /  information can be very difficult to extract and largely was to be done through Washington D.C.",
+        "./metainfo/metac": "Federal Government maintained database which does contain Privacy Act Material",
+        "./metainfo/metuc": "Quality of information is uneven /  information can be very difficult to extract and largely was to be done through Washington D.C."
+      }
+    },
+    {
+      "source_id": "FGDC-2248",
+      "source_sha256": "c699fedca5993cd16e8326666e9e3dd08cbd24d2ab33d3d1a982e503992ea639",
+      "baseline_payload_sha256": "039d789e7760411bd5dbbd8e54ccbafd8f024b86e269eb86ac0d69514906311b",
+      "before_payload_sha256": "0c0eeeb6b2726ae4b4923e107d417e712244b97d1bc718ff22ca80c003f31c8d",
+      "after_payload_sha256": "51e8ac6954052a8b2a778070d13fb55344347fb3ba62e58afdbccea39bdc0c14",
+      "complete_raw_metadata_sha256_utf8": "3b1eff795a0899e560dbae4d2bc75ce311de28fd1f80c46a4bf9368ebc456182",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Limitation access for Russian observation as the State property",
+        "./idinfo/useconst": "Limitation use for Russian observations as the State property",
+        "./metainfo/metac": "Limitation access for Russian observation as the State property",
+        "./metainfo/metuc": "Limitation use for Russian observations as the State property"
+      }
+    },
+    {
+      "source_id": "FGDC-2302",
+      "source_sha256": "e5a27697c6965960ea2a8bd8184e4b8739c79ce0f0cfa98dd6701c6c8bdc6c15",
+      "baseline_payload_sha256": "b768e82885465c8775e5fd2c16892becaa8fd63ebfe7e8e9ade060243cb1d62e",
+      "before_payload_sha256": "b126e1321ca5dae2fc1961ff4ecf7b845d99e8fff7b3ebad4ba12f43731a8fa8",
+      "after_payload_sha256": "6e2a3bd1ada19ae0ef80d89bfa3b7a2c85dd7b2ac855fa79155207ae60c6b932",
+      "complete_raw_metadata_sha256_utf8": "cd7465a00468fa00d54e10be041684eb568820644160835f75a5767e7647860c",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./idinfo/useconst": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./metainfo/metac": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged.",
+        "./metainfo/metuc": "Contact Martin Loefflad for information. Privacy Act constraints prohibit general access. Data sharing agreements can be arranged."
+      }
+    },
+    {
+      "source_id": "FGDC-656",
+      "source_sha256": "5ba44c882f751ccf0f1f4feb4a7b641990f60c1404b5cbc0639a0efe05f5ed1d",
+      "baseline_payload_sha256": "ddf7918469ca3ba4170e448bd296dd3f10c235668067020914585217edfe28cf",
+      "before_payload_sha256": "2a97d0503801d9568cbaf5122e6da351d3293df3c0062df6085b63d2a63f4723",
+      "after_payload_sha256": "4e425132a9769517eea432d53dfd1c0becb94b9ef913f4a285cbef64992da2c8",
+      "complete_raw_metadata_sha256_utf8": "ba5e6a58fd40781b6be9cea0cb174cf43618d0d1da3ca2c5df4a6607a46a65fb",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-659",
+      "source_sha256": "6f12a5427c2ab66400fc7413c6542d15e95d9eb31938a389def494295606d190",
+      "baseline_payload_sha256": "e0e09dc4671666581f15de4da8b486853b4fb2bf252738b4ac63284ecde1daab",
+      "before_payload_sha256": "a95be14f40fc7f7239434ee914c7bd36c695adb0b2e9d0bac8361c86dfce78f9",
+      "after_payload_sha256": "e6d16d3a2282d2dbe7b8cef296339143ede80d5e0fad8fee637859d90c5a511f",
+      "complete_raw_metadata_sha256_utf8": "7229483cdd906ccde6eb1b18af7bc1abf479f629c25d16c9c33bd6883ede2616",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-660",
+      "source_sha256": "3bdeacfeac065f5784b8bc731f02a83966a437704fa2d29be5dd490ef434f437",
+      "baseline_payload_sha256": "a6359e753e4eb5ce65ffd25031ba574eb2830514f6a384e5282e7c97c08d5b51",
+      "before_payload_sha256": "065d4c7ae7db373adb83b1aff1e7e003207b37e8326d5280d3f416987febf133",
+      "after_payload_sha256": "e8ec24b179094718af0da3acf4981c07c7b21eec6bdfc1029089453ea62a92d5",
+      "complete_raw_metadata_sha256_utf8": "df09bcebc410900d5b62138dcf192b924413d713cf4b5d3d0f47b54f81401ccb",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-661",
+      "source_sha256": "507aa147628250024f9488886b283e9cbb5798df60a6509b9e28af20576fe307",
+      "baseline_payload_sha256": "eca867f1f548542ec49559b96618e5d517253a6f903591f322913ed2485f5bdc",
+      "before_payload_sha256": "31810184942e6f22a94fa0921a930037d13dd5b133bcd71eef843bb10e65f658",
+      "after_payload_sha256": "08ab796cb7ca83b172cdef04e00613b027f4f892189beeafbb4a5e1e133750cd",
+      "complete_raw_metadata_sha256_utf8": "2b2e28e7c99911bccca3b209dea8fdaf73a5011a3d235cc0324321a981de79fb",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-663",
+      "source_sha256": "d939dd62ec7060464d7c945595ebc7f605d5aea404138c8d7dab628c473a2251",
+      "baseline_payload_sha256": "0842d7a3c48fbf39f16679b0e6dd696196a3376e4a5ddf60aa6aa05c5b60f8dc",
+      "before_payload_sha256": "ee6c8ab2cbf68abc3858022b762a2949d7c11576eac1cbae302d9cfe52265712",
+      "after_payload_sha256": "34b19ea9882a2d39377c91f6fe989ca4a58806a29bc60483c0d79814cc99c87c",
+      "complete_raw_metadata_sha256_utf8": "b717c638136cca73f043cde1b592cd65d1668d05402254499d4a114f4a84b0a1",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-664",
+      "source_sha256": "c368f6a7261e049a32f36fc7158bbf2a3fdbf9c479a5bd4a96811f0520222c7b",
+      "baseline_payload_sha256": "b184986ac7ed1505f488959946ed30461aa605b897e7078c6f6a5ec51964d6b5",
+      "before_payload_sha256": "022b50993babc9e9ef9d23288e84980659acffc4701bee3d0c46ee9b8c0d8748",
+      "after_payload_sha256": "90926950e1cc246c07ab18ec3f5777d9d99f002aec8fa38e84ad729a3791fa4f",
+      "complete_raw_metadata_sha256_utf8": "ba611f4f921d9c00590bb12fa2f03610350a68eedf4b9c7d50d55f7bfd2a39eb",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-666",
+      "source_sha256": "20a9afb31d77057aa4d493a572b680c65a416f63ffc43b8243511723310d1577",
+      "baseline_payload_sha256": "721e0d248c640de49025b74cd451e8df278e1b4ec0dce1771e81dd59b3b17139",
+      "before_payload_sha256": "6c6b09ed32917845009f68c45ca0289f0392510c78947c3458cb12a9492959f6",
+      "after_payload_sha256": "b677339d2526b25539aaa7694d8a10d8be4d415a2e76b431b4fa4599502b980c",
+      "complete_raw_metadata_sha256_utf8": "56adc9596ec9ca1f650f268dd73a76742afd2c9fd884e6c382a5738874142697",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-667",
+      "source_sha256": "6f128bab296acc1adc596765378498728cc733964f08550207f0798229179447",
+      "baseline_payload_sha256": "3ddd408a57ed430300009bb9acec55e1ab36543200108fe41fa6933fe0f0d90d",
+      "before_payload_sha256": "0bf762bf6bcc88efab1184ebc8302c28eb0619f7cc1b401463db6b5a5f9e613b",
+      "after_payload_sha256": "0be5359147df8ba4c83f17fd01e59e80775b2ec3878f39ea601e218c987dea39",
+      "complete_raw_metadata_sha256_utf8": "00bb08ba6cff07da1f6a1768e09ad0e2aec998087bf91695143942f32eb5a30e",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-668",
+      "source_sha256": "e7bc8ffafd0baed0c2bdc670b44135bfaadeaf03a9e63b68547f4d2e1000733d",
+      "baseline_payload_sha256": "dfd555f59d52a0f3d8a4e46d2b182a4b315f1b18798ec78fc60c40b8fd7a69dd",
+      "before_payload_sha256": "f32e37830e4b24b004e8d13ebeca797bc3ef76329900a03f390d329cffda54ab",
+      "after_payload_sha256": "599ce8e593a709e115c14b67581a2a13d31bfc1ec9b10c6e342726a1c27eca3b",
+      "complete_raw_metadata_sha256_utf8": "d120f4aa911521c409183ecc1c2746b67544936517e2c2f188b61e7a448357f7",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-679",
+      "source_sha256": "60094812c8a21d212b2bfa4269ca85edeef113288312a59d27fe2db6a508365f",
+      "baseline_payload_sha256": "8c7fe895f23d76a8be90ffc0a80d018a8b29274050619a541ac64fd4725f0562",
+      "before_payload_sha256": "92e7d7f02cd078c18ad8494c370c37dafac1863f9f61bca8a57d50efd2047cfa",
+      "after_payload_sha256": "6ebd0b6b178b00879f122b72ded2d3ae784dcb3a6f99ca12b6654d6dde7ebd83",
+      "complete_raw_metadata_sha256_utf8": "7fa802819f8be560cfc1e695343365becd89852996d2b8c5954411a84d7c1a45",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-681",
+      "source_sha256": "33fb9c9a29f956b668c65fcc3b6d44ae1291f8ead4b41f6437ef387b80319320",
+      "baseline_payload_sha256": "5958a8535c6ad128d91f0c1a3c3e4ed6f55995af3081efc76ecc0c83fe6eef44",
+      "before_payload_sha256": "add692c250c7fd00224db1cdfbda3d59fbd7a7e5147350fae70a4a39b13c284a",
+      "after_payload_sha256": "ce1d1109fa5f047dc2a5b33cd47d9f6cec8d8c329c5000c44e97a62328f16d7c",
+      "complete_raw_metadata_sha256_utf8": "25e02af4fecaf22bee3d3c0c8872670b16c225f82f276ca9e97e4a82b091e86e",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Data is to be shared among public agencies and the public, although allowances are made for confidentiality prior to publication of findings.",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      }
+    },
+    {
+      "source_id": "FGDC-723",
+      "source_sha256": "f652edb80b7f49d3f70d71ef27b5097e34af886fa41dcfbda4f4a0907b0ffd3a",
+      "baseline_payload_sha256": "d321e5852dfbfcf742dd3919c84856d1ec268cfa78ffeb6c94e66402f8903c21",
+      "before_payload_sha256": "cae5b33fb547754011962abf1c8ba287d8cddaf6a0066c93210b56f3f241eef5",
+      "after_payload_sha256": "2f056505c42e6b358a3fd09001696c1c5e23f4b552d9b3bf27de62aa27148c62",
+      "complete_raw_metadata_sha256_utf8": "642ae4834d41af6d6849b615da969cf4f44decc3492061434987c6878f92b8d4",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Data is not available.",
+        "./idinfo/useconst": "Conversion to other systems is not advisable.",
+        "./metainfo/metac": "Data is not available.",
+        "./metainfo/metuc": "Conversion to other systems is not advisable."
+      }
+    },
+    {
+      "source_id": "FGDC-728",
+      "source_sha256": "f302e62287858fbcc533178f0e8be5780ef47f852c469e5ec25a912ac3087f8e",
+      "baseline_payload_sha256": "d511003c36b63656f3361df0e1e5dc1d6bb51574f500d7a149f38f06875c17b8",
+      "before_payload_sha256": "5d3811f6dbc417d20f0c6bf40b55316dc417335481d54d63c9183d4ef8247721",
+      "after_payload_sha256": "2f71179acaad92faa4344734be8f4ff0db75174c7e580d19e237620860282dc7",
+      "complete_raw_metadata_sha256_utf8": "4a20c2be6a7d7b1531dbfa0ad72de09b6318738e485b9d67be6f7d4aee25633d",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "The database is the property of Alyeska. It distributes it to wildlife trustee agencies for oil spill response and planning.",
+        "./idinfo/useconst": "Use is limited to oil spill response and planning.",
+        "./metainfo/metac": "The database is the property of Alyeska. It distributes it to wildlife trustee agencies for oil spill response and planning.",
+        "./metainfo/metuc": "Use is limited to oil spill response and planning."
+      }
+    },
+    {
+      "source_id": "FGDC-828",
+      "source_sha256": "8eabdaf69e5f93cd8887b353bbcd58e85b39dd25cea7eab49f6fcea99014a14f",
+      "baseline_payload_sha256": "8a7f28e37bed4013890062a05aea227cfef8c72f786211fabfa890fb125bed73",
+      "before_payload_sha256": "6bb591d777efc522a73c11de554198e89d16d371d1beba286c44d213ac7b0d87",
+      "after_payload_sha256": "ca31700f4c355e51015439da4eb2030cefe00ada69e5121e24d22ef79e1bc4b6",
+      "complete_raw_metadata_sha256_utf8": "500c70cb628063571c1677d2a17750a04568a1b84445951fec94f49cd5253946",
+      "added_policy_key": "dataset_access_interpretation",
+      "actual_interpretation_status": "SOURCE_BACKED",
+      "source_constraints": {
+        "./idinfo/accconst": "Access to site location information contained in the AHRS is closed to the general public.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Access to site location information contained in the AHRS is closed to the general public.",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-1041",
+      "source_sha256": "e429cf50b06a9044d84786d09744262b87fa9542c29c158e77378aafca90b30f",
+      "baseline_payload_sha256": "a058c125d53c6be24343ae33dd5c9532671f50daaac1e7cebf71ee360ab96015",
+      "before_payload_sha256": "2d36769be988aae8f1a8d670a76d23a76ef18a33e1dcdf1694c75da1cfd43970",
+      "after_payload_sha256": "c8f3a548dff447d8b1233f6c6e13969e6483b9223602bc631090abee761e58ae",
+      "complete_raw_metadata_sha256_utf8": "4f32599bf5c8f0267c7bc0d4a9dc786b4189e553bc491288eca25d8bed7028f3",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Check with Source.",
+        "./idinfo/useconst": "Check with Source.",
+        "./metainfo/metac": "Check with Source.",
+        "./metainfo/metuc": "Check with Source."
+      }
+    },
+    {
+      "source_id": "FGDC-1643",
+      "source_sha256": "e47fa7716d05477ec49aa845e6e953f094a3d9379377cfe34c2c9968e4ac41dd",
+      "baseline_payload_sha256": "c4aee201856a04f3c32fdd00b1a1f643766f394e27f6fbd1602513b482dd29a9",
+      "before_payload_sha256": "6ab28604288bbd16b42c78c4fe6b9ee8cbe107c4b1ba81c46af8150cb706d10d",
+      "after_payload_sha256": "345b828985d0b390086e23ec27433db1168febaa5a8b6dd8fc2d7b2954a589b3",
+      "complete_raw_metadata_sha256_utf8": "956a6a7abac802eec08e4449c0a74ce744819451892b2add8f6d8ef1861ee557",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "FAX and email",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "FAX and email",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-1748",
+      "source_sha256": "a263f5b1ea888e417621973aa18b2bec61d444a753657da88740f2d772ee0e49",
+      "baseline_payload_sha256": "eaf1031327bc9e5f19312d2933e474e49524a5af6ba6bb55d60472a927e5eabc",
+      "before_payload_sha256": "e676e7203790b30de061081e3b7c298778d08ab8aecf46152ed2bc2ce770b666",
+      "after_payload_sha256": "751879a9ae4b220d13cb626b7c8f4edd015d7afb49c0db1216602b922cb48aa2",
+      "complete_raw_metadata_sha256_utf8": "3c416377916a9d6c71f793cc16a6360d5843b3d91243a646d9b36e87a726cc49",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      }
+    },
+    {
+      "source_id": "FGDC-1749",
+      "source_sha256": "460b45e30952ea2f552748abe4a368e41d33ef0cbc763e741a1e1dca9dc8363b",
+      "baseline_payload_sha256": "f00643097ca3bee69a3a89fed5265bcb8ef173f057264c6493812253a39e4ec5",
+      "before_payload_sha256": "670c4dd6e86ef8ddb91dacb7429b9129cc9b4afcb6cea3020a3e48819f1f58ad",
+      "after_payload_sha256": "c29eba2031086998fbc4194adcdb223935a0169f90030ce7401a1d673cfebe36",
+      "complete_raw_metadata_sha256_utf8": "44481b30e97ffeb6df290bf2a463c8899995243b22174fead7de3cc54b949f10",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      }
+    },
+    {
+      "source_id": "FGDC-1750",
+      "source_sha256": "dd50a022d9454415d940e2fc1573f895c9b5b8f6e1fb68570c0af53e4fe00746",
+      "baseline_payload_sha256": "bb8c1a86d6063445eb5ab289b1711018808c3b1324bb56abaad263552b8ff78f",
+      "before_payload_sha256": "7b9a41da9c283ed0228867c4d7a4ba4840bf39c98bb8f5eaddf500f3999dcc57",
+      "after_payload_sha256": "7bbf82a22ddda344fb61197e44e03a604fd38bca8c56b8ab534acf5749e99156",
+      "complete_raw_metadata_sha256_utf8": "84221980f0775a48f8fa97e92d9e7ee878bb14593b0768863c0fcecd48c0b7dd",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      }
+    },
+    {
+      "source_id": "FGDC-1751",
+      "source_sha256": "482695ce16ff655b9dd0ee87f1361fd2f5729bb241ff6e66a508af7eb2513b8c",
+      "baseline_payload_sha256": "3441f7c0979a18809ab17e2ab19c27c90e57e897f05862720dafdc822a38f4da",
+      "before_payload_sha256": "0f821c86e5deb708d09d02c90f3dfc03ba19e37856c3f98355f0278c7eb416fa",
+      "after_payload_sha256": "21aacc37f247721bd5ca8c3873644c9f0a87b5df9d35d2da7a89822ca7e0679f",
+      "complete_raw_metadata_sha256_utf8": "9d2c588d0afbf3e911227a25d88425022530586c56937c8ffe1c34530a3ebae7",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      }
+    },
+    {
+      "source_id": "FGDC-1826",
+      "source_sha256": "a2be460f0b0b95239b534b73e60a783ff7898121dcbfb6988897ee2e0e7c4830",
+      "baseline_payload_sha256": "dbfefac829e143d23c756b0e0b6d5bdc5a22a876532e407545ea4744a3650091",
+      "before_payload_sha256": "cc46e410e221564bcb105eb46d5430c33c481778ad1b8c7908a9e9de89f0c28c",
+      "after_payload_sha256": "5b3449ea13e20d3d804f1b98e0edca4819cc6c1108f85d7773340da273aadc12",
+      "complete_raw_metadata_sha256_utf8": "2e6dce38c447ce98785213c5d86aa7e799d5d1820db1979d0f9d2ea2555f92de",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Go to URL",
+        "./idinfo/useconst": "Contact Contributor.",
+        "./metainfo/metac": "Go to URL",
+        "./metainfo/metuc": "Contact Contributor."
+      }
+    },
+    {
+      "source_id": "FGDC-1828",
+      "source_sha256": "584d08c0e03afc9ac14700423903e622d90e3d73bfd2e4265ebe29db6019770d",
+      "baseline_payload_sha256": "3e32fcf6af868dee3eac26f1adfc4615e1c4bd94114c26e8688d055a5c35fcc6",
+      "before_payload_sha256": "5946bfe21f5ace0c4f4d08125885481275ea471e0cf6bf38fa2905d01f5a9358",
+      "after_payload_sha256": "21669a4f74a114c6a60382782a7cd501b387c606a68e4e2912167563f1fe6699",
+      "complete_raw_metadata_sha256_utf8": "565b271a7a7d21c5e6a9a6d93f6908c1598977d5db69d72855a25a4676d61b3a",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      }
+    },
+    {
+      "source_id": "FGDC-1890",
+      "source_sha256": "5a35ccbe323d6448a097fe4bf83440535c97b735b6bc43c0ecd3d5dbc6ac22ce",
+      "baseline_payload_sha256": "723a9e65c9ddf980c8ac9669c616f935af48058026437e919b3d9c22bd7cadfc",
+      "before_payload_sha256": "4e51de9932abd7f3f7d87fb410b4fc6d401ce3093ffd75fcb4d8b220bb209693",
+      "after_payload_sha256": "c50ed3090c01206e75f52998b978cb6bdba68da5c0b5594dd5391a91c686e232",
+      "complete_raw_metadata_sha256_utf8": "702cc6ff7cb498f03f4f9410913d868b6795db66e77823fbc3a5d20add427b9c",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact Contributor.",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-1891",
+      "source_sha256": "e4343b966cbbc100d42b5d462ac7b2c0f5569bf48e5cf9b809449e2c7eaf3811",
+      "baseline_payload_sha256": "7a2a117fd386fb7d992d8b00e6f79ec0227e8da77a53b2ad8a2ad45f1150bcd5",
+      "before_payload_sha256": "8117efcdf51bbd8f9785f5fbaffab773429ce8ef1ef6484dba85b301f4cd80dd",
+      "after_payload_sha256": "5c286293ca05dfc395521dccf8fb3ea3a142aa6aeb4ad792555a832a5e256a2f",
+      "complete_raw_metadata_sha256_utf8": "82855c27d3e0c471f820a8a0de220a181bdc212a24916ee149428bfa12a30a78",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact Contributor.",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-1892",
+      "source_sha256": "14d7e85823ac25651fba80e9aadbc96f84598876db6df520c9b27f2f0cce8073",
+      "baseline_payload_sha256": "8c76ba76977601e80975b1b1acdebc247d5c269a323bc590d77e0486471020f6",
+      "before_payload_sha256": "42ef9d42e6b3a57040c5dbfd1221a60c2e2e4fb7cfe93cab01745a7e27a947d7",
+      "after_payload_sha256": "447b716c46ef8fd3bba4e552de2e4a262e3704c41171569af1d0474f9f36c5a8",
+      "complete_raw_metadata_sha256_utf8": "3f95cad23bdc16050476d7488c808ef7974484abf0c9e3279d70f44ac5882661",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact Contributor.",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-1893",
+      "source_sha256": "0778b23fece13c9539a65774665e0d35162e2855ffb15179c10d4afb0650c4ff",
+      "baseline_payload_sha256": "8cb39944ec9b4a48ea9bf4b1e167d4f3906236fbbaf949beac437228299773ab",
+      "before_payload_sha256": "2897bd12b60dcfdfa811163b73ea052b4f4db9ccb0cd5ce756ce6c45c539720c",
+      "after_payload_sha256": "ac7c9612ea19d43b87e4298414ea871e6cc052685a1e425112a18bb6cfa1f150",
+      "complete_raw_metadata_sha256_utf8": "c2d2134626b3dff453fbe903ae0913b9e0d454bc23102e4e5fb1f011ec355911",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact Contributor.",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-1894",
+      "source_sha256": "7acf5f99cd2aaff55acefdc77f8b1c455fdc89278ff4dedd31682f7f177f90d0",
+      "baseline_payload_sha256": "53800de395f804b444e8d8cda5614942a9696d303bccb2c98c3b000d5752d255",
+      "before_payload_sha256": "fbe1a84cee502760c819c18ae50b0ebe0a0c6b9a52aec7b94d1594d465d1b0c2",
+      "after_payload_sha256": "2edaa3a80340ae64daa998cca8a25f67341fca50880f349332a18af69f195553",
+      "complete_raw_metadata_sha256_utf8": "ce4359be120f01f502dc6c1df8bac82329d9e1a26387a97e23605d100c634b86",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact Contributor.",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-1895",
+      "source_sha256": "ecb216c93e09d7cb46e65abb9dcdf4d62d3f1f40e21d5e6b2fe16966b7db0c50",
+      "baseline_payload_sha256": "8b7129be9e14f4e24c56faaab04ea55ac05d63e2ab13437dc53000911cd32daa",
+      "before_payload_sha256": "8c74b270713c77534effdd7ff05af0a42806e0f269534897a3e3f614f56a63e5",
+      "after_payload_sha256": "8499a3a7ce0004a9156d912740f4967a60929802ddabee7fcdc7679ddd19eb52",
+      "complete_raw_metadata_sha256_utf8": "995ffde6d286ab8973bc42ed1556c0ff4b8e342963b72c8b05fda07ad09828d1",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact Contributor.",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-1896",
+      "source_sha256": "ad4c5620f88bf185cc8d03812f975a8861e666f8231d5f0676ccc7ec76050409",
+      "baseline_payload_sha256": "936cc5e08abc74ac922ead3033c815a2ed6ead852c6389c8387dc377e449f0e0",
+      "before_payload_sha256": "8c00ee7e77aa3d64c5f602c11f6ec245614161f9aa01c883865ae413fd272bc7",
+      "after_payload_sha256": "2fb0d549175637d38ccadffa475511950760666a1731a7960ea58c7b7a155dbd",
+      "complete_raw_metadata_sha256_utf8": "f3f74c3d6431b9e9d3302cedc22c616dd394d96ab890bb68506317da5589742f",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact Contributor.",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-1897",
+      "source_sha256": "bb4f5a7ff077d175b2ddbd2ec37b49d2f56ebde8005b6ecaf735b6ba8771cbce",
+      "baseline_payload_sha256": "73a5f8754c8d365a3c2190c1656b0c8aad864815d40bcf1c09864f9306c50c50",
+      "before_payload_sha256": "b91545497c92af87fabc23889281f6355e4873ee07e8c72d65620c94fa1d7f8c",
+      "after_payload_sha256": "49d737ac36cef73eb9c350e988a45a51ba91f3c0522705544f9489dd7403f105",
+      "complete_raw_metadata_sha256_utf8": "6e9ad6ace662f8d8e241b30523542dc1a2a6c6aa25e5774a3da6e2424071bfe2",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact Contributor.",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-1911",
+      "source_sha256": "a4809ac462d48c4867b1726ecdeb094353664ae1247427c8cfc262409015617f",
+      "baseline_payload_sha256": "7d06d21a5a4d84b96ea47d5a5f694d283b48b3b39cfc76b7e4ccfb3cf067175a",
+      "before_payload_sha256": "f4993592189d344dc5ade5f07e0712ae982c02c4c83ec4b4fcd16707da478e92",
+      "after_payload_sha256": "16061aa599de475d7f69d0f01049318dc8af8f6f93455d5dd3a5a06dce616369",
+      "complete_raw_metadata_sha256_utf8": "4501009df0acf83338bee7e250ef6991a8a29ee44f8e402257f5d8f226c482aa",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      }
+    },
+    {
+      "source_id": "FGDC-216",
+      "source_sha256": "acab56c11eb74da02e41420ffd186ab1a606655f49c534ba7a76d47bcaba4fa0",
+      "baseline_payload_sha256": "c02ce433e8981f8e95493ec9fc41c9452426ae35c1e5abad15d5cea486db1d61",
+      "before_payload_sha256": "b4317a4873aba05edd3c02e4a25f7a348302894cbdd415d5a01111667de921de",
+      "after_payload_sha256": "75925c8e9a64246d75521b8c9016fe38774cffe7fe3a0c80c22c4ed3d972eed6",
+      "complete_raw_metadata_sha256_utf8": "e4de03f91ef596352a0634e7968791bad090a850b02e8eaec230e7afa6ac39ff",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Upon request",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Upon request",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-220",
+      "source_sha256": "fce51db3ee39095750490bad1bb3ac92c5ce13aa6168b5a9fdd76810126e9868",
+      "baseline_payload_sha256": "3f3fa33ec7ce2c7a3d7d72f1dcd510bcc58d789eddf512ed8512262a066da4ac",
+      "before_payload_sha256": "f5e3c3ff8627f7cae45b81a7d900869e53e48c0069598cd48b8b3b17e562933c",
+      "after_payload_sha256": "c805aa1edda690707e51b7dc1dbfb68a9c27170622dc1d2efb387e76cd0878b9",
+      "complete_raw_metadata_sha256_utf8": "e90f7ef762111dc1fceed1f80d7958bec9cb2ebc202cd3e2db38cd847337deaa",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Upon request",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Upon request",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-2270",
+      "source_sha256": "1bcd1afe5b9035e23e6a44c01572f601b642a75f8439daf26f2302cd05353370",
+      "baseline_payload_sha256": "0f4c28676ecb98a2e915396c58c6c7f0f0b575bbe3306105251034fdc3b3307a",
+      "before_payload_sha256": "6e4e398ef3a89de8ebeb7f25f0408f06d51f514d280e11aab8ccd47d940de07d",
+      "after_payload_sha256": "d72bd4dd482a63006c290452e6dbf7a8b28a6599c6501ce3392775c70e652db2",
+      "complete_raw_metadata_sha256_utf8": "dcffbd828bcfd8c5140014d16993536e46835137d118df9c80eb63167f1ec8de",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-2271",
+      "source_sha256": "015618362f37b2d1d0d497047e0d7250c65873eebc2ae643cfb4e736e501c951",
+      "baseline_payload_sha256": "0eb7b68a7831295df3ee94ec68f6e9648184f030b4a230ea447b64ec00b630ec",
+      "before_payload_sha256": "2c48c41eb70b6182c977c07551da6c264c0d4b7a9bfffd5430964162582d1a8a",
+      "after_payload_sha256": "63ee586c0cc1079bc2ed5e8b96a898aeb9ad79ab54d71e0618592ea157d2d278",
+      "complete_raw_metadata_sha256_utf8": "35c50a4a11df28f383d436962e163943ab838772c40ef0c4af78d878abfb122d",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-2281",
+      "source_sha256": "cf3771c99a54e84a4af87aa49c41c1b87d2ed4d94a9a74cc6a5ed59e1af285af",
+      "baseline_payload_sha256": "2d855ac34056b2d85ffb64875cae5f3fa6c28936c28bb801f8ac26df525e6073",
+      "before_payload_sha256": "4a5e363eefe54bfaf52639d61dd93ea9e7653e38eb593801c164695a97e0c581",
+      "after_payload_sha256": "a6018e977cf71bda3ca1972e7d3889cdc3e4bedfc17241ae95892d2d9c366c0c",
+      "complete_raw_metadata_sha256_utf8": "8e721fcec44b6f62d0f0624a49f44aec7d2d60612558edcf9da346afd89d87f3",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-232",
+      "source_sha256": "153f7087c2ad8da4674ca7d402b8e349b62c1f3c6a4f705e96a42f57fd99254c",
+      "baseline_payload_sha256": "6e0daa37d3605494bac063ad903c3d1e32e1ec126143e7962d12224367807e33",
+      "before_payload_sha256": "31c15e827895639871aa60b31979f8263964ab1a165dd57d9528a9fe78ab3364",
+      "after_payload_sha256": "c6868ea0c3aae2ff206464a580575ba099666e686ee5ea98cacae546f118f5e9",
+      "complete_raw_metadata_sha256_utf8": "0cccd5f47c4607ae69b1ea7948894810c15795c0c0c16c28b4710e9c1e71350e",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-243",
+      "source_sha256": "21d1a514d31814505385e1c30cf8ce6ab7b94a1f1872af2a428714f95caadc01",
+      "baseline_payload_sha256": "478a765adc3b82f423bced6c39baf95f2d3ee9f9aa3d9a8ff733672714da202e",
+      "before_payload_sha256": "7e486a835c2ac08bc4d005c91657b02ca4a1da58be2f3a0e03177f9356773f47",
+      "after_payload_sha256": "bc85f42a0676b3475483079527e22a5ff149c6d57a0f58fcf548b736680b8cc6",
+      "complete_raw_metadata_sha256_utf8": "975ae4578068837b2bb012b3d07921fcf07663a0b8e60f887a17589af8adf0c5",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian in writing",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian in writing",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-244",
+      "source_sha256": "b9a4b5827190014b01a23b4ef6a663b1662f08d212651f7daf022cf045c2ae69",
+      "baseline_payload_sha256": "8b012214de82f51549acf37afe987a4129994b26e1ffdbf402f58583de818274",
+      "before_payload_sha256": "62e113af3106348b140dbb33e9bf1c1afc96e1bd9704b35a89a190005c20d7c9",
+      "after_payload_sha256": "a65cad7e7fa5163c43091738c9100981b5ba1fdaa4b3e8ecd5ad8ddd14cfb885",
+      "complete_raw_metadata_sha256_utf8": "c416c510a565cf46a634f6d6ff9333179615756736b66c4631b6efb92ffee72c",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian in writing",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian in writing",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-245",
+      "source_sha256": "c978f0556028b4870d7c3fba98a8b80cca02e05411f6843637e9ad8e6cb9c4f0",
+      "baseline_payload_sha256": "f45255b6fdc29fd874866d7a8f9f49f58433f1db7a480f2388d43488945e9917",
+      "before_payload_sha256": "871ebbf0b13da3a91ec63291e82c9262db27ecb0e61a5969a4cd00d3bb74ec26",
+      "after_payload_sha256": "c59f21266b52526eb69ff8e8f0ab02fdbaf39c8d5e59b18b6ce3acfb9abec47d",
+      "complete_raw_metadata_sha256_utf8": "37bfbecfd846efc9309226c3fd8891fd88811bccaa5141f47a4418b8bb1415c2",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian in writing",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian in writing",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-246",
+      "source_sha256": "e8911126c5dfc268277d7955a4b2fd8393a9e1b91dc85836f2b576a7e60bb891",
+      "baseline_payload_sha256": "b0033987a2f6c7b93299dd4d9b3e46d05642b99abb7621ff95cd426756bcd97a",
+      "before_payload_sha256": "d4d5f29037afbce7189f2e9e87cf948f3a1683634ce8c79267109ecad2c728e4",
+      "after_payload_sha256": "833939634b0e1e7b356f87954eac865abf43768f67e389782fa8f2c88623caaf",
+      "complete_raw_metadata_sha256_utf8": "f6274cb93cd7ba70a68ad07a6c10dc9e6503b0d7fb3ca0d85d8f8ebc5d1a89ba",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-249",
+      "source_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "baseline_payload_sha256": "6e8ae69eae3104990016644efc5e751d507b94b50d072246be9a237f067339ec",
+      "before_payload_sha256": "a826eb19e5b452adfb41f6b524843c3914692e676063ff7843c2ef49e42169ba",
+      "after_payload_sha256": "bbe0024dd63494706b2b18e691cd70674ed80d13c5d5ea409099ae799c4f746a",
+      "complete_raw_metadata_sha256_utf8": "5838ac89209374f48a01e93badc0385549f1be037002b772f7ac9b3c1d61b8f5",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian in writing",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian in writing",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-251",
+      "source_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "baseline_payload_sha256": "4662084648d609a839fcd98d0c6bac41ea5a2051bf5f35bd15a669d4713c9987",
+      "before_payload_sha256": "5d23be0a4c1fb422dbd5fe97349a5347f691bf305ee9a489d5fbf255be62bb86",
+      "after_payload_sha256": "007b5eb535de833a049fffbb0ddf0317b1c90715dd84b2e0ae63dd98269121a2",
+      "complete_raw_metadata_sha256_utf8": "f278a0e6cb0461d973f0a8903b0dac99d93cfb06011a04dcc582ec1314141236",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-2524",
+      "source_sha256": "bace4994cb6b32d9eca213fe1789afd21cdeb2269b2acdb5ca3ce720500130ce",
+      "baseline_payload_sha256": "66ed735163aacd41679ea6db79baf9f2ec212b2f1a90ebda737d5e88ff9515cc",
+      "before_payload_sha256": "3347d3ed2702f349f463e6e6abcaf38a402f96ad8cc4409cdec557bf61db60b0",
+      "after_payload_sha256": "3e9d8df15a10739bcf2e8628b21abd5b7c45f11321f9209e2cee3fa5725bc8f7",
+      "complete_raw_metadata_sha256_utf8": "18c6e9cd4f2479e58830202fb103ab960695569a939291376b532fa1aeb22205",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Pat Livingston for more information.",
+        "./idinfo/useconst": "Contact Pat Livingston for more information.",
+        "./metainfo/metac": "Contact Pat Livingston for more information.",
+        "./metainfo/metuc": "Contact Pat Livingston for more information."
+      }
+    },
+    {
+      "source_id": "FGDC-2539",
+      "source_sha256": "0819173b51347f6fbe4588ef562594b0a36407cace05ea8e3a3c7e13579ceaf9",
+      "baseline_payload_sha256": "a26b9e4af56531360612892a75a0cf1639cace7a31f92566f697db292e167fce",
+      "before_payload_sha256": "a3848aab284d1bba40d99ee4430c3298798b170807ec02820a69797aad6d7601",
+      "after_payload_sha256": "60d25d8af64fa81bfbea13d059236533165dc55d4618005db6aa1fc64f0ec282",
+      "complete_raw_metadata_sha256_utf8": "0d812876030f3b0159c8a559caca20f6136c23b647d2d88fb4f7126032115062",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Check with Source.",
+        "./idinfo/useconst": "Check with Source.",
+        "./metainfo/metac": "Check with Source.",
+        "./metainfo/metuc": "Check with Source."
+      }
+    },
+    {
+      "source_id": "FGDC-254",
+      "source_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "baseline_payload_sha256": "d339d1384641a94a8673562fba73540cac1787e7175135ae72c1e6619157e2ea",
+      "before_payload_sha256": "f274c13f66fc6e4ea7e14bda46caaa5d2d286d7add723f5e2961973ffc5b250d",
+      "after_payload_sha256": "a9d82dfd817b5163ea9aaec0dcc0beb7df217528bd8911fa3a21106e2cc9f789",
+      "complete_raw_metadata_sha256_utf8": "617b77ebe81bb96cfe8027cb5862c5a5095f5883857a9ff39bcef77e2eb72bf0",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-255",
+      "source_sha256": "2fa6d116805c81e7b76807315fd7969dc3162d8acec951e59ba278a3e6d8f827",
+      "baseline_payload_sha256": "f50435ba3b9dd35affb5702ff265c9d706bfd3e2e0fcabaddaa604ba92465324",
+      "before_payload_sha256": "b0d7693014fe82cea9ddf94e8d788d1a7342a2da856fe416df420ab7452e0d8d",
+      "after_payload_sha256": "93bfff3cadde9a38331b5018cb1198b47ca995386f35a1ee50643e1ab6e6eb28",
+      "complete_raw_metadata_sha256_utf8": "b48a26c3c69186b396eae6d8d75abda69fd2ef930af860681c7f099e63ac8e41",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-256",
+      "source_sha256": "fa326d2ffa3755b0a1a596b277ba350ba0522f411ada37ea909b02c2b45c356c",
+      "baseline_payload_sha256": "1385bc3ff0f233addfdce16461576fbd1a329d703fe3d07687ebc08f2c56d32d",
+      "before_payload_sha256": "e0ca5ab42649d768791452ea62ac938cf3dd50310a8a2c405d72d78cece7830d",
+      "after_payload_sha256": "eed570aa1e86b2af7927f5eb0f87ebefca6045e52e42b61f5c07fa9822f71108",
+      "complete_raw_metadata_sha256_utf8": "ad0b45d379749519527ff042be91d7fe2d729c20908fb26f5e2e037b1ec5a255",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-257",
+      "source_sha256": "02c97b2c0868d924b48c764ba65e91206bfe729d1913712d3cc0895b2b653f9b",
+      "baseline_payload_sha256": "845d75851340deb71a57a73ab57e372d75f1129b95c8ea56a1c6f387baa41a66",
+      "before_payload_sha256": "b1edb9e6266f6bd4216af2a866c8f97cbc14f30ef720b5bbe852240a47568aa1",
+      "after_payload_sha256": "c2ac5b080407600bcd7711d7cfa55d1c3ad6435f2d2780f5ac5f1b773edcb09d",
+      "complete_raw_metadata_sha256_utf8": "e57690ee1fffd24602d6bd2775167a71686e3bbca58a183ba48ca4e48a78b987",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Upon request",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Upon request",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-258",
+      "source_sha256": "e9035e0a9e331f5c26bbc6eeee718230b19032a5beee79e35ffc559bc9ee98d1",
+      "baseline_payload_sha256": "c02f40aca2ea4b867ebea4780b271fb192c7a512a8a268870865e158e8b2d19b",
+      "before_payload_sha256": "32c63399016cb7ccf67cdd45002a56ee9b82f9496348aea0bce4de36d38d65f1",
+      "after_payload_sha256": "b21b7f91da9f868e275fc69dd67118dd6495a2b2ad16d12f19205d3c149e22e7",
+      "complete_raw_metadata_sha256_utf8": "bd1a372233a73ed44d4ac674288a0f7854c21d72bdf1aa7f795fb5d3d049c5da",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-261",
+      "source_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "baseline_payload_sha256": "7e549d6d9f6922f758f94f0bc39bc2251893f82086a6238b772f01b3b38f5e6c",
+      "before_payload_sha256": "7e2a567b2b0306a5ab860f9ea262a62acbb5259cf11e3db24a3a374d5093c344",
+      "after_payload_sha256": "fcf4810c9fe5230cc2f56bd97881ab6ba3c3b86143a4ac439c8f1be06eb35bde",
+      "complete_raw_metadata_sha256_utf8": "4824244658f2245d785583188ef6fbabb93899ce1a97afa663477e1a2beea1c4",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-262",
+      "source_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "baseline_payload_sha256": "7c4f2f35fa1b35aa404d53b630cf1a2c506559af31818b16d07775d715c65642",
+      "before_payload_sha256": "b903d624d845de108acf19b65a4960bffa87fdfd84911392667edc32ba9291f6",
+      "after_payload_sha256": "3d4b245921e35d553f8e3cf296cf6e2b380264cf56dcb0258276e666a4bacb3d",
+      "complete_raw_metadata_sha256_utf8": "2301c325daca0de42811b174401ec9d1cf1dfd4b0d5a7c993afa6fd08185c630",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-2647",
+      "source_sha256": "84621343e47a8e0e8a0e4f78c3fecb961d45dfcb5e4da4fa3e0c56aea9cf58fd",
+      "baseline_payload_sha256": "7c7ad8a4b3d286d3dd5743cb719be41863147088905a1af6d7920c77569075f6",
+      "before_payload_sha256": "320f46610b9ee62d6a0904e8824b20860035d7170692204eaf42cf4d02ab09cf",
+      "after_payload_sha256": "4eee651a30f21c78c27c9d2ec1306aa2fd6c5bfec382a10926946fc3fe80e428",
+      "complete_raw_metadata_sha256_utf8": "2ac9b10297c35f1fb47851838b4116c7da58238322a8d5b53a28fdc274d2a57b",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Check with Source.",
+        "./idinfo/useconst": "Check with Source.",
+        "./metainfo/metac": "Check with Source.",
+        "./metainfo/metuc": "Check with Source."
+      }
+    },
+    {
+      "source_id": "FGDC-2648",
+      "source_sha256": "685e63264f183d64da2d94ae760ae38ecc2cff892030cdc41ec4bf9b484b4ba7",
+      "baseline_payload_sha256": "a293d2071c3543f390e7825f34a12e95f63d09affc7ccb8c300b955c5248bd05",
+      "before_payload_sha256": "7e82adcfe378ec496265d84fd0bdb9d0d7568228e24e2e4caefa8e902d1b7dfb",
+      "after_payload_sha256": "3c9c105baa3b48e1485e3c7a21453649c4774e43d86dfa096f0c13287562a835",
+      "complete_raw_metadata_sha256_utf8": "e44926c454da50dd7fbc46ea138161d9aa3c7bbe703bc7b0051de393a8eef139",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Check with Source.",
+        "./idinfo/useconst": "Check with Source.",
+        "./metainfo/metac": "Check with Source.",
+        "./metainfo/metuc": "Check with Source."
+      }
+    },
+    {
+      "source_id": "FGDC-2650",
+      "source_sha256": "957284085cf3d448eeb2a42ed743c6cf67d36079089c45403bf2edce91a59f7e",
+      "baseline_payload_sha256": "0015e3520799d7727b2a7164e45b64456f750b6e8d068423ce76e1e01c3f4956",
+      "before_payload_sha256": "94155d44c8b772b3389a2be788d78e49e61aa83ff97758fcdabcf8b86c19d48c",
+      "after_payload_sha256": "b0d7636283bb07700e26a61109f9cd9a147cc5e7f45a1741b8b6f3ddb20ce863",
+      "complete_raw_metadata_sha256_utf8": "1343f24d450668a2e91f8da0f1bd642a4c23291afcec4bf66b284e01172db86c",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Check with Source.",
+        "./idinfo/useconst": "Check with Source.",
+        "./metainfo/metac": "Check with Source.",
+        "./metainfo/metuc": "Check with Source."
+      }
+    },
+    {
+      "source_id": "FGDC-2730",
+      "source_sha256": "853b89fa803aef4bebe8b290005902d90b550b46d484d7478a0e6c2f9d7f2e22",
+      "baseline_payload_sha256": "97418fe4d38b02b93f2467cd49983dc496329191b2ece8f8720745bbd9d35f44",
+      "before_payload_sha256": "455cf31a9c442593a3540aae5d14b7f08c5a444768a207798a060a3be1f4c2b2",
+      "after_payload_sha256": "939e9f55bbb06667072355c304d41776e6fcc36bff17f9396b0cc68adc9dbd8a",
+      "complete_raw_metadata_sha256_utf8": "7ce30726ab04f1727bee9bc999d675679773ee0a01132d7af74d684f5781e20f",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Check with Contributor.",
+        "./idinfo/useconst": "Check with Contributor.",
+        "./metainfo/metac": "Check with Contributor.",
+        "./metainfo/metuc": "Check with Contributor."
+      }
+    },
+    {
+      "source_id": "FGDC-334",
+      "source_sha256": "e6629c9a86d6b0efe429e9f594590ef311c0037e6dbe3ff8f57251cd4e53cb0e",
+      "baseline_payload_sha256": "a3fc2e955327f867483909f9a5bd953ea70d25a1cc6482fa7a062b9b97695014",
+      "before_payload_sha256": "0c748b3c5a5be396307b8822a45f3d276c5ef41bd96c39ef57d7c73682c7b979",
+      "after_payload_sha256": "46a4d8f2f73ff18040b539d9ad92e4dc016d7852592f12e5366c82de20cbace3",
+      "complete_raw_metadata_sha256_utf8": "292f8b920d4667001ae51e25186aa0692bc0b3c01ac0440f2462cb5c7588399d",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "Contact custodians",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "Contact custodians"
+      }
+    },
+    {
+      "source_id": "FGDC-4057",
+      "source_sha256": "c8d78f01416a52ffcdfccbec0022c83215ead10ddf091905a758da71aead13a2",
+      "baseline_payload_sha256": "3c38dee90471dba8d5f4ef0d99230d00647dadd731442cf146d921b6ca01cb07",
+      "before_payload_sha256": "79fc6c98eb3caff3dc18210c1ad9c1f899b69c14fcfc2dd83a870999239dc757",
+      "after_payload_sha256": "fcfb836bab05ff931a78dc5d38d910077f6421d21f50153f5a59c27edfbf7432",
+      "complete_raw_metadata_sha256_utf8": "d9d09829d3853cbffbbc7855b82e304d11ac2fe17193007f5db17b89c6d09eae",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      }
+    },
+    {
+      "source_id": "FGDC-4059",
+      "source_sha256": "db42516fae6d95d17480a953207041e980992bb1cd587fb9b74d06eacaa1d2a2",
+      "baseline_payload_sha256": "3f9dd3694c42fa246f7f8bcdb7aacd1b7f4e69db94a8a5d8ef4edec705be2f48",
+      "before_payload_sha256": "65d7b667fc573e9b65fb0a3956d51aa2b70597f68b60438f76186f99769b2972",
+      "after_payload_sha256": "3d59bbf52358e29c8ee9d6bb2353edca2333e4c2b632a5341d20792bd0c8d5cc",
+      "complete_raw_metadata_sha256_utf8": "c2a358a2d2dc9da57375ef6930ef4e9fe28f4f25082c74f656561ec1ad8876fe",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      }
+    },
+    {
+      "source_id": "FGDC-4062",
+      "source_sha256": "1b4e8e7a8db11518724846e563faaf76889873721a23facfcf837fadad05e773",
+      "baseline_payload_sha256": "0dfa6d595c2398f77ce59668620280777cd3f29ac2c7bd829ac9d05deef03efb",
+      "before_payload_sha256": "e7d4ba66971f14b31b92fad3373edc05dee820c63d17a197be68b2dc9995e229",
+      "after_payload_sha256": "49fb0540ac6011399cb0ff43f52412c9c990cffa2417875c943b8a3978fc29f8",
+      "complete_raw_metadata_sha256_utf8": "4e33ceee87f1b171aa1431e4a3e79ae9868eb8ce68e85909a69ebb95fedc5c39",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      }
+    },
+    {
+      "source_id": "FGDC-55",
+      "source_sha256": "7104735f361c2b33bd1ac53a406f05e706a0b75fab0b98712240940301150c60",
+      "baseline_payload_sha256": "c24212cb037131e2351790b34e5456f0783a19338e2d9e0e498aebf05e232d24",
+      "before_payload_sha256": "c9cdddc54e8273acc97620a88140319fd71693b7e667a5e569805917194a74d4",
+      "after_payload_sha256": "b4e2535d06c80e7d1f11fe9ef0f7bc1c61b10fbc3e8fd70537fb4141c36c9fda",
+      "complete_raw_metadata_sha256_utf8": "39a55b3ccdb9aa7efded938ac7c8806bf7e8667611a5b55682b5fbb57457a54d",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact custodian",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian",
+        "./metainfo/metuc": "None"
+      }
+    },
+    {
+      "source_id": "FGDC-561",
+      "source_sha256": "3992431dafa763ae2124f71519a39bf6c0c56bf3de4684a4ce20e3f564abf242",
+      "baseline_payload_sha256": "b781bb45beb9514220fc11f6018ce2bdb0167aaedd0547bc8472ba4ad15a5d48",
+      "before_payload_sha256": "308eda58d141e7f00f3ef2626ac18e730b82d5d3fb29a460107365cbdc18172a",
+      "after_payload_sha256": "e27de4c7690223707b179f0a281ab2b07196d491147638f0873376356e1f98a5",
+      "complete_raw_metadata_sha256_utf8": "7e9d9044e5a4434b1f883e48b81d7d5d722fe1dceb25b7dff795927a096c4d62",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-562",
+      "source_sha256": "ba3d41506f5a66d9afee8717be7907a9a80f282020235ac91d166f11ef0e6ada",
+      "baseline_payload_sha256": "0da02e109cb41086c3210806cdc9384d6166cd2d1d547128f8bb56f6e22917ee",
+      "before_payload_sha256": "a02620f1fea742ebc4a650bd9647b4f9eddef8bcfd77477e3357050a7b94e265",
+      "after_payload_sha256": "fcedfbe0d3347448a7a403a1e34cbb30bc4e24a647650f0d404a53f082f9261b",
+      "complete_raw_metadata_sha256_utf8": "2d74da94f6940bc10467806ee34253a09742b0821d1ef0d976533b819087bd98",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-625",
+      "source_sha256": "626fb0881e699c8a20df4ab8d5028eb39760e910d5f2d0d52bb3446247b111fa",
+      "baseline_payload_sha256": "2cdf94fb66130f2a8c7113a4deb95e51e330ad67d71178c13a55a94e6d475049",
+      "before_payload_sha256": "e7c50c1b173d317d7abb1234c4dded2e9272fbf79323730abb5132ed039591f4",
+      "after_payload_sha256": "ce0084b4719093127ad32674d9e6d55bd9655fe17e5b89886526e6d0611d5177",
+      "complete_raw_metadata_sha256_utf8": "b439366d670e8c8ee1cff353d96fb70335bb1d87a1e939285917779013a27d62",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-628",
+      "source_sha256": "b2ff1fda141510223e0434a072214679fbb149526c0113ebba099dae22390c04",
+      "baseline_payload_sha256": "9a827f998e2c2fd664f6abcd2ae070540381a349ca11ea89d5ba1f443ff6f2d7",
+      "before_payload_sha256": "c7a44836521c512f977231e04fe6243070c3390bc80c2a618cd59ae516fba956",
+      "after_payload_sha256": "bcc8bc58496100271680b24185bad668cd9ebd26c1aebcb679828af044764923",
+      "complete_raw_metadata_sha256_utf8": "3313e42a2a04f5f7bbeb643eb911d3e2e24cf09d206eb67e6b11128c2369088c",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-629",
+      "source_sha256": "bf2a3e8a142e66a728d40842b8564c9a1028754b338644fb914b3f435e0b9052",
+      "baseline_payload_sha256": "f27cbbb505d5a1d39e0e76b8a025e0012e9bdd0d3a11f86d9bab36ca3b4e194d",
+      "before_payload_sha256": "4aa1329ec33ae8746931f3053fbbb4db2f2b4b06d4f17a21d6f467b600148c83",
+      "after_payload_sha256": "95be6db261fd23db9914e018d5282aeef0cd9fd20aa3d6e8e6f3c9b86b7e79fe",
+      "complete_raw_metadata_sha256_utf8": "6d77a8e13ee4eb88319fb451cb83c0e930b2afce6cb02faaeb05d684ced7241c",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-630",
+      "source_sha256": "d73d03d604c7ee63828c1d6eba798f820ab1704a321843d1cb0c799397cbeb56",
+      "baseline_payload_sha256": "fc6846fbfa89e83387b839600a8b5af7f27ef06548d90153c0c335705620f4a4",
+      "before_payload_sha256": "f30179522da961ef076dd254bf2a9484ae7f229f77d9491e3fd7ede0e03e6c96",
+      "after_payload_sha256": "019e0c9cfab258fe0f1548d777fe8a7641374937d44f77e2081c5e144233c298",
+      "complete_raw_metadata_sha256_utf8": "f8a21b5a84a522214746994a32ca69ebecc610bc8b30ba535429ec3d67fe1879",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-632",
+      "source_sha256": "e4b78f4ee98941efe1ba8266ed5aee425c0d0dda54d29e9e80f41ba7fd5c090a",
+      "baseline_payload_sha256": "4e6636d06ccec5fc5b40391be0b7a845e8126fc0e3a2302b15c435e7fa2997db",
+      "before_payload_sha256": "9a2221e0a2598a455c095950af59ad230b987babb3d5be46c5a491aafe2a39ec",
+      "after_payload_sha256": "0675329d8784c985bf6ce2d1941b3988a21452cf091c206e98336feafc1c8741",
+      "complete_raw_metadata_sha256_utf8": "16247efddf87f517e622aa7f5b9dd50aea7817f0c2fd6e974663418441862655",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact primary contact person.",
+        "./idinfo/useconst": "Contact primary contact person.",
+        "./metainfo/metac": "Contact primary contact person.",
+        "./metainfo/metuc": "Contact primary contact person."
+      }
+    },
+    {
+      "source_id": "FGDC-633",
+      "source_sha256": "3ff02be2d3961544648eb4acd48f4c88cf613b8837a3bc55322d426369e413e0",
+      "baseline_payload_sha256": "de25a8cea3a2e1973c83867984074f32f69d670624ca5371f6bac4f28f1d162a",
+      "before_payload_sha256": "a91a72788a46cc87f693ece0634d2c3cab06f8ca37bae16ca35f6d90fde04801",
+      "after_payload_sha256": "134ef2dcf2372177cba8dbc9515f74a9bb4ef17464ac655cfa14ed27f2423972",
+      "complete_raw_metadata_sha256_utf8": "d87121ea31db4f08c014b925a448f2431dcfef2e8e612ab199a949e55032f3ef",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-634",
+      "source_sha256": "80795db7e39a7188b38a398ffa94f70c36a9a500eb37df96139ad94c498f1e7a",
+      "baseline_payload_sha256": "0cdf204da7c13d0af819172973b08cd38de518e545d70461e8c631b6b23e42eb",
+      "before_payload_sha256": "b9a217cb96d5617d313891c57a0110a6a817179b74daba06a580fa27f94391a9",
+      "after_payload_sha256": "2f02056bb6e28880e8559fa17b728aeb8e6e27c70bd6fd07e4e9fd3efc06a915",
+      "complete_raw_metadata_sha256_utf8": "46e8e186a09a297921b589a50f56f928136d262c41daec7c31043fb2897f0fcd",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-635",
+      "source_sha256": "17a570bd46d00fc1b36b50f2d4f7db3cf4baf7914a8db449d1ea5046a6736601",
+      "baseline_payload_sha256": "eb743a999c7993fdc653ca4ecc7117eca88be2ffaf0c242f025fb38e6b8ad0d3",
+      "before_payload_sha256": "f32e01be51fdf87d6d0593e151626d19803b93607dfc2b23d1103e4b28a63dd9",
+      "after_payload_sha256": "3129a0b94c82d7635e64f0969c99d6861f047e7a73496af5422b4b9e67a74c95",
+      "complete_raw_metadata_sha256_utf8": "02684c8d773d15567be5bf901961e34ace0ec8e97a9b2eb69ada275c6ef36625",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-636",
+      "source_sha256": "46973f8cf7c93356c41a89259553899f300fa907f68ad10141e7cecb15631e5a",
+      "baseline_payload_sha256": "f504205fb54f5799665d8eaad80f17b00f0eb37ca560deddd60bf63c8c9d7db0",
+      "before_payload_sha256": "4128b047c1e78588a3165a799bf3de6e0ec82e887ab87288d1ff6063b331d3bf",
+      "after_payload_sha256": "fc33a7f6447f6cc43b3a0b168bb4747685bf3d4461fffcabafd4e0af6680fba9",
+      "complete_raw_metadata_sha256_utf8": "6711ca68bab9f6b978c1794e7a4358006e1449f275b60a7f7b621ee035c6a332",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-641",
+      "source_sha256": "d9755a80b7caf7abb56a46593cdb2a4410aa251cf245d2e2c61068fd4f226dbf",
+      "baseline_payload_sha256": "5b2aba2de70c4cff6ccb0abf26ce6505f39dac896168b4381d5a2079bf6b6dc1",
+      "before_payload_sha256": "0ec8dd35ce66b2f25556acbf2af107957ec5183fa9cc775f9e460d2a19f4ba81",
+      "after_payload_sha256": "4d4232612899ee2a7562c42499a69b713b1b70eaab5fc9cf2397248de088d82a",
+      "complete_raw_metadata_sha256_utf8": "27e5010ef02880da421737b7cf7c3c2bb656ffb84fe28f70ac52d655111cb99e",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Chugach National Forest",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact Chugach National Forest",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-726",
+      "source_sha256": "f8f09c86223e3c1edb4371aa7c8e138f79f0e580db99f20d6b7c98a4b30df084",
+      "baseline_payload_sha256": "d6b15499a21ec0a2a09e3b6690c3dc2c52b1f63b6c4888f4446a67ff7bcb4f24",
+      "before_payload_sha256": "ac46912544e5974c11748b61d866d7ee7629929f6fa6ea5c1f20efa59c49ef5d",
+      "after_payload_sha256": "7a9996b817d7c0ee0f0bde37484971065c982bac94cad7df9285bb43b10a2660",
+      "complete_raw_metadata_sha256_utf8": "cea19875bfb24eecb262141f9c2eebd432a3ac7b2e0dd03deb7192c230f0145f",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact distributor",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact distributor",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-770",
+      "source_sha256": "51729916302421ebdc9029022e940e3928381eb1fa37ddecda92577afb095398",
+      "baseline_payload_sha256": "feac1a708dd721ec940f9eb40ce40f14e58f5a6d6f6594add39172730340f69d",
+      "before_payload_sha256": "e6d643768e8ba972472a5813f6dbb3e84848d56bd825f78a53cb3ec797a31ba1",
+      "after_payload_sha256": "dd92b8dc995bed4d0c3444a487132d4b2536193c5b57a6960d0bea7b448654d9",
+      "complete_raw_metadata_sha256_utf8": "a9eec6d52c56aae67648c3fa6e2e59ab69b0be9be35e99bbc1308372b28ef9b6",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "N/A",
+        "./idinfo/useconst": "N/A",
+        "./metainfo/metac": "N/A",
+        "./metainfo/metuc": "N/A"
+      }
+    },
+    {
+      "source_id": "FGDC-771",
+      "source_sha256": "afdab5a682082fc944ee7ab3a004c626a20468e5784f828adf1e63fc55a43af5",
+      "baseline_payload_sha256": "1780931760045fd7cbe2967d4dfaf545ba5e023072b57eceff6facdd4e9b5b35",
+      "before_payload_sha256": "2448094b2bf64b44ed230169eb6c097e5220904c8291f4b3a2241690e2094dea",
+      "after_payload_sha256": "e182621144d4f23e9848ebefe4276bfe51424cd3c7f63b49d53fd632db2104be",
+      "complete_raw_metadata_sha256_utf8": "f4a56d326d822c7233d6e6ab9d9f150afeae740d3aef41a96d1570c69ab15673",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Inquire with Chugach National Forest",
+        "./idinfo/useconst": "Inquire with Chugach National Forest",
+        "./metainfo/metac": "Inquire with Chugach National Forest",
+        "./metainfo/metuc": "Inquire with Chugach National Forest"
+      }
+    },
+    {
+      "source_id": "FGDC-835",
+      "source_sha256": "ea200448bd5bb70f7857e267fcecb62b9530b2abf9cf7e942c7c8f8150e0ead9",
+      "baseline_payload_sha256": "99531c03070e51d115994227d24a1ea3cf116e415f70225efe5a90a6ee6dc18c",
+      "before_payload_sha256": "903c30b3143fcbb03a353a66cb471e176fe4e913c26f61f426683dd94dd642f0",
+      "after_payload_sha256": "861434d3be2ed026803bde6a0ebdd84182bb95f0da8f8015968616158383ba93",
+      "complete_raw_metadata_sha256_utf8": "95a9039535a600090377a7f294bfa080cafeeb673d86267e1dc9a53d275ba341",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-842",
+      "source_sha256": "8096884a55b9dcd352e6e77c5f3e632f0a36f3341314d0b2c6366cb438bd9416",
+      "baseline_payload_sha256": "5ff252f55b0a344d0d9bfdf5dc8e5b4071833105e161dd31dc66a8bab29b3021",
+      "before_payload_sha256": "adeec2f8e6c2a48efeefa21fccc2eefb1e7fc1b297408be3b28f886f54c49bd4",
+      "after_payload_sha256": "1dfbbbff2487103a3b94bdf3320b7e211480246394dcf7bbbee517c768241fef",
+      "complete_raw_metadata_sha256_utf8": "db286a4e8e54f73f67c08e089978738931fe7075ec57d6e19e02cc5d4d8cb474",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Resource Data Inc.",
+        "./idinfo/useconst": "Contact Resource Data Inc.",
+        "./metainfo/metac": "Contact Resource Data Inc.",
+        "./metainfo/metuc": "Contact Resource Data Inc."
+      }
+    },
+    {
+      "source_id": "FGDC-843",
+      "source_sha256": "b081dede180e0642cede9c68569d58e33e424bf278e20a22f33b4b8fee25eceb",
+      "baseline_payload_sha256": "b36095359fed8e8ccd3b7322139e8c7db659bb3332177b55741f9f0b2f5d8d1a",
+      "before_payload_sha256": "ced4fd7775423e07f7167677946a1232fa5a20b308577f70454897b2dc4be419",
+      "after_payload_sha256": "6407298edc1020e7cfbdd32143eed197eaf02dbffbc46746d26f783378252504",
+      "complete_raw_metadata_sha256_utf8": "8686c196ab4d6d0eb73a4deb29568d4daf0313bc5725de00168de3cdee2a7d7b",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Resource Data Inc.",
+        "./idinfo/useconst": "Contact Resource Data Inc.",
+        "./metainfo/metac": "Contact Resource Data Inc.",
+        "./metainfo/metuc": "Contact Resource Data Inc."
+      }
+    },
+    {
+      "source_id": "FGDC-844",
+      "source_sha256": "9fe562589c4489e7b7408ab10c44681f4048a38c623fff9d43cb889202374160",
+      "baseline_payload_sha256": "24ac797164b895a0ca58a1a8a4d1b3768de38fbadcbd1a33cb0ebfc429551107",
+      "before_payload_sha256": "dd9f66e861630724d2f39c57468a942d003bc11d0fc3825f50e9828d77309f7e",
+      "after_payload_sha256": "3c9192a55efea3bf52818ac5edfb2940a5634e9008b00a967c6bb5de4a530bb0",
+      "complete_raw_metadata_sha256_utf8": "11c90292f0b3c49ccea697ff6344baac43fb901ec1eedfd1ef30fd7c00d2f269",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Resource Data Inc.",
+        "./idinfo/useconst": "Contact Resource Data Inc.",
+        "./metainfo/metac": "Contact Resource Data Inc.",
+        "./metainfo/metuc": "Contact Resource Data Inc."
+      }
+    },
+    {
+      "source_id": "FGDC-85",
+      "source_sha256": "f77638fc861b4c4d6ab340da500cce160487c2ae81566cfd5def0555e891ef0b",
+      "baseline_payload_sha256": "c7d8649c7f790f6117bc26f429cfda31652e862f7ab7ca59e0985409df33b875",
+      "before_payload_sha256": "b27c3e53fece0d9af01b5faf67d4167674fd795072edc91e0bb72cd149b9ba0c",
+      "after_payload_sha256": "c21482085c01eafe5718b81bba0274a0f53bb663f3e10f9e150aaaa4b04d7833",
+      "complete_raw_metadata_sha256_utf8": "6e8d8bb06382105d7802c9d3cb60c6bc4c7a058a06bd0ece9a7c229a5da5d5d2",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Check with Source.",
+        "./idinfo/useconst": "Check with Source.",
+        "./metainfo/metac": "Check with Source.",
+        "./metainfo/metuc": "Check with Source."
+      }
+    },
+    {
+      "source_id": "FGDC-873",
+      "source_sha256": "626676a396a607b90ad163f2e18899e06a5581890b3b0bf237c848ce722f769d",
+      "baseline_payload_sha256": "a4052a155bbb1cc96c2df6cb0242040760a1a14ecd6b9d600e425001288d8747",
+      "before_payload_sha256": "c7e51b10d5ad3e0991c1bb9aa50d11a06bfae92527b7b96ca05fa54b51012cf3",
+      "after_payload_sha256": "4f17e0f8cac2dad59e3aa7d47cc9d269860e672d491ebe2d163047242665d15d",
+      "complete_raw_metadata_sha256_utf8": "1d7937e84950aa64622f26bcc7c13a508e8f62954a9ff545923764d63c55cb6e",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact distributor",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact distributor",
+        "./metainfo/metuc": "Unknown"
+      }
+    },
+    {
+      "source_id": "FGDC-890",
+      "source_sha256": "fc425a3398d22cb301cfddda6d15eff272d7d7c2babecc9766f09815d9721e78",
+      "baseline_payload_sha256": "bc1cba4e5580949d3cc24a5760f8c722c75a3e1a4966e9a2a0d26f34e5b4ff8e",
+      "before_payload_sha256": "7ffeb55e1e31802f09ec2cadd4bd6e9e5351b67fbbee2c87771d2cf9aeb450dc",
+      "after_payload_sha256": "ce418746e4c85c99ed280f8e48dd0dac3dd6ba073aea82db67227465279792a3",
+      "complete_raw_metadata_sha256_utf8": "6bd447fbcfa35463d58bc18022a78c40864b962a74203760f59a3a3fe80c3609",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-916",
+      "source_sha256": "26db3eb399d3fedf99a961b2782e9aef0a6af9f90a864de39c0b86e00fafb6d7",
+      "baseline_payload_sha256": "3f5d573cb43adfc4e017e4d376d3aefdf09f7b09d75a3ed7baf1da964dd49cee",
+      "before_payload_sha256": "464312e31a8ad24840462e6a743309fbdc3b9cf63649cfe01cf2b787f222c3b6",
+      "after_payload_sha256": "f122171cba6aa4568a4235f26e99b0448d309efed2c8971b750646e6e773797d",
+      "complete_raw_metadata_sha256_utf8": "5f6fa478a8d5176923b2baa903c1f908e07bdc2492f034a67fdc2eaa94a4d7d6",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-917",
+      "source_sha256": "7d39ed4444abda6add006feaabb7ad1b7e406fdb93a49eaa5d8af2875be5fa53",
+      "baseline_payload_sha256": "4c4be16f49dd916550b3d64bca3abd17d9b58157bce3daa747eb71d138c9b19d",
+      "before_payload_sha256": "fedb0c1959f7f9523d90b33fec2d498b34be9ef3037b853ec03a8a7475817391",
+      "after_payload_sha256": "6b899fc052313859f571042b85e7c1427a97c10bd833e863481bcaff6b717c8f",
+      "complete_raw_metadata_sha256_utf8": "f48ecc99a81d426cc519dddefee8bedd8ead5669ef79823c6cf3c9c50e73f5b4",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-921",
+      "source_sha256": "46545cdf0919a9f8eacc7b2ed1d80ecd78d88673c7e7b339b022599f6f6dbbd3",
+      "baseline_payload_sha256": "19a40999ebd04023d2f177dff1eebe7ab6c038d7c95165e47daabb083a996c5f",
+      "before_payload_sha256": "0ddefaa970b6de7f1b93fe2a2f75d135055267309df2aeb79e9ce717c90eaf78",
+      "after_payload_sha256": "e5f0e37233bbab81fa35982924eea4e24e26bd77b73023d23225d25795741a79",
+      "complete_raw_metadata_sha256_utf8": "f3764395705bc00f3432359af16563ace7b2a5ec041a3a6660b8e4ecc6dca235",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-922",
+      "source_sha256": "24763b1a2a5eb751fc70c4b76da609ec07fbfc745c7e8a0badc293630e68dfde",
+      "baseline_payload_sha256": "3da473ba9c633b546236dbcb3026f52c0234dac00e9ae300b21e69bc9df62c0c",
+      "before_payload_sha256": "bdb8850bac543770693a356bc43766bffa73fb128bd3d20f604613d5d82ea68b",
+      "after_payload_sha256": "613fa5ab5cf2775b9056ec28890d0a3806dc88b2c62936e6023e5ba158f19ff2",
+      "complete_raw_metadata_sha256_utf8": "a806e42270ceaeb118b0c8bda731a2d800d47b4720b10525eef6416857e725c3",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-923",
+      "source_sha256": "e3cd12a632f754c5b35e26b10ed1bb39cec51adf4b9fdb19159a4ebe54e66b27",
+      "baseline_payload_sha256": "c4ea39513fa9bc46150927c65acd199de59b1cfbfee86ab5cc830d6667b6ed48",
+      "before_payload_sha256": "a0e769d793047ca5c6c497634d6c9faa4be223e203bfca88ef60ea748eb50c44",
+      "after_payload_sha256": "c28847f39bb0917b7bd2ceda5fc6d7f3dcb9db01f25e434069439f20c4632a38",
+      "complete_raw_metadata_sha256_utf8": "8411e31374dc1efdcf4ffcb80aa194fc9ee68e5743e854217eddc3b6c8910c99",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-924",
+      "source_sha256": "0bf12eea05efc4ca247887d38450ae6f72ed5b76abbe759958301be69f749c56",
+      "baseline_payload_sha256": "e1161874221ba981a99a96b043a1d213c600b04f8a54d7480dc0a4c684421c85",
+      "before_payload_sha256": "68809727611ad21c2fc46e7945187dce14c9069497a4f026a3777b4983654484",
+      "after_payload_sha256": "392e868118246f13cf0cfcdebbcdabf806659b3d96f2e4531ff93e1631399b0e",
+      "complete_raw_metadata_sha256_utf8": "91fd94ef124bf8b497aabdd55622c4f5f4df540496a8b48825580c78240a37d9",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-925",
+      "source_sha256": "8a09a1f23fc5d2854349a9cb9ac28695ae7aed79e1ea3dc8c353850c0070184e",
+      "baseline_payload_sha256": "e6a4395eb717369f801a76193882b6d640a1ca2629e05201946397704763423f",
+      "before_payload_sha256": "c1837fecbef470cda21c7d1ebe1deb8e8b039e51907e4c0115b989e0245db167",
+      "after_payload_sha256": "95dde7117d3c4c573fdbcf67fd7b748b1e081526b266f5601c6b3df1597cc1cc",
+      "complete_raw_metadata_sha256_utf8": "0d8f55a57bfff8dbb951bbc94e758fdb50308098ef36d6421ae11558ba693a76",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-926",
+      "source_sha256": "e333732350cb0a1b651739f73698825c4d1b42022bf595dc2dac986d49134fbd",
+      "baseline_payload_sha256": "f33ea53dca2d30607c4f18e7ed0be4f21db31c0bc8e66056e97f60f86a91920f",
+      "before_payload_sha256": "4c36bc852323121a9b2495618f5e2cb04f1e08aed0f25342e425daaa40200e05",
+      "after_payload_sha256": "d664b549171ecbf5e9b92a1dbd838e3db259b68e76874b8493ab0cbea01e2f12",
+      "complete_raw_metadata_sha256_utf8": "a8e3ab5c66462f56f86a5de706746119d4eb6347e552ea2dd96e235a4dd24508",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-927",
+      "source_sha256": "720f20c524d049c83de3fd459655d20b487d8ae8f61ea8de57942d5b4c460cd5",
+      "baseline_payload_sha256": "2a031164904b16e5ca432340b711ef2c65267305c793660ecf4942758d3c4f15",
+      "before_payload_sha256": "7efd5ba2d7ad89e4caf5fa3277a62cd91f1ac92e0f4d4a1309d778276269757c",
+      "after_payload_sha256": "80acbad942e545f60ef8214f65d31c338d7367c9309071db71cfbc6b5cfef4c3",
+      "complete_raw_metadata_sha256_utf8": "75bdf8310fbaf2dc08143109bcce38799253f0dd7440977a503a7c1aa9c954b1",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-928",
+      "source_sha256": "e04136b87dd27e2f018018d8621b04d4410ef3f8357bc0ddd6f50eac5880aa34",
+      "baseline_payload_sha256": "a30d6eecca06b8f7f4322dc021d99bfe3539c70f8789f3fa009c7edfa7c2ec0a",
+      "before_payload_sha256": "095fb547787e2c3a9f025ddeb1e7ad13623f42dd207ea690fd425b52d9a67afb",
+      "after_payload_sha256": "8ebc2b99dbd7678e48f306560bb5459c26260ca65d44a671fbe66e5a3ded570d",
+      "complete_raw_metadata_sha256_utf8": "367d2043d8c0a073c2691255075bca4ddd84e9730c095d9b0f2867a5c76ff17e",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-929",
+      "source_sha256": "8df6995ec6e13f7dfe53a317d9d1a31f69549ad76777383f1d18758edbc0ffa4",
+      "baseline_payload_sha256": "6030a167d07f849fdd8cc17915266e4339c7bc7d655dc1bfcc0ddbfb16a3383d",
+      "before_payload_sha256": "0b8ffdb27c2dfdb39aa769765144516d0632ac8240611fef8f0436927cbe1de5",
+      "after_payload_sha256": "7064b5e85e0adce161c21c867e27970907aa78d09785d3a677fa4a83f553636a",
+      "complete_raw_metadata_sha256_utf8": "4d5e4ece06b6a634edae11d9e96eb1a603eb38c811b8c294c9772e1540205773",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-931",
+      "source_sha256": "ef881328f060c9f5e87beaa218e5b07d692f09c5cf0433444485a9b4af223303",
+      "baseline_payload_sha256": "7ce4ad01be6394ec81644b998073a5ca05f09cece45ce9eced81fea0be4f3ec8",
+      "before_payload_sha256": "3d3c1fb7cf49d99bc47ce1f2b174bf5ef3a742ae99494b542712b3dceafd604b",
+      "after_payload_sha256": "da89280c96c92fb64a278462ac705db7b1b2e2ac17ca63dbbf996737c471de69",
+      "complete_raw_metadata_sha256_utf8": "bb6b73e45718218446bf216b5d15d5aaee79a46fa1fef867ec076e22fd101462",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-932",
+      "source_sha256": "b1bb48a501986384301bd24f9c0b1bc7599d4da0d19604fc144b1d0f507665cc",
+      "baseline_payload_sha256": "dc885e70d3afb3ab0c5a7b943b033ad9f4e713c8d283de68521be4bfef189ec6",
+      "before_payload_sha256": "30404d5c675998fffccace9edbf672e861055824a26b439cfefe3db3dd54c3b0",
+      "after_payload_sha256": "ddd2f98e883683997dc1804c38cfea6bacb49538773424cdc9372c64b65f030e",
+      "complete_raw_metadata_sha256_utf8": "066dbc266bcd22714ce176040ca4fa247b8c806bced2eaa72da769f0b5dd97eb",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    },
+    {
+      "source_id": "FGDC-933",
+      "source_sha256": "8a2bab29e5a386269e6df531a8e146ee25261451fd0dd4734ef0ccb7f7f2b0db",
+      "baseline_payload_sha256": "57ea0149bf0cfb10d906f6e8e95ae5a92fc9f0acc1fa88afe1f5c2a2bd6f1849",
+      "before_payload_sha256": "085a7b039a53a4a536ab8a10fb35c45975baccd6e6d05b296bf8ac167d92a2fa",
+      "after_payload_sha256": "dfe41bc535f7182e7c9421028cd4a610628d93c1551f252ef0e0f993bf00ae5d",
+      "complete_raw_metadata_sha256_utf8": "d08a604a9209190f68c4b564eb65307e061d33b2c9e364d74f32ad7a1899e06e",
+      "added_policy_key": "source_scope_attestation",
+      "actual_interpretation_status": "REVIEWER_RECONCILED",
+      "source_constraints": {
+        "./idinfo/accconst": "Contact Contributor",
+        "./idinfo/useconst": "Contact Contributor",
+        "./metainfo/metac": "Contact Contributor",
+        "./metainfo/metuc": "Contact Contributor"
+      }
+    }
+  ]
+}

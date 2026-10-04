@@ -1,0 +1,1323 @@
+{
+  "schema_version": 1,
+  "status": "QUESTION_REFINEMENT_ANALYSIS_ONLY",
+  "historical_input_path": "/tmp/pices-minimal-scope-question156-evidence.json",
+  "historical_input_sha256": "f515f99649e90586c2f5948dfaf03dba2df9f1479d4ee5633400bbb5f1de406a",
+  "historical_exception_members": [
+    {
+      "source_id": "FGDC-1318",
+      "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b"
+    },
+    {
+      "source_id": "FGDC-1771",
+      "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d"
+    },
+    {
+      "source_id": "FGDC-1864",
+      "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070"
+    },
+    {
+      "source_id": "FGDC-1994",
+      "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb"
+    },
+    {
+      "source_id": "FGDC-2086",
+      "source_sha256": "bd773c3800492e488e84f228dae101eb196ecff16380e3b523bde65fe4eaacca"
+    },
+    {
+      "source_id": "FGDC-2234",
+      "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+    },
+    {
+      "source_id": "FGDC-227",
+      "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220"
+    },
+    {
+      "source_id": "FGDC-3687",
+      "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b"
+    },
+    {
+      "source_id": "FGDC-4027",
+      "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92"
+    },
+    {
+      "source_id": "FGDC-4039",
+      "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd"
+    },
+    {
+      "source_id": "FGDC-4060",
+      "source_sha256": "81aefae301a9e7aa6e972970109225a5f8052b054731b3f4d6ed6536e6868892"
+    },
+    {
+      "source_id": "FGDC-53",
+      "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45"
+    },
+    {
+      "source_id": "FGDC-563",
+      "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28"
+    },
+    {
+      "source_id": "FGDC-564",
+      "source_sha256": "2638d5dbf5ca41f28037d2a291321e34693c3172152858644d2fe65086e2f8aa"
+    },
+    {
+      "source_id": "FGDC-565",
+      "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d"
+    },
+    {
+      "source_id": "FGDC-572",
+      "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a"
+    },
+    {
+      "source_id": "FGDC-627",
+      "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29"
+    },
+    {
+      "source_id": "FGDC-648",
+      "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01"
+    },
+    {
+      "source_id": "FGDC-710",
+      "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a"
+    },
+    {
+      "source_id": "FGDC-711",
+      "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d"
+    },
+    {
+      "source_id": "FGDC-754",
+      "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62"
+    },
+    {
+      "source_id": "FGDC-755",
+      "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+    },
+    {
+      "source_id": "FGDC-757",
+      "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+    },
+    {
+      "source_id": "FGDC-758",
+      "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212"
+    },
+    {
+      "source_id": "FGDC-759",
+      "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9"
+    },
+    {
+      "source_id": "FGDC-760",
+      "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+    },
+    {
+      "source_id": "FGDC-761",
+      "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf"
+    },
+    {
+      "source_id": "FGDC-766",
+      "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5"
+    },
+    {
+      "source_id": "FGDC-802",
+      "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61"
+    },
+    {
+      "source_id": "FGDC-862",
+      "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec"
+    },
+    {
+      "source_id": "FGDC-870",
+      "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f"
+    },
+    {
+      "source_id": "FGDC-909",
+      "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae"
+    }
+  ],
+  "historical_exception_membership_sha256": "7fd6285210f3ef1b3805db874b7d714b6c7f2941f538ce35bd6370cb1bdc857d",
+  "historical_group_counts": {
+    "metadata_product": 3,
+    "sensitive_or_cultural_content": 11,
+    "omitted_or_unclear_terms": 18
+  },
+  "historical_exception_groups_preserved": [
+    {
+      "label": "Metadata is also the described resource",
+      "basis": "FGDC-53 expressly offers inventory information; FGDC-1994 offers ArcView/Excel/ProCite metadata entries; FGDC-1318 describes vendor metadata pages. The distinction between underlying data and the restored metadata is not self-evident when metadata itself is the underlying resource.",
+      "scope_question": "Is the exact FGDC XML a separately public catalogue description covered by the existing restoration permission, or is any of its content subject to the inventory/metadatabase/vendor-metadata conditions?",
+      "member_count": 3,
+      "members": [
+        {
+          "source_id": "FGDC-1318",
+          "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b"
+        },
+        {
+          "source_id": "FGDC-1994",
+          "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb"
+        },
+        {
+          "source_id": "FGDC-53",
+          "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45"
+        }
+      ],
+      "membership_sha256": "1da24a4bc9e8e8c8550e2b35c64a945d395ca8892bb57e1e5f24263e4a479c90"
+    },
+    {
+      "label": "The XML description may itself fall within an explicit sensitive condition",
+      "basis": "These sources explicitly record classified/sensitive, secure/closed cultural-site or conditional subsistence-publication restrictions. FGDC-909 also contains model-configuration description. An old public catalogue or a restricted attachment does not, by itself, identify whether that descriptive content is within the recorded condition; raw XML is also retained in publicly readable metadata notes.",
+      "scope_question": "Which, if any, content in these exact original XML descriptions is covered by the recorded classified/sensitive/cultural/subsistence conditions, as distinct from protected underlying data or site products?",
+      "member_count": 11,
+      "members": [
+        {
+          "source_id": "FGDC-2086",
+          "source_sha256": "bd773c3800492e488e84f228dae101eb196ecff16380e3b523bde65fe4eaacca"
+        },
+        {
+          "source_id": "FGDC-2234",
+          "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+        },
+        {
+          "source_id": "FGDC-563",
+          "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28"
+        },
+        {
+          "source_id": "FGDC-564",
+          "source_sha256": "2638d5dbf5ca41f28037d2a291321e34693c3172152858644d2fe65086e2f8aa"
+        },
+        {
+          "source_id": "FGDC-565",
+          "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d"
+        },
+        {
+          "source_id": "FGDC-627",
+          "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29"
+        },
+        {
+          "source_id": "FGDC-754",
+          "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62"
+        },
+        {
+          "source_id": "FGDC-755",
+          "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+        },
+        {
+          "source_id": "FGDC-757",
+          "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+        },
+        {
+          "source_id": "FGDC-760",
+          "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+        },
+        {
+          "source_id": "FGDC-909",
+          "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae"
+        }
+      ],
+      "membership_sha256": "b72917781fb39e90223ba9fb11a44fc6e4687703684ac54b5e5a16d163f88fb2"
+    },
+    {
+      "label": "Omitted or mismatched referenced terms may include descriptions",
+      "basis": "The frozen reviews identify omitted site policies/disclaimers, a CZCS-versus-SeaWiFS restriction mismatch, IOC/IODE rules, DCW Government clauses, public-record code/SOP conditions, PacFIN confidentiality terms, an agreement/consent decree and an incomplete University of Alaska Draft. Existing permission to restore metadata is already asserted; the missing issue is the precise condition/object incorporated by each source, not a request for a new license.",
+      "scope_question": "What exact referenced conditions were intended, and do any apply to these original XML descriptions? If they concern only the underlying resource, keep them as recorded resource conditions; do not invent a policy, assume an exemption or fetch underlying data.",
+      "member_count": 18,
+      "members": [
+        {
+          "source_id": "FGDC-1771",
+          "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d"
+        },
+        {
+          "source_id": "FGDC-1864",
+          "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070"
+        },
+        {
+          "source_id": "FGDC-227",
+          "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220"
+        },
+        {
+          "source_id": "FGDC-3687",
+          "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b"
+        },
+        {
+          "source_id": "FGDC-4027",
+          "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92"
+        },
+        {
+          "source_id": "FGDC-4039",
+          "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd"
+        },
+        {
+          "source_id": "FGDC-4060",
+          "source_sha256": "81aefae301a9e7aa6e972970109225a5f8052b054731b3f4d6ed6536e6868892"
+        },
+        {
+          "source_id": "FGDC-572",
+          "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a"
+        },
+        {
+          "source_id": "FGDC-648",
+          "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01"
+        },
+        {
+          "source_id": "FGDC-710",
+          "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a"
+        },
+        {
+          "source_id": "FGDC-711",
+          "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d"
+        },
+        {
+          "source_id": "FGDC-758",
+          "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212"
+        },
+        {
+          "source_id": "FGDC-759",
+          "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9"
+        },
+        {
+          "source_id": "FGDC-761",
+          "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf"
+        },
+        {
+          "source_id": "FGDC-766",
+          "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5"
+        },
+        {
+          "source_id": "FGDC-802",
+          "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61"
+        },
+        {
+          "source_id": "FGDC-862",
+          "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec"
+        },
+        {
+          "source_id": "FGDC-870",
+          "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f"
+        }
+      ],
+      "membership_sha256": "79b1333eb31a0607a80f4f2eb478d3f844dd3b38b429021d67ad971f7d30f784"
+    }
+  ],
+  "new_bounded_source_finding": {
+    "source_id": "FGDC-4060",
+    "path": "/tmp/pices-fgdc4060-disclaimer-reconciliation.json",
+    "sha256": "66c04fe8ccbc8b7b5dae2c5205d2ecee12e369bb148fe8a30a207091d96baf25",
+    "not_automatically_irreducible": true,
+    "not_in_frozen83": true
+  },
+  "current_exception_candidates": [
+    {
+      "source_id": "FGDC-1318",
+      "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b"
+    },
+    {
+      "source_id": "FGDC-1771",
+      "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d"
+    },
+    {
+      "source_id": "FGDC-1864",
+      "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070"
+    },
+    {
+      "source_id": "FGDC-1994",
+      "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb"
+    },
+    {
+      "source_id": "FGDC-2086",
+      "source_sha256": "bd773c3800492e488e84f228dae101eb196ecff16380e3b523bde65fe4eaacca"
+    },
+    {
+      "source_id": "FGDC-2234",
+      "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+    },
+    {
+      "source_id": "FGDC-227",
+      "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220"
+    },
+    {
+      "source_id": "FGDC-3687",
+      "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b"
+    },
+    {
+      "source_id": "FGDC-4027",
+      "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92"
+    },
+    {
+      "source_id": "FGDC-4039",
+      "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd"
+    },
+    {
+      "source_id": "FGDC-53",
+      "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45"
+    },
+    {
+      "source_id": "FGDC-563",
+      "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28"
+    },
+    {
+      "source_id": "FGDC-564",
+      "source_sha256": "2638d5dbf5ca41f28037d2a291321e34693c3172152858644d2fe65086e2f8aa"
+    },
+    {
+      "source_id": "FGDC-565",
+      "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d"
+    },
+    {
+      "source_id": "FGDC-572",
+      "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a"
+    },
+    {
+      "source_id": "FGDC-627",
+      "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29"
+    },
+    {
+      "source_id": "FGDC-648",
+      "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01"
+    },
+    {
+      "source_id": "FGDC-710",
+      "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a"
+    },
+    {
+      "source_id": "FGDC-711",
+      "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d"
+    },
+    {
+      "source_id": "FGDC-754",
+      "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62"
+    },
+    {
+      "source_id": "FGDC-755",
+      "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+    },
+    {
+      "source_id": "FGDC-757",
+      "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+    },
+    {
+      "source_id": "FGDC-758",
+      "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212"
+    },
+    {
+      "source_id": "FGDC-759",
+      "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9"
+    },
+    {
+      "source_id": "FGDC-760",
+      "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+    },
+    {
+      "source_id": "FGDC-761",
+      "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf"
+    },
+    {
+      "source_id": "FGDC-766",
+      "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5"
+    },
+    {
+      "source_id": "FGDC-802",
+      "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61"
+    },
+    {
+      "source_id": "FGDC-862",
+      "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec"
+    },
+    {
+      "source_id": "FGDC-870",
+      "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f"
+    },
+    {
+      "source_id": "FGDC-909",
+      "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae"
+    }
+  ],
+  "current_exception_candidates_membership_sha256": "c32f26d0571e7f0e7db1b9991c76e821384b72b709fd16772e5fd274beddd244",
+  "current_group_counts": {
+    "metadata_product": 3,
+    "sensitive_or_cultural_content": 11,
+    "omitted_or_unclear_terms": 17
+  },
+  "question": "Your permission to restore the catalogue metadata is already recorded. For the exact exceptions below, does an existing condition apply to any part of the original XML itself, including a metadata product or sensitive description, or only to the separate data/product? If it applies to XML, identify the source ID, content and condition; where a term is incomplete or refers elsewhere, identify the intended term. No new license or underlying-data permission is being requested.",
+  "question_needed_only_if_existing_evidence_cannot_resolve_exception": true,
+  "no_fresh_permission_question_for_exact83": true,
+  "remaining41_resource_condition_cases_not_declared_irreducible": true,
+  "all32_frozen_source_bindings": [
+    {
+      "source_id": "FGDC-1318",
+      "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b",
+      "title": "Alaska Basemap CD, version 2.0",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Must purchase the CD",
+        "./idinfo/useconst": "Refer to vendor policy.",
+        "./metainfo/metac": "Must purchase the CD",
+        "./metainfo/metuc": "Refer to vendor policy."
+      },
+      "prepared_payload_sha256": "9d02ca6810472f159d29c3ad833bdce8efa979abb500170cd543fd2ad9e1c5a4",
+      "raw_prepared_metadata_sha256": "3a1d099a6b9e7d3e0a336adcf461639e74394a563a4b2dc6f8a5ef11f06ba0a3",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-1318]",
+      "complete_serialized_xml_sha256": "32699bfbaac897dbb7ab1852fd54bd1d31acbd9f4d81951e8d9c35b6a1bf9fd2",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Purchase-CD instruction is product acquisition, but source use says Refer to vendor policy. and the full abstract explicitly mentions metadata pages for its maps/drawings/tables. Without policy content or a scope answer, the restrictive referral cannot be confined confidently to the CD alone.",
+      "issue_category": "vendor_policy_with_explicit_metadata_pages"
+    },
+    {
+      "source_id": "FGDC-1771",
+      "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d",
+      "title": "Nimbus-7 Coastal Zone Color Scanner (CZCS) Data",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION",
+        "./idinfo/useconst": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION",
+        "./metainfo/metac": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION",
+        "./metainfo/metuc": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION"
+      },
+      "prepared_payload_sha256": "5a7e8d2e4be4a7fa35bc11829c987b0d517ea390978d205e2df10b61d3a18335",
+      "raw_prepared_metadata_sha256": "066a2d9eab091be7429e74c6f9d3a88006c2cd219bf01b3f1a590b86dd465422",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-1771]",
+      "complete_serialized_xml_sha256": "926a2ada77dc29c3f43004d3e15f1e738d6c947f0d93469a33c103480ff9b308",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "The source is CZCS with an explicit CZCS FTP channel, but all four constraints name data/dataset/SEAWIFS. The complete XML has no explanation. No correction, cross-dataset policy equivalence or public-FTP permission is inferred.",
+      "issue_category": "mismatched_external_dataset_policy"
+    },
+    {
+      "source_id": "FGDC-1864",
+      "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070",
+      "title": "POI Oceanographic Temperature and Salinity Database on the North Pacific Ocean",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "IOC/IODE rules",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "IOC/IODE rules",
+        "./metainfo/metuc": "None"
+      },
+      "prepared_payload_sha256": "4a878fe766545c911c263e0d92a97f1f872583d814d67ba3334c85ba80521be8",
+      "raw_prepared_metadata_sha256": "905945b70a82639a89431082fd295afcce633548310951a0a6d752ce723bca13",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-1864]",
+      "complete_serialized_xml_sha256": "77b2e9da4436cdf5659af4b82c78723eccdbf70b0c5bce6d3bfb0547e02dccc4",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Complete XML identifies historical CTD/temperature/salinity/current datasets but does not supply or limit IOC/IODE rules. Such exchange rules may govern metadata as well as observations. Paired None use does not supply the missing scope/terms.",
+      "issue_category": "unspecified_external_data_exchange_rules"
+    },
+    {
+      "source_id": "FGDC-1994",
+      "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb",
+      "title": "A Fish and Wildlife Resource Inventory of the Cook Inlet and Kodiak Areas",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "prepared_payload_sha256": "00dfc4c37e7abe2cb4e8b2607a572021bc7d94dde63768379d3f91cc08e39968",
+      "raw_prepared_metadata_sha256": "81658e9578343b4009cf13906904b26327a65acec9c68a402308c6e7c951bc9a",
+      "frozen_review_input": "contact99",
+      "frozen_review_row_locator": "reviewed_results[source_id=FGDC-1994]",
+      "complete_source_context_projection_sha256": "7e82067e019263d2143ef7cd26f94b5e01202e1812deb36172c9f555505947b9",
+      "prior_review_decision": "RETAIN_HOLD",
+      "source_reason": "Abstract expressly offers a digital metadatabase in ArcView/Excel/ProCite formats from USGS, with an entry for this literature. It does not distinguish access/use of that metadatabase or its metadata from access/use of this original XML; repeated Contact Source remains unresolved. Keep literal raw date 122003 and all other metadata unchanged.",
+      "issue_category": "metadatabase_metadata_scope"
+    },
+    {
+      "source_id": "FGDC-2086",
+      "source_sha256": "bd773c3800492e488e84f228dae101eb196ecff16380e3b523bde65fe4eaacca",
+      "title": "Oceanographic Database (1894-1987) for the Bering Sea",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available.",
+        "./idinfo/useconst": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available.",
+        "./metainfo/metac": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available.",
+        "./metainfo/metuc": "These data are classified for foreign users. Russian scientists can process these data and results of research will be available."
+      },
+      "prepared_payload_sha256": "d158996a30d02b6a287e90ceb77ea99ae8e8f7c29407af992ed4f67ae9c104e9",
+      "raw_prepared_metadata_sha256": "7da874bcba461d8a7c33a774e16085d0a764c0b1be68937273a860e671beab71",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-2086]",
+      "complete_source_context_projection_sha256": "8d535d2db6129037ba637446abea3898e21b682c5255cc24482c95db260f9ce2",
+      "complete_serialized_xml_sha256": "28413c41f9ff3f020bf4bdea4e5514887697816d5b7cecc1c12a53c1f04f8f65",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The exact classification or broad sensitive-information condition is repeated in the metadata fields. The XML contains descriptive technical information (and FGDC-909 detailed model configuration), but the source does not delimit the sensitive/classified scope so that this catalogue content can be independently excluded. No public-copy or age inference supplies disclosure clearance; retain the hold pending exact XML-artifact scope confirmation.",
+      "issue_category": "classified_or_sensitive_scope_3"
+    },
+    {
+      "source_id": "FGDC-2234",
+      "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095",
+      "title": "Database of USCG Underway Inspections of Alaska Fishing Vessels",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Database is maintained on a standalone system and is considered sensitive.",
+        "./idinfo/useconst": "Information is sensitive and subject to certain restrictions under the Freedom of Information Act.",
+        "./metainfo/metac": "Database is maintained on a standalone system and is considered sensitive.",
+        "./metainfo/metuc": "Information is sensitive and subject to certain restrictions under the Freedom of Information Act."
+      },
+      "prepared_payload_sha256": "632ce5ecef672c098056ba77af383b60af970bd9525c213a819fcaf41d826102",
+      "raw_prepared_metadata_sha256": "b3e725e304e5259a4f4b5fe0675fa98a905af3788d965cc297232d0dc72cad72",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-2234]",
+      "complete_source_context_projection_sha256": "b871980f40b466cf991fada0c3aa00c88d56e860404fce3bc9de1037914687b8",
+      "complete_serialized_xml_sha256": "f150de1355827ae1a61c2d0c0e23cf4f46714df9f0d64b3e3deb86623bc1d2e0",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The exact classification or broad sensitive-information condition is repeated in the metadata fields. The XML contains descriptive technical information (and FGDC-909 detailed model configuration), but the source does not delimit the sensitive/classified scope so that this catalogue content can be independently excluded. No public-copy or age inference supplies disclosure clearance; retain the hold pending exact XML-artifact scope confirmation.",
+      "issue_category": "classified_or_sensitive_scope_3"
+    },
+    {
+      "source_id": "FGDC-227",
+      "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220",
+      "title": "US Commercial Fishery Landing Statistics (PacFIN)",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Upon request",
+        "./idinfo/useconst": "See http://www.psmfc.org/pacfin/6-4.htm#6.4.8%20Confidentiality%20of%20Data",
+        "./metainfo/metac": "Upon request",
+        "./metainfo/metuc": "See http://www.psmfc.org/pacfin/6-4.htm#6.4.8%20Confidentiality%20of%20Data"
+      },
+      "prepared_payload_sha256": "af2024213484024f235746edba81241fd9ba8632285c04a62a9dee1daa6ee000",
+      "raw_prepared_metadata_sha256": "fbe531fcd15684db3ce5ec7537f13ee57580671abb090a33fcd21fae219a8041",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-227]",
+      "complete_source_context_projection_sha256": "0ba2271b84813d5bf44aae5d3c9bb89dba95894de4fac6bded45d6c0824aeec2",
+      "complete_serialized_xml_sha256": "22b541e0553a1c3696f54f5ff1992aa1771df3b26d46d00c7a1ad985d3d88a6c",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The use constraint incorporates an external PacFIN Confidentiality of Data page. The XML identifies the link but does not reproduce its terms or delimit their application to metadata. No external request was made. Retain the hold until the incorporated terms and their application to this exact catalogue artifact are resolved; a historic public URL is not current clearance.",
+      "issue_category": "unseen_pacfin_terms_1"
+    },
+    {
+      "source_id": "FGDC-3687",
+      "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b",
+      "title": "CAS Ichthyology Primary Types Imagebase",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use",
+        "./idinfo/useconst": "Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use",
+        "./metainfo/metac": "Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use",
+        "./metainfo/metuc": "Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use"
+      },
+      "prepared_payload_sha256": "b08698c1b32c377fba1fca3f7541dcc18ce222f7cc21a003f264f96d8a98ba4a",
+      "raw_prepared_metadata_sha256": "e8f9fe7dbe97e3516e7b3fdad7c28b3f25a9eb2dd6718ec83ccd8410793233d1",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-3687]",
+      "complete_serialized_xml_sha256": "d68e9ec94f7dffb1292009891c8c8b5f864be8ccbc4297c19265fbf41100dcd1",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Full source describes both specimen/type information and images, but supplies no Use policy text or data-only scope. The about_types.html#Use link is not itself a rights grant or a proven exclusion of descriptive metadata.",
+      "issue_category": "unspecified_imagebase_use_policy_scope"
+    },
+    {
+      "source_id": "FGDC-4027",
+      "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92",
+      "title": "JAMSTEC Global Chemical Weather Forecasting System Forecasting Air Pollution on a Global Scale",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html",
+        "./idinfo/useconst": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html",
+        "./metainfo/metac": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html",
+        "./metainfo/metuc": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html"
+      },
+      "prepared_payload_sha256": "0241457c1b00ef1d678bcbc81f84577ea97cb69a5750101189883a5a51a1dd31",
+      "raw_prepared_metadata_sha256": "d4439036fe2490c2a85b71ad95c46549b11f4507817f2fd0e1a78f12dac45a68",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-4027]",
+      "complete_serialized_xml_sha256": "8eeec246e494c70ecb37e07267a7535af54f60d8cb99a7eafb324ac37a2b6d3d",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Full source identifies an online model-output viewer but does not contain the disclaimer. A project-path URL and online viewing availability do not establish disclaimer scope or permission to copy descriptions.",
+      "issue_category": "unspecified_project_disclaimer_scope"
+    },
+    {
+      "source_id": "FGDC-4039",
+      "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd",
+      "title": "JAMSTEC Ocean General Circulation Model for the Earth Simulator (OFES)",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "User registration required.",
+        "./idinfo/useconst": "Review http://www.jamstec.go.jp/site_policy_e.html",
+        "./metainfo/metac": "User registration required.",
+        "./metainfo/metuc": "Review http://www.jamstec.go.jp/site_policy_e.html"
+      },
+      "prepared_payload_sha256": "d122496fc164dcdaed457461781b8022926818cb87b276b66cb8fb573016bb07",
+      "raw_prepared_metadata_sha256": "69745548bf14410f3592f0768fb20dfe1e7c54e39fc713a0641b0796674952f5",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-4039]",
+      "complete_serialized_xml_sha256": "4164661dfe663871dc0ebefce3fbb45a534299afb5be50adb4346bc7772cfc6c",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "The full OFES source describes model outputs but does not explain registration/download context or give site-policy text. A generic site policy can cover website descriptions; no expansion of 4037 or 821 membership is inferred.",
+      "issue_category": "generic_site_policy_with_registration"
+    },
+    {
+      "source_id": "FGDC-4060",
+      "source_sha256": "81aefae301a9e7aa6e972970109225a5f8052b054731b3f4d6ed6536e6868892",
+      "title": "Puget Sound POM Model",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "See disclaimer",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "See disclaimer"
+      },
+      "prepared_payload_sha256": "fefdc2338d003c23ebd5fca05efddf13016a5e272b553dc3273550e0fb505758",
+      "raw_prepared_metadata_sha256": "2078346b0443ae36e759752ffadf909cc6b6d4310763e18d8ff5e324dbfd5036",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-4060]",
+      "complete_serialized_xml_sha256": "263e91d8eda7e354a0e9bb2fed43c755242077ba146661c8016cb5f1c03d12f7",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Complete XML describes Puget Sound hindcasts but contains neither a disclaimer URL/text nor contact-for-data acquisition context. Contact details do not supply policy scope or existing permission.",
+      "issue_category": "missing_disclaimer_and_generic_contact_scope"
+    },
+    {
+      "source_id": "FGDC-53",
+      "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45",
+      "title": "T&S profiles - NW Pacific, Bering, Okhotsk (Russia)",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Contact custodian or PICES Secretariat for inventory information",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian or PICES Secretariat for inventory information",
+        "./metainfo/metuc": "None"
+      },
+      "prepared_payload_sha256": "d1b88c913377550073a83bd07cf9ffbd233d496d2743c917089cb809ce16dfa3",
+      "raw_prepared_metadata_sha256": "7fad70b800f4f63204a1aec35b6bffbb1d6962f8f6eabe8e5e4e8439eed129b7",
+      "frozen_review_input": "contact99",
+      "frozen_review_row_locator": "reviewed_results[source_id=FGDC-53]",
+      "complete_source_context_projection_sha256": "eaafa0d3aa2655c6dd7598c3fc74be38766ced7e38813458e44a50e23f81dd1d",
+      "prior_review_decision": "RETAIN_HOLD",
+      "source_reason": "Access explicitly concerns inventory information and abstract offers observation distributions/section-location details from the PICES office. Inventory information could itself be metadata, so this is not safely equated to only the underlying profiles. Complete distributor/custodian and separate metadata contact add no explicit XML scope clarification.",
+      "issue_category": "inventory_metadata_scope"
+    },
+    {
+      "source_id": "FGDC-563",
+      "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28",
+      "title": "Archeological / Cultural Sites - CNF",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Not available; secure data",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Not available; secure data",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "4f108642d1b8db91e08cf89384cd2fa78ba5a74b692cf8e16989053c8824e5ba",
+      "raw_prepared_metadata_sha256": "11d47c9d081bba7064c2b8ca54baf39181f4aa6dec312fe0746be9df4cacd5fe",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-563]",
+      "complete_source_context_projection_sha256": "f4bc13aca322f1fed72d8de230795223d67d211e2e9c492f70850215c6da52f5",
+      "complete_serialized_xml_sha256": "0cfd2c4c8329704cafa21817544737e9ebceb20320449ce035c840c9c031fcdf",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The source addresses secure/unavailable cultural data, product-specific availability, closed archaeological/historical site information or conditional subsistence-site publication restrictions. The full XML contains resource descriptions, regional extents and sometimes cultural-layer/rights/purpose detail, with no individual site coordinates; that absence alone does not settle whether the source-owner restriction also covers this descriptive information or whether the conditional harm threshold is satisfied. Preserve the conditions and remain held for a source-specific metadata-disclosure/scope confirmation; do not supply a legal or community permission determination.",
+      "issue_category": "cultural_subsistence_scope_8"
+    },
+    {
+      "source_id": "FGDC-564",
+      "source_sha256": "2638d5dbf5ca41f28037d2a291321e34693c3172152858644d2fe65086e2f8aa",
+      "title": "Cultural Resource and Subsistence Use",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Contact John Johnson to determine availability of specific products.",
+        "./idinfo/useconst": "Chugach Alaska will be automating data 1995",
+        "./metainfo/metac": "Contact John Johnson to determine availability of specific products.",
+        "./metainfo/metuc": "Chugach Alaska will be automating data 1995"
+      },
+      "prepared_payload_sha256": "49bba600edbeb6c87d4ffbe7b31e06c06ab61466ac59e6ea7ec037944631b47e",
+      "raw_prepared_metadata_sha256": "d8aa6ca09921d067cb63ea70e97a69c67cac311271f0b023e939ed64136b5a0d",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-564]",
+      "complete_source_context_projection_sha256": "8e764eb6321640fba2351293af8b7e77894bdc09a5fd27855c1c5e549225e71d",
+      "complete_serialized_xml_sha256": "afb571841d103ab4dfade8599c5ec6bebe8711bdf48260184477244de050e6f4",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The source addresses secure/unavailable cultural data, product-specific availability, closed archaeological/historical site information or conditional subsistence-site publication restrictions. The full XML contains resource descriptions, regional extents and sometimes cultural-layer/rights/purpose detail, with no individual site coordinates; that absence alone does not settle whether the source-owner restriction also covers this descriptive information or whether the conditional harm threshold is satisfied. Preserve the conditions and remain held for a source-specific metadata-disclosure/scope confirmation; do not supply a legal or community permission determination.",
+      "issue_category": "cultural_subsistence_scope_8"
+    },
+    {
+      "source_id": "FGDC-565",
+      "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d",
+      "title": "Archeology Preliminary Sites - EVOS",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Archeological and historical site information is not publically available. as required by PL 96-95;AS 9.25.120 exception 4; Policy and Procedure No. 50200.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "436a88d78496023ac823ff29a5801c2fb2b3086bc49bf4de372fafa61d14d831",
+      "raw_prepared_metadata_sha256": "c506c9772bb7bc315ded76a417830fe57cb2a04114635f5ff18c09970c74c459",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-565]",
+      "complete_source_context_projection_sha256": "6502fecd82e7c6a5ec39893fdcae3d36622b63292df1409dc531cd2d672e9b7b",
+      "complete_serialized_xml_sha256": "2893582410e26764e3dee5f2e01ad51ca75168ebdefd762f976ef864cec42fda",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The source addresses secure/unavailable cultural data, product-specific availability, closed archaeological/historical site information or conditional subsistence-site publication restrictions. The full XML contains resource descriptions, regional extents and sometimes cultural-layer/rights/purpose detail, with no individual site coordinates; that absence alone does not settle whether the source-owner restriction also covers this descriptive information or whether the conditional harm threshold is satisfied. Preserve the conditions and remain held for a source-specific metadata-disclosure/scope confirmation; do not supply a legal or community permission determination.",
+      "issue_category": "cultural_subsistence_scope_8"
+    },
+    {
+      "source_id": "FGDC-572",
+      "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a",
+      "title": "Seal Harvest Data - EVOS",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "62bc1fe3dca2f8aba92c65ac774d9e6fda8f44d1c2a8fcfd19872e8abb15f8ee",
+      "raw_prepared_metadata_sha256": "60410479a54a58a4bd6a9c5e8b196a457deb0ee47e88dd6b291203a09dd08728",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-572]",
+      "complete_serialized_xml_sha256": "27925d7c6f194adcfc4e4c4369b7b35b4a39d3988807e1c486e45c7b0a97a4b1",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Source refers broadly to disclosure of public records and departmental public information, which may encompass descriptive records. Complete XML provides no limiting data-only interpretation or actual code/SOP content. Free hard-copy availability in 870 does not determine republication rights; sensitive subsistence/household/harvest/telemetry context is preserved. No statute interpretation, assumed waiver or source-date expiry is used.",
+      "issue_category": "public_record_code_and_department_SOP_scope"
+    },
+    {
+      "source_id": "FGDC-627",
+      "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29",
+      "title": "Boundaries:14(C)1, 14(H)1 and Native Allotments",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "prepared_payload_sha256": "b97e5b6eb531a4f2b7fe4c1dde9fdb37cec468d215f37ef58cc061c5a5f8569e",
+      "raw_prepared_metadata_sha256": "206d12c8ace34e1e3db4e762d6f440ffae23133d5449583291bdf4aacf692f47",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-627]",
+      "complete_source_context_projection_sha256": "efdcfd6e78ab6634278506e47164006e31b339fd9e059157e29f943c1eec0778",
+      "complete_serialized_xml_sha256": "32044c91ab82657ac85c1227ca83ee33e1024488bf048683d716b8af7bdb8b4a",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The source addresses secure/unavailable cultural data, product-specific availability, closed archaeological/historical site information or conditional subsistence-site publication restrictions. The full XML contains resource descriptions, regional extents and sometimes cultural-layer/rights/purpose detail, with no individual site coordinates; that absence alone does not settle whether the source-owner restriction also covers this descriptive information or whether the conditional harm threshold is satisfied. Preserve the conditions and remain held for a source-specific metadata-disclosure/scope confirmation; do not supply a legal or community permission determination.",
+      "issue_category": "cultural_subsistence_scope_8"
+    },
+    {
+      "source_id": "FGDC-648",
+      "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01",
+      "title": "August Shoreline Assessment Program",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Legal restrictions are as outlined in the Memorandum of Agreement and Consent Decree",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Legal restrictions are as outlined in the Memorandum of Agreement and Consent Decree",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      },
+      "prepared_payload_sha256": "ae00c7a0184bb36e52e43dfd0bd5cd27c85427ef636725e96bfdae3a6a11a4f2",
+      "raw_prepared_metadata_sha256": "75de604a5615331a9b034a34d8676c3d717115e7cf6ab07691d931b8741f4ac0",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-648]",
+      "complete_source_context_projection_sha256": "d4e0cb90f39e90bac18bd6c2e2da5c26afb3dd929dff2916fa0b766b5ef70042",
+      "complete_serialized_xml_sha256": "572e2f609d12730befd29cb8aa5b59e4f7060f32328843b019819ad4a43641cf",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The access constraint incorporates a Memorandum of Agreement and Consent Decree, neither supplied in the XML. The shoreline/database and numbering-system descriptions identify the underlying resource but cannot establish the omitted legal conditions or exclude metadata from them. Preserve the references and retain the hold pending the exact incorporated restrictions/scope.",
+      "issue_category": "unseen_moa_consent_decree_1"
+    },
+    {
+      "source_id": "FGDC-710",
+      "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a",
+      "title": "Harbor and Spotted Seals Telemetry Data",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Subject to provisions of Alaska Administrative Code on dis-closure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Subject to provisions of Alaska Administrative Code on dis-closure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "90e00cbdc505df8089c59277f6f1706f935ae13abfe9791dbc4c259ebbbea1ca",
+      "raw_prepared_metadata_sha256": "d3f38bf2cd5e9b3137a6a6d680af75a3f964854cf6daba4aca7d25a80de43c9b",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-710]",
+      "complete_serialized_xml_sha256": "962d3a75cd41cf9a92a60107c178557103d6d72ed0f05b860c592d42d57e43c1",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Source refers broadly to disclosure of public records and departmental public information, which may encompass descriptive records. Complete XML provides no limiting data-only interpretation or actual code/SOP content. Free hard-copy availability in 870 does not determine republication rights; sensitive subsistence/household/harvest/telemetry context is preserved. No statute interpretation, assumed waiver or source-date expiry is used.",
+      "issue_category": "public_record_code_and_department_SOP_scope"
+    },
+    {
+      "source_id": "FGDC-711",
+      "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d",
+      "title": "Moose Survey Data - CNF",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "fc381bcf7fc2b4d7b930fa0ef8645cb0d91c8c748410279f5aed51d729759c0e",
+      "raw_prepared_metadata_sha256": "1bb34ba27a4f47f5e230c3a80f211ea5d98b1e9105db2ac7a6db7ba8aa566173",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-711]",
+      "complete_serialized_xml_sha256": "c46ce51f500c586737516055939e4d6d3c006f8104561783d6d01f3140766c34",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Source refers broadly to disclosure of public records and departmental public information, which may encompass descriptive records. Complete XML provides no limiting data-only interpretation or actual code/SOP content. Free hard-copy availability in 870 does not determine republication rights; sensitive subsistence/household/harvest/telemetry context is preserved. No statute interpretation, assumed waiver or source-date expiry is used.",
+      "issue_category": "public_record_code_and_department_SOP_scope"
+    },
+    {
+      "source_id": "FGDC-754",
+      "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62",
+      "title": "Ahtna Clan Boundaries",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "prepared_payload_sha256": "4d102da2a484d8cc3bad31d7adb0bea41f189fb05e35c25a9dca1a1108b9b433",
+      "raw_prepared_metadata_sha256": "05e2225ece6264cff587c0467a5a33bd789c649d2b28f82c0e4ee09cee2da771",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-754]",
+      "complete_source_context_projection_sha256": "f81641082e536e2f7a4bf840c5d294f22236518c2d901b1cfe4a86876a8c7df6",
+      "complete_serialized_xml_sha256": "d9f366dc906a8ff8990e1905b897c34f5162ba5cf0bc7ae8febb2e1e4b9fea3a",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The source addresses secure/unavailable cultural data, product-specific availability, closed archaeological/historical site information or conditional subsistence-site publication restrictions. The full XML contains resource descriptions, regional extents and sometimes cultural-layer/rights/purpose detail, with no individual site coordinates; that absence alone does not settle whether the source-owner restriction also covers this descriptive information or whether the conditional harm threshold is satisfied. Preserve the conditions and remain held for a source-specific metadata-disclosure/scope confirmation; do not supply a legal or community permission determination.",
+      "issue_category": "cultural_subsistence_scope_8"
+    },
+    {
+      "source_id": "FGDC-755",
+      "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f",
+      "title": "Ahtna Place Names",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "prepared_payload_sha256": "4dcf770b60eb88f5fecdfeb31d3cc279d04e75e44fd8fdc879ab2fe1e4d6216f",
+      "raw_prepared_metadata_sha256": "8d63146cb03ed0a90cab42a13abd01f8a301c5dd67dc4e2f3d4b467ea4dd24b5",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-755]",
+      "complete_source_context_projection_sha256": "b19abc07fc03c83387195d9bd7eeedaab9ffe7c54ce24af4328a0cc71cb8c1f8",
+      "complete_serialized_xml_sha256": "c3b553039aa5d3b35e621506b75010ddd78b8a5b0e8d5b242a89c6a0e3e3a5b6",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The source addresses secure/unavailable cultural data, product-specific availability, closed archaeological/historical site information or conditional subsistence-site publication restrictions. The full XML contains resource descriptions, regional extents and sometimes cultural-layer/rights/purpose detail, with no individual site coordinates; that absence alone does not settle whether the source-owner restriction also covers this descriptive information or whether the conditional harm threshold is satisfied. Preserve the conditions and remain held for a source-specific metadata-disclosure/scope confirmation; do not supply a legal or community permission determination.",
+      "issue_category": "cultural_subsistence_scope_8"
+    },
+    {
+      "source_id": "FGDC-757",
+      "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392",
+      "title": "Copper River Basin Subsistence",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "prepared_payload_sha256": "70be0aa9279c73e2774247bf6c377299a5dd146bf8c543705f6c2ee37940e0df",
+      "raw_prepared_metadata_sha256": "038ed8cf35e9cec5436a50077a7f209188b09dac11af5dfc635feddda3541958",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-757]",
+      "complete_source_context_projection_sha256": "54b7b4ceb3ecfe129ce982ccebc4264d44fd7b7d27cb8f98b909074027b89f29",
+      "complete_serialized_xml_sha256": "d56f8ee1556068d8b57af2d555c0a22806982f654f7fdf831bec4b0ff49718f4",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The source addresses secure/unavailable cultural data, product-specific availability, closed archaeological/historical site information or conditional subsistence-site publication restrictions. The full XML contains resource descriptions, regional extents and sometimes cultural-layer/rights/purpose detail, with no individual site coordinates; that absence alone does not settle whether the source-owner restriction also covers this descriptive information or whether the conditional harm threshold is satisfied. Preserve the conditions and remain held for a source-specific metadata-disclosure/scope confirmation; do not supply a legal or community permission determination.",
+      "issue_category": "cultural_subsistence_scope_8"
+    },
+    {
+      "source_id": "FGDC-758",
+      "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212",
+      "title": "Copper River Communities Subsistence",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "20f8d2286bdacd730a847cc8a90bcf5f7c395000e6b44c02d3375d9c2404f6a4",
+      "raw_prepared_metadata_sha256": "5aa829fbb4a5d00897c169ac124c4c5de96119184595e219119ac2f52b9a990f",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-758]",
+      "complete_serialized_xml_sha256": "8e594d36351ccafffe025be9406ce3711ff4d68d4107845004aa7ba5467cf039",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Source refers broadly to disclosure of public records and departmental public information, which may encompass descriptive records. Complete XML provides no limiting data-only interpretation or actual code/SOP content. Free hard-copy availability in 870 does not determine republication rights; sensitive subsistence/household/harvest/telemetry context is preserved. No statute interpretation, assumed waiver or source-date expiry is used.",
+      "issue_category": "public_record_code_and_department_SOP_scope"
+    },
+    {
+      "source_id": "FGDC-759",
+      "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9",
+      "title": "EVOS Foodsites, Subsistence",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "7458663ba3c837e49f55420e91c4f429520f7538e139819d61a3736af8369349",
+      "raw_prepared_metadata_sha256": "8507e037d70ff01b23dc06f69ab1bc800b594c0f124c81f666fba9517bbe0792",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-759]",
+      "complete_serialized_xml_sha256": "7ad2b90691eb2be6c7c208008028daaa1274fe91af91468a3401cfc3f7d163b2",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Source refers broadly to disclosure of public records and departmental public information, which may encompass descriptive records. Complete XML provides no limiting data-only interpretation or actual code/SOP content. Free hard-copy availability in 870 does not determine republication rights; sensitive subsistence/household/harvest/telemetry context is preserved. No statute interpretation, assumed waiver or source-date expiry is used.",
+      "issue_category": "public_record_code_and_department_SOP_scope"
+    },
+    {
+      "source_id": "FGDC-760",
+      "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4",
+      "title": "Native Routes in The Ahtna Region",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./idinfo/useconst": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites.",
+        "./metainfo/metac": "A version of the database with individual names removed will be delivered to BLM and NPS.",
+        "./metainfo/metuc": "The database will have a restriction on publication of subsistence site information where such publication could lead to trespass and vandalization of sites."
+      },
+      "prepared_payload_sha256": "2086dc81a22250c357972788edbb850ffa818b4840f08607f1e85cbb59335149",
+      "raw_prepared_metadata_sha256": "d4cebb6dafe608b8078d401af270ff29925aa0882d0e73e23d29343aeea592ec",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-760]",
+      "complete_source_context_projection_sha256": "6e47413e98ea4e620ff8fb9af1ae60b0178e399d59026d2c0e8fdd7d490d990a",
+      "complete_serialized_xml_sha256": "a454c18c20e7187caa67e80558296d61dd4561338a76cd91e4daa95606fd16fa",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The source addresses secure/unavailable cultural data, product-specific availability, closed archaeological/historical site information or conditional subsistence-site publication restrictions. The full XML contains resource descriptions, regional extents and sometimes cultural-layer/rights/purpose detail, with no individual site coordinates; that absence alone does not settle whether the source-owner restriction also covers this descriptive information or whether the conditional harm threshold is satisfied. Preserve the conditions and remain held for a source-specific metadata-disclosure/scope confirmation; do not supply a legal or community permission determination.",
+      "issue_category": "cultural_subsistence_scope_8"
+    },
+    {
+      "source_id": "FGDC-761",
+      "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf",
+      "title": "Subsistence Harvest Areas - Whittier, Hope, Cooper Landing",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "bc9e06473698e5f49224b4e50e5d03d6a92593ea548f8bf64fadaa2889ba0719",
+      "raw_prepared_metadata_sha256": "ba465a3c9a01b1b8903ea34ba0e5d80128525070a165351eebe993250c990450",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-761]",
+      "complete_serialized_xml_sha256": "62a25e7afecc7adc44f4b93b577920afc2413c81673abdd81d08d34e61f7207a",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Source refers broadly to disclosure of public records and departmental public information, which may encompass descriptive records. Complete XML provides no limiting data-only interpretation or actual code/SOP content. Free hard-copy availability in 870 does not determine republication rights; sensitive subsistence/household/harvest/telemetry context is preserved. No statute interpretation, assumed waiver or source-date expiry is used.",
+      "issue_category": "public_record_code_and_department_SOP_scope"
+    },
+    {
+      "source_id": "FGDC-766",
+      "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5",
+      "title": "Subsidence Harvest Areas for Valdez, Alaska, U.S.A",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "1191c0450aa2ca3af8d42de28370341ee8f9d651e8c2007b0bf8b063237387ee",
+      "raw_prepared_metadata_sha256": "09871bced2fa10e1091855aacd2837090ae03ce65f72ba0072d26be0f67345d2",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-766]",
+      "complete_serialized_xml_sha256": "67d327a246275aa589c29016dcee39e31921bd9d0f9047ba7a1ef9e33c5a1535",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Source refers broadly to disclosure of public records and departmental public information, which may encompass descriptive records. Complete XML provides no limiting data-only interpretation or actual code/SOP content. Free hard-copy availability in 870 does not determine republication rights; sensitive subsistence/household/harvest/telemetry context is preserved. No statute interpretation, assumed waiver or source-date expiry is used.",
+      "issue_category": "public_record_code_and_department_SOP_scope"
+    },
+    {
+      "source_id": "FGDC-802",
+      "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61",
+      "title": "Digital Chart of the World (DCW)",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "The DCW is commercially available on ISO 9660 formatted CD-ROM discs from ESRI. Consult ESRI for latest database acquisition costs.",
+        "./idinfo/useconst": "Use, duplication, and disclosure by the Government is subject to restrictions as set forth in FAR 52.227-14 Alternat III (g)(3)(JUN 1987), FAR 52.227-19 (c)(1)(ii)(OCT 1988), as applicable.",
+        "./metainfo/metac": "The DCW is commercially available on ISO 9660 formatted CD-ROM discs from ESRI. Consult ESRI for latest database acquisition costs.",
+        "./metainfo/metuc": "Use, duplication, and disclosure by the Government is subject to restrictions as set forth in FAR 52.227-14 Alternat III (g)(3)(JUN 1987), FAR 52.227-19 (c)(1)(ii)(OCT 1988), as applicable."
+      },
+      "prepared_payload_sha256": "3eced68477440c6a0335478793627aeb5df626b625bab01460b6efbafe9edb70",
+      "raw_prepared_metadata_sha256": "9b33f111adb81ee5fe10c74c0016f6fd4f711f7bccfc4c5deec08649dba8ec31",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-802]",
+      "complete_serialized_xml_sha256": "2ff9b8d45c81d217499bed191aa6598b419e5a6c5c116b64c95b3dd9d57b8728",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "CD/database acquisition is explicit, but the Government restriction clauses are broad and their content/applicability is not provided. Full source mentions geographic, attribute and textual data plus a data dictionary. No FAR interpretation, contract/user status or exclusion of documentation/XML is inferred.",
+      "issue_category": "commercial_CD_and_government_restriction_scope"
+    },
+    {
+      "source_id": "FGDC-862",
+      "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec",
+      "title": "Alaska Biological Conservation Database",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Data can be obtained through written request form and formal data inquiry procedures that are in alignment with University of Alaska Draft",
+        "./idinfo/useconst": "Some locational data relating to threatened and Endangerred Species or sensitive data have associated use restrictions.",
+        "./metainfo/metac": "Data can be obtained through written request form and formal data inquiry procedures that are in alignment with University of Alaska Draft",
+        "./metainfo/metuc": "Some locational data relating to threatened and Endangerred Species or sensitive data have associated use restrictions."
+      },
+      "prepared_payload_sha256": "d821e25c143473b0985c988bb82230c21b69ed5d7140d76a1ea74a1d7a1f8627",
+      "raw_prepared_metadata_sha256": "c1ee423cc67ac54a34318b1703fe55627d0ef4849ffd4e8a4e7761776e92659e",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-862]",
+      "complete_source_context_projection_sha256": "9316c58b5d79700af0d7898e039fe0bc86ddded1eb7389b56cd334a96aea05ee",
+      "complete_serialized_xml_sha256": "e180d52995396e33ea9569f7f86a73d68b5d20f095e5ef3480281df4a2cb9b09",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The data-request procedure is said to align with University of Alaska Draft, but the source stops there and supplies neither the draft nor complete conditions. The XML also preserves use restrictions for sensitive species-location data. No individual species-location record appears in these exact bytes, but the incomplete incorporated conditions prevent a complete scope decision. Retain the hold pending the full draft terms or a source-specific XML metadata scope confirmation.",
+      "issue_category": "incomplete_university_draft_terms_1"
+    },
+    {
+      "source_id": "FGDC-870",
+      "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f",
+      "title": "Special Areas ATLAS - ADF&G",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information. Free hard copies are available.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information. Free hard copies are available.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "prepared_payload_sha256": "8f08644033185681a1705e8b43fb69c7b6456afc50eb157ca8784217378c1419",
+      "raw_prepared_metadata_sha256": "6a9e87ac77111d8423f6592a167b4857c383569d2a977da2dad125e20c9c4649",
+      "frozen_review_input": "unknown77",
+      "frozen_review_row_locator": "all77_reviewed_records[source_id=FGDC-870]",
+      "complete_serialized_xml_sha256": "753b4c53e8efddee147131afcd3ec246ebb8caf43c3be8e80960a609d81ecbf7",
+      "prior_review_decision": "HOLD_SOURCE_SCOPE_NOT_RESOLVED",
+      "source_reason": "Source refers broadly to disclosure of public records and departmental public information, which may encompass descriptive records. Complete XML provides no limiting data-only interpretation or actual code/SOP content. Free hard-copy availability in 870 does not determine republication rights; sensitive subsistence/household/harvest/telemetry context is preserved. No statute interpretation, assumed waiver or source-date expiry is used.",
+      "issue_category": "public_record_code_and_department_SOP_scope"
+    },
+    {
+      "source_id": "FGDC-909",
+      "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae",
+      "title": "Results from the Naval Postgraduate School Arctic Modeling Effort",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./idinfo/useconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metac": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metuc": "Permission of Contributor required. Department of Defense Sensitive data"
+      },
+      "prepared_payload_sha256": "6a7e5cfe1748048fd54c2ba77aa2e4def0a52ba3c5fab93cac7a24b47ecd2c66",
+      "raw_prepared_metadata_sha256": "6200124d622e704b365f588feb118aa89af1b28b56f9f0275fd7b5faca1f0105",
+      "frozen_review_input": "sensitive62",
+      "frozen_review_row_locator": "rows[member.source_id=FGDC-909]",
+      "complete_source_context_projection_sha256": "262bdbdba1f1271b9ed78281101a9bfbf08f54a51da13b7b30c48847c4f769c0",
+      "complete_serialized_xml_sha256": "6bedf89ce9e9d9f982e8ecd6570dd6245c8a2b1ae4bb8b2f15e45492aba50990",
+      "prior_review_decision": "retain_source_access_hold",
+      "source_reason": "The exact classification or broad sensitive-information condition is repeated in the metadata fields. The XML contains descriptive technical information (and FGDC-909 detailed model configuration), but the source does not delimit the sensitive/classified scope so that this catalogue content can be independently excluded. No public-copy or age inference supplies disclosure clearance; retain the hold pending exact XML-artifact scope confirmation.",
+      "issue_category": "classified_or_sensitive_scope_3"
+    }
+  ],
+  "representatives": [
+    {
+      "source_id": "FGDC-53",
+      "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45",
+      "title": "T&S profiles - NW Pacific, Bering, Okhotsk (Russia)",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Contact custodian or PICES Secretariat for inventory information",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Contact custodian or PICES Secretariat for inventory information",
+        "./metainfo/metuc": "None"
+      },
+      "abstract_verbatim": "Standard transects at various locations in the NW Pacific. Bering Sea and Sea of Okhotsk.\n\nGeographical Area:\nNW Pacific, Sea of Okhotsk and Bering Sea\n\nDistributions of observations by year/by month available from PICES office, as well as details on the location of the sections. Some of these data may be included in the World Ocean Atlas 1994\n\nA TCODE project",
+      "distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "whole_xml_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Pacific Fisheries Research Center (TINRO-Center)</origin>\n        <pubdate>Unknown</pubdate>\n        <title>T&amp;S profiles - NW Pacific, Bering, Okhotsk (Russia)</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Standard transects at various locations in the NW Pacific. Bering Sea and Sea of Okhotsk.\n\nGeographical Area:\nNW Pacific, Sea of Okhotsk and Bering Sea\n\nDistributions of observations by year/by month available from PICES office, as well as details on the location of the sections. Some of these data may be included in the World Ocean Atlas 1994\n\nA TCODE project</abstract>\n      <purpose />\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19520101</begdate>\n          <enddate />\n        </rngdates>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Continually</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>163</westbc>\n        <eastbc>-157</eastbc>\n        <northbc>65.5</northbc>\n        <southbc>52</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Temperature</themekey>\n        <themekey>Salinity</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact custodian or PICES Secretariat for inventory information</accconst>\n    <useconst>None</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bocharov, Lev</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>4 Shevchenko Alley</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax>7-4232-257-783</cntfax>\n        <cntemail>root@tinro.marine.su</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bocharov, Lev</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>4 Shevchenko Alley</address>\n          <city>Vladivostok</city>\n          <state>Primorye Region</state>\n          <postal>690600</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax>7-4232-257-783</cntfax>\n        <cntemail>root@tinro.marine.su</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19990720</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact custodian or PICES Secretariat for inventory information</metac>\n    <metuc>None</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "whole_xml_context_elements_sha256": {
+        ".": "c1180c64c55d19c8b2e7cb1db761de2e3deaf3f3b7895b60c126ca1d4f6e128d"
+      },
+      "prior_source_reason": "Access explicitly concerns inventory information and abstract offers observation distributions/section-location details from the PICES office. Inventory information could itself be metadata, so this is not safely equated to only the underlying profiles. Complete distributor/custodian and separate metadata contact add no explicit XML scope clarification."
+    },
+    {
+      "source_id": "FGDC-1994",
+      "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb",
+      "title": "A Fish and Wildlife Resource Inventory of the Cook Inlet and Kodiak Areas",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "abstract_verbatim": "This report references harvest data of fish species (Clupea pallasi) from Kodiak Island and Cook Inlet and harvest data of invertebrate species (Siliqua patula) from Cook Inlet, Alaska.\n\n  The aforementioned data are referenced in citation: Alaska Department of Fish and Game.  1977.  A fish and wildlife resource inventory of the Cook Inlet and Kodiak areas. Volume 2.  Alaska Coastal Management Program, Division of Policy Development and Planning, 443 p.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #22 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.",
+      "distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "whole_xml_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.</origin>\n        <pubdate>122003</pubdate>\n        <title>A Fish and Wildlife Resource Inventory of the Cook Inlet and Kodiak Areas</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>This report references harvest data of fish species (Clupea pallasi) from Kodiak Island and Cook Inlet and harvest data of invertebrate species (Siliqua patula) from Cook Inlet, Alaska.\n\n  The aforementioned data are referenced in citation: Alaska Department of Fish and Game.  1977.  A fish and wildlife resource inventory of the Cook Inlet and Kodiak areas. Volume 2.  Alaska Coastal Management Program, Division of Policy Development and Planning, 443 p.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #22 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.</abstract>\n      <purpose>Part of the design effort of the \"Alternative Sampling Designs for Nearshore Monitoring\" (Gulf Ecosystem Monitoring and Research Project).  Provides a comprehensive historical perspective of locations and types of past studies conducted in the nearshore marine communities within Gulf of Alaska in the form of a geographical information system database.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <mdattim>\n          <sngdate>\n            <caldate>1914-1928, 1939-1959, 1962-1974, 1965-1976, 1969-1976.</caldate>\n          </sngdate>\n        </mdattim>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-154.01</westbc>\n        <eastbc>-152.44</eastbc>\n        <northbc>59.51</northbc>\n        <southbc>57.84</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Fish</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Fish Species (Clupea pallasi)</themekey>\n        <themekey>Invertebrate Species (Siliqua patula)</themekey>\n        <themekey>Cook Inlet, Alaska</themekey>\n        <themekey>Kodiak Island, Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact Source</accconst>\n    <useconst>Contact Source</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bodkin, James L.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3550</cntvoice>\n        <cntfax />\n        <cntemail>james_bodkin@usgs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bodkin, James L.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3550</cntvoice>\n        <cntfax />\n        <cntemail>james_bodkin@usgs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20040723</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact Source</metac>\n    <metuc>Contact Source</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "whole_xml_context_elements_sha256": {
+        ".": "2165dd46bbe65aca8f95413e9647208ede8c1e5b762a25a3058d3a15b5fef589"
+      },
+      "prior_source_reason": "Abstract expressly offers a digital metadatabase in ArcView/Excel/ProCite formats from USGS, with an entry for this literature. It does not distinguish access/use of that metadatabase or its metadata from access/use of this original XML; repeated Contact Source remains unresolved. Keep literal raw date 122003 and all other metadata unchanged."
+    },
+    {
+      "source_id": "FGDC-1318",
+      "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b",
+      "title": "Alaska Basemap CD, version 2.0",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Must purchase the CD",
+        "./idinfo/useconst": "Refer to vendor policy.",
+        "./metainfo/metac": "Must purchase the CD",
+        "./metainfo/metuc": "Refer to vendor policy."
+      },
+      "abstract_verbatim": "The Alaska Basemap CD is a compilation of more than 150 maps and tables all about Alaska. Version 2.0 of the CD also contains ESRI's free ArcExplorer software so that the 650 megabytes of Alaskan information can be accessed on Windows 95/NT platforms without the need to purchase any specialized geographic information systems (GIS) software. These pages contain specific metadata about each of the maps, drawings, and tables on the CD.",
+      "distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "whole_xml_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Resource Data, Inc.</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Alaska Basemap CD, version 2.0</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>The Alaska Basemap CD is a compilation of more than 150 maps and tables all about Alaska. Version 2.0 of the CD also contains ESRI's free ArcExplorer software so that the 650 megabytes of Alaskan information can be accessed on Windows 95/NT platforms without the need to purchase any specialized geographic information systems (GIS) software. These pages contain specific metadata about each of the maps, drawings, and tables on the CD.</abstract>\n      <purpose>To provide information about Alaska.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Publication Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>0</westbc>\n        <eastbc>0</eastbc>\n        <northbc>0</northbc>\n        <southbc>0</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Alaska</themekey>\n        <themekey>Digital Maps</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Must purchase the CD</accconst>\n    <useconst>Refer to vendor policy.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Resource Data, Inc.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1205 E. International Airport Road Ste. 100</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99518-1559</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-563-8100</cntvoice>\n        <cntfax>907-561-0159</cntfax>\n        <cntemail>info@resdat.com</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Resource Data, Inc.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1205 E. International Airport Road Ste. 100</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99518-1559</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-563-8100</cntvoice>\n        <cntfax>907-561-0159</cntfax>\n        <cntemail>info@resdat.com</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20030610</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Must purchase the CD</metac>\n    <metuc>Refer to vendor policy.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "whole_xml_context_elements_sha256": {
+        ".": "ac42df2c02767ee5f0da2e4bafee0a21f0058d97dc414bd4b4f76fe212dfb9b1"
+      },
+      "prior_source_reason": "Purchase-CD instruction is product acquisition, but source use says Refer to vendor policy. and the full abstract explicitly mentions metadata pages for its maps/drawings/tables. Without policy content or a scope answer, the restrictive referral cannot be confined confidently to the CD alone."
+    },
+    {
+      "source_id": "FGDC-563",
+      "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28",
+      "title": "Archeological / Cultural Sites - CNF",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Not available; secure data",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Not available; secure data",
+        "./metainfo/metuc": "Unknown"
+      },
+      "abstract_verbatim": "Data Type: Cultural Resources;  Archeological and cultural resource described with codes for inside of buffered area, unique FS Cultural Resource Inventory Number, BLM serial file designator, and national register status.",
+      "distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "whole_xml_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>USDA Forest Service, Chugach National Forest</origin>\n        <pubdate>1950-1980</pubdate>\n        <title>Archeological / Cultural Sites - CNF</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Cultural Resources;  Archeological and cultural resource described with codes for inside of buffered area, unique FS Cultural Resource Inventory Number, BLM serial file designator, and national register status.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19500101</begdate>\n          <enddate>19891231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-148</westbc>\n        <eastbc>-145</eastbc>\n        <northbc>61</northbc>\n        <southbc>59.45</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Geology</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Archeology</themekey>\n        <themekey>Cultural Sites</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Not available; secure data</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020424</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Not available; secure data</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "whole_xml_context_elements_sha256": {
+        ".": "f3c26c35dffe723071d3cca1d2ea90bd7efda832a916d8d527091177932e947a"
+      },
+      "prior_source_reason": "The source addresses secure/unavailable cultural data, product-specific availability, closed archaeological/historical site information or conditional subsistence-site publication restrictions. The full XML contains resource descriptions, regional extents and sometimes cultural-layer/rights/purpose detail, with no individual site coordinates; that absence alone does not settle whether the source-owner restriction also covers this descriptive information or whether the conditional harm threshold is satisfied. Preserve the conditions and remain held for a source-specific metadata-disclosure/scope confirmation; do not supply a legal or community permission determination."
+    },
+    {
+      "source_id": "FGDC-909",
+      "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae",
+      "title": "Results from the Naval Postgraduate School Arctic Modeling Effort",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./idinfo/useconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metac": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metuc": "Permission of Contributor required. Department of Defense Sensitive data"
+      },
+      "abstract_verbatim": "The Naval Postgraduate School 18-km coupled Arctic Ocean and sea ice model\nemploys the Parallel Ocean Program (POP) adapted to the Pan-Arctic region and coupled to a parallel version of the Hibler dynamic-thermodynamic sea ice model with viscous-plastic rheology and a zero-layer thermodynamics approximation. The model grid is configured on a rotated spherical coordinate system and its resolution is 1/6° (~18 km) with 30 levels. The model domain extends from Bering Strait through the Central Arctic, Nordic and Barents Seas into the sub-polar North Atlantic (to ~45°N) and it includes the Canadian Archipelago. Daily-averaged operational atmospheric fields from the European Centre for Medium-range Weather (ECMWF) for 1994-98 are used to force the model in addition to the 1979-93 reanalyzed data. It is important to note that the only interannual forcing in the model comes from the prescribed atmospheric fields. The model has been integrated initially for 200 years forced with 1990-94 atmospheric fields. It was then spun up for 20 years using the repeated 1979 annual cycle, which was followed by an additional 2-decade integration using 1979-1998 atmospheric data.\nThe new 9-km coupled ice-ocean model, developed at the Naval Postgraduate School (NPS) in Monterey, California, USA, is configured on a 1/12° and 45-level rotated spherical grid.  It consists of a regional adaptation of the POP, developed at the Los Alamos National Laboratory, coupled to a parallel version of the original Hibler dynamic-thermodynamic model with a viscous-plastic rheology.  The model uses ECMWF daily-averaged reanalyzed data for 1979-1993 and 1994-2002 operational products, including the surface incoming long wave and shortwave radiation, 2-m air temperature and dew point temperature, and 10-m winds.  The model incorporates a 2.5-km bathymetry field, developed by the International Bathymetry Charting of the Arctic Ocean project, interpolated to the 9-km grid.  The model domain extends from the\nPacific Ocean (~30°N) through the Central Arctic, Nordic and Barents Seas into the North Atlantic (to ~40°N) and it allows realistic exchanges through Bering Strait.  Results from the ongoing model integration are just becoming available.",
+      "distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "whole_xml_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Dr. Wieslaw Maslowski, Naval Postgraduate School, Monterey, California, USA</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Results from the Naval Postgraduate School Arctic Modeling Effort</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>The Naval Postgraduate School 18-km coupled Arctic Ocean and sea ice model\nemploys the Parallel Ocean Program (POP) adapted to the Pan-Arctic region and coupled to a parallel version of the Hibler dynamic-thermodynamic sea ice model with viscous-plastic rheology and a zero-layer thermodynamics approximation. The model grid is configured on a rotated spherical coordinate system and its resolution is 1/6° (~18 km) with 30 levels. The model domain extends from Bering Strait through the Central Arctic, Nordic and Barents Seas into the sub-polar North Atlantic (to ~45°N) and it includes the Canadian Archipelago. Daily-averaged operational atmospheric fields from the European Centre for Medium-range Weather (ECMWF) for 1994-98 are used to force the model in addition to the 1979-93 reanalyzed data. It is important to note that the only interannual forcing in the model comes from the prescribed atmospheric fields. The model has been integrated initially for 200 years forced with 1990-94 atmospheric fields. It was then spun up for 20 years using the repeated 1979 annual cycle, which was followed by an additional 2-decade integration using 1979-1998 atmospheric data.\nThe new 9-km coupled ice-ocean model, developed at the Naval Postgraduate School (NPS) in Monterey, California, USA, is configured on a 1/12° and 45-level rotated spherical grid.  It consists of a regional adaptation of the POP, developed at the Los Alamos National Laboratory, coupled to a parallel version of the original Hibler dynamic-thermodynamic model with a viscous-plastic rheology.  The model uses ECMWF daily-averaged reanalyzed data for 1979-1993 and 1994-2002 operational products, including the surface incoming long wave and shortwave radiation, 2-m air temperature and dew point temperature, and 10-m winds.  The model incorporates a 2.5-km bathymetry field, developed by the International Bathymetry Charting of the Arctic Ocean project, interpolated to the 9-km grid.  The model domain extends from the\nPacific Ocean (~30°N) through the Central Arctic, Nordic and Barents Seas into the North Atlantic (to ~40°N) and it allows realistic exchanges through Bering Strait.  Results from the ongoing model integration are just becoming available.</abstract>\n      <purpose>To advance the knowledge of Arctic Ocean dynamics and variability.  The model\nprovides large scale and long term data, while maintaining high resolution for better analysis.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19790101</begdate>\n          <enddate>20021201</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Continually</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-180</westbc>\n        <eastbc>180</eastbc>\n        <northbc>90</northbc>\n        <southbc>30</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Atmosphere</themekey>\n        <themekey>Meteorology</themekey>\n        <themekey>Ice Physics</themekey>\n        <themekey>Oceanography</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Model</themekey>\n        <themekey>Physical Oceanography</themekey>\n        <themekey>Global Change</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Permission of Contributor required. Department of Defense Sensitive data</accconst>\n    <useconst>Permission of Contributor required. Department of Defense Sensitive data</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Masklowski, Wieslaw</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>Dept of Oceanography, Building 232,  833 Dyer Road</address>\n          <city>Monterey</city>\n          <state>CA</state>\n          <postal>93943</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>831-656-3162</cntvoice>\n        <cntfax>831-656-2712</cntfax>\n        <cntemail>maslowsk@nps.navy.mil</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Masklowski, Wieslaw</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>Dept of Oceanography, Building 232,  833 Dyer Road</address>\n          <city>Monterey</city>\n          <state>CA</state>\n          <postal>93943</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>831-656-3162</cntvoice>\n        <cntfax>831-656-2712</cntfax>\n        <cntemail>maslowsk@nps.navy.mil</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20030213</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Permission of Contributor required. Department of Defense Sensitive data</metac>\n    <metuc>Permission of Contributor required. Department of Defense Sensitive data</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "whole_xml_context_elements_sha256": {
+        ".": "8e0f84e011d5e32127bb31e500c5ffb9752202a4916ebaa396ff23349411184d"
+      },
+      "prior_source_reason": "The exact classification or broad sensitive-information condition is repeated in the metadata fields. The XML contains descriptive technical information (and FGDC-909 detailed model configuration), but the source does not delimit the sensitive/classified scope so that this catalogue content can be independently excluded. No public-copy or age inference supplies disclosure clearance; retain the hold pending exact XML-artifact scope confirmation."
+    },
+    {
+      "source_id": "FGDC-4060",
+      "source_sha256": "81aefae301a9e7aa6e972970109225a5f8052b054731b3f4d6ed6536e6868892",
+      "title": "Puget Sound POM Model",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "See disclaimer",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "See disclaimer"
+      },
+      "abstract_verbatim": "The model provides daily hindcasts of the circulation, temperature and salinity in Puget Sound. These hindcases are calculated using calculated tides, atmospheric forcing from the UW Atmospheric MM5 model and river forcing from real-time data sensors from the USGS.",
+      "distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "whole_xml_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>University of Washington (UW), School of Oceanography</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Puget Sound POM Model</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>The model provides daily hindcasts of the circulation, temperature and salinity in Puget Sound. These hindcases are calculated using calculated tides, atmospheric forcing from the UW Atmospheric MM5 model and river forcing from real-time data sensors from the USGS.</abstract>\n      <purpose>To provide daily hindcasts of the circulation, temperature and salinity in Puget Sound to researchers.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-122.92</westbc>\n        <eastbc>-122.32</eastbc>\n        <northbc>48.29</northbc>\n        <southbc>47.17</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Atmosphere</themekey>\n        <themekey>Oceanography</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Puget Sound</themekey>\n        <themekey>Washington</themekey>\n        <themekey>North Pacific Ocean</themekey>\n        <themekey>Water Circulation</themekey>\n        <themekey>Water Temperature</themekey>\n        <themekey>Water Salinity</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact Source</accconst>\n    <useconst>See disclaimer</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Sarason, Christian P.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing Address</addrtype>\n          <address>Campus Box 355351</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98195-5351</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-543-1866</cntvoice>\n        <cntfax />\n        <cntemail>cbps@ocean.washington.edu</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Sarason, Christian P.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing Address</addrtype>\n          <address>Campus Box 355351</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98195-5351</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-543-1866</cntvoice>\n        <cntfax />\n        <cntemail>cbps@ocean.washington.edu</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20051228</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact Source</metac>\n    <metuc>See disclaimer</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "whole_xml_context_elements_sha256": {
+        ".": "076e26f49e4d6058ee93c827082de7612700958c8bcd01784af4114b09cf5eed"
+      },
+      "prior_source_reason": "Complete XML describes Puget Sound hindcasts but contains neither a disclaimer URL/text nor contact-for-data acquisition context. Contact details do not supply policy scope or existing permission."
+    },
+    {
+      "source_id": "FGDC-862",
+      "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec",
+      "title": "Alaska Biological Conservation Database",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Data can be obtained through written request form and formal data inquiry procedures that are in alignment with University of Alaska Draft",
+        "./idinfo/useconst": "Some locational data relating to threatened and Endangerred Species or sensitive data have associated use restrictions.",
+        "./metainfo/metac": "Data can be obtained through written request form and formal data inquiry procedures that are in alignment with University of Alaska Draft",
+        "./metainfo/metuc": "Some locational data relating to threatened and Endangerred Species or sensitive data have associated use restrictions."
+      },
+      "abstract_verbatim": "Data Type: Vegetation/Land Cover/Soils;  The Alaska Biological Conservation Database (BCD) is part of a standardized network among all fifty states, five Canadian Provinces, and eleven countries that provide information on population numbers, distribution, geography, ecology, rarity ranking and protection status for rare and sensitive plant and animal species, plant communities, and critical habitats. This database is a relational database management system application that contains many linked databases of which three are separate databases with a spatial component. These databases are the element occurrence database, the site database and the managed area database. Of these three data sets only the Element occurrence database has been automated in ARC/INFO GIS format to date.",
+      "distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "whole_xml_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>University of Alaska, Anchorage, Alaska Natural Heritage Program</origin>\n        <pubdate>1995</pubdate>\n        <title>Alaska Biological Conservation Database</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Vegetation/Land Cover/Soils;  The Alaska Biological Conservation Database (BCD) is part of a standardized network among all fifty states, five Canadian Provinces, and eleven countries that provide information on population numbers, distribution, geography, ecology, rarity ranking and protection status for rare and sensitive plant and animal species, plant communities, and critical habitats. This database is a relational database management system application that contains many linked databases of which three are separate databases with a spatial component. These databases are the element occurrence database, the site database and the managed area database. Of these three data sets only the Element occurrence database has been automated in ARC/INFO GIS format to date.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>71.24</northbc>\n        <southbc>51</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Biological Effects</themekey>\n        <themekey>Biology</themekey>\n        <themekey>Geology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Alaska</themekey>\n        <themekey>Vegetation</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Data can be obtained through written request form and formal data inquiry procedures that are in alignment with University of Alaska Draft</accconst>\n    <useconst>Some locational data relating to threatened and Endangerred Species or sensitive data have associated use restrictions.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020502</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Data can be obtained through written request form and formal data inquiry procedures that are in alignment with University of Alaska Draft</metac>\n    <metuc>Some locational data relating to threatened and Endangerred Species or sensitive data have associated use restrictions.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "whole_xml_context_elements_sha256": {
+        ".": "e0a08e9dc9ff0fbe24cb5e7c02fd87ab962908cb6f9637b7fdb8ea00f7146ee9"
+      },
+      "prior_source_reason": "The data-request procedure is said to align with University of Alaska Draft, but the source stops there and supplies neither the draft nor complete conditions. The XML also preserves use restrictions for sensitive species-location data. No individual species-location record appears in these exact bytes, but the incomplete incorporated conditions prevent a complete scope decision. Retain the hold pending the full draft terms or a source-specific XML metadata scope confirmation."
+    }
+  ],
+  "existing_statement_references": {
+    "rehosting": {
+      "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+      "attested_by": "Brett",
+      "attested_at": "2026-10-02",
+      "scope": "historical_geonetwork_metadata",
+      "source_hash_population": 4206,
+      "all156_exact_hashes_bound": true,
+      "grants_rehosting": true,
+      "grants_new_license": false,
+      "limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority.",
+      "independently_verified_agreement": false
+    },
+    "contact_source": {
+      "statement": "It means contact someone (source) to obtain the underlying dataset",
+      "wording": "Contact Source.",
+      "attested_at": "2026-10-02T18:26:45Z",
+      "provenance": {
+        "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+        "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+        "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+        "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+      },
+      "source_count": 1004,
+      "limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+    },
+    "contributor_or_source": {
+      "statement": "yes",
+      "original_question": "in the PICES records, does “Check with Contributor or Source.” mean contacting them to obtain the underlying dataset, just like “Contact Source.”, rather than restricting reposting the metadata?",
+      "wording": "Check with Contributor or Source.",
+      "attested_at": "2026-10-02T23:43:00Z",
+      "provenance": {
+        "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+        "question": "in the PICES records, does “Check with Contributor or Source.” mean contacting them to obtain the underlying dataset, just like “Contact Source.”, rather than restricting reposting the metadata?",
+        "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "timestamp_precision": "minute"
+      },
+      "source_count": 585,
+      "limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+    },
+    "oct3_scope": {
+      "statement": "they reply to the underlying data. all these metadata records were public before",
+      "attested_at": "2026-10-03T20:20:00Z",
+      "attested_by": "Brett",
+      "provenance": {
+        "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+        "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+      },
+      "original_question_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+      "original_three_questions": [
+        {
+          "cohort": "Contributor",
+          "count": 361,
+          "question": "For these exact 361 source/hash bindings, can you confirm that all four literal Check with Contributor fields refer only to contacting the contributor to obtain the underlying resource, and impose no separate contributor-clearance requirement on restricted, unlicensed rehosting of the descriptive FGDC XML? If clearance also applies to XML, identify the existing authorization and its conditions."
+        },
+        {
+          "cohort": "ADF&G",
+          "count": 351,
+          "question": "For these exact 351 source/hash bindings, does the literal Republication or Republications of materials in this report series may be authorized by the department condition govern only underlying report materials, or also reposting these descriptive FGDC XML artifacts? If it governs XML, what existing departmental authorization and conditions cover this reposting?"
+        },
+        {
+          "cohort": "Unknown",
+          "count": 109,
+          "question": "For these exact 109 source/hash bindings, can you attest that the literal Unknown in all four access/use fields was an unrecorded underlying-resource placeholder, with no separate restriction on reposting the descriptive FGDC XML? If that meaning cannot be established, what verified source-specific XML access/use terms apply?"
+        }
+      ],
+      "original_direct_question_count": 821,
+      "direct_question_membership_overlap_with156": 0,
+      "meaning": "underlying_data_restrictions_metadata_previously_public",
+      "distinction": "The direct reply addressed three specific questions. Its actual data-versus-public-metadata meaning is relevant to ordinary residual instructions; the exact821 manifest is a reproducibility boundary, not evidence that a new rehosting permission is absent for another catalogue source."
+    }
+  },
+  "why_oct3_does_not_automatically_resolve_content_exceptions": "The prior rehosting authority is already recorded and source-hash bound. The data-only/public-metadata statement resolves ordinary catalogue inquiry/placeholder meanings through exact reviewer reconciliation. It does not specify whether a metadata product, secure cultural/sensitive description inside XML, or a separately referenced/incomplete condition is included in the underlying resource. Clarify only an actual object/content or term exception that bounded evidence cannot resolve; no new blanket approval is required.",
+  "original821_direct_reply_preserved": true,
+  "original_oct3_reply": {
+    "statement": "they reply to the underlying data. all these metadata records were public before",
+    "attested_at": "2026-10-03T20:20:00Z",
+    "provenance": {
+      "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+      "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+      "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+    },
+    "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+    "original_question_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca"
+  },
+  "limits": {
+    "repository_edits": false,
+    "runtime_changes": false,
+    "source_or_metadata_edits": false,
+    "provider_network_requests": 0,
+    "credentials_or_private_stage_reads": false,
+    "tests_or_classifiers": false,
+    "new_broad_source_review": false,
+    "new_user_attestation_or_rights_grant": false,
+    "actual_eligibility_changes": 0
+  },
+  "hash_recipe": "Raw file bytes SHA256; canonical objects and source-root element-list context SHA256 use json.dumps(sort_keys=True,separators=(comma,colon),ensure_ascii=True). Original frozen member/context/metadata hashes retain their recorded recipes. Historical32 membership is unchanged."
+}

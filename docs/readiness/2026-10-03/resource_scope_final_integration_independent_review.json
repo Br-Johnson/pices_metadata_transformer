@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-04T01:09:24.060173+00:00",
+  "status": "CLEAR_FINAL_SOURCE106_INTEGRATION_ACCOUNTING_HANDOFF_AND_FROZEN_COMMIT",
+  "scope": "Brief independent accounting/helper/document/provenance review; no new classification, tests, provider work or full corpus audit",
+  "worktree": "/workspace/pices-next-confidentiality-cohort",
+  "final_source_commit": "eacabee183b6e3d012f8e5dc5e15fd030e2755ae",
+  "final_source_tree": "9bcb83edb246404b834918c79daa191a90b4a435",
+  "merged_main_parent": "e580b4136dc07f479ec6c4ea7223705fb4851a17",
+  "worktree_clean_at_freeze": true,
+  "previous_runtime_and_actual_delta_receipt": {
+    "path": "/tmp/pices-source106-implementation-independent-review.json",
+    "sha256": "e0d565f9fefd67f01abc96a3ce3f73a8815f5e82bb3f4a8a890837d24f381e33"
+  },
+  "all_nine_previously_tested_runtime_example_profile_test_byte_hashes_unchanged": {
+    "scripts/source_scope_attestation.py": "315c8aabaca8909c64b0e014e622f808e02370d2e3915a55fb60b509d2aa1eaf",
+    "scripts/dataset_access_interpretation.py": "606b5452a5cee6a274d786d56e59726435cfbd9245e69903a9c682d381732b7c",
+    "scripts/collection_qa.py": "0fc5f1772463f32de6a603d96a8b2c32c44c878fb1abe63d2b8e7556e363fd4f",
+    "scripts/agent_qa.py": "992e2e4449cbd860c7b42930679ccb069917e530f38e6689d7c04bd18287c59a",
+    "scripts/qa_manifest.py": "b164742379c5f26b121717a2ad874e2d827d56c9a83e2f3e86ae32ca9b2d2732",
+    "tests/test_resource_scope_reconciliation.py": "2658d5b2e1d611f6a535291c14d754c61a2bcab61034ce62a6e1117f1b9ee6cc",
+    "docs/readiness/2026-10-03/finite_source_resource_access_514.json": "203c050735a9dc755712acde70c0447b91f2bd6131dde53dd8195a0f2923d9a2",
+    "docs/readiness/2026-10-03/source_scope_reconciliation_904.json": "242024bcf750e0fd3ea0097ee34eb47fb86f0674fb554fe2e0b78ddce4a589c1",
+    "contracts/examples/resource_scope_reconciliation_106.json": "b52cc91b170f2ca582a5ebc3231ae01524a309773fc1b22c92aaa5b7aefc551c"
+  },
+  "all106_current_original_XML_hashes_match_frozen_independent_actual_inventory": true,
+  "tracked_original_XML_changes_against_merged_main": [],
+  "accounting_helper_review": {
+    "helper": {
+      "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/integrate_source_scope_counts.py",
+      "sha256": "3b59f1b70d6595f24849d7fff2537ae5a52161de41fe1397f081271c789469c9"
+    },
+    "exact_frozen_baseline_hash_and_4206_unique_identity_count_enforced": true,
+    "old_baseline_counts3468_732_6_enforced": true,
+    "exact_prior22_actual106_profiles514_904_shortlist31_pins_enforced": true,
+    "exact_disjoint128_members_source_and_baseline_payload_hash_bindings_enforced": true,
+    "only_held_to_supported_transitions_with_measured_preservation_flags_allowed": true,
+    "exact_new23_and83_membership_and_prior22_chain_enforced": true,
+    "all_unselected_baseline_statuses_and456_alias_holds_enforced": true,
+    "all31_exception_IDs_and4060_held_enforced": true,
+    "explicit_ValueError_require_guards": true,
+    "reads_cached_public_evidence_only_no_XML_provider_credentials": true
+  },
+  "independent_accounting_regeneration": {
+    "regenerated_artifact": {
+      "path": "/tmp/pices-source106-independent-regenerated-accounting.json",
+      "sha256": "02c82da229487ccfe77284cf019e0d9b8516eb736e1a2ba79e8ddd7403c381a0"
+    },
+    "published_artifact": {
+      "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/resource_scope_integrated_source_status.json",
+      "sha256": "02c82da229487ccfe77284cf019e0d9b8516eb736e1a2ba79e8ddd7403c381a0"
+    },
+    "exact_generated_and_published_byte_equality": true,
+    "cleared_environment": true,
+    "independent_expected_accounting": {
+      "path": "/tmp/pices-source106-independent-expected-accounting.json",
+      "sha256": "c037a366ba3ebda960b75ca69a1968b23b85d15ed0c6d9437a9eebd41f7ffc3c"
+    },
+    "all4206_source_hash_status_objects_equal_independent_baseline_plus_deltas": true,
+    "source_hash_status_only_inventory_sha256": "ad0b86ce62c4bda8505676656b6f24853f2e844d99fa9afa1ef87382662f4b32",
+    "all4206_records_with_evidence_label_sha256": "e2de4e8faf42b4d72eb43396a94eeeef34d954554536757605357532a8b2572c",
+    "measured_delta_evidence_labels_exact": 128,
+    "frozen_baseline_evidence_labels_exact": 4078,
+    "new106_provenance_split": {
+      "SOURCE_BACKED": 23,
+      "REVIEWER_RECONCILED": 83
+    },
+    "integrated_counts": {
+      "supported": 3596,
+      "held": 604,
+      "malformed": 6
+    },
+    "all31_exact_source_hash_bound_exceptions_remain_held": true,
+    "remaining31_family_counts": {
+      "metadata_product": 3,
+      "sensitive_or_cultural_content": 11,
+      "incorporated_or_incomplete_terms": 17
+    },
+    "FGDC4060_separate_finding_still_held": true,
+    "all456_alias_identities_still_held": true,
+    "remote_verified_total": 0,
+    "publication_approved_total": 0,
+    "fresh_full_corpus_audit": false
+  },
+  "handoff_and_validation_review": {
+    "handoff": {
+      "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/resource_scope_reconciliation_handoff.md",
+      "sha256": "7fa50e1a326631023cae4e80e51646edbeac9e808562b822370a2dd092684823"
+    },
+    "validation": {
+      "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/resource_scope_reconciliation_validation.json",
+      "sha256": "9e1a9f3fdf56c9d3d8bc09a70b0c0f357965d391943bf0ce14af6dc107849c34"
+    },
+    "handoff_relative_links_checked": 18,
+    "shortlist_relative_links_checked": 3,
+    "all_checked_relative_links_exist": true,
+    "all8_copied_review_delta_shortlist_historical32_and4060_artifacts_verbatim": [
+      {
+        "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/pices-remaining31-exception-decisions.json",
+        "sha256": "2edf6b9f599329ebff9f5449ff5e9c363baa3a049521edb3f88a55066416e387"
+      },
+      {
+        "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/pices-remaining31-exception-decisions.md",
+        "sha256": "225e759472a05e6bbb4ef14dd63d646c9f67a56f6f11ba3f66ffbbc0a8a12314"
+      },
+      {
+        "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/pices-remaining31-exception-decisions-independent-review.json",
+        "sha256": "74229405a7cca08b2a92378fc585dff6bef40698d626e96ca84f1147e7b50035"
+      },
+      {
+        "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/pices-minimal-scope-question32-evidence.json",
+        "sha256": "b77a7fe58b13b9090d29576305ec6640b33198c80025c9546017d29f4c458563"
+      },
+      {
+        "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/pices-fgdc4060-disclaimer-reconciliation.json",
+        "sha256": "66c04fe8ccbc8b7b5dae2c5205d2ecee12e369bb148fe8a30a207091d96baf25"
+      },
+      {
+        "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/resource_scope_implementation_independent_review.json",
+        "sha256": "e0d565f9fefd67f01abc96a3ce3f73a8815f5e82bb3f4a8a890837d24f381e33"
+      },
+      {
+        "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/resource_scope_actual_delta_independent_review.json",
+        "sha256": "ba400a71ac936318e2765e14b8addee6f603b24f32b4396bc307ccc89cd3f583"
+      },
+      {
+        "path": "/workspace/pices-next-confidentiality-cohort/docs/readiness/2026-10-03/resource_scope_bounded_delta_106.json",
+        "sha256": "dd559b5767dd3e8193b3a668176a58d8a018bb27ec13388bd8ff6c7976ef026d"
+      }
+    ],
+    "old_pending_commit_and_historical_projection_receipts_preserved_verbatim": true,
+    "this_receipt_supplies_final_commit_binding_without_rewriting_historical_receipts": true,
+    "no_fresh_full_corpus_or_provider_validation_claimed": true,
+    "new83_reviewer_provenance_distinct_from_immutable_original821_direct_answer": true,
+    "separate_XML_authority_restricted_blank_license_full_literal_conditions_and_release_gates_preserved": true,
+    "held604_partition_arithmetic": {
+      "other_creator_date_title_alias": 494,
+      "remaining_deferred_resource": 37,
+      "next_reviewed_resource_conditions": 41,
+      "historical32_including_unpromoted4060": 32
+    },
+    "next42_cohort_explicitly_outside_this_increment": true,
+    "parent_reported397_guarded_pass_recorded": {
+      "count": 397,
+      "seconds": 98.157,
+      "result": "PASS",
+      "log_sha256": "f041d916f9b6eb3820da0063a57faeea9410801c68629faf9bcdcb34d1f1e6b8",
+      "cleared_environment_fixture_tokens": true,
+      "requests_socket_dns_blocked": true
+    },
+    "independent_six_pass_receipt_and_actual106_hashes_match_validation": true,
+    "unchanged_legacy_I001_findings_labelled_as_baseline_not_new_source_defect": true
+  },
+  "material_findings": [],
+  "blockers": [],
+  "operations_this_followup": {
+    "repository_edits": 0,
+    "provider_requests": 0,
+    "credential_or_private_provider_reads": 0,
+    "test_reruns": 0,
+    "classification_calls": 0,
+    "full_corpus_or_broad_source_audits": 0,
+    "pure_accounting_regenerations": 1
+  }
+}
