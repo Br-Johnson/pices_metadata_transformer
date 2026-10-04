@@ -1,0 +1,95 @@
+{
+  "approved_for_live_dispatch": false,
+  "files": {
+    "README.txt": {
+      "bytes": 5933,
+      "sha256": "40dd5f7552bddf02e6c2cca8495dbc05ced020545a10a59ecc79eef53045eb2c"
+    },
+    "offline_demo.py": {
+      "bytes": 882,
+      "sha256": "7b546bcd6e8dfcb7b3e04faba21a473731a4fd5c77e5a79a2da5f9b011944697"
+    },
+    "requirements-transport.txt": {
+      "bytes": 88,
+      "sha256": "cdf2f7a79d496c5565955009f648dd2e5d24abfedc718945ee60c83a1ea7081f"
+    },
+    "response/README.txt": {
+      "bytes": 3563,
+      "sha256": "046c711b1cb229302fd8b4d9606dc9b9d214efed521bf2b23e00372370464536"
+    },
+    "response/response_capture.py": {
+      "bytes": 13483,
+      "sha256": "b3e40ba97d2b6f382a714ea9a4da0ec3e6303ed716e0e32218d94708d5a51913"
+    },
+    "response/test_response_capture.py": {
+      "bytes": 15960,
+      "sha256": "cb2262b0fcc49c8a69ea39652d1faaba21df99112a65265a536edae5368df965"
+    },
+    "review/test_observer_adversarial.py": {
+      "bytes": 5890,
+      "sha256": "e5dcdca2eed1e56ae7a6033367cb3a6032a67cace3ab69c0bbd6986421f09147"
+    },
+    "support/docs/handoff/modern-synthetic-canary-20261003-code-02/metadata-put.json": {
+      "bytes": 620,
+      "sha256": "0197c230248e4192866b8662fa60a4cca4b05ed0d060fc67f6a9102bb6180128"
+    },
+    "support/scripts/modern_canary_errors.py": {
+      "bytes": 12587,
+      "sha256": "c77945516a61236951b3e17252fd1abe1087c3c28f2c50e8b3f7a0712fd21bc9"
+    },
+    "support/scripts/modern_synthetic_canary.py": {
+      "bytes": 39267,
+      "sha256": "26e5a500b59061cbd1c57ac05c1c7bbe6c0300771116e0d6fef817e886798941"
+    },
+    "test_write_observer.py": {
+      "bytes": 17053,
+      "sha256": "6629dfba9a50935ad08ba83d6f1b8ef23e67b79f2a916afc3ee0cb52ca4848c3"
+    },
+    "verify_and_test.py": {
+      "bytes": 8449,
+      "sha256": "ed1aa6f395974c8df6516bdd8548f2ec5495cdf35b603156a9ca1156898df47a"
+    },
+    "write_observer.py": {
+      "bytes": 12294,
+      "sha256": "c039510536ab1e5f07ea7baad3ee0b2a2b95c89e095030668e5a01a0476baadc"
+    }
+  },
+  "packet": "pices-run02-diagnostic-minimal-git-handoff",
+  "python_version": "3.12.14",
+  "repository_handoff_files": [
+    "README.txt",
+    "TRANSFER_MANIFEST.json",
+    "offline_demo.py",
+    "requirements-transport.txt",
+    "response/README.txt",
+    "response/response_capture.py",
+    "response/test_response_capture.py",
+    "review/test_observer_adversarial.py",
+    "test_write_observer.py",
+    "verify_and_test.py",
+    "write_observer.py"
+  ],
+  "source_commit": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+  "support_git_objects": {
+    "support/docs/handoff/modern-synthetic-canary-20261003-code-02/metadata-put.json": {
+      "commit": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+      "source_path": "docs/handoff/modern-synthetic-canary-20261003-code-02/metadata-put.json"
+    },
+    "support/scripts/modern_canary_errors.py": {
+      "commit": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+      "source_path": "scripts/modern_canary_errors.py"
+    },
+    "support/scripts/modern_synthetic_canary.py": {
+      "commit": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+      "source_path": "scripts/modern_synthetic_canary.py"
+    }
+  },
+  "supported_runner_mode": "default40+simulated-demo; optional parser flags not included",
+  "transport_versions": {
+    "certifi": "2026.7.22",
+    "charset-normalizer": "3.5.2",
+    "idna": "3.20",
+    "requests": "2.34.2",
+    "urllib3": "2.8.0"
+  }
+}
