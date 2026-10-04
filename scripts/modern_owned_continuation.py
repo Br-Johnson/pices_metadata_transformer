@@ -207,7 +207,8 @@ def metadata_diagnostics(data, expected):
     actual = data.get('metadata') if isinstance(data, dict) else None
     actual = actual if isinstance(actual, dict) else {}
     result = {}
-    for name in ('title', 'publication_date', 'description', 'keywords', 'resource_type', 'creators'):
+    keyword_field = 'subjects' if 'subjects' in expected['metadata'] else 'keywords'
+    for name in ('title', 'publication_date', 'description', keyword_field, 'resource_type', 'creators'):
         result[name + '_present'] = name in actual
         wanted = expected['metadata'][name]
         value = actual.get(name)
@@ -267,7 +268,8 @@ class Controller(modern.Controller):
                        'Interrupted continuation held; no replay or reset')
         modern.require(self.state['create_started_at'] == self.original_state['create_started_at']
                        and self.state['create_received_at'] == self.original_state['create_received_at'])
-        self.initial, self.updated = modern.load(self.stage / 'create.json'), modern.load(self.stage / 'metadata-put.json')
+        self.initial = modern.modern_wire_payload(modern.load(self.stage / 'create.json'))
+        self.updated = modern.modern_wire_payload(modern.load(self.stage / 'metadata-put.json'))
         self.content, self.key = (self.stage / 'synthetic.xml').read_bytes(), self.plan['file_key']
         image = modern.load(self.stage / 'beforeimage.json')
         modern.require(token.encode() not in (self.stage / 'beforeimage.json').read_bytes()

@@ -1,0 +1,94 @@
+{
+  "actual_credential_environment_or_private_stage_reads": 0,
+  "artifact_sha256": {
+    "contracts/examples/modern_subjects_wire.json": "1d71e0c465f9863e76fc70ce974c924c21616ec713a3aaef0286e47b2030565e",
+    "docs/readiness/2026-10-03/modern_subjects_correction_handoff.md": "74e57d14931729707437c46e6193e12dc17ff6f10f7d3fb4524fd9966fdd7778",
+    "docs/readiness/2026-10-03/modern_subjects_fixture_wire_capture.json": "2890a81841318e67e077a4e2c6e58102b1029b2e0a44456dcb83dccf881ad4de",
+    "docs/readiness/2026-10-03/modern_subjects_schema_independent_review.json": "784480ceda0a19e83aae40fbb803eba2e7b2c1cf2dc31919779299944068c0c3",
+    "docs/readiness/2026-10-03/remaining604_next_cohort_selection.json": "d46cd89eaeaa66fb24f3c53eade665f1641bc6c2fda7067faf19689277db6cce"
+  },
+  "base_commit": "51eeefa0a2d874de8c11ef86a343d1033d7ec678",
+  "focused_tests": {
+    "count": 44,
+    "log": "/tmp/pices-modern-subjects-focused.log",
+    "log_sha256": "b36ae660ef604525dcd8eb17656f07f2c40c5adeda09fa7056a21bbe0e7b8ec0",
+    "result": "PASS",
+    "seconds": 1.35
+  },
+  "full_guarded_tests": {
+    "count": 404,
+    "log": "/tmp/pices-modern-subjects-full-guarded.log",
+    "log_sha256": "39baee32ec990d8187d560e5748be81594fdb64b88794bc2811c49bfaa34fc40",
+    "result": "PASS",
+    "seconds": 100.201
+  },
+  "historical_source_packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+  "independent_new_contracts": {
+    "count": 7,
+    "log": "/tmp/pices-modern-subjects-independent-focused.log",
+    "log_sha256": "2dfdb392c1d898d3d585041acbe00bef9cbae9a8d656bbb327dbbd17913cd212",
+    "result": "PASS",
+    "seconds": 0.087
+  },
+  "last_readback_helper_and_new_contracts": {
+    "count": 16,
+    "log": "/tmp/pices-modern-subjects-new-focused.log",
+    "log_sha256": "519d7a76b14aa715a5915f961ac76a82ded53f0d711713665f0589fd07b3517c",
+    "result": "PASS"
+  },
+  "parent_reported_canonical_get": {
+    "all_six_metadata_fields_absent": true,
+    "beforeimage_sha256": "866775b60653bd5b25b1a59d9965fb070e07213a9310948f152df5d300fcee1b",
+    "checkpoint": "canonical_projection_complete",
+    "cumulative_get": 197,
+    "file_access_matches": false,
+    "get_errors_container_present": false,
+    "identity_owner_firstdraft_links_emptyfiles_match": true,
+    "pending": false,
+    "put_transient_errors_known": false,
+    "record_access_matches": true,
+    "root_read_private_response": false
+  },
+  "preserved_boundaries": [
+    "Historical input packet, captures, receipts and sealed beforeimages remain unchanged.",
+    "Old runtime grants fail before transport; no stage migration, allowance reset, adoption or new create.",
+    "Spent/uncertain intents and expired mutation authority remain held.",
+    "No repaired PUT plan, replacement window, live read, controller execution, publish or delete.",
+    "Safe error flags exclude messages, unknown paths and values; no metadata-cause inference."
+  ],
+  "provider_requests": 0,
+  "provider_writes": 0,
+  "ruff": {
+    "log": "/tmp/pices-modern-subjects-ruff.log",
+    "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "result": "PASS",
+    "rules": "E4,E7,E9,F,I,B"
+  },
+  "runtime_sha256": {
+    "scripts/modern_canary_errors.py": "f6393fde1dddb6e2c751e7ab8d8ec18261d55c93bf29603e531117f0c361aa54",
+    "scripts/modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
+    "scripts/modern_request_body_diagnostics.py": "70c303d5302ae1fb4698739bc304b8cd44e0c0424d8b449c7b948b38d457c29d",
+    "scripts/modern_synthetic_canary.py": "3a28f4d42640a9ab19485334178db724df8c15bcbdc490e4d2d3d2327478685d"
+  },
+  "schema_version": 1,
+  "scope": "Fixed fictional subjects wire projection and closed transient validation-error flags; no provider action authority",
+  "source_status_unchanged": {
+    "alias_identity_holds": 456,
+    "exact_exception_holds": 31,
+    "held": 604,
+    "malformed": 6,
+    "next_cohort_selection_only": 42,
+    "supported": 3596
+  },
+  "test_environment": {
+    "environment_cleared_before_run": true,
+    "fixture_tokens_only": true,
+    "requests_socket_dns_blocked": true
+  },
+  "test_sha256": {
+    "tests/test_modern_owned_continuation.py": "d8791d960dc82d5f16619942efddb65c43022e218aac702b2012a11c782fcdaa",
+    "tests/test_modern_request_body_diagnostics.py": "6ce226eef19ad061f2cc057793bd43fa861902b55170c3971ac189500e05b951",
+    "tests/test_modern_subjects_contract.py": "83b32d3b0530424064106bf4b782b366b324093c24d238b21a1b553f5c234d01",
+    "tests/test_modern_synthetic_canary.py": "439c052b29a82f6bdab47d8290e34e3c9af0f406e80b590c956e5d5286cfad43"
+  }
+}

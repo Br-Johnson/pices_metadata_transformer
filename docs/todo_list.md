@@ -1,3 +1,13 @@
+# Fixed synthetic subjects correction — 2026-10-04
+
+- [x] Reconcile parent-reported canonical GET197: retained identity/owner/first-draft/links/files match, all six metadata fields absent, file access mismatches, GET errors absent; preserve failed stages and expired mutation authority.
+- [x] Verify pinned modern subjects/free-text schemas; project only the fixed fictional namespace without editing historical source packet or production mappings.
+- [x] Persist closed credential-free validation-error flags before status/identity rejection, including400/200/201; no messages/unknown paths or extra provider action.
+- [x] Pass404 guarded tests,44 focused tests, seven independently repeated new contracts and isolated Ruff; old grants reject before transport and failed attempts remain spent.
+- [x] Freeze modern and historical offline body captures and identify largest currently cleared42-source cohort among604 holds; no profile integration or count change.
+- [ ] Parent to commission any separately reviewed same-draft recovery plan/authority; current handoff authorizes no PUT/create/read/stage reset.
+- [ ] Integrate the selected42 only in a subsequent source PR with measured exact delta and preservation review after this correction merges.
+
 # Remaining-source finite cohorts — 2026-10-03
 
 - [x] Independently review exact22 CNF/GIS copy-media resource descriptions, preserving Unknown and every underlying condition; defer60 other candidates and consolidate156 unresolved access cases into15 plain-language question families.

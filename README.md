@@ -67,6 +67,12 @@ must fall within the existing user approval; code changes issue no live grant.
 The [run02 body diagnostics](docs/readiness/2026-10-03/run02_body_diagnostics_handoff.md)
 capture prepared JSON offline and freeze one canonical readback under the existing
 recovery expiry. Both spent failed stages remain held; no repeated PUT or create.
+The [fixed synthetic subjects correction](docs/readiness/2026-10-03/modern_subjects_correction_handoff.md)
+projects the immutable fictional input to the modern subjects schema and retains
+closed validation-error field flags before contract failure. All404 guarded tests
+pass. Parent reports canonical GET197 still lacks all intended metadata; the same
+draft remains held without a repaired PUT plan. Source counts remain3596/604/6;
+the independently cleared next42 are identified only, awaiting separate integration.
 The
 [exact821 source scope answer](docs/readiness/2026-10-03/source_scope_attestation.md)
 supports791 promotions while retaining30 independent holds.

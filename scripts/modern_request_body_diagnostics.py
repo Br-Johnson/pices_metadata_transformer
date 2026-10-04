@@ -19,14 +19,16 @@ import requests
 
 from scripts import modern_owned_continuation as owned
 from scripts import modern_synthetic_canary as modern
-from scripts.modern_canary_errors import credential_echoed
+from scripts.modern_canary_errors import (
+    VALIDATION_ERROR_FIELDS,
+    credential_echoed,
+    validation_errors_projection,
+)
 
 FIXTURE_TOKEN = 'offline-body-diagnostic-fixture-token'
 MAX_BODY = 65536
 FIELDS = ('title', 'publication_date', 'description', 'keywords', 'resource_type', 'creators')
-ERROR_FIELDS = ('metadata', 'metadata.keywords', 'metadata.subjects', 'metadata.resource_type',
-                'metadata.creators', 'metadata.title', 'metadata.publication_date',
-                'metadata.publisher', 'metadata.description', 'access', 'access.files', 'files')
+ERROR_FIELDS = VALIDATION_ERROR_FIELDS
 
 
 class CaptureStop(BaseException):
@@ -93,12 +95,14 @@ def prepared_projection(prepared, expected, token, method, url, options):
                   allow_redirects_false=options.get('allow_redirects') is False,
                   verify_enabled=options.get('verify') not in (None, False, ''),
                   stream_true=options.get('stream') is True,
-                  six_metadata_fields_present=isinstance(metadata, dict) and all(k in metadata for k in FIELDS),
+                  six_metadata_fields_present=isinstance(metadata, dict) and all(
+                      (('subjects' if 'subjects' in expected['metadata'] else 'keywords') if k == 'keywords' else k)
+                      in metadata for k in FIELDS),
                   access_matches=access == expected['access'])
     return result
 
 
-def capture_fixed_bodies(token):
+def capture_fixed_bodies(token, modern_wire=True):
     """Prepare the supported Session.request route; replace send before use.
 
     All adapters and socket/DNS boundaries are also blocked. No fallback to the
@@ -118,7 +122,7 @@ def capture_fixed_bodies(token):
                 for name, method, path in (('create.json', 'POST', '/api/records'),
                                            ('metadata-put.json', 'PUT', '/api/records/101/draft')):
                     raw = (modern.PACKET / name).read_bytes()
-                    expected = json.loads(raw)
+                    expected = modern.modern_wire_payload(json.loads(raw)) if modern_wire else json.loads(raw)
                     captures = []
                     url = modern.ORIGIN + path
 
@@ -142,27 +146,13 @@ def capture_fixed_bodies(token):
                 session.send = original_send
     return {'kind': 'pices_modern_offline_prepared_body_v1', 'provider_requests': 0,
             'adapter_calls': 0, 'historical_transmission_proven': False,
+            'payload_mode': 'modern_subjects_wire' if modern_wire else 'historical_source_body',
             'packet_sha256': modern.PACKET_SHA, 'captures': results}
 
 
 def error_projection(data):
-    """Project modern flat error entries; suppress messages and unknown paths."""
-    present = isinstance(data, dict) and 'errors' in data
-    errors = data.get('errors') if present else None
-    result = {'errors_present': present, 'errors_type': label(errors) if present else 'missing',
-              'errors_count': len(errors) if isinstance(errors, list) else None,
-              'errors_shape_supported': isinstance(errors, list), 'unknown_error_field_present': False}
-    result.update({name.replace('.', '_') + '_error_present': False for name in ERROR_FIELDS})
-    if isinstance(errors, list):
-        for item in errors:
-            field = item.get('field') if isinstance(item, dict) else None
-            if field in ERROR_FIELDS:
-                result[field.replace('.', '_') + '_error_present'] = True
-            else:
-                result['unknown_error_field_present'] = True
-            if not isinstance(item, dict) or not isinstance(field, str):
-                result['errors_shape_supported'] = False
-    return result
+    """Retained pure-helper interface; implementation is also runtime-bound."""
+    return validation_errors_projection(data)
 
 
 def canonical_readback_projection(raw, token, expected_identity, owner):
@@ -178,7 +168,9 @@ def canonical_readback_projection(raw, token, expected_identity, owner):
     if echoed(raw, data, token):
         return {'credential_echoed': True, 'safe_beforeimage_to_retain': False}
     modern.packet()
-    expected = modern.load(modern.PACKET / 'metadata-put.json')
+    historical = modern.load(modern.PACKET / 'metadata-put.json')
+    expected = modern.modern_wire_payload(historical)
+    metadata = data.get('metadata') if isinstance(data.get('metadata'), dict) else {}
     parent = data.get('parent') if isinstance(data.get('parent'), dict) else {}
     parent_access = parent.get('access') if isinstance(parent.get('access'), dict) else {}
     ownership = parent_access.get('owned_by') if isinstance(parent_access.get('owned_by'), dict) else {}
@@ -198,20 +190,24 @@ def canonical_readback_projection(raw, token, expected_identity, owner):
             'files_remain_empty': files.get('enabled') is True and files.get('entries') == {}
             and type(files.get('count')) is int and files['count'] == 0
             and type(files.get('total_bytes')) is int and files['total_bytes'] == 0,
+            'keywords_present': 'keywords' in metadata,
+            'keywords_type': label(metadata.get('keywords')) if 'keywords' in metadata else 'missing',
+            'keywords_matches': metadata.get('keywords') == historical['metadata']['keywords'],
             **owned.metadata_diagnostics(data, expected), **error_projection(data)}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--use-existing-private-sandbox-token', action='store_true')
+    parser.add_argument('--historical-source-body', action='store_true')
     args = parser.parse_args()
     try:
         if args.use_existing_private_sandbox_token:
-            result = capture_fixed_bodies(os.environ.get('ZENODO_SANDBOX_TOKEN'))
+            result = capture_fixed_bodies(os.environ.get('ZENODO_SANDBOX_TOKEN'), not args.historical_source_body)
             result['token_mode'] = 'sole_executor_private'
         else:
             with patch.dict(os.environ, {}, clear=True), patch('requests.sessions.get_netrc_auth', return_value=None):
-                result = capture_fixed_bodies(FIXTURE_TOKEN)
+                result = capture_fixed_bodies(FIXTURE_TOKEN, not args.historical_source_body)
             result['token_mode'] = 'fixture'
         print(json.dumps(result, sort_keys=True))
         return 0

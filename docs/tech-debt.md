@@ -1,5 +1,20 @@
 # Tech Debt Log
 
+## Fixed modern subjects schema and transient errors — 2026-10-04
+
+The immutable fictional code02 input used legacy keywords in a modern draft body.
+An explicit deep-copy runtime projection now emits one subject-only object, with
+the exact source packet and historical preparation retained. Readback validates
+full subject equality. Runtime hash changes deliberately invalidate old grants;
+no failed-stage migration or allowance reset is provided. Complete credential-free
+JSON responses retain only closed error-field flags before status/identity failure.
+These flags describe container/field shape, not message validity or permission to
+continue. The parent-reported GET197 proves intended metadata did not persist but
+cannot recover transient PUT errors or establish all failure causes. A future
+same-draft plan must bind current evidence, changed runtime and explicit authority
+without replaying spent attempts. Source ledger3596/604/6 is unchanged; next42 are
+selection-only. See `readiness/2026-10-03/modern_subjects_correction_handoff.md`.
+
 ## Modern transport evidence boundaries — 2026-10-03
 
 A durable action intent spends the allowance before preparation/send. It cannot prove network dispatch. The fixed diagnostic correction records trusted phase/exception enums, local send/adapter observations, response status independently of body projection and aware first/cleanup failure capture times. No arbitrary exception text or old-stage migration/reset. Exact runtime binding intentionally refuses consumed grants; future observability does not authorize another create. The original modern cause remains unknown; all allowances and historical193 reads stay held/preserved. Search window defaults cap10000 results, so a finite200-page/240-GET plan cannot promise a16538-entry inventory. An explicitly newest ordered prefix supplies candidate evidence only, with a separately approved GET-only ledger and no absence/adoption conclusion. See readiness/2026-10-03/modern_transport_diagnostics.md and review/validation receipts.
