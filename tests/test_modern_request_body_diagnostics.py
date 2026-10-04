@@ -27,7 +27,7 @@ class BodyDiagnosticsTests(unittest.TestCase):
 
     def test_real_session_prepares_frozen_json_before_any_adapter(self):
         with patch('requests.adapters.HTTPAdapter.send', side_effect=AssertionError('adapter called')) as adapter:
-            result = d.capture_fixed_bodies(d.FIXTURE_TOKEN)
+            result = d.capture_fixed_bodies(d.FIXTURE_TOKEN, modern_wire=False)
         self.assertEqual(adapter.call_count, 0)
         self.assertEqual(result['provider_requests'], 0)
         self.assertFalse(result['historical_transmission_proven'])

@@ -30,3 +30,8 @@ publication remain separate. Orphan draft/PID reconciliation may be required
 after uncertainty; no automatic cleanup or adoption is introduced.
 
 See [approval/runtime instructions](../readiness/2026-10-03/modern_synthetic_approval_plan.md).
+
+The [2026-10-04 fixed subjects correction](../readiness/2026-10-03/modern_subjects_correction_handoff.md)
+adds an explicit historical-input to modern-wire projection and closed transient
+error flags. It preserves the architecture/action bounds while changing runtime
+bindings; all spent grants/stages stay held, with no automatic migration or replay.

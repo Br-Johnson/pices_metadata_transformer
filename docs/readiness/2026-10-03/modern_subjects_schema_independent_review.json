@@ -1,0 +1,76 @@
+{
+  "independent_activity": {
+    "implementation_tests_run": 0,
+    "private_reads": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "public_primary_source_reads": true,
+    "repository_edits": 0
+  },
+  "practical_limits": [
+    "Primary locked source compatibility is not deployed Sandbox verification.",
+    "This known input defect alone does not establish the cause of the historically missing metadata and file-access fields.",
+    "No live or framework-integrated schema execution was performed; framework packages are absent from the review venv.",
+    "No provider/private environment/credential/stage or ledger was read."
+  ],
+  "primary_evidence": [
+    {
+      "lines": "58-78",
+      "observed": "SubjectRelationSchema declares free-text subject, optional identifiers; scheme/title/props/synonyms dump-only; unknown input fields excluded.",
+      "url": "https://raw.githubusercontent.com/inveniosoftware/invenio-vocabularies/25815eecf1c962bbbb89db5f79d5cddcd4ea58f5/invenio_vocabularies/contrib/subjects/schema.py"
+    },
+    {
+      "lines": "57-82",
+      "observed": "ContribVocabularyRelationSchema has optional id and requires either nonempty id or configured free-text value.",
+      "url": "https://raw.githubusercontent.com/inveniosoftware/invenio-vocabularies/25815eecf1c962bbbb89db5f79d5cddcd4ea58f5/invenio_vocabularies/services/schema.py"
+    },
+    {
+      "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/metadata.py",
+      "local_sha256": "01c3c04db0bbbc1a381e3b602415c98aabe496387fd47051a661c4d80a7c177d",
+      "observed": "Modern metadata declares subjects nested SubjectRelationSchema and no keywords; publisher optional.",
+      "url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/schemas/metadata.py#L351-L387"
+    },
+    {
+      "observed": "Legacy keyword loader returns one subject-only dictionary per keyword.",
+      "url": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/site/zenodo_rdm/legacy/deserializers/metadata.py#L345-L353"
+    }
+  ],
+  "recommended_focused_boundaries": [
+    "Projection leaves both whole source objects and packet bytes unchanged, including nested creator/access/files fields.",
+    "Reject wrong namespace, malformed keyword list, existing subjects and input mutation.",
+    "Readback rejects missing/wrong/duplicate subjects and subject objects containing inferred identifiers/schemes/extra fields.",
+    "Both shared and owned controllers compare expected projected body; old grants/state and cached completion fail current runtime binding.",
+    "Capture explicitly distinguishes source-input bytes/SHA, projected canonical JSON bytes/SHA and actual prepared bytes/SHA."
+  ],
+  "result": "PLAN_SUPPORTED_IMPLEMENTATION_REVIEW_PENDING",
+  "schema_version": 1,
+  "scope": "Pinned public primary-source subject schema check and bounded offline correction design; no deployed support or causal conclusion",
+  "source_repository": {
+    "locked_vocabulary_sdist_sha256": "57aecdbef48dfdbfb654af978e0546dad37f1c9eb7c6b282611d2ddd536b5852",
+    "locked_vocabulary_version": "14.4.0",
+    "uv_lock_sha256": "aa05d6aef7de46bae73d9eb342c53180b0143c331d51a5a92dde1341d933d84f",
+    "vocabulary_peeled_commit": "25815eecf1c962bbbb89db5f79d5cddcd4ea58f5",
+    "vocabulary_tag_object": "5a1161044e86f4ed04bc29dc2975d6dd71ab1910",
+    "zenodo_commit": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7",
+    "zenodo_release": "v26.6.1"
+  },
+  "supported_minimal_contract": {
+    "changed_runtime_binding_rejects_old_grants_before_transport": true,
+    "exact_subject_object_equality_no_server_extra_alias_or_enrichment_acceptance": true,
+    "keep_historical_source_packet_and_receipts_immutable": true,
+    "no_new_grant_stage_create_budget_reset_or_execution_authority": true,
+    "nonmutating_exact_fixed_source_projection": true,
+    "reject_preexisting_subjects_or_keyword_shape_and_namespace_drift": true,
+    "remove_only_metadata_keywords_add_only_metadata_subjects": true,
+    "separate_historical_source_hash_from_projected_canonical_json_and_prepared_body_hashes": true,
+    "source_keywords": [
+      "pices-modern-synthetic-20261003-code-02"
+    ],
+    "wire_expected_body_used_in_both_controller_paths": true,
+    "wire_subjects": [
+      {
+        "subject": "pices-modern-synthetic-20261003-code-02"
+      }
+    ]
+  }
+}

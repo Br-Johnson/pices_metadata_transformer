@@ -13,6 +13,39 @@ import unicodedata
 from html.parser import HTMLParser
 from urllib.parse import quote, unquote
 
+VALIDATION_ERROR_FIELDS = (
+    'metadata', 'metadata.keywords', 'metadata.subjects', 'metadata.resource_type',
+    'metadata.creators', 'metadata.title', 'metadata.publication_date',
+    'metadata.publisher', 'metadata.description', 'access', 'access.files', 'files',
+)
+
+
+def validation_errors_projection(data):
+    """Closed modern validation flags only, after caller checks credential echoes.
+
+    Messages and unknown field paths are never returned. A shape flag describes
+    the flat field-entry container only; this evidence never grants an action.
+    """
+    present = isinstance(data, dict) and 'errors' in data
+    errors = data.get('errors') if present else None
+    labels = {str: 'string', dict: 'object', list: 'array', int: 'integer',
+              bool: 'boolean', type(None): 'null'}
+    result = {'errors_present': present,
+              'errors_type': labels.get(type(errors), 'other') if present else 'missing',
+              'errors_count': len(errors) if isinstance(errors, list) else None,
+              'errors_shape_supported': isinstance(errors, list), 'unknown_error_field_present': False}
+    result.update({name.replace('.', '_') + '_error_present': False for name in VALIDATION_ERROR_FIELDS})
+    if isinstance(errors, list):
+        for item in errors:
+            field = item.get('field') if isinstance(item, dict) else None
+            if field in VALIDATION_ERROR_FIELDS:
+                result[field.replace('.', '_') + '_error_present'] = True
+            else:
+                result['unknown_error_field_present'] = True
+            if not isinstance(item, dict) or not isinstance(field, str):
+                result['errors_shape_supported'] = False
+    return result
+
 
 def credential_echoed(data, token):
     """Check decoded JSON too: quotes, backslashes and Unicode can be escaped."""

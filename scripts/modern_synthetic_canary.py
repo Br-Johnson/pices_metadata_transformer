@@ -18,7 +18,11 @@ from urllib.parse import quote
 
 import requests
 
-from scripts.modern_canary_errors import credential_echoed, response_projection
+from scripts.modern_canary_errors import (
+    credential_echoed,
+    response_projection,
+    validation_errors_projection,
+)
 
 NAMESPACE = 'pices-modern-synthetic-20261003-code-02'
 ORIGIN = 'https://sandbox.zenodo.org'
@@ -208,9 +212,25 @@ def approval(stage, now):
     return grant
 
 
+def modern_wire_payload(source):
+    """Project the fixed historical fictional input; never mutate its evidence.
+
+    RDM uses free-text subjects. Only this exact canary namespace is converted;
+    production/source transforms and general keyword normalization are untouched.
+    The changed runtime hash binds this projection, invalidating old live grants.
+    """
+    require(isinstance(source, dict) and isinstance(source.get('metadata'), dict))
+    require(source['metadata'].get('keywords') == [NAMESPACE]
+            and 'subjects' not in source['metadata'])
+    result = deepcopy(source)
+    result['metadata'].pop('keywords')
+    result['metadata']['subjects'] = [{'subject': NAMESPACE}]
+    return result
+
+
 def validate_metadata(actual, expected):
     require(isinstance(actual, dict))
-    for key in ('title', 'publication_date', 'description', 'keywords'):
+    for key in ('title', 'publication_date', 'description', 'subjects'):
         require(actual.get(key) == expected[key])
     require(isinstance(actual.get('resource_type'), dict)
             and actual['resource_type'].get('id') == expected['resource_type']['id'])
@@ -269,8 +289,8 @@ class Controller:
             self.state['grant_sha256'] = digest
             save(self.stage, self.state)
         require(self.state['grant_sha256'] == digest)
-        self.initial = load(self.stage / 'create.json')
-        self.updated = load(self.stage / 'metadata-put.json')
+        self.initial = modern_wire_payload(load(self.stage / 'create.json'))
+        self.updated = modern_wire_payload(load(self.stage / 'metadata-put.json'))
         self.content = (self.stage / 'synthetic.xml').read_bytes()
         self.key = self.plan['file_key']
 
@@ -389,6 +409,16 @@ class Controller:
             self.state['responses'].append(projection)
             projected = True
             self.persist()
+            if complete and not binary and self.token.encode() not in raw:
+                # Capture safe schema flags even on HTTP400 before status rejection.
+                # Never persist parsed data, messages or credential-bearing fields.
+                try:
+                    diagnostic_data = json.loads(raw)
+                except (ValueError, RecursionError):
+                    diagnostic_data = None
+                if isinstance(diagnostic_data, dict) and not credential_echoed(diagnostic_data, self.token):
+                    projection['validation_errors'] = validation_errors_projection(diagnostic_data)
+                    self.persist()
             self.observe('response_validation')
             require(complete and response.status_code == status,
                     'Provider response failed bounded status/body contract; attempt remains spent')

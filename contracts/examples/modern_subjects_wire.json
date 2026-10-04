@@ -1,0 +1,90 @@
+{
+  "action_limits_unchanged": {
+    "commit": 1,
+    "content": 1,
+    "create": 1,
+    "doi": 1,
+    "get": 8,
+    "init": 1,
+    "metadata": 1
+  },
+  "approved": false,
+  "bodies": [
+    {
+      "modern_wire_body": {
+        "access": {
+          "files": "restricted",
+          "record": "public"
+        },
+        "files": {
+          "enabled": true
+        },
+        "metadata": {
+          "creators": [
+            {
+              "person_or_org": {
+                "name": "Synthetic Canary Fixture",
+                "type": "organizational"
+              }
+            }
+          ],
+          "description": "<p>Fictional protocol fixture; no PICES source data.</p>",
+          "publication_date": "2026-10-03",
+          "resource_type": {
+            "id": "dataset"
+          },
+          "subjects": [
+            {
+              "subject": "pices-modern-synthetic-20261003-code-02"
+            }
+          ],
+          "title": "SYNTHETIC TEST ONLY PICES MODERN 20261003 CODE 02"
+        }
+      },
+      "modern_wire_canonical_sha256": "c6fa07c93c6281d009e959f27413a1930fdb3c45d80838e074bf1b8096ef5e1c",
+      "source_file": "create.json",
+      "source_file_sha256": "d3ecca65f9ee1f3778446c33b4a4bb299d1ed2d1f8e23837ba39cb70da578991"
+    },
+    {
+      "modern_wire_body": {
+        "access": {
+          "files": "restricted",
+          "record": "public"
+        },
+        "files": {
+          "enabled": true
+        },
+        "metadata": {
+          "creators": [
+            {
+              "person_or_org": {
+                "name": "Synthetic Canary Fixture",
+                "type": "organizational"
+              }
+            }
+          ],
+          "description": "<p>Fictional protocol fixture; no PICES source data. Metadata PUT verified.</p>",
+          "publication_date": "2026-10-03",
+          "resource_type": {
+            "id": "dataset"
+          },
+          "subjects": [
+            {
+              "subject": "pices-modern-synthetic-20261003-code-02"
+            }
+          ],
+          "title": "SYNTHETIC TEST ONLY PICES MODERN 20261003 CODE 02"
+        }
+      },
+      "modern_wire_canonical_sha256": "6842bcd70dcb5e021bbe9e3de1e4cf1574db41db390d5d7790d80be32ed30786",
+      "source_file": "metadata-put.json",
+      "source_file_sha256": "0197c230248e4192866b8662fa60a4cca4b05ed0d060fc67f6a9102bb6180128"
+    }
+  ],
+  "namespace": "pices-modern-synthetic-20261003-code-02",
+  "old_failed_states_and_allowances_preserved": true,
+  "packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+  "replay_reset_or_new_create_authorized": false,
+  "schema_version": 1,
+  "scope": "Fixed synthetic historical-source to modern-wire projection; no grant or provider execution"
+}

@@ -57,7 +57,7 @@ class ModernCanaryTests(unittest.TestCase):
         self.mutate = None
         self.reserved_on_create = False
         self.file_complete = False
-        self.remote = deepcopy(m.load(m.PACKET / 'create.json'))
+        self.remote = m.modern_wire_payload(m.load(m.PACKET / 'create.json'))
         self.remote.update({'id': '101', 'created': self.clock.isoformat(), 'is_published': False,
                             'status': 'draft', 'versions': {'index': 1},
                             'parent': {'id': '100', 'access': {'owned_by': {'user': str(OWNER)}}},
@@ -88,7 +88,7 @@ class ModernCanaryTests(unittest.TestCase):
         self.assertEqual(options, {'timeout': 20, 'allow_redirects': False, 'verify': True, 'stream': True})
         if action == 'create':
             self.assertIsNone(state['identity'])
-            self.assertEqual(body, m.load(m.PACKET / 'create.json'))
+            self.assertEqual(body, m.modern_wire_payload(m.load(m.PACKET / 'create.json')))
             if self.mutate == 'uncertain':
                 raise RuntimeError('PRIVATE ' + TOKEN)
             if self.mutate == 'interrupt':
@@ -111,7 +111,7 @@ class ModernCanaryTests(unittest.TestCase):
                 'old_created': lambda: self.remote.update(created='2020-01-01T00:00:00+00:00'),
                 'future_created': lambda: self.remote.update(created=(self.clock + timedelta(seconds=6)).isoformat()),
                 'validation_errors': lambda: self.remote.update(errors=[{'field': 'metadata'}]),
-                'namespace': lambda: self.remote['metadata'].update(keywords=['other-run']),
+                'namespace': lambda: self.remote['metadata'].update(subjects=[{'subject': 'other-run'}]),
                 'crosshost': lambda: self.remote['links'].update(self='https://evil.test/api/records/101/draft'),
                 'wrongroute': lambda: self.remote['links'].update(files=m.ORIGIN + '/api/records/102/draft/files'),
                 'credential': lambda: self.remote.update(private=TOKEN),

@@ -218,7 +218,7 @@ class OwnedContinuationTests(fixture.unittest.TestCase):
         self.assertEqual(self.calls, [])
 
     def test_fixed_metadata_diagnostics_never_emit_private_values_or_unknown_keys(self):
-        expected = m.load(m.PACKET / 'metadata-put.json')
+        expected = m.modern_wire_payload(m.load(m.PACKET / 'metadata-put.json'))
         checks = r.metadata_diagnostics({'metadata': {}, 'access': {'files': 'public', 'record': 'public'},
                                          fixture.TOKEN: {'private': fixture.TOKEN}}, expected)
         self.assertFalse(checks['title_present'])
