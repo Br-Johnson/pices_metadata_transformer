@@ -1,9 +1,18 @@
+# Four queued resource cases and exact-content aliases — 2026-10-04
+
+- [x] Reconcile main e998e9c and the four held proposals 762/849/859/2244; preserve prior profiles and evidence.
+- [x] Independently review all four exact source contexts and add profile596 with a separate review time; preserve all592 prior member/context/review objects.
+- [x] Measure four promotions to 3,681/519/6 with repeat/withdrawal, three unchanged held controls, complete raw metadata/XML preservation, all 4,206 original hashes and 4,202 unselected ledger objects unchanged.
+- [x] Produce and reproduce all 456 source-to-content rows/all 228 byte-equal pairs; no exact-content supported counterpart, no canonical source/catalogue/provider selection or alias promotion. Close the tracked source-archive lead.
+- [x] Reconcile all 69 nonalias cases: two compact outside-evidence requests cover 13 cases; queue the other 56 for agent research/review, including the finite FGDC-233 editorial proposal. Four focused guarded contracts pass.
+- [ ] Complete final independent Codex review and actual current-head CI, then merge; the PR timeline records those final gates.
+
 # Residual source increment — 2026-10-04
 
 - [x] Reconcile main b5291c3 and all 555 holds; reuse reviewed physical-copy4 evidence and preserve all earlier receipts.
 - [x] Independently review 25 additional resource contexts and three exact external citation credits; pin full source context and retained evidence snapshots.
 - [x] Measure 32 promotions to 3,677/523/6: ten-source smoke, exact before/after/repeat/withdrawal, all 4,206 original hashes and 4,174 unselected ledger objects unchanged; 29 resource metadata objects exact, three creator cases change only creators/preservation notes.
-- [ ] Complete focused checks, independent implementation review and one current-head CI-reviewed PR before merging.
+- [x] Merge PR25 after 481 current-head guarded tests and exact-head independent Codex review; main e998e9c retains the reviewed tree.
 - Remaining identities, malformed components, dates, title and unresolved source roles stay held; provider actions remain separately assigned.
 
 # Combined existing-source corrections — 2026-10-04

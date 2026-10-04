@@ -1,5 +1,27 @@
 # Tech Debt Log
 
+## Four resource contexts and content-addressed alias evidence — 2026-10-04
+
+Profile596 appends four individually reviewed resource contexts while preserving
+all 592 earlier member/context/review objects and their assessment times. Full
+metadata stays exact; only a source/hash-bound interpretation reference is added.
+Missing museum policy and SPOT licence terms remain unresolved underlying-resource
+conditions. The measured finite delta is 3,681/519/6, with 4,202 unselected status
+objects unchanged; no blanket access rule or original-attestation expansion.
+
+The complete 456-to-228 mapping uses a raw-byte hash as the canonical content ID.
+It deliberately cannot select a canonical filename, catalogue record or provider
+record. Both members of every pair remain held, with no supported exact-content
+counterpart. This corrects the possible reading that 456 means 456 distinct
+scientific resources or already-restored redundant records. Historical 204/24
+pair component diagnoses are retained as historical, not recomputed eligibility.
+The tracked source archive supplies 4,204 exact original copies and no export
+manifest or replacement for the two all-NUL files. The next identity work needs
+actual export/catalogue/provider associations, preserving all IDs and DOIs.
+Source-specific research and the finite 233 title proposal remain queued separately
+from user-only provenance/history requests. See
+`readiness/2026-10-04/residual_resource4_handoff.md`.
+
 ## Finite residual resource and external credit evidence — 2026-10-04
 
 Resource592 adds four prior physical-copy interpretations and 25 source-reviewed

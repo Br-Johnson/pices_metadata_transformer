@@ -1,0 +1,634 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_SOURCE_REVIEW_CLEAR_FOR_EXACT4_FINITE_IMPLEMENTATION_NOT_PROMOTED",
+  "evidence_type": "REVIEWER_RECONCILED",
+  "reviewer": "/root/astra_transport_boundary",
+  "reviewed_at": "2026-10-04T17:27:33.520179+00:00",
+  "source_worktree": "/workspace/pices-residual-resource4-20261004",
+  "source_head": "e998e9c97945da60cf9c15fb39ab5fc2a5b11d47",
+  "source_tree": "c8fc2d2b0e054c72df9f980f156ef9725db7df0e",
+  "proposal_input": {
+    "path": "docs/readiness/2026-10-04/residual_resource6_source_review.json",
+    "sha256": "0f133925b0535327ff0552f3b9925ed1dfa084d048168010011631827063454c"
+  },
+  "current592_profile": {
+    "path": "docs/readiness/2026-10-04/finite_source_resource_access_592.json",
+    "sha256": "7dc625fe5fac625d1fe36f3fdf481c0ba63bd40acb0acc2c9b148079a6f9d550",
+    "member_count": 592
+  },
+  "current_ledger": {
+    "path": "docs/readiness/2026-10-04/residual_source32_integrated_source_status.json",
+    "sha256": "8d70adb44b599f7b0707f3565d43b2356ee7973054ca66c5592f3826a2c555f2",
+    "counts": {
+      "supported": 3677,
+      "held": 523,
+      "malformed": 6
+    }
+  },
+  "members": [
+    {
+      "source_id": "FGDC-2244",
+      "source_sha256": "9703a1f5392dac8c872c70296b8d4eb7748096a66c1664e553bfeec5d2ca63ea"
+    },
+    {
+      "source_id": "FGDC-762",
+      "source_sha256": "44889c90b4acd4fbcce4a36e640a0a18247cf051ba382b74112c0df48500dc63"
+    },
+    {
+      "source_id": "FGDC-849",
+      "source_sha256": "182762f207a3f2efa609ec95b68a13ddc2634b64408243523def0e2f00a35f05"
+    },
+    {
+      "source_id": "FGDC-859",
+      "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4"
+    }
+  ],
+  "membership_sha256": "bc9ca8907abeff047e0ddd6ce3332f93190e0fd6be0a2754d0b617c8cd609043",
+  "acquisition_contexts": {
+    "FGDC-2244": {
+      "constraints": {
+        "./idinfo/accconst": "ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters",
+        "./idinfo/useconst": "Copyright protected by ESA and CSA. Give credit to ESA and CSA.",
+        "./metainfo/metac": "ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters",
+        "./metainfo/metuc": "Copyright protected by ESA and CSA. Give credit to ESA and CSA."
+      },
+      "meaning": "derived_existing_authority_ers_radarsat_imagery_pi_approval_copyright_credit_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Alaska SAR facility at Fairbanks</origin>\n        <pubdate>Unknown</pubdate>\n        <title>ERS-1, ERS-2, RADARSAT  Synthetic Aperture Images of Bering Sea</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>ERS-1, ERS-2, RADARSAT  Synthetic aperture images of Bering Sea.</abstract>\n      <purpose>Mesoscale ocean features, such as eddies, fronts, internal waves, wind streaks, surface films and ship wakes.    Also ice edge, ice flow and polynya observations</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-175</westbc>\n        <eastbc>-161</eastbc>\n        <northbc>59</northbc>\n        <southbc>50</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Ice Physics</themekey>\n        <themekey>Oceanography</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Satellite</themekey>\n        <themekey>Ocean Dynamics</themekey>\n        <themekey>Ice Drifts</themekey>\n        <themekey>Satellite Images</themekey>\n        <themekey>Bering Sea</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters</accconst>\n    <useconst>Copyright protected by ESA and CSA. Give credit to ESA and CSA.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Reynolds, G.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>P.O. Box 757320</address>\n          <city>Fairbanks</city>\n          <state>AK</state>\n          <postal>99775-7220</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-474-7869</cntvoice>\n        <cntfax>907-474-5195</cntfax>\n        <cntemail>greynolds@santa.asf.alaska.edu</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Reynolds, G.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>P.O. Box 757320</address>\n          <city>Fairbanks</city>\n          <state>AK</state>\n          <postal>99775-7220</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-474-7869</cntvoice>\n        <cntfax>907-474-5195</cntfax>\n        <cntemail>greynolds@santa.asf.alaska.edu</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19980728</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters</metac>\n    <metuc>Copyright protected by ESA and CSA. Give credit to ESA and CSA.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The title and entire abstract identify ERS/RADARSAT synthetic-aperture images, and the access clause expressly names those missions with principal-investigator or NASA Headquarters approval. The adjacent ESA/CSA copyright and credit requirement has that concrete imagery context. This supports finite reviewer reconciliation for restoration of the exact catalogue description under separate existing authority while preserving approval, copyright and credit requirements. The source includes no SAR image data. Neither eligibility, NASA approval, reproduction rights, new license nor satisfaction of credit obligations is asserted, and ESA/CSA are not invented as creators."
+    },
+    "FGDC-762": {
+      "constraints": {
+        "./idinfo/accconst": "The permission of the Village Council is necessary to copy maps pertaining to the village of Tatitlek.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "The permission of the Village Council is necessary to copy maps pertaining to the village of Tatitlek.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "meaning": "derived_existing_authority_underlying_tatitlek_map_copy_permission_unknown_use_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Alaska Department of Fish and Game (ADF&amp;G), Subsistence Division</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Subsistence Land Use Maps  - ADF&amp;G</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Subsistence/Traditional Knowledge;  Blueline maps showing subsistence harvest areas for Alaskan communities. Most were prepared as resource maps for Alaska Management Guides.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172.5</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>71.83</northbc>\n        <southbc>51.25</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Traditional Knowledge</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Maps</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>The permission of the Village Council is necessary to copy maps pertaining to the village of Tatitlek.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020430</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>The permission of the Village Council is necessary to copy maps pertaining to the village of Tatitlek.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The abstract positively identifies blueline subsistence-harvest maps, and the access clause names both the operation (copying maps) and Tatitlek/Village Council authority. That source-specific object/operation supports a bounded map-copy reading under separate already-attested historical XML restoration authority. The XML describes the collection and regional extent; it contains no map image, geometry or harvest-location list. Absence of maps is a content check, not the permission basis. Preserve the Council requirement and Unknown use without asserting consent, metadata exemption, or map/data rights."
+    },
+    "FGDC-849": {
+      "constraints": {
+        "./idinfo/accconst": "Responses to routine inquires about the mammal data are provided free of charge. Written requests are required to specify the intended use of the data. User must review and sign a Data Use Policy stating data use provisions.",
+        "./idinfo/useconst": "Users agree to notify the University of Alaska Museum",
+        "./metainfo/metac": "Responses to routine inquires about the mammal data are provided free of charge. Written requests are required to specify the intended use of the data. User must review and sign a Data Use Policy stating data use provisions.",
+        "./metainfo/metuc": "Users agree to notify the University of Alaska Museum"
+      },
+      "meaning": "derived_existing_authority_mammal_specimen_data_request_policy_notification_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>University of Alaska Fairbanks (UAF), University of Alaska Museum</origin>\n        <pubdate>1995</pubdate>\n        <title>Alaska Mammal Collection</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Mammals;  The Mammal Collection database contains records for 34,000 University of Alaska Museum specimens, most of which are from Alaska. Data include the kinds of information typically associated  with museum specimens, i.e. taxonomic identity, locality, date, measurements, reproductive condition etc. The format of this data is compatible with the Network for Information Retrieval in Mammalogy. This database is intended to support and facilitate use of the Mammal Collection, not as a substitute for specimen-based-research. Therefore, citation of specimen data implies that the researcher has examined the specimens.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>71.24</northbc>\n        <southbc>51</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Mammals</themekey>\n        <themekey>Biology</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Responses to routine inquires about the mammal data are provided free of charge. Written requests are required to specify the intended use of the data. User must review and sign a Data Use Policy stating data use provisions.</accconst>\n    <useconst>Users agree to notify the University of Alaska Museum</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020502</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Responses to routine inquires about the mammal data are provided free of charge. Written requests are required to specify the intended use of the data. User must review and sign a Data Use Policy stating data use provisions.</metac>\n    <metuc>Users agree to notify the University of Alaska Museum</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The complete abstract names a specimen database and its specimen-data fields; the access paragraph then specifies mammal-data inquiries, written intended data use and review/signature of a Data Use Policy stating data-use provisions. The following Users notification clause is reasonably read in that stated data-request workflow. This positive contextual chain supports only a finite reviewer reconciliation for the exact catalogue XML under separate restoration authority. The complete Data Use Policy was not supplied and is not reconstructed here; the workflow is explicit but the full contractual terms are not. Preserve intended-use request, policy review/signature, notification and specimen-examination statements. No compliance, notification, specimen examination, XML exemption or data rights are asserted."
+    },
+    "FGDC-859": {
+      "constraints": {
+        "./idinfo/accconst": "Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.",
+        "./idinfo/useconst": "Licensee agrees to limits to internal use and copy restrictions.",
+        "./metainfo/metac": "Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.",
+        "./metainfo/metuc": "Licensee agrees to limits to internal use and copy restrictions."
+      },
+      "meaning": "derived_existing_authority_spot_imagery_fee_internal_use_copy_license_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Satellite Pour l'Ovservation de la Terre (SPOT)</origin>\n        <pubdate>1986 - Present</pubdate>\n        <title>Spot High Resolution Visible Data</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Remotely Sensed Data;   The French Earth Observation Satellite, SPOT, produces digital satellite imagery with the highest spatial resolution that is commercially available. Panchromatic (black and white) imagery has a resolution of 10x10 meters, and is commonly used for detailed mapping, feature identification, change detection, and updating of vector files. Multispectral imagery (visible and infrared) has a resolution of 20x20 meters and is used for land use and land cover mapping and natural resource studies. SPOT Image offers its digital ortho-imagery in standard 7.5, 15, and 30 minute map frames.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19860101</begdate>\n          <enddate>20021231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-180</westbc>\n        <eastbc>180</eastbc>\n        <northbc>87</northbc>\n        <southbc>-87</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n        <themekey>Geology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Remotely Sensed Data</themekey>\n        <themekey>Maps</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.</accconst>\n    <useconst>Licensee agrees to limits to internal use and copy restrictions.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020502</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.</metac>\n    <metuc>Licensee agrees to limits to internal use and copy restrictions.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The abstract identifies SPOT panchromatic/multispectral and digital ortho-imagery products, and the access clause expressly directs inquiries to the SPOT Data Fee Schedule for data prices. That named product/pricing context anchors the adjacent Licensee internal-use and copy-restriction statement. Its application to that imagery is a bounded reviewer inference, not an express XML exception or an interpretation of an unseen license. Preserve the restriction and data-fee inquiry unchanged under separately attested historical XML restoration authority. No license possession, complete-term knowledge, payment, imagery copying or redistribution permission is inferred."
+    }
+  },
+  "acquisition_contexts_sha256": "60711368bb564f6a2973a01141a5d0e84cb44f29e91976586a6456fa134a736c",
+  "rows": [
+    {
+      "member": {
+        "source_id": "FGDC-2244",
+        "source_sha256": "9703a1f5392dac8c872c70296b8d4eb7748096a66c1664e553bfeec5d2ca63ea"
+      },
+      "source_path": "/workspace/pices-residual-resource4-20261004/FGDC/FGDC-2244.xml",
+      "source_byte_count": 4282,
+      "title": "ERS-1, ERS-2, RADARSAT  Synthetic Aperture Images of Bering Sea",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "full_root_serialized_sha256": "7aa1b79705b889cb761f1bd05842ba1fb69160a07593e8c35eb57049a0b4bd62",
+      "context_elements_sha256": "bc4cec73fb2f489de93a66da8d413d73c8c139cc19fc497f4f625a28791076ba",
+      "constraints": {
+        "./idinfo/accconst": "ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters",
+        "./idinfo/useconst": "Copyright protected by ESA and CSA. Give credit to ESA and CSA.",
+        "./metainfo/metac": "ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters",
+        "./metainfo/metuc": "Copyright protected by ESA and CSA. Give credit to ESA and CSA."
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Copyright protected by ESA and CSA. Give credit to ESA and CSA.</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Copyright protected by ESA and CSA. Give credit to ESA and CSA.</metuc>"
+        ]
+      },
+      "source_anchors": [
+        {
+          "line_1_based": 11,
+          "verbatim": "ERS-1, ERS-2, RADARSAT  Synthetic aperture images of Bering Sea."
+        },
+        {
+          "line_1_based": 46,
+          "verbatim": "ERS-1 and 2 RADARSAT, principal Investigator or approved by NASA Headquarters"
+        },
+        {
+          "line_1_based": 47,
+          "verbatim": "Copyright protected by ESA and CSA. Give credit to ESA and CSA."
+        }
+      ],
+      "independent_assessment": "The title and entire abstract identify ERS/RADARSAT synthetic-aperture images, and the access clause expressly names those missions with principal-investigator or NASA Headquarters approval. The adjacent ESA/CSA copyright and credit requirement has that concrete imagery context. This supports finite reviewer reconciliation for restoration of the exact catalogue description under separate existing authority while preserving approval, copyright and credit requirements. The source includes no SAR image data. Neither eligibility, NASA approval, reproduction rights, new license nor satisfaction of credit obligations is asserted, and ESA/CSA are not invented as creators.",
+      "reference_evidence_limits": "The literal source supplies the PI/approval and copyright/credit clauses directly; no unseen governing instrument is interpreted or waived.",
+      "preserved_obligations": [
+        "Principal-investigator or NASA Headquarters approval condition",
+        "ESA and CSA copyright",
+        "ESA and CSA credit"
+      ],
+      "no_satisfaction_claim": [
+        "Principal-investigator standing",
+        "NASA approval",
+        "Image reproduction rights",
+        "New ESA/CSA license",
+        "Credit requirement satisfied"
+      ],
+      "explicit_XML_exemption_found": false,
+      "literal_metadata_constraints_retained": true,
+      "current_source_status_object": {
+        "source_id": "FGDC-2244",
+        "source_sha256": "9703a1f5392dac8c872c70296b8d4eb7748096a66c1664e553bfeec5d2ca63ea",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "separate_authority_exact_source_hash_verified": true,
+      "prior592_member": false,
+      "direct821_member": false,
+      "verdict": "SOURCE_CLEAR_FOR_EXACT_FINITE_REVIEWER_RECONCILED_IMPLEMENTATION",
+      "metadata_or_XML_edits": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-762",
+        "source_sha256": "44889c90b4acd4fbcce4a36e640a0a18247cf051ba382b74112c0df48500dc63"
+      },
+      "source_path": "/workspace/pices-residual-resource4-20261004/FGDC/FGDC-762.xml",
+      "source_byte_count": 4017,
+      "title": "Subsistence Land Use Maps  - ADF&G",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "full_root_serialized_sha256": "993209574d5ebc621f5f6f052c3c8bc90f8db80df179c6b7cfc462cbf3b121c5",
+      "context_elements_sha256": "880a55abfe26410c0a8628f53a24c2e9cdf6bab5daf2fa9834af43fc066c6f7f",
+      "constraints": {
+        "./idinfo/accconst": "The permission of the Village Council is necessary to copy maps pertaining to the village of Tatitlek.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "The permission of the Village Council is necessary to copy maps pertaining to the village of Tatitlek.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>The permission of the Village Council is necessary to copy maps pertaining to the village of Tatitlek.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Unknown</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>The permission of the Village Council is necessary to copy maps pertaining to the village of Tatitlek.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Unknown</metuc>"
+        ]
+      },
+      "source_anchors": [
+        {
+          "line_1_based": 11,
+          "verbatim": "Blueline maps showing subsistence harvest areas for Alaskan communities."
+        },
+        {
+          "line_1_based": 43,
+          "verbatim": "The permission of the Village Council is necessary to copy maps pertaining to the village of Tatitlek."
+        },
+        {
+          "line_1_based": 6,
+          "verbatim": "Unknown"
+        }
+      ],
+      "independent_assessment": "The abstract positively identifies blueline subsistence-harvest maps, and the access clause names both the operation (copying maps) and Tatitlek/Village Council authority. That source-specific object/operation supports a bounded map-copy reading under separate already-attested historical XML restoration authority. The XML describes the collection and regional extent; it contains no map image, geometry or harvest-location list. Absence of maps is a content check, not the permission basis. Preserve the Council requirement and Unknown use without asserting consent, metadata exemption, or map/data rights.",
+      "reference_evidence_limits": "No separate missing policy text is invoked by the permission sentence. The exact Council permission requirement remains operative and unsatisfied for its named map-copy activity.",
+      "preserved_obligations": [
+        "Village Council permission to copy the Tatitlek maps",
+        "Unknown use condition, unresolved as an underlying-resource license"
+      ],
+      "no_satisfaction_claim": [
+        "Village Council consent",
+        "map-copy or harvest-data rights"
+      ],
+      "explicit_XML_exemption_found": false,
+      "literal_metadata_constraints_retained": true,
+      "current_source_status_object": {
+        "source_id": "FGDC-762",
+        "source_sha256": "44889c90b4acd4fbcce4a36e640a0a18247cf051ba382b74112c0df48500dc63",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "separate_authority_exact_source_hash_verified": true,
+      "prior592_member": false,
+      "direct821_member": false,
+      "verdict": "SOURCE_CLEAR_FOR_EXACT_FINITE_REVIEWER_RECONCILED_IMPLEMENTATION",
+      "metadata_or_XML_edits": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-849",
+        "source_sha256": "182762f207a3f2efa609ec95b68a13ddc2634b64408243523def0e2f00a35f05"
+      },
+      "source_path": "/workspace/pices-residual-resource4-20261004/FGDC/FGDC-849.xml",
+      "source_byte_count": 4861,
+      "title": "Alaska Mammal Collection",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "full_root_serialized_sha256": "bfa1f4f952ebe3c061c5b7e882cf9efe290928fb223129a398126615d6015db6",
+      "context_elements_sha256": "e31b7513241f57cee92e062675b80ca3ce3f91d9c49a51bc67a58162b27879a2",
+      "constraints": {
+        "./idinfo/accconst": "Responses to routine inquires about the mammal data are provided free of charge. Written requests are required to specify the intended use of the data. User must review and sign a Data Use Policy stating data use provisions.",
+        "./idinfo/useconst": "Users agree to notify the University of Alaska Museum",
+        "./metainfo/metac": "Responses to routine inquires about the mammal data are provided free of charge. Written requests are required to specify the intended use of the data. User must review and sign a Data Use Policy stating data use provisions.",
+        "./metainfo/metuc": "Users agree to notify the University of Alaska Museum"
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Responses to routine inquires about the mammal data are provided free of charge. Written requests are required to specify the intended use of the data. User must review and sign a Data Use Policy stating data use provisions.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Users agree to notify the University of Alaska Museum</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Responses to routine inquires about the mammal data are provided free of charge. Written requests are required to specify the intended use of the data. User must review and sign a Data Use Policy stating data use provisions.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Users agree to notify the University of Alaska Museum</metuc>"
+        ]
+      },
+      "source_anchors": [
+        {
+          "line_1_based": 11,
+          "verbatim": "The Mammal Collection database contains records for 34,000 University of Alaska Museum specimens"
+        },
+        {
+          "line_1_based": 47,
+          "verbatim": "Written requests are required to specify the intended use of the data."
+        },
+        {
+          "line_1_based": 47,
+          "verbatim": "User must review and sign a Data Use Policy stating data use provisions."
+        },
+        {
+          "line_1_based": 48,
+          "verbatim": "Users agree to notify the University of Alaska Museum"
+        },
+        {
+          "line_1_based": 11,
+          "verbatim": "Therefore, citation of specimen data implies that the researcher has examined the specimens."
+        }
+      ],
+      "independent_assessment": "The complete abstract names a specimen database and its specimen-data fields; the access paragraph then specifies mammal-data inquiries, written intended data use and review/signature of a Data Use Policy stating data-use provisions. The following Users notification clause is reasonably read in that stated data-request workflow. This positive contextual chain supports only a finite reviewer reconciliation for the exact catalogue XML under separate restoration authority. The complete Data Use Policy was not supplied and is not reconstructed here; the workflow is explicit but the full contractual terms are not. Preserve intended-use request, policy review/signature, notification and specimen-examination statements. No compliance, notification, specimen examination, XML exemption or data rights are asserted.",
+      "reference_evidence_limits": "Historical signed Data Use Policy remains unavailable. This prevents deciding its complete terms or compliance; the proposed finite decision does not make either decision or treat modern public collection availability as authority.",
+      "preserved_obligations": [
+        "Written intended-use request for specimen data",
+        "Review/sign the applicable Data Use Policy",
+        "Museum notification",
+        "Specimen-examination implication of citing specimen data"
+      ],
+      "no_satisfaction_claim": [
+        "Signed policy",
+        "Museum notification",
+        "Specimen examination",
+        "Specimen/database reuse license"
+      ],
+      "explicit_XML_exemption_found": false,
+      "literal_metadata_constraints_retained": true,
+      "current_source_status_object": {
+        "source_id": "FGDC-849",
+        "source_sha256": "182762f207a3f2efa609ec95b68a13ddc2634b64408243523def0e2f00a35f05",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "separate_authority_exact_source_hash_verified": true,
+      "prior592_member": false,
+      "direct821_member": false,
+      "verdict": "SOURCE_CLEAR_FOR_EXACT_FINITE_REVIEWER_RECONCILED_IMPLEMENTATION",
+      "metadata_or_XML_edits": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-859",
+        "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4"
+      },
+      "source_path": "/workspace/pices-residual-resource4-20261004/FGDC/FGDC-859.xml",
+      "source_byte_count": 4679,
+      "title": "Spot High Resolution Visible Data",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "full_root_serialized_sha256": "23d603937a2271bf84ad3795b6689e2d09a3eac0e96e6c5a5a9ff6edf12c7053",
+      "context_elements_sha256": "3dae2edc0964e413916bc45b523412cfd0fab8d32e172e1e2e6248bfe8434871",
+      "constraints": {
+        "./idinfo/accconst": "Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.",
+        "./idinfo/useconst": "Licensee agrees to limits to internal use and copy restrictions.",
+        "./metainfo/metac": "Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.",
+        "./metainfo/metuc": "Licensee agrees to limits to internal use and copy restrictions."
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Licensee agrees to limits to internal use and copy restrictions.</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Licensee agrees to limits to internal use and copy restrictions.</metuc>"
+        ]
+      },
+      "source_anchors": [
+        {
+          "line_1_based": 11,
+          "verbatim": "SPOT Image offers its digital ortho-imagery in standard 7.5, 15, and 30 minute map frames."
+        },
+        {
+          "line_1_based": 49,
+          "verbatim": "Contact SPOT Image Corporation for a SPOT Data Fee Schedule for update on data prices."
+        },
+        {
+          "line_1_based": 50,
+          "verbatim": "Licensee agrees to limits to internal use and copy restrictions."
+        }
+      ],
+      "independent_assessment": "The abstract identifies SPOT panchromatic/multispectral and digital ortho-imagery products, and the access clause expressly directs inquiries to the SPOT Data Fee Schedule for data prices. That named product/pricing context anchors the adjacent Licensee internal-use and copy-restriction statement. Its application to that imagery is a bounded reviewer inference, not an express XML exception or an interpretation of an unseen license. Preserve the restriction and data-fee inquiry unchanged under separately attested historical XML restoration authority. No license possession, complete-term knowledge, payment, imagery copying or redistribution permission is inferred.",
+      "reference_evidence_limits": "The SPOT license itself is not supplied. The source states internal-use/copy limitations but not complete contractual scope; no omitted clause is invented or deemed inapplicable to XML.",
+      "preserved_obligations": [
+        "SPOT data price/fee inquiry",
+        "Licensee internal-use limits and copy restrictions"
+      ],
+      "no_satisfaction_claim": [
+        "SPOT license possession",
+        "Payment",
+        "Imagery copying or redistribution rights"
+      ],
+      "explicit_XML_exemption_found": false,
+      "literal_metadata_constraints_retained": true,
+      "current_source_status_object": {
+        "source_id": "FGDC-859",
+        "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "separate_authority_exact_source_hash_verified": true,
+      "prior592_member": false,
+      "direct821_member": false,
+      "verdict": "SOURCE_CLEAR_FOR_EXACT_FINITE_REVIEWER_RECONCILED_IMPLEMENTATION",
+      "metadata_or_XML_edits": 0,
+      "actual_promotions": 0
+    }
+  ],
+  "rows_sha256": "1e35d4940b0addc5e7c0f5ba3bfe88d13531effed0e5f7046884d74e7415782d",
+  "proposed_separate_review_block_key": "residual_resource4_review",
+  "proposed_review_block": {
+    "status": "REVIEWER_RECONCILED",
+    "reviewer": "/root/astra_transport_boundary",
+    "reviewed_at": "2026-10-04T17:27:33.520179+00:00",
+    "meaning": "Four exact resource-condition contexts under separate historical metadata restoration authority; missing underlying policy/license terms and all conditions remain unresolved",
+    "members": [
+      {
+        "source_id": "FGDC-2244",
+        "source_sha256": "9703a1f5392dac8c872c70296b8d4eb7748096a66c1664e553bfeec5d2ca63ea"
+      },
+      {
+        "source_id": "FGDC-762",
+        "source_sha256": "44889c90b4acd4fbcce4a36e640a0a18247cf051ba382b74112c0df48500dc63"
+      },
+      {
+        "source_id": "FGDC-849",
+        "source_sha256": "182762f207a3f2efa609ec95b68a13ddc2634b64408243523def0e2f00a35f05"
+      },
+      {
+        "source_id": "FGDC-859",
+        "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4"
+      }
+    ],
+    "original_statement_references": [
+      {
+        "key": "restoration_authority",
+        "manifest_path": "docs/readiness/2026-10-02/rehosting_authority.json",
+        "manifest_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+        "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+        "original_attested_at": "2026-10-02",
+        "original_provenance": null,
+        "original_scope": "historical_geonetwork_metadata",
+        "original_limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority."
+      },
+      {
+        "key": "contact_source_meaning",
+        "manifest_path": "docs/readiness/2026-10-02/contact_source_interpretation.json",
+        "manifest_sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+        "statement": "It means contact someone (source) to obtain the underlying dataset",
+        "original_attested_at": "2026-10-02T18:26:45Z",
+        "original_provenance": {
+          "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+          "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+          "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+          "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+          "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+          "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+        },
+        "original_scope": "historical_geonetwork_contact_source_access",
+        "original_limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+      },
+      {
+        "key": "contributor_source_meaning",
+        "manifest_path": "docs/readiness/2026-10-02/contributor_source_interpretation.json",
+        "manifest_sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+        "statement": "yes",
+        "original_attested_at": "2026-10-02T23:43:00Z",
+        "original_provenance": {
+          "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+          "question": "in the PICES records, does “Check with Contributor or Source.” mean contacting them to obtain the underlying dataset, just like “Contact Source.”, rather than restricting reposting the metadata?",
+          "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+          "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+          "timestamp_precision": "minute"
+        },
+        "original_scope": "historical_geonetwork_contributor_or_source_access",
+        "original_limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+      },
+      {
+        "key": "original_three_questions",
+        "manifest_path": "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+        "manifest_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+        "statement": null,
+        "original_attested_at": null,
+        "original_provenance": null,
+        "original_scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+        "original_limits": null
+      },
+      {
+        "key": "original_821_direct_reply",
+        "manifest_path": "docs/readiness/2026-10-03/source_scope_attestation_821.json",
+        "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+        "statement": "they reply to the underlying data. all these metadata records were public before",
+        "original_attested_at": "2026-10-03T20:20:00Z",
+        "original_provenance": {
+          "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+          "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+          "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+        },
+        "original_scope": "exact_three_question_groups_821_historical_geonetwork_metadata",
+        "original_limits": "All original constraints and XML remain intact. The attestation clarifies scope only; existing separate user-attested rehosting authority keeps XML restricted and unlicensed. No attribution/date/title/alias hold is cleared by this scope decision."
+      }
+    ],
+    "new_user_attestation_event": false,
+    "original_direct_question_membership_enlarged": false,
+    "underlying_conditions_satisfied": false,
+    "underlying_data_rights_granted": false,
+    "grants_rehosting": false,
+    "grants_new_license": false,
+    "publication_approved": false
+  },
+  "original_statement_references": [
+    {
+      "key": "restoration_authority",
+      "manifest_path": "docs/readiness/2026-10-02/rehosting_authority.json",
+      "manifest_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+      "original_attested_at": "2026-10-02",
+      "original_provenance": null,
+      "original_scope": "historical_geonetwork_metadata",
+      "original_limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority."
+    },
+    {
+      "key": "contact_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contact_source_interpretation.json",
+      "manifest_sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+      "statement": "It means contact someone (source) to obtain the underlying dataset",
+      "original_attested_at": "2026-10-02T18:26:45Z",
+      "original_provenance": {
+        "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+        "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+        "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+        "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+      },
+      "original_scope": "historical_geonetwork_contact_source_access",
+      "original_limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+    },
+    {
+      "key": "contributor_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contributor_source_interpretation.json",
+      "manifest_sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+      "statement": "yes",
+      "original_attested_at": "2026-10-02T23:43:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+        "question": "in the PICES records, does “Check with Contributor or Source.” mean contacting them to obtain the underlying dataset, just like “Contact Source.”, rather than restricting reposting the metadata?",
+        "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "timestamp_precision": "minute"
+      },
+      "original_scope": "historical_geonetwork_contributor_or_source_access",
+      "original_limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+    },
+    {
+      "key": "original_three_questions",
+      "manifest_path": "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+      "manifest_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+      "statement": null,
+      "original_attested_at": null,
+      "original_provenance": null,
+      "original_scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+      "original_limits": null
+    },
+    {
+      "key": "original_821_direct_reply",
+      "manifest_path": "docs/readiness/2026-10-03/source_scope_attestation_821.json",
+      "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+      "statement": "they reply to the underlying data. all these metadata records were public before",
+      "original_attested_at": "2026-10-03T20:20:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+        "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+      },
+      "original_scope": "exact_three_question_groups_821_historical_geonetwork_metadata",
+      "original_limits": "All original constraints and XML remain intact. The attestation clarifies scope only; existing separate user-attested rehosting authority keeps XML restricted and unlicensed. No attribution/date/title/alias hold is cleared by this scope decision."
+    }
+  ],
+  "all_five_original_reference_files_current_hash_verified": true,
+  "reference_rows_equal_current592_verbatim": true,
+  "independent_challenge_review": {
+    "path": "/tmp/pices-resource849859-independent-challenge.json",
+    "sha256": "51773f24f23e4a2fb64f69c84a6687cd66d792690818706061c3ffa887e842bd",
+    "reviewer": "/root/astra_transport_boundary/malformed_source_review"
+  },
+  "verdict": "NO_MATERIAL_FINDINGS_FOR_EXACT4_BOUNDED_SOURCE_INTERPRETATIONS",
+  "material_findings": [],
+  "new_user_questions_required_for_this_finite_reading": [],
+  "preservation_requirements": [
+    "Preserve every existing592 member, source/acquisition context, review block, original-reference row and review time; add only these4 exact members/contexts and a distinct residual_resource4_review block. Do not rewrite earlier decisions or attestations.",
+    "Use the current aware review timestamp for the new4 only; require source/hash/full-root/four plain constraints and live original statement pins. Changed, missing or conflicting evidence must fail closed.",
+    "Rehosting continues to require the separate exact-source USER_ATTESTED authority. This reviewer reading supplies no new authority, license, direct821/earlier-attestation membership, underlying-data right or publication permission.",
+    "Preserve complete original XML and full existing raw prepared metadata, including source citation/creators, dates, notes, access conditions and every literal restriction. Unknown remains Unknown. Do not assign ESA/CSA as creators, alter SPOT spelling, modernize dates or reinterpret legacy organizational context.",
+    "All Tatitlek Council permission, mammal intended-use/policy signature/notification/specimen statements, SPOT fee/internal-use/copy restrictions, and SAR PI/NASA approval/ESA-CSA copyright/credit conditions remain unresolved and unfulfilled.",
+    "No complete unseen museum policy or SPOT license is claimed. The finite source-target reading is reviewer inference from positive object/workflow context; neither absence of underlying data nor mirrored fields establishes an XML exemption.",
+    "Original XML remains restricted and unlicensed. Public descriptive metadata can expose the complete source description; the review does not treat a restricted attachment as confidentiality of the description.",
+    "Keep288/1770, frozen31 exceptions, aliases, malformed sources, remaining creator questions and all independent holds outside this4-member change. Preserve identity/DOI/sourcefile-note protections and poster10042430 exclusion.",
+    "Root owns new profile/runtime implementation, fresh bounded before/after/repeat/withdrawal/control measurement, independent implementation/output review, current-head CI and merge. Currentcounts remain3677/523/6 until those steps; this source review records zero promotions."
+  ],
+  "activities": {
+    "source_fullroots_read": 4,
+    "old25_reaudit": false,
+    "new_public_research_requests": 0,
+    "provider_requests": 0,
+    "private_file_or_credential_reads": 0,
+    "repository_or_runtime_edits": 0,
+    "source_XML_edits": 0,
+    "test_suite_runs": 0,
+    "classifier_runs": 0,
+    "actual_promotions": 0
+  },
+  "digest_recipe": "Raw file bytes SHA256; object SHA256 of UTF-8 json.dumps(sort_keys=True,ensure_ascii=False,separators=(comma,colon)); complete root ElementTree unicode serialization, outer tail=None; lexical member ordering."
+}
