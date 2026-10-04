@@ -1,0 +1,68 @@
+{
+  "base_commit": "b471a7ab2798314c6a501b795362bc76bd5b9570",
+  "checks": {
+    "all_spent_mutations_failed_ledgers_and_312_parent_reported_files_preserved": true,
+    "capture_stops_before_adapter_with_no_original_send_fallback": true,
+    "closed_output_no_body_messages_header_url_or_private_identity_values": true,
+    "contract_approved_false_no_create_mutation_or_replacement_window": true,
+    "default_cli_clears_environment_and_netrc": true,
+    "existing_controller_packet_and_action_bounds_unchanged": true,
+    "frozen_public_bodies_prepare_exact_json_458_and_481_bytes": true,
+    "one_get_historical_196_to_197_with_120_second_window_clipped_to_existing_recovery_expiry": true,
+    "private_token_mode_executor_only": true,
+    "raw_decoded_quoted_and_base64_variants_guarded_before_private_retention_permission": true,
+    "readback_projection_is_pure_and_not_adoption": true,
+    "request_20_second_wall_bound_response_65536_bytes_no_redirect_or_retry": true,
+    "send_restored_in_finally": true,
+    "unsupported_oversized_and_credential_echoed_bodies_not_hashed": true
+  },
+  "file_sha256": {
+    "contracts/examples/run02_body_diagnostics.json": "194ab9dc92c340c6161f8bc28e47924f246ed72248cd3e9ee2a755b5d1eb25c9",
+    "docs/readiness/2026-10-03/run02_body_diagnostics_fixture_capture.json": "bc9122fc27367214398cc687cf3f9a50ef6152e37b208ca815ef49f4d4acd54d",
+    "docs/readiness/2026-10-03/run02_body_diagnostics_handoff.md": "a6ff7e88f15f6b90ca2a622721eb4ed1405e6fd6b892214ce495560afc1bba3b",
+    "docs/readiness/2026-10-03/run02_body_diagnostics_validation.json": "9a5b911ac222cb9cb26b99b6fa68de7ece5442547731a7eec07ce6b2edb0b76a",
+    "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "scripts/modern_owned_continuation.py": "5fb1b8275db0aa72f8175ad971bf8ceb1345cf240c4737e584229a603dc4c9c2",
+    "scripts/modern_request_body_diagnostics.py": "d2a99179ba9e766597f8872db7468d0217c81df42a9b3b01256b6c6aa78588a6",
+    "scripts/modern_synthetic_canary.py": "4865590399aa47d5a24ce52605500b5c2fcf12a4479d49cda1ec18d40566e435",
+    "tests/test_modern_request_body_diagnostics.py": "109e98b563c6cc7c2adede00ab32b69b6a88ca1972eb25bb7d1b77b1abdf359a"
+  },
+  "independent_activity": {
+    "actual_environment_credential_or_private_stage_reads": 0,
+    "classification_or_full_suite_runs": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "repository_edits": 0
+  },
+  "independent_focused_tests": {
+    "count": 9,
+    "environment_cleared": true,
+    "harness_path": "/tmp/pices-review-body-helper-focused.py",
+    "harness_sha256": "d337a5e674163806b82a1fceca82d4a7e58a14c9ff9950bf44dfd2239833bb56",
+    "log_path": "/tmp/pices-run02-body-helper-independent-focused.log",
+    "log_sha256": "eca9cdd24cc8e7a65c1a441e5f27af6f9dad6aea06f46bbd293a752020de6594",
+    "requests_send_adapter_socket_dns_blocked_except_exact_dummy_capture_and_mocks": true,
+    "result": "PASS",
+    "seconds": 0.02
+  },
+  "material_findings": [],
+  "practical_limits": [
+    "Dummy preparation is current local serialization evidence, not historical transmitted bytes, delivery or server cause.",
+    "No deployed schema or actual private receipt was inspected by this reviewer.",
+    "Error shape flag checks container and field-path structure; it does not validate message contents or authorize an action.",
+    "Credential-free JSON retention permission is not an identity, status or mutation approval; executor separately checks status, completeness, expiry and trusted identity.",
+    "GET execution remains sole-executor parent dispatch within the existing recovery expiry; all mutation allowances remain spent or held."
+  ],
+  "repository": "/workspace/pices-run02-body-diagnostics",
+  "result": "CLEARED_WITH_NO_MATERIAL_BLOCKER",
+  "reviewed_commit": "834f531b348f5f381a99d317918520e2b575ab05",
+  "reviewer": "independent canary reviewer",
+  "root_full_suite": {
+    "count": 391,
+    "provenance": "Root-reported; not independently repeated",
+    "result": "PASS",
+    "seconds": 70.288
+  },
+  "schema_version": 1,
+  "scope": "Read-only review of offline prepared-body helper, pure canonical projection, nine tests and one-GET handoff; no live execution or continuation approval"
+}

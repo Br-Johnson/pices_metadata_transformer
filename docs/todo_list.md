@@ -420,4 +420,4 @@ This local cohort has not been pushed or used for a provider operation.
 
 - [x] Reproduce actual committed shared-route JSON preparation offline: POST458bytes/PUT481bytes, correct JSON Content-Type/Length and full payload equality. Preserve both spent failed stages and historical196reads.
 - [x] Add a standalone capture stopping before send/adapter, plus pure safe canonical readback field/error projection and a one-GET196→197 parent-dispatch plan clipped to the current recovery expiry. Keep all312 prior files and existing controller runtimes unchanged.
-- [ ] Complete guarded validation and independent helper/handoff review; publish the frozen normal branch. Parent alone dispatches the sole executor; no repeated PUT/create or new window follows automatically.
+- [x] Complete391 guarded tests,9 independently repeated focused contracts and independent helper/handoff review; publish the frozen normal branch. Parent alone dispatches the sole executor; no repeated PUT/create or new window follows automatically.

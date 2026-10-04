@@ -128,3 +128,10 @@ do not guess the expiry or create a replacement window.
 The example [contract](../../../contracts/examples/run02_body_diagnostics.json)
 is deliberately not an approval. GET evidence and actual prepared-body evidence
 may narrow the cause; all mutation allowances and production gates remain held.
+
+[Validation](run02_body_diagnostics_validation.json) records391 guarded tests and
+nine focused contracts, including ten simulated readbacks. The
+[independent helper/handoff review](run02_body_helper_independent_review.json)
+repeated all nine focused tests and cleared the frozen implementation. Its code
+and primary handoff pin is834f531; this final receipt/link-only addition changes
+no runtime, packet, action bound or reviewed execution instruction.
