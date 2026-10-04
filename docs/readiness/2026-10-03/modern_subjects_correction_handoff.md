@@ -81,7 +81,9 @@ container/type/count/field-shape flags and an unknown-field-present boolean are
 the only other outputs. Nested unknown paths stay unknown. Container/field shape
 does not validate error-message contents and grants no action authority.
 
-Credential echo, malformed/truncated/binary bodies, redirects, uncertainty and
+Binary responses do not receive JSON validation-field flags; the unchanged
+expected binary content readback still follows its file/checksum contract.
+Credential echo, malformed/truncated bodies, redirects, uncertainty and
 contract failure continue to stop without followup. Durable attempts remain spent.
 Canonical readback diagnostics now compare subjects while retaining closed legacy
 keyword presence/type/match flags for forensic comparison; that pure helper issues
