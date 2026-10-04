@@ -1,0 +1,158 @@
+{
+  "base_commit": "5111657181e41e64b4653db3f0281c86a15ff6f5",
+  "bounds": {
+    "body_bytes_max": 65536,
+    "completed_plus_retry_lifetime_get": 7,
+    "historical_get_completed_plus_retry": 202,
+    "historical_get_start": 196,
+    "inherited_get": 1,
+    "new_create": 0,
+    "new_get_max": 6,
+    "new_post_max": 3,
+    "new_put_max": 2,
+    "original_create_spent": 1,
+    "original_lifetime_get_ceiling": 8,
+    "per_request_wall_seconds": 20
+  },
+  "contract_checks": {
+    "conditional_single_doi_reservation_with_exact_preservation": true,
+    "create_route_absent": true,
+    "durable_intents_before_transport": true,
+    "fixed_field_diagnostics_do_not_emit_unknown_keys_or_private_values": true,
+    "historical_create_permanently_spent": true,
+    "interrupted_or_failed_continuation_cannot_replay": true,
+    "metadata_put_first_then_full_exact_metadata_access_and_no_errors_gate": true,
+    "no_detail_read_fallback": true,
+    "no_grant_generated_by_code": true,
+    "normal_controller_record_still_requires_full_metadata_access": true,
+    "ordinary_approved_session_route_and_auth_check_unchanged": true,
+    "original_failed_state_not_reopened_or_mutated": true,
+    "original_seven_bound_files_reverified_before_each_request": true,
+    "parent_only_explicit_original_or_specific_continuation_window_max1800s": true,
+    "redirect_retry_TLS_body_wall_bounds_unchanged": true,
+    "sealed_empty_draft_identity_separate_from_required_metadata": true,
+    "three_readback_plus_three_retry_gets_use_full_existing_file_list_predicate": true
+  },
+  "evidence_pins": {
+    "actual_private_bytes_read": false,
+    "beforeimage_sha256": "316073505991baeca08490de43bc3dc5f0334917c0bcee4a60abc77e2a03f662",
+    "create_response_sha256": "20e8f71aad83b1f045c5657288f38896ab6a5931e4b1424e22310be25729dabf",
+    "diagnostics_sha256": "3ea2e9ad7da503b7ad62277258b1b0f8936f03d3712025197f68c80e672cdbf6",
+    "original_runtime_sha256": "8b96b63ca66ec4e27546ce3980abb98cb8f5f7b696eb2c7d3f590ac7a61e9b24"
+  },
+  "files": {
+    "scripts/modern_canary_errors.py": {
+      "path": "/workspace/pices-run02-owned-continuation/scripts/modern_canary_errors.py",
+      "sha256": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3"
+    },
+    "scripts/modern_owned_continuation.py": {
+      "path": "/workspace/pices-run02-owned-continuation/scripts/modern_owned_continuation.py",
+      "sha256": "5fb1b8275db0aa72f8175ad971bf8ceb1345cf240c4737e584229a603dc4c9c2"
+    },
+    "scripts/modern_synthetic_canary.py": {
+      "path": "/workspace/pices-run02-owned-continuation/scripts/modern_synthetic_canary.py",
+      "sha256": "4865590399aa47d5a24ce52605500b5c2fcf12a4479d49cda1ec18d40566e435"
+    },
+    "tests/test_modern_owned_continuation.py": {
+      "path": "/workspace/pices-run02-owned-continuation/tests/test_modern_owned_continuation.py",
+      "sha256": "185d4de18d68f3abfbdd2c7d94259519872569d22b7926c919832e6731b27848"
+    }
+  },
+  "independent_boundaries": [
+    "Destination nested inside frozen original stage refuses before mkdir; original dummy bytes and structure untouched.",
+    "Retained HTTP500 create history refuses even after internally consistent journal/rebinding; exact pinned201 response and matching attempt observations required.",
+    "Changing original state after acknowledged metadata PUT holds before next write; previous successful attempt diagnostic remains unchanged and failure is outside_pending_attempt.",
+    "Real shared _execute_controller enters exactly one mocked canonical PUT, neverCREATE; transport failure consumes metadata allowance and holds continuation with inheritedcreate1/get1 and original dummy bytes unchanged."
+  ],
+  "kind": "pices_run02_owned_continuation_independent_runtime_review_v1",
+  "offline_checks": [
+    {
+      "path": "/tmp/pices-run02-owned-continuation-independent-focused.log",
+      "purpose": "Initial7 continuation contracts plus33 unchanged shared modern/diagnostic/route contracts",
+      "result": "PASS",
+      "seconds": 1.201,
+      "sha256": "ff8161cee8a04c90ccfdfbf7fa4f4e33ab0362cc3c50c1ece15b203765360bf8",
+      "test_count": 40
+    },
+    {
+      "path": "/tmp/pices-run02-owned-continuation-independent-final-focused.log",
+      "purpose": "Final10 continuation contracts after review fixes",
+      "result": "PASS",
+      "seconds": 0.444,
+      "sha256": "7735c6903dd7224005cf024ab32c4298c251d4a5bd9c368bdbba07200aca3230",
+      "test_count": 10
+    },
+    {
+      "path": "/tmp/pices-run02-owned-continuation-independent-final-boundaries.log",
+      "purpose": "Independent boundary checks at final runtime hashes",
+      "result": "PASS",
+      "seconds": 0.05,
+      "sha256": "ed7085be6f8a421166c173272d855d2592f73421c5fbd6cac11051c3d9fe9db2",
+      "test_count": 4
+    }
+  ],
+  "packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+  "practical_limits": [
+    "The305-file inventory count and SHA are explicit parent attestation; controller hashes seven original ledger/packet files, rather than independently walking all305 files.",
+    "Actual sealed beforeimage and original private ledger values were not read by this reviewer. Mock fixtures replace pins with their own hashes and simulate the required201 route observations.",
+    "No evidence assigns a cause for missing initial metadata.201 and known owned empty draft permit this narrowly authorized continuation, not a general cached-ID adoption or validation relaxation.",
+    "Final artifact and parent grant must bind these exact runtime hashes; documentation/grant review remains separate. No provider dispatch authorized or executed by this reviewer."
+  ],
+  "repository": "/workspace/pices-run02-owned-continuation",
+  "reproduction_history": {
+    "initial_boundaries_log": {
+      "meaning": "Two actual code findings and one reviewer clock-fixture failure; clock fixture corrected without repository edit.",
+      "path": "/tmp/pices-run02-owned-continuation-independent-boundaries.log",
+      "sha256": "c4e96ca9447675a535c5a7c31e4a557f69d9a7bf0a16391ac1e657bfb6cb5f14"
+    },
+    "second_boundaries_log": {
+      "meaning": "Path fix and shared execute passed; provenance finding remained before final code fix.",
+      "path": "/tmp/pices-run02-owned-continuation-independent-boundaries-v2.log",
+      "sha256": "8be7d4159a1368aca1d60fb46bdfbcb2c480ab53e3ab036e50026f1bcdb57ef3"
+    }
+  },
+  "resolved_review_findings": [
+    {
+      "finding": "Nested staging changed/invalidated original directory before refusing",
+      "fix": "Disjoint destination/preserved-root proof before mkdir; explicit CLI preserved-root required.",
+      "status": "FIXED_AND_REPRO_VERIFIED"
+    },
+    {
+      "finding": "Original provenance accepted non201 retained create history",
+      "fix": "Exactly1 complete credential-free JSON createPOST201 projection with pinnedbodySHA and exactly1 identity_validation contract failure attempt with201/header/send/adapter observations.",
+      "status": "FIXED_AND_REPRO_VERIFIED"
+    },
+    {
+      "finding": "Old copied JSON used raw-only credential checks",
+      "fix": "All copied JSON gets raw and decoded credential checks before mkdir.",
+      "status": "FIXED_STATIC_VERIFIED"
+    }
+  ],
+  "review_activity": {
+    "credential_reads": 0,
+    "full_classifier_runs": 0,
+    "full_suite_runs": 0,
+    "private_provider_stage_reads": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "real_environment_value_reads": 0,
+    "repository_edits": 0,
+    "test_transport": "Session.send,HTTPAdapter.send,socket.connect/create_connection and DNS blocked globally except exact dummy mocks; process environment cleared; dummy netrc mocks."
+  },
+  "review_date": "2026-10-04",
+  "review_harnesses": [
+    {
+      "path": "/tmp/pices-review-owned-continuation-focused.py",
+      "sha256": "b2c44e6a64692b374bcf919c0aafc49add4cb4755834c128a2c85a9f03adb3dc"
+    },
+    {
+      "path": "/tmp/pices-review-owned-continuation-final-focused.py",
+      "sha256": "cf6ceadddde8b70f1bd6c45755b400a533ad2435657d259ec46aaabdac2077fb"
+    },
+    {
+      "path": "/tmp/pices-review-owned-continuation-boundaries.py",
+      "sha256": "26e5eba0a270aad452512a837ddfd77a5b34bd6fb0ded2d16ed3c804892d1b08"
+    }
+  ],
+  "status": "RUNTIME_HASHES_CLEARED_HANDOFF_AND_EXACT_PARENT_GRANT_PENDING"
+}
