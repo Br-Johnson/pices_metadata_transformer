@@ -1,0 +1,75 @@
+{
+  "additional_limits": {
+    "get": 1,
+    "metadata": 1
+  },
+  "approved": false,
+  "beforeimage197_sha256": "866775b60653bd5b25b1a59d9965fb070e07213a9310948f152df5d300fcee1b",
+  "create_pid_files_publish_delete_retry_reset_authorized": false,
+  "executor": "01a0fed7-bf71-7384-95fd-3434599df03f",
+  "historical_get_intents": 197,
+  "kind": "controlled_same_run02_draft_subjects_repair",
+  "maximum_cumulative_get_intents": 198,
+  "maximum_run02_metadata_put_intents": 2,
+  "namespace": "pices-modern-synthetic-20261003-code-02-subjects-repair",
+  "old_ledgers_and_all_history_preserved": true,
+  "packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+  "parent_dispatch_required": true,
+  "per_request_wall_seconds_max": 20,
+  "prepared_put_bytes": 494,
+  "prepared_put_sha256": "4e47c3b2340483500d99ec9807fd9c90201532713b8b48e4adfe2e539fc0fb74",
+  "prior_run02_metadata_put_intents": 1,
+  "response_bytes_max": 65536,
+  "routes": [
+    {
+      "method": "PUT",
+      "path": "/api/records/{sealed_same_id}/draft",
+      "required_status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/records/{sealed_same_id}/draft",
+      "required_status": 200,
+      "requires_durably_validated_put": true
+    }
+  ],
+  "run02_create_intents_preserved": 1,
+  "runtime_sha256": {
+    "modern_canary_errors.py": "f6393fde1dddb6e2c751e7ab8d8ec18261d55c93bf29603e531117f0c361aa54",
+    "modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
+    "modern_run02_subjects_repair.py": "f6d6b867b375298015af60c622d644796f0857061b26b563adce1af08ad4bd7d",
+    "modern_synthetic_canary.py": "9d3c27b6b2d31f59b054971108f0a8abb87e5a069eae56fed94498323d3237cd"
+  },
+  "schema_version": 1,
+  "window_seconds_max": 600,
+  "wire_body": {
+    "access": {
+      "files": "restricted",
+      "record": "public"
+    },
+    "files": {
+      "enabled": true
+    },
+    "metadata": {
+      "creators": [
+        {
+          "person_or_org": {
+            "name": "Synthetic Canary Fixture",
+            "type": "organizational"
+          }
+        }
+      ],
+      "description": "<p>Fictional protocol fixture; no PICES source data. Metadata PUT verified.</p>",
+      "publication_date": "2026-10-03",
+      "resource_type": {
+        "id": "dataset"
+      },
+      "subjects": [
+        {
+          "subject": "pices-modern-synthetic-20261003-code-02"
+        }
+      ],
+      "title": "SYNTHETIC TEST ONLY PICES MODERN 20261003 CODE 02"
+    }
+  }
+}
