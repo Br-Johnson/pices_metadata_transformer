@@ -1,3 +1,12 @@
+# Exact42 resource reconciliation — 2026-10-04
+
+- [x] Integrate41 resource contexts plus4060 actual disclaimer in additive556, preserving514 objects and821/904 evidence.
+- [x] Preserve REVIEWER_RECONCILED provenance, compatible review-time argument and live five-statement checks across classifier/agent/both human routes.
+- [x] Ten-source smoke then actual42 comparison proves42 held→supported, complete raw metadata/XML unchanged and only exact policy reference added.
+- [x] Reproduce all4206 cached statuses3638/562/6; all456 aliases/31 exceptions held and every unselected prior status object unchanged.
+- [x] Pass417 combined guarded tests and six independent contracts; actual42 and all4206 accounting review clear. Freeze final handoff and publish coherent source PR.
+- [ ] Review37 deferred resource candidates separately; retain specific exception/creator/date/title/alias holds pending their evidence.
+
 # Same-draft controlled subjects repair — 2026-10-04
 
 - [x] Implement separate immutable-lineage repair stage: one corrected metadata PUT and one canonical GET; preserve original201, spent PUT, GET197 and all historical inventory.
@@ -14,7 +23,7 @@
 - [x] Pass404 guarded tests,44 focused tests, seven independently repeated new contracts and isolated Ruff; old grants reject before transport and failed attempts remain spent.
 - [x] Freeze modern and historical offline body captures and identify largest currently cleared42-source cohort among604 holds; no profile integration or count change.
 - [x] Parent commissioned the specifically bounded same-draft repair above; the earlier schema-correction handoff itself remains offline-only.
-- [ ] Integrate the selected42 only in a subsequent source PR with measured exact delta and preservation review after this correction merges.
+- [x] Implement selected42 after correction/repair PRs merge, with exact measured delta and preservation evidence above.
 
 # Remaining-source finite cohorts — 2026-10-03
 

@@ -225,10 +225,10 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                     if interpreted_access:
                         raise ValueError('Conflicting access interpretations require separate adjudication')
                     interpreted_dataset_access = validate_dataset_access_interpretation(
-                        dataset_access_reference, source.stem, digest, root)
+                        dataset_access_reference, source.stem, digest, root, reviewed_at)
                 except ValueError as exc:
                     row['hold_reasons'].append(str(exc))
-                row['dataset_access_interpretation'] = 'SOURCE_BACKED' if interpreted_dataset_access else 'not_established'
+                row['dataset_access_interpretation'] = interpreted_dataset_access['status'] if interpreted_dataset_access else 'not_established'
             interpreted_scope = None
             if scope_reference and source.stem in scope_members:
                 try:

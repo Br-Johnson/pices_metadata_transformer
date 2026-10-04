@@ -1,0 +1,100 @@
+{
+  "actual42_delta": {
+    "after": {
+      "held": 0,
+      "malformed": 0,
+      "supported": 42
+    },
+    "after_classification_sha256": "80329655e61c5d7470f79c55af6b917d6587265e581afaed6f0b8a3610fd1341",
+    "before": {
+      "held": 42,
+      "malformed": 0,
+      "supported": 0
+    },
+    "before_classification_sha256": "aff994307e4f606d9848ea33239888b1a657e59bd120fbde194903752fcb34d7",
+    "complete_raw_metadata_original_copied_XML_unchanged": true,
+    "count": 42,
+    "delta_sha256": "c15532fbc17243ba1540c854f6e4d2217c0136836775a412f21566a7c409a382",
+    "independent_check_sha256": "af803360385ec7a73012e491cf4cc92b6ac15b6a36fd3fc4643329294b62ed38",
+    "new_provenance": {
+      "REVIEWER_RECONCILED": 42
+    },
+    "only_exact_dataset_policy_key_added": true
+  },
+  "actual_private_stage_or_credential_reads": 0,
+  "base_commit": "6d5e9772dc3411bbf0d1f654105b1a0b85647bd7",
+  "contract_sha256": "2ae5dfb6caf89ab05755f1412cba559fae336101a363b64a7f181a88c5cb04ca",
+  "focused_tests": {
+    "count": 6,
+    "log_sha256": "13549031667be6ddf978bb08f63889a6c42a3c0693f477e1ab20bc5d1ec7296f",
+    "result": "PASS",
+    "seconds": 5.915
+  },
+  "fresh_full_corpus_or_remote_audit": false,
+  "full_combined_guarded_tests": {
+    "cleared_environment_fixture_tokens": true,
+    "count": 417,
+    "includes_merged_reviewed_same_draft_repair": true,
+    "log_sha256": "6fea9f6b476aa9d01a2d862bef2435b4a3508c993443252353f2cd102d24a66e",
+    "requests_socket_dns_blocked": true,
+    "result": "PASS",
+    "seconds": 106.473
+  },
+  "handoff_sha256": "d91444f5381f315ce97f150386561f73046f5497371922f2bd64ed0a9f8dbb99",
+  "independent_focused_tests": {
+    "cleared_dummy_environment_transport_dns_private_read_repo_write_guards": true,
+    "count": 6,
+    "log_sha256": "4b8b3f111769077ce1acc652f875d5d8d2fe7a464ce13e1d613432f791284110",
+    "result": "PASS",
+    "seconds": 6.985
+  },
+  "integrated_status_accounting": {
+    "all31_exact_exceptions_held": true,
+    "all4164_unselected_prior_status_objects_unchanged": true,
+    "all456_aliases_held": true,
+    "artifact_sha256": "e9f248c1730aa59f4d89f9ddf66aedf05dd172c73dab190709ea3e8c6683b061",
+    "basis": "Frozen complete3468 baseline plus measured disjoint22/106/42 deltas",
+    "counts": {
+      "held": 562,
+      "malformed": 6,
+      "supported": 3638
+    },
+    "fgdc4060_source_supported": true,
+    "independent_accounting_check_sha256": "2727411407fb46e575d25bfca16e5fdf815e69947afb3f44383a15aed9ef6aa3",
+    "source_count": 4206
+  },
+  "original_xml_edits": 0,
+  "preservation": {
+    "all_existing_provider_ids_dois_files_and_poster_exclusions": true,
+    "entire_original821_and904_evidence_runtime": true,
+    "original_five_provenance_files_live": true,
+    "previous514_all_member_context_objects": true,
+    "separate_production_dedup_record_QA_and_release_gates": true,
+    "synthetic_repair_runtime_allowances_and_spent_ledgers": true
+  },
+  "provider_requests": 0,
+  "provider_writes": 0,
+  "ruff": {
+    "classifier_changed_logic": "E4,E7,E9,F,B PASS",
+    "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "source_runtime_helpers_tests": "E4,E7,E9,F,I,B PASS",
+    "unchanged_classifier_imports": "Two baseline I001 formatting findings preserved"
+  },
+  "runtime_test_profile_and_helper_sha256": {
+    "docs/readiness/2026-10-03/finite_source_resource_access_556.json": "81c719c546146eb7ad39e04db115710747935df6cb142aaf5854127bf8ddcc6a",
+    "docs/readiness/2026-10-03/guarded_resource42_qa.py": "9086b2ada50c353d620ae187f887b68b57c860c58b151ff8d5aab516fe9eb466",
+    "docs/readiness/2026-10-03/integrate_resource42_counts.py": "ca63af00d1c6917ce3ea9c40f5c838838dea10effc8d84eebc9815e6c5b342e6",
+    "scripts/collection_qa.py": "cfd88e6c869d6814d1d76ae376835992eec95c728faca0f085894e0b7e9d0938",
+    "scripts/dataset_access_interpretation.py": "45d3e87856e050c5f89d36ff9d0b8f78d0b2480c5462a246c4a2bad8d3d4facf",
+    "scripts/source_scope_attestation.py": "315c8aabaca8909c64b0e014e622f808e02370d2e3915a55fb60b509d2aa1eaf",
+    "tests/test_resource42_reconciliation.py": "123b35468df94cdc582dd88d913adc2f1a8b9315a0b0db3d1e53f8d1bb2da598"
+  },
+  "schema_version": 1,
+  "scope": "Exact42 reviewer resource reconciliation plus immutable cached all4206 source-status accounting",
+  "smoke": {
+    "count": 10,
+    "delta_sha256": "5f4161c6e6aef11f3cbb974f80e50d4a3c51cf49c45b12fbd1fb13b4f47af659",
+    "log_sha256": "88666346adc81e613cc7803a02facd3e8d8cd58ec23bdf72edba5413a2e16046",
+    "result": "PASS"
+  }
+}
