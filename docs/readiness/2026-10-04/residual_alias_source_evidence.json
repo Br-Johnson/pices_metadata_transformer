@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "analysis_only": true,
+  "source_commit": "b5291c3d9cc7e6fd8fef455120329d00a46a6156",
+  "source_root": "/workspace/pices-residual-source-next-20261004",
+  "parent_reported_counts_preserved": {
+    "supported": 3645,
+    "held": 555,
+    "malformed": 6,
+    "independently_remeasured_here": false
+  },
+  "scope": {
+    "alias_groups_from_existing_review": 228,
+    "alias_identities_from_existing_review": 456,
+    "selected_originals_hash_verified": 8,
+    "pair_hash_audit_repeated": false,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "source_rewrites": 0,
+    "eligibility_delta": 0,
+    "canonical_selections": 0
+  },
+  "existing_evidence_sha256": {
+    "docs/readiness/2026-10-03/source_alias_candidates.json": "d1b5aae5446e230d86fd4a91b6385548b8d6c4fa93a3b98a0ccc26fc731f22d5",
+    "docs/readiness/2026-10-03/source_alias_reconciliation.md": "d8ad4c1fadf07c854800969a9d6ea3ea5221bf970aaa9f6d38be71ba5c1e4a02",
+    "docs/readiness/2026-10-03/remaining_source_date_identity_review.json": "b7632a12341c7320b4a6d07502057437c9e4ef10c0a97998899de0ea558d9feb",
+    "docs/readiness/2026-10-03/remaining_source_questions_732.json": "3baf322609cc02657f400067aff4731656c110eb10bc55fc14af6bcc16b75892"
+  },
+  "prior_reference_tiers_not_reaudited": {
+    "no_stated_unique_reference": 4,
+    "procite_nonzero_literal": 191,
+    "procite_zero_reused_literal": 12,
+    "report_number_in_title": 21
+  },
+  "selected_source_evidence": [
+    {
+      "source_id": "FGDC-2953",
+      "path": "FGDC/FGDC-2953.xml",
+      "source_sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "source_bytes": 5952,
+      "pair_members_from_prior_review": [
+        "FGDC-2953",
+        "FGDC-3181"
+      ],
+      "title": "Prince William Sound Sea Otter Distribution in Respect to Population Growth and Habitat Type",
+      "citation_origin_literal": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+      "abstract_exact_quotes": [
+        "The ProCite database record number corresponds to the Excel Procite Number.",
+        "The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.",
+        "Reference Procite #493 for this literature's metadata."
+      ],
+      "source_reference_literals": [
+        "493"
+      ],
+      "canonical_provider_record_id": null,
+      "canonical_provider_doi": null,
+      "protected_title_only_warnings": []
+    },
+    {
+      "source_id": "FGDC-3032",
+      "path": "FGDC/FGDC-3032.xml",
+      "source_sha256": "0d60030cf5cb6089f0cae8dd276fb7f7b1819478dd400fb2014bba32d7c7b2b9",
+      "source_bytes": 5892,
+      "pair_members_from_prior_review": [
+        "FGDC-3032",
+        "FGDC-3260"
+      ],
+      "title": "Histopathologic Lesions in Sea Otters Exposed to Crude Oil",
+      "citation_origin_literal": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+      "abstract_exact_quotes": [
+        "The ProCite database record number corresponds to the Excel Procite Number.",
+        "The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.",
+        "Reference Procite #0 for this literature's metadata."
+      ],
+      "source_reference_literals": [
+        "0"
+      ],
+      "canonical_provider_record_id": null,
+      "canonical_provider_doi": null,
+      "protected_title_only_warnings": []
+    },
+    {
+      "source_id": "FGDC-2920",
+      "path": "FGDC/FGDC-2920.xml",
+      "source_sha256": "66097bbcd0f102a76e6fd464be17ded1cbc3ae33ddfcad625f066689f42dcd21",
+      "source_bytes": 6257,
+      "pair_members_from_prior_review": [
+        "FGDC-2920",
+        "FGDC-3148"
+      ],
+      "title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea",
+      "citation_origin_literal": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+      "abstract_exact_quotes": [
+        "The ProCite database record number corresponds to the Excel Procite Number.",
+        "The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.",
+        "Reference Procite #438 for this literature's metadata."
+      ],
+      "source_reference_literals": [
+        "438"
+      ],
+      "canonical_provider_record_id": null,
+      "canonical_provider_doi": null,
+      "protected_title_only_warnings": [
+        {
+          "source_id": "FGDC-2043",
+          "source_sha256": "9fc45ede1eff08d39e06618ae4b081ba5a6244a886a1a817fb2b4640b145790d",
+          "record_id": 17317851,
+          "doi": "10.5281/zenodo.17317851",
+          "association_status": "strong_descriptive_association",
+          "comparison": "title_only; different source bytes and abstract; do not inherit record ID/DOI"
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-3027",
+      "path": "FGDC/FGDC-3027.xml",
+      "source_sha256": "06230e76144e6129de3b4daa58aa06614005b7c088089619eab5089ad02b20a9",
+      "source_bytes": 6212,
+      "pair_members_from_prior_review": [
+        "FGDC-3027",
+        "FGDC-3255"
+      ],
+      "title": "Population Dynamics and Trophic Relationships of Marine Birds in the Gulf of Alaska and Southern Bering Sea",
+      "citation_origin_literal": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.",
+      "abstract_exact_quotes": [
+        "The ProCite database record number corresponds to the Excel Procite Number.",
+        "The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.",
+        "Reference Procite #604 for this literature's metadata."
+      ],
+      "source_reference_literals": [
+        "604"
+      ],
+      "canonical_provider_record_id": null,
+      "canonical_provider_doi": null,
+      "protected_title_only_warnings": [
+        {
+          "source_id": "FGDC-2043",
+          "source_sha256": "9fc45ede1eff08d39e06618ae4b081ba5a6244a886a1a817fb2b4640b145790d",
+          "record_id": 17317851,
+          "doi": "10.5281/zenodo.17317851",
+          "association_status": "strong_descriptive_association",
+          "comparison": "title_only; different source bytes and abstract; do not inherit record ID/DOI"
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-2837",
+      "path": "FGDC/FGDC-2837.xml",
+      "source_sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "source_bytes": 4153,
+      "pair_members_from_prior_review": [
+        "FGDC-2837",
+        "FGDC-3065"
+      ],
+      "title": "Food Habits Database",
+      "citation_origin_literal": "\n          Pat Livingston , Ed. and Douglas Smith, Compiler\n          ",
+      "abstract_exact_quotes": [],
+      "source_reference_literals": [],
+      "canonical_provider_record_id": null,
+      "canonical_provider_doi": null,
+      "protected_title_only_warnings": []
+    },
+    {
+      "source_id": "FGDC-2838",
+      "path": "FGDC/FGDC-2838.xml",
+      "source_sha256": "3545d2a03e23dd16f246ba2e836dc33f76dbe1394aa645e0debf85c5f55a3d96",
+      "source_bytes": 4253,
+      "pair_members_from_prior_review": [
+        "FGDC-2838",
+        "FGDC-3066"
+      ],
+      "title": "Carbonate Chemistry of the Bering Sea",
+      "citation_origin_literal": "National Sun Yat-sen University, Institute of Marine Geology and Chemistry",
+      "abstract_exact_quotes": [],
+      "source_reference_literals": [],
+      "canonical_provider_record_id": null,
+      "canonical_provider_doi": null,
+      "protected_title_only_warnings": []
+    },
+    {
+      "source_id": "FGDC-2948",
+      "path": "FGDC/FGDC-2948.xml",
+      "source_sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "source_bytes": 4118,
+      "pair_members_from_prior_review": [
+        "FGDC-2948",
+        "FGDC-3176"
+      ],
+      "title": "Database for Plotnikovis Method of Ice Forecasting",
+      "citation_origin_literal": "Far Eastern Hydrometeorlogical Institute, Pacific Fisheries Research Center (TINRO-Center)",
+      "abstract_exact_quotes": [],
+      "source_reference_literals": [],
+      "canonical_provider_record_id": null,
+      "canonical_provider_doi": null,
+      "protected_title_only_warnings": []
+    },
+    {
+      "source_id": "FGDC-3059",
+      "path": "FGDC/FGDC-3059.xml",
+      "source_sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "source_bytes": 4676,
+      "pair_members_from_prior_review": [
+        "FGDC-3059",
+        "FGDC-3287"
+      ],
+      "title": "Hydrological and Hydrochemical Data of the Sea of Okhotsk and the Western Bering Sea",
+      "citation_origin_literal": "Russian Federal Research Institute of Marine Fisheries and Oceanography (VNIRO)",
+      "abstract_exact_quotes": [],
+      "source_reference_literals": [],
+      "canonical_provider_record_id": null,
+      "canonical_provider_doi": null,
+      "protected_title_only_warnings": []
+    }
+  ],
+  "new_public_primary_context": {
+    "url": "https://meetings.pices.int/projects/npem",
+    "title": "PICES Metadata Federation",
+    "page_attribution": "S. Allen Macklin, November 2008",
+    "retrieved_on": "2026-10-04",
+    "exact_quote": "The redundancies were created by importing each other’s metadata records to expand individual metadata holdings.",
+    "quote_utf8_sha256": "763f4ad189708d09ac0f92816fe405757eb9a6d4f95cc55d4d5bb42a131f0df8",
+    "additional_observations": [
+      "The page describes some metadata nodes mirrored on ADHOST and others found only there.",
+      "The page describes a GeoNetwork replacement for Isite and import mapping of other metadata standards."
+    ],
+    "supports": "Original catalogue/import/export provenance is a relevant evidence target.",
+    "does_not_establish": [
+      "The cause of any specific local pair duplication.",
+      "Which of either pair of FGDC IDs is historically primary.",
+      "Any Zenodo record ID, DOI, current owner, version or file association."
+    ]
+  },
+  "source_reference_opportunities": [
+    {
+      "scope": "191 nonzero ProCite groups",
+      "evidence": "The source explicitly states a correspondence between ProCite database record numbers and Excel Procite Number.",
+      "next_source_artifact": "Original GEM Nearshore Metadata Set spreadsheet and GEM Nearshore Metadata References ProCite database with their original field definitions and NPEM/GeoNetwork import mapping.",
+      "limit": "A bibliography match cannot choose between two identical local FGDC exports or identify a provider record."
+    },
+    {
+      "scope": "All228 alias groups; especially12 reused ProCite0,21 report-number-only and4 without stated unique references",
+      "next_source_artifact": "Original NPEM/GeoNetwork catalogue export/import manifest with column headings, both FGDC filename mappings and any record ID/UUID/source-node provenance actually present.",
+      "limit": "Do not infer column meaning or canonical priority from the +228 offset, title, date, hash, shared project PDF or reused0."
+    }
+  ],
+  "smallest_grouped_missing_decisions": [
+    {
+      "id": "ALIAS_SOURCE_PROVENANCE",
+      "question": "Can the original catalogue/export owner supply the NPEM/GeoNetwork dump or manifest with field definitions that maps both members of each frozen XML-byte group to their original catalogue records and source/import provenance? For the GEM cohort, include the source-stated ProCite-to-Excel mapping.",
+      "consequence_if_missing": "Both original IDs and files remain preserved; canonical source priority stays unknown."
+    },
+    {
+      "id": "ALIAS_EXISTING_BINDING_AND_DISPOSITION",
+      "question": "After an authoritative existing-record crosswalk establishes all associated IDs/DOIs, owners, versions and exact source-file/notes bindings, which group representation should be used while preserving every existing record and both source identities?",
+      "consequence_if_missing": "No canonical provider target, record collapse or upload bypass is justified. This source-only review cannot obtain current provider state."
+    }
+  ],
+  "protected_identity_rules": {
+    "poster_10042430_excluded": true,
+    "retained_production_associations_unchanged": true,
+    "title_collision_groups": [
+      [
+        "FGDC-2920",
+        "FGDC-3148"
+      ],
+      [
+        "FGDC-3027",
+        "FGDC-3255"
+      ]
+    ],
+    "title_collision_consequence": "Do not inherit FGDC-2043 record17317851 or DOI from matching titles; distinct ProCite values and abstracts remain."
+  },
+  "conclusion": "No new alias release or canonical identity is supported. The concrete remaining opportunity is original catalogue/export provenance, supported by the embedded ProCite/Excel statement and primary PICES federation history."
+}

@@ -1,9 +1,17 @@
+# Residual source increment — 2026-10-04
+
+- [x] Reconcile main b5291c3 and all 555 holds; reuse reviewed physical-copy4 evidence and preserve all earlier receipts.
+- [x] Independently review 25 additional resource contexts and three exact external citation credits; pin full source context and retained evidence snapshots.
+- [x] Measure 32 promotions to 3,677/523/6: ten-source smoke, exact before/after/repeat/withdrawal, all 4,206 original hashes and 4,174 unselected ledger objects unchanged; 29 resource metadata objects exact, three creator cases change only creators/preservation notes.
+- [ ] Complete focused checks, independent implementation review and one current-head CI-reviewed PR before merging.
+- Remaining identities, malformed components, dates, title and unresolved source roles stay held; provider actions remain separately assigned.
+
 # Combined existing-source corrections — 2026-10-04
 
 - [x] Reconcile the reviewed pair and disjoint five-record patch into profile 563; preserve both review blocks, assessment times and all previous member/context objects.
 - [x] Measure exactly seven promotions with FGDC-4063 held; verify repeat/withdrawal, all 4,206 XML hashes and complete raw metadata.
 - [x] Recompute 3,645 supported / 555 held / 6 malformed; all 4,199 unselected status objects, 456 alias identities and 31 exception holds remain exact.
-- [ ] Complete combined Codex review and full guarded checks, then actual current-head CI/review and authorized merge in one PR. The PR timeline is the final gate receipt.
+- [x] Merge PR24 after current-head 472-test CI and anchored Codex review; main b5291c3 retains the reviewed seven-source tree.
 
 This combined handoff supersedes the separate pair/five preparation instructions
 and their intermediate count projections below. No additional source batch or

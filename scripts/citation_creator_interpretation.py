@@ -19,6 +19,7 @@ SOURCE_CREDIT_MANIFEST_SHA256 = '7526abc74cdc62644fe682b17ebb23213b90ccb80f6f00c
 ACCESS_HELD_CREDIT_MANIFEST_SHA256 = '7b45346be4435fc9fa6bfecfeb3cbc175610abf37a3e59a6b43b9731028e6b8c'
 SOURCE_CREDIT_401_MANIFEST_SHA256 = '217a11a96ffbc1f55d6e065cfcc5fac34efd4a10057b399e4a6e25faa076887a'
 SOURCE_CREDIT_409_MANIFEST_SHA256 = 'f58ae360f225e6c6a1b2c717e389c766d67883c3d6fbb598acd19caa13d5ca24'
+SOURCE_CREDIT_412_MANIFEST_SHA256 = 'c6aa4f9c2e4c80ea565b3a92d66d0e066b12f77534bd23feb92807bd18894ee3'
 
 
 def source_element(node, outer=True):
@@ -37,7 +38,8 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
              INSTITUTION_PROGRAM_MANIFEST_SHA256, JOINT_COLLECTION_MANIFEST_SHA256,
              LITERAL_EXTENSION_MANIFEST_SHA256, SOURCE_CREDIT_MANIFEST_SHA256,
              ACCESS_HELD_CREDIT_MANIFEST_SHA256,
-             SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256)):
+             SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256,
+             SOURCE_CREDIT_412_MANIFEST_SHA256)):
         raise ValueError('Creator interpretation requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()
@@ -50,7 +52,8 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
                 (INSTITUTION_MANIFEST_SHA256, INSTITUTION_PROGRAM_MANIFEST_SHA256,
                  JOINT_COLLECTION_MANIFEST_SHA256, LITERAL_EXTENSION_MANIFEST_SHA256,
                  SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256,
-                 SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256)
+                 SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256,
+                 SOURCE_CREDIT_412_MANIFEST_SHA256)
                 else [manifest])
     matches = [profile for profile in profiles
                if any(member['source_id'] == source_id and member['source_sha256'] == source_sha256
@@ -61,7 +64,8 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
     nodes = root.findall(manifest['source_xpath'])
     exact_credit_profile = reference['manifest_sha256'] in (
         SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256,
-        SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256)
+        SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256,
+        SOURCE_CREDIT_412_MANIFEST_SHA256)
     if exact_credit_profile and profile.get('primary_origin_element') is not None:
         if len(nodes) != 1 or source_element(nodes[0]) != profile['primary_origin_element']:
             raise ValueError('Creator interpretation requires the exact reviewed primary origin element')
@@ -73,6 +77,15 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
             elements = root.findall(evidence['xpath'])
             if len(elements) != 1 or source_element(elements[0]) != evidence['element']:
                 raise ValueError('Creator interpretation requires the exact supplemental source evidence')
+    # Only the three exact external-credit cohorts require these local snapshots.
+    # Their pins bind reviewer transcriptions and review receipts, not remote bytes.
+    for evidence in profile.get('external_evidence_references', []):
+        try:
+            raw_evidence = (Path(__file__).resolve().parents[1] / evidence['manifest_path']).read_bytes()
+        except OSError as exc:
+            raise ValueError('External creator evidence is unavailable') from exc
+        if hashlib.sha256(raw_evidence).hexdigest() != evidence['manifest_sha256']:
+            raise ValueError('External creator evidence differs from the reviewed snapshot')
     notes = []
     if exact_credit_profile and profile.get('preservation_required'):
         if profile.get('primary_origin_element') is not None:

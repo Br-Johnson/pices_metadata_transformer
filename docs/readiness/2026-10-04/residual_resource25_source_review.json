@@ -1,0 +1,1631 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_EXACT25_SOURCE_REVIEW_COMPLETE_NOT_INTEGRATION_OR_RELEASE_APPROVAL",
+  "reviewer": "/root/astra_transport_boundary",
+  "reviewed_at": "2026-10-04T16:47:55.550506+00:00",
+  "source_worktree": "/workspace/pices-residual-source-next-20261004",
+  "source_head": "b5291c3d9cc7e6fd8fef455120329d00a46a6156",
+  "proposal_inputs": [
+    {
+      "path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051"
+    },
+    {
+      "path": "/tmp/pices-residual-resource13-proposal.json",
+      "sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82"
+    }
+  ],
+  "mechanical_binding_receipt": {
+    "path": "/tmp/pices-resource25-source-review-bindings.json",
+    "sha256": "805674a8f3dd260dee6ca6ee9f7eb39cd4e5e503592373de5d03d9f2c6afe48e",
+    "reproducible_checker_path": "/tmp/pices-resource25-source-review-bindings.py",
+    "reproducible_checker_sha256": "6f916c1be20dca12c3d12f793dc91ec55fb450fc9ca874676f4af93841813bdc"
+  },
+  "delegated_independent_source13_review": {
+    "path": "/tmp/pices-resource13-independent-source-review.json",
+    "sha256": "7351c48864c96401b1e67767ff496d02d1e8ee938d5eb0a5d7da56be799b28a4",
+    "reviewer": "/root/astra_transport_boundary/malformed_source_review"
+  },
+  "before_report": {
+    "path": "/tmp/pices-next-resource29-before-all/prepared/classification.json",
+    "sha256": "a99fb98229ff6f4bae43e16b43f0e543ec986f7d5ed3f6db782a0fa8806f65dd",
+    "summary": {
+      "source_files": 30,
+      "source_status_counts": {
+        "supported": 0,
+        "held": 30,
+        "failed": 0
+      },
+      "technical_metadata_counts": {
+        "pass": 30
+      },
+      "exact_copy_groups": 0,
+      "files_in_copy_groups": 0,
+      "unique_raw_contents": 30,
+      "publication_approved": 0,
+      "remote_verified": 0,
+      "rehosting_authority_counts": {
+        "USER_ATTESTED": 30
+      },
+      "coverage": "Every raw file hashed; strict source-only agent profile on constructed XML artifacts; no recovery or remote/API/duplicate-service assessment"
+    }
+  },
+  "prior563_profile": {
+    "path": "/workspace/pices-residual-source-next-20261004/docs/readiness/2026-10-04/finite_source_resource_access_563.json",
+    "sha256": "7e9f66fc19968c3f2784ff0ea5ab6d1169c1bd165035e5612c78332567636224",
+    "member_count": 563
+  },
+  "original_statement_references": [
+    {
+      "key": "restoration_authority",
+      "manifest_path": "docs/readiness/2026-10-02/rehosting_authority.json",
+      "manifest_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+      "original_attested_at": "2026-10-02",
+      "original_provenance": null,
+      "original_scope": "historical_geonetwork_metadata",
+      "original_limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority."
+    },
+    {
+      "key": "contact_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contact_source_interpretation.json",
+      "manifest_sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+      "statement": "It means contact someone (source) to obtain the underlying dataset",
+      "original_attested_at": "2026-10-02T18:26:45Z",
+      "original_provenance": {
+        "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+        "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+        "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+        "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+      },
+      "original_scope": "historical_geonetwork_contact_source_access",
+      "original_limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+    },
+    {
+      "key": "contributor_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contributor_source_interpretation.json",
+      "manifest_sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+      "statement": "yes",
+      "original_attested_at": "2026-10-02T23:43:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+        "question": "in the PICES records, does “Check with Contributor or Source.” mean contacting them to obtain the underlying dataset, just like “Contact Source.”, rather than restricting reposting the metadata?",
+        "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "timestamp_precision": "minute"
+      },
+      "original_scope": "historical_geonetwork_contributor_or_source_access",
+      "original_limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+    },
+    {
+      "key": "original_three_questions",
+      "manifest_path": "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+      "manifest_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+      "statement": null,
+      "original_attested_at": null,
+      "original_provenance": null,
+      "original_scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+      "original_limits": null
+    },
+    {
+      "key": "original_821_direct_reply",
+      "manifest_path": "docs/readiness/2026-10-03/source_scope_attestation_821.json",
+      "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+      "statement": "they reply to the underlying data. all these metadata records were public before",
+      "original_attested_at": "2026-10-03T20:20:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+        "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+      },
+      "original_scope": "exact_three_question_groups_821_historical_geonetwork_metadata",
+      "original_limits": "All original constraints and XML remain intact. The attestation clarifies scope only; existing separate user-attested rehosting authority keeps XML restricted and unlicensed. No attribution/date/title/alias hold is cleared by this scope decision."
+    }
+  ],
+  "original_statement_references_retained_verbatim": true,
+  "all_original_evidence_files_current_hash_verified": true,
+  "source12_correction_review": {
+    "superseded_proposal_path": "/tmp/pices-residual-resource12-proposals.json",
+    "superseded_proposal_sha256": "5c29364d8c2b0a35c0ad9ee522f92e4489c61233f2012b5819e64179393cb1fc",
+    "corrected_final_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+    "finding": "Final753 rationale accurately restricts positive polarity to29 transparencies from1974;23 from1984 remains unspecified. The superseded packet is preserved."
+  },
+  "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_OR_BEFORE_BINDING_FINDINGS_FOR_EXACT25",
+  "material_findings": [],
+  "required_new_user_questions_for_these_finite_interpretations": [],
+  "rows": [
+    {
+      "source_id": "FGDC-1341",
+      "source_sha256": "a54095e598483ff43a6101184cdf9206be06db58281487f30c73e165e39905bc",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "96ba5989bd3304cf1180474e4c817773eb20913dbf67aebd409189e1836b3f7c",
+      "full_serialized_root_sha256": "1db292f7213f70fcd35e2caf576cced5996aff44bd76dc8e1230a64a22f6e8c7",
+      "constraints": {
+        "./idinfo/accconst": "Official exchange or relations of collaboration.",
+        "./idinfo/useconst": "Official exchange or relations of collaboration.",
+        "./metainfo/metac": "Official exchange or relations of collaboration.",
+        "./metainfo/metuc": "Official exchange or relations of collaboration."
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "5d867cb951dff8f1039b58e30d74fda117602a7114440026ad473f3a27d01c77",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-1341.json",
+      "before_prepared_payload_sha256": "8c6ffdd07bafe8a184b0d6694835e489f4f2755c2d1071f6cc51bb7b54d66ac0",
+      "before_complete_raw_metadata_sha256": "a02bd045c43603fdbf58a2f94d02cb75c9e911eba1275a98336ce7bf121c5b20",
+      "before_raw_notes_sha256": "48791459100793de3f58736b0d950d9ef8f2239340979ae71c3cee45b3da9fe7",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "25b591cfb33a904ffcd243c4b47c651dd3edbf426fe3504b3ce6cd4b7e727728",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "Oceanographic Data Collected in the Sea of Japan",
+      "independent_assessment": "The abstract explicitly distinguishes an observation archive from metadata available through NEAR-GOOS since 2000. This supports the bounded archive-exchange reading but does not itself prove unrestricted metadata. The four collaboration clauses remain literal and the separate restoration authority remains necessary.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 11,
+          "verbatim": "Since 2000, the metadata are available through NEAR-GOOS Delayed Mode Data Base (Russia)."
+        },
+        {
+          "line_1_based": 113,
+          "verbatim": "<metac>Official exchange or relations of collaboration.</metac>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-1710",
+      "source_sha256": "6338256ee0413e33b192261cfe4c457270e00f18127155eabfb36855c4feb6a2",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "b67408f3e311fe07775aa8d4db2f84dd3208310538a4091c21ecf39ee6f5772f",
+      "full_serialized_root_sha256": "5f84d1b3f9b3b6e1ea603d36f6cffbec30aaca375c99a69dc655656763f01b4f",
+      "constraints": {
+        "./idinfo/accconst": "Request for one or two pages of data and/or short reports can usually be accommodated,.",
+        "./idinfo/useconst": "Republications of materials in this report series may be authorized by the department",
+        "./metainfo/metac": "Request for one or two pages of data and/or short reports can usually be accommodated,.",
+        "./metainfo/metuc": "Republications of materials in this report series may be authorized by the department"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "22f479efe814c488d3550ded26b357a27e8c9a3726bb0247870d4eab682208b6",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-1710.json",
+      "before_prepared_payload_sha256": "d712c4661c8a466e2b2f5e12c4b449519fbe87b9e4305e8688ae34534e68cae7",
+      "before_complete_raw_metadata_sha256": "0496f2391919129cfe63275764f007afd52915a5ec6bc09d7832adf8290fb9fe",
+      "before_raw_notes_sha256": "d7da8ed29d3e4be40447da1629d8b666135cfa39c4c78e2b9ea5a6070ba7e07b",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "6e703f7fc9a463fbfd06847d7ecb849aa4fc80e937e7c49a1d0a96e0f0537ce2",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "No. 056 - 1979  Bristol Bay Sockeye Salmon test fishing projects.  Edited by  Henry J Yuen  1980  51 pp.",
+      "independent_assessment": "The full root describes report 056 and its series; the access clause specifically offers data pages or short reports, and the use clause addresses republication of series materials. Those report pages are absent. The bounded proposal neither satisfies departmental authorization nor changes the editor, title, or unusual primary-date wording.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 48,
+          "verbatim": "Request for one or two pages of data and/or short reports can usually be accommodated,."
+        },
+        {
+          "line_1_based": 49,
+          "verbatim": "Republications of materials in this report series may be authorized by the department"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-1767",
+      "source_sha256": "4c82d4256cc2c3e33d9f31083c99206bbf7a50ea1281344d2e2bf4dfcd78c147",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "b5327d096b97f04425d82947f99dfa4476a5e84e963d137b21f03c811da72241",
+      "full_serialized_root_sha256": "74e47c2866c85f54871935d6b7eea22b422a752a9840b1862972b260f46c46df",
+      "constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "d376e42b74159bf3a17fa6fe53714528313be21505be62d5dc2c18d621ac5e57",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-1767.json",
+      "before_prepared_payload_sha256": "7f85a6c464a8862f63056f53efbbc589178a670d7921f9d130b7c172a12977e6",
+      "before_complete_raw_metadata_sha256": "23dc877e7e59dccc73195717a5669bbc4f56b8f5e64d85d59c541c51fd84d3ac",
+      "before_raw_notes_sha256": "39096838522dce5fa582978fc2629fbcb1580f9fa25802f983e1ca86f2e43983",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "03917913245d5f1f8f83df568a058cbf5163b48af55bff7525a2cd11efef5f15",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "AVHRR Sea Surface Temperature (SST) Pathfinder 9 km Weekly Composites from the U.S. GLOBEC NE Pacific Program",
+      "independent_assessment": "The abstract distinguishes composites, descriptive documentation, viewable images and an explicit data FTP path. That concrete context supports this exact Contact Source reading without equating all punctuation variants or asserting current anonymous access. The root contains no SST arrays.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 11,
+          "verbatim": "Data can be accessed through anonymous ftp at ftp://pisco.coas.oregonstate.edu/ebc."
+        },
+        {
+          "line_1_based": 111,
+          "verbatim": "<metuc>Contact Source</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-1903",
+      "source_sha256": "63c017345d2328f74bda6acb9bd04f2a8a507714b5e106b8d089490348f12e56",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "3df33f586221079d3bdd3cf9c67ad904927b62e233f7a053169e9b06fe0b1268",
+      "full_serialized_root_sha256": "0ea26f1d1836b9f00e18824f3e77bd609975e653b8d027b2ff5498d47c99bcdc",
+      "constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "c6ed43704ec76dd6332e44358a8696fa2e62f5c02a00f462044c5d3c1669fc5d",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-1903.json",
+      "before_prepared_payload_sha256": "fb5f1e876436fbfbbe2b78ed34267273ebfd8d8040ff4f58251e1b0a1be93f03",
+      "before_complete_raw_metadata_sha256": "ad2ed28d897af692c27ab54a9108cd9b848abc177868abfcfc42d2bff7fde985",
+      "before_raw_notes_sha256": "9ca6693296033a55c82dc0f1bc6ebd44b5d453cd74db0f521e847483c1a5d1c5",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "77591b0cf521a5125c2df786fb43fcc9da66ae66c879c0020ccdaa6af06eb1ca",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "Sedimentary Denitrification Rates from the Bering, Chukchi, and Beaufort Seas",
+      "independent_assessment": "The abstract separates measured rates, the complete published results, a documentation file and a data directory. This supports a resource-specific Contact Source reading; neither the rate tables nor the complete article occur in the root. No article or data reuse permission follows.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 11,
+          "verbatim": "Documentation available at ftp://sidads.colorado.edu/pub/DATASETS/ARCSS/data/arcss060/readme_arcss060.txt."
+        },
+        {
+          "line_1_based": 11,
+          "verbatim": "Data available at ftp://sidads.colorado.edu/pub/DATASETS/ARCSS/data/arcss060/."
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-2603",
+      "source_sha256": "6a3cbd4808b1446f3264f553d24750023b861171dae7bcaebfb07065b1a01f4c",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "3bf3979899567a3078a86862a9766d42d10a5f2e3215839989ed7d8bbdfbaced",
+      "full_serialized_root_sha256": "957f16047d4473313dc22f4735cfd4a2f6b06d4fe22bccbf2e5f0bdfa0d238b3",
+      "constraints": {
+        "./idinfo/accconst": "Check with Source  about how to obtain data.",
+        "./idinfo/useconst": "Check with Source",
+        "./metainfo/metac": "Check with Source  about how to obtain data.",
+        "./metainfo/metuc": "Check with Source"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "e0d20923b8204a63a9dc9f5410f6269ac65e3eaf5a5324a47b7d687fcf8c66eb",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-2603.json",
+      "before_prepared_payload_sha256": "d9fc94c3ef76b667b0ad3730503513181468464e05b2d09774222057c248a14c",
+      "before_complete_raw_metadata_sha256": "dabd21b80878541e1bc71079e41ef4cdb519ecd1cdff7ffcbdf499811c2a08a0",
+      "before_raw_notes_sha256": "55c19fc37a2c2d7235fffda07f86b6c10908eb7b83f0504ee32df6fecd5296d5",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "01e713718f4ea59db7be6be76b81028cb3f8d321b56e594a7adce8ccbc80cee7",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "A Dynamic Numerical Marine Ecosystem Model for Evaluation of Marine Resources in Eastern Bering Sea   (Part III)",
+      "independent_assessment": "The access clause explicitly names obtaining data, and the descriptive sections identify the numerical ecosystem-model project. No code, input tables or output arrays are embedded. The proposal retains the different access/use text and its internal spaces without widening earlier attested literal cohorts.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 45,
+          "verbatim": "Check with Source  about how to obtain data."
+        },
+        {
+          "line_1_based": 110,
+          "verbatim": "<metuc>Check with Source</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-2698",
+      "source_sha256": "a26b55f858b753295f59481b4c68edf5ceb92b7e571a9f1e6c38f4f7405276c4",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "9698428c313aadcf9a3d0ad2e3d9692f40b6460ea6e1121a0daa10cfc9c1fe8f",
+      "full_serialized_root_sha256": "a0edb74df8d425692692718e61096c575fc72f2e0a96207d5e5a614fb43f8440",
+      "constraints": {
+        "./idinfo/accconst": "GO to the webpage; http://www.natice.noaa.gov/index.htm",
+        "./idinfo/useconst": "Go to the webpage; http://www.natice.noaa.gov/index.htm",
+        "./metainfo/metac": "GO to the webpage; http://www.natice.noaa.gov/index.htm",
+        "./metainfo/metuc": "Go to the webpage; http://www.natice.noaa.gov/index.htm"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "4c4e63e6811a80b864ba55e2c7eb86bdb0602609de545d487731ec2041dee9b3",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-2698.json",
+      "before_prepared_payload_sha256": "fa113d63e3d0f0422856a472c5edb1a69d41103ac54e6b49b2f4402cf72f55e4",
+      "before_complete_raw_metadata_sha256": "0739803b079d642ede651e8fc55e4fd04c7b7a40dc543538d6293bacc8fbebfc",
+      "before_raw_notes_sha256": "a5fb397a2631b3828ab510cb12c8943f640658c0c659db070f61ad4c2b217b85",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "dda76c877d181b15bd629c55e829f9dd337dfea745ebc5838d41bfaa2448f5cb",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "National Ice Center Homepage",
+      "independent_assessment": "The title identifies a homepage, the abstract names its URL and the mission text describes its products. Go to the webpage is a direction to that named resource; no separate policy document is incorporated by name. Source dates and institutional statements remain historical, with no present reachability or product-rights claim.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 7,
+          "verbatim": "<title>National Ice Center Homepage</title>"
+        },
+        {
+          "line_1_based": 54,
+          "verbatim": "GO to the webpage; http://www.natice.noaa.gov/index.htm"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-2702",
+      "source_sha256": "8a9f23097d76bdde1a8118014bbde71d1a04047cbce4770f57f738b03b62a255",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "61e893688310120ea2be4520698b6e5cbb527ca01cbcbcbacec1910660959260",
+      "full_serialized_root_sha256": "51159086bd1f0db00e86319bfa78578895fe9e0aa7767d0171bb5b7a4dcaafce",
+      "constraints": {
+        "./idinfo/accconst": "Check library for book.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Check library for book.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "112c2ff5d812be03369746421c8ed578a6c8f65cccad73c070ae4a9a3fa4feb8",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-2702.json",
+      "before_prepared_payload_sha256": "b40e40c9e12b109eff8425765d99506f76e84b59532248d6f2757a05bc6cf507",
+      "before_complete_raw_metadata_sha256": "c13024af8f28bc4297805fd884d2282c1cbe15a2a6fc82144c13a830614d8485",
+      "before_raw_notes_sha256": "3312943724ec3fe42f8fbefb6f7bac55c11abce160b21238bcb55ebdb9e19477",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "47b5f36da69d417b1fb1e2f477740ee93802e7cd25d67260c3de71b943b1c34a",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "The Aleutian Islands: America's Back Door",
+      "independent_assessment": "The full abstract and citation identify the book, with an explicit university-library availability sentence. Check library for book therefore has a concrete acquisition target separate from this short catalogue entry. Unknown use remains Unknown; the proposal does not infer copyright expiry or permission to reproduce the book.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 14,
+          "verbatim": "This volume may be found at many university libraries."
+        },
+        {
+          "line_1_based": 122,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-3541",
+      "source_sha256": "f62e539ea87a1e1358e7abe7af667e950f60ffb6b29d22a268c32e421275807a",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "4af7a18744c8ea0719c0bbfb1df5111c0e75d509a52294ca77925d23583cb277",
+      "full_serialized_root_sha256": "1751e4f3ca49f1c2880233d240d3f105a5e59ea551c3aeba674f50ba143f92aa",
+      "constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Check with Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Check with Source"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "40575b2c3e28b41c33746aa475c18c8189cf707df4300d9e7cf184cd5746e4fc",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-3541.json",
+      "before_prepared_payload_sha256": "a19bb794b1865d3aedd79740e061f85257e11bd0a036593d4afe834440091e0a",
+      "before_complete_raw_metadata_sha256": "03c1457aa0da9c1f4d6a7f1a2d1908ec44d9cec238f9ad939131ff97ebeeb812",
+      "before_raw_notes_sha256": "41a5c29292d9912699c9c02d200ece8f707d3191ebd017201ead4868c4f5033b",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "07a08e33afdaf065f0c7208c955f68e4bd582fdbe856bf3471e5d9d00bbd6714",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "100-km SST Field File",
+      "independent_assessment": "The abstract describes a binary SST field and documentation-record format, then distinguishes current and archived data contacts. This anchors the exact mixed contact wording in the described data. This root contains neither the binary data nor its documentation record, and the proposal does not assert current contacts or data-use authority.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 17,
+          "verbatim": "For current data, contact John Sapper at OSDPC"
+        },
+        {
+          "line_1_based": 17,
+          "verbatim": "For archived data contact Thomas Ross at NCDC"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-4037",
+      "source_sha256": "7caea9bf89037e8a5760149d1d86acd9c4bec7a17d505e047306a983ee79ce8d",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "afb085f81a487c3ba478f35471e4f705ba0a14e380332fc221ada04163572220",
+      "full_serialized_root_sha256": "bfd09017c9d7ea7fd13682560384918b453706347347c80eb6c711655b26feb3",
+      "constraints": {
+        "./idinfo/accconst": "User registration required.",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "User registration required.",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "da96ef616f3c58569da39c8acc9625739da0135654b9a89b32027a5219b55991",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-4037.json",
+      "before_prepared_payload_sha256": "cfcca890fec6701fca99c58b026fb5016730d94653f037572323cabe675ad46b",
+      "before_complete_raw_metadata_sha256": "27e62c7b84ca6c6fb3bc0067cc05d57a03d3b4e620bd0d1543a2c9e0460e618e",
+      "before_raw_notes_sha256": "ffc35fe8a6754e5574696f971fb15a086339e226d43e0570b663c602b1f5f969",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "967455bf82c26397c608cddf306661cee0062481d97a3187106ec141da35cb38",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "JAMSTEC Submarine Cable Data Center",
+      "independent_assessment": "The abstract explicitly connects registration to downloading observatory data. The purpose identifies the observation systems; their streams are absent from this root. Registration and Contact Source remain unsatisfied literal conditions, and no account, current download availability or data entitlement is inferred.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 12,
+          "verbatim": "Data are available for download with user registration."
+        },
+        {
+          "line_1_based": 118,
+          "verbatim": "<metac>User registration required.</metac>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-669",
+      "source_sha256": "dc7de1b6fd1213657665f9c3110653bd3faceb35cec697e026fa87d6183b64ed",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "2a39a28b9fb73efbd1f7381838dde7e46f7197e601b1f2f087935f83d41dd721",
+      "full_serialized_root_sha256": "6732320b3381d6886ccad04f4ab3eda20d7cf34ca8d326394d2adfdab25d4350",
+      "constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water.",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water."
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "5571a9684c0cee19becdb5540068faac9e92f5e308852ae0dc99ba94192c29c2",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-669.json",
+      "before_prepared_payload_sha256": "7c59c734b7cc0b16122bdeb001a74b446584ff4375da89f3f6c60f6dd6c32ad9",
+      "before_complete_raw_metadata_sha256": "bd462548281f3fd73abd6f901f7b33dd9cbff908cddf1fc31dd3fb12429e81b5",
+      "before_raw_notes_sha256": "805182d4a8f664e1f1fb377e86a013e4b9c906e2a75fcd374a35bed3b203ef3c",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "4c9bf5ce060c6a4dd6e8615be1ba7566c40bd90aa18762c09640cd2002b8637c",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "Exxon Coastline - EVOS Database",
+      "independent_assessment": "The abstract identifies a digital shoreline made from map and photo sources; the tide and datum wording is a quality caveat for that shoreline. The full root contains only the description and extent. Unknown access remains unresolved, so this reading supplies neither access permission nor an XML-specific exception.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 49,
+          "verbatim": "Photos are not synchronized with tides."
+        },
+        {
+          "line_1_based": 112,
+          "verbatim": "<metac>Unknown</metac>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-753",
+      "source_sha256": "a8674a8c16853c98420da21a565c4eef0874217903bd809b345c303e0bdf5549",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "8d0b521faa4c42e5cd3328e6b968947e902677323a661738be80f48304d08114",
+      "full_serialized_root_sha256": "d50ec6389bc87f6e723f2a4a6459e7ecf3a33a6f08783521958cea7948f95200",
+      "constraints": {
+        "./idinfo/accconst": "Duplicates available from the GeoData Center, University of Alaska Fairbanks",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Duplicates available from the GeoData Center, University of Alaska Fairbanks",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "2e7e40ee9a004b119cbe3286a6f8b4e547e6ad330d3692c41bae07427de66fe7",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-753.json",
+      "before_prepared_payload_sha256": "eb4e53d3e351165a8502fa555dd02fe2df01b86d66c4d4448654128f513e7636",
+      "before_complete_raw_metadata_sha256": "153de0e2ab980f3bdb62b2adbd0ee1ecd6da71ff4be2d93bd27aeb14059f33b6",
+      "before_raw_notes_sha256": "0799d26d57aa7d769c01047c5d63dcd0e50be92bbab03c8bdadfdcf7c233e7f3",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "74b1f4cb3efc8e562c82a82c6c18e05f1368f63217c93df3a78ba6fbb0e3ad92",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Wrangell Mountain Aerial Photographs",
+      "independent_assessment": "The abstract identifies 29 positive 1974 transparencies and 23 1984 transparencies, and the duplicate-copy clause names the UAF GeoData Center. The corrected rationale preserves this distinction, Unknown use and the discrepant citation/photo dates. No photo acquisition, present offer, license or XML-specific exemption is inferred.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Availability/qualification/copy rights remain unverified",
+        "Unknown use remains Unknown",
+        "No acquired photographs or duplicate copies"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 50,
+          "verbatim": "<accconst>Duplicates available from the GeoData Center, University of Alaska Fairbanks</accconst>"
+        },
+        {
+          "line_1_based": 115,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-779",
+      "source_sha256": "c78f16c0f4c9731030be0892dd7acdd88e71712161ca1d1a3d424d0cb84c3628",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "ab3e002e64dca4c7439765fbef701f80855ade9ef8a2a2e855193e3b0cf51d90",
+      "full_serialized_root_sha256": "d74f3b8dfc901ed590a87c7354c2375abca35b75f2fd8315f6643583a9b31f93",
+      "constraints": {
+        "./idinfo/accconst": "Reports (with maps) and databases are available by request to the Palmer Field office.",
+        "./idinfo/useconst": "Contact distributor",
+        "./metainfo/metac": "Reports (with maps) and databases are available by request to the Palmer Field office.",
+        "./metainfo/metuc": "Contact distributor"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "24e2606ca4ca119cf8b8ef201c8d75ce686fd43180546a18ee82701f97765452",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-779.json",
+      "before_prepared_payload_sha256": "b5604a0a99f7b502108a723293837c417f965d2d754e2300598e24f4252904b5",
+      "before_complete_raw_metadata_sha256": "f411a86931c20a1b2e27fb8b0367a29c8d640f5d5943c12e1fdd6e14cfe0696f",
+      "before_raw_notes_sha256": "3b625cd7a0e4a801b27d478a4f2b97fec93b4a4d53c2b09d2d2c06ccd2459393",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "4e0d5b67b3d8837ea2bb21cc74d8359fe0a731a72354b84a02b8b0556e43cfcb",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Upper Prince Williams Sound Soil Survey",
+      "independent_assessment": "The source names soil reports with maps and tabular database data, then directs requests to Palmer Field Office. That concrete resource context supports the finite request/distributor reading. The literal Oakley contact and Palmer channel both survive; no request, permission, report or map release is established.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Request and distributor inquiry remain unsatisfied",
+        "No report/map/database publication or underlying soil data rights"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 44,
+          "verbatim": "<accconst>Reports (with maps) and databases are available by request to the Palmer Field office.</accconst>"
+        },
+        {
+          "line_1_based": 109,
+          "verbatim": "<metuc>Contact distributor</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-784",
+      "source_sha256": "dbbbaab66823dcf1538fe7831c580e28b84563054fc67b49afc943f9a893711a",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "700babb432e70b5998461480cbdee6bf6818a5ae18ca6d2b1625c1e23120b9fc",
+      "full_serialized_root_sha256": "8117425301bdd5dd76bbf19c099411bd5360208db4fd9e9c6357900272982cb1",
+      "constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Data is spatially located on color infrared aerial photography and has not yet been automated in a GIS system. Attribute data has been automated by Wrangell St. Elias National Park in database management system.",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Data is spatially located on color infrared aerial photography and has not yet been automated in a GIS system. Attribute data has been automated by Wrangell St. Elias National Park in database management system."
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "d371ff023ff6e90b9e838139674117c2935c3a672960ac65d550720ff1a7bb87",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-784.json",
+      "before_prepared_payload_sha256": "8ad380932590f0bc04838c868151f3772e2f41eb5a8e81334c9060cc22291451",
+      "before_complete_raw_metadata_sha256": "c47d8d690475bc8c99a29844f453abee47e8a1c41c4458bb3699bc969a8580d4",
+      "before_raw_notes_sha256": "d3cebd994633638eafab5aac42f4c4ab3a6a0a57f836257b52f50bf7b13408e6",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "f05138304dd83e6bf53477ff7fab827cd3be56da9c02d15236e16e031cddf510",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Wrangell-Elias Vegetation Ground Plots",
+      "independent_assessment": "The use clause describes photography-based spatial data and attribute automation; the abstract explains vegetation plots, GPS and rare-plant surveys. The full XML contains the overview and regional extent, not plot records. Unknown access, differing source time spans and automation status remain unresolved; no rare-plant clearance follows.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Unknown access remains Unknown",
+        "Spatial/attribute automation state remains literal",
+        "No rare-plant/GPS plot/attribute release"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 49,
+          "verbatim": "<accconst>Unknown</accconst>"
+        },
+        {
+          "line_1_based": 114,
+          "verbatim": "<metuc>Data is spatially located on color infrared aerial photography and has not yet been automated in a GIS system. Attribute data has been automated by Wrangell St. Elias National Park in database management system.</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-817",
+      "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "7abfcbf0bb3baec46004e5a4a6efd58bbe1eb4f43c986577b551c4477d5526fd",
+      "full_serialized_root_sha256": "627e7ffffb19e4ba1a42b9b04285896d2e7ac6afab20291f7db8b46091aacade",
+      "constraints": {
+        "./idinfo/accconst": "Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.",
+        "./idinfo/useconst": "Boundary accurracy is restricted to 1:250,000 scale and smaller.",
+        "./metainfo/metac": "Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.",
+        "./metainfo/metuc": "Boundary accurracy is restricted to 1:250,000 scale and smaller."
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "07909dcbb5137c9a41172917748dad70e24f870f5c3e88d05d9a9576f1969a01",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-817.json",
+      "before_prepared_payload_sha256": "930894586c09f57c6748a744e6014a1ef7aaf69d83052a22ba84c7f49d4ce425",
+      "before_complete_raw_metadata_sha256": "8e1ee46fb3f867a3803d05eac7fc6409d4353fbfde72d7fb0d69c3d20fa89a43",
+      "before_raw_notes_sha256": "eece8b4c7c4539541ac5e003830d2e01f6061f5cfc0ca6d4136b02b3b0c43a32",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "1a51c71629d02adfa1a51884b923d8d03de84f9a912d81212ab8fb9363b37a9d",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "Alaska Coastal Zone Boundaries",
+      "independent_assessment": "The abstract describes boundary geometries, linked ASCII narratives and an extraction tool absent from this root. The availability clause expressly names database data and the scale condition matches the abstract. The proposal preserves the statutory reference and completion condition without interpreting law or treating progress=Complete as proof of entitlement.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 47,
+          "verbatim": "Upon completion of the database data will be available"
+        },
+        {
+          "line_1_based": 48,
+          "verbatim": "Boundary accurracy is restricted to 1:250,000 scale and smaller."
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-832",
+      "source_sha256": "7986c6cd4fb9741943c830382439a6457ed521115bb1580126dcbbb08d480248",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "3fa5d4202c5655f9e0ef6406d40be47955efd3a155f18d03c879325962d01f27",
+      "full_serialized_root_sha256": "d73c058b86c73901e858790cb770c2abe88b648a25290877d993646a91e70882",
+      "constraints": {
+        "./idinfo/accconst": "Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "b79a831473fe23f02c8b1459c13a23ea900b6e14ca7521342745aacfebc15c3f",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-832.json",
+      "before_prepared_payload_sha256": "e400df5f910998f02ed5a4922a13cf823b74f960381f372e64f6a86192060018",
+      "before_complete_raw_metadata_sha256": "6f83b39d5e9514ba99fe78f146c8bce28b66814d226636813df6eeb7c0bfd21b",
+      "before_raw_notes_sha256": "a1a92034452a194e19210f50e1dc346d3c5322478daa9a97954bbc812b2b54df",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "6e703f7fc9a463fbfd06847d7ecb849aa4fc80e937e7c49a1d0a96e0f0537ce2",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Coded Wire Tag Database - Salmon",
+      "independent_assessment": "The clause names only non-restricted requested data and ties cost to complexity and quantity. The full description concerns coded-wire fish tracking rather than embedded tracking rows. The treaty reference describes database purpose; no treaty entitlement or determination of the non-restricted subset is made.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Non-restricted subset is not identified or released",
+        "Request/cost conditions remain unsatisfied",
+        "Unknown use remains Unknown"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 47,
+          "verbatim": "<accconst>Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.</accconst>"
+        },
+        {
+          "line_1_based": 112,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-834",
+      "source_sha256": "bde8be32b24a2384eddd636f5267e7dd18551cfe5f2cab7765a18599800a2fb1",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "ebf3930065da54c448f94969fc9f904be663aa10c06346db0d1f94db73d29715",
+      "full_serialized_root_sha256": "5816ce8025de7600be2ce9574cef687af25918144aa76ae9dcefe6916f48cf74",
+      "constraints": {
+        "./idinfo/accconst": "General location information is available upon request.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "General location information is available upon request.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "f6e2012c5dd91411b07e9486f623e99c923544a3a057289c282567f88ab17552",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-834.json",
+      "before_prepared_payload_sha256": "032c30ed37f0e3aee4ac4b199149bf9102054aa42ac215b99404a41bcfa4f18e",
+      "before_complete_raw_metadata_sha256": "f23fa561b13796a4fbe451f0bb86138a726ca3309ec7990a8d895ff138724284",
+      "before_raw_notes_sha256": "f79a9b45fe4d7df08c21b8aea0afa443ed182085073ae02d8a6e33d8022355e6",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "758361efb7daf1f5e2dbf336358f8351542cf5018ebbe1e0648b716b0f2c3c6c",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Mariculture Permit Tracking",
+      "independent_assessment": "The literal offer covers general location information by request, while the abstract describes permit tracking and its GIS by-product. The XML contains no permit applicants or venture coordinates. The general-information limit and Unknown use remain intact without implied request fulfillment or release of permit records.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Only general location information is described as requestable",
+        "Request fulfilment and full permit/GIS access not asserted",
+        "Unknown use remains Unknown"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 46,
+          "verbatim": "<accconst>General location information is available upon request.</accconst>"
+        },
+        {
+          "line_1_based": 111,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-836",
+      "source_sha256": "51d5ca1d5c8705fc1b2ea9fa6a6f00a970297d3454cd74fdb72c909a38a442aa",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "35ccb8aba367c7662c06e2c9ce56c0ea45d2bc9f1e41a7d4b7c358cfc736a77c",
+      "full_serialized_root_sha256": "9a00ab3789caddf7a2bb032073e220a8f81dadf7bbdd37a540bba59e4fb3d66a",
+      "constraints": {
+        "./idinfo/accconst": "Yearly data is published in the \"FRED Annual Report\". Also, the division would answer specific reqests about the data on an individual basis free of charge.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Yearly data is published in the \"FRED Annual Report\". Also, the division would answer specific reqests about the data on an individual basis free of charge.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "aa10a345a6e9f46c1fda14f6607a2a6785a634d048bf6572fe4737dbb983691c",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-836.json",
+      "before_prepared_payload_sha256": "7472ddedfeb9463fc9ab62e15ee2afc6db5350275c8c8a54aea13c98c4083f32",
+      "before_complete_raw_metadata_sha256": "c6ce605a0f691986123ca0f6d852f4696fbd6098157b8e95bec217d6fbfa2091",
+      "before_raw_notes_sha256": "226cc3a7ca0ce534d7943b4a55855f614d5eb63b696c77e05294f40218b4736c",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "758361efb7daf1f5e2dbf336358f8351542cf5018ebbe1e0648b716b0f2c3c6c",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Stocking Records - State Hatcheries",
+      "independent_assessment": "The source points to yearly data in a separate FRED Annual Report and individual free requests; its abstract identifies historical state-hatchery stocking records. The XML contains neither report pages nor stocking rows. The annual-report reference, spelling and 1966-versus-1970 temporal discrepancy remain literal; no report/data license follows.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "No annual report/data reuse license inferred",
+        "Individual data request not made or fulfilled",
+        "Unknown use remains Unknown"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 49,
+          "verbatim": "<accconst>Yearly data is published in the \"FRED Annual Report\". Also, the division would answer specific reqests about the data on an individual basis free of charge.</accconst>"
+        },
+        {
+          "line_1_based": 114,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-845",
+      "source_sha256": "8f75d0f3ee360b65444967416dd6ceaba9cd3e5b25b835ed69a20900b60ae042",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "4ac57528b82263d47d5a9899b6286052817d45cb71783080d5a3a3cfd16cd694",
+      "full_serialized_root_sha256": "74d032cfae5f07fefde95bd42cb97cfab689781fc5d738f79a722cddeba5c2d7",
+      "constraints": {
+        "./idinfo/accconst": "The digital database is available at no cost if disks are provided.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "The digital database is available at no cost if disks are provided.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "6917211947515fc59ed80dace029ce199fbca50378c87b121e1ddc20f36fbc5e",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-845.json",
+      "before_prepared_payload_sha256": "24675d808a044abfe129b269f4149e65641a8fafc1ef85147f0c0d35ce2f1800",
+      "before_complete_raw_metadata_sha256": "b2802143fa5f8a658fa847b6126d0ac5620519efd034103c217a55363044b951",
+      "before_raw_notes_sha256": "f91fc20f97b609dc0b62b51e515b2b0ffe48a8a8e41729d03479c6848b815ebf",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "76c4e485ce78612da1d8e10b08de892aa431964526b4466c85cd6964d349a605",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Community Profile Database",
+      "independent_assessment": "The abstract distinguishes the six-volume printed catalogue from a computerized community-profile database. The no-cost offer expressly depends on supplied disks for the digital database. The complete XML has a general overview rather than community/household entries. Neither supplying disks nor any right to release community, subsistence or catalogue contents is assumed.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Disk-supply condition not fulfilled",
+        "No community/household/database/cultural-content release",
+        "Unknown use remains Unknown"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 47,
+          "verbatim": "<accconst>The digital database is available at no cost if disks are provided.</accconst>"
+        },
+        {
+          "line_1_based": 112,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-853",
+      "source_sha256": "97495fe1eafbc3badee9337e13ba6170aacb96a378d6c0cf4a7a65600429ccce",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "bfe80dc36dab836d7da4445dc90517ec528b62e0c1d31c4cdafe9774ddd39ecc",
+      "full_serialized_root_sha256": "bfd57838801ec60aea4f609738fbb3e2ce5f992d1a04aef64e9dd7f0fc6e60e7",
+      "constraints": {
+        "./idinfo/accconst": "For data from 1978-1988, contact the GeoData Center.       For data collected after 1988 see NOAA or USGS.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "For data from 1978-1988, contact the GeoData Center.       For data collected after 1988 see NOAA or USGS.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "d048d512557621a17370f0679dab5129e14c086414578203c166fb3fad01bd2f",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-853.json",
+      "before_prepared_payload_sha256": "ee39b796cd2e043cfe89d4f0098c8df2bceade87a4c78e18b69085b6d7cb01c6",
+      "before_complete_raw_metadata_sha256": "76cb3b58572a0f4a28ac34273d7f2fa4f3430de3e59e729d07ed3398e8684e4f",
+      "before_raw_notes_sha256": "6919233a62a41f8eba1c525bbfe417fb1b1b66b8f6b0f4a64a84b3af7d0a81fc",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "4e4dba1f54b81f65c76ee58fdb84a3bc402a8060b9903d9f1a18692ed8101b83",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Advanced Very High Resolution Radiometer",
+      "independent_assessment": "The access clause explicitly directs historical data requests to different providers by period. The abstract also specifies Federal-agency acquisition of ADAPS derivatives under a NOAA/USGS agreement. These resource channels support the bounded reading without determining agreement terms, agency eligibility, present availability or satisfaction. All date/format distinctions and Unknown use remain literal.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "No Federal-agency status or NOAA/USGS agreement benefit claimed",
+        "Historical data channels not checked/currently guaranteed",
+        "Unknown use remains Unknown",
+        "No AVHRR raster/ADAPS derivative release"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 49,
+          "verbatim": "<accconst>For data from 1978-1988, contact the GeoData Center.       For data collected after 1988 see NOAA or USGS.</accconst>"
+        },
+        {
+          "line_1_based": 114,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-855",
+      "source_sha256": "8187738c78ee40635b785f6aec0b1d55d9df6c96330125da6b367142106c4431",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "1242c0f264a098da92f3f7af87fdb1f76b47c22d9dd7f60a9c26b3c682bd0e36",
+      "full_serialized_root_sha256": "397b2d29566b4cd3b43d434b26535414afd31feeb51a91c045d953c311200d80",
+      "constraints": {
+        "./idinfo/accconst": "Cost of reproduction.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Cost of reproduction.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "fff94cb573b5cc3754d0f65c208e6530e1b7076b9c921aee3da5b20706ef075e",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-855.json",
+      "before_prepared_payload_sha256": "b348d68437d75ae1bbe3db05ea192632083511febc20b4cb1ed421ff10fe7ef8",
+      "before_complete_raw_metadata_sha256": "6c91e0ecdb13f2c9ee566700749b8cd9e850c6dbd5bb19e87322b12212cd7b6a",
+      "before_raw_notes_sha256": "98247e10507f1b65895532581f71987feea1786a822c46323304f37c9559a915",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "6c234a770b6f3fe8806805a7f574de64ace648f4dc55848b24c49c70e680dd80",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Alaska Quick Look Landsat Imagery",
+      "independent_assessment": "The abstract itself corroborates Cost of reproduction for hard-copy photographs and states they can be scanned or digitized. The source-specific acquisition reading does not become permission to digitize or license images. Unknown use, Varies date wording and original research attribution remain unchanged.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Reproduction cost/payment not satisfied",
+        "No scanned/digitized photo or image rights",
+        "Unknown use remains Unknown"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 44,
+          "verbatim": "<accconst>Cost of reproduction.</accconst>"
+        },
+        {
+          "line_1_based": 109,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-860",
+      "source_sha256": "8e7724f0fa0f0e68cb56b8904126d57c21b66747e4b92dd7a0bbc66968fc5c90",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "f8477a74e638ca9d08c18d3d03b8c38b180fd79ae1dc9d2eb9ed4c59930213b4",
+      "full_serialized_root_sha256": "559ea61256feae9031df7774e9af49dd123798f5ba4aa38ea47a4ba6e3a59715",
+      "constraints": {
+        "./idinfo/accconst": "Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "fb6d2d2dcc8e9bd759275dacf2e0c64e06e3c228acab4d014ff732208633fe8f",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-860.json",
+      "before_prepared_payload_sha256": "80f83070b3fd0ea15952f04489ff503e18d74460ee093802ce60c52c43880658",
+      "before_complete_raw_metadata_sha256": "b4672b1769474e8d82a5f7cafdca571d89245fddb4a4f57a06cab44410e089b8",
+      "before_raw_notes_sha256": "6615f9a81c1522118aa31cfbac4cbc4fe56a3a2cb64728cf63eb8c9cd2ef87cd",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "4e4dba1f54b81f65c76ee58fdb84a3bc402a8060b9903d9f1a18692ed8101b83",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "Synthetic Aperture Radar (SAR)",
+      "independent_assessment": "The full abstract describes radar image products and expressly requires NASA/ESA approval to obtain data. Its contract and price-list instructions target those products; the root contains none of their pixels or signal files. Approval, contracting, authorized viewing and Unknown use remain unresolved.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 11,
+          "verbatim": "Approval by NASA or ESA is required to obtain the data."
+        },
+        {
+          "line_1_based": 114,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-861",
+      "source_sha256": "c3309ee66fca236b3159783aa4072906e9c93c336f4af502763a4242b732f2d2",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "cc801b8bb281a082186300b85dad8da676c53e7ac647f05899420ea6b8a09dd4",
+      "full_serialized_root_sha256": "02ce0bde82be5c9ce2699baac4baf050b4b345af169398d870e6201bfcd753eb",
+      "constraints": {
+        "./idinfo/accconst": "For data from 1978-1988, contact the GeoData Center.       For data collected after 1988 see NOAA or USGS.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "For data from 1978-1988, contact the GeoData Center.       For data collected after 1988 see NOAA or USGS.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "f752c11988670997137f9cfea34cf40c4f2453652d5413deb806ef1a28aedb3e",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-861.json",
+      "before_prepared_payload_sha256": "93a1f2acec957fd17c4e6f157bef7bf0caf18bfc11dcda14a974858379d7a6f3",
+      "before_complete_raw_metadata_sha256": "6b712bfdf7a84e2896e9501892d85776a6ab6397d92b518f21e76e2c84253bdb",
+      "before_raw_notes_sha256": "86bb2d1725287e1bad1a910b859e61dd5d567bc4f0bd28c48343aa403058c98c",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "4e4dba1f54b81f65c76ee58fdb84a3bc402a8060b9903d9f1a18692ed8101b83",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Thematic Mapper (TM) Landsat Data",
+      "independent_assessment": "The abstract describes TM raster products and formats; the access clause names dated data-source channels. The source contains no TM raster arrays. Its identical access wording to 853 does not import that other record's ADAPS agreement. The 1978 access-channel versus 1982 resource-date discrepancy and Unknown use stay unresolved.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Historical data contact channel retained without validation",
+        "Unknown use remains Unknown",
+        "No TM raster/image rights or agency eligibility"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 49,
+          "verbatim": "<accconst>For data from 1978-1988, contact the GeoData Center.       For data collected after 1988 see NOAA or USGS.</accconst>"
+        },
+        {
+          "line_1_based": 114,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-880",
+      "source_sha256": "ab715090aceeb8bb611fc604c519a3e4f776ad6d2334529a6e98ca134a3f7dfd",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "7bd549ee3fc1c9f97adff7e5fc81114bcac39acbda47b9e44198986780a228f5",
+      "full_serialized_root_sha256": "b4e83a4587ce7861efce0a6797b56034a96cacf192df5b8ce60445e3c166fe14",
+      "constraints": {
+        "./idinfo/accconst": "The data layers will be available on request following the completion of processing and extensive quality checks.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "The data layers will be available on request following the completion of processing and extensive quality checks.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "c68edc4f8ef475721c60078bd5f60244d8c482dfd1ac62237462ba06bb4f621b",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-880.json",
+      "before_prepared_payload_sha256": "7c8fa99a79d0e7603a9c86ec50aa23e3a9679006f504a8905df0c8adf624de76",
+      "before_complete_raw_metadata_sha256": "64ab24b715d685726ed3cb06900419aefcc0da2352c8e939c34bd581a405da9b",
+      "before_raw_notes_sha256": "da92dae0a941b78a6c7546e2c2e4797c0d6a26e618c68a11f290a7749d7db99b",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "ae33d8c05eb652d03af7422685b2bce5e717fa07d5c572a3288df4d79123d28f",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Historic Sea Surface Temperature 1985-90",
+      "independent_assessment": "The access text expressly conditions requested SST layers on completed processing and extensive quality checks. The abstract says the project is not yet complete despite Complete status. The proposal retains both statements, project references and Unknown use without inferring completion, quality approval, attribution changes or layer rights.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Processing completion/quality checks not established",
+        "Request and future layer availability not established",
+        "Literal incomplete narrative/Complete status conflict retained",
+        "Unknown use remains Unknown"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 47,
+          "verbatim": "<accconst>The data layers will be available on request following the completion of processing and extensive quality checks.</accconst>"
+        },
+        {
+          "line_1_based": 112,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-882",
+      "source_sha256": "8c0b964a5671eb9a56271b71ef00c2ea8d6c5296b88f91424796af5e2d811407",
+      "proposal_path": "/tmp/pices-residual-resource12-proposals-final.json",
+      "proposal_sha256": "bdee6a792fe0d3d201adb09400fda4c420eb1cf65de33e229e3872804f881051",
+      "full_context_sha256": "9c7ff2d57aacc298d1f08ba6c353a97bc3c798a194a695c45963e41d29f66d4f",
+      "full_serialized_root_sha256": "eb04137767912c53832f30476a01a13095406833c2e076e0e83ddfc28b680bd2",
+      "constraints": {
+        "./idinfo/accconst": "The data layers will be fully available on request following the completion of processing and extensive quality checks.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "The data layers will be fully available on request following the completion of processing and extensive quality checks.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "99ecc5881c88753e2b56474bfda97c90218266377f91637c38e68b23ac3025f2",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-882.json",
+      "before_prepared_payload_sha256": "c85e6fec63518873d11c15c4c4ea1325b42730012c7f8d3350c68cb35553011d",
+      "before_complete_raw_metadata_sha256": "640389ca570a58d912aa2313d7669f03d4a3ca33b67bc8d7b450f8b6e2ab2285",
+      "before_raw_notes_sha256": "594e027f6bbb8b9c7cd3da3373bec87d59f3bf7c8ce9cbcb5c22a8d6b4ee4d5a",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "ae33d8c05eb652d03af7422685b2bce5e717fa07d5c572a3288df4d79123d28f",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary",
+      "title": "Historical NDVI of Sea Study Area 1985-90",
+      "independent_assessment": "The access text expressly conditions full requested NDVI layers on completed processing and extensive quality checks. The abstract is still in progress and targets 1985-1996 while title/date/range use 1985-1990 and status says Complete. All conflicting statements remain literal; neither age nor status proves completion or permission.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "conditions_remain_unresolved": [
+        "Processing completion/quality checks not established",
+        "Request and full layer availability not established",
+        "Literal in-progress narrative/Complete status conflict retained",
+        "Unknown use remains Unknown"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 49,
+          "verbatim": "<accconst>The data layers will be fully available on request following the completion of processing and extensive quality checks.</accconst>"
+        },
+        {
+          "line_1_based": 114,
+          "verbatim": "<metuc>Unknown</metuc>"
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    },
+    {
+      "source_id": "FGDC-883",
+      "source_sha256": "f3028aae30472464b038974649ef87d967e5c70fbf98d45b060c143c5ceee7f1",
+      "proposal_path": "/tmp/pices-residual-resource13-proposal.json",
+      "proposal_sha256": "0b80505f8afe2f3b7d8a6d80157bb175422077ad4b7f770b1c638243a6166e82",
+      "full_context_sha256": "686b15ece30b24f08c98381e1d13472953fc99b55116152063e2901ef831e076",
+      "full_serialized_root_sha256": "af1405e5599976a7cca95aa4c2890d47484ad7437e8cf753c2576ab0363c1ced",
+      "constraints": {
+        "./idinfo/accconst": "Availability is dependent upon the information requested.",
+        "./idinfo/useconst": "Format is conventional. Conversion issues arise along the lines of data age.",
+        "./metainfo/metac": "Availability is dependent upon the information requested.",
+        "./metainfo/metuc": "Format is conventional. Conversion issues arise along the lines of data age."
+      },
+      "before_source_status": "held",
+      "before_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "before_report_record_sha256": "22759005596ab9eca6c38c231ebfc1b6cdbe2770850fe1ec8e56804c9ca6690f",
+      "before_prepared_payload_path": "/tmp/pices-next-resource29-before-all/prepared/data/zenodo_json/FGDC-883.json",
+      "before_prepared_payload_sha256": "5ce7bfed9e605ffac5b4e874fac09bd397a40e9a5f487db0d61e1da01fbf5298",
+      "before_complete_raw_metadata_sha256": "089b22dae6e54f10c03ab4551cc12bcb525baa908a91fb828105e8ff9eb03f6a",
+      "before_raw_notes_sha256": "3e974982badc364b0c502a1e4377e153f9d250137378e5c8fc16628766a08b9b",
+      "before_raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a",
+      "before_creators_sha256": "bd5beda10861ea716063fdbffbf28c408a41f2ee417705b9cb1605019e37f360",
+      "before_restricted": true,
+      "before_blank_license": true,
+      "copied_source_matches_original": true,
+      "proposed_changes_to_source_or_raw_metadata": 0,
+      "restoration_authority_exact_source_member": true,
+      "prior563_or_direct821_member": false,
+      "aliases": [],
+      "independent_source_reviewer": "/root/astra_transport_boundary/malformed_source_review",
+      "title": "Inventory Database (Vegetation) - CNF",
+      "independent_assessment": "The abstract identifies inventory series and recorded variables; conditional availability and format-age cautions reasonably concern those inventories. The root contains no inventory rows or reports. The proposal preserves both conditions and does not generalize Unknown or imply present availability.",
+      "complete_original_root_read": true,
+      "source_sections_read": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_anchors": [
+        {
+          "line_1_based": 42,
+          "verbatim": "Availability is dependent upon the information requested."
+        },
+        {
+          "line_1_based": 43,
+          "verbatim": "Format is conventional. Conversion issues arise along the lines of data age."
+        }
+      ],
+      "verdict": "NO_MATERIAL_SOURCE_INTERPRETATION_FINDING",
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false
+    }
+  ],
+  "integration_requirements": [
+    "Root may implement only these25 exact IDs/hashes/four plain constraints/full-root contexts as REVIEWER_RECONCILED under separately validated existing restoration authority. This review neither executes nor approves provider operations.",
+    "Preserve every prior563 member, source/acquisition context, review block and original statement reference. Preserve direct821 and earlier exact attestation membership and provenance.",
+    "Require a current aware assessment after actual final review and exact reviewed evidence pins; source/context/evidence changes or conflicting interpretation fail closed.",
+    "Preserve original XML and full raw prepared metadata byte-for-byte/object-for-object as applicable, including creators, dates, notes, access conditions, titles, identifiers and DOI protections. No alias decision or poster10042430 action follows.",
+    "Keep XML restricted and blank-license; complete descriptive source content may be visible through public metadata. Restricted attachments are not evidence that descriptions are private.",
+    "Retain Unknown and all request, payment, reproduction, registration, agency agreement, statutory completion, department authorization, approval, contract, processing and quality conditions as unresolved. Do not infer current URL/contact availability, new rights, condition fulfillment or an explicit XML exemption.",
+    "No broad Unknown/contact/URL/parser heuristic;25 decisions are individual and source-bound. Physicalcopy4, hard6, alias456, malformed6 and creator25 are outside this exact25 review; their holds/dispositions are not changed here.",
+    "Root retains integration, meaningful offline tests, fresh before/after measurement, independent current-head implementation review, CI and merge. No measured increment is asserted by this source review."
+  ],
+  "accounting": {
+    "current_parent_reported_supported": 3645,
+    "current_parent_reported_held": 555,
+    "current_parent_reported_malformed": 6,
+    "current25_before_status": "held",
+    "actual_promotions": 0
+  },
+  "activities": {
+    "provider_or_other_network_requests": 0,
+    "private_file_or_credential_reads": 0,
+    "repository_or_runtime_edits": 0,
+    "source_XML_edits": 0,
+    "full_tests": 0,
+    "source_classifier_executions": 0,
+    "source_fullroots_read": 25,
+    "before_payloads_hash_bound": 25,
+    "source12_current_raw_metadata_equals_packet_frozen_raw_metadata": 12
+  },
+  "digest_recipe": "Raw bytes SHA256; JSON object UTF-8 sort_keys=True,ensure_ascii=False,separators=(comma,colon)."
+}

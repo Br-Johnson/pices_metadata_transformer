@@ -1,0 +1,1322 @@
+{
+  "schema_version": 1,
+  "status": "SOURCE_PROPOSAL_EXACT13_PENDING_INDEPENDENT_REVIEW_AND_ROOT_INTEGRATION",
+  "evidence_type": "REVIEWER_RECONCILED",
+  "reviewer": "/root/astra_canary_root_cause",
+  "reviewed_at": "2026-10-04T16:40:32.611968+00:00",
+  "source_head": "b5291c3d9cc7e6fd8fef455120329d00a46a6156",
+  "scope": "Thirteen exact source-resource interpretations from assigned19; the other6 remain held under separate analysis",
+  "inputs_sha256": {
+    "docs/readiness/2026-10-04/finite_source_resource_access_563.json": "7e9f66fc19968c3f2784ff0ea5ab6d1169c1bd165035e5612c78332567636224",
+    "docs/readiness/2026-10-04/combined_source7_integrated_source_status.json": "30bae947685d6d22fe3863aacbd6c06735d9e7a8986133a232d9a55c2493d0f7",
+    "docs/readiness/2026-10-03/remaining_source_questions_732.json": "3baf322609cc02657f400067aff4731656c110eb10bc55fc14af6bcc16b75892",
+    "docs/readiness/2026-10-03/source_citation_credits_409.json": "f58ae360f225e6c6a1b2c717e389c766d67883c3d6fbb598acd19caa13d5ca24",
+    "docs/readiness/2026-10-02/rehosting_authority.json": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+    "docs/readiness/2026-10-02/contact_source_interpretation.json": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+    "docs/readiness/2026-10-02/contributor_source_interpretation.json": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+    "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+    "docs/readiness/2026-10-03/source_scope_attestation_821.json": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657"
+  },
+  "members": [
+    {
+      "source_id": "FGDC-1341",
+      "source_sha256": "a54095e598483ff43a6101184cdf9206be06db58281487f30c73e165e39905bc"
+    },
+    {
+      "source_id": "FGDC-1710",
+      "source_sha256": "6338256ee0413e33b192261cfe4c457270e00f18127155eabfb36855c4feb6a2"
+    },
+    {
+      "source_id": "FGDC-1767",
+      "source_sha256": "4c82d4256cc2c3e33d9f31083c99206bbf7a50ea1281344d2e2bf4dfcd78c147"
+    },
+    {
+      "source_id": "FGDC-1903",
+      "source_sha256": "63c017345d2328f74bda6acb9bd04f2a8a507714b5e106b8d089490348f12e56"
+    },
+    {
+      "source_id": "FGDC-2603",
+      "source_sha256": "6a3cbd4808b1446f3264f553d24750023b861171dae7bcaebfb07065b1a01f4c"
+    },
+    {
+      "source_id": "FGDC-2698",
+      "source_sha256": "a26b55f858b753295f59481b4c68edf5ceb92b7e571a9f1e6c38f4f7405276c4"
+    },
+    {
+      "source_id": "FGDC-2702",
+      "source_sha256": "8a9f23097d76bdde1a8118014bbde71d1a04047cbce4770f57f738b03b62a255"
+    },
+    {
+      "source_id": "FGDC-3541",
+      "source_sha256": "f62e539ea87a1e1358e7abe7af667e950f60ffb6b29d22a268c32e421275807a"
+    },
+    {
+      "source_id": "FGDC-4037",
+      "source_sha256": "7caea9bf89037e8a5760149d1d86acd9c4bec7a17d505e047306a983ee79ce8d"
+    },
+    {
+      "source_id": "FGDC-669",
+      "source_sha256": "dc7de1b6fd1213657665f9c3110653bd3faceb35cec697e026fa87d6183b64ed"
+    },
+    {
+      "source_id": "FGDC-817",
+      "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f"
+    },
+    {
+      "source_id": "FGDC-860",
+      "source_sha256": "8e7724f0fa0f0e68cb56b8904126d57c21b66747e4b92dd7a0bbc66968fc5c90"
+    },
+    {
+      "source_id": "FGDC-883",
+      "source_sha256": "f3028aae30472464b038974649ef87d967e5c70fbf98d45b060c143c5ceee7f1"
+    }
+  ],
+  "membership_sha256": "14da905bc332358345e3b9deff6fa71c527da900ffbc21851601f65b6450dafb",
+  "acquisition_contexts": {
+    "FGDC-1341": {
+      "constraints": {
+        "./idinfo/accconst": "Official exchange or relations of collaboration.",
+        "./idinfo/useconst": "Official exchange or relations of collaboration.",
+        "./metainfo/metac": "Official exchange or relations of collaboration.",
+        "./metainfo/metuc": "Official exchange or relations of collaboration."
+      },
+      "meaning": "derived_existing_authority_tinro_archive_exchange_metadata_distinction_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Pacific Fisheries Research Center (TINRO-Center)</origin>\n        <pubdate />\n        <title>Oceanographic Data Collected in the Sea of Japan</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>The archive of oceanographic data (water temperature, salinity, nutrients, oxygen content) obtained in the surveys conducted by TINRO within the limits of the Sea of Japan (mainly in Russian EEZ, mainly in 0 - 200 M layer) with inclusion the data of standard section along 132°E.   (Notes: Since 2000, the metadata are available through NEAR-GOOS Delayed Mode Data Base (Russia).)</abstract>\n      <purpose>The observations were carried out for two purposes: 1) oceanographical monitoring for understanding the regularities of variability of observed properties for their prediction; 2) for the purposes of biological oceanography (coupling with biological data: plankton and fish/squid distribution).</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <mdattim>\n          <sngdate>\n            <caldate>1926, major part of the archive since 1984, ending in recent times.</caldate>\n          </sngdate>\n        </mdattim>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Irregular</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>130</westbc>\n        <eastbc>140</eastbc>\n        <northbc>52</northbc>\n        <southbc>35</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Chemistry</themekey>\n        <themekey>Oceanography</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Sea of Japan/East Sea</themekey>\n        <themekey>Hydrochemistry</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Official exchange or relations of collaboration.</accconst>\n    <useconst>Official exchange or relations of collaboration.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Zuenko, Yury I.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>TINRO, Shevchenko Alley, 4</address>\n          <city>Vladivostok</city>\n          <state />\n          <postal>690950</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice>7-7232-400397</cntvoice>\n        <cntfax />\n        <cntemail>zuenko@tinro.ru</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Zuenko, Yury I.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>TINRO, Shevchenko Alley, 4</address>\n          <city>Vladivostok</city>\n          <state />\n          <postal>690950</postal>\n          <country>Russia</country>\n        </cntaddr>\n        <cntvoice>7-7232-400397</cntvoice>\n        <cntfax />\n        <cntemail>zuenko@tinro.ru</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20031028</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Official exchange or relations of collaboration.</metac>\n    <metuc>Official exchange or relations of collaboration.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-1710": {
+      "constraints": {
+        "./idinfo/accconst": "Request for one or two pages of data and/or short reports can usually be accommodated,.",
+        "./idinfo/useconst": "Republications of materials in this report series may be authorized by the department",
+        "./metainfo/metac": "Request for one or two pages of data and/or short reports can usually be accommodated,.",
+        "./metainfo/metuc": "Republications of materials in this report series may be authorized by the department"
+      },
+      "meaning": "derived_existing_authority_adfg_report_page_requests_republication_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Alaska Department of Fish and Game (ADF&amp;G), Division of Commercial Fisheries, Management and Development Division</origin>\n        <pubdate>72-88  thru  87-98</pubdate>\n        <title>No. 056 - 1979  Bristol Bay Sockeye Salmon test fishing projects.  Edited by  Henry J Yuen  1980  51 pp.</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Included (but are not limited to): (1)  Salmon abundance, catch and escapement studies  (2) annual smolt studies  (3) tagging studies  (4) annual federal aid reports  (5) special short-term or interim reports on equipment or methodologies, stock identification, management, life history, etc and (6) some annual  U.S./ Canada reports.</abstract>\n      <purpose>Publications in this series are usually technically oriented and additionally have the following characteristics:  (1)  timely reporting of mostly final data, although minor future adjustments are acceptable (2) content usually annual iterative or interim in nature (3) data in a basic form (but not raw data) may be archived</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19790101</begdate>\n          <enddate>19791231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Other</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Annually</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-162</westbc>\n        <eastbc>-157</eastbc>\n        <northbc>59</northbc>\n        <southbc>56</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Biological Effects</themekey>\n        <themekey>Biology</themekey>\n        <themekey>Fish</themekey>\n        <themekey>Intertidal</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Request for one or two pages of data and/or short reports can usually be accommodated,.</accconst>\n    <useconst>Republications of materials in this report series may be authorized by the department</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Savikko, Kurt</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>P.O. Box 25526</address>\n          <city>Juneau</city>\n          <state>AK</state>\n          <postal>99802-5526</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-465-6104</cntvoice>\n        <cntfax>907-465-4168</cntfax>\n        <cntemail>Kurts@fishgame.state.ak.us</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Savikko, Kurt</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>P.O. Box 25526</address>\n          <city>Juneau</city>\n          <state>AK</state>\n          <postal>99802-5526</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-465-6104</cntvoice>\n        <cntfax>907-465-4168</cntfax>\n        <cntemail>Kurts@fishgame.state.ak.us</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19980716</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Request for one or two pages of data and/or short reports can usually be accommodated,.</metac>\n    <metuc>Republications of materials in this report series may be authorized by the department</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-1767": {
+      "constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "meaning": "derived_existing_authority_globec_sst_data_documentation_channels_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>U.S. GLOBEC Northeast Pacific</origin>\n        <pubdate>Unknown</pubdate>\n        <title>AVHRR Sea Surface Temperature (SST) Pathfinder 9 km Weekly Composites from the U.S. GLOBEC NE Pacific Program</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>AVHRR SST data with 9-km resolution Pathfinder fields over the entire NEP.  These composites are created from 9 km Pathfinder AVHRR data available from the NOAA/NASA Oceans Pathfinder Page (http://podaac.jpl.nasa.gov/sst/).  The global images are subsetted to the NE Pacific Region and composite images are created by taking the warmest pixel from any image during a 9 day period. The images are 796 samples x 489 lines.  Composites were centered every 7 days for 1995 and 1996.  Pathfinder Images can be view online at http://coho.coas.oregonstate.edu/Gifs/logo.gif.  For full data description and data access information go to http://coho.coas.oregonstate.edu/AAGBCREADME.TXT.  Data can be accessed through anonymous ftp at ftp://pisco.coas.oregonstate.edu/ebc.  \n\n[ Reference: PICES Scientific Report No. 18 2001, Proceedings of the PICES/CoML/IPRC Workshop on \"Impact of Climate Variability on Observation and Prediction of Ecosystem and Biodiversity Changes in the North Pacific\", http://www.pices.int/publications/scientific_reports/Report18/default.aspx. ]</abstract>\n      <purpose>To understand the effects of climate variability and climate change on the distribution, abundance and production of marine animals (including commercially important living marine resources) in the eastern North Pacific. To embody this understanding in diagnostic and prognostic ecosystem models, capable of capturing the ecosystem response to major climatic fluctuations.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19950101</begdate>\n          <enddate>19961231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-170</westbc>\n        <eastbc>-100</eastbc>\n        <northbc>63</northbc>\n        <southbc>20</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Sea Surface</themekey>\n        <themekey>Northeast Pacific Ocean</themekey>\n        <themekey>Satellite</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact Source</accconst>\n    <useconst>Contact Source</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Strub, Ted</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing Address</addrtype>\n          <address>104 Ocean Admin Bldg</address>\n          <city>Corvallis</city>\n          <state>OR</state>\n          <postal>97331-5503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>541-737-3015</cntvoice>\n        <cntfax>541-737-2064</cntfax>\n        <cntemail>tstrub@coas.oregonstate.edu</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Strub, Ted</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing Address</addrtype>\n          <address>104 Ocean Admin Bldg</address>\n          <city>Corvallis</city>\n          <state>OR</state>\n          <postal>97331-5503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>541-737-3015</cntvoice>\n        <cntfax>541-737-2064</cntfax>\n        <cntemail>tstrub@coas.oregonstate.edu</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20040108</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact Source</metac>\n    <metuc>Contact Source</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-1903": {
+      "constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "meaning": "derived_existing_authority_denitrification_data_and_documentation_channels_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Devol, A.H., Codispoti, L.A., and Christensen, J.P.</origin>\n        <pubdate>2002</pubdate>\n        <title>Sedimentary Denitrification Rates from the Bering, Chukchi, and Beaufort Seas</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>This data set contains the sedimentary denitrification rates from the Bering, Chukchi, and Beaufort Seas obtained during August-September 1992, and rates obtained in the Beaufort Sea off Pt. Barrow, Alaska, under late wintertime conditions (March 1993). The estimates made during August-September were based on both deployments of an automated in-situ benthic flux chamber tripod and on pore water chemical profiles from cores analyzed aboard the R/V Alpha Helix. Wintertime observations were obtained using scaled-down versions of the in-situ benthic flux chamber that were deployed through land-fast ice. The complete results are published in Devol, A.H., L.A. Codispoti, and J.P. Christensen, 1997. Summer and winter denitrification rates in western Arctic shelf sediments. Continental Shelf Research 17 (9): 1029-1050.  Documentation available at ftp://sidads.colorado.edu/pub/DATASETS/ARCSS/data/arcss060/readme_arcss060.txt.  Data available at ftp://sidads.colorado.edu/pub/DATASETS/ARCSS/data/arcss060/.</abstract>\n      <purpose>To investigate sedimentary desnitrification rates.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <mdattim>\n          <sngdate>\n            <caldate>August-September 1992, March 1993</caldate>\n          </sngdate>\n        </mdattim>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-168.91</westbc>\n        <eastbc>-156.12</eastbc>\n        <northbc>71.4</northbc>\n        <southbc>65.29</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Benthic</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Sediment</themekey>\n        <themekey>Denitrification</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact Source</accconst>\n    <useconst>Contact Source</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>NSIDC User Services</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>CIRES, 449 UCB University of Colorado</address>\n          <city>Boulder</city>\n          <state>CO</state>\n          <postal>80309-0449</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>303-492-6199</cntvoice>\n        <cntfax>303-492-2468</cntfax>\n        <cntemail>nsidc@nsidc.org</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>NSIDC User Services</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>CIRES, 449 UCB University of Colorado</address>\n          <city>Boulder</city>\n          <state>CO</state>\n          <postal>80309-0449</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>303-492-6199</cntvoice>\n        <cntfax>303-492-2468</cntfax>\n        <cntemail>nsidc@nsidc.org</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20040429</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact Source</metac>\n    <metuc>Contact Source</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-2603": {
+      "constraints": {
+        "./idinfo/accconst": "Check with Source  about how to obtain data.",
+        "./idinfo/useconst": "Check with Source",
+        "./metainfo/metac": "Check with Source  about how to obtain data.",
+        "./metainfo/metuc": "Check with Source"
+      },
+      "meaning": "derived_existing_authority_ecosystem_model_data_obtainment_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Northwest Fisheries Center (NFC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)</origin>\n        <pubdate>197609</pubdate>\n        <title>A Dynamic Numerical Marine Ecosystem Model for Evaluation of Marine Resources in Eastern Bering Sea   (Part III)</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>The objective of this project is to design and program a complete marine ecosystem model for quantitative evaluation of: the effects of man, environmental changes (anomalies) and interspecies interactions on the dynamics of marine ecosystem, with emphasis on economically important species.  The five basic groups of components in this model ;  1) static components,  2) dynamic environmental components and factors,  3) dynamic biological components and factors,  4) effects of man,  5) feedback channels.</abstract>\n      <purpose>To evaluate the marine resource and a dynamic numerical marine ecosystem model in the Eastern Bering Sea.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Publication Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>178</westbc>\n        <eastbc>-168</eastbc>\n        <northbc>67.5</northbc>\n        <southbc>52</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Fish</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Bering Sea</themekey>\n        <themekey>Ecosystem Dynamics</themekey>\n        <themekey>Ecology</themekey>\n        <themekey>Marine Mammals</themekey>\n        <themekey>Models</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Check with Source  about how to obtain data.</accconst>\n    <useconst>Check with Source</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Livingston, Patricia A.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4242</cntvoice>\n        <cntfax>206-526-6723</cntfax>\n        <cntemail>Pat.Livingston@noaa.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Livingston, Patricia A.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4242</cntvoice>\n        <cntfax>206-526-6723</cntfax>\n        <cntemail>Pat.Livingston@noaa.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19990121</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Check with Source  about how to obtain data.</metac>\n    <metuc>Check with Source</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-2698": {
+      "constraints": {
+        "./idinfo/accconst": "GO to the webpage; http://www.natice.noaa.gov/index.htm",
+        "./idinfo/useconst": "Go to the webpage; http://www.natice.noaa.gov/index.htm",
+        "./metainfo/metac": "GO to the webpage; http://www.natice.noaa.gov/index.htm",
+        "./metainfo/metuc": "Go to the webpage; http://www.natice.noaa.gov/index.htm"
+      },
+      "meaning": "derived_existing_authority_named_nic_homepage_navigation_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>National Ice Center (NIC)</origin>\n        <pubdate>19990110</pubdate>\n        <title>National Ice Center Homepage</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>\n        <p>The National Ice Center Mission The National Ice Center (NIC) is a multi-agency operational center representing the Department of Defense (Navy), the Department of Commerce (NOAA), and the Department of Transportation (Coast Guard). The NIC includes personnel from two departments within NOAA, the National Environmental Satellite Data Information  Service (NESDIS) and National Weather Service (NWS). The Navy component within NIC  is called the Naval Ice Center (NAVICECEN) and is a fourth echelon command reporting  directly to the Naval Oceanographic Office (NAVOCEANO) at the Stennis Space Center,  Mississippi. Both NAVICECEN and NAVOCEANO are part of the Naval Meteorology  and Oceanography Command, headquartered at the Stennis Space Center. The Commanding Officer of NAVICECEN also serves as the Director of the National Ice Center.</p>\n        <p>Established 1999. Last updated July 12, 2005.</p>\n        <p>The URL is: http://www.natice.noaa.gov/</p>\n      </abstract>\n      <purpose>The NIC mission is to provide worldwide operational sea ice analyses and forecasts for the armed forces of the U. S. and allied nations, the Departments of Commerce and\nTransportation, and other U. S. Government and international agencies, and the civil sector. The NIC produces these analyses and forecasts of Arctic, Antarctic, Great Lakes and Chesapeake Bay ice conditions to support customers with global, regional and tactical scale interests. The NIC regularly deploys NAVICECEN Ice Reconnaissance personnel to the Arctic and Antarctica in order to perform aerial ice observation and analysis in support of NIC customers. NIC ice data are a key part of the U. S. contribution to international global climate and ocean observing systems.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19990111</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Publication Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>As Needed</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-180</westbc>\n        <eastbc>180</eastbc>\n        <northbc>90</northbc>\n        <southbc>52</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Ice Physics</themekey>\n        <themekey>Oceanography</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Arctic</themekey>\n        <themekey>Bering Sea</themekey>\n        <themekey>North Pacific Ocean</themekey>\n        <themekey>Sea Ice</themekey>\n        <themekey>Ice Charts</themekey>\n      </theme>\n    </keywords>\n    <accconst>GO to the webpage; http://www.natice.noaa.gov/index.htm</accconst>\n    <useconst>Go to the webpage; http://www.natice.noaa.gov/index.htm</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>NOAA Customer Service</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>Federal  Building #4\n4251 Suitland Road</address>\n          <city>Washington</city>\n          <state>D.C.</state>\n          <postal>20395</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>301-394-3100</cntvoice>\n        <cntfax />\n        <cntemail>liaison@natice.noaa.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>NOAA Customer Service</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>Federal  Building #4\n4251 Suitland Road</address>\n          <city>Washington</city>\n          <state>D.C.</state>\n          <postal>20395</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>301-394-3100</cntvoice>\n        <cntfax />\n        <cntemail>liaison@natice.noaa.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19990201</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>GO to the webpage; http://www.natice.noaa.gov/index.htm</metac>\n    <metuc>Go to the webpage; http://www.natice.noaa.gov/index.htm</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-2702": {
+      "constraints": {
+        "./idinfo/accconst": "Check library for book.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Check library for book.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "meaning": "derived_existing_authority_aleutian_book_library_acquisition_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Isobel Wylie Hutchison</origin>\n        <pubdate>19371231</pubdate>\n        <title>The Aleutian Islands: America's Back Door</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>\n        <p>This book is about the Aleutian Islands, Alaska. The author, Isobel W. Hutchison, took a journey through the Aleutian Islands and Alaska, in the mid 1930's  reporting about the history of the Islands and beginning of a defense system with the Coast Guard against Japan.  Along the way, she encounters natives of the islands.</p>\n        <p>[Reference: Hutchison, IW. 1937. The Aleutian Islands: American's Back Door. Blackie &amp; Son Limited.]</p>\n        <p>This volume may be found at many university libraries.</p>\n      </abstract>\n      <purpose>To show the history of the Aleutian Islands (America's back door)</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19371231</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Publication Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>None Planned</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>178</westbc>\n        <eastbc>-168</eastbc>\n        <northbc>67.5</northbc>\n        <southbc>52</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Birds</themekey>\n        <themekey>Mammals</themekey>\n        <themekey>Biology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Aleutian Islands</themekey>\n        <themekey>Bogoslof Island</themekey>\n        <themekey>Pribilof Islands</themekey>\n        <themekey>North Pacific Ocean</themekey>\n        <themekey>Flowers</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Bering Sea</themekey>\n        <themekey>Native Americans</themekey>\n      </theme>\n    </keywords>\n    <accconst>Check library for book.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Hutchison, Isobel Wylie</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>17 Stanhope Street</address>\n          <city>Glasgow</city>\n          <state />\n          <postal />\n          <country>UK</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax />\n        <cntemail />\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Hutchison, Isobel Wylie</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>17 Stanhope Street</address>\n          <city>Glasgow</city>\n          <state />\n          <postal />\n          <country>UK</country>\n        </cntaddr>\n        <cntvoice />\n        <cntfax />\n        <cntemail />\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>19990202</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Check library for book.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-3541": {
+      "constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Check with Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Check with Source"
+      },
+      "meaning": "derived_existing_authority_sst_current_archived_file_contacts_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>National Oceanic and Atmospheric Administration (NOAA), National Environmental Satellite, Data and Information Service (NESDIS), Office of Satellite Data Processing and Distributing (OSDPD)</origin>\n        <pubdate>Unknown</pubdate>\n        <title>100-km SST Field File</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>This SST field file consists of a specific set of information pertaining to file includes the area from 180W through 179E longitude and 70S to 70N latitude.  \n\nThe 100-km SST field file is stored on disk as a direct access file accessed by the Direct Access I/O (DAIO) subroutine package. It consists of one documentation record (record number one of each file), followed by one record for each latitude or row of the field. Each row consists of one seven-word (28 bytes) unit of information for each longitude of column forming a grid intersection plus one seven-word unit containing the row number identification and the date and time of the last analysis made for the field. The documentation record is created from a namelist data set and displayed\nin a namelist format, although it is stored as a binary DAIO record. Since the documentation record required 632 bytes, the minimum SST field record size is 632 bytes. The maximum record size currently provided for is 10,108 bytes, which is the 100-km field record size.  \n\n\nThe Office of Satellite Data Processing and Distribution (OSDPC) keeps this data for a month, then sends it to the National Climatic Data Center (NCDC) for archiving.  For current data, contact John Sapper at OSDPC,  telephone 301-457-0914 ext.148, e-mail: john.sapper@noaa.gov.  For archived data contact Thomas Ross at NCDC, telephone 828-271-4499, e-mail: tom.ross@noaa.gov.</abstract>\n      <purpose>To archive 100-km SST Fields.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19790101</begdate>\n          <enddate />\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-180</westbc>\n        <eastbc>179</eastbc>\n        <northbc>70</northbc>\n        <southbc>-70</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Oceanography</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Sea Surface Temperature (SST)</themekey>\n        <themekey>Advanced Very High Resolution Radiometer (AVHRR)</themekey>\n        <themekey>Satellite</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact Source</accconst>\n    <useconst>Check with Source</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Sapper, John F.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>5200 AUTH RD</address>\n          <city>Suitland</city>\n          <state>MD</state>\n          <postal>20746-4304</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>301-457-0914x148</cntvoice>\n        <cntfax>301-457-0918</cntfax>\n        <cntemail>John.Sapper@noaa.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Sapper, John F.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>5200 AUTH RD</address>\n          <city>Suitland</city>\n          <state>MD</state>\n          <postal>20746-4304</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>301-457-0914x148</cntvoice>\n        <cntfax>301-457-0918</cntfax>\n        <cntemail>John.Sapper@noaa.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20040827</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact Source</metac>\n    <metuc>Check with Source</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-4037": {
+      "constraints": {
+        "./idinfo/accconst": "User registration required.",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "User registration required.",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "meaning": "derived_existing_authority_jamstec_observatory_data_download_registration_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Japan Agency for Marine-Earth Science and Technology (JAMSTEC)</origin>\n        <pubdate>Unknown</pubdate>\n        <title>JAMSTEC Submarine Cable Data Center</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>\n        <p>The Submarine Cable Data Center provides realtime data from the deep sea floor observatory off Kushiro-takachi, off Muroto Cape, and off Hatsushima. Data are available for download with user registration.</p>\n      </abstract>\n      <purpose>\n        <p>The Japan Agency for Marine-Earth Science and Technology (JAMSTEC) established the first Long-Term Deep Sea Floor Observatory off Muroto Cape in fiscal year 1996, and the Long-Term Deep Sea Floor Observatory off Kushiro and Tokachi in the Kuril Trench in 1999 as part of a plan to build basic earthquake observation networks in Japan.  JAMSTEC now is planning the construction of additional systems.  This site is presented with the objective of widely providing observation data of the foregoing systems.</p>\n      </purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19960101</begdate>\n          <enddate />\n        </rngdates>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>134.36</westbc>\n        <eastbc>144.78</eastbc>\n        <northbc>42.27</northbc>\n        <southbc>32.67</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>North Pacific Ocean</themekey>\n        <themekey>Hatsushima</themekey>\n        <themekey>Kuril Trench</themekey>\n        <themekey>Muroto Cape</themekey>\n        <themekey>Hydrophone</themekey>\n        <themekey>Tsunami</themekey>\n        <themekey>Seismology</themekey>\n        <themekey>Deep Sea Floor</themekey>\n        <themekey>Western North Pacific Ocean</themekey>\n        <themekey>Japan</themekey>\n      </theme>\n    </keywords>\n    <accconst>User registration required.</accconst>\n    <useconst>Contact Source</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>JAMSTEC</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing Address</addrtype>\n          <address>2-15 Natsushima</address>\n          <city>Yokosuka</city>\n          <state>Kanagawa</state>\n          <postal>237-0061</postal>\n          <country>Japan</country>\n        </cntaddr>\n        <cntvoice>+81-46-866-3811</cntvoice>\n        <cntfax>+81-46-867-9055</cntfax>\n        <cntemail>scdcwadm@jamstec.go.jp</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>JAMSTEC</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing Address</addrtype>\n          <address>2-15 Natsushima</address>\n          <city>Yokosuka</city>\n          <state>Kanagawa</state>\n          <postal>237-0061</postal>\n          <country>Japan</country>\n        </cntaddr>\n        <cntvoice>+81-46-866-3811</cntvoice>\n        <cntfax>+81-46-867-9055</cntfax>\n        <cntemail>scdcwadm@jamstec.go.jp</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20050926</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>User registration required.</metac>\n    <metuc>Contact Source</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-669": {
+      "constraints": {
+        "./idinfo/accconst": "Unknown",
+        "./idinfo/useconst": "Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water.",
+        "./metainfo/metac": "Unknown",
+        "./metainfo/metuc": "Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water."
+      },
+      "meaning": "derived_existing_authority_exxon_shoreline_photo_datum_caveat_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Exxon, Alaska Department of Natural Resources, USDC Forest Service, Chugach National Forest</origin>\n        <pubdate>1970-1980</pubdate>\n        <title>Exxon Coastline - EVOS Database</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Exxon Valdez Oil Spill;  The digital shoreline produced by EXXON through the use of a local mapping firm. This dataset is the 1:60,000 air photo update to the state shoreline produced by USFS and DNR at a scale of 1:63,360 using the coastline from USGS 1: 63360 map series and 1:31,360 timbertype map base. The intended use of this dataset was to provide an accurate, detailed, and updated shoreline for use in resource mapping and analysis for the EVOS damage assessment and restoration efforts, that would be used by all agencies working in the spill effected area.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19700101</begdate>\n          <enddate>19800101</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-160</westbc>\n        <eastbc>-145.3</eastbc>\n        <northbc>61.15</northbc>\n        <southbc>55.3</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Geology</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Alaska</themekey>\n        <themekey>Exxon Valdez Oil Spill</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Unknown</accconst>\n    <useconst>Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020424</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Unknown</metac>\n    <metuc>Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-817": {
+      "constraints": {
+        "./idinfo/accconst": "Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.",
+        "./idinfo/useconst": "Boundary accurracy is restricted to 1:250,000 scale and smaller.",
+        "./metainfo/metac": "Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.",
+        "./metainfo/metuc": "Boundary accurracy is restricted to 1:250,000 scale and smaller."
+      },
+      "meaning": "derived_existing_authority_coastal_boundary_data_availability_scale_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Alaska Coastal Zone Management Program, Division of Governmental Coordination, State of Alaska contract to Environment and Natural Resources Institute, University of Alaska,  Anchorage</origin>\n        <pubdate>1995</pubdate>\n        <title>Alaska Coastal Zone Boundaries</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>The database is a statewide depiction of Alaska's Coastal Zone boundaries, and State of Alaska Department of Fish and Game's associated boundary narratives, updated in 1994. An ARC/INFO AML has been developed that extracts single 1:250,000 USGS quadrangles subsets of data and reprojects it to UTM, allowing use of the data at this scale. Associated ASCII files linked to the INFO attribute file contains legal boundary descriptions for each quadrangle. Data is limited to use at a 1:250,000 scale or smaller and is intended for use at a regional or statewide scale for general planning purposes. Site specific evaluation of CZM boundaries should consult more detailed CZM District data sets existing in manual and some in automated form. The Habitat and Restoration Division of The Alaska Department of Fish and Game has a working copy of this data set that is utilized for the coastal zone permitting process.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>19950101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>71.24</northbc>\n        <southbc>51</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Geology</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Boundaries</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.</accconst>\n    <useconst>Boundary accurracy is restricted to 1:250,000 scale and smaller.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020501</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.</metac>\n    <metuc>Boundary accurracy is restricted to 1:250,000 scale and smaller.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-860": {
+      "constraints": {
+        "./idinfo/accconst": "Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "meaning": "derived_existing_authority_sar_image_acquisition_approval_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>National Oceanic and Atmospheric Administration (NOAA)</origin>\n        <pubdate>1991 - Present</pubdate>\n        <title>Synthetic Aperture Radar (SAR)</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Remotely Sensed Data;   The data set consists of European Remote Sensing Satellite #1 (ERS)-1 and Japanese Earth Resource Satellite (JERS)-1 SAR data acquired by the ASF operated by the Geophysical Institute of University of Alaska Fairbanks. Data within the station mask of ASF, approximated by a 3000 km radius circle centered on Fairbanks has been acquired since September 1991 for ERS and May 1992 for JERS. Approval by NASA or ESA is required to obtain the data. Please contact ASF user services to become a NASA approved investigator. A variety of products are available on a variety of photographic and digital media. Available products include: *Full-res images are 4-look SAR images with 30 m resolution and 12.5 m pixel spacing over a 100 km x 100 km area. These are 8192 pixel 8192 pixel by 8 bit (64MB) images. The data is corrected to the GEM06 geoid model. *Low-res images are produced 8x8 averaging the full-res data. The resulting image is 1024x1024 pixels x8 bits (1 MB). *Geocoded images are produced from either a full-res or lo-res image upon request. Geocoded  images have been processed so they align with the Universal Transverse Mercator (UTM) or Polar-Stereographic (PS) map projections. Projection attributes and the center latitude and longitude used for processing can be set by the user. *Complex images, created on request, are 1-look data with approximately 10 resolution covering an area of 30x50 km. Data is formatted as 12,888 pixel x 2048 pixel x 32 bit complex integer (16I, 16Q-~100MB). The data contains backscatter amplitude and phase useful for interferometry studies of topography and feature motion. *Computer compatible signal data is spacecraft signal data represented as complex integers in byte aligned 8 bit bytes. Only 5 bits of each byte is significant. Each file is ~160 MB. The user must perform their own signal correlation.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19910101</begdate>\n          <enddate>20021231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-180</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>85</northbc>\n        <southbc>40</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n        <themekey>Geology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Synthetic Aperture Radar (SAR)</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Remotely Sensed Data</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020502</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    },
+    "FGDC-883": {
+      "constraints": {
+        "./idinfo/accconst": "Availability is dependent upon the information requested.",
+        "./idinfo/useconst": "Format is conventional. Conversion issues arise along the lines of data age.",
+        "./metainfo/metac": "Availability is dependent upon the information requested.",
+        "./metainfo/metuc": "Format is conventional. Conversion issues arise along the lines of data age."
+      },
+      "meaning": "derived_existing_authority_forest_inventory_request_format_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>USDA Forest Service, Chugach National Forest</origin>\n        <pubdate>Unknown</pubdate>\n        <title>Inventory Database (Vegetation) - CNF</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Vegetation/Land Cover/Soils;   The primary theme in this database is vegetation, however many other themes are used in developing the inventory process. Older inventories were aimed at timber resource, however recent and current inventories are integrated and many variables are recorded in inventory databases and will be considered in reports. Preliminary sample phases include land cover classifications developed by DNR for Bristol Bay, Chugach National Forest for some, etc. The inventories included in this database which pertain to the oil spill affected area are: the Kenai Peninsula Inventory, 1987; Prince William Sound/Afognak Island Inventory, 1978; Copper River Inventory, in progress; Southwest and Southeast Alaska Inventory, in progress. Field Inventories in the Tongass National Forest lands began in 1995.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>71.24</northbc>\n        <southbc>51</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Oceanography</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Availability is dependent upon the information requested.</accconst>\n    <useconst>Format is conventional. Conversion issues arise along the lines of data age.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020503</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Availability is dependent upon the information requested.</metac>\n    <metuc>Format is conventional. Conversion issues arise along the lines of data age.</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      }
+    }
+  },
+  "acquisition_contexts_sha256": "0860f218e367ec0a64af133786a54233f25d3bc93fdc27b0fb0bfa655449748c",
+  "rows": [
+    {
+      "member": {
+        "source_id": "FGDC-1341",
+        "source_sha256": "a54095e598483ff43a6101184cdf9206be06db58281487f30c73e165e39905bc"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-1341.xml",
+      "title_verbatim": "Oceanographic Data Collected in the Sea of Japan",
+      "group": "specified_data_obtainment",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The source describes a TINRO archive of measured temperature, salinity, nutrients and oxygen, while its abstract separately says metadata have been available through the Russian NEAR-GOOS delayed-mode database since2000. This explicit data/metadata distinction supports applying official-exchange/collaboration conditions to the archive while restoring the exact catalogue XML under separate existing authority. The XML has descriptions, coverage and the132E section reference, not observation tables. No exchange relationship, current availability or underlying-data entitlement is asserted.",
+      "source_quotation": {
+        "xpath": "./idinfo/descript/abstract",
+        "verbatim": "Since 2000, the metadata are available through NEAR-GOOS Delayed Mode Data Base (Russia)."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "",
+      "raw_metadata_date": "20031028",
+      "primary_origin_elements": [
+        "<origin>Pacific Fisheries Research Center (TINRO-Center)</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Official exchange or relations of collaboration.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Official exchange or relations of collaboration.</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Official exchange or relations of collaboration.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Official exchange or relations of collaboration.</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "96ba5989bd3304cf1180474e4c817773eb20913dbf67aebd409189e1836b3f7c",
+      "full_serialized_root_sha256": "1db292f7213f70fcd35e2caf576cced5996aff44bd76dc8e1230a64a22f6e8c7",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Official exchange or relations of collaboration.",
+          "./idinfo/useconst": "Official exchange or relations of collaboration.",
+          "./metainfo/metac": "Official exchange or relations of collaboration.",
+          "./metainfo/metuc": "Official exchange or relations of collaboration."
+        },
+        "raw_metadata_date": "20031028",
+        "raw_primary_date": "",
+        "review_lane": "access_only",
+        "source_id": "FGDC-1341",
+        "source_sha256": "a54095e598483ff43a6101184cdf9206be06db58281487f30c73e165e39905bc"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-1341",
+        "source_sha256": "a54095e598483ff43a6101184cdf9206be06db58281487f30c73e165e39905bc",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-1710",
+        "source_sha256": "6338256ee0413e33b192261cfe4c457270e00f18127155eabfb36855c4feb6a2"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-1710.xml",
+      "title_verbatim": "No. 056 - 1979  Bristol Bay Sockeye Salmon test fishing projects.  Edited by  Henry J Yuen  1980  51 pp.",
+      "group": "report_book_homepage_access",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The title identifies ADF&G report056 and its51-page length; abstract and purpose describe the report series. The access condition expressly offers one or two data pages or short reports, and the use condition names republication of materials in that series. This XML supplies bibliographic/series description, not those pages or the51-page report. Preserve the page-request wording, departmental republication condition, literal title/editor mention and unusual raw primary date. No report republication approval or expanded membership in the original821 answer is claimed.",
+      "source_quotation": {
+        "xpath": "./idinfo/accconst",
+        "verbatim": "Request for one or two pages of data and/or short reports can usually be accommodated,."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "72-88  thru  87-98",
+      "raw_metadata_date": "19980716",
+      "primary_origin_elements": [
+        "<origin>Alaska Department of Fish and Game (ADF&amp;G), Division of Commercial Fisheries, Management and Development Division</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Request for one or two pages of data and/or short reports can usually be accommodated,.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Republications of materials in this report series may be authorized by the department</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Request for one or two pages of data and/or short reports can usually be accommodated,.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Republications of materials in this report series may be authorized by the department</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "b67408f3e311fe07775aa8d4db2f84dd3208310538a4091c21ecf39ee6f5772f",
+      "full_serialized_root_sha256": "5f84d1b3f9b3b6e1ea603d36f6cffbec30aaca375c99a69dc655656763f01b4f",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Request for one or two pages of data and/or short reports can usually be accommodated,.",
+          "./idinfo/useconst": "Republications of materials in this report series may be authorized by the department",
+          "./metainfo/metac": "Request for one or two pages of data and/or short reports can usually be accommodated,.",
+          "./metainfo/metuc": "Republications of materials in this report series may be authorized by the department"
+        },
+        "raw_metadata_date": "19980716",
+        "raw_primary_date": "72-88 thru 87-98",
+        "review_lane": "access_only",
+        "source_id": "FGDC-1710",
+        "source_sha256": "6338256ee0413e33b192261cfe4c457270e00f18127155eabfb36855c4feb6a2"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-1710",
+        "source_sha256": "6338256ee0413e33b192261cfe4c457270e00f18127155eabfb36855c4feb6a2",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-1767",
+        "source_sha256": "4c82d4256cc2c3e33d9f31083c99206bbf7a50ea1281344d2e2bf4dfcd78c147"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-1767.xml",
+      "title_verbatim": "AVHRR Sea Surface Temperature (SST) Pathfinder 9 km Weekly Composites from the U.S. GLOBEC NE Pacific Program",
+      "group": "specified_data_obtainment",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The exact abstract describes9-km AVHRR weekly composites, dimensions and dates, then separately names a full-data-description README, image location and anonymous FTP data path. These explicit resource acquisition channels anchor the Contact Source wording. The XML contains explanatory text and reference details, not SST arrays or image pixels. Preserve every original address and condition without asserting current reachability, anonymous access now, a license, or a generic Contact Source spelling equivalence.",
+      "source_quotation": {
+        "xpath": "./idinfo/descript/abstract",
+        "verbatim": "Data can be accessed through anonymous ftp at ftp://pisco.coas.oregonstate.edu/ebc."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "Unknown",
+      "raw_metadata_date": "20040108",
+      "primary_origin_elements": [
+        "<origin>U.S. GLOBEC Northeast Pacific</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Contact Source</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Contact Source</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Contact Source</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Contact Source</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "b5327d096b97f04425d82947f99dfa4476a5e84e963d137b21f03c811da72241",
+      "full_serialized_root_sha256": "74e47c2866c85f54871935d6b7eea22b422a752a9840b1862972b260f46c46df",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Contact Source",
+          "./idinfo/useconst": "Contact Source",
+          "./metainfo/metac": "Contact Source",
+          "./metainfo/metuc": "Contact Source"
+        },
+        "raw_metadata_date": "20040108",
+        "raw_primary_date": "Unknown",
+        "review_lane": "access_only",
+        "source_id": "FGDC-1767",
+        "source_sha256": "4c82d4256cc2c3e33d9f31083c99206bbf7a50ea1281344d2e2bf4dfcd78c147"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-1767",
+        "source_sha256": "4c82d4256cc2c3e33d9f31083c99206bbf7a50ea1281344d2e2bf4dfcd78c147",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-1903",
+        "source_sha256": "63c017345d2328f74bda6acb9bd04f2a8a507714b5e106b8d089490348f12e56"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-1903.xml",
+      "title_verbatim": "Sedimentary Denitrification Rates from the Bering, Chukchi, and Beaufort Seas",
+      "group": "specified_data_obtainment",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The abstract distinguishes measured denitrification rates, the published complete results, a documentation README and a separate data directory. The Contact Source condition is interpreted for that named research data resource using this full context. The XML contains methods, coverage and citation, not measured-rate tables or the complete article. Methods, spelling, dates, FTP references and all conditions remain intact; no present data availability, article redistribution permission or new license is asserted.",
+      "source_quotation": {
+        "xpath": "./idinfo/descript/abstract",
+        "verbatim": "Data available at ftp://sidads.colorado.edu/pub/DATASETS/ARCSS/data/arcss060/."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "2002",
+      "raw_metadata_date": "20040429",
+      "primary_origin_elements": [
+        "<origin>Devol, A.H., Codispoti, L.A., and Christensen, J.P.</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Contact Source</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Contact Source</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Contact Source</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Contact Source</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "3df33f586221079d3bdd3cf9c67ad904927b62e233f7a053169e9b06fe0b1268",
+      "full_serialized_root_sha256": "0ea26f1d1836b9f00e18824f3e77bd609975e653b8d027b2ff5498d47c99bcdc",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Contact Source",
+          "./idinfo/useconst": "Contact Source",
+          "./metainfo/metac": "Contact Source",
+          "./metainfo/metuc": "Contact Source"
+        },
+        "raw_metadata_date": "20040429",
+        "raw_primary_date": "2002",
+        "review_lane": "access_only",
+        "source_id": "FGDC-1903",
+        "source_sha256": "63c017345d2328f74bda6acb9bd04f2a8a507714b5e106b8d089490348f12e56"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-1903",
+        "source_sha256": "63c017345d2328f74bda6acb9bd04f2a8a507714b5e106b8d089490348f12e56",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-2603",
+        "source_sha256": "6a3cbd4808b1446f3264f553d24750023b861171dae7bcaebfb07065b1a01f4c"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-2603.xml",
+      "title_verbatim": "A Dynamic Numerical Marine Ecosystem Model for Evaluation of Marine Resources in Eastern Bering Sea   (Part III)",
+      "group": "specified_data_obtainment",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The access clause expressly says how to obtain data; the abstract and purpose describe a numerical ecosystem model and its five component groups. The XML contains that project description and extent, not model code, inputs or outputs. Preserve the two spaces in Check with Source  about how to obtain data., all Check with Source use wording and model details. This exact-source decision does not broaden any earlier exact Contact Source attestation or establish model/data permission.",
+      "source_quotation": {
+        "xpath": "./idinfo/accconst",
+        "verbatim": "Check with Source  about how to obtain data."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "197609",
+      "raw_metadata_date": "19990121",
+      "primary_origin_elements": [
+        "<origin>Northwest Fisheries Center (NFC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Check with Source  about how to obtain data.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Check with Source</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Check with Source  about how to obtain data.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Check with Source</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "3bf3979899567a3078a86862a9766d42d10a5f2e3215839989ed7d8bbdfbaced",
+      "full_serialized_root_sha256": "957f16047d4473313dc22f4735cfd4a2f6b06d4fe22bccbf2e5f0bdfa0d238b3",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Check with Source  about how to obtain data.",
+          "./idinfo/useconst": "Check with Source",
+          "./metainfo/metac": "Check with Source  about how to obtain data.",
+          "./metainfo/metuc": "Check with Source"
+        },
+        "raw_metadata_date": "19990121",
+        "raw_primary_date": "197609",
+        "review_lane": "access_only",
+        "source_id": "FGDC-2603",
+        "source_sha256": "6a3cbd4808b1446f3264f553d24750023b861171dae7bcaebfb07065b1a01f4c"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-2603",
+        "source_sha256": "6a3cbd4808b1446f3264f553d24750023b861171dae7bcaebfb07065b1a01f4c",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-2698",
+        "source_sha256": "a26b55f858b753295f59481b4c68edf5ceb92b7e571a9f1e6c38f4f7405276c4"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-2698.xml",
+      "title_verbatim": "National Ice Center Homepage",
+      "group": "report_book_homepage_access",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The title explicitly identifies the NIC homepage; abstract and purpose provide an institutional/mission description and the matching URL. GO/Go to the webpage is thus a navigation direction to that named resource, with no separately named incorporated restriction document. This XML does not supply ice analyses, charts or forecasts. Preserve case differences, all URLs and the source internal date statements; no URL availability, contemporary organizational claim, legal public-domain status or underlying-product license is inferred.",
+      "source_quotation": {
+        "xpath": "./idinfo/accconst",
+        "verbatim": "GO to the webpage; http://www.natice.noaa.gov/index.htm"
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "19990110",
+      "raw_metadata_date": "19990201",
+      "primary_origin_elements": [
+        "<origin>National Ice Center (NIC)</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>GO to the webpage; http://www.natice.noaa.gov/index.htm</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Go to the webpage; http://www.natice.noaa.gov/index.htm</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>GO to the webpage; http://www.natice.noaa.gov/index.htm</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Go to the webpage; http://www.natice.noaa.gov/index.htm</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "9698428c313aadcf9a3d0ad2e3d9692f40b6460ea6e1121a0daa10cfc9c1fe8f",
+      "full_serialized_root_sha256": "a0edb74df8d425692692718e61096c575fc72f2e0a96207d5e5a614fb43f8440",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "GO to the webpage; http://www.natice.noaa.gov/index.htm",
+          "./idinfo/useconst": "Go to the webpage; http://www.natice.noaa.gov/index.htm",
+          "./metainfo/metac": "GO to the webpage; http://www.natice.noaa.gov/index.htm",
+          "./metainfo/metuc": "Go to the webpage; http://www.natice.noaa.gov/index.htm"
+        },
+        "raw_metadata_date": "19990201",
+        "raw_primary_date": "19990110",
+        "review_lane": "access_only",
+        "source_id": "FGDC-2698",
+        "source_sha256": "a26b55f858b753295f59481b4c68edf5ceb92b7e571a9f1e6c38f4f7405276c4"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-2698",
+        "source_sha256": "a26b55f858b753295f59481b4c68edf5ceb92b7e571a9f1e6c38f4f7405276c4",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-2702",
+        "source_sha256": "8a9f23097d76bdde1a8118014bbde71d1a04047cbce4770f57f738b03b62a255"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-2702.xml",
+      "title_verbatim": "The Aleutian Islands: America's Back Door",
+      "group": "report_book_homepage_access",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The title, author, bibliographic reference and abstract all identify the1937 book, and the abstract says the volume may be found in university libraries. The literal Check library for book. instruction concerns obtaining that book. This XML contains a brief description and citation rather than the book text or its illustrations. The cultural and geographical description remains exact; no book reuse rights, library access now, expiry or resolution of Unknown use is inferred.",
+      "source_quotation": {
+        "xpath": "./idinfo/descript/abstract/p[3]",
+        "verbatim": "This volume may be found at many university libraries."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "19371231",
+      "raw_metadata_date": "19990202",
+      "primary_origin_elements": [
+        "<origin>Isobel Wylie Hutchison</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Check library for book.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Unknown</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Check library for book.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Unknown</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "61e893688310120ea2be4520698b6e5cbb527ca01cbcbcbacec1910660959260",
+      "full_serialized_root_sha256": "51159086bd1f0db00e86319bfa78578895fe9e0aa7767d0171bb5b7a4dcaafce",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Check library for book.",
+          "./idinfo/useconst": "Unknown",
+          "./metainfo/metac": "Check library for book.",
+          "./metainfo/metuc": "Unknown"
+        },
+        "raw_metadata_date": "19990202",
+        "raw_primary_date": "19371231",
+        "review_lane": "access_only",
+        "source_id": "FGDC-2702",
+        "source_sha256": "8a9f23097d76bdde1a8118014bbde71d1a04047cbce4770f57f738b03b62a255"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-2702",
+        "source_sha256": "8a9f23097d76bdde1a8118014bbde71d1a04047cbce4770f57f738b03b62a255",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-3541",
+        "source_sha256": "f62e539ea87a1e1358e7abe7af667e950f60ffb6b29d22a268c32e421275807a"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-3541.xml",
+      "title_verbatim": "100-km SST Field File",
+      "group": "specified_data_obtainment",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The abstract specifies a binary DAIO SST field product, record sizes and documentation-record structure, then explicitly gives separate contacts for current and archived data. Those data-target statements anchor Contact Source/Check with Source. The XML describes the file format; it does not embed the binary field file or its documentation record. Preserve numerical format details and all historical contact text without claiming they are current or that data use has been authorized.",
+      "source_quotation": {
+        "xpath": "./idinfo/descript/abstract",
+        "verbatim": "For archived data contact Thomas Ross at NCDC"
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "Unknown",
+      "raw_metadata_date": "20040827",
+      "primary_origin_elements": [
+        "<origin>National Oceanic and Atmospheric Administration (NOAA), National Environmental Satellite, Data and Information Service (NESDIS), Office of Satellite Data Processing and Distributing (OSDPD)</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Contact Source</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Check with Source</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Contact Source</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Check with Source</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "4af7a18744c8ea0719c0bbfb1df5111c0e75d509a52294ca77925d23583cb277",
+      "full_serialized_root_sha256": "1751e4f3ca49f1c2880233d240d3f105a5e59ea551c3aeba674f50ba143f92aa",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Contact Source",
+          "./idinfo/useconst": "Check with Source",
+          "./metainfo/metac": "Contact Source",
+          "./metainfo/metuc": "Check with Source"
+        },
+        "raw_metadata_date": "20040827",
+        "raw_primary_date": "Unknown",
+        "review_lane": "access_only",
+        "source_id": "FGDC-3541",
+        "source_sha256": "f62e539ea87a1e1358e7abe7af667e950f60ffb6b29d22a268c32e421275807a"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-3541",
+        "source_sha256": "f62e539ea87a1e1358e7abe7af667e950f60ffb6b29d22a268c32e421275807a",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-4037",
+        "source_sha256": "7caea9bf89037e8a5760149d1d86acd9c4bec7a17d505e047306a983ee79ce8d"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-4037.xml",
+      "title_verbatim": "JAMSTEC Submarine Cable Data Center",
+      "group": "specified_data_obtainment",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The abstract expressly says observatory data downloads require user registration, and the purpose identifies the undersea observation systems whose data the center provides. The XML contains this catalogue description, named areas and coverage, not observation streams or downloadable data files. User registration and Contact Source conditions remain literal and unsatisfied; no account, download entitlement, present accessibility or new permission is claimed.",
+      "source_quotation": {
+        "xpath": "./idinfo/descript/abstract/p",
+        "verbatim": "Data are available for download with user registration."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "Unknown",
+      "raw_metadata_date": "20050926",
+      "primary_origin_elements": [
+        "<origin>Japan Agency for Marine-Earth Science and Technology (JAMSTEC)</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>User registration required.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Contact Source</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>User registration required.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Contact Source</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "afb085f81a487c3ba478f35471e4f705ba0a14e380332fc221ada04163572220",
+      "full_serialized_root_sha256": "bfd09017c9d7ea7fd13682560384918b453706347347c80eb6c711655b26feb3",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "User registration required.",
+          "./idinfo/useconst": "Contact Source",
+          "./metainfo/metac": "User registration required.",
+          "./metainfo/metuc": "Contact Source"
+        },
+        "raw_metadata_date": "20050926",
+        "raw_primary_date": "Unknown",
+        "review_lane": "access_only",
+        "source_id": "FGDC-4037",
+        "source_sha256": "7caea9bf89037e8a5760149d1d86acd9c4bec7a17d505e047306a983ee79ce8d"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-4037",
+        "source_sha256": "7caea9bf89037e8a5760149d1d86acd9c4bec7a17d505e047306a983ee79ce8d",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-669",
+        "source_sha256": "dc7de1b6fd1213657665f9c3110653bd3faceb35cec697e026fa87d6183b64ed"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-669.xml",
+      "title_verbatim": "Exxon Coastline - EVOS Database",
+      "group": "data_quality_and_conditional_acquisition",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The exact abstract identifies the digital shoreline, source maps and air-photo update used for EVOS mapping. The use condition describes unsynchronized photo tides and a datum approximating mean high water: technical limits on that shoreline resource. This XML contains a catalogue description and broad extent, not shoreline geometry or photographs. Unknown access remains Unknown; no right to use or redistribute the underlying Exxon/coastal data is supplied.",
+      "source_quotation": {
+        "xpath": "./idinfo/useconst",
+        "verbatim": "Photos are not synchronized with tides."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "1970-1980",
+      "raw_metadata_date": "20020424",
+      "primary_origin_elements": [
+        "<origin>Exxon, Alaska Department of Natural Resources, USDC Forest Service, Chugach National Forest</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Unknown</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water.</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Unknown</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water.</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "2a39a28b9fb73efbd1f7381838dde7e46f7197e601b1f2f087935f83d41dd721",
+      "full_serialized_root_sha256": "6732320b3381d6886ccad04f4ab3eda20d7cf34ca8d326394d2adfdab25d4350",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Unknown",
+          "./idinfo/useconst": "Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water.",
+          "./metainfo/metac": "Unknown",
+          "./metainfo/metuc": "Photos are not synchronized with tides. Land water interfaces can vary considerably from adopted standards of mean high water. The contractor did provide a datum which approximated mean high water."
+        },
+        "raw_metadata_date": "20020424",
+        "raw_primary_date": "1970-1980",
+        "review_lane": "access_only",
+        "source_id": "FGDC-669",
+        "source_sha256": "dc7de1b6fd1213657665f9c3110653bd3faceb35cec697e026fa87d6183b64ed"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-669",
+        "source_sha256": "dc7de1b6fd1213657665f9c3110653bd3faceb35cec697e026fa87d6183b64ed",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-817",
+        "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-817.xml",
+      "title_verbatim": "Alaska Coastal Zone Boundaries",
+      "group": "data_quality_and_conditional_acquisition",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The complete abstract identifies an ARC/INFO coastal-zone boundary database, linked ASCII legal-boundary files and quadrangle extraction. The access sentence expressly concerns availability of database data, while the use sentence gives the same1:250,000 scale limit as the abstract. This XML describes those products without supplying boundary geometry, AML code or the linked ASCII descriptions. The statutory citation, completion condition and scale caveat remain literal; this is not an interpretation of the law, a claim that it is current, or satisfaction of its conditions.",
+      "source_quotation": {
+        "xpath": "./idinfo/descript/abstract",
+        "verbatim": "Associated ASCII files linked to the INFO attribute file contains legal boundary descriptions for each quadrangle."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "1995",
+      "raw_metadata_date": "20020501",
+      "primary_origin_elements": [
+        "<origin>Alaska Coastal Zone Management Program, Division of Governmental Coordination, State of Alaska contract to Environment and Natural Resources Institute, University of Alaska,  Anchorage</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Boundary accurracy is restricted to 1:250,000 scale and smaller.</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Boundary accurracy is restricted to 1:250,000 scale and smaller.</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "7abfcbf0bb3baec46004e5a4a6efd58bbe1eb4f43c986577b551c4477d5526fd",
+      "full_serialized_root_sha256": "627e7ffffb19e4ba1a42b9b04285896d2e7ac6afab20291f7db8b46091aacade",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.",
+          "./idinfo/useconst": "Boundary accurracy is restricted to 1:250,000 scale and smaller.",
+          "./metainfo/metac": "Upon completion of the database data will be available as per State of Alaska Chapter 6 of the State of Alaska Administrative Code signed November 1994, Alaska Statutes A.S.09.25.110-09.220.",
+          "./metainfo/metuc": "Boundary accurracy is restricted to 1:250,000 scale and smaller."
+        },
+        "raw_metadata_date": "20020501",
+        "raw_primary_date": "1995",
+        "review_lane": "access_only",
+        "source_id": "FGDC-817",
+        "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-817",
+        "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-860",
+        "source_sha256": "8e7724f0fa0f0e68cb56b8904126d57c21b66747e4b92dd7a0bbc66968fc5c90"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-860.xml",
+      "title_verbatim": "Synthetic Aperture Radar (SAR)",
+      "group": "specified_data_obtainment",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The abstract specifies ERS-1/JERS-1 radar images, resolutions, product dimensions and media, and expressly states that NASA/ESA approval is required to obtain the data. The access clause concerns a contract proposal, prices and authorized Internet viewing of that data. This XML describes image products and formats; it embeds neither imagery nor spacecraft signal files. All approval, contracting, pricing and Unknown-use conditions remain unresolved and literal. No authorization to acquire or reuse radar imagery is inferred.",
+      "source_quotation": {
+        "xpath": "./idinfo/descript/abstract",
+        "verbatim": "Approval by NASA or ESA is required to obtain the data."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "1991 - Present",
+      "raw_metadata_date": "20020502",
+      "primary_origin_elements": [
+        "<origin>National Oceanic and Atmospheric Administration (NOAA)</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Unknown</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Unknown</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "f8477a74e638ca9d08c18d3d03b8c38b180fd79ae1dc9d2eb9ed4c59930213b4",
+      "full_serialized_root_sha256": "559ea61256feae9031df7774e9af49dd123798f5ba4aa38ea47a4ba6e3a59715",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.",
+          "./idinfo/useconst": "Unknown",
+          "./metainfo/metac": "Contact the GeoData Center of the University of Alaska Fairbanks to obtain a contract proposal form and current price list. Authorized users may view the data via the Internet.",
+          "./metainfo/metuc": "Unknown"
+        },
+        "raw_metadata_date": "20020502",
+        "raw_primary_date": "1991 - Present",
+        "review_lane": "access_only",
+        "source_id": "FGDC-860",
+        "source_sha256": "8e7724f0fa0f0e68cb56b8904126d57c21b66747e4b92dd7a0bbc66968fc5c90"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-860",
+        "source_sha256": "8e7724f0fa0f0e68cb56b8904126d57c21b66747e4b92dd7a0bbc66968fc5c90",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    },
+    {
+      "member": {
+        "source_id": "FGDC-883",
+        "source_sha256": "f3028aae30472464b038974649ef87d967e5c70fbf98d45b060c143c5ceee7f1"
+      },
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-883.xml",
+      "title_verbatim": "Inventory Database (Vegetation) - CNF",
+      "group": "data_quality_and_conditional_acquisition",
+      "status": "FINITE_REVIEWER_RECONCILED_CANDIDATE_PENDING_INDEPENDENT_REVIEW",
+      "rationale": "The full abstract identifies vegetation/timber inventory databases and named inventory series, with recorded variables used in reports. Availability depending on requested information and format-conversion issues linked to data age concern that inventory resource. The XML is a description and regional extent; it does not contain inventory-variable rows or the named reports. Conditional availability, age/format caveat and Unknown primary date remain unchanged.",
+      "source_quotation": {
+        "xpath": "./idinfo/useconst",
+        "verbatim": "Format is conventional. Conversion issues arise along the lines of data age."
+      },
+      "source_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "raw_primary_date": "Unknown",
+      "raw_metadata_date": "20020503",
+      "primary_origin_elements": [
+        "<origin>USDA Forest Service, Chugach National Forest</origin>"
+      ],
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Availability is dependent upon the information requested.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Format is conventional. Conversion issues arise along the lines of data age.</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Availability is dependent upon the information requested.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Format is conventional. Conversion issues arise along the lines of data age.</metuc>"
+        ]
+      },
+      "full_context_object_sha256": "686b15ece30b24f08c98381e1d13472953fc99b55116152063e2901ef831e076",
+      "full_serialized_root_sha256": "af1405e5599976a7cca95aa4c2890d47484ad7437e8cf753c2576ab0363c1ced",
+      "frozen_prior_source_binding": {
+        "hold_reasons": [
+          "Metadata access terms need source-backed adjudication",
+          "Contradictory or unsupported source access constraints require adjudication"
+        ],
+        "raw_constraints": {
+          "./idinfo/accconst": "Availability is dependent upon the information requested.",
+          "./idinfo/useconst": "Format is conventional. Conversion issues arise along the lines of data age.",
+          "./metainfo/metac": "Availability is dependent upon the information requested.",
+          "./metainfo/metuc": "Format is conventional. Conversion issues arise along the lines of data age."
+        },
+        "raw_metadata_date": "20020503",
+        "raw_primary_date": "Unknown",
+        "review_lane": "access_only",
+        "source_id": "FGDC-883",
+        "source_sha256": "f3028aae30472464b038974649ef87d967e5c70fbf98d45b060c143c5ceee7f1"
+      },
+      "current_held_status": {
+        "source_id": "FGDC-883",
+        "source_sha256": "f3028aae30472464b038974649ef87d967e5c70fbf98d45b060c143c5ceee7f1",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "restoration_authority_exact_source_hash_verified": true,
+      "literal_fields_expressly_exempt_XML": false,
+      "underlying_conditions_satisfied": false,
+      "new_license_or_data_rights": false,
+      "source_or_metadata_changes": 0,
+      "actual_promotions": 0
+    }
+  ],
+  "rows_sha256": "af37043a2cee74329bae76a882f40b864ac2581abd698993655f19091218c41f",
+  "original_statement_references": [
+    {
+      "key": "restoration_authority",
+      "manifest_path": "docs/readiness/2026-10-02/rehosting_authority.json",
+      "manifest_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+      "original_attested_at": "2026-10-02",
+      "original_provenance": null,
+      "original_scope": "historical_geonetwork_metadata",
+      "original_limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority."
+    },
+    {
+      "key": "contact_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contact_source_interpretation.json",
+      "manifest_sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+      "statement": "It means contact someone (source) to obtain the underlying dataset",
+      "original_attested_at": "2026-10-02T18:26:45Z",
+      "original_provenance": {
+        "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+        "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+        "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+        "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+      },
+      "original_scope": "historical_geonetwork_contact_source_access",
+      "original_limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+    },
+    {
+      "key": "contributor_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contributor_source_interpretation.json",
+      "manifest_sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+      "statement": "yes",
+      "original_attested_at": "2026-10-02T23:43:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+        "question": "in the PICES records, does “Check with Contributor or Source.” mean contacting them to obtain the underlying dataset, just like “Contact Source.”, rather than restricting reposting the metadata?",
+        "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "timestamp_precision": "minute"
+      },
+      "original_scope": "historical_geonetwork_contributor_or_source_access",
+      "original_limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+    },
+    {
+      "key": "original_three_questions",
+      "manifest_path": "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+      "manifest_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+      "statement": null,
+      "original_attested_at": null,
+      "original_provenance": null,
+      "original_scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+      "original_limits": null
+    },
+    {
+      "key": "original_821_direct_reply",
+      "manifest_path": "docs/readiness/2026-10-03/source_scope_attestation_821.json",
+      "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+      "statement": "they reply to the underlying data. all these metadata records were public before",
+      "original_attested_at": "2026-10-03T20:20:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+        "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+      },
+      "original_scope": "exact_three_question_groups_821_historical_geonetwork_metadata",
+      "original_limits": "All original constraints and XML remain intact. The attestation clarifies scope only; existing separate user-attested rehosting authority keeps XML restricted and unlicensed. No attribution/date/title/alias hold is cleared by this scope decision."
+    }
+  ],
+  "current_source_counts": {
+    "supported": 3645,
+    "held": 555,
+    "malformed": 6
+  },
+  "existing563_member_overlap": 0,
+  "direct821_member_overlap": 0,
+  "earlier_contact_and_contributor_exact_membership_overlap": 0,
+  "restoration_authority": "USER_ATTESTED; separate exact4206 authority required, not independently verified",
+  "new_user_attestation_event": false,
+  "original_direct_question_membership_enlarged": false,
+  "underlying_conditions_satisfied": false,
+  "underlying_data_rights_granted": false,
+  "grants_new_license": false,
+  "publication_approved": false,
+  "preservation_and_limits": [
+    "All exact original XML bytes, raw metadata, four access/use/metadata constraint fields, scientific/geographical text, contacts, creators, dates, titles and aliases remain unchanged.",
+    "Mirrored metac/metuc fields do not expressly exempt XML. This is bounded reviewer reconciliation supported by complete source context and separate existing restoration authority, not a new human answer.",
+    "The direct821 reply and earlier exact Contact Source/Contributor or Source cohorts remain unchanged; their statements inform context only.",
+    "Original XML stays restricted and unlicensed. Public descriptive notes can expose complete XML content; restricted attachments are not assumed to make descriptions private.",
+    "No contract, policy, approval, registration, notification, statutory completion, current URL availability, data/report license or underlying condition is claimed fulfilled.",
+    "No general rule for Unknown, Contact Source, URLs, permission or data absence is created. Only exact IDs/hashes/four plain constraints/full-root contexts qualify after independent review and bounded runtime validation.",
+    "Every prior563 member/context/review block and independent hold must remain unchanged. This proposal creates no current promotion or release authority."
+  ],
+  "other_assigned6_kept_held": [
+    {
+      "source_id": "FGDC-288",
+      "source_sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff",
+      "status": "HELD_PENDING_SEPARATE_POLICY_PERMISSION_REVIEW"
+    },
+    {
+      "source_id": "FGDC-762",
+      "source_sha256": "44889c90b4acd4fbcce4a36e640a0a18247cf051ba382b74112c0df48500dc63",
+      "status": "HELD_PENDING_SEPARATE_POLICY_PERMISSION_REVIEW"
+    },
+    {
+      "source_id": "FGDC-849",
+      "source_sha256": "182762f207a3f2efa609ec95b68a13ddc2634b64408243523def0e2f00a35f05",
+      "status": "HELD_PENDING_SEPARATE_POLICY_PERMISSION_REVIEW"
+    },
+    {
+      "source_id": "FGDC-859",
+      "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4",
+      "status": "HELD_PENDING_SEPARATE_POLICY_PERMISSION_REVIEW"
+    },
+    {
+      "source_id": "FGDC-1770",
+      "source_sha256": "d9a3ebc23ac26962bccd4827e4a79fd74bcd5f01105255155ea24b37dc02835d",
+      "status": "HELD_PENDING_SEPARATE_POLICY_PERMISSION_REVIEW"
+    },
+    {
+      "source_id": "FGDC-2244",
+      "source_sha256": "9703a1f5392dac8c872c70296b8d4eb7748096a66c1664e553bfeec5d2ca63ea",
+      "status": "HELD_PENDING_SEPARATE_POLICY_PERMISSION_REVIEW"
+    }
+  ],
+  "irreducible_new_user_questions_for_selected13": [],
+  "activities": {
+    "complete_XML_read_scope": [
+      "FGDC-669",
+      "FGDC-817",
+      "FGDC-860",
+      "FGDC-883",
+      "FGDC-1341",
+      "FGDC-1710",
+      "FGDC-1767",
+      "FGDC-1903",
+      "FGDC-2603",
+      "FGDC-2698",
+      "FGDC-2702",
+      "FGDC-3541",
+      "FGDC-4037"
+    ],
+    "provider_requests": 0,
+    "repo_edits": 0,
+    "classifier_tests_or_promotions": 0,
+    "private_stage_or_credential_reads": 0,
+    "writes": "This /tmp source proposal only"
+  },
+  "digest_recipe": "Raw file SHA256; canonical object json.dumps(sort_keys=True,ensure_ascii=False,separators=(comma,colon)); complete XML root ElementTree unicode serialization with outer tail=None; lexical source_id member ordering."
+}

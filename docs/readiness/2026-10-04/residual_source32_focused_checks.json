@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "base_main": "b5291c3d9cc7e6fd8fef455120329d00a46a6156",
+  "scope": "Focused guarded checks of uncommitted finite source increment; actual final-head full CI required separately.",
+  "prior_test_failure": {
+    "selected_modules": [
+      "tests.test_resource29_reconciliation",
+      "tests.test_combined_source7"
+    ],
+    "tests_run": 9,
+    "failures": 1,
+    "errors": 0,
+    "seconds": 54.719,
+    "source_bindings_unchanged": true,
+    "unexpected_guard_call_sites": [],
+    "cause": "New control test incorrectly compared the changed report profile fingerprint. All held rows/payloads remained unchanged; assertion now excludes only profile_sha256 and asserts that fingerprint changed. All four prior combined-source tests passed."
+  },
+  "corrected_runs": [
+    {
+      "selected_modules": [
+        "tests.test_resource29_reconciliation"
+      ],
+      "tests_run": 5,
+      "seconds": 33.559,
+      "source_tree_sha256": "92d3dd94b1f70ba56bb8c9ecade7e139fbd5e0143e5db4b8bb23623bb635cb3f"
+    },
+    {
+      "selected_modules": [
+        "tests.test_residual_creator3"
+      ],
+      "tests_run": 4,
+      "seconds": 3.924,
+      "source_tree_sha256": "4222041670e3dcb7409adcd0014572afa2e090effb1ed50ae0f3e23a0dcd578b"
+    }
+  ],
+  "both_corrected_runs_successful": true,
+  "errors": 0,
+  "failures": 0,
+  "environment_cleared_dummy_credentials_only": true,
+  "source_bindings_unchanged": true,
+  "unexpected_guard_call_sites": [],
+  "guard_test_calls": {
+    "network": 0,
+    "private_reads": 0,
+    "processes": 0,
+    "writes": 0
+  },
+  "provider_requests": 0,
+  "actual_current_head_ci_claimed": false
+}
