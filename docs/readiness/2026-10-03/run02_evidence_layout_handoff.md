@@ -11,7 +11,8 @@ have made no provider request and have read no real credential/private evidence.
 1. Use this PR's exact frozen code and the updated
    [controlled repair instructions](run02_subjects_repair_handoff.md). Retain literal
    `/workspace`0755 as historical ancestry; never change its mode or old origin.
-   Select actual evidence subtrees/leaves, not the entire workspace.
+   Select actual evidence subtrees/leaves, not the entire workspace. A complete
+   manifest is mandatory; count alone never supplies historical completeness.
 2. Seal a0600 `schema_version:1,files_sha256` manifest containing every previously
    retained353 historical evidence file with canonical absolute paths and exact
    SHA256 values. Include original/failed stages and the complete GET197 diagnostic
@@ -55,7 +56,8 @@ prepare/send route with two mocked responses. The adapter/socket/DNS remain bloc
 Old file bytes/modes and workspace mode are unchanged. Sparse manifest selection
 also passes; no unrelated sibling is inventoried. Invalid/missing manifest entries,
 public leaves, writable directories, symlink ancestors/leaves, hardlinks, overlap
-and subtree additions reject. Existing repair tests preserve uncertain/redirect/
+and subtree additions reject. Manifest-only destinations nested within original
+or failed stages also reject before any mkdir/copy. Existing repair tests preserve uncertain/redirect/
 credential/error and permanently spent-intent behavior.
 
 [Validation](run02_evidence_layout_validation.json) and

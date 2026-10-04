@@ -9,6 +9,7 @@
   "create_pid_files_publish_delete_retry_reset_authorized": false,
   "evidence_preflight": {
     "action": "preflight",
+    "complete_manifest_required": true,
     "historical_origin_preserved_literal": true,
     "manifest_and_complete_evidence_subtrees_bound": true,
     "minimum_preserved_files_sanity_only": 338,
@@ -57,7 +58,7 @@
   "runtime_sha256": {
     "modern_canary_errors.py": "f6393fde1dddb6e2c751e7ab8d8ec18261d55c93bf29603e531117f0c361aa54",
     "modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
-    "modern_run02_subjects_repair.py": "0551a899c5830db920aeca0b7ca280700a48ecadd15f733f969e6e9df861b6eb",
+    "modern_run02_subjects_repair.py": "edfdf266d4ecf55d9f34cdc9d3d5f9c2dbaef6a62846f9860a0142b379c4850d",
     "modern_synthetic_canary.py": "9d3c27b6b2d31f59b054971108f0a8abb87e5a069eae56fed94498323d3237cd"
   },
   "schema_version": 1,

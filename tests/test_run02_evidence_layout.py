@@ -198,6 +198,13 @@ class EvidenceLayoutTests(unittest.TestCase):
             repair.stage_packet(self.original / repair.NAMESPACE, self.prior, self.latest,
                                 self.roots, fixture.TOKEN, self.manifest)
         self.assertFalse((self.original / repair.NAMESPACE).exists())
+        # Sparse leaf roots must not permit mkdir inside either immutable stage.
+        for protected in (self.original, self.prior):
+            candidate = protected / repair.NAMESPACE
+            with self.assertRaises(modern.Held):
+                repair.stage_packet(candidate, self.prior, self.latest, [], fixture.TOKEN, self.manifest)
+            self.assertFalse(candidate.exists())
+        self.assert_old_unchanged()
 
     def test_public_leaf_writable_directory_symlinks_and_hardlinks_are_rejected(self):
         self.latest.chmod(0o644)

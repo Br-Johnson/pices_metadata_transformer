@@ -102,12 +102,15 @@ def inventory_files(value):
     return {str(Path(root) / name): digest for root, entries in value.items() for name, digest in entries.items()}
 
 
-def verify_coverage(snapshot, prior, beforeimage):
+def verify_coverage(snapshot, prior, beforeimage, stage):
     """The immutable broad origin is ancestry; all actual stage files are evidence."""
     old_origin = modern.load(prior / 'origin.json')
     preserved = evidence_path(old_origin['preserved_root'])
     original = modern.secure_stage(Path(old_origin['original_stage']))
     modern.require(original == preserved or preserved in original.parents)
+    for protected in (original, prior):
+        modern.require(stage != protected and stage not in protected.parents and protected not in stage.parents,
+                       'Repair destination must be outside original and failed stages')
     files = inventory_files(snapshot)
     required = [*original.iterdir(), *prior.iterdir(), evidence_path(beforeimage, leaf=True)]
     modern.require(all(files.get(str(path)) == modern.sha(path.read_bytes()) for path in required),
@@ -127,7 +130,7 @@ def verify_origin(stage):
     declared = manifest(modern.load(stage / 'preserved-manifest.json'))
     modern.require(inventory(roots, stage, declared) == origin['inventory'], 'Preserved history changed; repair held')
     beforeimage = Path(origin['beforeimage197_path'])
-    verify_coverage(origin['inventory'], prior, beforeimage)
+    verify_coverage(origin['inventory'], prior, beforeimage, stage)
     modern.require(beforeimage.is_file() and not beforeimage.is_symlink()
                    and modern.sha(beforeimage.read_bytes()) == BEFOREIMAGE_SHA
                    and (stage / 'beforeimage197.json').read_bytes() == beforeimage.read_bytes())
@@ -203,15 +206,16 @@ def stage_packet(stage, prior_continuation, beforeimage197, preserved_roots, tok
     prior = owned.secure_stage(prior_continuation)
     owned.verify_origin(prior)
     roots = list(preserved_roots or [])
-    declared = {'schema_version': 1, 'files_sha256': {}}
-    if preserved_manifest is not None:
-        source = evidence_path(preserved_manifest, leaf=True)
-        modern.require(source.stat().st_size <= 2 * 1024 * 1024)
-        declared = manifest(modern.load(source))
-        if not any(source == Path(root) or Path(root) in source.parents for root in roots):
-            roots.append(source)
+    modern.require(preserved_manifest is not None, 'Complete historical evidence manifest required')
+    source = evidence_path(preserved_manifest, leaf=True)
+    modern.require(source.stat().st_size <= 2 * 1024 * 1024)
+    declared = manifest(modern.load(source))
+    modern.require(len(declared['files_sha256']) >= MIN_PRESERVED_FILES,
+                   'Complete historical evidence manifest required')
+    if not any(source == Path(root) or Path(root) in source.parents for root in roots):
+        roots.append(source)
     snapshot = inventory(roots, stage, declared)
-    verify_coverage(snapshot, prior, Path(beforeimage197))
+    verify_coverage(snapshot, prior, Path(beforeimage197), stage)
     modern.require(not Path(beforeimage197).is_symlink() and Path(beforeimage197).is_file()
                    and Path(beforeimage197).stat().st_nlink == 1)
     raw = Path(beforeimage197).read_bytes()

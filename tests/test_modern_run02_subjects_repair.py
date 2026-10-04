@@ -37,8 +37,12 @@ class SubjectsRepairTests(unittest.TestCase):
             self.addCleanup(p.stop)
         self.stage = Path(self.case.temp.name) / repair.NAMESPACE
         self.roots = [self.case.original_stage, self.prior, evidence]
+        self.manifest = evidence / 'preserved.json'
+        modern.atomic(self.manifest, {'schema_version': 1, 'files_sha256': {
+            str(path): modern.sha(path.read_bytes())
+            for root in self.roots for path in root.rglob('*') if path.is_file()}})
         self.snapshot = repair.inventory(self.roots, self.stage)
-        repair.stage_packet(self.stage, self.prior, self.latest, self.roots, fixture.TOKEN)
+        repair.stage_packet(self.stage, self.prior, self.latest, self.roots, fixture.TOKEN, self.manifest)
         self.grant = {'schema_version': 1, 'approved': True, 'approval_reference': 'OFFLINE CONTROLLED REPAIR FIXTURE',
                       'executor': modern.EXECUTOR, 'binding': repair.binding(self.stage), 'limits': repair.LIMITS,
                       'started_at': self.case.clock.isoformat(),
@@ -186,18 +190,18 @@ class SubjectsRepairTests(unittest.TestCase):
     def test_staging_rejects_preserved_tree_overlap_symlink_and_hardlink_without_creation(self):
         candidate = self.roots[0] / repair.NAMESPACE
         with self.assertRaises(modern.Held):
-            repair.stage_packet(candidate, self.prior, self.latest, self.roots, fixture.TOKEN)
+            repair.stage_packet(candidate, self.prior, self.latest, self.roots, fixture.TOKEN, self.manifest)
         self.assertFalse(candidate.exists())
         linked = self.latest.parent / 'hardlinked.json'
         os.link(self.latest, linked)
         candidate = self.stage.with_name('second') / repair.NAMESPACE
         with self.assertRaises(modern.Held):
-            repair.stage_packet(candidate, self.prior, self.latest, self.roots, fixture.TOKEN)
+            repair.stage_packet(candidate, self.prior, self.latest, self.roots, fixture.TOKEN, self.manifest)
         self.assertFalse(candidate.exists())
         linked.unlink()
         linked.symlink_to(self.latest)
         with self.assertRaises(modern.Held):
-            repair.stage_packet(candidate, self.prior, self.latest, self.roots, fixture.TOKEN)
+            repair.stage_packet(candidate, self.prior, self.latest, self.roots, fixture.TOKEN, self.manifest)
         self.assertFalse(candidate.exists())
 
 
