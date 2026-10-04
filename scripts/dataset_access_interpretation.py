@@ -17,6 +17,10 @@ EXTENDED_ACQUISITION_MANIFEST_SHA256 = '76a5ca8a8cdadbe0c1b0157d559068c98b16e186
 CNF_COPY_MEDIA_MANIFEST_SHA256 = '13e82e2375da3bf17cf352fff7a8cda43fa6d781a3e436ca7321c8428ac77abe'
 RESOURCE_CONFIDENTIALITY_MANIFEST_SHA256 = '203c050735a9dc755712acde70c0447b91f2bd6131dde53dd8195a0f2923d9a2'
 RESOURCE_RECONCILIATION_MANIFEST_SHA256 = '81c719c546146eb7ad39e04db115710747935df6cb142aaf5854127bf8ddcc6a'
+NPAFC_REPORT_MANIFEST_SHA256 = 'a9dee2d1191eab69d85a20e3a3c856b9e56eec7283e024a50db91974cdd316a0'
+RESIDUAL_SOURCE_MANIFEST_SHA256 = 'b0a0f90f8d61b1908ea1a291284a04d8047186e63b2dc9427181a39af6a292f7'
+COMBINED_SOURCE_MANIFEST_SHA256 = '7e9f66fc19968c3f2784ff0ea5ab6d1169c1bd165035e5612c78332567636224'
+REVIEW_BLOCKS = ('resource_reconciliation_review', 'npafc_report_notification_review', 'residual_source_review')
 REGISTRATION_WORDING = 'First time users must register to gain database access.'
 
 
@@ -28,7 +32,10 @@ def _manifest(reference):
                                                       EXTENDED_ACQUISITION_MANIFEST_SHA256,
                                                       CNF_COPY_MEDIA_MANIFEST_SHA256,
                                                       RESOURCE_CONFIDENTIALITY_MANIFEST_SHA256,
-                                                      RESOURCE_RECONCILIATION_MANIFEST_SHA256)):
+                                                      RESOURCE_RECONCILIATION_MANIFEST_SHA256,
+                                                      NPAFC_REPORT_MANIFEST_SHA256,
+                                                      RESIDUAL_SOURCE_MANIFEST_SHA256,
+                                                      COMBINED_SOURCE_MANIFEST_SHA256)):
         raise ValueError('Dataset access interpretation requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()
@@ -37,8 +44,10 @@ def _manifest(reference):
     if hashlib.sha256(raw).hexdigest() != reference['manifest_sha256']:
         raise ValueError('Dataset access interpretation manifest differs from the reviewed profile')
     manifest = json.loads(raw)
-    if reference['manifest_sha256'] == RESOURCE_RECONCILIATION_MANIFEST_SHA256:
-        for evidence in manifest['resource_reconciliation_review']['original_statement_references']:
+    for key in REVIEW_BLOCKS:
+        if key not in manifest:
+            continue
+        for evidence in manifest[key]['original_statement_references']:
             try:
                 raw_evidence = (Path(__file__).resolve().parents[1] / evidence['manifest_path']).read_bytes()
             except OSError as exc:
@@ -94,8 +103,12 @@ def validate_dataset_access_interpretation(reference, source_id, source_sha256, 
                 or hashlib.sha256(ET.tostring(abstracts[0], encoding='utf-8')).hexdigest() != context['abstract_xml_sha256']
                 or re.sub(r'\s+', ' ', ''.join(abstracts[0].itertext())).strip() != context['abstract_text']):
             raise ValueError('Dataset access interpretation requires exact audited abstract context')
-    review = manifest.get('resource_reconciliation_review')
-    reconciled = review is not None and {'source_id': source_id, 'source_sha256': source_sha256} in review['members']
+    reviews = [manifest[key] for key in REVIEW_BLOCKS if key in manifest
+               and {'source_id': source_id, 'source_sha256': source_sha256} in manifest[key]['members']]
+    if len(reviews) > 1:
+        raise ValueError('Source must have only one exact reviewer reconciliation')
+    review = reviews[0] if reviews else None
+    reconciled = review is not None
     if reconciled:
         try:
             stamp = datetime.fromisoformat(reviewed_at.replace('Z', '+00:00'))

@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_SOURCE_REVIEW_CLEAR_EXACT5_PROPOSAL_ONLY",
+  "reviewer": "/root/residual_scope_review",
+  "reviewed_at": "2026-10-04T14:23:15.225698+00:00",
+  "source_head": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+  "inputs_sha256": {
+    "docs/readiness/2026-10-03/remaining_source_questions_732.json": "3baf322609cc02657f400067aff4731656c110eb10bc55fc14af6bcc16b75892",
+    "docs/readiness/2026-10-03/source_citation_credits_409.json": "f58ae360f225e6c6a1b2c717e389c766d67883c3d6fbb598acd19caa13d5ca24",
+    "docs/readiness/2026-10-03/resource_reconciliation_integrated_source_status.json": "e9f248c1730aa59f4d89f9ddf66aedf05dd172c73dab190709ea3e8c6683b061",
+    "docs/readiness/2026-10-03/finite_source_resource_access_556.json": "81c719c546146eb7ad39e04db115710747935df6cb142aaf5854127bf8ddcc6a",
+    "docs/readiness/2026-10-03/source_scope_attestation_821.json": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+    "docs/readiness/2026-10-03/source_scope_attestation.md": "f0f99402c2c654a225d0ccb075e873896c505cbcebbedb8b45e9fe0f7c8b133a",
+    "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+    "docs/readiness/2026-10-03/remaining_source_scope_questions_821.md": "91dd5c286a57cbc14d638b83d3cd62c04adc21a0430fca9b6d38140bd24fc2d9",
+    "docs/readiness/2026-10-03/pices-next-residual-questions.json": "ceca1ee32d8047c3d2fd4953b16cbaf883f39a930d753f1836d5e3ebb6a3ad0b",
+    "docs/readiness/2026-10-03/source_alias_candidates.json": "d1b5aae5446e230d86fd4a91b6385548b8d6c4fa93a3b98a0ccc26fc731f22d5",
+    "docs/readiness/2026-10-03/source_alias_reconciliation.md": "d8ad4c1fadf07c854800969a9d6ea3ea5221bf970aaa9f6d38be71ba5c1e4a02",
+    "docs/readiness/2026-10-03/pices-remaining31-exception-decisions.json": "2edf6b9f599329ebff9f5449ff5e9c363baa3a049521edb3f88a55066416e387",
+    "docs/readiness/2026-10-03/physical_copy4_independent_source_review.json": "269edf22039c5e2ff7479353cc53eb8fc689f9a5b6b8f13f3011b9f715324190",
+    "docs/readiness/2026-10-02/rehosting_authority.json": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+    "docs/readiness/2026-10-02/rehosting_attestation.md": "4f30bff936d7fe0b96718732bc2ff3a78d1eebcbfb287aa9cecc8863922e47e0"
+  },
+  "ledger_counts_recounted_from_existing4206_rows": {
+    "supported": 3638,
+    "held": 562,
+    "failed": 6
+  },
+  "counts_are_cached_ledger_recount_not_fresh_corpus_classification": true,
+  "existing_ledger_hash": "e9f248c1730aa59f4d89f9ddf66aedf05dd172c73dab190709ea3e8c6683b061",
+  "members": [
+    {
+      "source_id": "FGDC-1257",
+      "source_sha256": "343d0e1b6c7d96a3899dfe5173b84ce12f8a5174d77b7fbdf65a897a00416b42"
+    },
+    {
+      "source_id": "FGDC-1258",
+      "source_sha256": "fb72564a17bf0535a1cfeaab04dd92d674dcb164ce4d608cdd17c19a5b1bfac9"
+    },
+    {
+      "source_id": "FGDC-1262",
+      "source_sha256": "3b9761159b7036598d96e2fcee9651c8f1c32428840106c4edb5cf53483d93cc"
+    },
+    {
+      "source_id": "FGDC-1273",
+      "source_sha256": "02957d0e04f214f4f02b72487d71923b613c01d81133967b17c2381626b1309a"
+    },
+    {
+      "source_id": "FGDC-4064",
+      "source_sha256": "1b3891fe9136b5a95182c3e0b5a06929a7524870ba09479fd59c5148da26806c"
+    }
+  ],
+  "membership_sha256": "3466770764a8718a870a7e127361be5f564569a7d4d08dd584297be826d581d5",
+  "acquisition_contexts": {
+    "FGDC-1257": {
+      "constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "meaning": "derived_existing_authority_radio_publication_acknowledgement_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Brad Stevens</origin>\n        <pubdate>20010101</pubdate>\n        <title>Right Whale Skeleton - Alaska Sea Grant Radio Show</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Northern right whales are among the most endangered species in the world. Just a handful of them perhaps less than a dozen live in the frigid waters off Alaska. So rare are right whales that scientists haven't seen a right whale calf in the North Pacific Ocean in nearly 150 years. So it came as a surprise when scientists exploring the\nocean floor in 1999 encountered the skeleton of a right whale. Doug Schneider has more in this week's Arctic Science Journeys Radio.</abstract>\n      <purpose>The discovery was made by scientists aboard the Alvin submersible during an exploratory cruise of the Patton Seamount, an undersea volcano near Kodiak, Alaska. A videotape of the discovery now resides in the hands of Brad Stevens, a biologist with the National Marine Fisheries Service in Kodiak. As the video plays on a television monitor, Stevens describes the nearly intact skeleton of a 40-foot whale.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>20010101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>None Planned</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-155</westbc>\n        <eastbc>-152</eastbc>\n        <northbc>58</northbc>\n        <southbc>56.5</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Biology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Right Wales</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Sea Grant</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Acknowledgement of data source publication required.</accconst>\n    <useconst>Acknowledgement of data source publication required</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Stevens, Brad</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>301 Research Court</address>\n          <city>Kodiak</city>\n          <state>AK</state>\n          <postal>99615-1638</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-481-1726</cntvoice>\n        <cntfax />\n        <cntemail>Bradley.G.Stevens@noaa.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Stevens, Brad</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>301 Research Court</address>\n          <city>Kodiak</city>\n          <state>AK</state>\n          <postal>99615-1638</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-481-1726</cntvoice>\n        <cntfax />\n        <cntemail>Bradley.G.Stevens@noaa.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020128</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Acknowledgement of data source publication required.</metac>\n    <metuc>Acknowledgement of data source publication required</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The exact title identifies an Alaska Sea Grant radio publication; the same-work abstract explicitly identifies Arctic Science Journeys Radio and reporter Doug Schneider. All four literal constraints require acknowledgement of the data source publication. These complete catalogue descriptions contain descriptive scientific statements, regional bounding coordinates, and attribution/contact text; they are not information-free. Existing source-specific creator repairs and their original-credit preservation notes remain unchanged. The finite reviewer interpretation distinguishes the named publication/source acknowledgement from permission to restore the already-public catalogue description under separately recorded USER_ATTESTED authority. Acknowledgement remains literal and no claim is made that it is satisfied, waived, a new license, permission to reuse the radio publication, or independently verified rights. The exact821 attestation membership and direct reply remain unchanged."
+    },
+    "FGDC-1258": {
+      "constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "meaning": "derived_existing_authority_radio_publication_acknowledgement_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Nancy Fresco</origin>\n        <pubdate>20010101</pubdate>\n        <title>Bad Air - Alaska Sea Grant Radio Show</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>When you think of cities with bad air, perhaps places like Los Angeles spring to mind. But few of us would ever think of Fairbanks, Alaska set amid glaciers, wilderness and\nwildlife as a city with some of the nation's worst air. As Doug Schneider reports in this week's Arctic Science Journeys Radio, the city is making a noble effort to clean up its act.</abstract>\n      <purpose>It's just before 8 a.m. rush hour in Fairbanks,  Alaska. The temperature this day is 25ﾰF below zero. The dry, bitterly cold air has spawned what locals call ice fog. Ice fog is\na sometimes dangerous, ground-hugging cloud of everything that comes out of each chimney, smokestack and vehicle tailpipe in town things like wood smoke, coal soot, water  vapor, and a virtual cocktail of potentially harmful chemicals like carbon monoxide, carbon dioxide, nitrous oxide and sulfur dioxide, to name a few.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>20010101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>None Planned</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-147.87</westbc>\n        <eastbc>-147.87</eastbc>\n        <northbc>64.82</northbc>\n        <southbc>64.82</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Atmosphere</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Sea Grant</themekey>\n        <themekey>Carbon Monoxide (CO)</themekey>\n        <themekey>\n          Carbon Dioxide (CO\n          <sub>2</sub>\n          )\n        </themekey>\n        <themekey>Nitrous Oxide</themekey>\n        <themekey>Sulfur Dioxide\nsulfer dioxide</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Acknowledgement of data source publication required.</accconst>\n    <useconst>Acknowledgement of data source publication required</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Fresco, Nancy</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>830 College Road</address>\n          <city>Fairbanks</city>\n          <state>AK</state>\n          <postal>99701</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-452-5021</cntvoice>\n        <cntfax />\n        <cntemail>info@northern.org</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Fresco, Nancy</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>830 College Road</address>\n          <city>Fairbanks</city>\n          <state>AK</state>\n          <postal>99701</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-452-5021</cntvoice>\n        <cntfax />\n        <cntemail>info@northern.org</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020128</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Acknowledgement of data source publication required.</metac>\n    <metuc>Acknowledgement of data source publication required</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The exact title identifies an Alaska Sea Grant radio publication; the same-work abstract explicitly identifies Arctic Science Journeys Radio and reporter Doug Schneider. All four literal constraints require acknowledgement of the data source publication. These complete catalogue descriptions contain descriptive scientific statements, regional bounding coordinates, and attribution/contact text; they are not information-free. Existing source-specific creator repairs and their original-credit preservation notes remain unchanged. The finite reviewer interpretation distinguishes the named publication/source acknowledgement from permission to restore the already-public catalogue description under separately recorded USER_ATTESTED authority. Acknowledgement remains literal and no claim is made that it is satisfied, waived, a new license, permission to reuse the radio publication, or independently verified rights. The exact821 attestation membership and direct reply remain unchanged."
+    },
+    "FGDC-1262": {
+      "constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "meaning": "derived_existing_authority_radio_publication_acknowledgement_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>William Smoker</origin>\n        <pubdate>20010101</pubdate>\n        <title>Alaska, Russian Salmon Getting Smaller -  Alaska Sea Grant Radio Show</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>As biologists and fishermen search for the cause of Western Alaska salmon declines, scientists say the state's Yukon River chum salmon are getting smaller. What's more, it seems to be a trend affecting salmon returning to at least one river in Russia as well. Doug Schneider has more in this week's Arctic Science Journeys Radio.</abstract>\n      <purpose>Chum salmon returning to Alaska's Yukon River and the Anadyr River in Russia have gotten steadily smaller since  the 1960s. That's the conclusion drawn from a study of\nsalmon growth done by state, university and federal researchers.\n\nBill Smoker, a fisheries scientist from the University of Alaska Fairbanks School of Fisheries and Ocean Sciences,  announced the study's preliminary findings at a scientific\nconference in Fairbanks late last week.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>20010101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>None Planned</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-176.75</westbc>\n        <eastbc>-164.8</eastbc>\n        <northbc>64.83</northbc>\n        <southbc>62.58</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Fish</themekey>\n        <themekey>Biology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Salmon</themekey>\n        <themekey>Russia</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Alaska Sea Grant</themekey>\n        <themekey>Pollock</themekey>\n        <themekey>Yukon River</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Acknowledgement of data source publication required.</accconst>\n    <useconst>Acknowledgement of data source publication required</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Smoker, William</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>11120 Glacier Highway</address>\n          <city>Juneau</city>\n          <state>AK</state>\n          <postal>99801</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-465-6444</cntvoice>\n        <cntfax />\n        <cntemail>bill.smoker@uaf.edu</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Smoker, William</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>11120 Glacier Highway</address>\n          <city>Juneau</city>\n          <state>AK</state>\n          <postal>99801</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-465-6444</cntvoice>\n        <cntfax />\n        <cntemail>bill.smoker@uaf.edu</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020128</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Acknowledgement of data source publication required.</metac>\n    <metuc>Acknowledgement of data source publication required</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The exact title identifies an Alaska Sea Grant radio publication; the same-work abstract explicitly identifies Arctic Science Journeys Radio and reporter Doug Schneider. All four literal constraints require acknowledgement of the data source publication. These complete catalogue descriptions contain descriptive scientific statements, regional bounding coordinates, and attribution/contact text; they are not information-free. Existing source-specific creator repairs and their original-credit preservation notes remain unchanged. The finite reviewer interpretation distinguishes the named publication/source acknowledgement from permission to restore the already-public catalogue description under separately recorded USER_ATTESTED authority. Acknowledgement remains literal and no claim is made that it is satisfied, waived, a new license, permission to reuse the radio publication, or independently verified rights. The exact821 attestation membership and direct reply remain unchanged."
+    },
+    "FGDC-1273": {
+      "constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "meaning": "derived_existing_authority_radio_publication_acknowledgement_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Jan Curtis</origin>\n        <pubdate>20010101</pubdate>\n        <title>Climate Confusion - Alaska Sea Grant Radio Show</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>While many scientists link the causes of climate change to humans burning fossil fuels like coal, oil and gas, other scientists say thereﾒs not enough evidence to blame people. As Doug Schneider reports in this weekﾒs Arctic Science Journeys Radio, one scientist says the climate may be responding more to natural cycles and that the climate may actually have begun to cool.</abstract>\n      <purpose>Jan Curtis doesn't consider himself a pariah among his peers in the scientific community. Rather, he thinks of himself as a healthy skeptic when it comes to blaming people for a warmer global climate.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <sngdate>\n          <caldate>20010101</caldate>\n        </sngdate>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>None Planned</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-180</westbc>\n        <eastbc>180</eastbc>\n        <northbc>90</northbc>\n        <southbc>-90</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Meteorology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Climate</themekey>\n        <themekey>Coal</themekey>\n        <themekey>Oil</themekey>\n        <themekey>Ice Age</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Acknowledgement of data source publication required.</accconst>\n    <useconst>Acknowledgement of data source publication required</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Curtis, Jan</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>University of Alaska - Fairbanks</address>\n          <city>Fairbanks</city>\n          <state>AK</state>\n          <postal>99775-7320</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-474-7885</cntvoice>\n        <cntfax />\n        <cntemail>jcurtis@gi.alaska.edu</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Curtis, Jan</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>University of Alaska - Fairbanks</address>\n          <city>Fairbanks</city>\n          <state>AK</state>\n          <postal>99775-7320</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-474-7885</cntvoice>\n        <cntfax />\n        <cntemail>jcurtis@gi.alaska.edu</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020225</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Acknowledgement of data source publication required.</metac>\n    <metuc>Acknowledgement of data source publication required</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The exact title identifies an Alaska Sea Grant radio publication; the same-work abstract explicitly identifies Arctic Science Journeys Radio and reporter Doug Schneider. All four literal constraints require acknowledgement of the data source publication. These complete catalogue descriptions contain descriptive scientific statements, regional bounding coordinates, and attribution/contact text; they are not information-free. Existing source-specific creator repairs and their original-credit preservation notes remain unchanged. The finite reviewer interpretation distinguishes the named publication/source acknowledgement from permission to restore the already-public catalogue description under separately recorded USER_ATTESTED authority. Acknowledgement remains literal and no claim is made that it is satisfied, waived, a new license, permission to reuse the radio publication, or independently verified rights. The exact821 attestation membership and direct reply remain unchanged."
+    },
+    "FGDC-4064": {
+      "constraints": {
+        "./idinfo/accconst": "May require password access",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "May require password access",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "meaning": "derived_existing_authority_POST_recent_data_password_and_source_contact_preserved",
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>\n          Census of Marine Life\n          <br />\n          Vancouver Aquarium\n        </origin>\n        <pubdate>Unknown</pubdate>\n        <title>Pacific Ocean Shelf Tracking (POST) Project Database</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>\n        <p>The Pacific Ocean Shelf Tracking (POST) project database provides web-based access to data collected through the project. It contains three areas of information:</p>\n        <p>\n          - Receivers: Location, serial numbers, and name of line;\n          <br />\n          - Tags: Identification number, and species and stock of tagged animal; and\n          <br />\n          - Detections: Location, time, tag detected and detecting receiver\n        </p>\n        <p>Researchers can download http://www.meds-sdmm.dfo-mpo.gc.ca/post/databaseInit.do?req=down available data or view products http://www.meds-sdmm.dfo-mpo.gc.ca/post/databaseInit.do?req=product based on uploaded data. Password access is required for the most recent data.</p>\n      </abstract>\n      <purpose>\n        <p>The Pacific Ocean Shelf Tracking (POST) project aims to build an acoustic tracking array along the west coast of North America. The early applications focused on tracking the migration, life span, movement and behavior of Pacific salmon. The project is expanding to encompass other species such as rockfish, sturgeon and small pelagics.</p>\n      </purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>In Progress</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>0</westbc>\n        <eastbc>0</eastbc>\n        <northbc>0</northbc>\n        <southbc>0</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Fish</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Acoustics</themekey>\n        <themekey>West Coast USA</themekey>\n        <themekey>West Coast Canada</themekey>\n        <themekey>North American Pacific Coast</themekey>\n        <themekey>Vancouver Island, Canada</themekey>\n        <themekey>Strait of Juan de Fuca</themekey>\n        <themekey>Strait of Georgia</themekey>\n        <themekey>Salmon</themekey>\n        <themekey>Queen Charlotte Strait</themekey>\n        <themekey>Puget Sound</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>May require password access</accconst>\n    <useconst>Contact Source</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Tsang, Peggy</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing Address</addrtype>\n          <address>PO Box 3232</address>\n          <city>Vancouver</city>\n          <state>BC</state>\n          <postal>V6B 3X8</postal>\n          <country>Canada</country>\n        </cntaddr>\n        <cntvoice>604-659-3587</cntvoice>\n        <cntfax />\n        <cntemail>Peggy.Tsang@vanaqua.org</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Tsang, Peggy</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing Address</addrtype>\n          <address>PO Box 3232</address>\n          <city>Vancouver</city>\n          <state>BC</state>\n          <postal>V6B 3X8</postal>\n          <country>Canada</country>\n        </cntaddr>\n        <cntvoice>604-659-3587</cntvoice>\n        <cntfax />\n        <cntemail>Peggy.Tsang@vanaqua.org</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20050105</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>May require password access</metac>\n    <metuc>Contact Source</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "rationale": "The complete source explicitly describes a web-accessible POST database with receiver, tag and detection information and links to downloading data or viewing products. Its third abstract paragraph states that Password access is required for the most recent data, supplying the actual object of the password condition. The four literal May require password access / Contact Source fields remain unchanged. The catalogue describes database fields but contains no receiver serial-number, animal-tag or individual detection table. This finite reviewer reconciliation interprets the restriction as the named recent-data/database access condition while separately retaining exact USER_ATTESTED metadata restoration authority. No password, approval, underlying data permission, independent agreement verification, new license, or current accessibility is claimed. The exact821 attestation membership and direct reply remain unchanged. The same inference is not borrowed for FGDC-4063, which lacks the explicit target statement."
+    }
+  },
+  "acquisition_contexts_sha256": "1ab9f83210146b7f9c77aaa2ba75891e57a7d0c00c47f657f417841702b7b061",
+  "rows": [
+    {
+      "source_id": "FGDC-1257",
+      "source_sha256": "343d0e1b6c7d96a3899dfe5173b84ce12f8a5174d77b7fbdf65a897a00416b42",
+      "title": "Right Whale Skeleton - Alaska Sea Grant Radio Show",
+      "before_source_status": "held",
+      "prior_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "full_serialized_root_sha256": "df9ea8e3d31e956e3be46a22cfeacd7a7e9884d803fa494f32a45ef956d1ed3b",
+      "full_context_object_sha256": "af5791812da1a7533d438771ff38d251d12f9cdb3bd299b5def0e39e7e32a2c5",
+      "raw_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "metadata_date": "20020128",
+      "existing_creator_objects": [
+        {
+          "name": "Doug Schneider"
+        }
+      ],
+      "existing_creator_cohort_sha256": "57055a508484f851d0eccbd3fa159904039cc85a96cd71c4ce1f44604952b6bf",
+      "source_quotation": {
+        "xpath": "./idinfo/accconst",
+        "verbatim": "Acknowledgement of data source publication required."
+      },
+      "rationale": "The exact title identifies an Alaska Sea Grant radio publication; the same-work abstract explicitly identifies Arctic Science Journeys Radio and reporter Doug Schneider. All four literal constraints require acknowledgement of the data source publication. These complete catalogue descriptions contain descriptive scientific statements, regional bounding coordinates, and attribution/contact text; they are not information-free. Existing source-specific creator repairs and their original-credit preservation notes remain unchanged. The finite reviewer interpretation distinguishes the named publication/source acknowledgement from permission to restore the already-public catalogue description under separately recorded USER_ATTESTED authority. Acknowledgement remains literal and no claim is made that it is satisfied, waived, a new license, permission to reuse the radio publication, or independently verified rights. The exact821 attestation membership and direct reply remain unchanged.",
+      "status": "CLEAR_FOR_FINITE_REVIEWER_RECONCILED_PROPOSAL_ONLY"
+    },
+    {
+      "source_id": "FGDC-1258",
+      "source_sha256": "fb72564a17bf0535a1cfeaab04dd92d674dcb164ce4d608cdd17c19a5b1bfac9",
+      "title": "Bad Air - Alaska Sea Grant Radio Show",
+      "before_source_status": "held",
+      "prior_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "full_serialized_root_sha256": "ce0c6beeb5d64b0dc158c8b33715db8d09393ca628dd0b81b91708bb086794be",
+      "full_context_object_sha256": "f8733a4397e35bc2d650c8d24d47789362f1c65e9816f9bd1f0f3fcc2c40df62",
+      "raw_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "metadata_date": "20020128",
+      "existing_creator_objects": [
+        {
+          "name": "Doug Schneider"
+        }
+      ],
+      "existing_creator_cohort_sha256": "a194508f30314fd036ac3eaf881ce552c43eeddaea268fd85ed9eb0a6a0f8d87",
+      "source_quotation": {
+        "xpath": "./idinfo/accconst",
+        "verbatim": "Acknowledgement of data source publication required."
+      },
+      "rationale": "The exact title identifies an Alaska Sea Grant radio publication; the same-work abstract explicitly identifies Arctic Science Journeys Radio and reporter Doug Schneider. All four literal constraints require acknowledgement of the data source publication. These complete catalogue descriptions contain descriptive scientific statements, regional bounding coordinates, and attribution/contact text; they are not information-free. Existing source-specific creator repairs and their original-credit preservation notes remain unchanged. The finite reviewer interpretation distinguishes the named publication/source acknowledgement from permission to restore the already-public catalogue description under separately recorded USER_ATTESTED authority. Acknowledgement remains literal and no claim is made that it is satisfied, waived, a new license, permission to reuse the radio publication, or independently verified rights. The exact821 attestation membership and direct reply remain unchanged.",
+      "status": "CLEAR_FOR_FINITE_REVIEWER_RECONCILED_PROPOSAL_ONLY"
+    },
+    {
+      "source_id": "FGDC-1262",
+      "source_sha256": "3b9761159b7036598d96e2fcee9651c8f1c32428840106c4edb5cf53483d93cc",
+      "title": "Alaska, Russian Salmon Getting Smaller -  Alaska Sea Grant Radio Show",
+      "before_source_status": "held",
+      "prior_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "full_serialized_root_sha256": "55b2bf1d796e41030e3ab3657944a8a9cf1e9deb5e1bf1b9f4ea6fb57148e150",
+      "full_context_object_sha256": "ddedb07b50a66cabac558df2608d4a39f45528f4cfa69999be85e51362ca03c2",
+      "raw_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "metadata_date": "20020128",
+      "existing_creator_objects": [
+        {
+          "name": "Doug Schneider"
+        }
+      ],
+      "existing_creator_cohort_sha256": "e5e334284ce2a11cdf10a090419fc203ec9e8a7e85e10ddbeac564b2bcca140b",
+      "source_quotation": {
+        "xpath": "./idinfo/accconst",
+        "verbatim": "Acknowledgement of data source publication required."
+      },
+      "rationale": "The exact title identifies an Alaska Sea Grant radio publication; the same-work abstract explicitly identifies Arctic Science Journeys Radio and reporter Doug Schneider. All four literal constraints require acknowledgement of the data source publication. These complete catalogue descriptions contain descriptive scientific statements, regional bounding coordinates, and attribution/contact text; they are not information-free. Existing source-specific creator repairs and their original-credit preservation notes remain unchanged. The finite reviewer interpretation distinguishes the named publication/source acknowledgement from permission to restore the already-public catalogue description under separately recorded USER_ATTESTED authority. Acknowledgement remains literal and no claim is made that it is satisfied, waived, a new license, permission to reuse the radio publication, or independently verified rights. The exact821 attestation membership and direct reply remain unchanged.",
+      "status": "CLEAR_FOR_FINITE_REVIEWER_RECONCILED_PROPOSAL_ONLY"
+    },
+    {
+      "source_id": "FGDC-1273",
+      "source_sha256": "02957d0e04f214f4f02b72487d71923b613c01d81133967b17c2381626b1309a",
+      "title": "Climate Confusion - Alaska Sea Grant Radio Show",
+      "before_source_status": "held",
+      "prior_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "full_serialized_root_sha256": "5b642079a888ddd787af26925d320bf2dd71c502b8d1b71a61038956dcf9a4fd",
+      "full_context_object_sha256": "57cc0dd0ff11bd2a38b58992088837dbf8fca8196c4d04ed4ff484301b682406",
+      "raw_constraints": {
+        "./idinfo/accconst": "Acknowledgement of data source publication required.",
+        "./idinfo/useconst": "Acknowledgement of data source publication required",
+        "./metainfo/metac": "Acknowledgement of data source publication required.",
+        "./metainfo/metuc": "Acknowledgement of data source publication required"
+      },
+      "metadata_date": "20020225",
+      "existing_creator_objects": [
+        {
+          "name": "Doug Schneider"
+        }
+      ],
+      "existing_creator_cohort_sha256": "ea634f3bce942f1b048442d63710f4c491e6d2072a0b3512870a1567ef95590e",
+      "source_quotation": {
+        "xpath": "./idinfo/accconst",
+        "verbatim": "Acknowledgement of data source publication required."
+      },
+      "rationale": "The exact title identifies an Alaska Sea Grant radio publication; the same-work abstract explicitly identifies Arctic Science Journeys Radio and reporter Doug Schneider. All four literal constraints require acknowledgement of the data source publication. These complete catalogue descriptions contain descriptive scientific statements, regional bounding coordinates, and attribution/contact text; they are not information-free. Existing source-specific creator repairs and their original-credit preservation notes remain unchanged. The finite reviewer interpretation distinguishes the named publication/source acknowledgement from permission to restore the already-public catalogue description under separately recorded USER_ATTESTED authority. Acknowledgement remains literal and no claim is made that it is satisfied, waived, a new license, permission to reuse the radio publication, or independently verified rights. The exact821 attestation membership and direct reply remain unchanged.",
+      "status": "CLEAR_FOR_FINITE_REVIEWER_RECONCILED_PROPOSAL_ONLY"
+    },
+    {
+      "source_id": "FGDC-4064",
+      "source_sha256": "1b3891fe9136b5a95182c3e0b5a06929a7524870ba09479fd59c5148da26806c",
+      "title": "Pacific Ocean Shelf Tracking (POST) Project Database",
+      "before_source_status": "held",
+      "prior_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Contradictory or unsupported source access constraints require adjudication"
+      ],
+      "full_serialized_root_sha256": "c8405f24371fb6f073fd67a992cdedaf25ee34d05b091f22729730046a38e314",
+      "full_context_object_sha256": "1df82130e437359ebb665e39a38f00bff9617bc2f6ba1fe789234f8dee201066",
+      "raw_constraints": {
+        "./idinfo/accconst": "May require password access",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "May require password access",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "metadata_date": "20050105",
+      "existing_creator_objects": [
+        {
+          "name": "Census of Marine Life"
+        },
+        {
+          "name": "Vancouver Aquarium"
+        }
+      ],
+      "existing_creator_cohort_sha256": "1f1863ac0a989df18bc2a31eca7a9bf60e295d3ebdda5d209f9e0a24c78ee0b3",
+      "source_quotation": {
+        "xpath": "./idinfo/descript/abstract/p[3]",
+        "verbatim": "Researchers can download http://www.meds-sdmm.dfo-mpo.gc.ca/post/databaseInit.do?req=down available data or view products http://www.meds-sdmm.dfo-mpo.gc.ca/post/databaseInit.do?req=product based on uploaded data. Password access is required for the most recent data."
+      },
+      "rationale": "The complete source explicitly describes a web-accessible POST database with receiver, tag and detection information and links to downloading data or viewing products. Its third abstract paragraph states that Password access is required for the most recent data, supplying the actual object of the password condition. The four literal May require password access / Contact Source fields remain unchanged. The catalogue describes database fields but contains no receiver serial-number, animal-tag or individual detection table. This finite reviewer reconciliation interprets the restriction as the named recent-data/database access condition while separately retaining exact USER_ATTESTED metadata restoration authority. No password, approval, underlying data permission, independent agreement verification, new license, or current accessibility is claimed. The exact821 attestation membership and direct reply remain unchanged. The same inference is not borrowed for FGDC-4063, which lacks the explicit target statement.",
+      "status": "CLEAR_FOR_FINITE_REVIEWER_RECONCILED_PROPOSAL_ONLY"
+    }
+  ],
+  "rows_sha256": "cf712f5ffeedbb9ac6eba74957abf4ea8cb0c3858cb4119720250d2610ad93a7",
+  "rehosting_authority": {
+    "evidence_type": "USER_ATTESTED",
+    "exact_selected_source_hashes_verified": true,
+    "independently_verified_agreement": false
+  },
+  "interpretation_provenance": "REVIEWER_RECONCILED",
+  "new_direct_user_scope_reply_claimed": false,
+  "direct821_member_overlap": 0,
+  "direct821_membership_reply_unchanged": true,
+  "old556_member_overlap": 0,
+  "complete_original_xml_reviews": [
+    "FGDC-1257",
+    "FGDC-1258",
+    "FGDC-1262",
+    "FGDC-1273",
+    "FGDC-4064",
+    "FGDC-4063"
+  ],
+  "source_mutations": 0,
+  "runtime_or_repository_mutations": 0,
+  "provider_network_requests": 0,
+  "credentials_private_stage_reads": 0,
+  "tests_or_classifier_runs": 0,
+  "actual_promotions": 0,
+  "proposed_delta_only_if_future_runtime_and_independent_tests_pass": {
+    "supported": 5,
+    "held": -5,
+    "malformed": 0
+  },
+  "retained_creator_lane_exception": {
+    "source_id": "FGDC-4063",
+    "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076",
+    "status": "KEEP_HELD",
+    "question": "For this exact project-description XML, identify the resource or content covered by May require password access and Contact Source; its own abstract and purpose describe the tracking project but do not name the password target. The explicit recent-data restriction in separate FGDC-4064 cannot establish this record-specific scope.",
+    "full_serialized_root_sha256": "9784f645760d75da7facdec1dd79fbe14a1d5332a3e9367c050b7f86862fdadc"
+  },
+  "alias_lane": {
+    "source_identities": 456,
+    "byte_groups": 228,
+    "status": "KEEP_HELD",
+    "reason": "Existing source-bound pair audit establishes exact XML equality but supplies no current verified source-to-provider crosswalk, ownership, canonical provider ID/DOI or source-owner representative choice. Similar title and numeric order do not resolve identity."
+  },
+  "remaining_exact31_exceptions": "KEEP_HELD; frozen3 metadata-product/11 sensitive-or-cultural/17 incorporated-or-incomplete-term partition unchanged",
+  "deferred_resource37_count_reconciled": 37,
+  "next_candidates_unimplemented": [
+    {
+      "source_id": "FGDC-753",
+      "source_sha256": "a8674a8c16853c98420da21a565c4eef0874217903bd809b345c303e0bdf5549",
+      "title": "Wrangell Mountain Aerial Photographs",
+      "access_constraint": "Duplicates available from the GeoData Center, University of Alaska Fairbanks",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-779",
+      "source_sha256": "c78f16c0f4c9731030be0892dd7acdd88e71712161ca1d1a3d424d0cb84c3628",
+      "title": "Upper Prince Williams Sound Soil Survey",
+      "access_constraint": "Reports (with maps) and databases are available by request to the Palmer Field office.",
+      "use_constraint": "Contact distributor",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-784",
+      "source_sha256": "dbbbaab66823dcf1538fe7831c580e28b84563054fc67b49afc943f9a893711a",
+      "title": "Wrangell-Elias Vegetation Ground Plots",
+      "access_constraint": "Unknown",
+      "use_constraint": "Data is spatially located on color infrared aerial photography and has not yet been automated in a GIS system. Attribute data has been automated by Wrangell St. Elias National Park in database management system.",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-832",
+      "source_sha256": "7986c6cd4fb9741943c830382439a6457ed521115bb1580126dcbbb08d480248",
+      "title": "Coded Wire Tag Database - Salmon",
+      "access_constraint": "Non-restricted data is available upon request at a cost dependent on the complexity and quantity of the data requested.",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-834",
+      "source_sha256": "bde8be32b24a2384eddd636f5267e7dd18551cfe5f2cab7765a18599800a2fb1",
+      "title": "Mariculture Permit Tracking",
+      "access_constraint": "General location information is available upon request.",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-836",
+      "source_sha256": "51d5ca1d5c8705fc1b2ea9fa6a6f00a970297d3454cd74fdb72c909a38a442aa",
+      "title": "Stocking Records - State Hatcheries",
+      "access_constraint": "Yearly data is published in the \"FRED Annual Report\". Also, the division would answer specific reqests about the data on an individual basis free of charge.",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-845",
+      "source_sha256": "8f75d0f3ee360b65444967416dd6ceaba9cd3e5b25b835ed69a20900b60ae042",
+      "title": "Community Profile Database",
+      "access_constraint": "The digital database is available at no cost if disks are provided.",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-853",
+      "source_sha256": "97495fe1eafbc3badee9337e13ba6170aacb96a378d6c0cf4a7a65600429ccce",
+      "title": "Advanced Very High Resolution Radiometer",
+      "access_constraint": "For data from 1978-1988, contact the GeoData Center.       For data collected after 1988 see NOAA or USGS.",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-855",
+      "source_sha256": "8187738c78ee40635b785f6aec0b1d55d9df6c96330125da6b367142106c4431",
+      "title": "Alaska Quick Look Landsat Imagery",
+      "access_constraint": "Cost of reproduction.",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-861",
+      "source_sha256": "c3309ee66fca236b3159783aa4072906e9c93c336f4af502763a4242b732f2d2",
+      "title": "Thematic Mapper (TM) Landsat Data",
+      "access_constraint": "For data from 1978-1988, contact the GeoData Center.       For data collected after 1988 see NOAA or USGS.",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-880",
+      "source_sha256": "ab715090aceeb8bb611fc604c519a3e4f776ad6d2334529a6e98ca134a3f7dfd",
+      "title": "Historic Sea Surface Temperature 1985-90",
+      "access_constraint": "The data layers will be available on request following the completion of processing and extensive quality checks.",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    },
+    {
+      "source_id": "FGDC-882",
+      "source_sha256": "8c0b964a5671eb9a56271b71ef00c2ea8d6c5296b88f91424796af5e2d811407",
+      "title": "Historical NDVI of Sea Study Area 1985-90",
+      "access_constraint": "The data layers will be fully available on request following the completion of processing and extensive quality checks.",
+      "use_constraint": "Unknown",
+      "status": "CANDIDATE_ONLY_NOT_COMPLETE_SOURCE_REVIEWED_NOT_IMPLEMENTED"
+    }
+  ],
+  "overlap_exclusions": [
+    "FGDC-740",
+    "FGDC-815",
+    "FGDC-851",
+    "FGDC-879",
+    "FGDC-885",
+    "FGDC-887"
+  ],
+  "preservation_limits": [
+    "Preserve all original XML bytes, complete raw metadata and literal constraint fields.",
+    "Keep existing repaired creator objects and original-credit/contact preservation notes; no additional authorship or institution mappings.",
+    "Preserve restricted attachment access and blank license; no underlying-data rights, conditions satisfied, new rehosting grant or publication approval.",
+    "No automatic unknown/synonym/password/acknowledgement rule. Bind exact members, full root and four plain constraint elements, with shared QA and withdrawal/tamper contracts.",
+    "The proposed after counts are not measured until root performs finite before/after classification and validates the cached integrated ledger."
+  ],
+  "digest_recipe": "Raw files and UTF-8 ElementTree serialized root bytes use SHA256. XML root tail is set to None. Object hashes use json.dumps(sort_keys=True,separators=(comma,colon),ensure_ascii=False) encoded UTF-8. Member/row ordering is lexical source_id."
+}

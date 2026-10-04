@@ -21,6 +21,21 @@ The workflow runs all contracts and scoped lint. GitHub's actual run/check and
 current-head Codex review are the merge evidence; committed offline receipts alone
 do not assert that CI passed.
 
+## Latest finite source preparation
+
+The [combined seven-source correction](docs/readiness/2026-10-04/combined_source7_handoff.md)
+reconciles FGDC-885/887 and FGDC-1257/1258/1262/1273/4064. Select
+`docs/readiness/2026-10-04/finite_source_resource_access_563.json` with the existing
+`--dataset-access-interpretation-manifest` option and retain the other current
+source profiles, including `source_scope_reconciliation_904.json`. Both independent
+review blocks and their assessment times remain intact; earlier profiles remain
+accepted. The combined profile supersedes the separate 558/561 preparation choices.
+
+Measured seven-record corrections plus frozen accounting yield **3,645 supported /
+555 held / 6 malformed**. All original XML, complete raw metadata, source conditions,
+restricted/unlicensed rights and 4,199 unselected statuses remain unchanged.
+Provider verification and publication require their separate evidence and gates.
+
 ## 🏗️ Project Structure
 
 ```
@@ -74,6 +89,14 @@ previous objects and unchanged821/904 evidence. Its measured delta and integrate
 ledger yield **3638 supported /562 held /six malformed**. All raw metadata/XML and
 456 alias/31 exception holds remain intact; new cases are REVIEWER_RECONCILED with
 restricted unlicensed XML and separate provider gates.
+
+The historical [five-source residual proposal](docs/readiness/2026-10-04/residual_source5_handoff.md)
+measured source-publication acknowledgment and recent-data password conditions
+against the earlier 3,638/562/6 ledger. Its separate 3,643/557/6 projection is now
+superseded by the [combined seven-source integration](docs/readiness/2026-10-04/combined_source7_handoff.md)
+and its measured **3,645/555/6** accounting. Original XML and complete metadata
+remain unchanged; restoration authority stays USER_ATTESTED. FGDC-4063 remains
+held without its own password-target evidence.
 
 The [exact22 forestry GIS cohort](docs/readiness/2026-10-03/cnf_copy_media_handoff.md)
 adds finite copy-media acquisition interpretations while preserving literal

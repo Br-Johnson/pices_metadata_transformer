@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "PASS_PROPOSED_UNTIL_INTEGRATED",
+  "tested_working_tree_base": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+  "full_guarded_run": {
+    "commit": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+    "environment_cleared_dummy_credentials_only": true,
+    "errors": 0,
+    "failures": 0,
+    "guard_blocks": {
+      "bootstrap": {
+        "network": 4,
+        "private_reads": 1,
+        "processes": 1,
+        "writes": 1
+      },
+      "tests": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      }
+    },
+    "in_process_read_only_git_queries": 55,
+    "seconds": 222.497,
+    "selected_modules": [
+      "all"
+    ],
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "355011e435955682d0a9fbd26bb05ff1b7da38dee9b7035ba43be764a4a60437",
+    "successful": true,
+    "tests_run": 461,
+    "unexpected_guard_call_sites": []
+  },
+  "full_log_sha256": "826dc9ca6d2e7c65eccc5812593ced82a7690e849cf810d5dd6665d8f25cc612",
+  "focused_guarded_run_reported_by_independent_test_author": {
+    "tests_run": 11,
+    "seconds": 18.503,
+    "errors": 0,
+    "failures": 0,
+    "source_bindings_unchanged": true,
+    "test_guard_blocks": 0
+  },
+  "superseded_initial_run": {
+    "result": {
+      "commit": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 0,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 55,
+      "seconds": 207.723,
+      "selected_modules": [
+        "all"
+      ],
+      "source_bindings_unchanged": false,
+      "source_tree_sha256": "29a3468030812c31efb63d67e5b60483117ae74254b5f758740258838fb3bfec",
+      "successful": false,
+      "tests_run": 450,
+      "unexpected_guard_call_sites": []
+    },
+    "log_sha256": "01b16bc05b262b898292703cfd077cb68b8c439a8d308ef255c2e7fb45ef37c7",
+    "disposition": "Not accepted: test file was concurrently added/edited; runtime/test source_bindings changed. Frozen461 run supersedes this run."
+  },
+  "tested_file_sha256": {
+    "scripts/dataset_access_interpretation.py": "a3bd69616decd7b6faaa8b489e36235342812a3514f7f9363247ab2790fe50b4",
+    "tests/test_residual_source_access.py": "58ba91930e903901624af7c44aa222fb66d8e6659db9fc58c45afe0bf72e5f52",
+    "docs/readiness/2026-10-04/residual_source_access_561.json": "b0a0f90f8d61b1908ea1a291284a04d8047186e63b2dc9427181a39af6a292f7",
+    "docs/readiness/2026-10-04/validate_residual_source5.py": "1c354dee202250892121867adfdb7fd248839892b957a68af51ec602075918de",
+    "docs/readiness/2026-10-04/residual_source5_validation.json": "afb17b6d85f39d4c7f4987d6f0dd3cbc432855a1ef04cd86d29ae11e2e3440ea"
+  },
+  "lint": {
+    "command": "ruff check --isolated --select E4,E7,E9,F,I,B scripts/dataset_access_interpretation.py tests/test_residual_source_access.py docs/readiness/2026-10-04/validate_residual_source5.py",
+    "exit_code": 0
+  },
+  "git_diff_check_exit_code": 0,
+  "provider_requests": 0,
+  "new_remote_verification_or_publication_approval": 0
+}

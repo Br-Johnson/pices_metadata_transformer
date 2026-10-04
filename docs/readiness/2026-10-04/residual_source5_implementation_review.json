@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "review_kind": "independent_implementation_and_validation_review",
+  "reviewer": "/root/implementation_review",
+  "reviewed_at": "2026-10-04T14:34:11.689084+00:00",
+  "base_main": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+  "status": "PASS_NO_MATERIAL_FINDINGS_PROPOSED_UNTIL_INTEGRATED",
+  "findings": [],
+  "reviewed_file_sha256": {
+    "scripts/dataset_access_interpretation.py": "a3bd69616decd7b6faaa8b489e36235342812a3514f7f9363247ab2790fe50b4",
+    "docs/readiness/2026-10-04/residual_source_access_561.json": "b0a0f90f8d61b1908ea1a291284a04d8047186e63b2dc9427181a39af6a292f7",
+    "docs/readiness/2026-10-04/validate_residual_source5.py": "1c354dee202250892121867adfdb7fd248839892b957a68af51ec602075918de",
+    "docs/readiness/2026-10-04/residual_source5_independent_source_review.json": "ce1b8de4fb27178fd56df51a6bce9cd5bc4b970d85693fb11dd31c904cc6976c",
+    "docs/readiness/2026-10-04/residual_source5_validation.json": "afb17b6d85f39d4c7f4987d6f0dd3cbc432855a1ef04cd86d29ae11e2e3440ea",
+    "docs/readiness/2026-10-04/residual_source5_handoff.md": "4134f4a74ea70e4d45709b86eab0638ed027fa6ba621dc66b337b86a9d74c102",
+    "tests/test_residual_source_access.py": "58ba91930e903901624af7c44aa222fb66d8e6659db9fc58c45afe0bf72e5f52",
+    "README.md": "6122ed35d14635e549124f65aaada9972ac16fbe1061b9ac35ced191eb4c3530",
+    "docs/readiness/2026-10-04/residual_source5_tests.json": "5ae1619718f6ab36f89bd9e54556777c9267603d4625ff9d5741fe9a07c89a54"
+  },
+  "new_members": [
+    {
+      "source_id": "FGDC-1257",
+      "source_sha256": "343d0e1b6c7d96a3899dfe5173b84ce12f8a5174d77b7fbdf65a897a00416b42"
+    },
+    {
+      "source_id": "FGDC-1258",
+      "source_sha256": "fb72564a17bf0535a1cfeaab04dd92d674dcb164ce4d608cdd17c19a5b1bfac9"
+    },
+    {
+      "source_id": "FGDC-1262",
+      "source_sha256": "3b9761159b7036598d96e2fcee9651c8f1c32428840106c4edb5cf53483d93cc"
+    },
+    {
+      "source_id": "FGDC-1273",
+      "source_sha256": "02957d0e04f214f4f02b72487d71923b613c01d81133967b17c2381626b1309a"
+    },
+    {
+      "source_id": "FGDC-4064",
+      "source_sha256": "1b3891fe9136b5a95182c3e0b5a06929a7524870ba09479fd59c5148da26806c"
+    }
+  ],
+  "source_integrity": {
+    "all4206_original_hashes_match_frozen_ledger": true,
+    "source_file_count": 4206,
+    "ledger_file_sha256": "e9f248c1730aa59f4d89f9ddf66aedf05dd172c73dab190709ea3e8c6683b061",
+    "source_hash_rows_canonical_sha256": "27999ceb97fd8f2905513b28a22ac7e09966dab717ab7fad14bb8f9e8507bf8c",
+    "source_mutations_by_reviewer": 0
+  },
+  "runtime_checks": {
+    "exact_pinned_profile_required": true,
+    "five_exact_source_id_sha256_pairs_required": true,
+    "full_serialized_root_and_four_plain_constraints_required": true,
+    "unknown_or_modified_profiles_fail_closed": true,
+    "missing_modified_original_attestation_evidence_fails_closed": true,
+    "security_and_extension_elements_rejected": true,
+    "review_time_must_be_aware_post_review_nonfuture": true,
+    "old556_member_context_and_validation_result_objects_unchanged": true,
+    "earlier42_review_membership_and_timestamp_unchanged": true,
+    "new_five_interpretation_status": "REVIEWER_RECONCILED",
+    "separate_rehosting_authority_status": "USER_ATTESTED",
+    "no_new_attestation_membership_license_underlying_data_rights_or_release_authority": true,
+    "agent_and_both_human_schema_routes_revalidate_same_policy": true,
+    "rehashed_cache_cannot_change_creators_or_erase_source_notes": true
+  },
+  "independent_bounded_replay": {
+    "script": "docs/readiness/2026-10-04/validate_residual_source5.py",
+    "output_dir": "/tmp/pices-source5-independent-implementation-validation",
+    "validation_json_sha256": "8fc3c57bb1436287e1bcef6d03a08055dc402abc7d3299d3b04b4828ec54cd64",
+    "before_counts": {
+      "supported": 0,
+      "held": 6,
+      "failed": 0
+    },
+    "after_counts": {
+      "supported": 5,
+      "held": 1,
+      "failed": 0
+    },
+    "repeat_identical": true,
+    "withdrawal_restores_holds": true,
+    "all_complete_metadata_and_original_copied_xml_unchanged": true,
+    "only_added_policy_reference_changes_five_payloads": true,
+    "control_FGDC4063_entire_payload_unchanged": true,
+    "restricted_XML_blank_license_preserved": true,
+    "all_records_remote_verified_and_publication_approved_false": true,
+    "current_counts_recounted": {
+      "supported": 3638,
+      "held": 562,
+      "failed": 6
+    },
+    "proposed_counts_computed": {
+      "supported": 3643,
+      "held": 557,
+      "failed": 6
+    },
+    "proposed_status_rows_sha256": "a156af48d7efcf918b17de8d072f32193fa7e3232b2bb37a8235ec8f2c87ba63",
+    "rows": [
+      {
+        "source_id": "FGDC-1257",
+        "source_sha256": "343d0e1b6c7d96a3899dfe5173b84ce12f8a5174d77b7fbdf65a897a00416b42",
+        "before_status": "held",
+        "after_status": "supported",
+        "before_payload_canonical_sha256": "3dfca2a47c1c2b9edfe9232f214237d6b8758901b029cb47f73a3429921adfaa",
+        "after_payload_canonical_sha256": "d550ab4433824e1c93b4288861c167cce08192b06fce243285341e95fa41ac82",
+        "unchanged_metadata_canonical_sha256": "61344dc12dd4d1131a210d8e1adb34e3ca3de949666c12e1eb3d55fee8effffe",
+        "complete_metadata_and_original_copied_xml_unchanged": true
+      },
+      {
+        "source_id": "FGDC-1258",
+        "source_sha256": "fb72564a17bf0535a1cfeaab04dd92d674dcb164ce4d608cdd17c19a5b1bfac9",
+        "before_status": "held",
+        "after_status": "supported",
+        "before_payload_canonical_sha256": "a1a3177bf230b21a1c48cb98be411540954ca23da4c19766289387136c15396d",
+        "after_payload_canonical_sha256": "ff387c9714f7ccf64ce6156fd9db02754625b0749c0196abae7d660d091a57db",
+        "unchanged_metadata_canonical_sha256": "947227ce35433dc9738c66696a4b1df16ba50cfc0a7b934f43e565b8e7f9f1ae",
+        "complete_metadata_and_original_copied_xml_unchanged": true
+      },
+      {
+        "source_id": "FGDC-1262",
+        "source_sha256": "3b9761159b7036598d96e2fcee9651c8f1c32428840106c4edb5cf53483d93cc",
+        "before_status": "held",
+        "after_status": "supported",
+        "before_payload_canonical_sha256": "70c734b53c5268f7d94913edf995868b321ec74b59165c8d5b14be5cbad08a5f",
+        "after_payload_canonical_sha256": "fb78033c05bfa4867d4c0fdf2032f730dbb78200bc70277edf3e5179fe8dda2c",
+        "unchanged_metadata_canonical_sha256": "c10650ebdd8a1b3b3a10de32da4bef39d33f3b4542887d13b2a3f297c8abe30b",
+        "complete_metadata_and_original_copied_xml_unchanged": true
+      },
+      {
+        "source_id": "FGDC-1273",
+        "source_sha256": "02957d0e04f214f4f02b72487d71923b613c01d81133967b17c2381626b1309a",
+        "before_status": "held",
+        "after_status": "supported",
+        "before_payload_canonical_sha256": "b1281fbf8e901b72598e4cd6ff8cc8ca363cebb7befd5b6542b4fa303b8c8c9e",
+        "after_payload_canonical_sha256": "ed6c1e545c840308644d4a401c33160cac655ba2d219d37ae025ba6038f65d84",
+        "unchanged_metadata_canonical_sha256": "8244b613ee521a9d3a53f26dbd1eb1aae23feca18a8a368b1f11482423bcf680",
+        "complete_metadata_and_original_copied_xml_unchanged": true
+      },
+      {
+        "source_id": "FGDC-4063",
+        "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076",
+        "before_status": "held",
+        "after_status": "held",
+        "before_payload_canonical_sha256": "6d78b3cbeabfb8818c4df84bf9c1a0ff7b0444de75bf6c782a39d52e7a667862",
+        "after_payload_canonical_sha256": "6d78b3cbeabfb8818c4df84bf9c1a0ff7b0444de75bf6c782a39d52e7a667862",
+        "unchanged_metadata_canonical_sha256": "188a931fc14bb04dad0a7e2b23d33ddb00f47271de357bad21d0752423b4de9a",
+        "complete_metadata_and_original_copied_xml_unchanged": true
+      },
+      {
+        "source_id": "FGDC-4064",
+        "source_sha256": "1b3891fe9136b5a95182c3e0b5a06929a7524870ba09479fd59c5148da26806c",
+        "before_status": "held",
+        "after_status": "supported",
+        "before_payload_canonical_sha256": "4cdfe01539805d0d46db5ebacae0507b9ec9d49b7ce1563704e03b5fd51c0dd8",
+        "after_payload_canonical_sha256": "afa416e2f3989a5e5c5ecbdc5c512767058b834ab391b3fef5363bc3383ec6b7",
+        "unchanged_metadata_canonical_sha256": "974791f4fa95f42748dcc8d3819481d112bdb9d362246bc6fdc53dfe350ae2d9",
+        "complete_metadata_and_original_copied_xml_unchanged": true
+      }
+    ]
+  },
+  "independent_tests": {
+    "modules": [
+      "tests.test_residual_source_access",
+      "tests.test_resource42_reconciliation",
+      "tests.test_dataset_access_interpretation"
+    ],
+    "tests_run": 30,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 22.348,
+    "guarded_environment_cleared": true,
+    "requests_send_socket_connect_create_connection_and_DNS_blocked": true,
+    "test_process_exit": 0,
+    "git_diff_check_exit": 0,
+    "runs": [
+      {
+        "modules": [
+          "tests.test_residual_source_access",
+          "tests.test_resource42_reconciliation",
+          "tests.test_dataset_access_interpretation"
+        ],
+        "tests_run": 29,
+        "seconds": 21.95,
+        "status": "PASS",
+        "note": "Original residual module had 10 tests before the additional cache-tampering contract."
+      },
+      {
+        "test": "tests.test_residual_source_access.ResidualSourceAccessTests.test_rehashed_cache_cannot_change_complete_creators_or_erase_source_context",
+        "tests_run": 1,
+        "seconds": 0.398,
+        "status": "PASS",
+        "note": "Independently reviewed and ran the subsequently added 11th residual test."
+      }
+    ]
+  },
+  "portable_evidence": {
+    "repository_validation_receipt_matches_original_measured_bytes": true,
+    "source_review_digest_matches_profile_reference": true,
+    "repository_handoff_includes_all_five_source_hashes_counts_reproduction_and_limits": true,
+    "runner_needs_no_executor_local_historical_baseline": true,
+    "report_clearly_labels_cached_ledger_plus_measured_delta_not_full_corpus_or_remote_audit": true
+  },
+  "scope_exclusions": {
+    "reserved_source_ids": [
+      "FGDC-740",
+      "FGDC-815",
+      "FGDC-851",
+      "FGDC-879",
+      "FGDC-885",
+      "FGDC-887"
+    ],
+    "reserved_overlap_with_added_members": 0,
+    "unchanged_held_control": "FGDC-4063",
+    "original_frozen_profiles_rewritten": false,
+    "provider_requests": 0,
+    "credential_or_private_stage_reads": 0,
+    "repository_mutations_by_reviewer": 0
+  },
+  "limits": [
+    "This reviewer independently replayed six sources and 30 tests across a 29-test regression run plus the subsequent additional cache-tampering test; full-suite evidence, if provided separately, is not attributed to this review.",
+    "All-corpus counts are recounts of exact frozen current-base source-status rows plus measured five promotions; no fresh all-corpus classification or provider verification.",
+    "Assessment timestamps and checkout paths make complete payload hashes run-specific; source/profile/metadata/proposed-status digests are explicitly preserved.",
+    "The isolated profile is proposed until the sole integration owner combines any concurrent disjoint profile corrections and remeasures; this review does not authorize pushing, merging, publishing or provider requests."
+  ],
+  "parent_full_suite_receipt_checked": {
+    "receipt_path": "docs/readiness/2026-10-04/residual_source5_tests.json",
+    "receipt_sha256": "5ae1619718f6ab36f89bd9e54556777c9267603d4625ff9d5741fe9a07c89a54",
+    "tests_run": 461,
+    "seconds": 222.497,
+    "successful": true,
+    "failures": 0,
+    "errors": 0,
+    "test_guard_violations": 0,
+    "source_bindings_unchanged": true,
+    "current_source_bindings_match_receipt": true,
+    "full_log_matches_reported_hash": true,
+    "log_sha256": "826dc9ca6d2e7c65eccc5812593ced82a7690e849cf810d5dd6665d8f25cc612",
+    "source_tree_sha256": "355011e435955682d0a9fbd26bb05ff1b7da38dee9b7035ba43be764a4a60437",
+    "superseded450_run_not_accepted": true,
+    "note": "Reviewed parent-produced full-suite receipt and hashed retained log; the 461-test run was performed by root, separate from this reviewer independent 29+1 runs."
+  }
+}

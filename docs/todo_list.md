@@ -1,3 +1,24 @@
+# Combined existing-source corrections — 2026-10-04
+
+- [x] Reconcile the reviewed pair and disjoint five-record patch into profile 563; preserve both review blocks, assessment times and all previous member/context objects.
+- [x] Measure exactly seven promotions with FGDC-4063 held; verify repeat/withdrawal, all 4,206 XML hashes and complete raw metadata.
+- [x] Recompute 3,645 supported / 555 held / 6 malformed; all 4,199 unselected status objects, 456 alias identities and 31 exception holds remain exact.
+- [ ] Complete combined Codex review and full guarded checks, then actual current-head CI/review and authorized merge in one PR. The PR timeline is the final gate receipt.
+
+This combined handoff supersedes the separate pair/five preparation instructions
+and their intermediate count projections below. No additional source batch or
+provider action is part of this increment. Evidence:
+`readiness/2026-10-04/combined_source7_handoff.md`.
+
+# Exact NPAFC report pair — 2026-10-04
+
+- [x] Independently review the exact 885/887 report-summary access and notification contexts without an XML exemption, new attestation or fulfilled condition.
+- [x] Add profile 558 with separate two-record review provenance; preserve all 556 earlier member/context/review objects and prior assessment-time behavior.
+- [x] Measure one-record smoke then both held→supported, complete raw metadata/XML unchanged and only the policy reference added.
+- [x] Reproduce cached accounting for all 4,206 sources: 3,640/560/6, with all 4,204 unselected statuses unchanged; retain 456 alias/31 exception holds and 35 deferred resource cases.
+- [ ] Complete current-head Codex review and actual guarded CI; merge under standing authorization. The PR timeline records final evidence.
+- [ ] Review the remaining 35 source contexts in coherent finite batches. Provider ingress/parser trace remains unavailable; no live diagnostic or external message is authorized by this source change.
+
 # Run02 response facts and root-cause reconciliation — 2026-10-04
 
 - [x] Correct the PUT2 interpretation: validation errors stopped before identity comparisons; observed_bytes is 3282, GET197 predates PUT2, publisher omission is verified and the second field remains unknown.
@@ -490,3 +511,9 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Replace broad provenance-tree selection with sealed exact manifest plus whole actual evidence subtrees. Preserve private leaves, canonical ancestry, hashes, no links/overlap and all prior counters.
 - [x] Complete read-only full-input preflight plus real Controller/Session prepared-send fixture,422 guarded tests and12 independent contracts in the same repair PR; merge the exact reviewed/tested tree through PR22 at f3184eca00656118746c3f92a171bb8f26c4c45f.
 - [ ] Parent receives sole executor's successful offline preflight receipt before beginning another bounded execution window. No root/provider requests; historical197 unchanged.
+
+## Isolated residual source lane — 2026-10-04
+
+- [x] Reconcile fetched ecfba4e, frozen source ledger and prior proposals; preserve integration ownership and exclude740/815/851/879/885/887. Independently review25 unresolved creators without inferred attribution.
+- [x] Implement and validate five exact resource-condition interpretations for1257/1258/1262/1273/4064; retain4063 without a demonstrated password target. Preserve USER_ATTESTED restoration, original821 evidence and all original XML.
+- [x] Freeze461 guarded tests, measured six-source before/after/repeat/withdrawal, independently reviewed proposed3643/557/6 counts and an isolated commit/patch for the sole integration owner. No main push, PR, merge or provider action. Evidence: readiness/2026-10-04/residual_source5_handoff.md.
