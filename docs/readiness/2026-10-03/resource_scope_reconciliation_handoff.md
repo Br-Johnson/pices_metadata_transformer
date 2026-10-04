@@ -124,3 +124,8 @@ reviewed next42 cohort is outside this PR and must wait for this increment's mer
 Provider diagnostics remain a separate parent/sole-executor activity. This source
 PR leaves the synthetic controller, failed ledgers, all spent allowances, production
 deduplication and every release gate unchanged. No provider request or write occurs.
+
+The [final independent integration review](resource_scope_final_integration_independent_review.json)
+binds source checkpoint`eacabee`, all unchanged tested bytes, deterministic ledger
+regeneration and all4206 independently computed statuses. This final receipt/link
+addition changes no runtime, profile, evidence input or source execution instruction.
