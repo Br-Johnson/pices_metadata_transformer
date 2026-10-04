@@ -14,6 +14,7 @@ MANIFEST_SHA256 = '2d18139656b78f96404561afcee7d2ae77022655873958c3fa98619a2717b
 ACQUISITION_MANIFEST_SHA256 = '5c141ea3e0fae8e9b6673a2dc3f5aadba0d16c949767f80b5892ac589e6a0dbf'
 EXTENDED_ACQUISITION_MANIFEST_SHA256 = '76a5ca8a8cdadbe0c1b0157d559068c98b16e18619a8561ff66a203a5008730a'
 CNF_COPY_MEDIA_MANIFEST_SHA256 = '13e82e2375da3bf17cf352fff7a8cda43fa6d781a3e436ca7321c8428ac77abe'
+RESOURCE_CONFIDENTIALITY_MANIFEST_SHA256 = '203c050735a9dc755712acde70c0447b91f2bd6131dde53dd8195a0f2923d9a2'
 REGISTRATION_WORDING = 'First time users must register to gain database access.'
 
 
@@ -23,7 +24,8 @@ def _manifest(reference):
             or not isinstance(reference.get('manifest_path'), str) or not reference['manifest_path'].strip()
             or reference.get('manifest_sha256') not in (MANIFEST_SHA256, ACQUISITION_MANIFEST_SHA256,
                                                       EXTENDED_ACQUISITION_MANIFEST_SHA256,
-                                                      CNF_COPY_MEDIA_MANIFEST_SHA256)):
+                                                      CNF_COPY_MEDIA_MANIFEST_SHA256,
+                                                      RESOURCE_CONFIDENTIALITY_MANIFEST_SHA256)):
         raise ValueError('Dataset access interpretation requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()

@@ -421,3 +421,8 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Reproduce actual committed shared-route JSON preparation offline: POST458bytes/PUT481bytes, correct JSON Content-Type/Length and full payload equality. Preserve both spent failed stages and historical196reads.
 - [x] Add a standalone capture stopping before send/adapter, plus pure safe canonical readback field/error projection and a one-GET196→197 parent-dispatch plan clipped to the current recovery expiry. Keep all312 prior files and existing controller runtimes unchanged.
 - [x] Complete391 guarded tests,9 independently repeated focused contracts and independent helper/handoff review; publish the frozen normal branch. Parent alone dispatches the sole executor; no repeated PUT/create or new window follows automatically.
+## Exact23 resource controls and83 existing-statement reconciliation — 2026-10-03
+
+- [ ] Bind the independently cleared23 exact resource-condition sources and83 ordinary contact/Unknown cases in separate finite profiles within one coherent increment. Preserve the original821 direct-answer manifest and distinguish reviewer reconciliation from a new user answer.
+- [ ] Verify a ten-source smoke and exact106 bounded delta against frozen main plus the previous22 delta; preserve all complete raw metadata, source bytes, independent holds, restricted XML and blank licenses.
+- [ ] Complete guarded contract tests and independent source/runtime/handoff review; publish and merge one eligible PR before dependent source work. The separate sole-executor run02 canonical GET and any later specifically reviewed continuation remain independent.
