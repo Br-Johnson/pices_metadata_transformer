@@ -1,3 +1,9 @@
+# Portable guarded CI in PR23 — 2026-10-04
+
+- [x] Add the portable dummy-credential/offline guard runner, policy contracts and secret-free standard Ubuntu workflow to the existing PR23; preserve every provider runtime/schema/payload binding.
+- Actual current-head run/check conclusions and substantive Codex review govern merge eligibility; local offline receipts are separate evidence. Complete verification and merge outcomes are recorded in the PR's GitHub checks/review timeline.
+- Parent reports actual private preflight at cd4f5e2 passed with zero provider requests. Reuse depends on unchanged runtime/schema/input bindings; CI-only changes do not issue a provider grant.
+
 # Complete-schema same-draft repair — 2026-10-04
 
 - [x] Reconcile parent-reported HTTP200 PUT2 publisher/unknown validation errors, same-attempt missing-field/access flags, prepared494-byte proof, no followupGET, cumulativeGET197/PUT2/create1 and357 preserved entries. The second field and rawresponse remain unavailable; no request repeated.

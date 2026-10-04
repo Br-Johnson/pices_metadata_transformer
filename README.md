@@ -11,6 +11,16 @@ directly to `main`. The current [agent rules](AGENTS.md) supersede older reposit
 approval instructions retained in historical plans and handoffs. Provider action
 grants and production release requirements continue to apply independently.
 
+The [offline contracts workflow](.github/workflows/offline-contracts.yml) checks
+the exact PR head on a standard Ubuntu runner with read-only permissions and
+no provider secrets. Run its portable guard locally with
+`python -B ci/run_offline_tests.py`; optional `tests.test_…` module arguments select
+focused contracts. Test imports use a cleared environment and dummy credentials;
+network/subprocess/private-file guards allow writes only in temporary fixtures.
+The workflow runs all contracts and scoped lint. GitHub's actual run/check and
+current-head Codex review are the merge evidence; committed offline receipts alone
+do not assert that CI passed.
+
 ## 🏗️ Project Structure
 
 ```

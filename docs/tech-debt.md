@@ -1,5 +1,21 @@
 # Tech Debt Log
 
+## Portable guarded CI — 2026-10-04
+
+PR23 originally had no workflow or automated check. The same PR now adds a
+standard public-repository Ubuntu job, immutable action pins, read-only token
+permissions and checkout without a persisted credential. The portable unittest
+runner clears its environment, uses dummy provider tokens, verifies installed
+guard probes, rejects unexpected transport/subprocess/private-file operations
+and allows writes only under its own temporary fixture root. Descriptor-relative
+mutations are resolved before policy checks. Source bindings are compared before
+and after all contracts. This prevents accidental I/O from the reviewed tests;
+it is not a sandbox for hostile code. Dependencies install before the guarded
+process, and no artifacts/caches or paid runner capacity are provisioned.
+Actual final-head Actions results and substantive Codex review are required before
+the standing merge rule applies. Provider runtime, schemas, packet and private
+preflight bindings remain unchanged by this CI implementation.
+
 ## Complete modern schema and expected empty-file warning — 2026-10-04
 
 The prior six-field wire projection missed DataCite's semantic publisher
