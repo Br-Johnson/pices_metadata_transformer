@@ -23,11 +23,11 @@ do not assert that CI passed.
 
 ## Latest finite source preparation
 
-The [creator8 handoff](docs/readiness/2026-10-04/creator8_handoff.md)
-records the current source profiles: resource access 607, citation credits 423,
-display titles 36, and the earlier complementary profiles. Its measured source
-ledger contains **3,704 supported / 496 held / 6 malformed** original files;
-the separate unique-target projection is **3,908 supported / 64 held / 6 malformed**.
+The [residual-target handoff](docs/readiness/2026-10-04/residual_targets_handoff.md)
+records the current source profiles: resource access 655, citation credits 426,
+display titles 42, and the earlier complementary profiles. Its measured source
+ledger contains **3,705 supported / 495 held / 6 malformed** original files;
+the separate unique-target projection is **3,933 supported / 39 held / 6 malformed**.
 All 4,206 originals and earlier evidence remain preserved. The handoff identifies
 the exact remaining evidence gaps and gives the guarded reproduction command.
 
@@ -39,8 +39,11 @@ contracts. Legacy singleton operations refuse these pairs. Every class target
 remains upload-ineligible pending existing production record/DOI reconciliation
 and reviewed class execution support; source support is separate from release.
 The [captured identity packet](docs/readiness/2026-10-04/alias228_production_reconciliation_handoff.md)
-retains five historical production snapshots and all228 unresolved pair inputs,
-with the precise current read-only evidence needed by the sole provider executor.
+retains five historical production snapshots and all 228 pair inputs.
+The [parent-relayed inventory summary](docs/readiness/2026-10-04/production_owner_inventory_parent_summary.json)
+records the separate reader's October 4 completion and its current-owner coverage
+limit. This code lane did not fetch or independently audit the underlying capture;
+title hints remain separate from identity proof and class execution stays blocked.
 
 ## 🏗️ Project Structure
 

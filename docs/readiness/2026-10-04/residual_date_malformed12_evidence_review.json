@@ -1,0 +1,579 @@
+{
+  "bounded_public_research": {
+    "limits": "Bounded new-lead search only; no global archive-exhaustion claim, no inferred date from lack of results, no provider requests.",
+    "new_leads": [
+      {
+        "description": "NOAA current InPort item 47995 is Willapa Bay, Washington Benthic Habitats 1995 Substrate. Its indexed DMP identifies NOAA Office for Coastal Management distribution and WA_WillapaBay.zip.",
+        "disposition": "Cannot promote source or use modern catalogue/DMP dates as original metd. A historical OCM record/version export bound to this exact original would be useful.",
+        "evidence_level": "Related product/distribution lead only; not an exact original metadata history or source-ID crosswalk.",
+        "id": "WILLAPA_OCM_HISTORY",
+        "landing_page_read_limit": "Initial tool open supplied title/601-line metadata but follow-up content retrieval returned HTTP403; no body/date evidence was usable.",
+        "source_id": "FGDC-3850"
+      }
+    ],
+    "other_search_outcome": "No authoritative exact metadata-day correction or intact-original/component mapping was recovered. Related survey/research pages were not used as metadata dates.",
+    "primary_sources_relied_on": [
+      "https://www.fisheries.noaa.gov/inportserve/waf/noaa/nos/ocm/dmp/pdf/47995.pdf",
+      "https://www.fisheries.noaa.gov/inport/item/47995"
+    ],
+    "search_queries": [
+      "site:fisheries.noaa.gov/inport \"Benthic Habitats of Willapa Bay\" metadata",
+      "site:dfo-mpo.gc.ca \"Moored Sediment Trap\" \"La Perouse\"",
+      "site:open.canada.ca \"Ship of Opportunity\" \"Japan\"",
+      "site:open.canada.ca \"Haida Eddy\" \"1999\"",
+      "\"Moored Sediment Trap Data\" \"La Perouse\"",
+      "\"Physical, Chemical and Biological Oceanography of the Haida Eddy\"",
+      "\"Ship of Opportunity: Canada to Japan\"",
+      "site:noaa.gov \"Willapa\" \"Metadata Date\"",
+      "site:noaa.gov \"MF2002-01\" \"metadata\""
+    ]
+  },
+  "conclusion": {
+    "date_holds_remaining": 6,
+    "global_counts_remeasured": false,
+    "malformed_holds_remaining": 6,
+    "new_identity_safe_original_repairs": 0,
+    "new_supported_date_proposals": 0,
+    "sources_reviewed": 12
+  },
+  "evidence": [
+    {
+      "key": "date_review",
+      "path": "docs/readiness/2026-10-03/remaining_source_date_identity_review.json",
+      "sha256": "b7632a12341c7320b4a6d07502057437c9e4ef10c0a97998899de0ea558d9feb"
+    },
+    {
+      "key": "malformed_review",
+      "path": "docs/readiness/2026-10-04/residual_malformed_source_evidence.json",
+      "sha256": "a2625f8b7063e9f8e6614a89d3a8588e57427ad79841b77ab5782700d46543f7"
+    },
+    {
+      "key": "archive_review",
+      "path": "docs/readiness/2026-10-04/source_archive_provenance_check.json",
+      "sha256": "f6a863dd0d17afc198338c6cf543e87bc569d62ce20dd85dff7140d6435f46c4"
+    },
+    {
+      "key": "current_ledger",
+      "path": "docs/readiness/2026-10-04/creator8_integrated_source_status.json",
+      "sha256": "3b3f255c6c4f6f921acd07bd20e57fb2f753099332475962438efc7f4b19bb4a"
+    },
+    {
+      "key": "component_handoff",
+      "path": "docs/readiness/2026-10-04/residual_alias_malformed_handoff.json",
+      "sha256": "78fc76a387ccac351c24b3d2c0096407af3ef451a820edf8cf831de1bc264419"
+    },
+    {
+      "key": "prior_queue",
+      "path": "docs/readiness/2026-10-04/post4_remaining_decisions.md",
+      "sha256": "e10e4f0d07b9d25a609629c1babe3c16a5c4a44d9bff27466ba34aa3c63c2e44"
+    },
+    {
+      "key": "original_problem_statement",
+      "path": "docs/rfq.txt",
+      "sha256": "cfcd522ae116b31827a3187bfe1047cbe8f8d82cceb7995afc5ed853d9bac808"
+    }
+  ],
+  "kind": "twelve_source_history_gap_review",
+  "minimal_original_source_questions": [
+    {
+      "id": "DATE_BLANK",
+      "question": "Does an original NPEM/GeoNetwork export, source-catalogue version history or curator record survive that maps each of these exact source IDs/hashes to its actual metadata creation or update date and stated precision? The existing metd is empty; please provide that evidence rather than a survey, dataset publication, report, import or current restoration date.",
+      "source_ids": [
+        "FGDC-1422",
+        "FGDC-1423",
+        "FGDC-3850"
+      ],
+      "why_now": "Existing fields, unchanged initial Git versions and duplicate archive supply no metadata day. For3850 a related NOAA OCM version-history lead remains, but current product metadata is not yet bound to this original."
+    },
+    {
+      "id": "DATE_MALFORMED",
+      "question": "Is there an authoritative original metadata history or corrected export for each listed source that states the intended value and precision of metd=2080207? Please retain the literal and identify the correcting evidence; a guessed missing digit, neighbouring record date or attestation date is insufficient.",
+      "source_ids": [
+        "FGDC-4139",
+        "FGDC-4161",
+        "FGDC-4181"
+      ],
+      "why_now": "All three malformed literals are unchanged since initial commit; no source-bound public correction was recovered."
+    },
+    {
+      "id": "intact_source_recovery",
+      "question": "Does an intact authoritative XML/backup or original database row survive for FGDC-3373 and FGDC-3484, with a provenance mapping to those IDs? Both current and initial Git files contain only NUL bytes, and the checked original_fgdc.zip omits them. Preserve these originals and hashes.",
+      "source_ids": [
+        "FGDC-3373",
+        "FGDC-3484"
+      ],
+      "why_now": "There is no XML to recover from the bytes; source provenance and an intact alternative are required."
+    },
+    {
+      "id": "component_identity_and_disposition",
+      "question": "Can the original catalogue/database export provide its field definitions and provenance mapping for the nine exact XML components in these four files, stating which component belongs to each existing FGDC ID and how the remaining document identities should be retained or excluded? For4185 explicitly resolve the exact FGDC-6 prefix and two tester2 entries. Do not select first blocks or invent new source IDs.",
+      "source_ids": [
+        "FGDC-21",
+        "FGDC-4077",
+        "FGDC-4184",
+        "FGDC-4185"
+      ],
+      "why_now": "The original archive and initial Git files preserve the same concatenations. Intervening numeric IDs/UUIDs/timestamps are leads, but their role and mapping are not authoritatively established."
+    }
+  ],
+  "new_repository_history_finding": {
+    "all_twelve_added_once_and_never_changed_in_reachable_local_history": true,
+    "catalogue_manifest_recovered": false,
+    "git_commit_dates_are_metadata_dates": false,
+    "initial_commit": "ec449e41378696db2f5d554ea2a8eefc40886fa0",
+    "method": "Read git log --all restricted to each of 12 paths; compare initial-commit bytes to current byte-pinned originals. No XML parser, archive extraction, generated outputs or private state.",
+    "scope_limit": "Reachable local repository history only, not a claim that no external/private backup exists."
+  },
+  "preservation": {
+    "archive_reads": 0,
+    "canonical_or_component_identity_selections": 0,
+    "eligibility_delta": 0,
+    "original_file_edits": 0,
+    "private_or_credential_reads": 0,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "tests_or_classification_runs": 0,
+    "xml_parses": 0
+  },
+  "prior_archive_conclusion_reused_without_reading_archive": {
+    "archive_entries": 4204,
+    "archive_path": "output/data/original_fgdc.zip",
+    "archive_sha256": "1c5c5f5c73344b9c694b299a292fa0ba862e36fa0e36db40c607017e8d0c5ac4",
+    "catalogue_or_export_manifest_found": false,
+    "evidence_path": "docs/readiness/2026-10-04/source_archive_provenance_check.json",
+    "matching_original_hashes": 4204,
+    "missing_original_ids": [
+      "FGDC-3373",
+      "FGDC-3484"
+    ],
+    "new_zip_reads_or_extractions": 0
+  },
+  "question_delivery": "Prepared for root only; no message sent to source owner or user. These are missing source facts, not new rehosting permission requests.",
+  "records": [
+    {
+      "case_kind": "malformed_original",
+      "component_identity_assignments": [],
+      "current_git_blob": "2c454e4317f9d448425e0e83d994595ea65de4a7",
+      "current_ledger_status_literal": "failed",
+      "decision": "retain_existing_hold",
+      "defect_class": "concatenated_distinct_metadata_documents_with_intervening_fields",
+      "evidence_resolved": "Multiple exact document spans and intervening export fields are already diagnosed. Archive duplicates the same malformed bytes; reachable Git history has no alternative or manifest.",
+      "evidence_unresolved": "Authoritative export/catalogue field definitions and mapping of every component to a source identity, plus disposition of additional documents.",
+      "exact_component_count_from_prior_review": 2,
+      "exact_metadata_date_proposal": null,
+      "initial_source_bytes_equal_current": true,
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "prior_components_not_assigned": [
+        {
+          "byte_end_exclusive": 5481,
+          "byte_start": 0,
+          "ordinal": 1,
+          "primary_title": "Synoptic Flow and Density Observations near an Arctic Shelf Break",
+          "sha256": "f3aebd956a40602313e9d2921355359a0b84a63429176492a2cab6989afd7cc9"
+        },
+        {
+          "byte_end_exclusive": 11358,
+          "byte_start": 5577,
+          "ordinal": 2,
+          "primary_title": "Aquatic Sources and Sinks of CO2 and CH4 in the Polar Regions",
+          "sha256": "a72b437948b0ba6cd5fb4beab8925fe44301ef7bcb54256da938081fe16cb7e3"
+        }
+      ],
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 11360,
+      "source_id": "FGDC-21",
+      "source_path": "FGDC/FGDC-21.xml",
+      "source_question_group": "component_identity_and_disposition",
+      "source_sha256": "c79e17ea17b6dd2659dea129b191a32258674dbca183dc2e398cd83bab68fccd"
+    },
+    {
+      "case_kind": "metadata_date",
+      "component_identity_assignments": [],
+      "current_git_blob": "ea7851d787619e7c9d9429b056220dbe485543af",
+      "current_ledger_status_literal": "held",
+      "decision": "retain_existing_hold",
+      "evidence_resolved": "The exact blank/malformed field and absence of review/future-review fields are established by the prior byte-bound review; no prior source variant exists in reachable local Git history.",
+      "evidence_unresolved": "Actual creation/update day and its precision for this exact exported metadata record.",
+      "exact_metadata_date_proposal": null,
+      "existing_reason": "Blank metadata date; Unknown citation publication date. Survey title/abstract and ground-condition range state cruise/data-collection dates, not XML metadata creation/update.",
+      "initial_source_bytes_equal_current": true,
+      "metadata_date_elements": {
+        "metd": [
+          {
+            "path": "/metadata/metainfo/metd",
+            "raw_literal": ""
+          }
+        ],
+        "metfrd": [],
+        "metrd": []
+      },
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 4887,
+      "source_id": "FGDC-1422",
+      "source_path": "FGDC/FGDC-1422.xml",
+      "source_question_group": "DATE_BLANK",
+      "source_sha256": "3e6506b58ffab3498f5a9c7411d6d25dc12101374d7c44ebc5c612d4d9804a58",
+      "title": "2002 (29 Jan. - 9 Feb.) U.S. Bottom Trawl Survey Leg 1 Data for Moorings Retrieval and Deployment Around Kodiak Island and Shelikof Strait (Cruise ID: MF2002-01)"
+    },
+    {
+      "case_kind": "metadata_date",
+      "component_identity_assignments": [],
+      "current_git_blob": "6bf7c214831a61e65d7a830a8653b796863f2e20",
+      "current_ledger_status_literal": "held",
+      "decision": "retain_existing_hold",
+      "evidence_resolved": "The exact blank/malformed field and absence of review/future-review fields are established by the prior byte-bound review; no prior source variant exists in reachable local Git history.",
+      "evidence_unresolved": "Actual creation/update day and its precision for this exact exported metadata record.",
+      "exact_metadata_date_proposal": null,
+      "existing_reason": "Blank metadata date; Unknown citation publication date. Cruise narrative and ground-condition range describe sampling dates, not XML metadata creation/update.",
+      "initial_source_bytes_equal_current": true,
+      "metadata_date_elements": {
+        "metd": [
+          {
+            "path": "/metadata/metainfo/metd",
+            "raw_literal": ""
+          }
+        ],
+        "metfrd": [],
+        "metrd": []
+      },
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 5713,
+      "source_id": "FGDC-1423",
+      "source_path": "FGDC/FGDC-1423.xml",
+      "source_question_group": "DATE_BLANK",
+      "source_sha256": "872710e1c650b9a1d28b775bbc4e51466c0328849bd59d781ae127b2c1269890",
+      "title": "2002 (Jan. - Feb.) U.S. Bottom Trawl Survey Leg 2 Data for Arrowtooth Flounder on the Outter Continental Shelf and Upper Slope of the Gulf of Alaska West of Kodiak Island - R/V Miller Freeman (Cruise ID: MF2002-01)"
+    },
+    {
+      "case_kind": "malformed_original",
+      "component_identity_assignments": [],
+      "current_git_blob": "89cb61fccda423848fbf5c9759ef2e5e40df4bf6",
+      "current_ledger_status_literal": "failed",
+      "decision": "retain_existing_hold",
+      "defect_class": "entire_file_is_NUL_bytes",
+      "evidence_resolved": "All bytes are NUL; original archive omits this source. No intact variant exists in reachable local Git history.",
+      "evidence_unresolved": "Intact authoritative XML and provenance mapping to this existing source ID.",
+      "exact_component_count_from_prior_review": 0,
+      "exact_metadata_date_proposal": null,
+      "initial_source_bytes_equal_current": true,
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "prior_components_not_assigned": [],
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 5624,
+      "source_id": "FGDC-3373",
+      "source_path": "FGDC/FGDC-3373.xml",
+      "source_question_group": "intact_source_recovery",
+      "source_sha256": "f1e54026a1efbb56a3c5795e9642ce50445b2694fe7bc32057112b5dd5c80f1f"
+    },
+    {
+      "case_kind": "malformed_original",
+      "component_identity_assignments": [],
+      "current_git_blob": "0eab416accaf9f9fbce170486ac28b73953c33f6",
+      "current_ledger_status_literal": "failed",
+      "decision": "retain_existing_hold",
+      "defect_class": "entire_file_is_NUL_bytes",
+      "evidence_resolved": "All bytes are NUL; original archive omits this source. No intact variant exists in reachable local Git history.",
+      "evidence_unresolved": "Intact authoritative XML and provenance mapping to this existing source ID.",
+      "exact_component_count_from_prior_review": 0,
+      "exact_metadata_date_proposal": null,
+      "initial_source_bytes_equal_current": true,
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "prior_components_not_assigned": [],
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 5847,
+      "source_id": "FGDC-3484",
+      "source_path": "FGDC/FGDC-3484.xml",
+      "source_question_group": "intact_source_recovery",
+      "source_sha256": "87b0104aea1053c6bef51973f4b6ff8283e5b12ca71359241c62ca241c758635"
+    },
+    {
+      "case_kind": "metadata_date",
+      "component_identity_assignments": [],
+      "current_git_blob": "3d304de2f4297e4c29626129594a1ae927d73c25",
+      "current_ledger_status_literal": "held",
+      "decision": "retain_existing_hold",
+      "evidence_resolved": "The exact blank/malformed field and absence of review/future-review fields are established by the prior byte-bound review; no prior source variant exists in reachable local Git history.",
+      "evidence_unresolved": "Actual creation/update day and its precision for this exact exported metadata record.",
+      "exact_metadata_date_proposal": null,
+      "existing_reason": "Blank metadata date. Citation20000101 is an explicit dataset citation publication day;19950628 is ground condition; the SCHEME review-draft literal12/04/02 is a referenced classification report date. None establishes this XML metadata creation/update day.",
+      "initial_source_bytes_equal_current": true,
+      "metadata_date_elements": {
+        "metd": [
+          {
+            "path": "/metadata/metainfo/metd",
+            "raw_literal": ""
+          }
+        ],
+        "metfrd": [],
+        "metrd": []
+      },
+      "new_public_lead_ids": [
+        "WILLAPA_OCM_HISTORY"
+      ],
+      "new_source_correction_supported": false,
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 7845,
+      "source_id": "FGDC-3850",
+      "source_path": "FGDC/FGDC-3850.xml",
+      "source_question_group": "DATE_BLANK",
+      "source_sha256": "6771185d20e855846fcde50a2e4c3455706882d560e9d25883adaf2ec2c0411b",
+      "title": "Benthic Habitats of Willapa Bay, Washington, 1995"
+    },
+    {
+      "case_kind": "malformed_original",
+      "component_identity_assignments": [],
+      "current_git_blob": "850ee7dcea8851a57ad3fbfc21c8d05f20d10c39",
+      "current_ledger_status_literal": "failed",
+      "decision": "retain_existing_hold",
+      "defect_class": "concatenated_distinct_metadata_documents_with_intervening_fields",
+      "evidence_resolved": "Multiple exact document spans and intervening export fields are already diagnosed. Archive duplicates the same malformed bytes; reachable Git history has no alternative or manifest.",
+      "evidence_unresolved": "Authoritative export/catalogue field definitions and mapping of every component to a source identity, plus disposition of additional documents.",
+      "exact_component_count_from_prior_review": 2,
+      "exact_metadata_date_proposal": null,
+      "initial_source_bytes_equal_current": true,
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "prior_components_not_assigned": [
+        {
+          "byte_end_exclusive": 4972,
+          "byte_start": 0,
+          "ordinal": 1,
+          "primary_title": "No. 194 - Stock assessment trawl surveys of Pandalid shrimps in the Kodiak Island and Chignik Districts of Alaska, 1985.  By Leslie J. Watson and David R. Bernard.  January  1987 63 pp.",
+          "sha256": "cfac99592fd021399dedcee8bf71c8bc00348d305089eaed67a70e9e75d6ee33"
+        },
+        {
+          "byte_end_exclusive": 13759,
+          "byte_start": 5070,
+          "ordinal": 2,
+          "primary_title": "The database on distribution and morphological and physiological characteristics of Northern Fur Seal caught at the North Pacific",
+          "sha256": "f38fd70964a48d9924bce06a2760c09fe946d48e1fc7b17959b7f6bc1f50d070"
+        }
+      ],
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 13761,
+      "source_id": "FGDC-4077",
+      "source_path": "FGDC/FGDC-4077.xml",
+      "source_question_group": "component_identity_and_disposition",
+      "source_sha256": "9566061f9d771a5300ef8774c53f58127fe0927189474bc851b52bb3dffdbba4"
+    },
+    {
+      "case_kind": "metadata_date",
+      "component_identity_assignments": [],
+      "current_git_blob": "e7ea4e242de58dc4f6b8c59e121c3486b98c098e",
+      "current_ledger_status_literal": "held",
+      "decision": "retain_existing_hold",
+      "evidence_resolved": "The exact blank/malformed field and absence of review/future-review fields are established by the prior byte-bound review; no prior source variant exists in reachable local Git history.",
+      "evidence_unresolved": "Actual creation/update day and its precision for this exact exported metadata record.",
+      "exact_metadata_date_proposal": null,
+      "existing_reason": "Metadata date literally2080207 is malformed seven-digit input; no exact metadata review/future-review day exists.1982/present/1982-2000 describe data collection or processing, not a repair to metd.",
+      "initial_source_bytes_equal_current": true,
+      "metadata_date_elements": {
+        "metd": [
+          {
+            "path": "/metadata/metainfo/metd",
+            "raw_literal": "2080207"
+          }
+        ],
+        "metfrd": [],
+        "metrd": []
+      },
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 6842,
+      "source_id": "FGDC-4139",
+      "source_path": "FGDC/FGDC-4139.xml",
+      "source_question_group": "DATE_MALFORMED",
+      "source_sha256": "be98473b278c4f4481040fb05f3e17db35d0b3d9e39e4369b569e7b0e0b14848",
+      "title": "Moored Sediment Trap Data - La Perouse, 1982-present"
+    },
+    {
+      "case_kind": "metadata_date",
+      "component_identity_assignments": [],
+      "current_git_blob": "b8de8d92132633fe757599bdb721a731f505af82",
+      "current_ledger_status_literal": "held",
+      "decision": "retain_existing_hold",
+      "evidence_resolved": "The exact blank/malformed field and absence of review/future-review fields are established by the prior byte-bound review; no prior source variant exists in reachable local Git history.",
+      "evidence_unresolved": "Actual creation/update day and its precision for this exact exported metadata record.",
+      "exact_metadata_date_proposal": null,
+      "existing_reason": "Metadata date literally2080207 is malformed seven-digit input; no exact metadata review/future-review day exists.1999/2000 and Feb/June/Sept2000 describe study/processing, not a repair to metd.",
+      "initial_source_bytes_equal_current": true,
+      "metadata_date_elements": {
+        "metd": [
+          {
+            "path": "/metadata/metainfo/metd",
+            "raw_literal": "2080207"
+          }
+        ],
+        "metfrd": [],
+        "metrd": []
+      },
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 7619,
+      "source_id": "FGDC-4161",
+      "source_path": "FGDC/FGDC-4161.xml",
+      "source_question_group": "DATE_MALFORMED",
+      "source_sha256": "65fb6d71a7ecc18dbf33757e9d4f45ea9a8a6d7822e5ffd4b64bc281324e4111",
+      "title": "Physical, Chemical and Biological Oceanography of the Haida Eddy, 1999-2000"
+    },
+    {
+      "case_kind": "metadata_date",
+      "component_identity_assignments": [],
+      "current_git_blob": "fd0fc2cbad1fba4bb328bbed4be1b186f1b072b6",
+      "current_ledger_status_literal": "held",
+      "decision": "retain_existing_hold",
+      "evidence_resolved": "The exact blank/malformed field and absence of review/future-review fields are established by the prior byte-bound review; no prior source variant exists in reachable local Git history.",
+      "evidence_unresolved": "Actual creation/update day and its precision for this exact exported metadata record.",
+      "exact_metadata_date_proposal": null,
+      "existing_reason": "Metadata date literally2080207 is malformed seven-digit input; no exact metadata review/future-review day exists.1980/present and vessel sampling years/frequencies describe dataset coverage, not a repair to metd.",
+      "initial_source_bytes_equal_current": true,
+      "metadata_date_elements": {
+        "metd": [
+          {
+            "path": "/metadata/metainfo/metd",
+            "raw_literal": "2080207"
+          }
+        ],
+        "metfrd": [],
+        "metrd": []
+      },
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 8410,
+      "source_id": "FGDC-4181",
+      "source_path": "FGDC/FGDC-4181.xml",
+      "source_question_group": "DATE_MALFORMED",
+      "source_sha256": "e26d7f9bd812d07ef5c67d17edcd646856de32294369b56f9ca1746e0ecf4a79",
+      "title": "Ship of Opportunity: Canada to Japan - 1980-present"
+    },
+    {
+      "case_kind": "malformed_original",
+      "component_identity_assignments": [],
+      "current_git_blob": "e77ca9a334533ec9e26dec3aec05f79d9fa965ec",
+      "current_ledger_status_literal": "failed",
+      "decision": "retain_existing_hold",
+      "defect_class": "concatenated_distinct_metadata_documents_with_intervening_fields",
+      "evidence_resolved": "Multiple exact document spans and intervening export fields are already diagnosed. Archive duplicates the same malformed bytes; reachable Git history has no alternative or manifest.",
+      "evidence_unresolved": "Authoritative export/catalogue field definitions and mapping of every component to a source identity, plus disposition of additional documents.",
+      "exact_component_count_from_prior_review": 2,
+      "exact_metadata_date_proposal": null,
+      "initial_source_bytes_equal_current": true,
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "prior_components_not_assigned": [
+        {
+          "byte_end_exclusive": 5822,
+          "byte_start": 0,
+          "ordinal": 1,
+          "primary_title": "Strait of Georgia",
+          "sha256": "33cc4907d3accda7bb68d1ebf8d7d07e3b60172ef385aa25f70f926ba3aea28e"
+        },
+        {
+          "byte_end_exclusive": 15151,
+          "byte_start": 5920,
+          "ordinal": 2,
+          "primary_title": "RCD Biology DB",
+          "sha256": "07610e5360400842257b6cbf140b919fec406e356fdf8fc613f3a069ee0b2ddb"
+        }
+      ],
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 15153,
+      "source_id": "FGDC-4184",
+      "source_path": "FGDC/FGDC-4184.xml",
+      "source_question_group": "component_identity_and_disposition",
+      "source_sha256": "394d3d352f5a26c574bd2c2d6fda13bec4dfeb51c23f7937b9db4969b9cc10e6"
+    },
+    {
+      "case_kind": "malformed_original",
+      "component_identity_assignments": [],
+      "current_git_blob": "4811308b893650b33b227c81855f965b07c06b52",
+      "current_ledger_status_literal": "failed",
+      "decision": "retain_existing_hold",
+      "defect_class": "concatenated_distinct_metadata_documents_with_intervening_fields",
+      "evidence_resolved": "Multiple exact document spans and intervening export fields are already diagnosed. Archive duplicates the same malformed bytes; reachable Git history has no alternative or manifest.",
+      "evidence_unresolved": "Authoritative export/catalogue field definitions and mapping of every component to a source identity, plus disposition of additional documents.",
+      "exact_component_count_from_prior_review": 3,
+      "exact_metadata_date_proposal": null,
+      "initial_source_bytes_equal_current": true,
+      "new_public_lead_ids": [],
+      "new_source_correction_supported": false,
+      "prior_components_not_assigned": [
+        {
+          "byte_end_exclusive": 4937,
+          "byte_start": 0,
+          "ordinal": 1,
+          "primary_title": "The 1987 Bristol Bay Survey and the Bristol Bay Halibut Fishery, 1990 - 1992",
+          "sha256": "ae0f1832791d5409441c8e9db9492e9cb066ebeba0b7eab8bf7dd6470b6cb4d2"
+        },
+        {
+          "byte_end_exclusive": 9341,
+          "byte_start": 5035,
+          "ordinal": 2,
+          "primary_title": "tester 2 fgdc  1972 USSR Sablefish Tagging Survey",
+          "sha256": "6b0b3e0d80a9b64f651af72d20a055cfe8113d55158b1f66eac19ca838dbb4ce"
+        },
+        {
+          "byte_end_exclusive": 13939,
+          "byte_start": 9439,
+          "ordinal": 3,
+          "primary_title": "tester 2 Meteorological Data from Station Duckjeokdo, South Korea in China Real Time Data Base (RTDB) for NEAR-GOOS",
+          "sha256": "bf3a365281745bc7dde0ec4d3cfeb0cb03e248e3468128c6f34d804accbb013e"
+        }
+      ],
+      "reachable_local_source_history_commits": [
+        "ec449e41378696db2f5d554ea2a8eefc40886fa0"
+      ],
+      "source_bytes": 13941,
+      "source_id": "FGDC-4185",
+      "source_path": "FGDC/FGDC-4185.xml",
+      "source_question_group": "component_identity_and_disposition",
+      "source_sha256": "54a07fd5bfdc2a8def484eee35afb565294b676f6a630a85009fb530ca3d6b23",
+      "special_identity_constraint": {
+        "byte_length": 4939,
+        "exactly_equals_FGDC_4185_byte_range": [
+          0,
+          4939
+        ],
+        "interpretation": "Exact prefix duplication is established; no source-ID merge, alias disposition, or DOI reassignment follows.",
+        "path": "FGDC/FGDC-6.xml",
+        "sha256": "76c35e656c2108aa81ad774e4262f30b68636c548e39cd8dc62d0fbfb9952058",
+        "source_id": "FGDC-6"
+      }
+    }
+  ],
+  "repository_baseline": "9bac0ace68c83a2082168f022315c05a1192210b",
+  "schema_version": 1,
+  "scope": "Six metadata-date holds and six malformed originals only; source research, no corrections, XML reparsing, tests, classification, production reconciliation or provider calls."
+}

@@ -1,0 +1,36 @@
+{
+  "commit": "9bac0ace68c83a2082168f022315c05a1192210b",
+  "environment_cleared_dummy_credentials_only": true,
+  "errors": 0,
+  "failures": 0,
+  "guard_blocks": {
+    "bootstrap": {
+      "network": 4,
+      "private_reads": 1,
+      "processes": 1,
+      "writes": 1
+    },
+    "tests": {
+      "network": 0,
+      "private_reads": 0,
+      "processes": 0,
+      "writes": 0
+    }
+  },
+  "in_process_read_only_git_queries": 2,
+  "seconds": 39.63,
+  "selected_modules": [
+    "tests.test_residual_target_corrections",
+    "tests.test_sensitive_resource11",
+    "tests.test_residual_title233",
+    "tests.test_derived_creator_extension",
+    "tests.test_content_class_targets"
+  ],
+  "source_bindings_unchanged": true,
+  "source_tree_sha256": "dcc6a6c4d7c7ab761e01bac2ddfe08ce77822a48562ec9a67d2fb832c1688c6d",
+  "successful": true,
+  "tests_run": 24,
+  "unexpected_guard_call_sites": [],
+  "scope": "Author focused guarded checks on the uncommitted implementation based on9bac0ac; runtime/test source bindings identify actual tested inputs. Actual final-head GitHub CI remains separate.",
+  "log_sha256": "3593c0751a09125d80eec7f215a35d1de40edfa6447f576d91e0196049db92f1"
+}

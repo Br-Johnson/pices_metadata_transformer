@@ -1,0 +1,488 @@
+{
+  "schema_version": 1,
+  "kind": "finite_seven_GTS_product_creator_research",
+  "source_worktree": "/workspace/pices-residual-targets-20261004",
+  "requested_source_head_prefix": "9bac0ac",
+  "scope_source_ids": [
+    "FGDC-3683",
+    "FGDC-3919",
+    "FGDC-3920",
+    "FGDC-3975",
+    "FGDC-3976",
+    "FGDC-3977",
+    "FGDC-3978"
+  ],
+  "status": "BOUNDED_RESEARCH_COMPLETE_NO_CREATOR_SELECTION_OR_PROMOTION",
+  "canonical_root_hash_recipe": "SHA256 UTF8 sorted-key compact JSON of {tag,attributes,text,tail,children} recursively, ensure_ascii=False; whitespace text/tails retained.",
+  "input_bindings": [
+    {
+      "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/creator8_remaining_holds.json",
+      "sha256": "89c41ab22c3d948d8a93cc17b8cfe1203374a161e0e63055072fed9c68b8b2c7"
+    },
+    {
+      "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/creator8_remaining46_preintegration_inventory.json",
+      "sha256": "5a26f6df134d2a36bb45aafec21371b728a699d8b535a8b62b2dea2aa23e6b81"
+    },
+    {
+      "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/creator422_primary_excerpts.json",
+      "sha256": "8126b7fed3be622d76dcad17b91e8c8fd3755537e24cf973a0e65cf0af6c9bca"
+    },
+    {
+      "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/creator422_independent_source_review.json",
+      "sha256": "5899ec3baf618911c2ba562036278045eae4deb99d0772f670a19436489becf4"
+    }
+  ],
+  "summary": {
+    "full_originals_read": 7,
+    "still_held": 7,
+    "selected_creator_proposals": 0,
+    "new_compilation_role_candidates_for_independent_review": 5,
+    "regional_GTS_role_questions_unresolved": 2
+  },
+  "primary_evidence": [
+    {
+      "id": "PRIMARY_RDMDB_TECHNICAL_MANUAL",
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/manual/Tec-RDMDB.html",
+      "locator": "Section 2 and section 2.2; parsed lines35,57-71",
+      "new_in_this_review": true,
+      "short_quotes": [
+        "The Japan Oceanographic Data Center (JODC) operates the RDMDB.",
+        "are compiled into one file",
+        "contents of data are not edited"
+      ],
+      "assessment": "The manual assigns RDMDB operation to JODC and describes classifying transferred reports by type and combining each reception-month into a file. This supplies a specific compilation-function lead beyond receipt or hosting.",
+      "limits": "The passage does not individually credit the five global archive products. Its retrieval section names a regional area and its BATHY example is regional. The five global links come from the separate catalogue. Institutional compilation attribution is therefore an inference requiring independent role review, not an approved creator byline. No QC performance, original-observation creation, sole authorship or immutable 2005 web snapshot is established."
+    },
+    {
+      "id": "PRIMARY_EXACT_GLOBAL_CATALOGUE",
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/datalist.html",
+      "locator": "GLOBAL_BATHY/GLOBAL_BUOY/GLOBAL_SHIP/GLOBAL_TESAC/GLOBAL_TRACKOB; parsed lines86-154",
+      "new_in_this_review": false,
+      "reused_and_checked": true,
+      "short_quote": "Month which data had received by JMA",
+      "assessment": "Exact global product labels link to bathyG, buoyG, shipG, tesacG and trackobG monthly filenames. The catalogue assigns receipt to JMA; it does not name JMA as creator of these observations. No example filename establishes historical coverage."
+    },
+    {
+      "id": "PRIMARY_JMA_INSITU_DISTINCTIONS",
+      "url": "https://ds.data.jma.go.jp/gmd/goos/data/rrtdb/in-situ.html",
+      "locator": "GTS Reports lines11-22; Decoded Data lines23-35; Observations by JMA Research Vessels lines41-46",
+      "new_in_this_review": true,
+      "assessment": "Official index separates five regional/global GTS report classes from derived decoded products, GTSPP and observations made by JMA vessels. BATHY/TESAC source titles fit the report classes; moving creator credit from the derived products would cross those product boundaries."
+    },
+    {
+      "id": "PRIMARY_JMA_SOURCE_ACKNOWLEDGEMENT",
+      "url": "https://ds.data.jma.go.jp/gmd/goos/data/rrtdb/data_usage.html",
+      "locator": "About Usage of the Data, parsed line17",
+      "new_in_this_review": true,
+      "short_quote": "please acknowledge data sources as \"NEAR-GOOS RRTDB\"",
+      "assessment": "Explicit current data-source acknowledgement is useful attribution context but does not identify a historical creator/compiler for the two regional GTS collections. Current registration/licensing statements are not substituted for source constraints."
+    },
+    {
+      "id": "PRIMARY_DATABASE_ROLE_SEPARATION",
+      "url": "https://ds.data.jma.go.jp/gmd/goos/data/database.html",
+      "locator": "About NEAR-GOOS, parsed lines60-65",
+      "new_in_this_review": true,
+      "assessment": "JMA operates RRTDB; its contents separately include GTS-received data, participating-institute contributions and JMA products. Data transfer to JODC after 30 days does not establish observer authorship."
+    },
+    {
+      "id": "PRIMARY_RDMDB_TRANSFER_ROLE",
+      "url": "https://near-goos1.jodc.go.jp/index.html",
+      "locator": "About NEAR-GOOS, parsed lines20-21",
+      "new_in_this_review": true,
+      "assessment": "JODC operates RDMDB and receives RRTDB data after 30 days; this supports the workflow linking the technical manual and catalogue, but operator status alone is not creator proof."
+    }
+  ],
+  "rows": [
+    {
+      "source_id": "FGDC-3683",
+      "source_reference": {
+        "path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-3683.xml",
+        "relative_path": "FGDC/FGDC-3683.xml",
+        "sha256": "63ee9cc74618ccca30fcddb633bfeccaaf65809e6e1bd065f65998a934cdde20",
+        "bytes": 4294,
+        "complete_original_xml_read": true,
+        "full_root_canonical_sha256": "0ab2a1d7451eeafb500279e52466f309a6a93078d2323cea6c3184e1a42b2cb7"
+      },
+      "original_context": {
+        "title": "Global Bathy Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+        "origin": "",
+        "publication_date": "",
+        "abstract_paragraphs": [
+          "Bathythermal data within the global ocean area",
+          "Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account.  First time users must register to gain database access."
+        ],
+        "purpose": "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.",
+        "timeinfo_xml": "<timeinfo />",
+        "bounding": {
+          "westbc": "-180",
+          "eastbc": "180",
+          "northbc": "90",
+          "southbc": "-90"
+        },
+        "access_constraint": "First time users must register to gain database access.",
+        "use_constraint": "None",
+        "metadata_access_constraint": "First time users must register to gain database access.",
+        "metadata_use_constraint": "None",
+        "metadata_date": "20050418",
+        "contact": "Okano, Hirofumi",
+        "distributor": "Okano, Hirofumi",
+        "metadata_compiler": "Kimberly Bahl"
+      },
+      "current_cached_status": "held",
+      "prior_role_disposition": "KEEP_CREATOR_HELD_EXACT_PRODUCT_RESPONSIBILITY_MISSING",
+      "selected_creators": null,
+      "actual_promotions": 0,
+      "exact_product_crosswalk": {
+        "catalogue_code": "GLOBAL_BATHY",
+        "archive_filename_pattern": "yyyy_mm.bathyG",
+        "format_url": "https://near-goos1.jodc.go.jp/rdmdb/format/JMA/bathy.html",
+        "scope": "Global RDMDB product label; no numerical coverage/date/edition inference."
+      },
+      "new_lead": "JODC monthly-archive compilation responsibility; see shared PRIMARY_RDMDB_TECHNICAL_MANUAL assessment and limits.",
+      "candidate_for_independent_role_review": [
+        {
+          "name": "Japan Oceanographic Data Center"
+        }
+      ],
+      "disposition": "CANDIDATE_FOR_INDEPENDENT_COMPILATION_ROLE_REVIEW_RETAIN_HELD",
+      "remaining_exact_role_question": "Does the documented RDMDB monthly file compilation justify institutional creator credit for this exact global archive product, or is it solely distribution packaging? Need product-bound historical responsibility evidence or a reviewed explicit determination; no automatic creator selection."
+    },
+    {
+      "source_id": "FGDC-3919",
+      "source_reference": {
+        "path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-3919.xml",
+        "relative_path": "FGDC/FGDC-3919.xml",
+        "sha256": "1d9f38fb6c83c2388b16075329009ec1c94ecc9ea46dfb64331f0d2313113c13",
+        "bytes": 4416,
+        "complete_original_xml_read": true,
+        "full_root_canonical_sha256": "38d215ee6366eff102b56198e7327dac03e87be1257e616bc9791623a319527f"
+      },
+      "original_context": {
+        "title": "GTS Bathythermal Observation Data in NEAR-GOOS Regional Real Time Data Base (RRTDB)",
+        "origin": "",
+        "publication_date": "Unknown",
+        "abstract_paragraphs": [
+          "Bathythermal observation data collected via Global Telecommunication System (GTS) in the WMO international code FM63 BATHY.",
+          "Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Real Time Data Base (RRTDB) at http://goos.kishou.go.jp/ with a user account.  First time users must register to gain database access."
+        ],
+        "purpose": "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.",
+        "timeinfo_xml": "<timeinfo />",
+        "bounding": {
+          "westbc": "117.2",
+          "eastbc": "142",
+          "northbc": "52",
+          "southbc": "18"
+        },
+        "access_constraint": "First time users must register to gain database access.",
+        "use_constraint": "None",
+        "metadata_access_constraint": "First time users must register to gain database access.",
+        "metadata_use_constraint": "None",
+        "metadata_date": "20050418",
+        "contact": "Yoshida, Takashi",
+        "distributor": "Yoshida, Takashi",
+        "metadata_compiler": "Kimberly Bahl"
+      },
+      "current_cached_status": "held",
+      "prior_role_disposition": "KEEP_CREATOR_HELD_EXACT_PRODUCT_RESPONSIBILITY_MISSING",
+      "selected_creators": null,
+      "actual_promotions": 0,
+      "exact_product_crosswalk": {
+        "rrtdb_product": "FM63 BATHY",
+        "scope": "NEAR-GOOS regional GTS report class; separate from decoded data and JMA research-vessel observations."
+      },
+      "new_lead": "Current official in-situ index explicitly separates GTS Reports from Decoded Data and JMA research-vessel observations. Current usage page asks acknowledgement of NEAR-GOOS RRTDB as data source, without assigning exact historical product creator responsibility.",
+      "candidate_for_independent_role_review": null,
+      "disposition": "RETAIN_CREATOR_HOLD_EXACT_PRODUCT_RESPONSIBILITY_UNRESOLVED",
+      "remaining_exact_role_question": "Who is explicitly credited for producing or compiling this historical regional GTS report collection, beyond transmitting/receiving the observations or operating RRTDB? Supply exact product-bound responsibility or creator fields; a database-source acknowledgement is not that role."
+    },
+    {
+      "source_id": "FGDC-3920",
+      "source_reference": {
+        "path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-3920.xml",
+        "relative_path": "FGDC/FGDC-3920.xml",
+        "sha256": "025ac052acf7f239a996c8321d2a52f24687a28d03c66f7e462f9f8fac0bbda1",
+        "bytes": 4377,
+        "complete_original_xml_read": true,
+        "full_root_canonical_sha256": "961c678b94c04682d1bf0c97852583eaff99eb99630bd72eb39df4334a3450a9"
+      },
+      "original_context": {
+        "title": "GTS Oceanographic TESAC Data in NEAR-GOOS Regional Real Time Data Base (RRTDB)",
+        "origin": "",
+        "publication_date": "Unknown",
+        "abstract_paragraphs": [
+          "Temperature, salinity and current data collected via Global Telecommunication System (GTS) in the WMO international code FM64 TESAC.",
+          "Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Real Time Data Base (RRTDB) at http://goos.kishou.go.jp/ with a user account.  First time users must register to gain database access."
+        ],
+        "purpose": "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.",
+        "timeinfo_xml": "<timeinfo />",
+        "bounding": {
+          "westbc": "117.2",
+          "eastbc": "142",
+          "northbc": "52",
+          "southbc": "18"
+        },
+        "access_constraint": "First time users must register to gain database access.",
+        "use_constraint": "None",
+        "metadata_access_constraint": "First time users must register to gain database access.",
+        "metadata_use_constraint": "None",
+        "metadata_date": "20050418",
+        "contact": "Yoshida, Takashi",
+        "distributor": "Yoshida, Takashi",
+        "metadata_compiler": "Kimberly Bahl"
+      },
+      "current_cached_status": "held",
+      "prior_role_disposition": "KEEP_CREATOR_HELD_EXACT_PRODUCT_RESPONSIBILITY_MISSING",
+      "selected_creators": null,
+      "actual_promotions": 0,
+      "exact_product_crosswalk": {
+        "rrtdb_product": "FM64 TESAC",
+        "scope": "NEAR-GOOS regional GTS report class; separate from decoded data and JMA research-vessel observations."
+      },
+      "new_lead": "Current official in-situ index explicitly separates GTS Reports from Decoded Data and JMA research-vessel observations. Current usage page asks acknowledgement of NEAR-GOOS RRTDB as data source, without assigning exact historical product creator responsibility.",
+      "candidate_for_independent_role_review": null,
+      "disposition": "RETAIN_CREATOR_HOLD_EXACT_PRODUCT_RESPONSIBILITY_UNRESOLVED",
+      "remaining_exact_role_question": "Who is explicitly credited for producing or compiling this historical regional GTS report collection, beyond transmitting/receiving the observations or operating RRTDB? Supply exact product-bound responsibility or creator fields; a database-source acknowledgement is not that role."
+    },
+    {
+      "source_id": "FGDC-3975",
+      "source_reference": {
+        "path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-3975.xml",
+        "relative_path": "FGDC/FGDC-3975.xml",
+        "sha256": "b3897a8af8dfb943db7dceaf4d2f094bda9244540d0bdf03cdbda420a12ac83e",
+        "bytes": 4285,
+        "complete_original_xml_read": true,
+        "full_root_canonical_sha256": "4776f0126db273fbf85c91473a54d7483c1bbbc49fcf77e17095fed9d6987395"
+      },
+      "original_context": {
+        "title": "Global Buoy Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+        "origin": "",
+        "publication_date": "",
+        "abstract_paragraphs": [
+          "Global buoy data within the global ocean area.",
+          "Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account.  First time users must register to gain database access."
+        ],
+        "purpose": "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.",
+        "timeinfo_xml": "<timeinfo />",
+        "bounding": {
+          "westbc": "-180",
+          "eastbc": "180",
+          "northbc": "90",
+          "southbc": "-90"
+        },
+        "access_constraint": "First time users must register to gain database access.",
+        "use_constraint": "None",
+        "metadata_access_constraint": "First time users must register to gain database access.",
+        "metadata_use_constraint": "None",
+        "metadata_date": "20050418",
+        "contact": "Okano, Hirofumi",
+        "distributor": "Okano, Hirofumi",
+        "metadata_compiler": "Kimberly Bahl"
+      },
+      "current_cached_status": "held",
+      "prior_role_disposition": "KEEP_CREATOR_HELD_EXACT_PRODUCT_RESPONSIBILITY_MISSING",
+      "selected_creators": null,
+      "actual_promotions": 0,
+      "exact_product_crosswalk": {
+        "catalogue_code": "GLOBAL_BUOY",
+        "archive_filename_pattern": "yyyy_mm.buoyG",
+        "format_url": "https://near-goos1.jodc.go.jp/rdmdb/format/JMA/buoy.html",
+        "scope": "Global RDMDB product label; no numerical coverage/date/edition inference."
+      },
+      "new_lead": "JODC monthly-archive compilation responsibility; see shared PRIMARY_RDMDB_TECHNICAL_MANUAL assessment and limits.",
+      "candidate_for_independent_role_review": [
+        {
+          "name": "Japan Oceanographic Data Center"
+        }
+      ],
+      "disposition": "CANDIDATE_FOR_INDEPENDENT_COMPILATION_ROLE_REVIEW_RETAIN_HELD",
+      "remaining_exact_role_question": "Does the documented RDMDB monthly file compilation justify institutional creator credit for this exact global archive product, or is it solely distribution packaging? Need product-bound historical responsibility evidence or a reviewed explicit determination; no automatic creator selection."
+    },
+    {
+      "source_id": "FGDC-3976",
+      "source_reference": {
+        "path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-3976.xml",
+        "relative_path": "FGDC/FGDC-3976.xml",
+        "sha256": "4044ca27fe2e57c8269d670caa940353c623866a8d4006234d30c677490f5a04",
+        "bytes": 4250,
+        "complete_original_xml_read": true,
+        "full_root_canonical_sha256": "c0496c762211ab65bc08937ed372d5e8abee68776606c0a96f6e24c77483a57b"
+      },
+      "original_context": {
+        "title": "Global Ship Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+        "origin": "",
+        "publication_date": "",
+        "abstract_paragraphs": [
+          "Global ship data within the global ocean area.",
+          "Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account.  First time users must register to gain database access."
+        ],
+        "purpose": "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.",
+        "timeinfo_xml": "<timeinfo />",
+        "bounding": {
+          "westbc": "-180",
+          "eastbc": "180",
+          "northbc": "90",
+          "southbc": "-90"
+        },
+        "access_constraint": "First time users must register to gain database access.",
+        "use_constraint": "None",
+        "metadata_access_constraint": "First time users must register to gain database access.",
+        "metadata_use_constraint": "None",
+        "metadata_date": "20050418",
+        "contact": "Okano, Hirofumi",
+        "distributor": "Okano, Hirofumi",
+        "metadata_compiler": "Kimberly Bahl"
+      },
+      "current_cached_status": "held",
+      "prior_role_disposition": "KEEP_CREATOR_HELD_EXACT_PRODUCT_RESPONSIBILITY_MISSING",
+      "selected_creators": null,
+      "actual_promotions": 0,
+      "exact_product_crosswalk": {
+        "catalogue_code": "GLOBAL_SHIP",
+        "archive_filename_pattern": "yyyy_mm.shipG",
+        "format_url": "https://near-goos1.jodc.go.jp/rdmdb/format/JMA/ship.html",
+        "scope": "Global RDMDB product label; no numerical coverage/date/edition inference."
+      },
+      "new_lead": "JODC monthly-archive compilation responsibility; see shared PRIMARY_RDMDB_TECHNICAL_MANUAL assessment and limits.",
+      "candidate_for_independent_role_review": [
+        {
+          "name": "Japan Oceanographic Data Center"
+        }
+      ],
+      "disposition": "CANDIDATE_FOR_INDEPENDENT_COMPILATION_ROLE_REVIEW_RETAIN_HELD",
+      "remaining_exact_role_question": "Does the documented RDMDB monthly file compilation justify institutional creator credit for this exact global archive product, or is it solely distribution packaging? Need product-bound historical responsibility evidence or a reviewed explicit determination; no automatic creator selection."
+    },
+    {
+      "source_id": "FGDC-3977",
+      "source_reference": {
+        "path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-3977.xml",
+        "relative_path": "FGDC/FGDC-3977.xml",
+        "sha256": "1401dd05edb925db35b070ece055de3d22993b2972a7c73887730aa450be89c8",
+        "bytes": 4448,
+        "complete_original_xml_read": true,
+        "full_root_canonical_sha256": "b4d63ab4d4f5ed83a905e7e76aba5770c4307c0826b386d759ae3b457a4948aa"
+      },
+      "original_context": {
+        "title": "Global TESAC Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+        "origin": "",
+        "publication_date": "",
+        "abstract_paragraphs": [
+          "Global TESAC (temperature, salinity and current report from a sea station) data within the global ocean area.",
+          "Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account.  First time users must register to gain database access."
+        ],
+        "purpose": "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.",
+        "timeinfo_xml": "<timeinfo />",
+        "bounding": {
+          "westbc": "-180",
+          "eastbc": "180",
+          "northbc": "90",
+          "southbc": "-90"
+        },
+        "access_constraint": "First time users must register to gain database access.",
+        "use_constraint": "None",
+        "metadata_access_constraint": "First time users must register to gain database access.",
+        "metadata_use_constraint": "None",
+        "metadata_date": "20050418",
+        "contact": "Okano, Hirofumi",
+        "distributor": "Okano, Hirofumi",
+        "metadata_compiler": "Kimberly Bahl"
+      },
+      "current_cached_status": "held",
+      "prior_role_disposition": "KEEP_CREATOR_HELD_EXACT_PRODUCT_RESPONSIBILITY_MISSING",
+      "selected_creators": null,
+      "actual_promotions": 0,
+      "exact_product_crosswalk": {
+        "catalogue_code": "GLOBAL_TESAC",
+        "archive_filename_pattern": "yyyy_mm.tesacG",
+        "format_url": "https://near-goos1.jodc.go.jp/rdmdb/format/JMA/tesac.html",
+        "scope": "Global RDMDB product label; no numerical coverage/date/edition inference."
+      },
+      "new_lead": "JODC monthly-archive compilation responsibility; see shared PRIMARY_RDMDB_TECHNICAL_MANUAL assessment and limits.",
+      "candidate_for_independent_role_review": [
+        {
+          "name": "Japan Oceanographic Data Center"
+        }
+      ],
+      "disposition": "CANDIDATE_FOR_INDEPENDENT_COMPILATION_ROLE_REVIEW_RETAIN_HELD",
+      "remaining_exact_role_question": "Does the documented RDMDB monthly file compilation justify institutional creator credit for this exact global archive product, or is it solely distribution packaging? Need product-bound historical responsibility evidence or a reviewed explicit determination; no automatic creator selection."
+    },
+    {
+      "source_id": "FGDC-3978",
+      "source_reference": {
+        "path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-3978.xml",
+        "relative_path": "FGDC/FGDC-3978.xml",
+        "sha256": "e38dc63f5d3195c4870739aaa6ea50e85785c059adcc5550be36b58064e9ccba",
+        "bytes": 4373,
+        "complete_original_xml_read": true,
+        "full_root_canonical_sha256": "30f63e77905dc5ac8039e33d7eff1dacff614e29931727338b788355cda83f8b"
+      },
+      "original_context": {
+        "title": "Global TRACKOB Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+        "origin": "",
+        "publication_date": "",
+        "abstract_paragraphs": [
+          "Global TRACKOB (report of marine surface observation along a ship's track) data within the global ocean area.",
+          "Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account.  First time users must register to gain database access."
+        ],
+        "purpose": "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.",
+        "timeinfo_xml": "<timeinfo />",
+        "bounding": {
+          "westbc": "-180",
+          "eastbc": "180",
+          "northbc": "90",
+          "southbc": "-90"
+        },
+        "access_constraint": "First time users must register to gain database access.",
+        "use_constraint": "None",
+        "metadata_access_constraint": "First time users must register to gain database access.",
+        "metadata_use_constraint": "None",
+        "metadata_date": "20050418",
+        "contact": "Okano, Hirofumi",
+        "distributor": "Okano, Hirofumi",
+        "metadata_compiler": "Kimberly Bahl"
+      },
+      "current_cached_status": "held",
+      "prior_role_disposition": "KEEP_CREATOR_HELD_EXACT_PRODUCT_RESPONSIBILITY_MISSING",
+      "selected_creators": null,
+      "actual_promotions": 0,
+      "exact_product_crosswalk": {
+        "catalogue_code": "GLOBAL_TRACKOB",
+        "archive_filename_pattern": "yyyy_mm.trackobG",
+        "format_url": "https://near-goos1.jodc.go.jp/rdmdb/format/JMA/trackob.html",
+        "scope": "Global RDMDB product label; no numerical coverage/date/edition inference."
+      },
+      "new_lead": "JODC monthly-archive compilation responsibility; see shared PRIMARY_RDMDB_TECHNICAL_MANUAL assessment and limits.",
+      "candidate_for_independent_role_review": [
+        {
+          "name": "Japan Oceanographic Data Center"
+        }
+      ],
+      "disposition": "CANDIDATE_FOR_INDEPENDENT_COMPILATION_ROLE_REVIEW_RETAIN_HELD",
+      "remaining_exact_role_question": "Does the documented RDMDB monthly file compilation justify institutional creator credit for this exact global archive product, or is it solely distribution packaging? Need product-bound historical responsibility evidence or a reviewed explicit determination; no automatic creator selection."
+    }
+  ],
+  "preservation_requirements": [
+    "Full XML and empty origin remain unchanged.",
+    "No method author, contact, distributor or metadata compiler is promoted to creator.",
+    "No source publication/metadata/coverage date, coordinate, observing-provider list, modern identity, licence or fulfilled access condition is inferred.",
+    "Restricted XML and blank licence plus separate restoration authority remain unchanged.",
+    "Seven decoded/error-product decisions do not extend to these raw GTS products."
+  ],
+  "bounded_research_log": {
+    "approach": "Reused existing creator7 documents; followed official catalogue, exact five WMO format links, RDMDB technical manual, JMA in-situ index and data-source usage guidance. One new three-query batch targeted bathyG/JODC, compiled/NEAR-GOOS and BATHY quality control. Stopped at parent convergence request.",
+    "failed_opens_not_retried": [
+      "https://www.data.jma.go.jp/gmd/goos/data.html",
+      "https://www.data.jma.go.jp/gmd/goos/"
+    ],
+    "followed_canonical_jma_link": "https://ds.data.jma.go.jp/gmd/goos/data/database.html",
+    "unfollowed_search_lead": "JODC-hosted IOC/WESTPAC-NEAR-GOOS-CC-III report https://www.jodc.go.jp/info/ioc_doc/Experts/115924eo.pdf indexed the same monthly-compilation passage and an explicit no-QC statement; not opened or relied upon for a finite decision."
+  },
+  "evidence_retention": "Public official pages independently retrieved as parsed web text on2026-10-04; short excerpts and reviewer assessments only. No original remote HTML byte hash is asserted. No contemporaneous immutable capture verified.",
+  "operations": {
+    "repository_edits": 0,
+    "tests": 0,
+    "classification_runs": 0,
+    "provider_requests": 0,
+    "private_file_reads": 0,
+    "actual_promotions": 0
+  }
+}
