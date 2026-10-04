@@ -453,3 +453,10 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Bind the independently cleared23 exact resource-condition sources and83 ordinary contact/Unknown cases in separate finite profiles within one coherent increment. Preserve the original821 direct-answer manifest and distinguish reviewer reconciliation from a new user answer.
 - [x] Verify a ten-source smoke and exact106 bounded delta against frozen main plus the previous22 delta; preserve all complete raw metadata, source bytes, independent holds, restricted XML and blank licenses. Freeze all4206 integrated statuses at3596supported/604held/6malformed without a fresh corpus audit; keep all31 exact exceptions held.
 - [x] Complete397 guarded tests and independent source/runtime/accounting/handoff review; publish the eligible source PR18 before dependent source work. Final-head merge uses the same tested runtime and independently regenerated4206 status ledger. The separate sole-executor run02 canonical GET and any later specifically reviewed continuation remain independent.
+
+## Run02 immutable evidence layout repair — 2026-10-04
+
+- [x] Reproduce mode0755workspace ancestry, separate failed stage, complete353-file history and public unrelated sibling using dummy private fixtures; retain old origin exactly.
+- [x] Replace broad provenance-tree selection with sealed exact manifest plus whole actual evidence subtrees. Preserve private leaves, canonical ancestry, hashes, no links/overlap and all prior counters.
+- [ ] Complete read-only full-input preflight plus real Controller/Session prepared-send fixture, guarded full regression and independent review in one repair PR; merge exact reviewed tree.
+- [ ] Parent receives sole executor's successful offline preflight receipt before beginning another bounded execution window. No root/provider requests; historical197 unchanged.

@@ -493,3 +493,19 @@ integrated accounting does not replace a future full transformation/remote audit
 The31 exact exceptions remain held, with titles, source quotes and minimal
 questions. Next42 source work waits for this merge; all provider gates stay separate.
 See readiness/2026-10-03/resource_scope_reconciliation_handoff.md.
+
+## Historical evidence containers and private leaves — 2026-10-04
+
+The failed owned origin legitimately names `/workspace`0755. It is an ancestor
+container, not a recursively private evidence tree. Requiring0700 or selecting all
+its contents blocks before transport and risks reading unrelated repository data.
+The repair binds a complete exact file manifest and whole selected evidence trees,
+permits canonical non-group/other-writable ancestry (including trusted sticky/tmp),
+and keeps private regular single-link leaves, symlink exclusion and stage separation.
+All known original/failed-stage files and latest beforeimage require coverage;
+minimum file count is only a sanity check. Completeness of the historical353 set
+remains sole executor/parent manifest evidence, never root-private inspection.
+A shared Controller input preflight prepares the actual fixed PUT without a grant,
+ledger mutation or provider request. Parent starts a new window only after it passes.
+No old origin rewrite, chmod, grant revival, replay or source promotion follows.
+See readiness/2026-10-03/run02_evidence_layout_handoff.md.

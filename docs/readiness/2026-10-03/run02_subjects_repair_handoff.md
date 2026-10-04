@@ -41,13 +41,26 @@ only known empty/default metadata; record access is public and unrepaired file
 access is public or absent. Its exact sealed hash, ownership and empty-file
 contract are required regardless of those permitted default shapes.
 
-Select all preserved private evidence roots, including the **entire** original
-preserved tree, the failed continuation stage and the separate GET197 diagnostic
-tree. The controller snapshots every file path/hash and binds the computed count
-and inventory SHA. It requires at least the previously reported338 preserved files;
-the actual later count is computed, never replaced with338 or an older305/312
-receipt count. Nonoverlapping canonical private roots must be outside the new
-stage. Symlinks, hardlinks, public permissions and overlap fail before copying.
+Retain the immutable original `preserved_root=/workspace` exactly as ancestry
+provenance. Its mode0755 is legitimate; never chmod it, edit the old origin or
+recursively select the entire workspace. Select the actual preserved evidence:
+whole original failed stage, failed owned continuation, complete GET197 diagnostic
+tree and all other historical evidence trees/leaves. The sole executor seals a
+private0600 manifest `{"schema_version":1,"files_sha256":{"/absolute/file":"sha256"}}`
+from the existing retained evidence, covering every353 previously reported file.
+No inferred replacement count or reconstructed history is acceptable.
+
+Use `--preserved-manifest` plus nonoverlapping `--preserved-root` evidence subtrees;
+manifest-only selection also supports exact loose leaves under shared directories.
+Every declared hash must match, and every actual original/failed stage file and the
+latest beforeimage must be covered. The manifest source is itself inventoried and
+its copied contents join the sealed static inputs. The actual inventory count may
+therefore exceed353; it is computed and must be bound exactly by parent dispatch.
+The338 floor is a sanity check, not proof of completeness. Files remain private
+regular leaves without hardlinks. Canonical0755 directories are permitted only
+without group/other writes. All symlink ancestors/descendants and stage overlap
+are refused; the trusted sticky `/tmp` ancestor is permitted for existing stages.
+No public sibling is read merely because it shares `/workspace`.
 The complete inventory, copied ledgers, sealed source/beforeimage and runtime are
 reverified at initialization, before each request and before completion. Missing
 or changed history holds without another provider call. No old file is edited.
@@ -61,7 +74,8 @@ python -m scripts.modern_run02_subjects_repair stage \
   --stage <absolute-new-repair-stage> \
   --prior-continuation <absolute-existing-failed-owned-stage> \
   --beforeimage197 <absolute-retained-canonical-GET197-body> \
-  --preserved-root <entire-original-preserved-tree> \
+  --preserved-manifest <absolute-sealed-complete-history-manifest> \
+  --preserved-root <actual-original-failed-stage-or-evidence-tree> \
   --preserved-root <failed-owned-stage> \
   --preserved-root <GET197-diagnostic-tree>
 ```
@@ -71,12 +85,28 @@ environment, authorization/proxy/netrc/CA values or raw private identities/bodie
 If broader roots already include a named stage, supply the containing root once;
 do not add overlapping roots. Additional disjoint preserved trees must also be
 included. Failed or partially created staging remains held; do not erase/recreate.
+Choose a fresh destination when an earlier staging directory exists. The reported
+blocked dispatch consumed zero PUT/GET and historical reads remain197.
+
+Before a parent execution window begins, run:
+
+```bash
+python -m scripts.modern_run02_subjects_repair preflight --stage <absolute-new-repair-stage>
+```
+
+This uses the same complete local input validation as the real Controller:
+lineage, all file hashes and permissions, binding/state/journal, same empty identity,
+metadata/access beforeimage, token-echo exclusion and actual Session-prepared494-byte
+PUT. It never sends, writes a ledger, mints/loads a new grant or consumes an intent.
+Return only its closed hashes/counts to parent. Missing/changed inputs hold before
+another live window. A preflight object cannot run or request without authorization.
+Parent binds the complete new runtime/input/inventory receipt only after this passes.
 
 ## Exact bound executable grant
 
 Parent dispatch supplies a fresh explicit approval reference identifying Brett's
 standing trial and this controlled-repair instruction. The sole executor writes
-`approval.json` atomically0600, after staging, with **exactly** these fields:
+`approval.json` atomically0600, after successful read-only preflight, with **exactly** these fields:
 
 - `schema_version:1`, `approved:true`, that `approval_reference`, and the exact
   executor ID above.
@@ -147,7 +177,9 @@ Return only closed receipts/flags/hashes to parent, preserving all raw private
 evidence and prior inventory. Success supplies evidence for the next separately
 reviewed same-draft phase; it does not publish or complete the whole file trial.
 
-[Validation](run02_subjects_repair_validation.json) records411 guarded tests and
+The [evidence-layout repair handoff](run02_evidence_layout_handoff.md) supersedes
+the earlier runtime pin and preservation-root recipe. Prior receipts stay intact.
+The earlier [validation](run02_subjects_repair_validation.json) records411 guarded tests and
 seven independently repeated repair contracts. The
 [final independent review](run02_subjects_repair_independent_review.json) binds the
 frozen runtime/contract/handoff checkpoint. Source restoration remains a separate
