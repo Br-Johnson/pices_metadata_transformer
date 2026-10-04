@@ -1,3 +1,13 @@
+# Remaining evidence and finite editorial review — 2026-10-04
+
+- [x] Reconcile PR26 on main 05d699e: 3,681 supported / 519 held / six malformed; preserve every prior profile, source and status binding.
+- [x] Independently review and measure the finite FGDC-233 title against current complete metadata; preserve all 35 earlier title members and complete citation context.
+- [x] Review three exact institutional credits and eleven resource contexts; measure fifteen total promotions to 3,696/504/6 with twelve passing guarded contracts, all originals and 4,191 unselected rows preserved. Retain policy19/pending3 holds and separate further creator research.
+- [x] Measure and independently verify current semantic QA for all 228 content classes: 204 otherwise-supported and 24 with additional holds; all 456 files remain held. Preserve the first-run runtime-binding correction and exact-baseline rerun.
+- [ ] Complete bounded preservation/repeat/withdrawal checks, independent Codex review and actual current-head CI before merging one coherent PR.
+- Brett approved one restored record per identical pair, preserving both IDs/files/provenance and requiring existing production identity/DOI reconciliation before upload. Implement in a separate increment after this source PR merges; report source-file and record-target counts separately.
+- Existing backup/history gaps remain queued while independent archival leads are researched. Provider actions and transport changes are outside this increment.
+
 # Four queued resource cases and exact-content aliases — 2026-10-04
 
 - [x] Reconcile main e998e9c and the four held proposals 762/849/859/2244; preserve prior profiles and evidence.
@@ -5,7 +15,7 @@
 - [x] Measure four promotions to 3,681/519/6 with repeat/withdrawal, three unchanged held controls, complete raw metadata/XML preservation, all 4,206 original hashes and 4,202 unselected ledger objects unchanged.
 - [x] Produce and reproduce all 456 source-to-content rows/all 228 byte-equal pairs; no exact-content supported counterpart, no canonical source/catalogue/provider selection or alias promotion. Close the tracked source-archive lead.
 - [x] Reconcile all 69 nonalias cases: two compact outside-evidence requests cover 13 cases; queue the other 56 for agent research/review, including the finite FGDC-233 editorial proposal. Four focused guarded contracts pass.
-- [ ] Complete final independent Codex review and actual current-head CI, then merge; the PR timeline records those final gates.
+- [x] Merge PR26 after exact-head Codex review and 485 guarded CI tests; main 05d699e preserves the tested tree.
 
 # Residual source increment — 2026-10-04
 

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "PRESERVED_UNCOMMITTED_RUNTIME_MEASUREMENT_NOT_EXACT_BASELINE",
+  "original_receipt_sha256": "5deb775853bed876ad57495828f8ede74d387fa79334f29fff47951223bd1af2",
+  "original_receipt_unchanged": true,
+  "declared_base_main": "05d699e93572345c0591ca932a03089a9dd9ba9c",
+  "actual_input_mismatch_against_committed_base": {
+    "path": "scripts/source_title_interpretation.py",
+    "measured_sha256": "797e2abd45bbf82f0352f644b8aa046087cd228fb949de2521bd6d6dd7c40454",
+    "committed_base_sha256": "3186521cf2ae29540342d044837787a1ba1a1e1a944e5258149e7850c4f32bc2"
+  },
+  "other527_recorded_repository_inputs_match_committed_base": true,
+  "finding": "The source checkout HEAD named main05d but one title-rule file had already been edited before measurement; read-set stability during the run does not establish committed-base equality. The helper recorded the differing bytes honestly.",
+  "measurement_scope": "The204/24 result belongs to this preserved uncommitted-runtime run, not the exact-main baseline. A fresh isolated baseline run will be authoritative.",
+  "new_clean_checkout": "/workspace/pices-alias-current-baseline-20261004",
+  "rerun_reason": "One verified runtime input differs from the requested immutable baseline."
+}

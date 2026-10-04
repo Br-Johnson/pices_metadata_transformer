@@ -22,8 +22,10 @@ RESIDUAL_SOURCE_MANIFEST_SHA256 = 'b0a0f90f8d61b1908ea1a291284a04d8047186e63b2dc
 COMBINED_SOURCE_MANIFEST_SHA256 = '7e9f66fc19968c3f2784ff0ea5ab6d1169c1bd165035e5612c78332567636224'
 RESIDUAL_RESOURCE_MANIFEST_SHA256 = '7dc625fe5fac625d1fe36f3fdf481c0ba63bd40acb0acc2c9b148079a6f9d550'
 RESOURCE4_MANIFEST_SHA256 = '4719b46cfe46a2b950b3abc695fd8778ffc7bd3041e5bb0bae253c613c55ec2c'
+SENSITIVE_RESOURCE11_MANIFEST_SHA256 = '83bdb0b1ab689e5fbf844467975ad9d279b6bba759cb3db3a18a11704715679c'
 REVIEW_BLOCKS = ('resource_reconciliation_review', 'npafc_report_notification_review',
-                 'residual_source_review', 'residual_resource_review', 'residual_resource4_review')
+                 'residual_source_review', 'residual_resource_review', 'residual_resource4_review',
+                 'sensitive_resource11_review')
 REGISTRATION_WORDING = 'First time users must register to gain database access.'
 
 
@@ -40,7 +42,8 @@ def _manifest(reference):
                                                       RESIDUAL_SOURCE_MANIFEST_SHA256,
                                                       COMBINED_SOURCE_MANIFEST_SHA256,
                                                       RESIDUAL_RESOURCE_MANIFEST_SHA256,
-                                                      RESOURCE4_MANIFEST_SHA256)):
+                                                      RESOURCE4_MANIFEST_SHA256,
+                                                      SENSITIVE_RESOURCE11_MANIFEST_SHA256)):
         raise ValueError('Dataset access interpretation requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()
