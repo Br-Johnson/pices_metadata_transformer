@@ -5,7 +5,28 @@
   },
   "approved": false,
   "beforeimage197_sha256": "866775b60653bd5b25b1a59d9965fb070e07213a9310948f152df5d300fcee1b",
+  "controller_input_revision": 2,
   "create_pid_files_publish_delete_retry_reset_authorized": false,
+  "evidence_preflight": {
+    "action": "preflight",
+    "complete_manifest_required": true,
+    "historical_origin_preserved_literal": true,
+    "manifest_and_complete_evidence_subtrees_bound": true,
+    "minimum_preserved_files_sanity_only": 338,
+    "parent_reported_prior_evidence_files": 353,
+    "private_regular_single_link_leaves_required": true,
+    "provider_requests": 0,
+    "requires_active_grant": false,
+    "sealed_manifest_schema": {
+      "files_sha256": {
+        "/absolute/evidence/file": "<exact-sha256>"
+      },
+      "schema_version": 1
+    },
+    "shared_nonwritable_0755_ancestors_allowed": true,
+    "symlink_escape_or_stage_overlap_allowed": false,
+    "writes_or_consumes_intents": false
+  },
   "executor": "01a0fed7-bf71-7384-95fd-3434599df03f",
   "historical_get_intents": 197,
   "kind": "controlled_same_run02_draft_subjects_repair",
@@ -37,7 +58,7 @@
   "runtime_sha256": {
     "modern_canary_errors.py": "f6393fde1dddb6e2c751e7ab8d8ec18261d55c93bf29603e531117f0c361aa54",
     "modern_owned_continuation.py": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
-    "modern_run02_subjects_repair.py": "f6d6b867b375298015af60c622d644796f0857061b26b563adce1af08ad4bd7d",
+    "modern_run02_subjects_repair.py": "085cefe5ff18b6c5c06d9d7598f267ec19c6bfe6a6a0953588c3477d7c7f46e2",
     "modern_synthetic_canary.py": "9d3c27b6b2d31f59b054971108f0a8abb87e5a069eae56fed94498323d3237cd"
   },
   "schema_version": 1,

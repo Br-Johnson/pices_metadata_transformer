@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "status": "CLEAR_EXACT4_SOURCE_BACKED_PHYSICAL_COPY_SCOPE_REVIEW_ONLY",
+  "reviewer": "/root/usda_dnr_role_access; independent bounded complete-source review",
+  "reviewed_at": "2026-10-04T02:36:11.876067+00:00",
+  "stable_main": "b003c429e5aa7bc0a1466119ec70ab0dd3af57f4",
+  "stable_main_tree": "870f3e6d1c021f97527ed73cac6401cc869c5d0b",
+  "observed_read_worktree": "/workspace/pices-resource42",
+  "observed_read_worktree_head": "f193bced78e9ca230f91e3f03cc830d688debe6f",
+  "observed_read_worktree_tree": "870f3e6d1c021f97527ed73cac6401cc869c5d0b",
+  "observed_source_bytes_equal_requested_stable_main": true,
+  "source_count_reviewed": 4,
+  "members": [
+    {
+      "source_id": "FGDC-740",
+      "source_sha256": "f31973be09c7feb40d2e84ad52344c779d13424b71d0d93bf20cdb98401b30cb"
+    },
+    {
+      "source_id": "FGDC-815",
+      "source_sha256": "07c9551caa186fbe5f561368c78aa3192fff476b52753b72ddabb439c58d1425"
+    },
+    {
+      "source_id": "FGDC-851",
+      "source_sha256": "69f1d9ea692b03e8d77780e7443a4edcfe41804d315a330d8a2a5c29e2b191b7"
+    },
+    {
+      "source_id": "FGDC-879",
+      "source_sha256": "2ad598d73ea86db6b7a627135292875de481785c1ca0a407027efefad7043fc7"
+    }
+  ],
+  "membership_sha256": "d6fffae18a83973e95b50ad22e469412babbdace27a558643ad9dcc6ec427d15",
+  "acquisition_contexts": {
+    "FGDC-740": {
+      "constraints": {
+        "./idinfo/accconst": "Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>National Oceanic and Atmospheric Administration (NOAA) and the U.S. Geological Survey (USGS)</origin>\n        <pubdate>1974-1988</pubdate>\n        <title>Topographic - Bathymetric Maps</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Ocean/Coasts;  These maps show both USGS land topography and NOS bathymetry (ocean bottom topography).  These maps are cooperatively produced by NOS and USGS to support the Coastal Zone Management and Energy Impact Programs and the offshore oil and gas program. All 1:250,000 and 1:100,000 TOPO/BATHY maps are overprinted with the Minerals Management Service's OCS Protraction Diagram data.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19740101</begdate>\n          <enddate>19881231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>72</northbc>\n        <southbc>52</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Benthic</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Topography</themekey>\n        <themekey>Maps</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020429</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ],
+        "./idinfo/citation/citeinfo/title": [
+          "<title>Topographic - Bathymetric Maps</title>"
+        ],
+        "./idinfo/descript/abstract": [
+          "<abstract>Data Type: Ocean/Coasts;  These maps show both USGS land topography and NOS bathymetry (ocean bottom topography).  These maps are cooperatively produced by NOS and USGS to support the Coastal Zone Management and Energy Impact Programs and the offshore oil and gas program. All 1:250,000 and 1:100,000 TOPO/BATHY maps are overprinted with the Minerals Management Service's OCS Protraction Diagram data.</abstract>"
+        ],
+        "./idinfo/descript/purpose": [
+          "<purpose>Unknown</purpose>"
+        ],
+        "./distinfo/distliab": [
+          "<distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>"
+        ]
+      },
+      "meaning": "underlying_resource_physical_copy_acquisition_unknown_use_preserved"
+    },
+    "FGDC-815": {
+      "constraints": {
+        "./idinfo/accconst": "Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>U.S. Geological Survey (USGS), Earth Sciences Information Center (ESIC)</origin>\n        <pubdate>1976-1986</pubdate>\n        <title>USGS Orthophoto Quads</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Base Maps  ; Orthophotos are multicolored, distortion-free, photographic images. Unlike a normal aerial photograph, relief displacement in orthophotos has been removed so that all ground features are displayed in their true ground position. This allows for the direct measurement of distance, areas, angles, and positions. An orthophoto displays features that may be omitted or generalized on maps. They serve a variety of purposes, from interim maps to field references for earth science investigations and analysis. Scale is 1:63,360.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19760101</begdate>\n          <enddate>19861231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>72</northbc>\n        <southbc>54</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n        <themekey>Geology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Maps</themekey>\n        <themekey>Boundaries</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020501</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ],
+        "./idinfo/citation/citeinfo/title": [
+          "<title>USGS Orthophoto Quads</title>"
+        ],
+        "./idinfo/descript/abstract": [
+          "<abstract>Data Type: Base Maps  ; Orthophotos are multicolored, distortion-free, photographic images. Unlike a normal aerial photograph, relief displacement in orthophotos has been removed so that all ground features are displayed in their true ground position. This allows for the direct measurement of distance, areas, angles, and positions. An orthophoto displays features that may be omitted or generalized on maps. They serve a variety of purposes, from interim maps to field references for earth science investigations and analysis. Scale is 1:63,360.</abstract>"
+        ],
+        "./idinfo/descript/purpose": [
+          "<purpose>Unknown</purpose>"
+        ],
+        "./distinfo/distliab": [
+          "<distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>"
+        ]
+      },
+      "meaning": "underlying_resource_physical_copy_acquisition_unknown_use_preserved"
+    },
+    "FGDC-851": {
+      "constraints": {
+        "./idinfo/accconst": "Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coast and Geodetic Survey</origin>\n        <pubdate>Varies</pubdate>\n        <title>Bathymetric Maps</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Ocean/Coasts ;   Topographic maps of the sea floor. Through the use of detailed depth contours and full use of bathymetric data, the size, shape and distribution of underwater features are vividly portrayed. Scale for all Prince William Sound maps is 1:250,000. The regional map for the Gulf of Alaska (an incomplete blueprint) includes Glacier Bay and is at a scale of 1:1,000,000.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>71.24</northbc>\n        <southbc>51</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Geology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Bathymetric Contours</themekey>\n        <themekey>Maps</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020502</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ],
+        "./idinfo/citation/citeinfo/title": [
+          "<title>Bathymetric Maps</title>"
+        ],
+        "./idinfo/descript/abstract": [
+          "<abstract>Data Type: Ocean/Coasts ;   Topographic maps of the sea floor. Through the use of detailed depth contours and full use of bathymetric data, the size, shape and distribution of underwater features are vividly portrayed. Scale for all Prince William Sound maps is 1:250,000. The regional map for the Gulf of Alaska (an incomplete blueprint) includes Glacier Bay and is at a scale of 1:1,000,000.</abstract>"
+        ],
+        "./idinfo/descript/purpose": [
+          "<purpose>Unknown</purpose>"
+        ],
+        "./distinfo/distliab": [
+          "<distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>"
+        ]
+      },
+      "meaning": "underlying_resource_physical_copy_acquisition_unknown_use_preserved"
+    },
+    "FGDC-879": {
+      "constraints": {
+        "./idinfo/accconst": "Available at cost of reproduction.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Available at cost of reproduction.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coast and Geodetic Survey (CGS)</origin>\n        <pubdate>Varies</pubdate>\n        <title>NATIONAL OCEAN SURVEY AERIAL PHOTOGRAPHY</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Oceans/Coasts;   Aerial photography for coastal areas of Alaska. These photos include flights over areas of Prince William Sound during the summers of 1976 and 1977 for the Outer Continental Shelf Environment Assessment Program at altitudes of 5,000 to 18,400. Indexes showing the exact flight lines are available. The photographs are indexed on 1:250,000-scale base maps, with the center position of each individual exposure indicated by a dot. The first and last exposure of a line, along with several in between, are labeled. Paper copies of these indexes are available for $3.00 each. For Prince William Sound consult indexes C-38 to C-45, and for Glacier Bay area consult indexes F-3 to F-9. The indexes may be ordered from NOAA, National Ocean Service (301) 713-2692, or indexes are available for viewing at the Anchorage, Alaska NOAA office, 222 West 7th Ave, (907) 271-5040.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>71.24</northbc>\n        <southbc>51</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Survey</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Aerial Photos</themekey>\n        <themekey>Prince William Sound Ecosystem</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Available at cost of reproduction.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020503</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Available at cost of reproduction.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ],
+        "./idinfo/citation/citeinfo/title": [
+          "<title>NATIONAL OCEAN SURVEY AERIAL PHOTOGRAPHY</title>"
+        ],
+        "./idinfo/descript/abstract": [
+          "<abstract>Data Type: Oceans/Coasts;   Aerial photography for coastal areas of Alaska. These photos include flights over areas of Prince William Sound during the summers of 1976 and 1977 for the Outer Continental Shelf Environment Assessment Program at altitudes of 5,000 to 18,400. Indexes showing the exact flight lines are available. The photographs are indexed on 1:250,000-scale base maps, with the center position of each individual exposure indicated by a dot. The first and last exposure of a line, along with several in between, are labeled. Paper copies of these indexes are available for $3.00 each. For Prince William Sound consult indexes C-38 to C-45, and for Glacier Bay area consult indexes F-3 to F-9. The indexes may be ordered from NOAA, National Ocean Service (301) 713-2692, or indexes are available for viewing at the Anchorage, Alaska NOAA office, 222 West 7th Ave, (907) 271-5040.</abstract>"
+        ],
+        "./idinfo/descript/purpose": [
+          "<purpose>Unknown</purpose>"
+        ],
+        "./distinfo/distliab": [
+          "<distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>"
+        ]
+      },
+      "meaning": "underlying_resource_physical_copy_acquisition_unknown_use_preserved"
+    }
+  },
+  "acquisition_contexts_sha256": "9c52f5a0ea165b826f24a5075c5e38747be8287c429fee293bfc77745951a5bc",
+  "acquisition_context_shape": "Old finite acquisition validator compatible: exact constraints/context_elements/meaning; full root added as context so all source content is pinned.",
+  "rows": [
+    {
+      "source_id": "FGDC-740",
+      "source_sha256": "f31973be09c7feb40d2e84ad52344c779d13424b71d0d93bf20cdb98401b30cb",
+      "source_path": "/workspace/pices-resource42/FGDC/FGDC-740.xml",
+      "source_bytes_identical_at_stable_main_and_observed_checkout": true,
+      "source_byte_count": 4348,
+      "title_verbatim": "Topographic - Bathymetric Maps",
+      "abstract_verbatim": "Data Type: Ocean/Coasts;  These maps show both USGS land topography and NOS bathymetry (ocean bottom topography).  These maps are cooperatively produced by NOS and USGS to support the Coastal Zone Management and Energy Impact Programs and the offshore oil and gas program. All 1:250,000 and 1:100,000 TOPO/BATHY maps are overprinted with the Minerals Management Service's OCS Protraction Diagram data.",
+      "purpose_verbatim": "Unknown",
+      "primary_citation_origin_verbatim": "National Oceanic and Atmospheric Administration (NOAA) and the U.S. Geological Survey (USGS)",
+      "raw_primary_date": "1974-1988",
+      "raw_metadata_date": "20020429",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Unknown</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Unknown</metuc>"
+        ]
+      },
+      "complete_source_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>National Oceanic and Atmospheric Administration (NOAA) and the U.S. Geological Survey (USGS)</origin>\n        <pubdate>1974-1988</pubdate>\n        <title>Topographic - Bathymetric Maps</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Ocean/Coasts;  These maps show both USGS land topography and NOS bathymetry (ocean bottom topography).  These maps are cooperatively produced by NOS and USGS to support the Coastal Zone Management and Energy Impact Programs and the offshore oil and gas program. All 1:250,000 and 1:100,000 TOPO/BATHY maps are overprinted with the Minerals Management Service's OCS Protraction Diagram data.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19740101</begdate>\n          <enddate>19881231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>72</northbc>\n        <southbc>52</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Benthic</themekey>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Topography</themekey>\n        <themekey>Maps</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020429</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "complete_source_context_sha256": "fb8c7328531b03848d55cdf61e254fa0b2fb77326d104a6e7d6e3bd93d0ea370",
+      "context_elements_sha256": {
+        ".": "fb8c7328531b03848d55cdf61e254fa0b2fb77326d104a6e7d6e3bd93d0ea370",
+        "./idinfo/citation/citeinfo/title": "e29bd36d2b439f2a55cfaccbef5c30b05dcc3b94be90b4cf72275e326028a388",
+        "./idinfo/descript/abstract": "e783bfbd852d3a6a89f205cae88de5e3ccd9617d403166ad73f85e6b520ff9c0",
+        "./idinfo/descript/purpose": "7efd3f957007cfc8775fb0987444f6ebd907168b03069443721c89d60786f220",
+        "./distinfo/distliab": "6bb7f765ce1ae4c0d08e4b1029b9aadcd8c5fad2a0ab9c41e985f8598d9704a4"
+      },
+      "source_top_level_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_metadata_security_extensions_or_extra_sections": false,
+      "source_noaa_distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "source_distribution_and_metadata_contact_roles_not_inferred_as_creators": true,
+      "disposition": "SOURCE_BACKED_FINITE_RESOURCE_ACQUISITION_SCOPE_CLEAR",
+      "source_backed_basis": "The exact access fields name National Ocean Service maps at scale 1:250,000 and $4.00 per paper copy. The abstract identifies cooperatively produced land-topography/bathymetry maps and their overprinted protraction diagrams. A paper-copy price and map scale refer to acquiring the mapped product, not access to the descriptive catalogue XML. The paired Unknown use remains unknown for the mapped product; no license or current availability is established.",
+      "required_conditions": [
+        "Retain $4.00 per paper copy and 1:250,000 as historical source wording.",
+        "Retain the source descriptions of 1:100,000/1:250,000 TOPO/BATHY maps and MMS overprinting without expanding the price statement.",
+        "Keep both use fields literal Unknown. Unknown is not replaced by None and grants no use rights.",
+        "Apply only to the exact hash-bound catalogue XML with separate existing rehosting authority, restricted attachment and blank license.",
+        "Preserve the entire source, its attribution, dates and descriptive metadata; independent creator/date/title/identity/QA holds remain independent."
+      ],
+      "genuine_remaining_xml_scope_issue_in_exact_source": null,
+      "underlying_resource_use_rights": "Unknown; neither resolved nor granted by this scope interpretation",
+      "current_availability_prices_lead_times_or_delivery_verified": false,
+      "snapshot_prepared_payload_sha256_reused": "cd974981a52e15671ee031486ff28a8ceae6dfeae9d057a4b55d51de40f8bce3",
+      "snapshot_raw_metadata_sha256_reused": "e4ae648e18d04149d289c9b8c7a4a0f5b6072649c9e93a9c500fe244ef7657ca",
+      "snapshot_metadata_access_right": "restricted",
+      "snapshot_metadata_license": "",
+      "current_hold_selection_provenance": "Parent current remaining562 receipt; current classification was not rerun independently in this bounded source review.",
+      "original_or_metadata_edits": 0,
+      "actual_eligibility_promotion": false
+    },
+    {
+      "source_id": "FGDC-815",
+      "source_sha256": "07c9551caa186fbe5f561368c78aa3192fff476b52753b72ddabb439c58d1425",
+      "source_path": "/workspace/pices-resource42/FGDC/FGDC-815.xml",
+      "source_bytes_identical_at_stable_main_and_observed_checkout": true,
+      "source_byte_count": 4514,
+      "title_verbatim": "USGS Orthophoto Quads",
+      "abstract_verbatim": "Data Type: Base Maps  ; Orthophotos are multicolored, distortion-free, photographic images. Unlike a normal aerial photograph, relief displacement in orthophotos has been removed so that all ground features are displayed in their true ground position. This allows for the direct measurement of distance, areas, angles, and positions. An orthophoto displays features that may be omitted or generalized on maps. They serve a variety of purposes, from interim maps to field references for earth science investigations and analysis. Scale is 1:63,360.",
+      "purpose_verbatim": "Unknown",
+      "primary_citation_origin_verbatim": "U.S. Geological Survey (USGS), Earth Sciences Information Center (ESIC)",
+      "raw_primary_date": "1976-1986",
+      "raw_metadata_date": "20020501",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Unknown</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Unknown</metuc>"
+        ]
+      },
+      "complete_source_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>U.S. Geological Survey (USGS), Earth Sciences Information Center (ESIC)</origin>\n        <pubdate>1976-1986</pubdate>\n        <title>USGS Orthophoto Quads</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Base Maps  ; Orthophotos are multicolored, distortion-free, photographic images. Unlike a normal aerial photograph, relief displacement in orthophotos has been removed so that all ground features are displayed in their true ground position. This allows for the direct measurement of distance, areas, angles, and positions. An orthophoto displays features that may be omitted or generalized on maps. They serve a variety of purposes, from interim maps to field references for earth science investigations and analysis. Scale is 1:63,360.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <rngdates>\n          <begdate>19760101</begdate>\n          <enddate>19861231</enddate>\n        </rngdates>\n      </timeinfo>\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>72</northbc>\n        <southbc>54</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n        <themekey>Geology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Maps</themekey>\n        <themekey>Boundaries</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020501</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Available as diazo or reproduced prints at $3.00 each, takes 6-7 weeks for orders to be completed.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "complete_source_context_sha256": "f8be031afa4cafaea27a2a790d076287e1b7825b83db3192189a2f45bec08f09",
+      "context_elements_sha256": {
+        ".": "f8be031afa4cafaea27a2a790d076287e1b7825b83db3192189a2f45bec08f09",
+        "./idinfo/citation/citeinfo/title": "a4c13af2d86a22fc7df257e4d9a735ea585ba3344cc2da11631d7f13ccb19d8c",
+        "./idinfo/descript/abstract": "a0a4b632cd4d954f70b06590e28b62f6777b24f7a8d4b284b34b8a8b6b41e0fd",
+        "./idinfo/descript/purpose": "7efd3f957007cfc8775fb0987444f6ebd907168b03069443721c89d60786f220",
+        "./distinfo/distliab": "6bb7f765ce1ae4c0d08e4b1029b9aadcd8c5fad2a0ab9c41e985f8598d9704a4"
+      },
+      "source_top_level_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_metadata_security_extensions_or_extra_sections": false,
+      "source_noaa_distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "source_distribution_and_metadata_contact_roles_not_inferred_as_creators": true,
+      "disposition": "SOURCE_BACKED_FINITE_RESOURCE_ACQUISITION_SCOPE_CLEAR",
+      "source_backed_basis": "The exact access fields specify diazo or reproduced prints, $3.00 each and a 6–7-week order lead time. The abstract identifies geometrically corrected orthophotographic images at 1:63,360. The purchase/order description refers to the physical image prints, not this XML description. Keep the literal 6-7 weeks wording, historical price and Unknown use; no order, payment, delivery, present lead time or image-reuse license is inferred.",
+      "required_conditions": [
+        "Retain diazo/reproduced print format, $3.00 each and literal 6-7-week order estimate.",
+        "Retain source 1:63,360 orthophoto scale and source date range 1976-1986; no current orderability or citation-date inference.",
+        "Keep both use fields literal Unknown. Unknown is not replaced by None and grants no use rights.",
+        "Apply only to the exact hash-bound catalogue XML with separate existing rehosting authority, restricted attachment and blank license.",
+        "Preserve the entire source, its attribution, dates and descriptive metadata; independent creator/date/title/identity/QA holds remain independent."
+      ],
+      "genuine_remaining_xml_scope_issue_in_exact_source": null,
+      "underlying_resource_use_rights": "Unknown; neither resolved nor granted by this scope interpretation",
+      "current_availability_prices_lead_times_or_delivery_verified": false,
+      "snapshot_prepared_payload_sha256_reused": "165dbdcf417415467baf8c20f356026d4800e5b50cd1ff354c44335715ecda07",
+      "snapshot_raw_metadata_sha256_reused": "cd942368accd4d5a75364eea36c438752d0338f3ece671eeb9d0799687f4e513",
+      "snapshot_metadata_access_right": "restricted",
+      "snapshot_metadata_license": "",
+      "current_hold_selection_provenance": "Parent current remaining562 receipt; current classification was not rerun independently in this bounded source review.",
+      "original_or_metadata_edits": 0,
+      "actual_eligibility_promotion": false
+    },
+    {
+      "source_id": "FGDC-851",
+      "source_sha256": "69f1d9ea692b03e8d77780e7443a4edcfe41804d315a330d8a2a5c29e2b191b7",
+      "source_path": "/workspace/pices-resource42/FGDC/FGDC-851.xml",
+      "source_bytes_identical_at_stable_main_and_observed_checkout": true,
+      "source_byte_count": 4178,
+      "title_verbatim": "Bathymetric Maps",
+      "abstract_verbatim": "Data Type: Ocean/Coasts ;   Topographic maps of the sea floor. Through the use of detailed depth contours and full use of bathymetric data, the size, shape and distribution of underwater features are vividly portrayed. Scale for all Prince William Sound maps is 1:250,000. The regional map for the Gulf of Alaska (an incomplete blueprint) includes Glacier Bay and is at a scale of 1:1,000,000.",
+      "purpose_verbatim": "Unknown",
+      "primary_citation_origin_verbatim": "National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coast and Geodetic Survey",
+      "raw_primary_date": "Varies",
+      "raw_metadata_date": "20020502",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Unknown</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Unknown</metuc>"
+        ]
+      },
+      "complete_source_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coast and Geodetic Survey</origin>\n        <pubdate>Varies</pubdate>\n        <title>Bathymetric Maps</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Ocean/Coasts ;   Topographic maps of the sea floor. Through the use of detailed depth contours and full use of bathymetric data, the size, shape and distribution of underwater features are vividly portrayed. Scale for all Prince William Sound maps is 1:250,000. The regional map for the Gulf of Alaska (an incomplete blueprint) includes Glacier Bay and is at a scale of 1:1,000,000.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>71.24</northbc>\n        <southbc>51</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Geology</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Bathymetric Contours</themekey>\n        <themekey>Maps</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020502</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Available from National Ocean Service, 1:250,000 at $4.00 per paper copy.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "complete_source_context_sha256": "8b5b8cf7ad5924292a9b1469c132f8e4a8c3add9b7c2a6cd8d3c69345df604f7",
+      "context_elements_sha256": {
+        ".": "8b5b8cf7ad5924292a9b1469c132f8e4a8c3add9b7c2a6cd8d3c69345df604f7",
+        "./idinfo/citation/citeinfo/title": "30a2d8b2e17a6625774c5d3ea39e8ac5aee5e32aba94984bc8bc6ee52131ea72",
+        "./idinfo/descript/abstract": "e43ec486a57f3b2766b610237edb5a92753c542d651689df06eed2942380e38d",
+        "./idinfo/descript/purpose": "7efd3f957007cfc8775fb0987444f6ebd907168b03069443721c89d60786f220",
+        "./distinfo/distliab": "6bb7f765ce1ae4c0d08e4b1029b9aadcd8c5fad2a0ab9c41e985f8598d9704a4"
+      },
+      "source_top_level_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_metadata_security_extensions_or_extra_sections": false,
+      "source_noaa_distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "source_distribution_and_metadata_contact_roles_not_inferred_as_creators": true,
+      "disposition": "SOURCE_BACKED_FINITE_RESOURCE_ACQUISITION_SCOPE_CLEAR",
+      "source_backed_basis": "The exact access fields offer National Ocean Service 1:250,000 paper copies at $4.00. The abstract describes sea-floor maps, then separately identifies the Gulf of Alaska regional map as an incomplete 1:1,000,000 blueprint. Preserve the incomplete-map statement and scale distinction: do not extend the stated price or availability to the regional blueprint. These are physical-map acquisition particulars; Unknown use grants no map-reuse rights.",
+      "required_conditions": [
+        "Retain $4.00 per 1:250,000 paper copy.",
+        "Retain regional Gulf of Alaska/Glacier Bay incomplete blueprint and 1:1,000,000 scale exactly; no completed-map or price equivalence claim.",
+        "Keep both use fields literal Unknown. Unknown is not replaced by None and grants no use rights.",
+        "Apply only to the exact hash-bound catalogue XML with separate existing rehosting authority, restricted attachment and blank license.",
+        "Preserve the entire source, its attribution, dates and descriptive metadata; independent creator/date/title/identity/QA holds remain independent."
+      ],
+      "genuine_remaining_xml_scope_issue_in_exact_source": null,
+      "underlying_resource_use_rights": "Unknown; neither resolved nor granted by this scope interpretation",
+      "current_availability_prices_lead_times_or_delivery_verified": false,
+      "snapshot_prepared_payload_sha256_reused": "ac8dab13b211a45e1b1d01ee2e238d107ff3d8d6bfe8ba06ce1df1c1ce995c6d",
+      "snapshot_raw_metadata_sha256_reused": "fef97dba70cee9dccac5033c22d44bd2de22d2e4add42f32abd14fce05937afd",
+      "snapshot_metadata_access_right": "restricted",
+      "snapshot_metadata_license": "",
+      "current_hold_selection_provenance": "Parent current remaining562 receipt; current classification was not rerun independently in this bounded source review.",
+      "original_or_metadata_edits": 0,
+      "actual_eligibility_promotion": false
+    },
+    {
+      "source_id": "FGDC-879",
+      "source_sha256": "2ad598d73ea86db6b7a627135292875de481785c1ca0a407027efefad7043fc7",
+      "source_path": "/workspace/pices-resource42/FGDC/FGDC-879.xml",
+      "source_bytes_identical_at_stable_main_and_observed_checkout": true,
+      "source_byte_count": 4689,
+      "title_verbatim": "NATIONAL OCEAN SURVEY AERIAL PHOTOGRAPHY",
+      "abstract_verbatim": "Data Type: Oceans/Coasts;   Aerial photography for coastal areas of Alaska. These photos include flights over areas of Prince William Sound during the summers of 1976 and 1977 for the Outer Continental Shelf Environment Assessment Program at altitudes of 5,000 to 18,400. Indexes showing the exact flight lines are available. The photographs are indexed on 1:250,000-scale base maps, with the center position of each individual exposure indicated by a dot. The first and last exposure of a line, along with several in between, are labeled. Paper copies of these indexes are available for $3.00 each. For Prince William Sound consult indexes C-38 to C-45, and for Glacier Bay area consult indexes F-3 to F-9. The indexes may be ordered from NOAA, National Ocean Service (301) 713-2692, or indexes are available for viewing at the Anchorage, Alaska NOAA office, 222 West 7th Ave, (907) 271-5040.",
+      "purpose_verbatim": "Unknown",
+      "primary_citation_origin_verbatim": "National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coast and Geodetic Survey (CGS)",
+      "raw_primary_date": "Varies",
+      "raw_metadata_date": "20020503",
+      "exact_four_field_wording": {
+        "./idinfo/accconst": "Available at cost of reproduction.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Available at cost of reproduction.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "constraint_elements": {
+        "./idinfo/accconst": [
+          "<accconst>Available at cost of reproduction.</accconst>"
+        ],
+        "./idinfo/useconst": [
+          "<useconst>Unknown</useconst>"
+        ],
+        "./metainfo/metac": [
+          "<metac>Available at cost of reproduction.</metac>"
+        ],
+        "./metainfo/metuc": [
+          "<metuc>Unknown</metuc>"
+        ]
+      },
+      "complete_source_context_elements": {
+        ".": [
+          "<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>National Oceanic and Atmospheric Administration (NOAA), National Ocean Service (NOS), Coast and Geodetic Survey (CGS)</origin>\n        <pubdate>Varies</pubdate>\n        <title>NATIONAL OCEAN SURVEY AERIAL PHOTOGRAPHY</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>Data Type: Oceans/Coasts;   Aerial photography for coastal areas of Alaska. These photos include flights over areas of Prince William Sound during the summers of 1976 and 1977 for the Outer Continental Shelf Environment Assessment Program at altitudes of 5,000 to 18,400. Indexes showing the exact flight lines are available. The photographs are indexed on 1:250,000-scale base maps, with the center position of each individual exposure indicated by a dot. The first and last exposure of a line, along with several in between, are labeled. Paper copies of these indexes are available for $3.00 each. For Prince William Sound consult indexes C-38 to C-45, and for Glacier Bay area consult indexes F-3 to F-9. The indexes may be ordered from NOAA, National Ocean Service (301) 713-2692, or indexes are available for viewing at the Anchorage, Alaska NOAA office, 222 West 7th Ave, (907) 271-5040.</abstract>\n      <purpose>Unknown</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo />\n      <current>Ground Condition</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>172</westbc>\n        <eastbc>-130</eastbc>\n        <northbc>71.24</northbc>\n        <southbc>51</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Management</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Survey</themekey>\n        <themekey>Alaska</themekey>\n        <themekey>Aerial Photos</themekey>\n        <themekey>Prince William Sound Ecosystem</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Available at cost of reproduction.</accconst>\n    <useconst>Unknown</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Oakley, Karen</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3579</cntvoice>\n        <cntfax />\n        <cntemail>karen_oakley@nbs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20020503</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Available at cost of reproduction.</metac>\n    <metuc>Unknown</metuc>\n  </metainfo>\n</metadata>"
+        ]
+      },
+      "complete_source_context_sha256": "6ad4e2824cfe60af59e68d50b08402e17733815513bd8fe03f16d1a64147824e",
+      "context_elements_sha256": {
+        ".": "6ad4e2824cfe60af59e68d50b08402e17733815513bd8fe03f16d1a64147824e",
+        "./idinfo/citation/citeinfo/title": "d3a0c11e9713b093237cc17cdfadb6418d56f755ffa5fcc6888b4f41ff569dda",
+        "./idinfo/descript/abstract": "ffe9ae63238e1bb49dbf2ed9fb6ac8516022769d89c5931ec9b68f0a5a17edbc",
+        "./idinfo/descript/purpose": "7efd3f957007cfc8775fb0987444f6ebd907168b03069443721c89d60786f220",
+        "./distinfo/distliab": "6bb7f765ce1ae4c0d08e4b1029b9aadcd8c5fad2a0ab9c41e985f8598d9704a4"
+      },
+      "source_top_level_sections": [
+        "idinfo",
+        "distinfo",
+        "metainfo"
+      ],
+      "source_metadata_security_extensions_or_extra_sections": false,
+      "source_noaa_distribution_liability_verbatim": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.",
+      "source_distribution_and_metadata_contact_roles_not_inferred_as_creators": true,
+      "disposition": "SOURCE_BACKED_FINITE_RESOURCE_ACQUISITION_SCOPE_CLEAR",
+      "source_backed_basis": "Available at cost of reproduction is tied to the aerial-photography collection and its physical flight-line/index products by the complete abstract: paper index copies cost $3.00 each, specified C/F index ranges can be ordered from NOAA/NOS or viewed at the named office. This XML describes those products and index conventions; it is not the photo collection or a flight-line/index-map export. No inference that reproduction costs are currently payable, ordering/viewing channels still work, or photography/index rights are granted is made. Unknown use remains literal.",
+      "required_conditions": [
+        "Retain reproduction cost wording, paper-index price $3.00 each, specified C-38–C-45/F-3–F-9 index ranges and source ordering/viewing statements as historical descriptions.",
+        "Retain the source 1976/1977 flight description, altitudes and dot/label indexing conventions; do not add altitude units or infer absent flight-map data from a public description.",
+        "Keep both use fields literal Unknown. Unknown is not replaced by None and grants no use rights.",
+        "Apply only to the exact hash-bound catalogue XML with separate existing rehosting authority, restricted attachment and blank license.",
+        "Preserve the entire source, its attribution, dates and descriptive metadata; independent creator/date/title/identity/QA holds remain independent."
+      ],
+      "genuine_remaining_xml_scope_issue_in_exact_source": null,
+      "underlying_resource_use_rights": "Unknown; neither resolved nor granted by this scope interpretation",
+      "current_availability_prices_lead_times_or_delivery_verified": false,
+      "snapshot_prepared_payload_sha256_reused": "76daa74df94f5081e469b6dbcfa34f0a805a73cdf6afa1fd328c8097900967d5",
+      "snapshot_raw_metadata_sha256_reused": "0a831ecba60aaabd28c7779f4065fc48e5c0521545480c43a8db5defa348b776",
+      "snapshot_metadata_access_right": "restricted",
+      "snapshot_metadata_license": "",
+      "current_hold_selection_provenance": "Parent current remaining562 receipt; current classification was not rerun independently in this bounded source review.",
+      "original_or_metadata_edits": 0,
+      "actual_eligibility_promotion": false
+    }
+  ],
+  "rows_sha256": "69f223724072b842f8431dae8d0f15347e26c3af12f6a529ad4d835fa2e1a515",
+  "review_inputs": [
+    {
+      "path": "/workspace/pices-resource42/docs/readiness/2026-10-03/pices-next-residual-questions.json",
+      "sha256": "ceca1ee32d8047c3d2fd4953b16cbaf883f39a930d753f1836d5e3ebb6a3ad0b",
+      "projection": "exact_partition.deferred_candidates60"
+    },
+    {
+      "path": "/tmp/pices-remaining562-next-cohort-readonly.json",
+      "sha256": "fd47b6fa7d4e66300ce34515cb15535d591aa8697cc296763d3ee42979b928d6",
+      "projection": "selected_bindings; current hold selection and ledger counts reused, not recomputed"
+    },
+    {
+      "path": "/tmp/pices-next-unknown77-proposals.json",
+      "sha256": "3c085709e97cb1e9e68b6a0b39d2a0d2eb8ae5b1d34a37b2f48d69328b8bcb00",
+      "projection": "all77_reviewed_records exact four rows; full source and original raw metadata bindings independently reconciled"
+    },
+    {
+      "path": "docs/readiness/2026-10-02/rehosting_authority.json",
+      "sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "projection": "existing all4206 source-hash-bound restoration authority; exact four source hashes match"
+    }
+  ],
+  "counts": {
+    "finite_clear_source_scope_candidates": 4,
+    "retained_independent_xml_scope_exceptions_among_exact_four": 0,
+    "literal_unknown_use_fields_preserved": 8,
+    "metadata_or_source_mutations": 0,
+    "actual_promotions": 0
+  },
+  "interpretation": "Physical-copy acquisition conditions are source-explicit in these four complete XMLs. The object for sale/reproduction/order is the mapped or photographic product, including described physical index products, rather than its descriptive catalogue XML. Reuse conditions for those resources remain literally Unknown. This finite interpretation supplies neither current availability nor any new license, permission to reproduce underlying products, legal/public-domain determination, or live release authority.",
+  "separate_rehosting_authority_required": true,
+  "grants_rehosting": false,
+  "grants_new_license": false,
+  "underlying_data_rights_granted": false,
+  "conditions_satisfied": false,
+  "publication_approved": false,
+  "source_contacts_not_xml_authors_or_new_creator_inferences": true,
+  "historical_costs_waits_dates_incomplete_map_and_index_detail_preserved": true,
+  "runtime_integration_status": "Proposal only; no code change or accepted runtime pin. Root must separately integrate exact members/context and run required common agent/human QA gates.",
+  "activities": {
+    "complete_original_xml_reads": [
+      "FGDC-740",
+      "FGDC-815",
+      "FGDC-851",
+      "FGDC-879"
+    ],
+    "repository_source_runtime_edits": false,
+    "provider_network_requests": 0,
+    "credentials_private_stage_reads": false,
+    "tests_or_classifier_runs": false,
+    "broader_source_inventory_or_audit": false,
+    "current_provider_files_or_rights_inspected": false
+  },
+  "hash_recipe": "Raw files and source bytes SHA256. Members sorted by source_id. Context/row/acquisition object digests use json.dumps(sort_keys=True,separators=(comma,colon),ensure_ascii=True). Full context is ElementTree deepcopy(root), tail=None, tostring(unicode), one-element list at dot XPath. Reused unknown77 raw metadata SHA uses canonical JSON ensure_ascii=False; its recipe is retained."
+}
