@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "review_kind": "independent_read_only_static_measurement_helper_review",
+  "reviewed_at": "2026-10-04T20:27:58.875008+00:00",
+  "reviewed_helper": {
+    "path": "/tmp/draft_residual_target_measurement.py",
+    "sha256": "d0d6bd138402be2d29471f9aabdcf133cc0855a4286a1cadc87389a2b7ffbd18"
+  },
+  "base_main": "9bac0ace68c83a2082168f022315c05a1192210b",
+  "result": "NARROW_CORRECTIONS_REQUESTED_BEFORE_EXECUTION",
+  "not_performed": [
+    "helper execution",
+    "classification",
+    "tests",
+    "provider requests",
+    "private or credential reads",
+    "repository edits"
+  ],
+  "findings": [
+    {
+      "id": "actual_singleton_transition",
+      "priority": "material_evidence_gap",
+      "lines": [
+        392,
+        400,
+        661,
+        697,
+        745,
+        752
+      ],
+      "finding": "Aggregate source counts alone do not identify the newly supported source. The ledger and target projection promote FGDC-2664 from declared singleton membership rather than its measured before/after row statuses. A supported held-control plus still-held singleton can satisfy the same aggregate counts.",
+      "requested_fix": "Assert each per-phase source row status: FGDC-2664 supported only in after/repeat; every alias member and FGDC-288 held. Build an actual singleton transition map from report rows, require its exact expected transition, derive the promoted singleton set/count and integrated row update from that map."
+    },
+    {
+      "id": "old_source_context_preservation",
+      "priority": "material_preservation_gap",
+      "lines": [
+        228,
+        239
+      ],
+      "finding": "The access profile check preserves old member objects, acquisition_contexts and *_review blocks but does not compare its 122 existing source_contexts objects.",
+      "requested_fix": "Also require each old source_contexts entry to remain equal in the new profile; do not use a blanket top-level comparison because intentional lineage/scope fields change."
+    },
+    {
+      "id": "mixed_projection_provenance",
+      "priority": "receipt_correctness",
+      "lines": [
+        716,
+        784
+      ],
+      "finding": "The new projection inherits creator8 class_assessment_reviewed_at, measured_singleton_status_delta and legacy_source_ledger_changed while freshly measuring 24 classes and one new singleton. The inherited eight-singleton delta and old class time need explicit historical scope, and the false ledger-change flag does not describe the new generated ledger.",
+      "requested_fix": "Retain earlier values under explicitly historical names. Emit the current actual singleton delta and current/historical class assessment scopes, and report the new ledger relationship accurately. Bind the historical index by repository path and hash so unchanged 204 payload paths are recognized as historical references rather than files freshly emitted under the new output directory."
+    }
+  ],
+  "reviewed_positive_properties": [
+    "The finite selected class ID set is exactly the declared 24 and both members are required; the singleton set is restricted to FGDC-2664.",
+    "The smoke selects ten sources as complete pairs. Smoke precedes the full finite candidate/control batch.",
+    "All four phases use the same prepared directory. Complete saved report/payload/submission/contract/target objects must match after versus repeat and before versus withdrawal.",
+    "Access plus title/creator overlaps are intentionally supported. Creator/title overlap is rejected without an explicitly composed metadata image. Exact metadata and policy restoration checks avoid a blanket equality false positive.",
+    "Every selected class has individually measured held-to-supported transitions, both member assessments must agree, and the supported control pair remains supported semantically.",
+    "The helper checks alias hold reasons and fixed provider gates. The pinned content-class representation loader separately validates canonical source/catalogue/provider/DOI fields remain null.",
+    "Only the new singleton row is changed in the source ledger; 204 unselected class rows and source-to-target identities remain unchanged.",
+    "All 4206 original XML hashes are checked against the pinned ledger and rechecked at the end; runtime/test/contract bindings and first-read repository input hashes are checked for changes.",
+    "The helper uses the pinned offline guard, a cleared dummy environment, fresh output outside the repository, and denies unexpected guarded network/process/private I/O."
+  ],
+  "limits": "Static review only. New source proposals, profile acceptance, actual guarded measurements and final tree review remain separate evidence; no successful execution or promotion is claimed."
+}

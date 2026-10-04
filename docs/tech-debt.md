@@ -1,3 +1,27 @@
+# Residual target correction and remaining evidence — 2026-10-04
+
+Resource655, creator426 and title42 retain every earlier profile member and add
+49 exact original-source bindings across 25 targets. Four paired editorial cases
+also require their own independently reviewed access interpretation; separate
+withdrawal checks prevent either axis from concealing the other. Complete titles
+and editor/compiler roles remain in preservation notes; the later Sapozhnikov
+bibliography supports one matching work without claiming an inspected original
+byline or translation-edition equivalence. No date or licence is inferred.
+
+Measured counts are 3705/495/6 source files and 3933/39/6 unique targets. The 456
+legacy alias source holds remain intentional. All 228 classes are now semantically
+supported, with every upload guard retained. Only 24 class payloads are freshly
+measured; 204 historical rows retain their pinned artifact resolver and dates.
+The [handoff](readiness/2026-10-04/residual_targets_handoff.md) includes actual
+before/after/retry/withdrawal evidence and the remaining 45-case decision packet.
+
+The parent's separate production reader reports complete current-owner coverage
+with no exact pair identities among 20 owned concepts. This lane retains that
+attributed summary, not the underlying response ledger. It does not establish
+deleted/tombstone history, resolve title hints, or implement class-aware durable
+execution/readback/release. Existing records, DOIs and both original files must
+remain preserved when those separate gates are completed.
+
 # Eight creator credits and captured identity inputs — 2026-10-04
 
 Profile423 retains all415 prior members and adds seven exact JMA derived-product

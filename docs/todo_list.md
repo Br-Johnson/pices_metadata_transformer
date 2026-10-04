@@ -1,3 +1,22 @@
+## Active increment: 25 residual target corrections — 2026-10-04
+
+Base main `9bac0ace68c83a2082168f022315c05a1192210b` preserves the measured
+3704/496/6 original-file ledger and 3908/64/6 unique-target view. The sole API
+owner handles production identity reconciliation separately; source review adds
+no provider requests or permissions.
+
+- [x] Inventory and review the 40 nonalias holds, 24 held pairs and six malformed originals from the baseline.
+- [x] Review disjoint title/creator, pair-access, nonalias creator, incorporated-policy/scope and original-date/component evidence; reuse prior research.
+- [x] Independently review resource655, creator426 and title42 with exact source/context bindings and unchanged prior members.
+- [x] Measure 24 paired targets plus FGDC-2664 with preserved originals, exact retry/withdrawal and separate accounting: 3705/495/6 source files; 3933/39/6 record targets. Independent saved-output audit and 24 focused guarded tests pass.
+- [x] Retain source-specific research for the remaining 39 held and six malformed targets; incorporate the parent's completed inventory summary without duplicate provider requests.
+- [ ] Complete current-head Codex review and actual CI before merging a correction; avoid a status-only commit when no correction is supported.
+
+See [the current handoff](readiness/2026-10-04/residual_targets_handoff.md) and
+[remaining evidence questions](readiness/2026-10-04/residual_targets_remaining45.md).
+All 228 classes are source-supported and remain upload-ineligible. The PR timeline
+records final CI/review/merge completion without a bookkeeping-only follow-up.
+
 ## Active increment: eight reviewed creator corrections — 2026-10-04
 
 Base main173a4b0613e915b2915ae815b01f9f8823f2ced8 preserves4206 original files and the separate3978-target view. Root is the sole integration writer; no provider requests or production mutations.
@@ -7,7 +26,7 @@ Base main173a4b0613e915b2915ae815b01f9f8823f2ced8 preserves4206 original files a
 - [x] Independently review FGDC-1314's matching publisher bibliography; add four literal ordered author initials as the eighth finite creator correction.
 - [x] Measure a ten-source smoke and exact before/after/repeat/withdrawal delta:3704/496/6 original files and3908/64/6 unique targets, all4206 originals and4198 unselected ledger rows intact. Independently audit saved phase outputs and preserve37 focused passing checks.
 - [x] Prepare all228 pair reconciliation inputs from captured evidence only; preserve five complete historical snapshots, unknown identities and precise fresh read-only evidence gaps. Resolve the independent capture-time finding;13 local checks pass.
-- [ ] Complete independent current-head review and actual CI, then merge under standing authorization.
+- [x] Merge PR29 as 9bac0ace68c83a2082168f022315c05a1192210b after 526 actual guarded CI tests and current-head independent Codex review.
 
 See [the current handoff](readiness/2026-10-04/creator8_handoff.md) and
 [exact remaining holds](readiness/2026-10-04/creator8_remaining_holds.json).

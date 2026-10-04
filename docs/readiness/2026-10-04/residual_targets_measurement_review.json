@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "review_kind": "independent_narrow_static_closure",
+  "reviewed_at": "2026-10-04T20:30:31.419570+00:00",
+  "result": "CLEAR_WITHIN_STATIC_HELPER_SCOPE",
+  "reviewed_helper": {
+    "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/validate_residual_target_corrections.py",
+    "sha256": "7399a5a18b98c3ca5e2a6a453224fb1548f7efe5ddd2c4eec3ffd5f0d902ace7"
+  },
+  "prior_review": {
+    "path": "/tmp/pices-residual-target-measurement-static-review.json",
+    "sha256": "9774c146572d8615c51da104a4bf5c75bba70b59306fdff179645458e25f531c"
+  },
+  "resolved_findings": [
+    {
+      "id": "actual_singleton_transition",
+      "resolution": "Each phase now checks every source status by source ID. Actual singleton transitions are read from saved reports, required to equal held-to-supported, and promoted_singletons drives ledger updates, target updates and counts."
+    },
+    {
+      "id": "old_source_context_preservation",
+      "resolution": "All prior source_contexts objects are compared exactly against the new access profile alongside existing acquisition/review/member preservation checks."
+    },
+    {
+      "id": "mixed_projection_provenance",
+      "resolution": "Earlier assessment timestamps, delta and flags are retained under historical_target_index_provenance. Current singleton transitions and current projection review time are emitted. The 24 fresh and 204 historical class scopes are explicit; historical artifact paths resolve through the pinned prior indexes and are expressly not claimed to be copied/rebuilt here."
+    }
+  ],
+  "additional_binding": {
+    "historical_original_class_index": "docs/readiness/2026-10-04/alias228_record_targets.json",
+    "sha256": "fd9bcba857c5d9816f44bbca0ac4c826c10527f64a7e6330468ee2fe814981d4"
+  },
+  "remaining_material_findings": [],
+  "limits": "No helper execution, classification, tests, source reproposals, provider requests, private or credential reads, or repository edits. Successful guarded execution and actual-output verification remain separate."
+}

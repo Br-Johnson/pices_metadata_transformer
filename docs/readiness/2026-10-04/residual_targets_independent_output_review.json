@@ -1,0 +1,3138 @@
+{
+  "schema_version": 1,
+  "status": "PASS_INDEPENDENT_SAVED_OUTPUT_AND_LEDGER_AUDIT",
+  "reviewed_at": "2026-10-04T20:37:05.815860+00:00",
+  "reviewer": "Codex /root/astra_transport_boundary",
+  "base_main": "9bac0ace68c83a2082168f022315c05a1192210b",
+  "validation_sha256": "e6b798464e1a244af26a8ad7501e527c441a185c0d28c0c0fe253476aa02f26c",
+  "source_counts": {
+    "supported": 3705,
+    "held": 495,
+    "failed": 6
+  },
+  "target_counts": {
+    "supported": 3933,
+    "held": 39,
+    "failed": 6
+  },
+  "verified_batch_sizes": {
+    "smoke10": 10,
+    "all_candidates": 52
+  },
+  "verified_phase_counts": 4,
+  "saved_source_payloads_checked": 248,
+  "saved_source_original_copies_checked": 248,
+  "saved_class_targets_checked": 120,
+  "final_selected_class_payloads_checked": 24,
+  "final_selected_original_copies_checked": 48,
+  "current_non_xml_input_files_rehashed": 181,
+  "all4206_source_hash_map_equals_before_and_after_ledgers": true,
+  "original_corpus_rehashed_by_reviewer": false,
+  "unselected_source_ledger_objects_unchanged": 4205,
+  "unselected_class_rows_unchanged": 204,
+  "unselected_singleton_rows_unchanged": 3749,
+  "all456_source_aliases_still_held": true,
+  "all228_class_uploads_disabled": true,
+  "material_findings": [],
+  "verified_claims": [
+    "Actual whole raw metadata for both members of all three title pairs and editor/compiler pair matches the independently approved before/after objects. FGDC2664 current whole before/after matches its approved historical-bound projection exactly. All40 access-only raw metadata objects and all three controls are unchanged.",
+    "Every saved payload and original-file receipt hash/size matches disk. V1 artifact and submitted metadata hashes were independently recomputed from saved fields/bytes without importing or running repository classifiers; every selected v2 class contract, both-member binding and complete class metadata reconstruction also matches.",
+    "Both batches have exact before/withdrawn and after/repeat payloads, original bytes, classifications and class snapshots, all saved from the same prepared destination by the reviewed helper.",
+    "Only declared policy references change outside selected creator/title metadata. All three control payloads, including the supported Exxon pair with its unchanged original creator reference, are unchanged.",
+    "Exact24 class held-to-supported transitions and exact2664 singleton held-to-supported transition match saved reports; counts recomputed from full integrated ledgers. All204 unselected class rows preserve historical objects/payload/contract hashes and resolve through pinned prior indexes with their old assessment timestamp.",
+    "All4206 recorded source hashes agree across current measurement input map, frozen creator8 ledger and projected ledger. The reviewer hashes current181 non-XML inputs and saved selected original copies only; no redundant original-corpus inventory pass.",
+    "All alias originals/IDs and null canonical identities are preserved. Every228 class upload flag remains false, production reconciliation pending, and remote/publication flags false. No provider or release grant follows semantic support."
+  ],
+  "checked_file_bindings": {
+    "/tmp/pices-residual-target-measured-v1/residual_target_validation.json": {
+      "sha256": "e6b798464e1a244af26a8ad7501e527c441a185c0d28c0c0fe253476aa02f26c",
+      "bytes": 639107
+    },
+    "/tmp/pices-residual-target-measured-v1/integrated_source_status.json": {
+      "sha256": "7d5da663101ceee2228e72913ec65a8c30756325dd440a86e416c8489a1157f7",
+      "bytes": 880073
+    },
+    "/tmp/pices-residual-target-measured-v1/record_target_delta_projection.json": {
+      "sha256": "8ff370c759b0e4434918364dc6d340a37adf0c7a3ef3533e1ecb99aabf4fa5fd",
+      "bytes": 1332048
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/logger.py": {
+      "sha256": "3fd17d57017ef7e2ecec9bd95bee732c954acbef0699cb0e216710ac8a399ffc",
+      "bytes": 17188
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/artifact_contract.py": {
+      "sha256": "dadbc40a4aa818a1d85a321e03183f7692c6a00aa1f2e46a6804d3b5d1188f95",
+      "bytes": 4636
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/content_classification.py": {
+      "sha256": "f24b19277cbb66a02a24bae3fb5bd66e2062180205721d25aa49f2a30ec3a732",
+      "bytes": 4010
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/citation_creator_interpretation.py": {
+      "sha256": "ddc66396d31c4b0c7f17a11e5054e4d1222459c1d392ce70b1663b5e1ea4c7e3",
+      "bytes": 7746
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/collection_qa.py": {
+      "sha256": "cfd88e6c869d6814d1d76ae376835992eec95c728faca0f085894e0b7e9d0938",
+      "bytes": 29305
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/agent_qa.py": {
+      "sha256": "4a60b6c73d3ed823c7fd3f6a155acca406ece1689034e6751d93cb42960d82ed",
+      "bytes": 20955
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/fgdc_to_zenodo.py": {
+      "sha256": "3cbc1a1bba6c8fa6dda9648c4ce0f55da0bc89d50969fa6970751c41a20ab738",
+      "bytes": 75843
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/enhanced_metrics.py": {
+      "sha256": "66c6d1ef064629b594c5fea2908bba5445028380034813801a12980466493ba6",
+      "bytes": 48463
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/path_config.py": {
+      "sha256": "c10428d7c467576c4d6d3d11cbd404c0526cf31160fa3207396ac2121b9bd6f4",
+      "bytes": 15159
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/content_class_targets.py": {
+      "sha256": "d6572f7d11797cb013652344210a6c2fdf9ecf487c80d8300e606d222060fe3d",
+      "bytes": 21712
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/fgdc_utils.py": {
+      "sha256": "d47af7adedcee1442417e210f418da7d0ed8c94cc8c2234bca4e8bd73c0bb9ff",
+      "bytes": 2821
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/qa_manifest.py": {
+      "sha256": "350e676cebb587c27dcea388ba1dee94033e622f9a3a0447cf01390319019e87",
+      "bytes": 12256
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/upload_service.py": {
+      "sha256": "2d89d7bedc3ec6e13fbc3051a71481ad0fe0aad5d38b04b89cca40032a310cfe",
+      "bytes": 17731
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/validate_zenodo.py": {
+      "sha256": "0a19514c0af12221224053e76a8f7b32a738ee0de9098c57a757ba4e11faf98d",
+      "bytes": 32905
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/rehosting_authority.py": {
+      "sha256": "220e41353c90f47e067d1650134d2290e494ca8b4e43f33a0d97d8b83fbb0032",
+      "bytes": 4062
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/source_access_interpretation.py": {
+      "sha256": "a7a1c30d878312153e0c8026c3910c07bde752b2721cd92dcf05c8242b01b498",
+      "bytes": 7059
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/source_link_interpretation.py": {
+      "sha256": "87d861b579b0faa9f36ce2e00daaeeacfebf219f58a6836560cf2680a9b38a8d",
+      "bytes": 3691
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/source_title_interpretation.py": {
+      "sha256": "c8a798bca2475995934827814949e91956c741f1dfb9f29bb4a3c4006a2fe93b",
+      "bytes": 4349
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/dataset_access_interpretation.py": {
+      "sha256": "fc1bc57823072928f7e392a9eda49f32d2b402917da42aa5b9789c8768421e7b",
+      "bytes": 9907
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/source_scope_attestation.py": {
+      "sha256": "315c8aabaca8909c64b0e014e622f808e02370d2e3915a55fb60b509d2aa1eaf",
+      "bytes": 7427
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/verify_uploads.py": {
+      "sha256": "8a600fe4179adee7a15440929eb5b037a80865b5d99a54a5fee8eb517e3869ba",
+      "bytes": 17976
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/zenodo_api.py": {
+      "sha256": "67d74f9a1f55bd6c5d2294ed1d969b238113e629dbb8492f003fa4093b9f4e47",
+      "bytes": 27327
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/matching/__init__.py": {
+      "sha256": "8065dbe81e104619f622b5d9281bd14051332072582e6ac73ebf35fc602ae310",
+      "bytes": 150
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/matching/engine.py": {
+      "sha256": "bf68742f44e0d8bfeaab828b58ce205bfadf11101a346ac9441ee2cd1d1ae5a3",
+      "bytes": 4494
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/dto.py": {
+      "sha256": "9e53e889b180af0fb634b5c2bd83ef2454c6c1a2cfd1bf3df5944c3efc991fa6",
+      "bytes": 11228
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/matching/evidence.py": {
+      "sha256": "851bd14b6f5b5b3464835fcc927d31b8806d55e32f984995b80a09087649dcfa",
+      "bytes": 10935
+    },
+    "/workspace/pices-residual-targets-20261004/.github/workflows/offline-contracts.yml": {
+      "sha256": "be803186720bd29b24562458757246e9a4b6b704af0ab8f608368b3bec7ab082",
+      "bytes": 3349
+    },
+    "/workspace/pices-residual-targets-20261004/ci/run_offline_tests.py": {
+      "sha256": "1b1f9823488dda1d66dc6bd12bd8e841f84c3e2add727ac254961b3a9e322d05",
+      "bytes": 13899
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/cnf_copy_media_access_22.json": {
+      "sha256": "c31ae077998836eb1fbd1447d558644cef69b07f05a1560d23407304b30ad541",
+      "bytes": 781
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/modern_subjects_wire.json": {
+      "sha256": "1d71e0c465f9863e76fc70ce974c924c21616ec713a3aaef0286e47b2030565e",
+      "bytes": 2752
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/modern_supported_route.json": {
+      "sha256": "0df1dac15ffc1e6f4558282134a76bab42e694553dd16fc4a21e757ee548e09b",
+      "bytes": 862
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-1.json": {
+      "sha256": "d6bd0b21199c971352e2d72f17a122836b99363d2fd5b6c03039023064478245",
+      "bytes": 18417
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-10.json": {
+      "sha256": "b5313731c934c2824d21d1ee1f9d798ab05bd509a678bbd8ecd01f76fc6553ae",
+      "bytes": 17141
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-100.json": {
+      "sha256": "80c66a7e41e7ac8f544388e528a56e10da1647677f71d0355e85ec76a555187c",
+      "bytes": 17450
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-1000.json": {
+      "sha256": "4f71324706e82827164a0f4a277f1b392fd37c6bd7ae391bed4615109aa26c02",
+      "bytes": 15535
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-1001.json": {
+      "sha256": "68d19fb517423bfa8b2d8e4205eaf7c404b4ce2aa3441d8666f9add44d09cdfb",
+      "bytes": 14753
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-1002.json": {
+      "sha256": "2c5dce9832ded08cf5d209b18202b7e7db724c9ca7ca6ed3a476ff9f72ce51cb",
+      "bytes": 16559
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-1003.json": {
+      "sha256": "eb1d5919bbe81768ef9e420ea3f764849fae6e1fc7fed00e3cbd07a060f63bdc",
+      "bytes": 16434
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-1004.json": {
+      "sha256": "8b8aaa0b16e5433fc00ab341b2b283d0c99f588c1c18789a9c177368bcee43f7",
+      "bytes": 16468
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-1005.json": {
+      "sha256": "885752b04be58e84372b8fb254d35e60372bcaa2be80f3fbe5ac90c174243cda",
+      "bytes": 20209
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/odc/FGDC-1006.json": {
+      "sha256": "7eaa81a82f2c3f875d8815b8ff0f65012b281fd1a92ce5bce7bcbfba8a7f1146",
+      "bytes": 15241
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/original_xml_artifact.json": {
+      "sha256": "9a93cba5f14c7515639a498721a0da680d69bd2456f218e6fc2a726d457cdca2",
+      "bytes": 1574
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/original_xml_content_class_v2.json": {
+      "sha256": "327bad635c93494cc316fbf48a15856c3f5d97ca4bd852130a3c2e9f737bdff2",
+      "bytes": 17692
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/resource_reconciliation_42.json": {
+      "sha256": "2ae5dfb6caf89ab05755f1412cba559fae336101a363b64a7f181a88c5cb04ca",
+      "bytes": 735
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/resource_scope_reconciliation_106.json": {
+      "sha256": "b52cc91b170f2ca582a5ebc3231ae01524a309773fc1b22c92aaa5b7aefc551c",
+      "bytes": 2533
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/run02_body_diagnostics.json": {
+      "sha256": "194ab9dc92c340c6161f8bc28e47924f246ed72248cd3e9ee2a755b5d1eb25c9",
+      "bytes": 927
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/run02_owned_continuation.json": {
+      "sha256": "e8b52e9eb21338cb7579d9890ea33d4042d9d5c9705a874344cf76a279059618",
+      "bytes": 910
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/run02_schema_repair.json": {
+      "sha256": "1c8078911b51e338e20e5c49b2e67f5194a35c2aacd3878c733e1e28ac9b9b92",
+      "bytes": 2401
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/examples/run02_subjects_repair.json": {
+      "sha256": "f2fbc4da7e4bb5c989a3f49aadb106f1ce546db53d762a8817ef302e5140aa23",
+      "bytes": 3263
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/schemas/zenodo-modern/LICENSE": {
+      "sha256": "08fa54ff51eda1a6441e3caa4c1826367283268ec668a19f27110049518ae27c",
+      "bytes": 1149
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/schemas/zenodo-modern/README.md": {
+      "sha256": "7b43ca51232b45b1db1f890875189cf179f910217ce7ad2775e8af1e26f084ee",
+      "bytes": 3415
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/schemas/zenodo-modern/definitions-v1.0.0.json": {
+      "sha256": "eeb99397c4c4712990222c969b8f8a22566eecf32818434f32b1982ed5eaab74",
+      "bytes": 2530
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/schemas/zenodo-modern/definitions-v2.0.0.json": {
+      "sha256": "319e15bd15d15d7947c3298bee7c2db30f1b6c1de6e9500b869631b0828e13d6",
+      "bytes": 4438
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/schemas/zenodo-modern/record-definitions-v2.0.0.json": {
+      "sha256": "09060efec922d22bee3103e6b259e11a3fc0c1bdfa8eafc3df6335aba0199865",
+      "bytes": 9181
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/schemas/zenodo-modern/record-v6.0.0.json": {
+      "sha256": "bf029b1a74d851ff9c5474a9a528a0c4a0530026abf1698caf67f8efe6b95b88",
+      "bytes": 15419
+    },
+    "/workspace/pices-residual-targets-20261004/contracts/schemas/zenodo-modern/sources.json": {
+      "sha256": "66f5abd1c76f3a940a5aff37387763b985cf8e4b4b69c5ae2ab939c4d6bf11d0",
+      "bytes": 939
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/batch_transform.py": {
+      "sha256": "9748fc0b7dea5010cb939a9c7017a68098ea321fc9f35d3b1e030b065293e492",
+      "bytes": 24601
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/batch_upload.py": {
+      "sha256": "6dd48183fdd2ca834f64ced8d06186c4b4fa90c6d51dbc34186803893fcc82c4",
+      "bytes": 29963
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/bibliographic_linkage.py": {
+      "sha256": "2dfaa0645bf731be1b7096672af10372322fd913fcb6e1737cf7725a239402b5",
+      "bytes": 11004
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/curation_batches.py": {
+      "sha256": "e58fe1aeefa64b9292ca679fe21a073d5eebc9894e86ca21d9567766551606c3",
+      "bytes": 19870
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/deduplicate_check.py": {
+      "sha256": "e9ca14fed661e50df039a7ee245e9882621fef6db6f9433ec798e2ed73c64f59",
+      "bytes": 25817
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/extract_review_set.py": {
+      "sha256": "541eaf179fa7301029dbda09525f6437d3c1596e31314bd6f9922204b09b6edf",
+      "bytes": 2970
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/generate_exclusion_lists.py": {
+      "sha256": "54acf04fc5324f16262044af397789dafb55092a337da7a5f6926930961433fd",
+      "bytes": 3966
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/generate_final_report.py": {
+      "sha256": "fff5e7fc4c3c47254a0124db8f0656e943480b2ec6ca3dbd78febb2aa539f9c4",
+      "bytes": 18210
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/generate_jsonld_catalogue.py": {
+      "sha256": "e456b0634416b9e8d63b4d8ec8903ca95266390b05c9c72e4ae9d84144d5e985",
+      "bytes": 7567
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/iteration_loop.py": {
+      "sha256": "6304ace1f680eaea1d5586488cf0c5e5606bfa8e69dada1e5523972f9565af77",
+      "bytes": 12872
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/matching/crossref_adapter.py": {
+      "sha256": "892e1f62740f7138504b99330cf138f2e41bc1e82aa2314c634d7d7df48db868",
+      "bytes": 3280
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/matching/datacite_adapter.py": {
+      "sha256": "7d4b53f8ecf69ad2bf1a86df92ef2bf6b0c14bd145c6e6a368c54e4d3937699a",
+      "bytes": 3707
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/matching/review_matches.py": {
+      "sha256": "f1e52cd2982d0ec3af36d9c115da177a1f791559fd6791683d5c5674b70bf310",
+      "bytes": 3821
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/metrics_analysis.py": {
+      "sha256": "066ac9a3ae9f055d8139492cf757234a5bbff4430b6bf4bfb79d57590ac92470",
+      "bytes": 20609
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/modern_canary_errors.py": {
+      "sha256": "c77945516a61236951b3e17252fd1abe1087c3c28f2c50e8b3f7a0712fd21bc9",
+      "bytes": 12587
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/modern_draft_schema.py": {
+      "sha256": "b0a9a5cbdbcfdbc8ae8265ce2e5378a4e5b4027f364df4caad3bf7ef84fb912c",
+      "bytes": 5572
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/modern_owned_continuation.py": {
+      "sha256": "bb559985ce97fdf855d3995981fa290a958910a9d5f7721a02a83de999163090",
+      "bytes": 24118
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/modern_request_body_diagnostics.py": {
+      "sha256": "792609c4f07038ef63d244623cdd6613906fb5c10251179d707eefebdab2eda6",
+      "bytes": 11388
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/modern_run02_schema_repair.py": {
+      "sha256": "5ff24753aca5e5338e918ed35d205897320ad669c617a59852302430c8cb118b",
+      "bytes": 26079
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/modern_run02_subjects_repair.py": {
+      "sha256": "085cefe5ff18b6c5c06d9d7598f267ec19c6bfe6a6a0953588c3477d7c7f46e2",
+      "bytes": 26083
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/modern_synthetic_canary.py": {
+      "sha256": "26e5a500b59061cbd1c57ac05c1c7bbe6c0300771116e0d6fef817e886798941",
+      "bytes": 39267
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/orchestrate_pipeline.py": {
+      "sha256": "cbee7c43d8146be925d25abd1c80c8e99372d5886abe334cb5dbe31b2544490a",
+      "bytes": 40095
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/pre_upload_duplicate_check.py": {
+      "sha256": "78e07f506d6a514c7367c89f2798c57b9a65aed5c0981a962d3ebcbde1993030",
+      "bytes": 23198
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/publish_records.py": {
+      "sha256": "bbd1d0a0f8dcba5c5adbf002d0df26433b99d453ddbe8fb9a21cecb2539bdb24",
+      "bytes": 25105
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/reconcile_draft.py": {
+      "sha256": "3d3bd8eaadec44114787211d5863cc7f149447b62cd0b8621892bc7983b56ca0",
+      "bytes": 4662
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/record_review.py": {
+      "sha256": "b79d86f66801c1b8994a92817c9dcf2936f3180b6b2e003438aa3c0166db22a4",
+      "bytes": 27717
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/release_manifest.py": {
+      "sha256": "33964dbffe8b1d3fe1ee1fc6ffdb6fa0c665a441893100b7fa7c316f904fb813",
+      "bytes": 4530
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/review_llm_cli.py": {
+      "sha256": "d9eb2198c361fcee67cc3d93f6dbc78b7aff1c1d9b192ff85abd7539844fdb70",
+      "bytes": 3183
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/sandbox_canary.py": {
+      "sha256": "1483917f9c3a9e730f204e4c68ff037ddc69b8e879fd9760db16d71409b98ad0",
+      "bytes": 6352
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/sandbox_read_guard.py": {
+      "sha256": "6794f8c0706bcf15bd12e9d44673c097b6aa113e481da74a66dd91d2094499cd",
+      "bytes": 9776
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/upload_audit.py": {
+      "sha256": "1970103b0ed453240923cf9a00efb6a3a7372a539c87de7ba4c6fc8be5478337",
+      "bytes": 14059
+    },
+    "/workspace/pices-residual-targets-20261004/scripts/upload_to_zenodo.py": {
+      "sha256": "5085fdeac9c097d1e3b7a8e78a8b713ba96686772783f2b008e6b04dfaef6e58",
+      "bytes": 16036
+    },
+    "/workspace/pices-residual-targets-20261004/tests/__init__.py": {
+      "sha256": "e71a6d72b0e50a8197a0c447f8d1fbf93989f9a70910b64c9670156c0a712b22",
+      "bytes": 88
+    },
+    "/workspace/pices-residual-targets-20261004/tests/fixtures/zenodo-modern/components.py": {
+      "sha256": "a6cc0677dad3d2416ab32ab0f463fa5ddbdc1d7003636b8180b6ff5ac52b3a0a",
+      "bytes": 4373
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_access_held_source_credits.py": {
+      "sha256": "a4ed530386beaa7fc50cbda2863fff555b341893e6904954f48ec1bf43857d50",
+      "bytes": 10781
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_agent_qa.py": {
+      "sha256": "34f05792b02f11f53ec477b583d3267ae4437a26a8e1ecde0f14b35f580c5a2d",
+      "bytes": 17991
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_artifact_contract.py": {
+      "sha256": "a92da32d547da8066fd7abc569a1de7b76c44267c02b22b3b2ca6b1953450daf",
+      "bytes": 17810
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_authority_approval.py": {
+      "sha256": "d60d825ab398315128c8175682d25a8c619e9923553b80b323fb593f299df03f",
+      "bytes": 5302
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_citation_creator_interpretation.py": {
+      "sha256": "ae6cf8cd0f3031c9e88c970823a296b59e9c5a4eb8c4af38e9140b1696a46417",
+      "bytes": 12004
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_cnf_copy_media_access.py": {
+      "sha256": "4565d410b7ab5fc37b818607d15eb3776a2413ff7c7a8e91d4dd2f022387446f",
+      "bytes": 11892
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_collection_authority.py": {
+      "sha256": "0e4cb36ebfd2abad7f5e4da15013f32d367efe7117b1320e2a46f1cf6eb77b67",
+      "bytes": 5853
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_collection_qa.py": {
+      "sha256": "0d4b0ae816574b17df0740f8d350a8d9306c8f4ccd88ecd5320565db7d04893d",
+      "bytes": 17435
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_combined_source7.py": {
+      "sha256": "c11aae81fa6e956e97bde7256c9aac4aab69a18468df440697148ef8ed5faab9",
+      "bytes": 5981
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_content_class_guards.py": {
+      "sha256": "38bba62d379738e135c64fbc1be594ad4caee4e4916ff8aa4ff1eb277a4037e0",
+      "bytes": 21237
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_content_class_review_gaps.py": {
+      "sha256": "73cff04c7810a96edbc39696277b479bc4625e516096d6f6dcb0e42a9c828323",
+      "bytes": 20921
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_content_class_targets.py": {
+      "sha256": "99d667a7e3b3d596b77afec413b19345bdb85fe432c3b6b873faad43cd4192ee",
+      "bytes": 12531
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_content_classification.py": {
+      "sha256": "2721863374c7d2debc714d122fbd8efeb6558795c1ad9c5188f3be8e36104170",
+      "bytes": 6761
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_contributor_source_interpretation.py": {
+      "sha256": "6fd3a7e6dce9e524d7f910db7e476baf69b4070141b139c47ef65e1f83568594",
+      "bytes": 7988
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_creator415_institution3.py": {
+      "sha256": "4e2bcbbb8d821b14506b3c8caae66c0e1f2a9c177abbaf201940f13c6256428e",
+      "bytes": 24062
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_curation_batches.py": {
+      "sha256": "eb4c9a475b1386a148dbe780fe30a9b807afe17fe2de4eb6ce3a5cb87ec808ae",
+      "bytes": 14056
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_dataset_access_interpretation.py": {
+      "sha256": "7a5dfe31accaacfbb8158ec3f854deeb496b3c670357add6e183d554208a4a90",
+      "bytes": 16028
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_derived_creator_extension.py": {
+      "sha256": "e5eec20f6718250fce5d656e335c6873ef5616fe288f90d1cbe4397c9221572a",
+      "bytes": 11441
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_dfo_staff_interpretation.py": {
+      "sha256": "990277b1fb8f215c7b434690c6a185e24a9df2a6101beb6219e50e7e16504253",
+      "bytes": 6908
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_dto.py": {
+      "sha256": "87957f35679930eed3ec2598a80ccfefdcf19917295213b0b09bf3677e644f55",
+      "bytes": 3751
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_explicit_dataset_acquisition.py": {
+      "sha256": "9676c641a78f3fc8c1eb98231415706630c11f4f07726df4fa3542d9466764c5",
+      "bytes": 14049
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_external_evidence.py": {
+      "sha256": "029f477e1f909780400427a5549c2266ed4fc0e37fd215428c38019403cc9c8d",
+      "bytes": 6677
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_fgdc_source_resolution.py": {
+      "sha256": "389230dc905abc3c800d5522495f3f243bb3ac28f0801a4177cf189ec9ca08c8",
+      "bytes": 5960
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_institution_citation_interpretation.py": {
+      "sha256": "ff6fe41043b9f0aff58644a431c1f6c850757daad430afb4f1d11ba933c6c197",
+      "bytes": 12991
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_joint_collection_citation.py": {
+      "sha256": "df2e7b5a4db32dfc93af62d1f346337e136335fbadb39bf4928a235e698f3684",
+      "bytes": 13487
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_literal_citation_extension.py": {
+      "sha256": "d8cbd2f150276f93af3db72b2734bac60c1eee612360dcdfaef616873573b351",
+      "bytes": 12338
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_matching_engine.py": {
+      "sha256": "bdad77969e88d0b1587197664bab09f2adaf4cad4bf3d9718ee20c46ea24ec07",
+      "bytes": 1659
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_metadata_contracts.py": {
+      "sha256": "2a63ffc71d8c867df411b9761e9fdcc07da808382702919cbb5e7087bd1bffc3",
+      "bytes": 22267
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_modern_canary_errors.py": {
+      "sha256": "8bb3c537ed13086258dabde65a60cee6a3817b950c25e664c8e4ab0e3fde5b15",
+      "bytes": 11906
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_modern_owned_continuation.py": {
+      "sha256": "d8791d960dc82d5f16619942efddb65c43022e218aac702b2012a11c782fcdaa",
+      "bytes": 15116
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_modern_request_body_diagnostics.py": {
+      "sha256": "6ce226eef19ad061f2cc057793bd43fa861902b55170c3971ac189500e05b951",
+      "bytes": 8695
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_modern_run02_subjects_repair.py": {
+      "sha256": "7b8485b4591fb73b89bfe9d95b44642c820549ce373036869379bba881d78b67",
+      "bytes": 11623
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_modern_schema_repair.py": {
+      "sha256": "03215cf8c74f2ec32e62f417433e7c3602319726102edb9435f24e00ca571879",
+      "bytes": 27046
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_modern_subjects_contract.py": {
+      "sha256": "83b32d3b0530424064106bf4b782b366b324093c24d238b21a1b553f5c234d01",
+      "bytes": 9059
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_modern_supported_route.py": {
+      "sha256": "d03346babfe6f82b257d9ad3b6d102272cee5f4e1245bc54d51ec9e3cedfe0b1",
+      "bytes": 7344
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_modern_synthetic_canary.py": {
+      "sha256": "439c052b29a82f6bdab47d8290e34e3c9af0f406e80b590c956e5d5286cfad43",
+      "bytes": 26574
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_modern_transport_diagnostics.py": {
+      "sha256": "4cc9a4709b85ad5b9f34bc22d2585c130d710eee3d95b4d338449f926e9e81ba",
+      "bytes": 10062
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_npafc_report2_reconciliation.py": {
+      "sha256": "97936e4889d3c40abb5b254b03851d17023d3fac22c4a3ec29825bfc1cfb464a",
+      "bytes": 9772
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_offline_ci.py": {
+      "sha256": "7f2e2c334f2b41c7b7e9039d3ed1d4292980e433320ab685695f2a8aa4192e89",
+      "bytes": 6778
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_pipeline_safety.py": {
+      "sha256": "1546395c3c8ccdf617403f665b99240bf701cfbf3eeb3b6c5ad896a35af4ac1b",
+      "bytes": 16243
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_rehosting_authority.py": {
+      "sha256": "eed50d356d8abc9abc7946b060983e3bf16a7b78cd1fcc01d77526d6c4047286",
+      "bytes": 7190
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_release_manifest.py": {
+      "sha256": "1189c6dc5c141fc44c192c504fffb795504530bb19c6128bb408edcabc9164f5",
+      "bytes": 5469
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_remaining_source_cohorts.py": {
+      "sha256": "18a3283d5440e9216d78ed5694b762c138d7c029b3fa32143489ebf666d6f41f",
+      "bytes": 16887
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_residual_creator3.py": {
+      "sha256": "47fc98968b917e755cb66330ea470b92249511d9865f88e9b365a2414ae0a0b9",
+      "bytes": 24151
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_residual_institution_citation.py": {
+      "sha256": "da381cd5f28d32ef16f4253815b81361665bc94e984928f98028d0ff2cdc27b1",
+      "bytes": 10722
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_residual_resource4.py": {
+      "sha256": "f2f5bca75fcd8c6c3173733c8e963455e41fc2a3eba29bb0fc4dc36a42e57a7a",
+      "bytes": 18042
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_residual_source_access.py": {
+      "sha256": "58ba91930e903901624af7c44aa222fb66d8e6659db9fc58c45afe0bf72e5f52",
+      "bytes": 17806
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_residual_target_corrections.py": {
+      "sha256": "a858d4e644b325b651723ccaeaee2a1cff36b5dbf43c1a353610301471f27c26",
+      "bytes": 31191
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_residual_title233.py": {
+      "sha256": "5d063f69445ad4a48f4df9328411cc96be0fc6bb2c72c8383de76fa6266bdc16",
+      "bytes": 12867
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_resource29_reconciliation.py": {
+      "sha256": "8de7c1b116a3fa6a253d63412d44340f19283589c94c267efb15cbd01de88e65",
+      "bytes": 21639
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_resource42_reconciliation.py": {
+      "sha256": "123b35468df94cdc582dd88d913adc2f1a8b9315a0b0db3d1e53f8d1bb2da598",
+      "bytes": 8260
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_resource_scope_reconciliation.py": {
+      "sha256": "2658d5b2e1d611f6a535291c14d754c61a2bcab61034ce62a6e1117f1b9ee6cc",
+      "bytes": 13090
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_run02_evidence_layout.py": {
+      "sha256": "2fcc3f404541ca792fcb90d13f91cd433b661e3e96a971d38f4b892bb8465024",
+      "bytes": 14283
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_sandbox_canary.py": {
+      "sha256": "b9af47b41dde9f6620fad80c5eab5daec9c1b6adeaf02694b095404a51b5537f",
+      "bytes": 15573
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_sandbox_read_guard.py": {
+      "sha256": "59f2632af91417aa3b549d44454a86f5a995d92c4bca126cfe0b6c1d4831f240",
+      "bytes": 13510
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_sensitive_resource11.py": {
+      "sha256": "3155198530dbf376daacf04e9c0380defb33584e7ec6c249e4f140fa4f65cec3",
+      "bytes": 18628
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_source_access_interpretation.py": {
+      "sha256": "dae9af80b0e9e97ae29c64b336e635e9ec3e404e28bfeac08897b6906da1ad82",
+      "bytes": 13521
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_source_credit_and_linkage.py": {
+      "sha256": "0da006474d6b9c0c410ef235c54ed95d127c0078a295385e1d4459598b5506b1",
+      "bytes": 16086
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_source_credit_title_13.py": {
+      "sha256": "9b0cc1723e1c0d453508cca0eb73de6e94c1c7d9940a39ecd1b5d98b766e2a68",
+      "bytes": 12630
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_source_scope_attestation.py": {
+      "sha256": "94a9a75d776aa87725f3b6e0106479bef648573f48cd60944c2abc69125930af",
+      "bytes": 13197
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_upload_batch_selection.py": {
+      "sha256": "b529e9e2b06d6aa436e189e50597ee3a4f36468efafb8f214ce5cc8d447beb3c",
+      "bytes": 6976
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_zenodo_diagnostics.py": {
+      "sha256": "b1ebbb25eb57651fb547afc5c17442ddbbc63a96fc32ac5eda5d0f95c5932668",
+      "bytes": 5093
+    },
+    "/workspace/pices-residual-targets-20261004/tests/test_zenodo_token.py": {
+      "sha256": "b65c53b9ff7e5a5d33598666391fb0aee022cc439194b4ee34983ef6571f12e9",
+      "bytes": 7712
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/creator8_integrated_source_status.json": {
+      "sha256": "3b3f255c6c4f6f921acd07bd20e57fb2f753099332475962438efc7f4b19bb4a",
+      "bytes": 879966
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/creator8_record_target_projection.json": {
+      "sha256": "2da9926b1cf7344165c83a3338ec523ac7f2461744c503dfada43cd7d311abbc",
+      "bytes": 1312610
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/source_citation_credits_423.json": {
+      "sha256": "c720de8c0775adf3b432fc4bc5e28bdfbb36c67ceb91b73b719d0179cf8f8bf6",
+      "bytes": 815853
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/finite_source_resource_access_607.json": {
+      "sha256": "83bdb0b1ab689e5fbf844467975ad9d279b6bba759cb3db3a18a11704715679c",
+      "bytes": 1739183
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/source_display_titles_36.json": {
+      "sha256": "c776b324f43a3e7560ef016f12b7a345bbb2f21cc016b74bd5298b8ed1e10781",
+      "bytes": 78022
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/source_citation_credits_426.json": {
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2",
+      "bytes": 877461
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/finite_source_resource_access_655.json": {
+      "sha256": "8aec41a5c27176c284bc0249c2619d1caa61ac1c245e986a3ba15201edfdee34",
+      "bytes": 2080695
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/source_display_titles_42.json": {
+      "sha256": "846e8787ae141a30993611d650af84420c769347cccec155a9686736c4df5e4a",
+      "bytes": 237462
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/approved_alias_representation_228.json": {
+      "sha256": "9e45fc869b0fe03220b44734cf429129f78dc93eb9fd20bf9b802398b684dda6",
+      "bytes": 120570
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/alias456_source_to_content.json": {
+      "sha256": "9c110638bd161483727aed1b42e516fdc7a3c9d8134c97a9a70abff690750bbb",
+      "bytes": 801386
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/alias_pair_approach_authority.json": {
+      "sha256": "ea3c0dba61ba03a330c80fc204f70ae3b88669f5ede5f22e60015b4bdb828130",
+      "bytes": 1598
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_creator2664_proposal_and_gts_review.json": {
+      "sha256": "da2443ac1c7a5eafcd1fc17c2140aae7911d8475c2928327b056fd6bf02be379",
+      "bytes": 206036
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_creator2664_independent_review.json": {
+      "sha256": "dc002c57cc5e01a0674645894bc7e17130af7cc312ea3c73c734cccde174513b",
+      "bytes": 67218
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_pair4_editorial_creator_proposals.json": {
+      "sha256": "ba294addf4521bd4d656b2c2d0dc1d3b66e954194169ffffb1c3bb7088a27a73",
+      "bytes": 220744
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_pair4_editorial_creator_review.json": {
+      "sha256": "df9cb1170c25f335ecb828102e250d65843b0d4af2cd275f257a268bec1d6600",
+      "bytes": 155553
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-02/rehosting_authority.json": {
+      "sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "bytes": 357011
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-02/contact_source_interpretation.json": {
+      "sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+      "bytes": 86668
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-02/contributor_source_interpretation.json": {
+      "sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+      "bytes": 51020
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-03/remaining_source_scope_questions_821.json": {
+      "sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+      "bytes": 7101
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-03/source_scope_attestation_821.json": {
+      "sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+      "bytes": 951812
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_pair20_access_proposals.json": {
+      "sha256": "fac19e37e4cec90992df9b36060cbce3bcc849919035b87eaef0ba3cded04e2c",
+      "bytes": 1024840
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_pair20_access_review.json": {
+      "sha256": "cbb72aee48369df5b80120f8c4474d370738ac43db11e7094f477d1842c5e478",
+      "bytes": 52770
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_pair4_access_supplement.json": {
+      "sha256": "609ba89b86d45f5be8eb529a9c5179c7fca7e6a7d386dbc52556afcfdb125ac6",
+      "bytes": 213048
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/residual_pair4_access_review.json": {
+      "sha256": "8e0358f4e3d2660f2d8ee21ff4fdbdbb78d3fbf01216efdf37d9de7b5e48f56a",
+      "bytes": 15716
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-02/exxon_citation_interpretation.json": {
+      "sha256": "ee49147aec99d83cf54cb7fa4e59f7e50229967af0f08f5408e97144367e99e5",
+      "bytes": 112861
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json": {
+      "sha256": "6587234a935a8eb893f6890ad3ec01a330c7ff4e8c55dcaeb6c03800bf157b0d",
+      "bytes": 9985
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-03/historical_dataset_linkage_21.json": {
+      "sha256": "53b8f4cf4b2c84755653328916d0abfb8439984bd31906e0359f7588e5bd6168",
+      "bytes": 8102
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-03/source_scope_reconciliation_904.json": {
+      "sha256": "242024bcf750e0fd3ea0097ee34eb47fb86f0674fb554fe2e0b78ddce4a589c1",
+      "bytes": 1076580
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/validate_residual_target_corrections.py": {
+      "sha256": "7399a5a18b98c3ca5e2a6a453224fb1548f7efe5ddd2c4eec3ffd5f0d902ace7",
+      "bytes": 39806
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/classification.json": {
+      "sha256": "a6951565323c8da5fb3f127db699d82052f0592a650719ba9ec3f36f85e9365c",
+      "bytes": 22222
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/measured_class_targets.json": {
+      "sha256": "48f16b751fa466a2c872c14c73ee1b6bd4ea0c5ac05ccd42fd0eae4558fbf5d9",
+      "bytes": 78400
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-2837.json": {
+      "sha256": "04fae52a9eb19d8e454d215a1cb2bbc2cb1e4908990709a8a8f181c41261c856",
+      "bytes": 4980
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-2837.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-2872.json": {
+      "sha256": "acaec1b56ac46f035cb6ac79ba44a29d0203665ef6a35ed0f97cfc966a6a8d10",
+      "bytes": 6004
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-2872.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-2894.json": {
+      "sha256": "e333a2966572270f96a48ed98b06d8a3ba4f591e01f3a9fca7e758c50b97d203",
+      "bytes": 5922
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-2894.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-2948.json": {
+      "sha256": "86e31ad3c96c866c93967735708169276f89dcdca2bd23168247cd2e4d1d0213",
+      "bytes": 4377
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-2948.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-2953.json": {
+      "sha256": "025aef0f6799a7a498b5c6c44827f1b8e5aae77fc776ff730d2385ed1037e9f4",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-2953.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-3065.json": {
+      "sha256": "ba9abd291f5e06cba11095dcab3e59dd3edc8c3514118f65edd6e93d9104afd2",
+      "bytes": 4980
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-3065.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-3100.json": {
+      "sha256": "ea49b370b140858e4bc7dcda6a1be8f92eae6dd076f08336705e219106c85841",
+      "bytes": 6004
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-3100.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-3122.json": {
+      "sha256": "1a5e441b34a98e6012d19ee6feea3a7ff87b3af4e6aea4ac23a373c56af210f3",
+      "bytes": 5922
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-3122.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-3176.json": {
+      "sha256": "a57bf8e8229a79511dd06a4e013111b3f7342e471653eb567e16327282b3c414",
+      "bytes": 4377
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-3176.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/zenodo_json/FGDC-3181.json": {
+      "sha256": "2f248bd2cc72953ca19a845781581ca0d3cbe1284e48c31f4c676ad94b5a4732",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/before_snapshot/data/original_fgdc/FGDC-3181.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/classification.json": {
+      "sha256": "efbf50847306821bdcc385d14f8b151e0729bd464f75000b122ea6f41c93b68d",
+      "bytes": 21652
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/measured_class_targets.json": {
+      "sha256": "d70b6be63aff89150deb302b8c1e700107f813bc2c8b729949659e7deaa0cd36",
+      "bytes": 81234
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-2837.json": {
+      "sha256": "fb12508683966191be6f68baaa25cc7192fd3be9b2aa7f156a284b4481c326ef",
+      "bytes": 6623
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-2837.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-2872.json": {
+      "sha256": "3a800fa0d50f32ac98b43808e6fb64f076d9aa124251fc12f0d7d26d6e9e2b4a",
+      "bytes": 7858
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-2872.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-2894.json": {
+      "sha256": "028b094f4e3666f45b1885653d9b05195c42fcf96012bca8131ef87a37dd23b2",
+      "bytes": 7492
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-2894.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-2948.json": {
+      "sha256": "f8f6e40b55cbe0326ded561de35e2cb759252826f4ee31e71b17e7d2bc4af6a3",
+      "bytes": 4649
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-2948.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-2953.json": {
+      "sha256": "025aef0f6799a7a498b5c6c44827f1b8e5aae77fc776ff730d2385ed1037e9f4",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-2953.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-3065.json": {
+      "sha256": "b5dac94659cf783befcdce124d69236be2262fd819241da409a871307476bf68",
+      "bytes": 6623
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-3065.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-3100.json": {
+      "sha256": "ae85883b240a01a44d20a62557754fcc36614374a37765dabac3fae3581ba3fe",
+      "bytes": 7858
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-3100.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-3122.json": {
+      "sha256": "0d93b4c728a4a95f52849595c1091767df29e48ec49bc96088186ba47e4e1e15",
+      "bytes": 7492
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-3122.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-3176.json": {
+      "sha256": "b049cc8abaa2d9ccb99e48f15f4b122b46b7c3db204b05bc83ebf97970720146",
+      "bytes": 4649
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-3176.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/zenodo_json/FGDC-3181.json": {
+      "sha256": "2f248bd2cc72953ca19a845781581ca0d3cbe1284e48c31f4c676ad94b5a4732",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/after_snapshot/data/original_fgdc/FGDC-3181.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/classification.json": {
+      "sha256": "efbf50847306821bdcc385d14f8b151e0729bd464f75000b122ea6f41c93b68d",
+      "bytes": 21652
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/measured_class_targets.json": {
+      "sha256": "d70b6be63aff89150deb302b8c1e700107f813bc2c8b729949659e7deaa0cd36",
+      "bytes": 81234
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-2837.json": {
+      "sha256": "fb12508683966191be6f68baaa25cc7192fd3be9b2aa7f156a284b4481c326ef",
+      "bytes": 6623
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-2837.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-2872.json": {
+      "sha256": "3a800fa0d50f32ac98b43808e6fb64f076d9aa124251fc12f0d7d26d6e9e2b4a",
+      "bytes": 7858
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-2872.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-2894.json": {
+      "sha256": "028b094f4e3666f45b1885653d9b05195c42fcf96012bca8131ef87a37dd23b2",
+      "bytes": 7492
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-2894.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-2948.json": {
+      "sha256": "f8f6e40b55cbe0326ded561de35e2cb759252826f4ee31e71b17e7d2bc4af6a3",
+      "bytes": 4649
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-2948.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-2953.json": {
+      "sha256": "025aef0f6799a7a498b5c6c44827f1b8e5aae77fc776ff730d2385ed1037e9f4",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-2953.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-3065.json": {
+      "sha256": "b5dac94659cf783befcdce124d69236be2262fd819241da409a871307476bf68",
+      "bytes": 6623
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-3065.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-3100.json": {
+      "sha256": "ae85883b240a01a44d20a62557754fcc36614374a37765dabac3fae3581ba3fe",
+      "bytes": 7858
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-3100.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-3122.json": {
+      "sha256": "0d93b4c728a4a95f52849595c1091767df29e48ec49bc96088186ba47e4e1e15",
+      "bytes": 7492
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-3122.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-3176.json": {
+      "sha256": "b049cc8abaa2d9ccb99e48f15f4b122b46b7c3db204b05bc83ebf97970720146",
+      "bytes": 4649
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-3176.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/zenodo_json/FGDC-3181.json": {
+      "sha256": "2f248bd2cc72953ca19a845781581ca0d3cbe1284e48c31f4c676ad94b5a4732",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/repeat_snapshot/data/original_fgdc/FGDC-3181.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/classification.json": {
+      "sha256": "a6951565323c8da5fb3f127db699d82052f0592a650719ba9ec3f36f85e9365c",
+      "bytes": 22222
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/measured_class_targets.json": {
+      "sha256": "48f16b751fa466a2c872c14c73ee1b6bd4ea0c5ac05ccd42fd0eae4558fbf5d9",
+      "bytes": 78400
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-2837.json": {
+      "sha256": "04fae52a9eb19d8e454d215a1cb2bbc2cb1e4908990709a8a8f181c41261c856",
+      "bytes": 4980
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-2837.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-2872.json": {
+      "sha256": "acaec1b56ac46f035cb6ac79ba44a29d0203665ef6a35ed0f97cfc966a6a8d10",
+      "bytes": 6004
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-2872.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-2894.json": {
+      "sha256": "e333a2966572270f96a48ed98b06d8a3ba4f591e01f3a9fca7e758c50b97d203",
+      "bytes": 5922
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-2894.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-2948.json": {
+      "sha256": "86e31ad3c96c866c93967735708169276f89dcdca2bd23168247cd2e4d1d0213",
+      "bytes": 4377
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-2948.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-2953.json": {
+      "sha256": "025aef0f6799a7a498b5c6c44827f1b8e5aae77fc776ff730d2385ed1037e9f4",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-2953.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-3065.json": {
+      "sha256": "ba9abd291f5e06cba11095dcab3e59dd3edc8c3514118f65edd6e93d9104afd2",
+      "bytes": 4980
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-3065.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-3100.json": {
+      "sha256": "ea49b370b140858e4bc7dcda6a1be8f92eae6dd076f08336705e219106c85841",
+      "bytes": 6004
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-3100.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-3122.json": {
+      "sha256": "1a5e441b34a98e6012d19ee6feea3a7ff87b3af4e6aea4ac23a373c56af210f3",
+      "bytes": 5922
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-3122.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-3176.json": {
+      "sha256": "a57bf8e8229a79511dd06a4e013111b3f7342e471653eb567e16327282b3c414",
+      "bytes": 4377
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-3176.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/zenodo_json/FGDC-3181.json": {
+      "sha256": "2f248bd2cc72953ca19a845781581ca0d3cbe1284e48c31f4c676ad94b5a4732",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/smoke10/withdrawn_snapshot/data/original_fgdc/FGDC-3181.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/classification.json": {
+      "sha256": "8695ddef5d56257550192325b06ad15c6c159eb56cbfdc350fc0afed6fe4de6c",
+      "bytes": 115646
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/measured_class_targets.json": {
+      "sha256": "c1924434a7636e673367369a23885251e941e761a29d52a58fdb0741a3f87727",
+      "bytes": 397698
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2664.json": {
+      "sha256": "01b578522ecd321001d7c540955af14ef9525cfe00ebc3b9d073d2c653d6156b",
+      "bytes": 4960
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2664.xml": {
+      "sha256": "993fb2c2ae8a94b5a7a3e55b6bd344ea57753a4ffee2e4de45baf1b322a448b3",
+      "bytes": 4379
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2837.json": {
+      "sha256": "04fae52a9eb19d8e454d215a1cb2bbc2cb1e4908990709a8a8f181c41261c856",
+      "bytes": 4980
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2837.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2839.json": {
+      "sha256": "70555e7090c24b22c82a159c685083e067aaa9b8eec934af52c4b3a32e66db8d",
+      "bytes": 5847
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2839.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2850.json": {
+      "sha256": "ffeaffa3dd7e7eae4cb239566b0b26b0b61afeafd53b15daf85f15db51545af3",
+      "bytes": 5878
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2850.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2861.json": {
+      "sha256": "356ffb7be95390b353813fd3031b391885bc2a5dbb631849fda8345238a04baa",
+      "bytes": 5876
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2861.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2872.json": {
+      "sha256": "acaec1b56ac46f035cb6ac79ba44a29d0203665ef6a35ed0f97cfc966a6a8d10",
+      "bytes": 6004
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2872.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-288.json": {
+      "sha256": "50c693eef34b019ea83596fb33a0ac3c100ad5814d3bd1c2d258de5356a96602",
+      "bytes": 6633
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-288.xml": {
+      "sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff",
+      "bytes": 5767
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2883.json": {
+      "sha256": "21dda272062fe73409dd7864f26e33e19d6023908c1360b7cc45a2bc170d8ea7",
+      "bytes": 5876
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2883.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2894.json": {
+      "sha256": "e333a2966572270f96a48ed98b06d8a3ba4f591e01f3a9fca7e758c50b97d203",
+      "bytes": 5922
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2894.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2904.json": {
+      "sha256": "595e0c9e5493540d2bd49a24d53400136495a15a8ea7129c317288d793607a5f",
+      "bytes": 5836
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2904.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2915.json": {
+      "sha256": "a52f343355dd8dc87e783059eb5014b07c73070da43b75ff6ea4481e6a5487a5",
+      "bytes": 5770
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2915.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2926.json": {
+      "sha256": "d8eb856af973712576b8d448279f857151835682ee923e5cd8359edfe3b25dde",
+      "bytes": 5880
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2926.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2937.json": {
+      "sha256": "10497126f836cfd1cbe776096a66010ac539989e89d127d64483b69b9251ffb5",
+      "bytes": 5863
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2937.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2948.json": {
+      "sha256": "86e31ad3c96c866c93967735708169276f89dcdca2bd23168247cd2e4d1d0213",
+      "bytes": 4377
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2948.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2949.json": {
+      "sha256": "ddc1affdcdea6c7aad83e6e99ed3d608ffcabd50a16e904d05e5d02bd5c743bf",
+      "bytes": 5878
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2949.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2953.json": {
+      "sha256": "025aef0f6799a7a498b5c6c44827f1b8e5aae77fc776ff730d2385ed1037e9f4",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2953.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2960.json": {
+      "sha256": "37dd752a0f9d702713b4be38a1926481aff45c9ce1906a1889e93c206a9642d2",
+      "bytes": 5898
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2960.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2971.json": {
+      "sha256": "2ae3cdc39b6ebdcdbecd7627ae9d2063f56646dc56f22dcc9cb49b020a3cee7e",
+      "bytes": 5798
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2971.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2982.json": {
+      "sha256": "4ab09215269df8be670c52b128aae96dcac2c8b511e3cba4b9d102511517652c",
+      "bytes": 5790
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2982.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-2993.json": {
+      "sha256": "c16d338398649742aa538333f1cf7d73df7ca4638732f5b71e13fc6295c588eb",
+      "bytes": 5812
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-2993.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3004.json": {
+      "sha256": "54b330fb4a0ddb88c3ec8db3ebafc2a603b11894f707fde696d83fee8c4f6fe4",
+      "bytes": 5812
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3004.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3015.json": {
+      "sha256": "896fe31716c32a51a66fbdd206e17ec23144ebaebd27d27ffe239ba736d18088",
+      "bytes": 5864
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3015.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3026.json": {
+      "sha256": "e564f6d21f4a7ce937a3d496fe77441ea4801ca012b74c04583a82675d60c68d",
+      "bytes": 5849
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3026.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3037.json": {
+      "sha256": "66aa8f242455567469b69bff4e53b8a1b733e282b08761e2274a7906a5ae4270",
+      "bytes": 5771
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3037.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3048.json": {
+      "sha256": "bc4eeae0e1283bfe90b501a45f0aff000705b36ba1e3d1a66e8f3e391011eb9c",
+      "bytes": 5859
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3048.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3059.json": {
+      "sha256": "5bf94bd45689aa981f17fdd43bc606e25fcc99bd15889e11c1e123c5f55f8483",
+      "bytes": 6735
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3059.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3060.json": {
+      "sha256": "73f2b293d6db34981683898133529189e7c0b90c21c15ac0a7473606540c1123",
+      "bytes": 5844
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3060.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3065.json": {
+      "sha256": "ba9abd291f5e06cba11095dcab3e59dd3edc8c3514118f65edd6e93d9104afd2",
+      "bytes": 4980
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3065.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3067.json": {
+      "sha256": "b22a084fb17dddaae8e58b00340570b51f0f18829daf9e5547769d8925758b5b",
+      "bytes": 5847
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3067.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3078.json": {
+      "sha256": "9c3ad5ca3a8c602a3b391521c9de48cf520407c4d89f8bfd1777cd41450a743f",
+      "bytes": 5878
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3078.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3089.json": {
+      "sha256": "76f7c098912a37622ee88e81f596942fc0896c2435754bccbce483d99a9588c3",
+      "bytes": 5876
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3089.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3100.json": {
+      "sha256": "ea49b370b140858e4bc7dcda6a1be8f92eae6dd076f08336705e219106c85841",
+      "bytes": 6004
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3100.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3111.json": {
+      "sha256": "cace00106c1b5e742c888b22e254ee469287c2bea0208dc1e92fbd07e209756e",
+      "bytes": 5876
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3111.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3122.json": {
+      "sha256": "1a5e441b34a98e6012d19ee6feea3a7ff87b3af4e6aea4ac23a373c56af210f3",
+      "bytes": 5922
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3122.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3132.json": {
+      "sha256": "b84644edfa6b51ac7f5b7314f560a17c34fefa4952699f0fa727f057e23df3ea",
+      "bytes": 5836
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3132.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3143.json": {
+      "sha256": "5bfcfd1b883c78c475de83116f75e10163435e8699031b2f8d59f7c85f6f9a69",
+      "bytes": 5770
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3143.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3154.json": {
+      "sha256": "c1cd279f7e287fe5925b6af84ce2236cc565550ea110449c502c98739f0321d3",
+      "bytes": 5880
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3154.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3165.json": {
+      "sha256": "e95213c1ef7b5486e720b41ebdaf082f4beb8c1caffdea72eab499be61db3180",
+      "bytes": 5863
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3165.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3176.json": {
+      "sha256": "a57bf8e8229a79511dd06a4e013111b3f7342e471653eb567e16327282b3c414",
+      "bytes": 4377
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3176.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3177.json": {
+      "sha256": "a7b016e93972cf974482efe6676766303b0f33fc3a33a8939797a4143a373285",
+      "bytes": 5878
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3177.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3181.json": {
+      "sha256": "2f248bd2cc72953ca19a845781581ca0d3cbe1284e48c31f4c676ad94b5a4732",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3181.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3188.json": {
+      "sha256": "7a8212f935610e0162d13a33022ebe64374d10fbe446a81d62655cec999ebe07",
+      "bytes": 5898
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3188.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3199.json": {
+      "sha256": "ef2b040249dd595e8d9508ea9d889ae2f28b60f0db16a001f3d2af9672ccd2a1",
+      "bytes": 5798
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3199.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3210.json": {
+      "sha256": "4efc9f56cf49273e44e4889b6cc19efab4f6139af05ff2301d654c9e93590f71",
+      "bytes": 5790
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3210.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3221.json": {
+      "sha256": "e8671a296b6fa41f574f6cbd370ec942dde428894350a5425c590923515d8d72",
+      "bytes": 5812
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3221.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3232.json": {
+      "sha256": "38a234e5df759bac4ae1cc277c5eb2c79ab99ffa81f98919646ac425e2ecb67b",
+      "bytes": 5812
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3232.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3243.json": {
+      "sha256": "2bfbe49554456ba531e7ff9479871b58a836a5b6e2230eedbcde26d289a2e0d5",
+      "bytes": 5864
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3243.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3254.json": {
+      "sha256": "9efe7f31c2e0cd22785bfa567e18a7d68e58970282f2dc37f97a3b52baab5a10",
+      "bytes": 5849
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3254.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3265.json": {
+      "sha256": "49fd11ba9bcf2a7997d572b688dbf09f9b6e7c55763421e7e5a5da3309df5d9e",
+      "bytes": 5771
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3265.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3276.json": {
+      "sha256": "3454f80f2a8c91ad0c08d2f556d481894a99562bf46ac44b902247f1f5f98f56",
+      "bytes": 5859
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3276.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3287.json": {
+      "sha256": "eb4cde96f4e278974dd499d63e07f455a80dd94816a95d23cdacd3b5cf40b92e",
+      "bytes": 6735
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3287.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/zenodo_json/FGDC-3288.json": {
+      "sha256": "2f4122b5e108d1480a1cbceec3fd6668c217c7b99d7fd30e71482a8237e53308",
+      "bytes": 5844
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/before_snapshot/data/original_fgdc/FGDC-3288.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/classification.json": {
+      "sha256": "d37716b9c769aa66d71d8d7ad9dc4320ca8c056c51ab602d50d3231d22b9f496",
+      "bytes": 115096
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/measured_class_targets.json": {
+      "sha256": "a52b6851e9e2a48fb2fd687d3294f513751f33c76ddefcc73b0513474d401631",
+      "bytes": 397962
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2664.json": {
+      "sha256": "78d624d7fdcead662c2441b111052a253ad4f672e7921a6011d2ac76194a71e6",
+      "bytes": 6654
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2664.xml": {
+      "sha256": "993fb2c2ae8a94b5a7a3e55b6bd344ea57753a4ffee2e4de45baf1b322a448b3",
+      "bytes": 4379
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2837.json": {
+      "sha256": "fb12508683966191be6f68baaa25cc7192fd3be9b2aa7f156a284b4481c326ef",
+      "bytes": 6623
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2837.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2839.json": {
+      "sha256": "b1fb1a6458fa550a6582ed5e9bdae2300f0d5964081567a6835d83f911ec5662",
+      "bytes": 6119
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2839.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2850.json": {
+      "sha256": "c07c92f04a00d3f3a5393d2e88986fbbffc37b2fd43dc7c17bea8f2000403138",
+      "bytes": 6150
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2850.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2861.json": {
+      "sha256": "30798823a84c73df40014a2c959e88615ce636940ee4cd3f74fdebe4471ab216",
+      "bytes": 6148
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2861.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2872.json": {
+      "sha256": "3a800fa0d50f32ac98b43808e6fb64f076d9aa124251fc12f0d7d26d6e9e2b4a",
+      "bytes": 7858
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2872.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-288.json": {
+      "sha256": "50c693eef34b019ea83596fb33a0ac3c100ad5814d3bd1c2d258de5356a96602",
+      "bytes": 6633
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-288.xml": {
+      "sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff",
+      "bytes": 5767
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2883.json": {
+      "sha256": "b15f7e54d94599091fe064ab61c3450872a018c44fe85f906c8677653fd4eda0",
+      "bytes": 6148
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2883.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2894.json": {
+      "sha256": "028b094f4e3666f45b1885653d9b05195c42fcf96012bca8131ef87a37dd23b2",
+      "bytes": 7492
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2894.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2904.json": {
+      "sha256": "6a226a706398298c6d29c0b0f849e3ba0390cf078b2f4f87ca06856d5b66f379",
+      "bytes": 6108
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2904.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2915.json": {
+      "sha256": "18c0c739577d5671897d3ddba2a7b29d43c8773a23de7765cad69bfb18f92dcf",
+      "bytes": 6042
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2915.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2926.json": {
+      "sha256": "488314c331e56fbe947a1eab1efe65b3eb2547f77a39af3c2d57bc18bf28af0c",
+      "bytes": 6152
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2926.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2937.json": {
+      "sha256": "1a7c14efb17941b4807d0a235d36460d957567f0a919676c18d066b9c46a454d",
+      "bytes": 6135
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2937.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2948.json": {
+      "sha256": "f8f6e40b55cbe0326ded561de35e2cb759252826f4ee31e71b17e7d2bc4af6a3",
+      "bytes": 4649
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2948.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2949.json": {
+      "sha256": "8c92e2b5ab43e1d0dac0d4b6af66b0de8a9aaf431785c964c90249223d8bf3c9",
+      "bytes": 6150
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2949.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2953.json": {
+      "sha256": "025aef0f6799a7a498b5c6c44827f1b8e5aae77fc776ff730d2385ed1037e9f4",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2953.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2960.json": {
+      "sha256": "43f9b8e3460e8ad169a8f191efe44908eb3829ccbce644e3f1e2df8b35f42d28",
+      "bytes": 7447
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2960.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2971.json": {
+      "sha256": "650d8d9e32bbeb46f72e803db530c93839bdc4113218a5a64e36b782044e90c5",
+      "bytes": 6070
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2971.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2982.json": {
+      "sha256": "bd68defbba5ddf0908ab7757a418490258fc0651b7b439eeea21334e862e8e82",
+      "bytes": 6062
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2982.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-2993.json": {
+      "sha256": "7a6accace67f1130222329ea457925e9d32b523d14b572eb7d1733c87bc64fa1",
+      "bytes": 6084
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-2993.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3004.json": {
+      "sha256": "0ce115034d17bf970e6fd89b4cb3e26484c1c5d49f10204c2372d35d91da108a",
+      "bytes": 6084
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3004.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3015.json": {
+      "sha256": "ee9221f67e699ac8791cc1bb3e96b571cc22600fd187a232e2f80755798a4669",
+      "bytes": 6136
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3015.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3026.json": {
+      "sha256": "da0627fcdd4af5a5892e39511663a8cf4bab80384212fd32d775ef01fae93388",
+      "bytes": 6121
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3026.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3037.json": {
+      "sha256": "d3dde5fb8c5e126cf552d674abb563a09f9a3f634170ad906a9561f9079a5970",
+      "bytes": 6043
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3037.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3048.json": {
+      "sha256": "b371c6a09d155c9f1e66a7a55563f80a9a285174f5e3b19d05b642d49357d78b",
+      "bytes": 6131
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3048.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3059.json": {
+      "sha256": "af0aa28752d59f64f90e33d0df4a8f825abc1848f34c3b7a7223d62ea18e5cc6",
+      "bytes": 7007
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3059.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3060.json": {
+      "sha256": "e6fcc1f106e5a66b59229dca71f1701e03595479eb77b9f2823ea132d1857e6e",
+      "bytes": 6116
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3060.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3065.json": {
+      "sha256": "b5dac94659cf783befcdce124d69236be2262fd819241da409a871307476bf68",
+      "bytes": 6623
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3065.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3067.json": {
+      "sha256": "96687e6de5c1ddcf3f688c5572bc56e2e87312765f6d04f22694562b5d535adb",
+      "bytes": 6119
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3067.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3078.json": {
+      "sha256": "35c67e1594fe8d0e28a2d02a2a1c0184234935e90563a436743914bcfa486d1a",
+      "bytes": 6150
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3078.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3089.json": {
+      "sha256": "e8e986614b9b117f8d95ca9d809e85ce8942fd0fc9c45bedbff135be58aca63a",
+      "bytes": 6148
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3089.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3100.json": {
+      "sha256": "ae85883b240a01a44d20a62557754fcc36614374a37765dabac3fae3581ba3fe",
+      "bytes": 7858
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3100.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3111.json": {
+      "sha256": "0699e9d7c7680b4e02fbdb4796ec9d44e92278939285ba3ab453d0c747a3a36f",
+      "bytes": 6148
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3111.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3122.json": {
+      "sha256": "0d93b4c728a4a95f52849595c1091767df29e48ec49bc96088186ba47e4e1e15",
+      "bytes": 7492
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3122.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3132.json": {
+      "sha256": "955a5ad89d2e8c2bf2a95aff6715e54a5e0b56cc221f054589454f7208ebfc00",
+      "bytes": 6108
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3132.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3143.json": {
+      "sha256": "497c1d7739d987db507987c538dda4ee52960edaa78287d9e9113706f69b5912",
+      "bytes": 6042
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3143.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3154.json": {
+      "sha256": "c3b27b37ea1a66fc072207cb13b1bef581ac34ece3a28bca7d03e79c7e748dde",
+      "bytes": 6152
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3154.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3165.json": {
+      "sha256": "10fbb204e5f31c2dfc728895e173ba663a7013707a56affe97830a55353fc21c",
+      "bytes": 6135
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3165.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3176.json": {
+      "sha256": "b049cc8abaa2d9ccb99e48f15f4b122b46b7c3db204b05bc83ebf97970720146",
+      "bytes": 4649
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3176.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3177.json": {
+      "sha256": "e1362159a009ff8eaf5a3166a0b12bdc11e2f66f8e9bb9866834fa7fab21acbf",
+      "bytes": 6150
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3177.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3181.json": {
+      "sha256": "2f248bd2cc72953ca19a845781581ca0d3cbe1284e48c31f4c676ad94b5a4732",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3181.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3188.json": {
+      "sha256": "6c1f6993c67cbfb6ac4f1aa04bef59866dfcdbbaac5df4bce563e344bc70bcaa",
+      "bytes": 7447
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3188.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3199.json": {
+      "sha256": "1d7ef9d94f561661dd2b57a2a75194bfdadc9ca4e739f239c7bbdf80ee96b70f",
+      "bytes": 6070
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3199.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3210.json": {
+      "sha256": "bea4820cdc6cc301d3dfceb188a5d64fadb890bb33af515d9209d84e9ee27a0e",
+      "bytes": 6062
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3210.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3221.json": {
+      "sha256": "9023e957c9d3e1caf676aaac5f23601cf728eb6b3cdf100849ecd63feeb10d9c",
+      "bytes": 6084
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3221.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3232.json": {
+      "sha256": "3992fe51d9d608f2e7afe08e33695afa594a82051bf4fde38b193a5b7aef5aae",
+      "bytes": 6084
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3232.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3243.json": {
+      "sha256": "fc16f8208b8ef495a4c104def951d2d928753faa40574e0aac366d4ef7a3c9bc",
+      "bytes": 6136
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3243.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3254.json": {
+      "sha256": "c124e1bd1d8e151a082f3ac388f56f86c19d32f34b7971d912ba5eae6e8e6ab5",
+      "bytes": 6121
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3254.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3265.json": {
+      "sha256": "9b8d1877ac6da75f26413d0bdd056476e9eef2df20269545ee9102ed7b5f6561",
+      "bytes": 6043
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3265.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3276.json": {
+      "sha256": "cf44686310ed8f926b6cf8f213ed1ec75956a8edf440b24ddaacbd81b6ac64e9",
+      "bytes": 6131
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3276.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3287.json": {
+      "sha256": "fb53b6706dc98ead93a2ffb683a91ec7a4fa7e8ea5f6fe0fb218a392a35b8a6d",
+      "bytes": 7007
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3287.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/zenodo_json/FGDC-3288.json": {
+      "sha256": "5e2c24fcdc5281db8da5f50288708cc13be4cafbe1478adeaf5433bb55a3df48",
+      "bytes": 6116
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/after_snapshot/data/original_fgdc/FGDC-3288.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/classification.json": {
+      "sha256": "d37716b9c769aa66d71d8d7ad9dc4320ca8c056c51ab602d50d3231d22b9f496",
+      "bytes": 115096
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/measured_class_targets.json": {
+      "sha256": "a52b6851e9e2a48fb2fd687d3294f513751f33c76ddefcc73b0513474d401631",
+      "bytes": 397962
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2664.json": {
+      "sha256": "78d624d7fdcead662c2441b111052a253ad4f672e7921a6011d2ac76194a71e6",
+      "bytes": 6654
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2664.xml": {
+      "sha256": "993fb2c2ae8a94b5a7a3e55b6bd344ea57753a4ffee2e4de45baf1b322a448b3",
+      "bytes": 4379
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2837.json": {
+      "sha256": "fb12508683966191be6f68baaa25cc7192fd3be9b2aa7f156a284b4481c326ef",
+      "bytes": 6623
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2837.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2839.json": {
+      "sha256": "b1fb1a6458fa550a6582ed5e9bdae2300f0d5964081567a6835d83f911ec5662",
+      "bytes": 6119
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2839.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2850.json": {
+      "sha256": "c07c92f04a00d3f3a5393d2e88986fbbffc37b2fd43dc7c17bea8f2000403138",
+      "bytes": 6150
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2850.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2861.json": {
+      "sha256": "30798823a84c73df40014a2c959e88615ce636940ee4cd3f74fdebe4471ab216",
+      "bytes": 6148
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2861.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2872.json": {
+      "sha256": "3a800fa0d50f32ac98b43808e6fb64f076d9aa124251fc12f0d7d26d6e9e2b4a",
+      "bytes": 7858
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2872.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-288.json": {
+      "sha256": "50c693eef34b019ea83596fb33a0ac3c100ad5814d3bd1c2d258de5356a96602",
+      "bytes": 6633
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-288.xml": {
+      "sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff",
+      "bytes": 5767
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2883.json": {
+      "sha256": "b15f7e54d94599091fe064ab61c3450872a018c44fe85f906c8677653fd4eda0",
+      "bytes": 6148
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2883.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2894.json": {
+      "sha256": "028b094f4e3666f45b1885653d9b05195c42fcf96012bca8131ef87a37dd23b2",
+      "bytes": 7492
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2894.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2904.json": {
+      "sha256": "6a226a706398298c6d29c0b0f849e3ba0390cf078b2f4f87ca06856d5b66f379",
+      "bytes": 6108
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2904.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2915.json": {
+      "sha256": "18c0c739577d5671897d3ddba2a7b29d43c8773a23de7765cad69bfb18f92dcf",
+      "bytes": 6042
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2915.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2926.json": {
+      "sha256": "488314c331e56fbe947a1eab1efe65b3eb2547f77a39af3c2d57bc18bf28af0c",
+      "bytes": 6152
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2926.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2937.json": {
+      "sha256": "1a7c14efb17941b4807d0a235d36460d957567f0a919676c18d066b9c46a454d",
+      "bytes": 6135
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2937.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2948.json": {
+      "sha256": "f8f6e40b55cbe0326ded561de35e2cb759252826f4ee31e71b17e7d2bc4af6a3",
+      "bytes": 4649
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2948.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2949.json": {
+      "sha256": "8c92e2b5ab43e1d0dac0d4b6af66b0de8a9aaf431785c964c90249223d8bf3c9",
+      "bytes": 6150
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2949.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2953.json": {
+      "sha256": "025aef0f6799a7a498b5c6c44827f1b8e5aae77fc776ff730d2385ed1037e9f4",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2953.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2960.json": {
+      "sha256": "43f9b8e3460e8ad169a8f191efe44908eb3829ccbce644e3f1e2df8b35f42d28",
+      "bytes": 7447
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2960.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2971.json": {
+      "sha256": "650d8d9e32bbeb46f72e803db530c93839bdc4113218a5a64e36b782044e90c5",
+      "bytes": 6070
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2971.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2982.json": {
+      "sha256": "bd68defbba5ddf0908ab7757a418490258fc0651b7b439eeea21334e862e8e82",
+      "bytes": 6062
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2982.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-2993.json": {
+      "sha256": "7a6accace67f1130222329ea457925e9d32b523d14b572eb7d1733c87bc64fa1",
+      "bytes": 6084
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-2993.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3004.json": {
+      "sha256": "0ce115034d17bf970e6fd89b4cb3e26484c1c5d49f10204c2372d35d91da108a",
+      "bytes": 6084
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3004.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3015.json": {
+      "sha256": "ee9221f67e699ac8791cc1bb3e96b571cc22600fd187a232e2f80755798a4669",
+      "bytes": 6136
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3015.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3026.json": {
+      "sha256": "da0627fcdd4af5a5892e39511663a8cf4bab80384212fd32d775ef01fae93388",
+      "bytes": 6121
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3026.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3037.json": {
+      "sha256": "d3dde5fb8c5e126cf552d674abb563a09f9a3f634170ad906a9561f9079a5970",
+      "bytes": 6043
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3037.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3048.json": {
+      "sha256": "b371c6a09d155c9f1e66a7a55563f80a9a285174f5e3b19d05b642d49357d78b",
+      "bytes": 6131
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3048.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3059.json": {
+      "sha256": "af0aa28752d59f64f90e33d0df4a8f825abc1848f34c3b7a7223d62ea18e5cc6",
+      "bytes": 7007
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3059.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3060.json": {
+      "sha256": "e6fcc1f106e5a66b59229dca71f1701e03595479eb77b9f2823ea132d1857e6e",
+      "bytes": 6116
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3060.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3065.json": {
+      "sha256": "b5dac94659cf783befcdce124d69236be2262fd819241da409a871307476bf68",
+      "bytes": 6623
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3065.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3067.json": {
+      "sha256": "96687e6de5c1ddcf3f688c5572bc56e2e87312765f6d04f22694562b5d535adb",
+      "bytes": 6119
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3067.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3078.json": {
+      "sha256": "35c67e1594fe8d0e28a2d02a2a1c0184234935e90563a436743914bcfa486d1a",
+      "bytes": 6150
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3078.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3089.json": {
+      "sha256": "e8e986614b9b117f8d95ca9d809e85ce8942fd0fc9c45bedbff135be58aca63a",
+      "bytes": 6148
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3089.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3100.json": {
+      "sha256": "ae85883b240a01a44d20a62557754fcc36614374a37765dabac3fae3581ba3fe",
+      "bytes": 7858
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3100.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3111.json": {
+      "sha256": "0699e9d7c7680b4e02fbdb4796ec9d44e92278939285ba3ab453d0c747a3a36f",
+      "bytes": 6148
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3111.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3122.json": {
+      "sha256": "0d93b4c728a4a95f52849595c1091767df29e48ec49bc96088186ba47e4e1e15",
+      "bytes": 7492
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3122.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3132.json": {
+      "sha256": "955a5ad89d2e8c2bf2a95aff6715e54a5e0b56cc221f054589454f7208ebfc00",
+      "bytes": 6108
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3132.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3143.json": {
+      "sha256": "497c1d7739d987db507987c538dda4ee52960edaa78287d9e9113706f69b5912",
+      "bytes": 6042
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3143.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3154.json": {
+      "sha256": "c3b27b37ea1a66fc072207cb13b1bef581ac34ece3a28bca7d03e79c7e748dde",
+      "bytes": 6152
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3154.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3165.json": {
+      "sha256": "10fbb204e5f31c2dfc728895e173ba663a7013707a56affe97830a55353fc21c",
+      "bytes": 6135
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3165.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3176.json": {
+      "sha256": "b049cc8abaa2d9ccb99e48f15f4b122b46b7c3db204b05bc83ebf97970720146",
+      "bytes": 4649
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3176.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3177.json": {
+      "sha256": "e1362159a009ff8eaf5a3166a0b12bdc11e2f66f8e9bb9866834fa7fab21acbf",
+      "bytes": 6150
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3177.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3181.json": {
+      "sha256": "2f248bd2cc72953ca19a845781581ca0d3cbe1284e48c31f4c676ad94b5a4732",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3181.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3188.json": {
+      "sha256": "6c1f6993c67cbfb6ac4f1aa04bef59866dfcdbbaac5df4bce563e344bc70bcaa",
+      "bytes": 7447
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3188.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3199.json": {
+      "sha256": "1d7ef9d94f561661dd2b57a2a75194bfdadc9ca4e739f239c7bbdf80ee96b70f",
+      "bytes": 6070
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3199.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3210.json": {
+      "sha256": "bea4820cdc6cc301d3dfceb188a5d64fadb890bb33af515d9209d84e9ee27a0e",
+      "bytes": 6062
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3210.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3221.json": {
+      "sha256": "9023e957c9d3e1caf676aaac5f23601cf728eb6b3cdf100849ecd63feeb10d9c",
+      "bytes": 6084
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3221.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3232.json": {
+      "sha256": "3992fe51d9d608f2e7afe08e33695afa594a82051bf4fde38b193a5b7aef5aae",
+      "bytes": 6084
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3232.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3243.json": {
+      "sha256": "fc16f8208b8ef495a4c104def951d2d928753faa40574e0aac366d4ef7a3c9bc",
+      "bytes": 6136
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3243.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3254.json": {
+      "sha256": "c124e1bd1d8e151a082f3ac388f56f86c19d32f34b7971d912ba5eae6e8e6ab5",
+      "bytes": 6121
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3254.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3265.json": {
+      "sha256": "9b8d1877ac6da75f26413d0bdd056476e9eef2df20269545ee9102ed7b5f6561",
+      "bytes": 6043
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3265.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3276.json": {
+      "sha256": "cf44686310ed8f926b6cf8f213ed1ec75956a8edf440b24ddaacbd81b6ac64e9",
+      "bytes": 6131
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3276.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3287.json": {
+      "sha256": "fb53b6706dc98ead93a2ffb683a91ec7a4fa7e8ea5f6fe0fb218a392a35b8a6d",
+      "bytes": 7007
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3287.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/zenodo_json/FGDC-3288.json": {
+      "sha256": "5e2c24fcdc5281db8da5f50288708cc13be4cafbe1478adeaf5433bb55a3df48",
+      "bytes": 6116
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/repeat_snapshot/data/original_fgdc/FGDC-3288.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/classification.json": {
+      "sha256": "8695ddef5d56257550192325b06ad15c6c159eb56cbfdc350fc0afed6fe4de6c",
+      "bytes": 115646
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/measured_class_targets.json": {
+      "sha256": "c1924434a7636e673367369a23885251e941e761a29d52a58fdb0741a3f87727",
+      "bytes": 397698
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2664.json": {
+      "sha256": "01b578522ecd321001d7c540955af14ef9525cfe00ebc3b9d073d2c653d6156b",
+      "bytes": 4960
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2664.xml": {
+      "sha256": "993fb2c2ae8a94b5a7a3e55b6bd344ea57753a4ffee2e4de45baf1b322a448b3",
+      "bytes": 4379
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2837.json": {
+      "sha256": "04fae52a9eb19d8e454d215a1cb2bbc2cb1e4908990709a8a8f181c41261c856",
+      "bytes": 4980
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2837.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2839.json": {
+      "sha256": "70555e7090c24b22c82a159c685083e067aaa9b8eec934af52c4b3a32e66db8d",
+      "bytes": 5847
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2839.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2850.json": {
+      "sha256": "ffeaffa3dd7e7eae4cb239566b0b26b0b61afeafd53b15daf85f15db51545af3",
+      "bytes": 5878
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2850.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2861.json": {
+      "sha256": "356ffb7be95390b353813fd3031b391885bc2a5dbb631849fda8345238a04baa",
+      "bytes": 5876
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2861.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2872.json": {
+      "sha256": "acaec1b56ac46f035cb6ac79ba44a29d0203665ef6a35ed0f97cfc966a6a8d10",
+      "bytes": 6004
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2872.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-288.json": {
+      "sha256": "50c693eef34b019ea83596fb33a0ac3c100ad5814d3bd1c2d258de5356a96602",
+      "bytes": 6633
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-288.xml": {
+      "sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff",
+      "bytes": 5767
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2883.json": {
+      "sha256": "21dda272062fe73409dd7864f26e33e19d6023908c1360b7cc45a2bc170d8ea7",
+      "bytes": 5876
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2883.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2894.json": {
+      "sha256": "e333a2966572270f96a48ed98b06d8a3ba4f591e01f3a9fca7e758c50b97d203",
+      "bytes": 5922
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2894.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2904.json": {
+      "sha256": "595e0c9e5493540d2bd49a24d53400136495a15a8ea7129c317288d793607a5f",
+      "bytes": 5836
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2904.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2915.json": {
+      "sha256": "a52f343355dd8dc87e783059eb5014b07c73070da43b75ff6ea4481e6a5487a5",
+      "bytes": 5770
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2915.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2926.json": {
+      "sha256": "d8eb856af973712576b8d448279f857151835682ee923e5cd8359edfe3b25dde",
+      "bytes": 5880
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2926.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2937.json": {
+      "sha256": "10497126f836cfd1cbe776096a66010ac539989e89d127d64483b69b9251ffb5",
+      "bytes": 5863
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2937.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2948.json": {
+      "sha256": "86e31ad3c96c866c93967735708169276f89dcdca2bd23168247cd2e4d1d0213",
+      "bytes": 4377
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2948.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2949.json": {
+      "sha256": "ddc1affdcdea6c7aad83e6e99ed3d608ffcabd50a16e904d05e5d02bd5c743bf",
+      "bytes": 5878
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2949.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2953.json": {
+      "sha256": "025aef0f6799a7a498b5c6c44827f1b8e5aae77fc776ff730d2385ed1037e9f4",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2953.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2960.json": {
+      "sha256": "37dd752a0f9d702713b4be38a1926481aff45c9ce1906a1889e93c206a9642d2",
+      "bytes": 5898
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2960.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2971.json": {
+      "sha256": "2ae3cdc39b6ebdcdbecd7627ae9d2063f56646dc56f22dcc9cb49b020a3cee7e",
+      "bytes": 5798
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2971.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2982.json": {
+      "sha256": "4ab09215269df8be670c52b128aae96dcac2c8b511e3cba4b9d102511517652c",
+      "bytes": 5790
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2982.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-2993.json": {
+      "sha256": "c16d338398649742aa538333f1cf7d73df7ca4638732f5b71e13fc6295c588eb",
+      "bytes": 5812
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-2993.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3004.json": {
+      "sha256": "54b330fb4a0ddb88c3ec8db3ebafc2a603b11894f707fde696d83fee8c4f6fe4",
+      "bytes": 5812
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3004.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3015.json": {
+      "sha256": "896fe31716c32a51a66fbdd206e17ec23144ebaebd27d27ffe239ba736d18088",
+      "bytes": 5864
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3015.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3026.json": {
+      "sha256": "e564f6d21f4a7ce937a3d496fe77441ea4801ca012b74c04583a82675d60c68d",
+      "bytes": 5849
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3026.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3037.json": {
+      "sha256": "66aa8f242455567469b69bff4e53b8a1b733e282b08761e2274a7906a5ae4270",
+      "bytes": 5771
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3037.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3048.json": {
+      "sha256": "bc4eeae0e1283bfe90b501a45f0aff000705b36ba1e3d1a66e8f3e391011eb9c",
+      "bytes": 5859
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3048.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3059.json": {
+      "sha256": "5bf94bd45689aa981f17fdd43bc606e25fcc99bd15889e11c1e123c5f55f8483",
+      "bytes": 6735
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3059.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3060.json": {
+      "sha256": "73f2b293d6db34981683898133529189e7c0b90c21c15ac0a7473606540c1123",
+      "bytes": 5844
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3060.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3065.json": {
+      "sha256": "ba9abd291f5e06cba11095dcab3e59dd3edc8c3514118f65edd6e93d9104afd2",
+      "bytes": 4980
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3065.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3067.json": {
+      "sha256": "b22a084fb17dddaae8e58b00340570b51f0f18829daf9e5547769d8925758b5b",
+      "bytes": 5847
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3067.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3078.json": {
+      "sha256": "9c3ad5ca3a8c602a3b391521c9de48cf520407c4d89f8bfd1777cd41450a743f",
+      "bytes": 5878
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3078.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3089.json": {
+      "sha256": "76f7c098912a37622ee88e81f596942fc0896c2435754bccbce483d99a9588c3",
+      "bytes": 5876
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3089.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3100.json": {
+      "sha256": "ea49b370b140858e4bc7dcda6a1be8f92eae6dd076f08336705e219106c85841",
+      "bytes": 6004
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3100.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3111.json": {
+      "sha256": "cace00106c1b5e742c888b22e254ee469287c2bea0208dc1e92fbd07e209756e",
+      "bytes": 5876
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3111.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3122.json": {
+      "sha256": "1a5e441b34a98e6012d19ee6feea3a7ff87b3af4e6aea4ac23a373c56af210f3",
+      "bytes": 5922
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3122.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3132.json": {
+      "sha256": "b84644edfa6b51ac7f5b7314f560a17c34fefa4952699f0fa727f057e23df3ea",
+      "bytes": 5836
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3132.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3143.json": {
+      "sha256": "5bfcfd1b883c78c475de83116f75e10163435e8699031b2f8d59f7c85f6f9a69",
+      "bytes": 5770
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3143.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3154.json": {
+      "sha256": "c1cd279f7e287fe5925b6af84ce2236cc565550ea110449c502c98739f0321d3",
+      "bytes": 5880
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3154.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3165.json": {
+      "sha256": "e95213c1ef7b5486e720b41ebdaf082f4beb8c1caffdea72eab499be61db3180",
+      "bytes": 5863
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3165.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3176.json": {
+      "sha256": "a57bf8e8229a79511dd06a4e013111b3f7342e471653eb567e16327282b3c414",
+      "bytes": 4377
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3176.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3177.json": {
+      "sha256": "a7b016e93972cf974482efe6676766303b0f33fc3a33a8939797a4143a373285",
+      "bytes": 5878
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3177.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3181.json": {
+      "sha256": "2f248bd2cc72953ca19a845781581ca0d3cbe1284e48c31f4c676ad94b5a4732",
+      "bytes": 7721
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3181.xml": {
+      "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "bytes": 5952
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3188.json": {
+      "sha256": "7a8212f935610e0162d13a33022ebe64374d10fbe446a81d62655cec999ebe07",
+      "bytes": 5898
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3188.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3199.json": {
+      "sha256": "ef2b040249dd595e8d9508ea9d889ae2f28b60f0db16a001f3d2af9672ccd2a1",
+      "bytes": 5798
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3199.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3210.json": {
+      "sha256": "4efc9f56cf49273e44e4889b6cc19efab4f6139af05ff2301d654c9e93590f71",
+      "bytes": 5790
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3210.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3221.json": {
+      "sha256": "e8671a296b6fa41f574f6cbd370ec942dde428894350a5425c590923515d8d72",
+      "bytes": 5812
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3221.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3232.json": {
+      "sha256": "38a234e5df759bac4ae1cc277c5eb2c79ab99ffa81f98919646ac425e2ecb67b",
+      "bytes": 5812
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3232.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3243.json": {
+      "sha256": "2bfbe49554456ba531e7ff9479871b58a836a5b6e2230eedbcde26d289a2e0d5",
+      "bytes": 5864
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3243.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3254.json": {
+      "sha256": "9efe7f31c2e0cd22785bfa567e18a7d68e58970282f2dc37f97a3b52baab5a10",
+      "bytes": 5849
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3254.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3265.json": {
+      "sha256": "49fd11ba9bcf2a7997d572b688dbf09f9b6e7c55763421e7e5a5da3309df5d9e",
+      "bytes": 5771
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3265.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3276.json": {
+      "sha256": "3454f80f2a8c91ad0c08d2f556d481894a99562bf46ac44b902247f1f5f98f56",
+      "bytes": 5859
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3276.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3287.json": {
+      "sha256": "eb4cde96f4e278974dd499d63e07f455a80dd94816a95d23cdacd3b5cf40b92e",
+      "bytes": 6735
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3287.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/zenodo_json/FGDC-3288.json": {
+      "sha256": "2f4122b5e108d1480a1cbceec3fd6668c217c7b99d7fd30e71482a8237e53308",
+      "bytes": 5844
+    },
+    "/tmp/pices-residual-target-measured-v1/all_candidates/withdrawn_snapshot/data/original_fgdc/FGDC-3288.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8.json": {
+      "sha256": "17cc36c78e5cef1dcdf6063b8d39ddb0c927191ac7b26ee76e505edfe1aebe4a",
+      "bytes": 15346
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2949.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3177.xml": {
+      "sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "bytes": 4995
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab.json": {
+      "sha256": "fe2ad48c9436b277cbc6d78100f08a729f1ab85845acb5a75be7007c2483e985",
+      "bytes": 15328
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3015.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3243.xml": {
+      "sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "bytes": 4991
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd.json": {
+      "sha256": "d934c3b3abe9fc4855c79b3a0dfb88b5a0063d25de35578ab6b608639765fde2",
+      "bytes": 15174
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2982.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3210.xml": {
+      "sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "bytes": 4911
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec.json": {
+      "sha256": "408fba76e63b8ca579584878a8356967e416ad615889baf696216c720a4e00b7",
+      "bytes": 15318
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2937.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3165.xml": {
+      "sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "bytes": 4982
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914.json": {
+      "sha256": "4469e24731a2dcc55199d96fe7a8afe8237b0db9653cd033ea26bf260a2cfe67",
+      "bytes": 15131
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2915.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3143.xml": {
+      "sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "bytes": 4888
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002.json": {
+      "sha256": "6555c27d2a6293009ad7197354ea690bea1ffd5c8fc053e13747c69cd0ce8e44",
+      "bytes": 15373
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2861.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3089.xml": {
+      "sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "bytes": 5024
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9.json": {
+      "sha256": "073926e7a77718b73840a5828eea77563a791a84b32fdc05090e2e38e3f1b83f",
+      "bytes": 15280
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3060.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3288.xml": {
+      "sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "bytes": 4963
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c.json": {
+      "sha256": "47818ab13f6f84adf75dc51178df3d9720ddba773521939b80690e27db158ef7",
+      "bytes": 15290
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3026.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3254.xml": {
+      "sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "bytes": 4968
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f.json": {
+      "sha256": "2d53e66c3b51e1128c3db181a65ed24b0190f51ce4689607eced273fe0d08479",
+      "bytes": 15965
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3059.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3287.xml": {
+      "sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "bytes": 4676
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a.json": {
+      "sha256": "8790eebfeadf00038bd27bf8e03dff0ee03d50164fd61cd2e85b5d68492d940c",
+      "bytes": 15267
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2904.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3132.xml": {
+      "sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "bytes": 4958
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237.json": {
+      "sha256": "0944acfc5e20fac8ed86d2a54c36b74b6509ca5d52cc8896ad9c169d60822490",
+      "bytes": 14799
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2837.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3065.xml": {
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "bytes": 4153
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b.json": {
+      "sha256": "e731d2a5de6a703cc4edb72648203cef7129c4f98fc3d6150b6d178010f0ad22",
+      "bytes": 15178
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3037.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3265.xml": {
+      "sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "bytes": 4934
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f.json": {
+      "sha256": "4731065bcb6b2c403bdd6215639e0c5612aa3bdde3943513c9b209c884f12560",
+      "bytes": 16503
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2894.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3122.xml": {
+      "sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "bytes": 5071
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a.json": {
+      "sha256": "f757fdee4b97e449f12d8f7a319e92e0cff1fdb26f191b5126eed1ce97817597",
+      "bytes": 15217
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2993.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3221.xml": {
+      "sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "bytes": 4932
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44.json": {
+      "sha256": "844278226933ad5c9fac939a4d983842bb419331ecb617e6e00a921c4e2b92b1",
+      "bytes": 16432
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2960.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3188.xml": {
+      "sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "bytes": 5045
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615.json": {
+      "sha256": "658c93b23c5958e6df380d19bdaa4ebe6f8a9fda27929f024bd08ac8e300c133",
+      "bytes": 13012
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2948.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3176.xml": {
+      "sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "bytes": 4118
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3.json": {
+      "sha256": "e5d9535fc7093a1c1bf305839461d5cce09837f12ab6c0e30cc51feee66b2f61",
+      "bytes": 15380
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2850.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3078.xml": {
+      "sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "bytes": 5029
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae.json": {
+      "sha256": "66969145813ba1ffc702c128beb78f9c545b19ef34b1a31e4901e729346a55d6",
+      "bytes": 15290
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2839.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3067.xml": {
+      "sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "bytes": 4970
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0.json": {
+      "sha256": "1ff44f8944815292d2b14b91ec8d6df7e2186f44bdee8576cc9d76e40087cbee",
+      "bytes": 15355
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2926.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3154.xml": {
+      "sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "bytes": 5002
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac.json": {
+      "sha256": "c12931ba970b8381b86643d7709f9da369a5c73ccadabc101d464247b019feb9",
+      "bytes": 15343
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2883.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3111.xml": {
+      "sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "bytes": 4994
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b.json": {
+      "sha256": "5417abea5dc62db91ac2b37adcf38a97918107b07c8e507ea190c1fd3a3aad39",
+      "bytes": 16961
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2872.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3100.xml": {
+      "sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "bytes": 5163
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368.json": {
+      "sha256": "585c326c1ac2277c2d71d923801b15d41351b9d999784c312b7f52685cd3130e",
+      "bytes": 15216
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3004.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3232.xml": {
+      "sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "bytes": 4931
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78.json": {
+      "sha256": "193e806f91ac0134567593014d82cd8eb23aed3baad18c5466c63f918b84f091",
+      "bytes": 15188
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-2971.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3199.xml": {
+      "sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "bytes": 4917
+    },
+    "/tmp/pices-residual-target-measured-v1/class_payloads/XMLCLASS-fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833.json": {
+      "sha256": "51d04955e043811a26975953fe3db1990c7f1f1d23aaae9158fc3b763caad8c1",
+      "bytes": 15309
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3048.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/tmp/pices-residual-target-measured-v1/originals/FGDC-3276.xml": {
+      "sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "bytes": 4977
+    },
+    "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/alias228_record_targets.json": {
+      "sha256": "fd9bcba857c5d9816f44bbca0ac4c826c10527f64a7e6330468ee2fe814981d4",
+      "bytes": 1310909
+    }
+  },
+  "audit_script_sha256": "61706dfc6c66c5590b0b28d24472f30abf556eb0440566f38f956597d448a0a9",
+  "reviewer_provider_requests": 0,
+  "reviewer_private_reads": 0,
+  "reviewer_repo_edits": 0,
+  "reviewer_classification_runs": 0,
+  "reviewer_test_runs": 0,
+  "limits": [
+    "No provider state was queried. Guard zero-event claims are checked against the saved measurement receipt; not independently rerun.",
+    "This review covers current saved measurement and inputs. Final documentation and exact published-head review remain separate."
+  ]
+}

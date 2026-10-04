@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "kind": "PARENT_RELAYED_CURRENT_OWNER_INVENTORY_SUMMARY",
+  "evidence_scope": "Attributed parent message; underlying response ledger was not supplied to or independently audited by this integration lane.",
+  "parent_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+  "reader_task_id": "01a10232-63b4-71e5-b20c-65784d3de039",
+  "completed_reader_turn_id": "01a10895-28bb-74f7-9c8e-75b875d471c8",
+  "capture_started_at": "2026-10-04T20:27:57Z",
+  "capture_completed_at": "2026-10-04T20:29:24Z",
+  "reported_get_count": 42,
+  "reported_all_http_status": 200,
+  "reported_owner_id": 266679,
+  "reported_owned_depositions": 20,
+  "reported_owned_concepts": 20,
+  "reported_published": 19,
+  "reported_drafts": 1,
+  "reported_file_descriptors": 24,
+  "reported_published_version_history": {
+    "concept_count": 19,
+    "versions_per_concept": 1,
+    "next_page_present": false
+  },
+  "reported_inventory_pagination": {
+    "page1_count": 20,
+    "page2_count": 0,
+    "repeated_page1_consistent": true,
+    "page1_byte_identical_to_october3": true,
+    "page1_sha256": "77b4792e26b4f1144b23da197e539e05611a887d0c965a4fe908b7d567c8cc50"
+  },
+  "reported_exact_pair_candidates": {
+    "pair_population": 228,
+    "owned_objects_compared": 20,
+    "candidate_count": 0,
+    "signals": [
+      "literal source ID",
+      "XML hash",
+      "exact filename",
+      "provider MD5 plus size"
+    ]
+  },
+  "unresolved_title_hints": [
+    {
+      "source_ids": [
+        "FGDC-2920",
+        "FGDC-3148"
+      ],
+      "record_id": "17317851",
+      "identity_proof": false
+    },
+    {
+      "source_ids": [
+        "FGDC-3027",
+        "FGDC-3255"
+      ],
+      "record_id": "17317851",
+      "identity_proof": false
+    }
+  ],
+  "reported_unchanged_existing_associations": [
+    {
+      "source_id": "FGDC-1238",
+      "record_id": "17317855"
+    },
+    {
+      "source_id": "FGDC-2043",
+      "record_id": "17317851"
+    },
+    {
+      "source_id": "FGDC-2057",
+      "record_id": "17317859"
+    },
+    {
+      "source_id": "FGDC-2725",
+      "record_id": "17317857"
+    },
+    {
+      "source_id": "FGDC-2731",
+      "record_id": "17317853"
+    }
+  ],
+  "reported_association_preservation": [
+    "DOIs",
+    "metadata blobs",
+    "placeholder files"
+  ],
+  "excluded_from_fgdc_restoration": [
+    {
+      "record_id": "10042430",
+      "kind": "poster"
+    },
+    {
+      "record_id": "15046283",
+      "kind": "programme"
+    }
+  ],
+  "coverage_limit": "Complete current-owner coverage as reported; does not establish deleted/tombstone historical absence or resolve title hints.",
+  "runtime_registry_or_class_guards_changed": false,
+  "integration_lane_provider_requests": 0,
+  "reported_reader_mutations": 0,
+  "next_evidence_owner": "Parent and authorized reader retain the full capture. Preserve and review its durable ledger before provider identity adoption or release; do not repeat completed requests from this code lane."
+}

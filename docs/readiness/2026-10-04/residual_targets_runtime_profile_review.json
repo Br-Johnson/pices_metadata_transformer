@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "reviewer": "Codex /root/astra_transport_boundary",
+  "reviewed_at": "2026-10-04T20:30:22.843394+00:00",
+  "status": "NO_MATERIAL_FINDINGS_IN_CURRENT_RUNTIME_PROFILES_AND_TEST_CONTRACTS_ACTUAL_MEASUREMENT_PENDING",
+  "base_main": "9bac0ace68c83a2082168f022315c05a1192210b",
+  "scope": "Read-only premeasurement review of three runtime modules, exact655/426/42 profiles, and six new test methods; source49 members cover24 paired targets plus one singleton. No operational alias release authority.",
+  "material_findings": [],
+  "reviewed_files": [
+    {
+      "path": "/workspace/pices-residual-targets-20261004/scripts/citation_creator_interpretation.py",
+      "sha256": "ddc66396d31c4b0c7f17a11e5054e4d1222459c1d392ce70b1663b5e1ea4c7e3",
+      "bytes": 7746
+    },
+    {
+      "path": "/workspace/pices-residual-targets-20261004/scripts/dataset_access_interpretation.py",
+      "sha256": "fc1bc57823072928f7e392a9eda49f32d2b402917da42aa5b9789c8768421e7b",
+      "bytes": 9907
+    },
+    {
+      "path": "/workspace/pices-residual-targets-20261004/scripts/source_title_interpretation.py",
+      "sha256": "c8a798bca2475995934827814949e91956c741f1dfb9f29bb4a3c4006a2fe93b",
+      "bytes": 4349
+    },
+    {
+      "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/finite_source_resource_access_655.json",
+      "sha256": "8aec41a5c27176c284bc0249c2619d1caa61ac1c245e986a3ba15201edfdee34",
+      "bytes": 2080695
+    },
+    {
+      "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2",
+      "bytes": 877461
+    },
+    {
+      "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/source_display_titles_42.json",
+      "sha256": "846e8787ae141a30993611d650af84420c769347cccec155a9686736c4df5e4a",
+      "bytes": 237462
+    },
+    {
+      "path": "/workspace/pices-residual-targets-20261004/tests/test_residual_target_corrections.py",
+      "sha256": "a858d4e644b325b651723ccaeaee2a1cff36b5dbf43c1a353610301471f27c26",
+      "bytes": 31191
+    }
+  ],
+  "independent_source_reviews": [
+    {
+      "path": "/tmp/pices-pair4-editorial-creator-independent-source-review.json",
+      "sha256": "df9cb1170c25f335ecb828102e250d65843b0d4af2cd275f257a268bec1d6600",
+      "bytes": 155553
+    },
+    {
+      "path": "/tmp/pices-alias20-resource-independent-review.json",
+      "sha256": "cbb72aee48369df5b80120f8c4474d370738ac43db11e7094f477d1842c5e478",
+      "bytes": 52770
+    },
+    {
+      "path": "/tmp/pices-alias4-access-independent-review.json",
+      "sha256": "8e0358f4e3d2660f2d8ee21ff4fdbdbb78d3fbf01216efdf37d9de7b5e48f56a",
+      "bytes": 15716
+    },
+    {
+      "path": "/tmp/pices-creator2664-independent-source-review.json",
+      "sha256": "dc002c57cc5e01a0674645894bc7e17130af7cc312ea3c73c734cccde174513b",
+      "bytes": 67218
+    }
+  ],
+  "verified_profile_invariants": {
+    "access655": "All607 prior member objects, acquisition and original source contexts, prior review objects/times, and other prior fields retained exactly except the named profile/predecessor/count updates. Exactly40 original packet plus8 supplement member/context objects appended. Separate review contains exact48 additions; first five original statement rows retained verbatim, four additional proposal/review files live-pinned. All9 evidence files match their SHA256s.",
+    "creator426": "All247 previous cohort objects representing423 members and their old evidence preserved exactly. Two approved cohorts append2837/3065 and2664 only. Removing newly installed external_evidence_references produces the approved proposed cohort objects exactly. All four new local evidence pins match disk. Exactly426 unique IDs.",
+    "title42": "All36 previous member objects preserved exactly. Exactlysix source-approved proposed members appended, each extended only by the already independently reviewed full original root object. Before/after metadata hashes and preservation notes match source proposals; both proposal/review hashes match disk."
+  },
+  "runtime_assessment": [
+    "Creator change is one new reviewed SHA and inclusion in all three existing dispatch tuples. Existing complete primary-origin/supplemental-root comparisons, exact creator objects, note preservation, and live evidence-file hashing still apply. All previous pins remain accepted.",
+    "Access change adds one exact reviewed SHA and one review block. The block preserves original restoration meaning and requires all five original statement files plus four new source/review files at their pinned hashes. Original separate rehosting authority/restricted unlicensed policy and aware post-review timing checks remain.",
+    "Title change adds one exact SHA, six finite withdrawal IDs, and optional complete-root comparison. The new six members require that root; earlier36 members and older profile paths retain compatibility. Whole-metadata before/after fingerprint enforcement remains unchanged.",
+    "No class-operation/provider/release/adoption route is changed. All finite alias operation holds remain in place."
+  ],
+  "test_contract_review": {
+    "method_count": 6,
+    "executed_by_this_reviewer": false,
+    "coverage": [
+      "All48 paired access members, all3 creator additions, all6 title additions, old objects, exact membership, both originals, and complete roots are asserted.",
+      "Malformed/missing or rehashed profile, source/context changes, wrongID/hash, awareness/review-time bounds, and all9 live access evidence files fail closed.",
+      "Same-output before/after/repeat/access-only-withdrawal/editorial-only-withdrawal/full-withdrawal phases distinguish the overlap gates. Raw metadata checks cover creator+notes, title+notes, and access no-op.",
+      "Each chosen pair member is independently faulted; saved class contracts fail, and one-member policy withdrawal yields exactly that member held. Separate restoration and restricted license checks are exercised.",
+      "Both human QA schemas, singleton guard and upload service remain blocked for semantically supported alias members without any client calls or ledger writes; forged target upload flag is rejected.",
+      "2664 current before/after/repeat/withdrawal requires the literal credit and exact notes delta only; complete other metadata, original bytes and policy rollback are asserted."
+    ]
+  },
+  "limits": [
+    "This is source/runtime/profile/test-source review before actual measurement and CI; it does not assert measured promotions or an actual afterimage.",
+    "The independent static measurement-helper review is owned by /root/astra_canary_root_cause and is not duplicated here.",
+    "Final saved-output/ledger/doc review and exact frozen head/tree/file binding remain pending."
+  ],
+  "provider_requests": 0,
+  "private_reads": 0,
+  "repo_edits": 0,
+  "classification_runs": 0,
+  "tests_run": 0
+}

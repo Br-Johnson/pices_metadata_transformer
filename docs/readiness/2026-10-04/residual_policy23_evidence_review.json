@@ -1,0 +1,1163 @@
+{
+  "schema_version": 1,
+  "status": "BOUNDED_SOURCE_HISTORY_LEADS_NO_PROMOTION",
+  "reviewed_at": "2026-10-04T20:20:02.417414+00:00",
+  "repository": "/workspace/pices-residual-targets-20261004",
+  "reviewed_commit": "9bac0ace68c83a2082168f022315c05a1192210b",
+  "scope": "Exact 19 nonalias incorporated-policy cases plus metadata-product 1318/1994, sensitive 909 and password 4063. No alias-access lane, other creator/date/malformed lane or whole corpus review.",
+  "inputs": {
+    "current_committed_inventory": {
+      "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/creator8_remaining_holds.json",
+      "sha256": "89c41ab22c3d948d8a93cc17b8cfe1203374a161e0e63055072fed9c68b8b2c7"
+    },
+    "committed_prior19": {
+      "path": "/workspace/pices-residual-targets-20261004/docs/readiness/2026-10-04/incorporated_policy19_research.json",
+      "sha256": "ae36156370ee520de42f154551712a2a929c4ef6b21ed2eb0b66bef31916cd14"
+    },
+    "prior19_research": {
+      "path": "/tmp/pices-incorporated-policy19-research.json",
+      "sha256": "ae36156370ee520de42f154551712a2a929c4ef6b21ed2eb0b66bef31916cd14"
+    },
+    "prior8_research": {
+      "path": "/tmp/pices-alaska8-incorporated-policy-research.json",
+      "sha256": "01d9e50d2feff29221b1a9a91ac1b42f9007975244aa2bda0b5c0c027ee038b4"
+    }
+  },
+  "member_count": 23,
+  "members": [
+    {
+      "source_id": "FGDC-227",
+      "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220"
+    },
+    {
+      "source_id": "FGDC-288",
+      "source_sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff"
+    },
+    {
+      "source_id": "FGDC-572",
+      "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a"
+    },
+    {
+      "source_id": "FGDC-648",
+      "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01"
+    },
+    {
+      "source_id": "FGDC-710",
+      "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a"
+    },
+    {
+      "source_id": "FGDC-711",
+      "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d"
+    },
+    {
+      "source_id": "FGDC-758",
+      "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212"
+    },
+    {
+      "source_id": "FGDC-759",
+      "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9"
+    },
+    {
+      "source_id": "FGDC-761",
+      "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf"
+    },
+    {
+      "source_id": "FGDC-766",
+      "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5"
+    },
+    {
+      "source_id": "FGDC-802",
+      "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61"
+    },
+    {
+      "source_id": "FGDC-862",
+      "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec"
+    },
+    {
+      "source_id": "FGDC-870",
+      "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f"
+    },
+    {
+      "source_id": "FGDC-909",
+      "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae"
+    },
+    {
+      "source_id": "FGDC-1318",
+      "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b"
+    },
+    {
+      "source_id": "FGDC-1770",
+      "source_sha256": "d9a3ebc23ac26962bccd4827e4a79fd74bcd5f01105255155ea24b37dc02835d"
+    },
+    {
+      "source_id": "FGDC-1771",
+      "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d"
+    },
+    {
+      "source_id": "FGDC-1864",
+      "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070"
+    },
+    {
+      "source_id": "FGDC-1994",
+      "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb"
+    },
+    {
+      "source_id": "FGDC-3687",
+      "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b"
+    },
+    {
+      "source_id": "FGDC-4027",
+      "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92"
+    },
+    {
+      "source_id": "FGDC-4039",
+      "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd"
+    },
+    {
+      "source_id": "FGDC-4063",
+      "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076"
+    }
+  ],
+  "membership_canonical_sha256": "09367d0a43360a4e771672c3372385fcdaf61c7e34d1870509f149f6bbd60807",
+  "new_primary_leads": [
+    {
+      "id": "NPS-18KM-MODEL-PAGE",
+      "source_ids": [
+        "FGDC-909"
+      ],
+      "url": "https://www.oc.nps.edu/sbi/amodel.htm",
+      "primary_source": true,
+      "retrieval_level": "opened primary HTML page; no original remote bytes saved",
+      "locator": "The Model; official Navy notice; peer-review/discussion notice; Last revised footer",
+      "date_evidence": "The currently served page internally states Last revised 01.29.2003; this is not independently verified historical capture evidence.",
+      "establishes": "The page describes the same 18-km/30-level POP/Hibler model, regional domain, 1994-98 forcing and spinup sequence found in the first part of909. Its official Navy footer explicitly makes its material available for peer review and discussion.",
+      "does_not_establish": "It does not identify the XML sensitivity rule or cover the complete second 9-km description, including1994-2002 operational forcing. Peer-review availability of this page is not an XML reuse license or a release of all model outputs.",
+      "inference": "A concrete counterpart for the 18-km description; narrows the remaining source-content comparison, with no generic metadata exception."
+    },
+    {
+      "id": "NPS-9KM-2002-PAPER",
+      "source_ids": [
+        "FGDC-909"
+      ],
+      "url": "https://www.oc.nps.edu/sbi/CirculationOfTheBalticSea.pdf",
+      "primary_source": true,
+      "retrieval_level": "opened primary PDF, seven pages; no original remote bytes saved",
+      "locator": "Printed pp319-320, title/date and Model description",
+      "date_evidence": "Document header: Helsinki 23 December 2002; authors Wieslaw Maslowski and Waldemar Walczowski.",
+      "establishes": "The NPS-hosted paper describes a 9-km, 45-level rotated grid, POP/Hibler model, ECMWF forcing variables and 2.5-km IBCAO bathymetry. These are specific counterparts to details in 909 before its 20030213 metadata date.",
+      "does_not_establish": "Its forcing description uses 1979-1993 reanalysis;909 additionally names 1994-2002 operational products. The paper does not resolve the recorded sensitivity condition or constitute a license for the XML.",
+      "inference": "Configuration overlap is corroborated, while version/forcing differences remain explicit; no declassification or author approval inferred."
+    },
+    {
+      "id": "EVOSTC-2003-NEARSHORE-METADATABASE",
+      "source_ids": [
+        "FGDC-1994"
+      ],
+      "url": "https://evostc.state.ak.us/media/2167/2004-040687-final.pdf",
+      "primary_source": true,
+      "retrieval_level": "indexed primary PDF excerpts only; open failed; one credential-free direct GET returned403, with no retry",
+      "locator": "Title page; Study History; printed p57 literature-review/product description",
+      "date_evidence": "Indexed title page identifies James Bodkin, Thomas A. Dean, December 2003 and GEM Project 040687.",
+      "establishes": "The report describes a public-literature reference compilation, excluding study results/raw unreported data. It identifies Excel GEM Nearshore Metadata Set, ProCite bibliography and ArcView Near GEM themes, with spatial/temporal/method fields. This independently corroborates the three-format metadata product named in 1994.",
+      "does_not_establish": "The served report labels 040687; the XML names G-030687. No CD/database bytes, ProCite 22 entry or complete original appendix were obtained. Neither equivalence of versions nor the exact relationship of this FGDC description to that product is established.",
+      "inference": "The underlying acquired resource is concretely a metadata/reference product, so the remaining question is record/product provenance and coverage, not the already settled meaning of Contact Source."
+    },
+    {
+      "id": "SEBSCC-1998-FEDERAL-REGISTER",
+      "source_ids": [
+        "FGDC-288"
+      ],
+      "url": "https://www.govinfo.gov/content/pkg/FR-1998-10-09/pdf/FR-1998-10-09.pdf",
+      "primary_source": true,
+      "retrieval_level": "indexed primary Federal Register excerpt; no complete notice bytes saved",
+      "locator": "Federal Register63, no196, 9 October 1998, printed p54449, SEBSCC proposal Statement of Work",
+      "date_evidence": "Official issue date1998-10-09, before the source metadata date19990831.",
+      "establishes": "The notice identifies the historical SEBSCC homepage as http://pmel.noaa.gov/sebscc and requires proposals to adhere to the data policy posted there. It corroborates an actual contemporaneous policy and a specific historical project-home locator beyond the XML generic Bering URL.",
+      "does_not_establish": "The policy content is still missing. Grant adherence instructions do not identify provisions governing the exact descriptive XML or prove any data-sharing conditions fulfilled.",
+      "inference": "New historical locator/context only. No failed historical home/archive URL was retried."
+    },
+    {
+      "id": "DOI-2005-EVOS-INSTRUMENT-IDENTITIES",
+      "source_ids": [
+        "FGDC-648"
+      ],
+      "url": "https://www.doi.gov/sites/doi.gov/files/migrated/restoration/about/budget/upload/greenbook_05.pdf",
+      "primary_source": true,
+      "retrieval_level": "indexed primary DOI budget excerpt; no complete original instrument bytes saved",
+      "locator": "Exxon Valdez Oil Spill Restoration Program, Authorities",
+      "date_evidence": "FY2005 budget document reports1991 court instruments; it is adjacent to the 2002 XML, not the original instrument.",
+      "establishes": "The document identifies a Memorandum of Agreement and Consent Decree in US v.State of Alaska, A91-081CV, entered28 August 1991, and a distinct Agreement and Consent Decree in the Exxon cases, A91-082/A91-083CV, entered8 October 1991.",
+      "does_not_establish": "The XML supplies neither parties, dates nor case IDs. These are concrete candidate instruments, not proof which one the shoreline-database condition incorporated or which operative data/text provisions apply.",
+      "inference": "An exact original-instrument identification lead replaces an unbounded request for an Exxon settlement; no legal applicability or expiry interpretation is made."
+    }
+  ],
+  "groups": [
+    {
+      "group": "alaska_public_information8",
+      "source_ids": [
+        "FGDC-572",
+        "FGDC-710",
+        "FGDC-711",
+        "FGDC-758",
+        "FGDC-759",
+        "FGDC-761",
+        "FGDC-766",
+        "FGDC-870"
+      ],
+      "count": 8,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "Earlier research identifies candidate code lineage and a different copyright SOP, not the incorporated public-information SOP. The eight exact XML descriptions cover seals, moose and subsistence locations; their literal constraints remain unchanged.",
+      "minimal_original_source_question": "Identify the intended ADF&G public-information SOP/version and contemporaneous code provisions. Which, if any, cover specific text or location/configuration content in these eight XML descriptions rather than only the requested records?"
+    },
+    {
+      "group": "pacfin_confidentiality1",
+      "source_ids": [
+        "FGDC-227"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "The named historical section 6.4.8 remains unrecovered. Existing official-current manual discovery is not the 1999 incorporated section, and no fishing-ticket table is embedded in the source XML.",
+      "minimal_original_source_question": "Supply or identify the original PacFIN6.4.8 confidentiality terms/version, and any provision covering this exact XML description rather than fishing records."
+    },
+    {
+      "group": "sebscc_policy1",
+      "source_ids": [
+        "FGDC-288"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [
+        "SEBSCC-1998-FEDERAL-REGISTER"
+      ],
+      "available_evidence_and_limit": "The new 1998 notice corroborates a contemporaneous project data policy/home locator; neither it nor the earlier project agenda supplies the policy text.",
+      "minimal_original_source_question": "Supply or identify the SEBSCC policy referenced in 1999, including its covered objects/content. Does any provision cover passages in this descriptive XML rather than sediment/plankton observations?"
+    },
+    {
+      "group": "shoreline_agreement1",
+      "source_ids": [
+        "FGDC-648"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [
+        "DOI-2005-EVOS-INSTRUMENT-IDENTITIES"
+      ],
+      "available_evidence_and_limit": "Two candidate 1991 court instruments now have concrete parties/case IDs, but the XML names only Memorandum of Agreement and Consent Decree. No instrument/data clause was recovered or selected by inference.",
+      "minimal_original_source_question": "Which agreement/decree did the August 1990 shoreline-database description intend—identify parties/date/case and the relevant provision. Does it cover any exact XML passage or only the underlying survey files?"
+    },
+    {
+      "group": "dcw_far_conditions1",
+      "source_ids": [
+        "FGDC-802"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "Earlier FAR evidence is an adjacent compilation; database documentation can fall within its subject matter. The source-cited dates/paragraphs do not cleanly match it. A newly discovered 2007 ESRI guide is a different product/version and was rejected as applicable evidence.",
+      "minimal_original_source_question": "Identify the DCW/ESRI contract or license and intended versions of the two source-cited FAR provisions. Which exact object/content is covered, including any documentation reused in this XML? Preserve the source citation as written."
+    },
+    {
+      "group": "university_alaska_draft1",
+      "source_ids": [
+        "FGDC-862"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "The source access sentence ends at University of Alaska Draft; its missing title/version cannot be filled from a modern policy. Sensitive-location use restrictions are preserved, with no specific location disclosure inferred.",
+      "minimal_original_source_question": "Complete the intended University of Alaska draft reference, and identify any covered passages in this rare-species database description rather than protected locational records."
+    },
+    {
+      "group": "nasa_restriction2",
+      "source_ids": [
+        "FGDC-1770",
+        "FGDC-1771"
+      ],
+      "count": 2,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "Earlier legacy NASA text is adjacent evidence, not the named historical DAAC RESTRICTION section.1771 describes CZCS but incorporates a SeaWiFS URL; that discrepancy remains literal.",
+      "minimal_original_source_question": "Supply the intended historical DAAC SeaWiFS RESTRICTION section/version and its covered objects. Confirm what1771 intended by incorporating it for CZCS, and identify any restriction on exact XML passages."
+    },
+    {
+      "group": "iode_rules1",
+      "source_ids": [
+        "FGDC-1864"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "The 1997 XML names no rule/version. Later IOC/IODE exchange policies cannot identify the intended earlier rule; literal use None does not complete the access reference.",
+      "minimal_original_source_question": "Identify the IOC/IODE rules intended in 1997 and any specific provision covering this descriptive XML rather than exchange of temperature/salinity observations."
+    },
+    {
+      "group": "cas_imagebase_policy1",
+      "source_ids": [
+        "FGDC-3687"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "Earlier current Imagebase image-use terms do not bind the 2005 about_types.html#Use version or settle descriptive-prose coverage. No specimen images or radiographs occur in the XML.",
+      "minimal_original_source_question": "Identify the 2005 Imagebase Use policy/version and whether any term covers the exact explanatory prose in this XML, rather than only photographs/radiographs."
+    },
+    {
+      "group": "jamstec_incorporated_policies2",
+      "source_ids": [
+        "FGDC-4027",
+        "FGDC-4039"
+      ],
+      "count": 2,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "The two source links are distinct:4027 names the GCWM project disclaimer;4039 names the old general site policy and requires registration. Current site terms discussing documents are not substituted for either old policy.",
+      "minimal_original_source_question": "Identify the 2005 GCWM disclaimer and site_policy_e.html versions, respectively. Which provisions cover exact description text in4027/4039, and what object did4039 registration target?"
+    },
+    {
+      "group": "basemap_vendor_metadata_product1",
+      "source_ids": [
+        "FGDC-1318"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "The XML specifically says the pages contain metadata for CD maps/drawings/tables, paired with purchase and vendor-policy wording. No original version 2.0 vendor policy or CD metadata-page comparison was recovered.",
+      "minimal_original_source_question": "Supply the Resource Data, Inc. Alaska Basemap CD 2.0 vendor policy and identify whether this XML is a separate catalogue description or reproduces any covered CD metadata-page content."
+    },
+    {
+      "group": "gem_metadata_product1",
+      "source_ids": [
+        "FGDC-1994"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [
+        "EVOSTC-2003-NEARSHORE-METADATABASE"
+      ],
+      "available_evidence_and_limit": "The new report identifies a three-format metadata product drawn from public literature. The source points to ProCite 22, but no original entry/database bytes or complete appendix establish what was exported into this XML.",
+      "minimal_original_source_question": "Provide the original GEM/ProCite 22 entry or catalogue/export annotation. Is this FGDC file a separate public catalogue description, or product-entry content covered by the recorded condition? Identify covered passages, retaining G-030687 versus040687 literally."
+    },
+    {
+      "group": "nps_model_description_sensitive1",
+      "source_ids": [
+        "FGDC-909"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [
+        "NPS-18KM-MODEL-PAGE",
+        "NPS-9KM-2002-PAPER"
+      ],
+      "available_evidence_and_limit": "New primary sources corroborate the 18-km description and much of the 9-km configuration as publicly described research. No model output array or source code occurs in the XML. The specific sensitivity condition and full-version/forcing coverage remain unresolved.",
+      "minimal_original_source_question": "Does the recorded sensitivity condition cover any exact model-description/configuration passages in this XML, especially its 9-km 1994-2002 forcing description, or only controlled model outputs? Identify the applicable provision/annotation and covered content; no new blanket permission is requested."
+    },
+    {
+      "group": "post_password_referent1",
+      "source_ids": [
+        "FGDC-4063"
+      ],
+      "count": 1,
+      "decision": "RETAIN_SOURCE_HOLD",
+      "new_primary_evidence_ids": [],
+      "available_evidence_and_limit": "The XML has no data onlink or target annotation and gives only May require password access. Later POST literature establishes acoustic research but cannot select what this January 2005 catalogue condition targeted.",
+      "minimal_original_source_question": "Provide the original catalogue access-link/annotation identifying the endpoint/object targeted by May require password access. Was it a data service, project workspace or this XML description? No password or renewed restoration authority is requested."
+    }
+  ],
+  "rows": [
+    {
+      "source_id": "FGDC-227",
+      "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220",
+      "group": "pacfin_confidentiality1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-227.xml",
+      "source_byte_count": 4354,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-227",
+        "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "147aa81499b5d466dae85aca9ee091f6643a5b963ee6e8199e37dc3d20c4004c",
+      "complete_root_xml_utf8_sha256": "22b541e0553a1c3696f54f5ff1992aa1771df3b26d46d00c7a1ad985d3d88a6c",
+      "complete_root_element_list_sha256_ensure_ascii_true": "94d6f71dcba6a6ec6ed4f4e083b764d5fe0f15182ba3b911e3c256a855322fba",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "US Commercial Fishery Landing Statistics (PacFIN)",
+      "metadata_date_verbatim": "19990805",
+      "publication_date_verbatim": "Unknown",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Upon request",
+        "./idinfo/useconst": "See http://www.psmfc.org/pacfin/6-4.htm#6.4.8%20Confidentiality%20of%20Data",
+        "./metainfo/metac": "Upon request",
+        "./metainfo/metuc": "See http://www.psmfc.org/pacfin/6-4.htm#6.4.8%20Confidentiality%20of%20Data"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 91,
+      "original_inventory_question_preserved": "Identify the intended PacFIN confidentiality terms and whether any cover this XML description rather than only fishing records.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-288",
+      "source_sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff",
+      "group": "sebscc_policy1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-288.xml",
+      "source_byte_count": 5767,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-288",
+        "source_sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "11de928e1d4bb29ca968df0a2fc09eb48366832a93abe596d79efa988c737efc",
+      "complete_root_xml_utf8_sha256": "f471846e81c6b9aa34fc40990565e1d8df7852ebf6def4e0af516d47fea70a0e",
+      "complete_root_element_list_sha256_ensure_ascii_true": "1d2c56dcd4b661b61a2dc028288620117ca02132bc630c13488b5837d7f9db20",
+      "complete_root_matches_prior_frozen_context": null,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Stable C and N Isotopic Composition of Sediment Trap Samples and Plankton from the Southeastern Bering Sea",
+      "metadata_date_verbatim": "19990831",
+      "publication_date_verbatim": "Unpublished Material",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "SEBSCC Data Policy (see www.pmel.noaa.gov/bering)",
+        "./idinfo/useconst": "SEBSCC Data Policy (see www.pmel.noaa.gov/bering)",
+        "./metainfo/metac": "SEBSCC Data Policy (see www.pmel.noaa.gov/bering)",
+        "./metainfo/metuc": "SEBSCC Data Policy (see www.pmel.noaa.gov/bering)"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 87,
+      "original_inventory_question_preserved": "Only if the applicable document cannot be recovered: identify or supply the original intended policy text/document. No new blanket permission/license reply is requested.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-572",
+      "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a",
+      "group": "alaska_public_information8",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-572.xml",
+      "source_byte_count": 4237,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-572",
+        "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "4a5d7bdf9fab4d9e8b20c89b2cffcd072a3700eb3ccbd59686c7cf0924689307",
+      "complete_root_xml_utf8_sha256": "27925d7c6f194adcfc4e4c4369b7b35b4a39d3988807e1c486e45c7b0a97a4b1",
+      "complete_root_element_list_sha256_ensure_ascii_true": "e52fd9256f9566a8dad9b47970c99d62622b1a2a9858f9e7539dc635902e26ca",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Seal Harvest Data - EVOS",
+      "metadata_date_verbatim": "20020425",
+      "publication_date_verbatim": "1994",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 86,
+      "original_inventory_question_preserved": "Which public-record disclosure or departmental public-information provisions were intended, and do any cover this exact XML description rather than only the underlying records?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-648",
+      "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01",
+      "group": "shoreline_agreement1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-648.xml",
+      "source_byte_count": 4581,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-648",
+        "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "dad396b12a8a60ac34f883472de4d7bcc582575572049e49a1e23d695d0d9cea",
+      "complete_root_xml_utf8_sha256": "572e2f609d12730befd29cb8aa5b59e4f7060f32328843b019819ad4a43641cf",
+      "complete_root_element_list_sha256_ensure_ascii_true": "842d45293de7fed62cc24721243ef8b05ad46b3c64cd6254d01365ec89ebf77e",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "August Shoreline Assessment Program",
+      "metadata_date_verbatim": "20020424",
+      "publication_date_verbatim": "1990",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Legal restrictions are as outlined in the Memorandum of Agreement and Consent Decree",
+        "./idinfo/useconst": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.",
+        "./metainfo/metac": "Legal restrictions are as outlined in the Memorandum of Agreement and Consent Decree",
+        "./metainfo/metuc": "Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data."
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 87,
+      "original_inventory_question_preserved": "Identify the intended Memorandum of Agreement/Consent Decree provisions and whether any cover this XML description rather than only shoreline data.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-710",
+      "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a",
+      "group": "alaska_public_information8",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-710.xml",
+      "source_byte_count": 4655,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-710",
+        "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "89d1660da3e1f42c7c80d301e86e7a004efd4d81b1f9ea7caa556cb098e7ce97",
+      "complete_root_xml_utf8_sha256": "962d3a75cd41cf9a92a60107c178557103d6d72ed0f05b860c592d42d57e43c1",
+      "complete_root_element_list_sha256_ensure_ascii_true": "6156e538101af763e4baadfddb4afb8a21d8a9b1125984a1edb256545c2cadf3",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Harbor and Spotted Seals Telemetry Data",
+      "metadata_date_verbatim": "20020425",
+      "publication_date_verbatim": "1991-Present",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Subject to provisions of Alaska Administrative Code on dis-closure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Subject to provisions of Alaska Administrative Code on dis-closure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 89,
+      "original_inventory_question_preserved": "Which public-record disclosure or departmental public-information provisions were intended, and do any cover this exact XML description rather than only the underlying records?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-711",
+      "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d",
+      "group": "alaska_public_information8",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-711.xml",
+      "source_byte_count": 5020,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-711",
+        "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "7bd07e68509c2e6dfb5b42040e1fa0c2887e3446de58c6c10207b81ff32b99d0",
+      "complete_root_xml_utf8_sha256": "c46ce51f500c586737516055939e4d6d3c006f8104561783d6d01f3140766c34",
+      "complete_root_element_list_sha256_ensure_ascii_true": "9fb13a2fd8f53c752e29c50d5dfe02d691b622e9202ee6fcc2f99cb168647bcf",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Moose Survey Data  - CNF",
+      "metadata_date_verbatim": "20020425",
+      "publication_date_verbatim": "1994 - 1995",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 87,
+      "original_inventory_question_preserved": "Which public-record disclosure or departmental public-information provisions were intended, and do any cover this exact XML description rather than only the underlying records?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-758",
+      "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212",
+      "group": "alaska_public_information8",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-758.xml",
+      "source_byte_count": 4572,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-758",
+        "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "c1801c48dc75b3719e7a204cb70c8e7941c17d7263f64b9b70e0d59ef4c0543c",
+      "complete_root_xml_utf8_sha256": "8e594d36351ccafffe025be9406ce3711ff4d68d4107845004aa7ba5467cf039",
+      "complete_root_element_list_sha256_ensure_ascii_true": "94d9cc970fef6728fee3143613e2e021c4470c3c572cad9f69653345149d400a",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Copper River Communities Subsistence",
+      "metadata_date_verbatim": "20020430",
+      "publication_date_verbatim": "1994",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 87,
+      "original_inventory_question_preserved": "Which public-record disclosure or departmental public-information provisions were intended, and do any cover this exact XML description rather than only the underlying records?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-759",
+      "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9",
+      "group": "alaska_public_information8",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-759.xml",
+      "source_byte_count": 4346,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-759",
+        "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "e6890ee20a99378f70589d6b33484c3b215219b57260dabcb7a505dbe101206e",
+      "complete_root_xml_utf8_sha256": "7ad2b90691eb2be6c7c208008028daaa1274fe91af91468a3401cfc3f7d163b2",
+      "complete_root_element_list_sha256_ensure_ascii_true": "a71e51a9d50680bb1cc6910838404dc0f07b880bfc4f61a00f3484de585e724c",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "EVOS Foodsites, Subsistence",
+      "metadata_date_verbatim": "20020430",
+      "publication_date_verbatim": "1994",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 87,
+      "original_inventory_question_preserved": "Which public-record disclosure or departmental public-information provisions were intended, and do any cover this exact XML description rather than only the underlying records?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-761",
+      "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf",
+      "group": "alaska_public_information8",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-761.xml",
+      "source_byte_count": 4377,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-761",
+        "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "017128a8ff36209fd5ad96b5a899bb3a60b55ca386c172f5475eeb9dd6724e8f",
+      "complete_root_xml_utf8_sha256": "62a25e7afecc7adc44f4b93b577920afc2413c81673abdd81d08d34e61f7207a",
+      "complete_root_element_list_sha256_ensure_ascii_true": "d5fdd86920635836dd1ec39b1d0f95ca3343c8d7a6dd4e06f92e557afee8fdc4",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Subsistence Harvest Areas - Whittier, Hope, Cooper Landing",
+      "metadata_date_verbatim": "20020430",
+      "publication_date_verbatim": "1992",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 86,
+      "original_inventory_question_preserved": "Which public-record disclosure or departmental public-information provisions were intended, and do any cover this exact XML description rather than only the underlying records?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-766",
+      "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5",
+      "group": "alaska_public_information8",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-766.xml",
+      "source_byte_count": 4362,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-766",
+        "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "5cc61f10cd49bc153bf15c31476c6a6d0842ffd6c468e17085da6384b01000ec",
+      "complete_root_xml_utf8_sha256": "67d327a246275aa589c29016dcee39e31921bd9d0f9047ba7a1ef9e33c5a1535",
+      "complete_root_element_list_sha256_ensure_ascii_true": "22ea800c485f1cc73bac49af64d9fab6b8e278fd3c0970749b7b9d37e43bd2f8",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Subsidence Harvest Areas for Valdez, Alaska, U.S.A",
+      "metadata_date_verbatim": "20020430",
+      "publication_date_verbatim": "1994",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 86,
+      "original_inventory_question_preserved": "Which public-record disclosure or departmental public-information provisions were intended, and do any cover this exact XML description rather than only the underlying records?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-802",
+      "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61",
+      "group": "dcw_far_conditions1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-802.xml",
+      "source_byte_count": 5163,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-802",
+        "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "c89a7c47b3756cdd1f209209f955ca4d172e869dccd5e0ee5de7f346884bd8cd",
+      "complete_root_xml_utf8_sha256": "2ff9b8d45c81d217499bed191aa6598b419e5a6c5c116b64c95b3dd9d57b8728",
+      "complete_root_element_list_sha256_ensure_ascii_true": "32cb0c40358be4e8f7f06a677cf9ae948976a91be8b551c881b350992290f08c",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Digital Chart of the World (DCW)",
+      "metadata_date_verbatim": "20020501",
+      "publication_date_verbatim": "1992",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "The DCW is commercially available on ISO 9660 formatted CD-ROM discs from ESRI. Consult ESRI for latest database acquisition costs.",
+        "./idinfo/useconst": "Use, duplication, and disclosure by the Government is subject to restrictions as set forth in FAR 52.227-14 Alternat III (g)(3)(JUN 1987), FAR 52.227-19 (c)(1)(ii)(OCT 1988), as applicable.",
+        "./metainfo/metac": "The DCW is commercially available on ISO 9660 formatted CD-ROM discs from ESRI. Consult ESRI for latest database acquisition costs.",
+        "./metainfo/metuc": "Use, duplication, and disclosure by the Government is subject to restrictions as set forth in FAR 52.227-14 Alternat III (g)(3)(JUN 1987), FAR 52.227-19 (c)(1)(ii)(OCT 1988), as applicable."
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 86,
+      "original_inventory_question_preserved": "Which recorded FAR/contract terms are applicable here, and do any cover this XML description or documentation rather than only the CD/database?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-862",
+      "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec",
+      "group": "university_alaska_draft1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-862.xml",
+      "source_byte_count": 5038,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-862",
+        "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "aaac24c6a05e846e84180e91231ff50f16d8bbd3ab982358cd4f0b3348dae0f8",
+      "complete_root_xml_utf8_sha256": "e180d52995396e33ea9569f7f86a73d68b5d20f095e5ef3480281df4a2cb9b09",
+      "complete_root_element_list_sha256_ensure_ascii_true": "e0a08e9dc9ff0fbe24cb5e7c02fd87ab962908cb6f9637b7fdb8ea00f7146ee9",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Alaska Biological Conservation Database",
+      "metadata_date_verbatim": "20020502",
+      "publication_date_verbatim": "1995",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Data can be obtained through written request form and formal data inquiry procedures that are in alignment with University of Alaska Draft",
+        "./idinfo/useconst": "Some locational data relating to threatened and Endangerred Species or sensitive data have associated use restrictions.",
+        "./metainfo/metac": "Data can be obtained through written request form and formal data inquiry procedures that are in alignment with University of Alaska Draft",
+        "./metainfo/metuc": "Some locational data relating to threatened and Endangerred Species or sensitive data have associated use restrictions."
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 87,
+      "original_inventory_question_preserved": "Identify the complete University of Alaska Draft term and whether it or the sensitive-location condition covers any content in this XML.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-870",
+      "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f",
+      "group": "alaska_public_information8",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-870.xml",
+      "source_byte_count": 4402,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-870",
+        "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "00502dee21b4448fae0a785c8fbaeb61d9b9b34daa2d637272a67c4a92093b49",
+      "complete_root_xml_utf8_sha256": "753b4c53e8efddee147131afcd3ec246ebb8caf43c3be8e80960a609d81ecbf7",
+      "complete_root_element_list_sha256_ensure_ascii_true": "cb87271a6fd93764d837ca4ddcb87172533a8f1990880fea2156249e088632fd",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Special Areas ATLAS - ADF&G",
+      "metadata_date_verbatim": "20020503",
+      "publication_date_verbatim": "1993",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information. Free hard copies are available.",
+        "./idinfo/useconst": "Unknown",
+        "./metainfo/metac": "Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information. Free hard copies are available.",
+        "./metainfo/metuc": "Unknown"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 87,
+      "original_inventory_question_preserved": "Which public-record disclosure or departmental public-information provisions were intended, and do any cover this exact XML description rather than only the underlying records?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-909",
+      "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae",
+      "group": "nps_model_description_sensitive1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-909.xml",
+      "source_byte_count": 6721,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-909",
+        "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "6c888cc3e0aa58f571794998e136fea157c722669d6c839078b1ac06f7109acb",
+      "complete_root_xml_utf8_sha256": "6bedf89ce9e9d9f982e8ecd6570dd6245c8a2b1ae4bb8b2f15e45492aba50990",
+      "complete_root_element_list_sha256_ensure_ascii_true": "8e0f84e011d5e32127bb31e500c5ffb9752202a4916ebaa396ff23349411184d",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": false,
+      "title_verbatim": "Results from the Naval Postgraduate School Arctic Modeling Effort",
+      "metadata_date_verbatim": "20030213",
+      "publication_date_verbatim": "Unknown",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./idinfo/useconst": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metac": "Permission of Contributor required. Department of Defense Sensitive data",
+        "./metainfo/metuc": "Permission of Contributor required. Department of Defense Sensitive data"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 90,
+      "original_inventory_question_preserved": "Does the recorded sensitive-data condition include any model-description or configuration content in this XML, or only model outputs? Identify any covered XML content.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-1318",
+      "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b",
+      "group": "basemap_vendor_metadata_product1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-1318.xml",
+      "source_byte_count": 4008,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-1318",
+        "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "ae9291dd7859ea8be325a7d31afdc15f4dab0f01cb655157ccbe0a88034e4465",
+      "complete_root_xml_utf8_sha256": "32699bfbaac897dbb7ab1852fd54bd1d31acbd9f4d81951e8d9c35b6a1bf9fd2",
+      "complete_root_element_list_sha256_ensure_ascii_true": "ac42df2c02767ee5f0da2e4bafee0a21f0058d97dc414bd4b4f76fe212dfb9b1",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": false,
+      "title_verbatim": "Alaska Basemap CD, version 2.0",
+      "metadata_date_verbatim": "20030610",
+      "publication_date_verbatim": "Unknown",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Must purchase the CD",
+        "./idinfo/useconst": "Refer to vendor policy.",
+        "./metainfo/metac": "Must purchase the CD",
+        "./metainfo/metuc": "Refer to vendor policy."
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 80,
+      "original_inventory_question_preserved": "Which vendor policy was intended, and does it cover this XML description or metadata pages quoted in it, rather than only the CD/maps?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-1770",
+      "source_sha256": "d9a3ebc23ac26962bccd4827e4a79fd74bcd5f01105255155ea24b37dc02835d",
+      "group": "nasa_restriction2",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-1770.xml",
+      "source_byte_count": 5349,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-1770",
+        "source_sha256": "d9a3ebc23ac26962bccd4827e4a79fd74bcd5f01105255155ea24b37dc02835d",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "f7277b1f8a3ea5e9b862f82395873dd2cb71fbddc496de002aaf4eff9868228d",
+      "complete_root_xml_utf8_sha256": "aff2a0d30002df000eca93ec21f65fd22eed367427998a6a531905a102aeb65b",
+      "complete_root_element_list_sha256_ensure_ascii_true": "5c29051d223c1133e20062e36169d7911a15f78cc9e3ea996a7896a59b05803e",
+      "complete_root_matches_prior_frozen_context": null,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "SeaWiFS Data by NASA Goddard",
+      "metadata_date_verbatim": "20040112",
+      "publication_date_verbatim": "Unknown",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION",
+        "./idinfo/useconst": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION",
+        "./metainfo/metac": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION",
+        "./metainfo/metuc": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 83,
+      "original_inventory_question_preserved": "Only if the applicable document cannot be recovered: identify or supply the original intended policy text/document. No new blanket permission/license reply is requested.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-1771",
+      "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d",
+      "group": "nasa_restriction2",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-1771.xml",
+      "source_byte_count": 5499,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-1771",
+        "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "b36237a1a14879a440cf6b9f535f82db45d1ca56253bf2a64ea7ec90d6fa7753",
+      "complete_root_xml_utf8_sha256": "926a2ada77dc29c3f43004d3e15f1e738d6c947f0d93469a33c103480ff9b308",
+      "complete_root_element_list_sha256_ensure_ascii_true": "d839be7db4db2befb57614be4324f28ac1ccc25dd7144e41734c481d7363ecf7",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "Nimbus-7 Coastal Zone Color Scanner (CZCS) Data",
+      "metadata_date_verbatim": "20040112",
+      "publication_date_verbatim": "Unknown",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION",
+        "./idinfo/useconst": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION",
+        "./metainfo/metac": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION",
+        "./metainfo/metuc": "See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 86,
+      "original_inventory_question_preserved": "Is the SeaWiFS restriction link intentional for this CZCS record? Identify the intended terms and whether any cover this XML description.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-1864",
+      "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070",
+      "group": "iode_rules1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-1864.xml",
+      "source_byte_count": 4468,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-1864",
+        "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "4538a33b0337322ca145b8a4cba2c230254fef026e369ef02afd2debb12f88eb",
+      "complete_root_xml_utf8_sha256": "77b2e9da4436cdf5659af4b82c78723eccdbf70b0c5bce6d3bfb0547e02dccc4",
+      "complete_root_element_list_sha256_ensure_ascii_true": "708efc9bda19c6bf0941c3188762e83241589cc300a3d10dd3eecab660d70bb0",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "POI Oceanographic Temperature and Salinity Database on the North Pacific Ocean",
+      "metadata_date_verbatim": "19971006",
+      "publication_date_verbatim": "1994",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "IOC/IODE rules",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "IOC/IODE rules",
+        "./metainfo/metuc": "None"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 89,
+      "original_inventory_question_preserved": "Which IOC/IODE rules were intended, and do any apply to this XML description rather than only the observation data?",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-1994",
+      "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb",
+      "group": "gem_metadata_product1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-1994.xml",
+      "source_byte_count": 6112,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-1994",
+        "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "dd82eba5822ab42c82fe28153a289d6aa9b3c95ee997cd87addedb66cf4b30bd",
+      "complete_root_xml_utf8_sha256": "02fe1e72cca9916608ccd7c0f9eb557b7541f860a9a59f9442d492d28d9e6b97",
+      "complete_root_element_list_sha256_ensure_ascii_true": "2165dd46bbe65aca8f95413e9647208ede8c1e5b762a25a3058d3a15b5fef589",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": false,
+      "title_verbatim": "A Fish and Wildlife Resource Inventory of the Cook Inlet and Kodiak Areas",
+      "metadata_date_verbatim": "20040723",
+      "publication_date_verbatim": "122003",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Contact Source",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "Contact Source",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 88,
+      "original_inventory_question_preserved": "Is this XML a separately public catalogue description, or does it reproduce metadata-product content covered by Contact Source? Identify any covered XML content.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-3687",
+      "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b",
+      "group": "cas_imagebase_policy1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-3687.xml",
+      "source_byte_count": 5652,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-3687",
+        "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "092280f95ae581c78ce39d39f5308d886d3cc7f75d59eb752190bb42f9286113",
+      "complete_root_xml_utf8_sha256": "d68e9ec94f7dffb1292009891c8c8b5f864be8ccbc4297c19265fbf41100dcd1",
+      "complete_root_element_list_sha256_ensure_ascii_true": "0d9995ec78cdaee1daa7da0a1922c4ae8351b7e7c8e92f8445dc0126c5a693b0",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "CAS Ichthyology Primary Types Imagebase",
+      "metadata_date_verbatim": "20051205",
+      "publication_date_verbatim": "Unknown",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use",
+        "./idinfo/useconst": "Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use",
+        "./metainfo/metac": "Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use",
+        "./metainfo/metuc": "Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 86,
+      "original_inventory_question_preserved": "Identify the intended Imagebase Use terms and whether any cover this XML description or specimen/type descriptions rather than only images.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-4027",
+      "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92",
+      "group": "jamstec_incorporated_policies2",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-4027.xml",
+      "source_byte_count": 6442,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-4027",
+        "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "697b619a3a6a5dde43e436c36e077ef73e40ea775888e66ab4e2a461e892ca63",
+      "complete_root_xml_utf8_sha256": "8eeec246e494c70ecb37e07267a7535af54f60d8cb99a7eafb324ac37a2b6d3d",
+      "complete_root_element_list_sha256_ensure_ascii_true": "179e465104425269cc35f0829b088826be60be24a92b7b136c10a43bc297a2ca",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "JAMSTEC  Global Chemical Weather Forecasting System Forecasting Air Pollution on a Global Scale",
+      "metadata_date_verbatim": "20050922",
+      "publication_date_verbatim": "Unknown",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html",
+        "./idinfo/useconst": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html",
+        "./metainfo/metac": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html",
+        "./metainfo/metuc": "See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 107,
+      "original_inventory_question_preserved": "Identify the intended project disclaimer and whether any of its terms cover this XML description rather than only forecast outputs.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-4039",
+      "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd",
+      "group": "jamstec_incorporated_policies2",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-4039.xml",
+      "source_byte_count": 5340,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-4039",
+        "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "64397b68dc1c888dc01198044f78a16238671c4a41a0213027fc4ef48c3d87e1",
+      "complete_root_xml_utf8_sha256": "4164661dfe663871dc0ebefce3fbb45a534299afb5be50adb4346bc7772cfc6c",
+      "complete_root_element_list_sha256_ensure_ascii_true": "c79fcf8a22f9bfab91c172f796b267673e43020ba4331d1a7969fda60dce20d9",
+      "complete_root_matches_prior_frozen_context": true,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": true,
+      "title_verbatim": "JAMSTEC Ocean General Circulation Model for the Earth Simulator (OFES)",
+      "metadata_date_verbatim": "20050926",
+      "publication_date_verbatim": "Unknown",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "User registration required.",
+        "./idinfo/useconst": "Review http://www.jamstec.go.jp/site_policy_e.html",
+        "./metainfo/metac": "User registration required.",
+        "./metainfo/metuc": "Review http://www.jamstec.go.jp/site_policy_e.html"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 96,
+      "original_inventory_question_preserved": "Identify the intended site-policy terms and whether registration or any policy condition covers this XML description rather than only model-output access.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    },
+    {
+      "source_id": "FGDC-4063",
+      "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076",
+      "group": "post_password_referent1",
+      "source_path": "/workspace/pices-residual-targets-20261004/FGDC/FGDC-4063.xml",
+      "source_byte_count": 5279,
+      "current_cached_ledger_object": {
+        "evidence": "frozen_baseline",
+        "source_id": "FGDC-4063",
+        "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076",
+        "source_status": "held"
+      },
+      "current_inventory_row_canonical_sha256": "1287b82af77ceee7900f47e22de1dca51b8032af4f8bb4697bc1cfd4ad61cf5e",
+      "complete_root_xml_utf8_sha256": "9784f645760d75da7facdec1dd79fbe14a1d5332a3e9367c050b7f86862fdadc",
+      "complete_root_element_list_sha256_ensure_ascii_true": "26d993f594b6c8389bfd785b5aa88262d85949fbe33599113df1577adea654e4",
+      "complete_root_matches_prior_frozen_context": null,
+      "prior19_exact_raw_source_and_constraint_bindings_reused": false,
+      "title_verbatim": "Pacific Ocean Shelf Tracking (POST) Project",
+      "metadata_date_verbatim": "20050105",
+      "publication_date_verbatim": "Unknown",
+      "exact_four_constraints": {
+        "./idinfo/accconst": "May require password access",
+        "./idinfo/useconst": "Contact Source",
+        "./metainfo/metac": "May require password access",
+        "./metainfo/metuc": "Contact Source"
+      },
+      "metadata_security_elements_present": false,
+      "metadata_extensions_present": false,
+      "source_element_count": 99,
+      "original_inventory_question_preserved": "What specific endpoint/object did May require password access refer to for4063? Supply the original catalogue link/annotation if available; this asks target identity, not renewed rehosting permission.",
+      "decision": "RETAIN_SOURCE_HOLD",
+      "proposed_metadata_change": null
+    }
+  ],
+  "outcome": {
+    "new_defensible_correction_candidates": 0,
+    "source_holds_retained": 23,
+    "new_primary_lead_records": 4,
+    "new_primary_source_documents": 5,
+    "runtime_or_cached_status_change": false
+  },
+  "research_limits": [
+    "Known failed archive resolvers and settled restoration/Contact Source questions were not repeated.",
+    "Primary-page publication/internal revision dates do not independently prove historical web capture or historical metadata exemption.",
+    "The Bodkin/Dean report is supported only by indexed primary excerpts; tool open failed and one direct public GET returned403. No original PDF was saved or retry attempted.",
+    "Only new source-history/object leads are considered. Current counterpart terms, standard boilerplate, public hosting and elapsed time do not resolve the exact incorporated policy or content coverage.",
+    "No protected status of metadata is assumed. No new license, satisfied condition, author, date, identity, expiry, legal applicability or release decision is inferred.",
+    "No source-owner contact or request was sent; questions are preparation only."
+  ],
+  "preserved_boundaries": {
+    "existing_all4206_restoration_authority_reopened": false,
+    "existing_Contact_Source_or_Contributor_meaning_reopened": false,
+    "blanket821_extension": false,
+    "original_xml_edits": 0,
+    "repository_edits": 0,
+    "provider_requests": 0,
+    "Zenodo_requests": 0,
+    "credential_private_environment_or_stage_reads": 0,
+    "tests_or_classification_runs": 0,
+    "writes_limited_to_tmp": true,
+    "original_XML_restricted_blank_license_required": true
+  },
+  "hash_recipes": {
+    "file": "SHA256 exact bytes",
+    "canonical": "SHA256 UTF8 json.dumps(sort_keys=True,separators=(comma,colon),ensure_ascii=False)",
+    "complete_root_xml": "SHA256 UTF8 ElementTree serialization with root sibling tail None",
+    "legacy_complete_root_list": "SHA256 UTF8 json.dumps([complete_root_xml],sort_keys=True,separators=(comma,colon),ensure_ascii=True)"
+  }
+}
