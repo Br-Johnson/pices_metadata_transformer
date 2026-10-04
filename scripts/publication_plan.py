@@ -133,13 +133,19 @@ def validate_restart_snapshot(snapshot, expected_binding, target_rows):
     return entries, digest(snapshot)
 
 
-def _restart_report(entry, protected, conflicting_ids, reserved_ids):
+def _restart_report(entry, protected, conflicting_ids, reserved_ids,
+                    conflicting_dois=frozenset(), reserved_dois=frozenset()):
     if entry is None:
         return {'disposition': 'hold_missing_state_not_permission_to_create',
                 'safe_to_retry': False, 'reported_entry': None}
+    doi_key = (entry['doi'] or '').casefold()
     mismatch = bool(protected and (entry['deposition_id'] != protected['record_id']
-                                  or entry['doi'] != protected['doi']))
-    if entry['deposition_id'] in conflicting_ids:
+                                  or doi_key != protected['doi'].casefold()))
+    if doi_key in conflicting_dois:
+        disposition = 'hold_provider_doi_shared_by_multiple_targets'
+    elif doi_key in reserved_dois:
+        disposition = 'hold_doi_reserved_for_another_source'
+    elif entry['deposition_id'] in conflicting_ids:
         disposition = 'hold_provider_identity_shared_by_multiple_targets'
     elif entry['deposition_id'] in reserved_ids:
         disposition = 'hold_identity_reserved_for_another_source_or_excluded_record'
@@ -195,8 +201,11 @@ def build_plan(repo, *, batch_size=10, restart_snapshot=None):
     assigned_ids = Counter(entry['deposition_id'] for entry in restart.values()
                            if entry['deposition_id'] is not None)
     conflicting_ids = {rid for rid, count in assigned_ids.items() if count > 1}
+    assigned_dois = Counter(entry['doi'].casefold() for entry in restart.values() if entry['doi'])
+    conflicting_dois = {doi for doi, count in assigned_dois.items() if count > 1}
     reserved_ids = {row['record_id'] for row in protected.values()} | {
         int(row['record_id']) for row in summary['excluded_from_fgdc_restoration']}
+    reserved_dois = {row['doi'].casefold() for row in protected.values()}
     rows, represented = [], set()
     for tid, target in sorted(targets.items()):
         members = target['source_ids']
@@ -248,7 +257,9 @@ def build_plan(repo, *, batch_size=10, restart_snapshot=None):
                      'expected_original_files': [originals[sid] for sid in members],
                      'identity_decision': identity, 'artifact_binding': artifact,
                      'restart': _restart_report(restart.get(tid), held, conflicting_ids,
-                                                reserved_ids - {held['record_id']} if held else reserved_ids),
+                                                reserved_ids - {held['record_id']} if held else reserved_ids,
+                                                conflicting_dois,
+                                                reserved_dois - {held['doi'].casefold()} if held else reserved_dois),
                      'execution_holds': holds, 'shared_execution_holds_apply': True,
                      'executable': False,
                      'publication_approved': False, 'upload_eligible': False, 'remote_verified': False,

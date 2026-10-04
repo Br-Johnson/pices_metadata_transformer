@@ -63,7 +63,9 @@ and artifact hashes are lowercase64-digit SHA-256 or null. The export is a
 sanitized report of prior state, not a current provider verification receipt.
 
 Malformed, unknown, duplicate-target or stale exports are rejected. Shared provider
-IDs, a conflicting protected ID/DOI or an excluded identity produce explicit holds.
+IDs or DOIs, a conflicting protected ID/DOI or an excluded identity produce explicit holds.
+DOI conflict comparison conservatively ignores case; literal reported DOI strings
+remain unchanged in the snapshot and output.
 Missing state never replenishes a consumed create allowance. Uncertain creates or
 writes require reconciliation, and unknown state remains held. A reported partial
 or completed draft is only a same-identity readback hint. A reported published

@@ -154,17 +154,28 @@ class PublicationPlanTests(unittest.TestCase):
         snapshot = self.snapshot(self.entry('FGDC-1'), self.entry('FGDC-2'),
                                  self.entry('FGDC-3', deposition_id=17317855),
                                  self.entry('FGDC-4', deposition_id=10042430),
+                                 self.entry('FGDC-5', deposition_id=99999995, doi='10.5281/ZENODO.17317855'),
+                                 self.entry('FGDC-6', deposition_id=99999996, doi='10.1234/duplicate'),
+                                 self.entry('FGDC-7', deposition_id=99999997, doi='10.1234/DUPLICATE'),
                                  self.entry('FGDC-1238', deposition_id=17317855, doi='10.5281/zenodo.999'))
         plan = planner.build_plan(REPO, restart_snapshot=snapshot)
         rows = {row['record_target_id']: row for row in plan['targets']}
         for sid in ('FGDC-1', 'FGDC-2', 'FGDC-3', 'FGDC-1238'):
             self.assertIn('shared_by_multiple', rows[sid]['restart']['disposition'])
         self.assertIn('reserved', rows['FGDC-4']['restart']['disposition'])
+        self.assertIn('doi_reserved', rows['FGDC-5']['restart']['disposition'])
+        for sid in ('FGDC-6', 'FGDC-7'):
+            self.assertIn('doi_shared_by_multiple', rows[sid]['restart']['disposition'])
+        self.assertEqual(rows['FGDC-7']['restart']['reported_entry']['doi'], '10.1234/DUPLICATE')
         original = self.plan['protected_existing_imports']
         self.assertEqual(plan['protected_existing_imports'], original)
         old = next(item for item in original if item['source_id'] == 'FGDC-1238')
         report = planner._restart_report(snapshot['entries'][-1], old, set(), set())
         self.assertIn('conflict_with_protected', report['disposition'])
+        same = self.entry('FGDC-1238', deposition_id=17317855, doi='10.5281/ZENODO.17317855')
+        report = planner._restart_report(same, old, set(), set())
+        self.assertIn('reported_partial_draft', report['disposition'])
+        self.assertEqual(report['reported_entry']['doi'], same['doi'])
         self.assertTrue(all(not row['executable'] for row in rows.values()))
 
     def test_projection_membership_cannot_split_or_drop_a_pair(self):

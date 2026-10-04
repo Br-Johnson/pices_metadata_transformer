@@ -76,8 +76,16 @@ guarded tests. Eight new contracts cover exact target/file/batch accounting,
 preserved IDs/DOIs and both pair members, summary-only evidence limits, original
 and evidence tampering, deterministic repeat, stale/foreign restart exports,
 uncertain creates/writes, missing states, partial drafts, published records,
-duplicate provider IDs, excluded identities and forged approval fields. Final
+duplicate provider IDs/DOIs, protected DOI conflicts, excluded identities and forged approval fields. Final
 current-head CI and independent Codex review remain the repository merge gates.
+
+The [initial independent review](publication_plan_initial_independent_review.json)
+identified a DOI-only restart conflict gap. The correction holds foreign protected
+DOIs and repeated DOIs even when numeric record IDs differ, and compares the
+protected target's own DOI consistently without changing literal reported values.
+The final focused contracts and guarded dry run pass; the no-snapshot manifest is
+byte-identical across this correction. Earlier v1/v2 measurements remain retained
+in the author's evidence workspace and the initial PR revision preserves v1.
 
 Ordinary manifest generation is also available without a provider client:
 

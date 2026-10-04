@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "ONE_MATERIAL_RESTART_REPORTING_FINDING_PENDING",
+  "reviewed_at": "2026-10-04T21:18:28.026567+00:00",
+  "reviewer": "Codex /root/astra_transport_boundary",
+  "reviewed_files": [
+    {
+      "path": "/workspace/pices-publication-batch-readiness-20261004/scripts/publication_plan.py",
+      "sha256": "a8c21098fa93f181a2c5d2a98d880dd6a9530b140a3c66380271c53947004197",
+      "bytes": 20982
+    },
+    {
+      "path": "/workspace/pices-publication-batch-readiness-20261004/tests/test_publication_plan.py",
+      "sha256": "b457c45e80958f81332153fb81f1fb5bee235c1139a4323a6b08086e38f42f8e",
+      "bytes": 10957
+    },
+    {
+      "path": "/workspace/pices-publication-batch-readiness-20261004/docs/readiness/2026-10-04/validate_publication_plan.py",
+      "sha256": "f20abf1ac085bc1fdb996cb8257a6d9fae10c4bf2709eca9cd6f7465a57d1f8b",
+      "bytes": 3947
+    },
+    {
+      "path": "/workspace/pices-publication-batch-readiness-20261004/docs/publication_plan_contract.md",
+      "sha256": "6c0d7bbda47f923d47e73e0c26c5cd93f73c0855ca1580cfa62e0e41f87f17e4",
+      "bytes": 5156
+    },
+    {
+      "path": "/workspace/pices-publication-batch-readiness-20261004/docs/readiness/2026-10-04/publication_batch_readiness_handoff.md",
+      "sha256": "f81aea131ca239530a594d1f0060793d9c6ffed03c1fd6a964ce5ccdd30bc6ed",
+      "bytes": 6566
+    }
+  ],
+  "findings": [
+    {
+      "id": "P2_DOI_ONLY_RESTART_IDENTITY_CONFLICT",
+      "severity": "P2",
+      "path": "scripts/publication_plan.py",
+      "line": 140,
+      "summary": "A restart entry with a foreign protected DOI or cross-target duplicate DOI but distinct numeric provider ID is classified as a draft hint rather than an explicit conflict hold.",
+      "static_counterexample": {
+        "record_target_id": "FGDC-1",
+        "deposition_id": 99999991,
+        "doi": "10.5281/zenodo.17317855",
+        "needs_reconciliation": false,
+        "upload_status": "success",
+        "publish_status": "draft",
+        "metadata_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "artifact_contract_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      "reason": "FGDC-1 has protected=None; conflicting_ids and reserved_ids contain numeric IDs only. Neither branch inspects its DOI. The existing protected FGDC-1238 DOI is already pinned in prior evidence. The success/draft branch consequently emits reported_same_draft_requires_exact_remote_readback_before_retry. Two otherwise-valid targets with distinct IDs and the same DOI likewise receive hints.",
+      "impact_limit": "All plans still have executable=false, provider_actions=[], grants=null and safe_to_retry=false; this is a reporting/identity-conflict gap, not a demonstrated provider bypass.",
+      "requested_change": "Check normalized DOI ownership against protected identities and duplicate DOI assignments in the explicitly supplied snapshot, preserve literal strings, emit existing identity-conflict holds, and extend the existing conflict contract. Do not infer unprovided excluded-record DOIs.",
+      "verification_method": "Read-only static path trace; no planner, classifier or tests executed."
+    }
+  ],
+  "otherwise_clear_static_scope": [
+    "Stdlib-only planner reads exact11 evidence/profile pins and original files; no API/private registry discovery or live execution integration.",
+    "All rows and batches remain nonexecutable; unsupported45 retained outsideprospective batches; both pair identities preserved; protected historical beforeimages copied verbatim.",
+    "Parent-reported pair absence is explicitly unverified raw capture and not deleted/tombstone absence; other singleton identities remain unassessed.",
+    "V1/V2 artifact/policy validation remains separately required;24fresh/204historicalrefs reused without classifier/rebuild claims.",
+    "Guarded helper clears env before project planner import, pins existing guard, compares repeat/input/original snapshots, writes fresh /tmp output only and records actual blocked-event counters.",
+    "Eight tests address batching, identity/authority limits, deterministic repeat, exact originals/pins, sanitized snapshot schema/staleness, uncertain/missing/published states, ID conflicts and split-pair rejection. DOI conflict cases are the identified gap.",
+    "Staged artifact questions exactly partition all45 remaining targets and21 existing groups into14+21+10, leave all questions/evidence/statuses unchanged, request artifacts first, and do not claim source-owner contact."
+  ],
+  "reviewer_repo_edits": 0,
+  "provider_requests": 0,
+  "private_reads": 0,
+  "planner_executions": 0,
+  "classification_runs": 0,
+  "tests_run": 0
+}
