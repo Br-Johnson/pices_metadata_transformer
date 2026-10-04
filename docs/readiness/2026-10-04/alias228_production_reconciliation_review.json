@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "verdict": "PASS_NARROW_V2_CORRECTION_PRIOR_FINDING_RESOLVED",
+  "reviewer": "Codex GPT-6 Astra independent review",
+  "scope": "Only v1-to-v2 helper/output correction and final bindings. Prior complete pair review retained; no repeated raw-pair audit, classification, generator execution, test suite or provider activity.",
+  "artifacts": [
+    {
+      "path": "/workspace/pices-creator7-residual-20261004/docs/readiness/2026-10-04/build_alias228_production_reconciliation_input.py",
+      "sha256": "d3b4d454916e10ea146da65a2848300c1145b6a4091439730df9122aa803ae4b"
+    },
+    {
+      "path": "/tmp/pices-alias228-production-reconciliation-v2.json",
+      "sha256": "a5b34f430a3b0b3a14776987e9828b4a1cf701ce2dc2172bd4cbb472759e37e5"
+    },
+    {
+      "path": "/workspace/pices-creator7-residual-20261004/docs/readiness/2026-10-01/five_imports_correction_proposal.json",
+      "sha256": "d2e5875ea809aabd4565480799c23930f943e24d659af042697ea25e645b49f3"
+    },
+    {
+      "path": "/tmp/pices-alias228-production-reconciliation-independent-review.json",
+      "sha256": "d81d7936eb2d257c77cfdf3ce813daa9bcaa1227eba60e5d254fd8ad49f4fb43"
+    },
+    {
+      "path": "/tmp/pices-alias228-production-reconciliation-v2-checks.json",
+      "sha256": "92d1a6c67e07e6b871623bd7e8016b56eeb879eb937a16af63045c4183d3aa9e"
+    }
+  ],
+  "previous_finding_resolved": "All five exact historical public snapshots are retained and bound, with timestamps distinguished from unknown current freshness, ownership and inventory completeness.",
+  "narrow_independent_checks": {
+    "only_two_expected_output_sections_changed": true,
+    "all_five_complete_snapshot_objects_and_canonical_digests_equal_pinned_source": true,
+    "existing_five_identity_and_adjudication_fields_unchanged": true,
+    "all228_pair_rows_both456_members_counts_gates_and_exclusions_unchanged": true,
+    "all11_evidence_file_hashes_and_both_output_canonical_digests_verified": true,
+    "capture_dates_corrected_without_current_state_or_absence_inference": true,
+    "helper_static_import_boundary_unchanged": true
+  },
+  "verified_historical_snapshots": [
+    {
+      "record_id": 17317851,
+      "source_id": "FGDC-2043",
+      "captured_at": "2026-10-01T18:33:13.396282+00:00",
+      "captured_fields_canonical_sha256": "990cc92f2bb8ae37e11bb241f995c0fb4132d18ff7cdb2b92ec7870e62ccdf57",
+      "captured_file_count": 1
+    },
+    {
+      "record_id": 17317853,
+      "source_id": "FGDC-2731",
+      "captured_at": "2026-10-01T18:33:12.825557+00:00",
+      "captured_fields_canonical_sha256": "d1309232972bb8b665931a21c0dac47c3b47c82ec931b68c4d8bfc2b467f82b5",
+      "captured_file_count": 1
+    },
+    {
+      "record_id": 17317855,
+      "source_id": "FGDC-1238",
+      "captured_at": "2026-10-01T18:33:12.233011+00:00",
+      "captured_fields_canonical_sha256": "ca6520970ff47ce2ba37f77f13a30cec05091043a2028fe2bc6fa0eb5430c6ee",
+      "captured_file_count": 0
+    },
+    {
+      "record_id": 17317857,
+      "source_id": "FGDC-2725",
+      "captured_at": "2026-10-01T18:33:11.662722+00:00",
+      "captured_fields_canonical_sha256": "d47f97053cdc0ddd6b33b5c5b9976dc9cabc3d106d6d18c8b8a95ae1b397e0c1",
+      "captured_file_count": 1
+    },
+    {
+      "record_id": 17317859,
+      "source_id": "FGDC-2057",
+      "captured_at": "2026-10-01T18:33:11.000122+00:00",
+      "captured_fields_canonical_sha256": "aa2f2296dd91840912589a5ac8731ea8aa603bf18c43304c0a25c1a6dfcf2767",
+      "captured_file_count": 1
+    }
+  ],
+  "author_local_checks": "Root reported 13 passing local checks including deterministic generation. This receipt binds their saved output; those checks were not rerun by this reviewer.",
+  "frozen_count_scope": "Counts remain PR28 baseline at 173a4b0613e915b2915ae815b01f9f8823f2ced8; later creator/residual deltas require their own ledger.",
+  "all228_pair_targets_unresolved_and_upload_ineligible": true,
+  "remaining_limitations": [
+    "No current authenticated complete owner inventory, controlled ownership/file/version/readback or remote absence is established.",
+    "The empty historical public_files list for17317855 remains a captured-list fact, not file absence proof; md5 checksums are retained literally, not compared as SHA256.",
+    "The corrected repository handoff is still being prepared by root and is not included in this reviewed artifact set.",
+    "This offline artifact is not a provider dispatch, identity decision, action grant or runtime gate override."
+  ],
+  "repo_edits": 0,
+  "provider_requests": 0,
+  "private_reads": 0,
+  "classification_runs": 0,
+  "test_suite_runs": 0,
+  "review_helper_sha256": "82c6ef176e102f973e1274fe034a36adadedd341211f59afc0c73aaa18522242"
+}

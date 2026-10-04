@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "status": "PASS_FINITE_SOURCE_AND_PROJECTION_BINDINGS",
+  "proposal_sha256": "ff7486c18796051a78af0622467bf05f8a967dc50d79dbe2267b4e7608bcdda8",
+  "primary_excerpts_sha256": "b3ccb5d39c9a6aefbf83a134ea6d419ca4b88febe0b50953218705d594cdc567",
+  "current_source15_ledger_path": "/workspace/pices-alias228-targets-20261004/docs/readiness/2026-10-04/residual_evidence15_integrated_source_status.json",
+  "current_source15_ledger_sha256": "4a4ef82f9da793c0a83cd58f6388991dd38f7a5f92947b2d089855b259af4e4a",
+  "current_creator415_path": "/workspace/pices-alias228-targets-20261004/docs/readiness/2026-10-04/source_citation_credits_415.json",
+  "current_creator415_sha256": "ae4404c40238542c517822fe4424d14a0cbe93efef542bf42d359717fd4ba2e3",
+  "historical_metadata_baseline_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+  "beforeimage_scope": "Full retained historical0ec metadata beforeimages were checked; they are not relabeled as a fresh source15 classification or current afterimage. Current source15 XML, held ledger and creator415 exclusion were independently checked.",
+  "external_excerpt_hash_scope": "Reviewer-transcribed objects only; no raw external HTML byte hash claimed.",
+  "source_ids": [
+    "FGDC-3951",
+    "FGDC-3952",
+    "FGDC-3953",
+    "FGDC-3966",
+    "FGDC-3967",
+    "FGDC-3968",
+    "FGDC-3969"
+  ],
+  "rows": [
+    {
+      "source_id": "FGDC-3951",
+      "source_sha256": "e7a32206e486a6d2524921888e19074ce8e328e1ca5101e2e14e80bf72988ee5",
+      "source_bytes": 4461,
+      "full_original_root_sha256": "704bc3b5841101bf8cbdb740b6633a5797eacf7a0da25f4c42c9268b855b921e",
+      "all_literal_selectors_and_full_root_match": true,
+      "historical_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3951.json",
+      "historical_payload_sha256": "f827d53de43ac5f1848ee0da74f9efc8b82eca5d4993d0632093caee5bbe353b",
+      "historical_raw_metadata_sha256": "4b47403e396d5c2398eb3809f6cc65f193b6cca88ab3ac2b3aea34240d77aedc",
+      "proposed_metadata_sha256": "bf6726980f5176b69e9257b713af8d7a40acf454d66d43ac912f3654de02a619",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "current_source15_status": "held",
+      "not_in_current_creator415": true,
+      "full_source15_ledger_record": {
+        "source_id": "FGDC-3951",
+        "source_sha256": "e7a32206e486a6d2524921888e19074ce8e328e1ca5101e2e14e80bf72988ee5",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "proposed_creator_objects": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "title": "Subsurface Temperature Decode Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+      "product_code": "SUBST",
+      "source_begin_date": "19970601",
+      "metadata_date_literal": "20050418",
+      "raw_primary_origin_text": null,
+      "raw_primary_publication_date_text": null,
+      "source_specific_evidence_ids": [
+        "OFFICIAL_PRODUCT_CATALOGUE",
+        "SUBST_DERIVED_PRODUCT_V101",
+        "SUBST_HISTORICAL_V100"
+      ]
+    },
+    {
+      "source_id": "FGDC-3952",
+      "source_sha256": "0d36dc527b4ad8448205c07faf65125fa7a251174b4c27239dbe29a48243ce6c",
+      "source_bytes": 4476,
+      "full_original_root_sha256": "c1fcc1b47549f955572fc625a5e812194e5f1bbcab992b214a3f9b774334e07c",
+      "all_literal_selectors_and_full_root_match": true,
+      "historical_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3952.json",
+      "historical_payload_sha256": "57a9a3597a6844270fd44f2162e64ec114c1765b6ad3e8ed0a4696a1d70b5f23",
+      "historical_raw_metadata_sha256": "423f2b92da2fa51676723d17406695146317afede9e36662c0208248cd499508",
+      "proposed_metadata_sha256": "50ba5477580933871defd1f6711a2b61c310dd6cc41ac9e34e9d56fdf377c7c5",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "current_source15_status": "held",
+      "not_in_current_creator415": true,
+      "full_source15_ledger_record": {
+        "source_id": "FGDC-3952",
+        "source_sha256": "0d36dc527b4ad8448205c07faf65125fa7a251174b4c27239dbe29a48243ce6c",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "proposed_creator_objects": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "title": "Subsurface Temperature Decode Error Report in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+      "product_code": "SUBST_ERROR",
+      "source_begin_date": "19970601",
+      "metadata_date_literal": "20050418",
+      "raw_primary_origin_text": null,
+      "raw_primary_publication_date_text": null,
+      "source_specific_evidence_ids": [
+        "OFFICIAL_PRODUCT_CATALOGUE",
+        "SUBST_DERIVED_PRODUCT_V101",
+        "SUBST_HISTORICAL_V100"
+      ]
+    },
+    {
+      "source_id": "FGDC-3953",
+      "source_sha256": "3a6d35878b8f35f0db0c709fea2b37b77e13a5663097affe07642eaa989bb2ac",
+      "source_bytes": 4372,
+      "full_original_root_sha256": "151237af1e83692d66a68f414e2e84f8c37612780072c17e65c3fe1ec1246d37",
+      "all_literal_selectors_and_full_root_match": true,
+      "historical_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3953.json",
+      "historical_payload_sha256": "1c3757622a7d5fbea3c882c68c5faf98e4bb74a4bf8ae441f0b2e2c661c2f87a",
+      "historical_raw_metadata_sha256": "2705b390dba6d3489c0a8d3ab11f3a3f168c00e244ad290fc1bdf8f63d6d4b88",
+      "proposed_metadata_sha256": "3f76ad6fe4bdeefaa27f6a28e9e6d5d467dbc02122b925bbb8486b2ca455b432",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "current_source15_status": "held",
+      "not_in_current_creator415": true,
+      "full_source15_ledger_record": {
+        "source_id": "FGDC-3953",
+        "source_sha256": "3a6d35878b8f35f0db0c709fea2b37b77e13a5663097affe07642eaa989bb2ac",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "proposed_creator_objects": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "title": "Global Sea and Sub Surface Temperature and Salinity Decode in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+      "product_code": "GLBTS",
+      "source_begin_date": null,
+      "metadata_date_literal": "20050418",
+      "raw_primary_origin_text": null,
+      "raw_primary_publication_date_text": null,
+      "source_specific_evidence_ids": [
+        "OFFICIAL_PRODUCT_CATALOGUE",
+        "GLOBAL_TS_DERIVED_PRODUCT_V200"
+      ]
+    },
+    {
+      "source_id": "FGDC-3966",
+      "source_sha256": "05679bc5934eacc9e8fb781c777c879a07887afbd02e757a8c394f4846a6cc07",
+      "source_bytes": 4318,
+      "full_original_root_sha256": "c9e8b505ba6a11eecdd7510d4d5da81dbce5a6bcee0460d583a76fabebe9dbfb",
+      "all_literal_selectors_and_full_root_match": true,
+      "historical_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3966.json",
+      "historical_payload_sha256": "83b23bf6f8037af06b5a742be569ed56fbeb3d86d7bf653e1743680c01f92ada",
+      "historical_raw_metadata_sha256": "4767c841e568241b2a08b2e507cd17b49b58418cea10e338b5b255c2891b47bf",
+      "proposed_metadata_sha256": "3e054fca626d6e51fbca36bd2bef9a2f4042aafc46d619e5721943f3bde511f4",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "current_source15_status": "held",
+      "not_in_current_creator415": true,
+      "full_source15_ledger_record": {
+        "source_id": "FGDC-3966",
+        "source_sha256": "05679bc5934eacc9e8fb781c777c879a07887afbd02e757a8c394f4846a6cc07",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "proposed_creator_objects": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "title": "Wind Decode Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+      "product_code": "WIND",
+      "source_begin_date": "19980101",
+      "metadata_date_literal": "20050418",
+      "raw_primary_origin_text": null,
+      "raw_primary_publication_date_text": null,
+      "source_specific_evidence_ids": [
+        "OFFICIAL_PRODUCT_CATALOGUE",
+        "WIND_DERIVED_PRODUCT_V100"
+      ]
+    },
+    {
+      "source_id": "FGDC-3967",
+      "source_sha256": "80234c29ec0d251f055a2316a038daf4f1f005d90bdbb7b19e90a0317b947f77",
+      "source_bytes": 4306,
+      "full_original_root_sha256": "00d8a6b1cf6bf840e19cdd3c2087df7dbf03859fff8ecf2f5779644bf5d53024",
+      "all_literal_selectors_and_full_root_match": true,
+      "historical_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3967.json",
+      "historical_payload_sha256": "f7b02214419743c98a594b02880f39db7340cdff306af71a11b197d5543624fb",
+      "historical_raw_metadata_sha256": "e07f7cac85b7aa1172f872d9910153f10ff9d89572ee17d2be71786b970b565a",
+      "proposed_metadata_sha256": "1cb5eacf34ada4dc2ce076916952154f568af1fbb5d155fd542471f1ca4a7d8c",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "current_source15_status": "held",
+      "not_in_current_creator415": true,
+      "full_source15_ledger_record": {
+        "source_id": "FGDC-3967",
+        "source_sha256": "80234c29ec0d251f055a2316a038daf4f1f005d90bdbb7b19e90a0317b947f77",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "proposed_creator_objects": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "title": "Wind Decode Error Report in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+      "product_code": "WIND_ERROR",
+      "source_begin_date": "19980101",
+      "metadata_date_literal": "20050418",
+      "raw_primary_origin_text": null,
+      "raw_primary_publication_date_text": null,
+      "source_specific_evidence_ids": [
+        "OFFICIAL_PRODUCT_CATALOGUE",
+        "WIND_DERIVED_PRODUCT_V100"
+      ]
+    },
+    {
+      "source_id": "FGDC-3968",
+      "source_sha256": "e9680a57712405e0df4486f4507a10f9357b8b33af0f06ffeee7b38f08c697d2",
+      "source_bytes": 4323,
+      "full_original_root_sha256": "bf5a80dcabe4240c063f42fc8edd343f32c244e0811ec1fd0d4c5185e2be7a21",
+      "all_literal_selectors_and_full_root_match": true,
+      "historical_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3968.json",
+      "historical_payload_sha256": "0581e377a1fab991a6c7488c8095db1677a00d181f1facd08f10f72b498ba44c",
+      "historical_raw_metadata_sha256": "f97ab9de68e76d346cc1f208e22deee6495d214d1fa541d9fd4c5c7388bab206",
+      "proposed_metadata_sha256": "db255b1d3c088d562e5f4fd8eecff15a6be8b873c213cf738b15b421ff9525bc",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "current_source15_status": "held",
+      "not_in_current_creator415": true,
+      "full_source15_ledger_record": {
+        "source_id": "FGDC-3968",
+        "source_sha256": "e9680a57712405e0df4486f4507a10f9357b8b33af0f06ffeee7b38f08c697d2",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "proposed_creator_objects": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "title": "Wind Decode Format Version 2.0 in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+      "product_code": "WIND2",
+      "source_begin_date": "20010101",
+      "metadata_date_literal": "20050418",
+      "raw_primary_origin_text": null,
+      "raw_primary_publication_date_text": null,
+      "source_specific_evidence_ids": [
+        "OFFICIAL_PRODUCT_CATALOGUE",
+        "WIND_DERIVED_PRODUCT_V100",
+        "WIND_DERIVED_PRODUCT_V200"
+      ]
+    },
+    {
+      "source_id": "FGDC-3969",
+      "source_sha256": "9bae14e8ac15ad1001fc0a21c6aa93b8f2d8ba36eb911995a95b292c90ac505f",
+      "source_bytes": 4268,
+      "full_original_root_sha256": "2f1a6f3261a12cea523e5682e2e1cc2171172e213b9ca252993b17c620dc8091",
+      "all_literal_selectors_and_full_root_match": true,
+      "historical_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3969.json",
+      "historical_payload_sha256": "b623397f97365657f4fb33f26e3024c5fbf0064c99e2b842925897a2c4a8bc9c",
+      "historical_raw_metadata_sha256": "d801d97797ce45d5057f828e8467b41ff8252094eec2d2df570c13f686b4f16e",
+      "proposed_metadata_sha256": "5bf0087ebeec168bc4171ff83e69eaf4ddc8032097d16bdea9f39498f06db6ff",
+      "changed_fields": [
+        "creators",
+        "notes"
+      ],
+      "current_source15_status": "held",
+      "not_in_current_creator415": true,
+      "full_source15_ledger_record": {
+        "source_id": "FGDC-3969",
+        "source_sha256": "9bae14e8ac15ad1001fc0a21c6aa93b8f2d8ba36eb911995a95b292c90ac505f",
+        "source_status": "held",
+        "evidence": "frozen_baseline"
+      },
+      "proposed_creator_objects": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "title": "Global Wind Decode in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)",
+      "product_code": "GLBWIND",
+      "source_begin_date": null,
+      "metadata_date_literal": "20050418",
+      "raw_primary_origin_text": null,
+      "raw_primary_publication_date_text": null,
+      "source_specific_evidence_ids": [
+        "OFFICIAL_PRODUCT_CATALOGUE",
+        "WIND_DERIVED_PRODUCT_V100",
+        "WIND_DERIVED_PRODUCT_V200"
+      ]
+    }
+  ],
+  "repo_edits": 0,
+  "classification_runs": 0,
+  "provider_requests": 0,
+  "actual_promotions": 0
+}

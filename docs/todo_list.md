@@ -1,3 +1,19 @@
+## Active increment: eight reviewed creator corrections — 2026-10-04
+
+Base main173a4b0613e915b2915ae815b01f9f8823f2ced8 preserves4206 original files and the separate3978-target view. Root is the sole integration writer; no provider requests or production mutations.
+
+- [x] Reconcile PR28 merged tree, creator7 independent role review and current415/607/36 profiles.
+- [x] Rebase seven exact derived-product creator proposals onto current source metadata, applying reviewed scope qualifications and preserving all earlier cohort objects.
+- [x] Independently review FGDC-1314's matching publisher bibliography; add four literal ordered author initials as the eighth finite creator correction.
+- [x] Measure a ten-source smoke and exact before/after/repeat/withdrawal delta:3704/496/6 original files and3908/64/6 unique targets, all4206 originals and4198 unselected ledger rows intact. Independently audit saved phase outputs and preserve37 focused passing checks.
+- [x] Prepare all228 pair reconciliation inputs from captured evidence only; preserve five complete historical snapshots, unknown identities and precise fresh read-only evidence gaps. Resolve the independent capture-time finding;13 local checks pass.
+- [ ] Complete independent current-head review and actual CI, then merge under standing authorization.
+
+See [the current handoff](readiness/2026-10-04/creator8_handoff.md) and
+[exact remaining holds](readiness/2026-10-04/creator8_remaining_holds.json).
+The PR's final checks/review/merge timeline records completion; no status-only
+follow-up commit is needed. Provider stages remain separately dispatched by parent.
+
 ## Active increment: approved identical-pair record targets — 2026-10-04
 
 Source15 PR27 merged as `dc10c9955e0e28ac1069d8b50ad729e40a255697` after 497 guarded offline tests and current-head independent Codex review. Source counts: 3696 supported / 504 held / 6 malformed.
@@ -6,7 +22,7 @@ Source15 PR27 merged as `dc10c9955e0e28ac1069d8b50ad729e40a255697` after 497 gua
 - [x] Prepare one versioned local target per exact pair, preserving both IDs/files and all source conditions.
 - [x] Refuse class/member provider operations, legacy approvals and identity adoption at shared entry points.
 - [x] Measure five complete pairs and exact repeat, then all 228 classes; retain 204 supported/24 held classes, both 456 originals and 3,750 singleton projections. Unique targets: 3,900 supported / 72 held / 6 malformed, all class uploads blocked. Preserve the first smoke display-newline failure and its correction.
-- [ ] Complete independent current-head review and actual CI, then merge under standing authorization.
+- [x] Merge PR28 as173a4b0613e915b2915ae815b01f9f8823f2ced8 after522 actual guarded CI tests and exact-head Codex review.
 - [ ] Later executor stage: reconcile existing production records/DOIs and review class execution support before any class upload.
 
 # Remaining evidence and finite editorial review — 2026-10-04

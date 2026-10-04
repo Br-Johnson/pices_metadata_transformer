@@ -1,0 +1,37 @@
+{
+  "commit": "173a4b0613e915b2915ae815b01f9f8823f2ced8",
+  "environment_cleared_dummy_credentials_only": true,
+  "errors": 0,
+  "failures": 0,
+  "guard_blocks": {
+    "bootstrap": {
+      "network": 4,
+      "private_reads": 1,
+      "processes": 1,
+      "writes": 1
+    },
+    "tests": {
+      "network": 0,
+      "private_reads": 0,
+      "processes": 0,
+      "writes": 0
+    }
+  },
+  "in_process_read_only_git_queries": 9,
+  "seconds": 12.773,
+  "selected_modules": [
+    "tests.test_derived_creator_extension",
+    "tests.test_creator415_institution3",
+    "tests.test_residual_creator3",
+    "tests.test_content_class_targets",
+    "tests.test_content_class_guards",
+    "tests.test_content_class_review_gaps"
+  ],
+  "source_bindings_unchanged": true,
+  "source_tree_sha256": "0c2adb0758fb30b604347668346d59ac3b8ac4a6e6f897b7ff12f573d76cf6c3",
+  "successful": true,
+  "tests_run": 37,
+  "unexpected_guard_call_sites": [],
+  "log_sha256": "c655685354cb062908abe6e3bdc218bcc7c58624e3a2af24ae6c88c443eb8f90",
+  "evidence_scope": "Local affected37 contracts before final CI-list/doc packaging and AST-identical dispatch-tuple indentation normalization. Actual current-head GitHub CI remains separate. source_bindings_unchanged covers code/tests/contracts/CI, not original XML."
+}

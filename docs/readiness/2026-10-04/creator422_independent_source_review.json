@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "status": "INDEPENDENT_SOURCE_ROLE_REVIEW_CLEAR_WITH_CONTEXT_PRECISION_REQUIRED_BEFORE_INTEGRATION",
+  "reviewer": "GPT-6 Astra independent source-role review /root/astra_canary_root_cause",
+  "proposal_path": "/tmp/pices-creator22-derived7-proposals.json",
+  "proposal_sha256": "ff7486c18796051a78af0622467bf05f8a967dc50d79dbe2267b4e7608bcdda8",
+  "primary_excerpt_path": "/tmp/pices-creator22-derived7-primary-excerpts.json",
+  "primary_excerpt_sha256": "b3ccb5d39c9a6aefbf83a134ea6d419ca4b88febe0b50953218705d594cdc567",
+  "binding_checks_path": "/tmp/pices-creator-derived7-independent-binding-checks.json",
+  "binding_checks_sha256": "76e1391d80a034961222ed10ed856c6c3b256e1ed1349c12ebbdd3627e196614",
+  "scope": "Exactly seven derived products3951/3952/3953/3966/3967/3968/3969; separate later handoff, outside PR28. No generalized JMA/raw-GTS rule.",
+  "source15_ledger_sha256": "4a4ef82f9da793c0a83cd58f6388991dd38f7a5f92947b2d089855b259af4e4a",
+  "source15_creator415_sha256": "ae4404c40238542c517822fe4424d14a0cbe93efef542bf42d359717fd4ba2e3",
+  "independently_source_supported_creator_count": 7,
+  "unresolved_creator_role_gaps": [],
+  "required_context_precision": [
+    {
+      "finding": "OFFICIAL_PRODUCT_CATALOGUE assessment says geographic scope matches. That must not be read as exact-coordinate equivalence; FGDC3969 retains west=east=-180.",
+      "action": "In the later derived evidence/context, state title/product-code and global-versus-regional descriptor correspondence. Preserve all original coordinate literals; do not claim coordinate validation or repair."
+    },
+    {
+      "finding": "WIND2 catalogue example1999_05 predates the linked v2 manual startSeptember2000; example filenames are format illustrations, not reliable coverage chronology.",
+      "action": "Do not use catalogue examples to set dates. Preserve3968 source start20010101.3953/3969 do not declare source coverage dates or format version; do not add either. Wind v1 manual beginsJan20,1998 while3966/3967 source range beginsJan1; do not silently equate manual-version dates with source coverage."
+    }
+  ],
+  "recommended_context_precision": "Prefer separate decoded-product versus separate error/QC-product notes per source. The exact first four products have specific preparation/error-file descriptions; do not imply GLBTS/GLBWIND each deposit a separate error file merely because a related manual describes one.",
+  "source_and_projection_checks": {
+    "all7_full_original_roots_match": true,
+    "all7_literal_titles_abstracts_purposes_origins_dates_constraints_match": true,
+    "all7_original_empty_creator_elements_preserved_in_notes": true,
+    "all7_current_source15_records_held": true,
+    "all7_absent_from_current_creator415_membership": true,
+    "all7_historical_complete_beforeimages_exact": true,
+    "all7_projections_change_only_creators_and_appended_notes": true,
+    "all7_restricted_access_blank_license_date_and_other_metadata_exact": true,
+    "all6_excerpt_object_hashes_recomputed": true
+  },
+  "beforeimage_limitation": "Full retained historical0ec metadata beforeimages were checked; they are not relabeled as a fresh source15 classification or current afterimage. Current source15 XML, held ledger and creator415 exclusion were independently checked.",
+  "primary_evidence_retention": "Independent public web inspection of official JODC/NEAR-GOOS pages on2026-10-04; source packet retains short reviewer-transcribed extracts with object hashes. No raw remote HTML bytes or immutable remote-content checksum is asserted.",
+  "source_review_basis": [
+    {
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/datalist.html",
+      "locator": "GLBTS168-180; GLBWIND182-194; SUBST328-340; SUBST_ERROR341-353; WIND369-381; WIND_ERROR383-395; WIND2 396-408",
+      "observation": "Exact named decode/error products have product-specific links distinct from raw GTS entries."
+    },
+    {
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/subst_all.html",
+      "locator": "heading and two version links",
+      "observation": "Catalogue links to this JMA-named index before v100/v101; both versions explicitly belong to the same decoded/error product."
+    },
+    {
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/subst_v101.html",
+      "locator": "heading0; introduction12-18; decoded file23-48; error/QC61-92",
+      "observation": "Describes prepared decoded files and separately generated primary QC/error information with original-report locators."
+    },
+    {
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/subst_v100.html",
+      "locator": "heading0; version2; decoded11-44; errors48-72",
+      "observation": "Earlier JMA-named decoded and error products support continuity; version timing is not a replacement source date."
+    },
+    {
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/wind_v100.html",
+      "locator": "heading0; introduction12-20; decode23-48; error/QC61-88",
+      "observation": "Distinct transformed wind data and generated error report are documented, beyond receipt/distribution of original reports."
+    },
+    {
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/TempandSal.html",
+      "locator": "heading0; v2 context; decoded warning/precision/layer/original-report structure",
+      "observation": "Disjoint independent reviewer checked exact GLBTS catalogue link, JMA product credit and source full XML."
+    },
+    {
+      "url": "https://near-goos1.jodc.go.jp/rdmdb/format/wind_v200.html",
+      "locator": "heading0; version2; decoded wind/QC/original-report fields",
+      "observation": "Disjoint independent reviewer checked both WIND2 and GLBWIND direct catalogue links; role supported with version/date limits."
+    }
+  ],
+  "rows": [
+    {
+      "source_id": "FGDC-3951",
+      "source_sha256": "e7a32206e486a6d2524921888e19074ce8e328e1ca5101e2e14e80bf72988ee5",
+      "product_code": "SUBST",
+      "creator_role_verdict": "SUPPORTED_EXTERNAL_SAME_PRODUCT_DERIVED_CITATION",
+      "proposed_creators": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "reasoning": "Original title and abstract identify the regional subsurface-temperature decoded product. Catalogue SUBST leads through subst_all to the two JMA-named historical manuals. They describe transformed CSV records and original-report pointers. This supports institutional responsibility for the derived decoded product.",
+      "inference_explicit": true,
+      "basis": "Agency-named product heading plus exact catalogue-to-manual linkage and description of prepared decoding/QC output; not copyright, hosting, receipt of data or method-paper authorship alone.",
+      "supported_role": "Institutional responsibility for the specified derived decoding or error/QC product.",
+      "not_established": [
+        "Authorship of the original FGDC XML",
+        "Originator of every input observation",
+        "Ownership or new reuse licence",
+        "A creator type, affiliation or additional person",
+        "A publication/observation date or undeclared format version"
+      ],
+      "primary_urls": [
+        "https://near-goos1.jodc.go.jp/rdmdb/datalist.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/subst_all.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/subst_v100.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/subst_v101.html"
+      ],
+      "source15_status_remains": "held",
+      "role_gap_unresolved": false
+    },
+    {
+      "source_id": "FGDC-3952",
+      "source_sha256": "0d36dc527b4ad8448205c07faf65125fa7a251174b4c27239dbe29a48243ce6c",
+      "product_code": "SUBST_ERROR",
+      "creator_role_verdict": "SUPPORTED_EXTERNAL_SAME_PRODUCT_DERIVED_CITATION",
+      "proposed_creators": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "reasoning": "Original title and abstract identify the separate subsurface-temperature decoding-error result. Catalogue SUBST_ERROR links the same JMA manuals; their separate error-file sections describe generating range-check and warning information. This is creation of an error/QC product, beyond distribution of incoming reports.",
+      "inference_explicit": true,
+      "basis": "Agency-named product heading plus exact catalogue-to-manual linkage and description of prepared decoding/QC output; not copyright, hosting, receipt of data or method-paper authorship alone.",
+      "supported_role": "Institutional responsibility for the specified derived decoding or error/QC product.",
+      "not_established": [
+        "Authorship of the original FGDC XML",
+        "Originator of every input observation",
+        "Ownership or new reuse licence",
+        "A creator type, affiliation or additional person",
+        "A publication/observation date or undeclared format version"
+      ],
+      "primary_urls": [
+        "https://near-goos1.jodc.go.jp/rdmdb/datalist.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/subst_all.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/subst_v100.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/subst_v101.html"
+      ],
+      "source15_status_remains": "held",
+      "role_gap_unresolved": false
+    },
+    {
+      "source_id": "FGDC-3953",
+      "source_sha256": "3a6d35878b8f35f0db0c709fea2b37b77e13a5663097affe07642eaa989bb2ac",
+      "product_code": "GLBTS",
+      "creator_role_verdict": "SUPPORTED_EXTERNAL_SAME_PRODUCT_DERIVED_CITATION",
+      "proposed_creators": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "reasoning": "Original title and abstract identify global sea/subsurface-temperature and salinity decode results. Catalogue GLBTS links the JMA-named Temperature and Salinity Data files manual, which describes decoded layered values, warning/precision fields and original-report locators. Institutional product attribution is supported; no specific version or source coverage date is inferred.",
+      "inference_explicit": true,
+      "basis": "Agency-named product heading plus exact catalogue-to-manual linkage and description of prepared decoding/QC output; not copyright, hosting, receipt of data or method-paper authorship alone.",
+      "supported_role": "Institutional responsibility for the specified derived decoding or error/QC product.",
+      "not_established": [
+        "Authorship of the original FGDC XML",
+        "Originator of every input observation",
+        "Ownership or new reuse licence",
+        "A creator type, affiliation or additional person",
+        "A publication/observation date or undeclared format version"
+      ],
+      "primary_urls": [
+        "https://near-goos1.jodc.go.jp/rdmdb/datalist.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/TempandSal.html"
+      ],
+      "source15_status_remains": "held",
+      "role_gap_unresolved": false
+    },
+    {
+      "source_id": "FGDC-3966",
+      "source_sha256": "05679bc5934eacc9e8fb781c777c879a07887afbd02e757a8c394f4846a6cc07",
+      "product_code": "WIND",
+      "creator_role_verdict": "SUPPORTED_EXTERNAL_SAME_PRODUCT_DERIVED_CITATION",
+      "proposed_creators": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "reasoning": "Original title and abstract identify regional wind decode results. Catalogue WIND links a JMA-named manual whose introduction describes preparing decoded direction/speed CSV files from incoming reports and retaining their original locators. Credit applies to this derived product, not all input observations.",
+      "inference_explicit": true,
+      "basis": "Agency-named product heading plus exact catalogue-to-manual linkage and description of prepared decoding/QC output; not copyright, hosting, receipt of data or method-paper authorship alone.",
+      "supported_role": "Institutional responsibility for the specified derived decoding or error/QC product.",
+      "not_established": [
+        "Authorship of the original FGDC XML",
+        "Originator of every input observation",
+        "Ownership or new reuse licence",
+        "A creator type, affiliation or additional person",
+        "A publication/observation date or undeclared format version"
+      ],
+      "primary_urls": [
+        "https://near-goos1.jodc.go.jp/rdmdb/datalist.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/wind_v100.html"
+      ],
+      "source15_status_remains": "held",
+      "role_gap_unresolved": false
+    },
+    {
+      "source_id": "FGDC-3967",
+      "source_sha256": "80234c29ec0d251f055a2316a038daf4f1f005d90bdbb7b19e90a0317b947f77",
+      "product_code": "WIND_ERROR",
+      "creator_role_verdict": "SUPPORTED_EXTERNAL_SAME_PRODUCT_DERIVED_CITATION",
+      "proposed_creators": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "reasoning": "Original title and abstract identify the distinct wind decoding-error report. Catalogue WIND_ERROR links the JMA-named wind manual; its separate error-file and QC sections describe producing error and warning outputs. JMA responsibility for that output is supported without recasting distributor/contact names as creators.",
+      "inference_explicit": true,
+      "basis": "Agency-named product heading plus exact catalogue-to-manual linkage and description of prepared decoding/QC output; not copyright, hosting, receipt of data or method-paper authorship alone.",
+      "supported_role": "Institutional responsibility for the specified derived decoding or error/QC product.",
+      "not_established": [
+        "Authorship of the original FGDC XML",
+        "Originator of every input observation",
+        "Ownership or new reuse licence",
+        "A creator type, affiliation or additional person",
+        "A publication/observation date or undeclared format version"
+      ],
+      "primary_urls": [
+        "https://near-goos1.jodc.go.jp/rdmdb/datalist.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/wind_v100.html"
+      ],
+      "source15_status_remains": "held",
+      "role_gap_unresolved": false
+    },
+    {
+      "source_id": "FGDC-3968",
+      "source_sha256": "e9680a57712405e0df4486f4507a10f9357b8b33af0f06ffeee7b38f08c697d2",
+      "product_code": "WIND2",
+      "creator_role_verdict": "SUPPORTED_EXTERNAL_SAME_PRODUCT_DERIVED_CITATION",
+      "proposed_creators": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "reasoning": "Original title/abstract explicitly identify wind decode format version2.0. Catalogue WIND2 links the JMA-named v2 manual and its decoded/flagged product structure. This is an exact product/version match for institutional responsibility; keep the XML coverage dates and do not treat the catalogue example filename as historical evidence.",
+      "inference_explicit": true,
+      "basis": "Agency-named product heading plus exact catalogue-to-manual linkage and description of prepared decoding/QC output; not copyright, hosting, receipt of data or method-paper authorship alone.",
+      "supported_role": "Institutional responsibility for the specified derived decoding or error/QC product.",
+      "not_established": [
+        "Authorship of the original FGDC XML",
+        "Originator of every input observation",
+        "Ownership or new reuse licence",
+        "A creator type, affiliation or additional person",
+        "A publication/observation date or undeclared format version"
+      ],
+      "primary_urls": [
+        "https://near-goos1.jodc.go.jp/rdmdb/datalist.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/wind_v200.html"
+      ],
+      "source15_status_remains": "held",
+      "role_gap_unresolved": false
+    },
+    {
+      "source_id": "FGDC-3969",
+      "source_sha256": "9bae14e8ac15ad1001fc0a21c6aa93b8f2d8ba36eb911995a95b292c90ac505f",
+      "product_code": "GLBWIND",
+      "creator_role_verdict": "SUPPORTED_EXTERNAL_SAME_PRODUCT_DERIVED_CITATION",
+      "proposed_creators": [
+        {
+          "name": "Japan Meteorological Agency"
+        }
+      ],
+      "reasoning": "Original title and abstract identify global wind decode results. Catalogue GLBWIND links the same JMA-named v2 output manual. The global product descriptor and prepared decoding output establish the finite product crosswalk; the generic title does not establish a particular historical file version or observation origin.",
+      "inference_explicit": true,
+      "basis": "Agency-named product heading plus exact catalogue-to-manual linkage and description of prepared decoding/QC output; not copyright, hosting, receipt of data or method-paper authorship alone.",
+      "supported_role": "Institutional responsibility for the specified derived decoding or error/QC product.",
+      "not_established": [
+        "Authorship of the original FGDC XML",
+        "Originator of every input observation",
+        "Ownership or new reuse licence",
+        "A creator type, affiliation or additional person",
+        "A publication/observation date or undeclared format version"
+      ],
+      "primary_urls": [
+        "https://near-goos1.jodc.go.jp/rdmdb/datalist.html",
+        "https://near-goos1.jodc.go.jp/rdmdb/format/wind_v200.html"
+      ],
+      "source15_status_remains": "held",
+      "role_gap_unresolved": false
+    }
+  ],
+  "next_engineering_step": "After parent handoff and outside frozen PR28, rebase exact seven-member additive creator evidence on then-current main, apply context precision, prepare fresh complete before/after metadata, and run finite preservation/rejection QA and current-head review/CI. This review does not claim resulting promotions.",
+  "actual_promotions": 0,
+  "classification_runs": 0,
+  "repo_edits": 0,
+  "zenodo_or_provider_requests": 0,
+  "production_release_or_rights_grants": 0,
+  "disjoint_independent_subreview": {
+    "source_ids": [
+      "FGDC-3953",
+      "FGDC-3968",
+      "FGDC-3969"
+    ],
+    "path": "/tmp/pices-derived3-independent-role-review-20261004.json",
+    "sha256": "a17ade01902e730c0bf3d966fff89f72ec85a312f70cb27ed7ad4e1de5cac53c",
+    "verdict": "Supported finite derived-product attribution with geography/version wording limits; no role-disqualifying conflict."
+  }
+}
