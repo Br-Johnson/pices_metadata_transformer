@@ -20,11 +20,12 @@ VALIDATION_ERROR_FIELDS = (
 )
 
 
-def validation_errors_projection(data):
-    """Closed modern validation flags only, after caller checks credential echoes.
+def validation_errors_projection(data, token):
+    """Flags and bounded schema paths only; never messages or provider values.
 
-    Messages and unknown field paths are never returned. A shape flag describes
-    the flat field-entry container only; this evidence never grants an action.
+    The caller checks whole-body credential echoes first. Paths are checked
+    against credential variants before any length bound or truncation; unsafe
+    names are suppressed, rather than normalized into a different field.
     """
     present = isinstance(data, dict) and 'errors' in data
     errors = data.get('errors') if present else None
@@ -33,7 +34,9 @@ def validation_errors_projection(data):
     result = {'errors_present': present,
               'errors_type': labels.get(type(errors), 'other') if present else 'missing',
               'errors_count': len(errors) if isinstance(errors, list) else None,
-              'errors_shape_supported': isinstance(errors, list), 'unknown_error_field_present': False}
+              'errors_shape_supported': isinstance(errors, list), 'unknown_error_field_present': False,
+              'error_fields': [], 'error_field_names_suppressed': False,
+              'error_field_names_truncated': False}
     result.update({name.replace('.', '_') + '_error_present': False for name in VALIDATION_ERROR_FIELDS})
     if isinstance(errors, list):
         for item in errors:
@@ -44,6 +47,24 @@ def validation_errors_projection(data):
                 result['unknown_error_field_present'] = True
             if not isinstance(item, dict) or not isinstance(field, str):
                 result['errors_shape_supported'] = False
+            # Modern paths use named components and bounded array indices.
+            # URLs, spaces, punctuation, controls and opaque strings cannot pass.
+            safe = (isinstance(field, str) and isinstance(token, str) and token
+                    and token.isascii() and len(field) <= 128
+                    and not any(secret in _normalized_error_text(field)
+                                for secret in _credential_variants(token)))
+            if safe:
+                safe = bool(re.fullmatch(
+                    r'[a-z_][a-z0-9_]{0,47}(?:\.[a-z_][a-z0-9_]{0,47}|\.[0-9]{1,4}|\[[0-9]{1,4}\]){0,11}', field))
+                safe = safe and not re.search(r'[A-Za-z0-9]{24,}', field)
+            if not safe:
+                result['error_field_names_suppressed'] = True
+            elif field not in result['error_fields']:
+                if len(result['error_fields']) < 16:
+                    result['error_fields'].append(field)
+                else:
+                    result['error_field_names_truncated'] = True
+        result['error_fields'].sort()
     return result
 
 

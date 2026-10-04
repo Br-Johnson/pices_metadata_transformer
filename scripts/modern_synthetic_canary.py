@@ -417,7 +417,7 @@ class Controller:
                 except (ValueError, RecursionError):
                     diagnostic_data = None
                 if isinstance(diagnostic_data, dict) and not credential_echoed(diagnostic_data, self.token):
-                    projection['validation_errors'] = validation_errors_projection(diagnostic_data)
+                    projection['validation_errors'] = validation_errors_projection(diagnostic_data, self.token)
                     self.persist()
             self.observe('response_validation')
             require(complete and response.status_code == status,

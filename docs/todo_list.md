@@ -1,3 +1,12 @@
+# Complete-schema same-draft repair — 2026-10-04
+
+- [x] Reconcile parent-reported HTTP200 PUT2 publisher/unknown validation errors, same-attempt missing-field/access flags, prepared494-byte proof, no followupGET, cumulativeGET197/PUT2/create1 and357 preserved entries. The second field and rawresponse remain unavailable; no request repeated.
+- [x] Pin official full modern record/definition schemas and service-required checks; validate all fictional writable fields locally. Add only documented publisher Zenodo to the synthetic projection; preserve original/source publishers.
+- [x] Reproduce official publisher and enabled-empty-file methods with dummy fixtures. Require a separately bound narrow missing-upload-warning policy after complete seven-field metadata/access/sameidentity/emptyfiles/absentDOI checks; generic controllers retain their error policy.
+- [x] Implement token-bound finite field-name diagnostics, a separate permanently bounded PUT1/GET1 ledger and complete357 expected-hash coverage with read-only preflight; no grants/provider operations by root.
+- [ ] Complete guarded regression suite, independent implementation/handoff review and freeze the runnable single-PR repair.
+- [ ] Sole executor passes actual private offline preflight before parent binds any fresh <=600-second grant; execute once only under that dispatch.
+
 # Standing repository authorization — 2026-10-04
 
 - [x] Record Brett's authorization: merge PRs after passing CI and a Codex review of the current head without another approval; commit rules and documentation changes directly to main.

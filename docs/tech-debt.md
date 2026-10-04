@@ -1,5 +1,25 @@
 # Tech Debt Log
 
+## Complete modern schema and expected empty-file warning — 2026-10-04
+
+The prior six-field wire projection missed DataCite's semantic publisher
+requirement, which the generic storage schema leaves optional. The bounded
+synthetic repair now pins the full official record JSON schemas and adds all
+service-required and fixed-fixture checks, with no online reference resolution.
+The documented Zenodo host default applies only to the sealed fictional payload.
+Exact upstream method fixtures reproduce publisher and missing-upload errors.
+The latter can be accepted only by the separate metadata-stage ledger after all
+seven metadata fields, access, sealed identity, enabled-empty files and absent
+DOI pass, under an explicit warning-policy grant. Permission/toggle errors and
+every other validation error still hold. This is not publication readiness.
+PUT2's actual second label remains unknown; source reproduction does not recover
+it or explain the reported same-attempt missing metadata. A finite token-checked
+field-path projection now makes future genuine validation labels diagnosable
+without provider values/messages. All357 historical entries retain their previous
+expected hashes, GET197 remains a historical identity anchor, and both prior PUTs
+stay spent. Live service compatibility is still subject to sole-executor readback.
+See `readiness/2026-10-03/run02_complete_schema_repair_handoff.md`.
+
 ## Persistent repository authorization — 2026-10-04
 
 Older instructions required implementation confirmation and prohibited agents

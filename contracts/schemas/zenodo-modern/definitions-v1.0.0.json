@@ -1,0 +1,104 @@
+{
+  "$schema": {
+    "type": "string"
+  },
+  "entity_reference": {
+    "description": "Reference to an entity, with the type as key and ID as value",
+    "type": ["object", "null"],
+    "additionalProperties": false,
+    "patternProperties": {
+      "^[a-z_]+$": {
+        "type": "string"
+      }
+    }
+  },
+
+  "identifier": {
+    "description": "An identifier.",
+    "type": "string"
+  },
+  "identifiers_with_scheme": {
+    "description": "Identifiers object with identifier value and scheme in separate keys.",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "identifier": {
+        "$ref": "#/identifier"
+      },
+      "scheme": {
+        "$ref": "#/scheme"
+      }
+    }
+  },
+  "file": {
+    "type": "object",
+    "additionalProperties": false,
+    "description": "A file object.",
+    "properties": {
+      "version_id": {
+        "description": "Object version ID.",
+        "type": "string"
+      },
+      "bucket_id": {
+        "description": "Object verison bucket ID.",
+        "type": "string"
+      },
+      "mimetype": {
+        "description": "File MIMEType.",
+        "type": "string"
+      },
+      "uri": {
+        "description": "File URI.",
+        "type": "string"
+      },
+      "storage_class": {
+        "description": "File storage class.",
+        "type": "string"
+      },
+      "checksum": {
+        "description": "Checksum of the file.",
+        "type": "string"
+      },
+      "size": {
+        "description": "Size of the file in bytes.",
+        "type": "number"
+      },
+      "key": {
+        "description": "Key (filename) of the file.",
+        "type": "string"
+      },
+      "file_id": {
+        "$ref": "local://definitions-v1.0.0.json#/identifier"
+      }
+    }
+  },
+  "internal-pid": {
+    "type": "object",
+    "description": "An internal persistent identifier object.",
+    "additionalProperties": false,
+    "required": ["pk", "status"],
+    "properties": {
+      "pk": {
+        "description": "Primary key of the PID object.",
+        "type": "integer"
+      },
+      "status": {
+        "description": "The status of the PID (from Invenio-PIDStore).",
+        "type": "string",
+        "enum": ["N", "K", "R", "M", "D"]
+      },
+      "pid_type": {
+        "description": "The type of the persistent identifier.",
+        "type": "string"
+      },
+      "obj_type": {
+        "description": "The type of the associated object.",
+        "type": "string"
+      }
+    }
+  },
+  "scheme": {
+    "description": "A scheme.",
+    "type": "string"
+  }
+}

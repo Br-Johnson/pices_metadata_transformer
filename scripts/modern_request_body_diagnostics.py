@@ -150,9 +150,9 @@ def capture_fixed_bodies(token, modern_wire=True):
             'packet_sha256': modern.PACKET_SHA, 'captures': results}
 
 
-def error_projection(data):
+def error_projection(data, token=None):
     """Retained pure-helper interface; implementation is also runtime-bound."""
-    return validation_errors_projection(data)
+    return validation_errors_projection(data, token)
 
 
 def canonical_readback_projection(raw, token, expected_identity, owner):
@@ -193,7 +193,7 @@ def canonical_readback_projection(raw, token, expected_identity, owner):
             'keywords_present': 'keywords' in metadata,
             'keywords_type': label(metadata.get('keywords')) if 'keywords' in metadata else 'missing',
             'keywords_matches': metadata.get('keywords') == historical['metadata']['keywords'],
-            **owned.metadata_diagnostics(data, expected), **error_projection(data)}
+            **owned.metadata_diagnostics(data, expected), **error_projection(data, token)}
 
 
 def main():
