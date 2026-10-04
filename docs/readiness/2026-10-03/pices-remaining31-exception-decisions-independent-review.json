@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/unaami_role_access; independent read-only source/shortlist review",
+  "reviewed_at": "2026-10-04T00:34:22.824314+00:00",
+  "status": "CLEAR_EXACT31_CONSERVATIVE_HELD_DECISION_SHORTLIST",
+  "source_head": "5111657181e41e64b4653db3f0281c86a15ff6f5",
+  "source_tree": "363b1a0de190f32f6cc85d2f4e93e9cc20382fc8",
+  "inputs": [
+    {
+      "path": "/tmp/pices-remaining31-exception-decisions.json",
+      "sha256": "2edf6b9f599329ebff9f5449ff5e9c363baa3a049521edb3f88a55066416e387"
+    },
+    {
+      "path": "/tmp/pices-remaining31-exception-decisions.md",
+      "sha256": "225e759472a05e6bbb4ef14dd63d646c9f67a56f6f11ba3f66ffbbc0a8a12314"
+    },
+    {
+      "path": "/tmp/pices-minimal-scope-question32-evidence.json",
+      "sha256": "b77a7fe58b13b9090d29576305ec6640b33198c80025c9546017d29f4c458563"
+    },
+    {
+      "path": "/tmp/pices-minimal-scope-question156-evidence.json",
+      "sha256": "f515f99649e90586c2f5948dfaf03dba2df9f1479d4ee5633400bbb5f1de406a"
+    },
+    {
+      "path": "/tmp/pices-fgdc4060-disclaimer-reconciliation.json",
+      "sha256": "66c04fe8ccbc8b7b5dae2c5205d2ecee12e369bb148fe8a30a207091d96baf25"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "path": "/tmp/pices-remaining31-independent-source-contexts.json",
+      "sha256": "325d805db1ddb4c6339989ee4dac74515445b77cf36f09bb1a2c5a30bd06e9ef"
+    },
+    {
+      "path": "/tmp/pices-remaining31-independent-binding-check.json",
+      "sha256": "e404b6ccfc9bd373f093812f0564f4e6817245b07bda147d7206849a5071f2c0"
+    },
+    {
+      "path": "/tmp/pices-remaining31-independent-bindings.py",
+      "sha256": "7f2a4070c22f2315e69b5633313b6476d73e79e14c7786bca1cc220e91f7ee7a"
+    },
+    {
+      "path": "/tmp/pices-remaining31-independent-shortlist-check.py",
+      "sha256": "441ba2093ad88f69059b730c7f27940190160d020378b459bc283edebd9e6c2a"
+    }
+  ],
+  "member_count": 31,
+  "membership_sha256": "c32f26d0571e7f0e7db1b9991c76e821384b72b709fd16772e5fd274beddd244",
+  "family_counts": {
+    "metadata_product": 3,
+    "incorporated_or_incomplete_terms": 17,
+    "sensitive_or_cultural_content": 11
+  },
+  "proposed_disposition_counts": {
+    "KEEP_HELD": 31
+  },
+  "source_bound_quotations_checked": 46,
+  "historical32_membership_preserved": true,
+  "historical32_counts": {
+    "metadata_product": 3,
+    "sensitive_or_cultural_content": 11,
+    "omitted_or_unclear_terms": 18
+  },
+  "FGDC4060_excluded_and_actual_in_document_disclaimer_verified": true,
+  "FGDC4060_eligibility_change_claimed": false,
+  "verified": {
+    "all31_members_sources_baseline_copies_payloads_rawmetadata_and_whole_XML_roots_match": true,
+    "all31_full_raw_four_plain_constraints_match": true,
+    "all_JSON_row_and_membership_digests_match": true,
+    "all31_verbatim_titles_and_contiguous_quotes_match_original_sources": true,
+    "all31_MD_ids_once_and_titles_quotes_questions_match_JSON": true,
+    "all31_source_specific_minimal_questions_and_conservative_dispositions_supported_by_exact_source_context": true,
+    "all31_disjoint_reviewed83_and_corrected23": true,
+    "original821_question_statement_reply_provenance_not_enlarged": true,
+    "no_blanket_permission_repetition_requested": true,
+    "no_protected_XML_content_expired_condition_underlying_permission_or_new_license_inferred": true
+  },
+  "material_findings": [
+    "Three metadata-product/inventory descriptions, eleven explicit sensitive/cultural/conditional-publication contexts, and seventeen specifically incorporated/incomplete terms are faithfully identified. These are source-specific object/content or intended-term questions; the shortlist does not assert that the XML is protected merely because underlying resources are.",
+    "Every31 original includes the standard NOAA distribution-liability disclaimer. The new text names the specific external/project/contract terms in question and avoids the false claim that no disclaimer text exists.",
+    "FGDC-4060 is correctly absent from current31. Its generic See disclaimer can refer to the actual in-document NOAA disclaimer; its separate bounded finding remains unpromoted and outside frozen83.",
+    "FGDC-766 has a point-like bounding extent (-146.33,61.17). The shortlist acknowledges that precision and does not infer what the coordinate represents or assert all31 have only regional extents.",
+    "Actual title whitespace is preserved for FGDC-4027 and711. Raw original titles, dates, constraints, source spellings, attribution and all baseline metadata remain unchanged.",
+    "Conditional publication/name-removal/delivery statements, legal/policy references, Unknown values and historical dates remain unresolved. No successful delivery, harm threshold, contributor approval, policy exemption or expiry is asserted."
+  ],
+  "rows": [
+    {
+      "source_id": "FGDC-1318",
+      "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b",
+      "family": "metadata_product",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-1771",
+      "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-1864",
+      "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-1994",
+      "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb",
+      "family": "metadata_product",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-2086",
+      "source_sha256": "bd773c3800492e488e84f228dae101eb196ecff16380e3b523bde65fe4eaacca",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-2234",
+      "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-227",
+      "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-3687",
+      "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-4027",
+      "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-4039",
+      "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-53",
+      "source_sha256": "dbbb55ae0fb2b049d43a4e6c529360b2d9e5159794ad431ddf0453c0f3074e45",
+      "family": "metadata_product",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-563",
+      "source_sha256": "05162fde43cb4f5e122aa898d19e5a638c533bd6043b3ec10cc43b09242bcd28",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-564",
+      "source_sha256": "2638d5dbf5ca41f28037d2a291321e34693c3172152858644d2fe65086e2f8aa",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-565",
+      "source_sha256": "fb3b8f44a89a3115ec1bc62cf843bc2c2e29773b86b689f527c9b66c6b69183d",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-572",
+      "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-627",
+      "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-648",
+      "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-710",
+      "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-711",
+      "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-754",
+      "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-755",
+      "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-757",
+      "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-758",
+      "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-759",
+      "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-760",
+      "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-761",
+      "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-766",
+      "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-802",
+      "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-862",
+      "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-870",
+      "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f",
+      "family": "incorporated_or_incomplete_terms",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    },
+    {
+      "source_id": "FGDC-909",
+      "source_sha256": "d626e4265f2e2e1182f208d8f157560cb2373c983e792b3d7808a2e41eec22ae",
+      "family": "sensitive_or_cultural_content",
+      "source_title_wording_and_whole_root_verified": true,
+      "exact_four_constraints_and_quotes_verified": true,
+      "proposed_disposition": "KEEP_HELD",
+      "independent_material_scope_question_compatible_with_actual_source": true
+    }
+  ],
+  "remaining_shortlist_review_blockers": [],
+  "remaining_source_decisions": "All31 remain held under the proposed shortlist until exact XML object/content scope or intended incorporated terms are resolved from existing source-specific evidence. This review does not decide their eventual eligibility and does not reopen the already recorded restoration permission.",
+  "activity_limits": {
+    "provider_network_requests": 0,
+    "credentials_private_stage_reads": false,
+    "repository_runtime_or_XML_edits": false,
+    "tests_classifiers_or_full_corpus_audits": false,
+    "bounded_sources_reviewed": 31,
+    "FGDC4060_disclaimer_precision_read": true,
+    "temporary_review_artifacts_written": true
+  },
+  "source83_receipt_unchanged": {
+    "path": "/tmp/pices-ordinary83-source-independent-review.json",
+    "sha256": "fb504eec0d46c514f07932c54c870379e1e1c5f896e09d33179689f03b2cf4a6"
+  },
+  "106_runtime_and_delta_review": "Pending separately frozen implementation/delta assignment; not reviewed or claimed here."
+}

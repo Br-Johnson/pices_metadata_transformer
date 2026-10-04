@@ -437,3 +437,20 @@ every missing metadata field and file-access mismatch. Future packet/schema
 correction requires concrete diagnostics and a separately reviewed authorized
 action; current spent state remains held. No production compatibility inference.
 See readiness/2026-10-03/run02_body_diagnostics_handoff.md.
+
+## Exact106 scope reconciliation and integrated status accounting — 2026-10-04
+
+The original821 answer is a finite direct-question record. The83 additional
+ordinary descriptions use the same recorded restoration/scope evidence through
+a distinct REVIEWER_RECONCILED status; no new user answer or enlarged question is
+invented. An additive904 profile preserves the entire821 object and rechecks the
+five original evidence files. Separate23 whole-source resource contexts extend491
+to514 without resolving literal data conditions or changing attribution.
+
+Actual bounded106 QA preserves all XML and complete raw metadata. A deterministic
+status ledger applies disjoint measured22/106 deltas to the frozen4206 baseline,
+yielding3596/604/6 while preserving every unselected status and456 aliases. This
+integrated accounting does not replace a future full transformation/remote audit.
+The31 exact exceptions remain held, with titles, source quotes and minimal
+questions. Next42 source work waits for this merge; all provider gates stay separate.
+See readiness/2026-10-03/resource_scope_reconciliation_handoff.md.
