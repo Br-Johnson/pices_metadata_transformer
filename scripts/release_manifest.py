@@ -7,6 +7,7 @@ import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 
+from scripts.content_class_targets import require_singleton_operation
 from scripts.upload_service import atomic_json, metadata_hash, read_json
 
 
@@ -27,6 +28,8 @@ def prepare_release(qa_manifest, source_ids=None):
         raise ValueError('Release selection must identify QA-approved records')
     if len({row.get('fgdc_id') for row in records}) != len(records):
         raise ValueError('Release source identities must be unique')
+    for row in records:
+        require_singleton_operation(source_id=row.get('fgdc_id'), entry=row)
     return {'schema_version': 1, 'environment': 'production',
             'qa_manifest_sha256': metadata_hash(qa_manifest),
             'prepared_at': datetime.now(timezone.utc).isoformat(),
@@ -36,6 +39,7 @@ def prepare_release(qa_manifest, source_ids=None):
 
 
 def validate_release(release_manifest, qa_manifest, fgdc_id, entry):
+    require_singleton_operation(source_id=fgdc_id, entry=entry)
     release = release_manifest.get('release', {}) if isinstance(release_manifest, dict) else {}
     if (not isinstance(release_manifest, dict) or release_manifest.get('schema_version') != 1
             or release_manifest.get('environment') != 'production' or entry.get('environment') != 'production'
@@ -50,6 +54,13 @@ def validate_release(release_manifest, qa_manifest, fgdc_id, entry):
     matches = [row for row in rows if row.get('fgdc_id') == fgdc_id]
     if len(matches) != 1 or matches[0] != record_binding(dict(entry, fgdc_id=fgdc_id)):
         raise ValueError('Record is outside the exact authorized release selection')
+    require_singleton_operation(source_id=fgdc_id, entry=matches[0])
+    qa_rows = [row for row in qa_manifest.get('records', []) if row.get('fgdc_id') == fgdc_id]
+    if len(qa_rows) != 1:
+        raise ValueError('Exactly one matching QA record required for release')
+    require_singleton_operation(source_id=fgdc_id, entry=qa_rows[0])
+    if record_binding(qa_rows[0]) != matches[0]:
+        raise ValueError('Release identity differs from its complete QA record')
     return matches[0]
 
 

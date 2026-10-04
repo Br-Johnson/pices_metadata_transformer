@@ -18,6 +18,7 @@ from urllib.parse import urlparse
 import fcntl
 
 from scripts.fgdc_utils import build_metadata_notes, load_fgdc_xml
+from scripts.content_class_targets import require_singleton_operation
 from scripts.validate_zenodo import ZenodoValidator
 from scripts.artifact_contract import prepare_artifact, artifact_metadata, validate_files, assert_artifact_binding
 
@@ -140,6 +141,10 @@ class DraftUploadService:
     def pending_files(self, limit=None):
         registry = read_json(self.paths.uploads_registry_path, {})
         validate_registry_identities(registry)
+        if not list(Path(self.paths.zenodo_json_dir).glob('*.json')):
+            for sid, entry in registry.items():
+                if not sid.startswith('_'):
+                    require_singleton_operation(source_id=sid, entry=entry, paths=self.paths)
         safe = read_json(self.paths.safe_to_upload_path)
         from scripts.sandbox_canary import require_canary_context
         require_canary_context(self.canary, safe, registry)
@@ -147,6 +152,14 @@ class DraftUploadService:
         fingerprints = safe.get("metadata_hashes", {})
         pending = []
         for json_file in sorted(Path(self.paths.zenodo_json_dir).glob("*.json")):
+            selected_entry = registry.get(json_file.stem, {})
+            selected = (json_file.name in safe.get('files', [])
+                        or selected_entry.get('needs_reconciliation')
+                        or (selected_entry.get('deposition_id') and selected_entry.get('upload_status') != 'success'))
+            if not selected:
+                continue
+            require_singleton_operation(source_id=json_file.stem, entry=selected_entry,
+                                        json_file=json_file, paths=self.paths)
             if self.canary:
                 self.canary.authorize(json_file, self.paths)
             metadata, xml_path, source_hash = prepare_metadata(str(json_file), self.paths)
@@ -174,6 +187,7 @@ class DraftUploadService:
         return pending[:limit] if limit is not None else pending
 
     def upload(self, json_file, client):
+        require_singleton_operation(json_file=json_file, paths=self.paths)
         if self.canary:
             if client.base_url != self.canary.plan['origin']:
                 raise ValueError('Canary client must use the exact sandbox origin')
@@ -197,6 +211,8 @@ class DraftUploadService:
             require_canary_context(self.canary, read_json(self.paths.safe_to_upload_path, {}), registry)
             validate_registry_identities(registry)
             previous = registry.get(base, {})
+            require_singleton_operation(source_id=base, entry=previous,
+                                        json_file=json_file, paths=self.paths)
             if previous:
                 assert_environment(previous, self.environment)
                 assert_artifact_binding(previous, artifact)

@@ -18,6 +18,7 @@ from urllib.parse import urlparse
 from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
 from scripts.fgdc_to_zenodo import FGDCToZenodoTransformer
 from scripts.path_config import OutputPaths
+from scripts.content_class_targets import require_singleton_operation
 from scripts.qa_manifest import QA_CHECKS
 from scripts.upload_service import (assert_environment, atomic_json, expected_host,
                                     metadata_hash, prepare_metadata, read_json,
@@ -171,6 +172,7 @@ def assess_source(json_file, paths):
 
 def assess(entry, paths, snapshot_path, duplicate_path):
     """Return reproducible evidence only when every source-backed check succeeds."""
+    require_singleton_operation(entry=entry, paths=paths)
     assert_environment(entry, paths.environment)
     if entry.get('upload_status') != 'success' or entry.get('needs_reconciliation'):
         raise ValueError('Successful reconciled draft required')

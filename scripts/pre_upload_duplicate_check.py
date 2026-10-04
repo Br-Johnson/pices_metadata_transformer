@@ -16,6 +16,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.content_class_targets import require_singleton_operation, preflight_inputs
 from scripts.upload_service import atomic_json, metadata_hash, prepare_metadata
 
 
@@ -38,10 +39,9 @@ class PreUploadDuplicateChecker:
         if self.allow_replacements and not self.sandbox:
             raise ValueError("Duplicate replacements are only supported in the sandbox environment")
 
-        # Initialize Zenodo client
-        self.client = create_zenodo_client(sandbox)
-        if self.canary and self.client.base_url != self.canary.plan['origin']:
-            raise ValueError('Canary client must use the exact sandbox origin')
+        # Selection (including --limit) must precede the client's constructor probe.
+        self.client = None
+        self._client_factory = create_zenodo_client
 
         # File paths
         self.zenodo_json_dir = self.paths.zenodo_json_dir
@@ -58,14 +58,19 @@ class PreUploadDuplicateChecker:
         self.existing_dois = set()
         self.replacement_candidates = []
         
-    def load_existing_zenodo_records(self) -> Dict[str, Any]:
+    def load_existing_zenodo_records(self, selected_files=None) -> Dict[str, Any]:
         """Load existing records from Zenodo to check against."""
+        preflight_inputs(self.paths, selected_files)
         # Invalidate prior authorization before refreshing: failures must fail closed.
         atomic_json(self.paths.safe_to_upload_path, {
             'environment': 'sandbox' if self.sandbox else 'production',
             'inventory_complete': False, 'files': [], 'metadata_hashes': {},
         })
         records = {'titles': set(), 'records': [], 'title_to_record': {}, 'identifiers': set()}
+        if self.client is None:
+            self.client = self._client_factory(self.sandbox)
+        if getattr(self, 'canary', None) and self.client.base_url != self.canary.plan['origin']:
+            raise ValueError('Canary client must use the exact sandbox origin')
         published = self.client.get_records_by_query(q=f"communities:{self.community_identifier}", size=200)
         drafts = self.client.get_all_my_depositions()
         for hit in published + drafts:
@@ -94,6 +99,7 @@ class PreUploadDuplicateChecker:
 
     def check_file_for_duplicates(self, json_file: str, existing_records: Dict[str, Any]) -> Dict[str, Any]:
         """Check a single JSON file for potential duplicates."""
+        require_singleton_operation(json_file=json_file, paths=self.paths)
         try:
             # Load the JSON file
             with open(json_file, 'r', encoding='utf-8') as f:
@@ -216,9 +222,6 @@ class PreUploadDuplicateChecker:
         print(f"🔍 Starting pre-upload duplicate check...")
         print(f"   Environment: {'sandbox' if self.sandbox else 'production'}")
         
-        # Load existing records from Zenodo
-        existing_records = self.load_existing_zenodo_records()
-        
         # Get all JSON files
         json_files = []
         if os.path.exists(self.zenodo_json_dir):
@@ -232,6 +235,10 @@ class PreUploadDuplicateChecker:
             json_files = json_files[:limit]
             print(f"   Limited to {limit} files for testing")
         
+        # A limited singleton selection does not select retained sibling aliases.
+        preflight_inputs(self.paths, json_files)
+        existing_records = self.load_existing_zenodo_records(json_files)
+
         print(f"   Checking {len(json_files)} files for duplicates...")
         
         # Check each file
@@ -311,6 +318,7 @@ class PreUploadDuplicateChecker:
     def generate_upload_list(self) -> str:
         """Generate a list of files safe to upload."""
         safe_files = [f['file'] for f in self.safe_to_upload]
+        preflight_inputs(self.paths, [os.path.join(self.zenodo_json_dir, name) for name in safe_files])
         if self.canary:
             from scripts.upload_service import ledger_lock, read_json
             with ledger_lock(self.paths):

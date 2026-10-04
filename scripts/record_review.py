@@ -16,6 +16,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.content_class_targets import require_singleton_operation
 
 
 class RecordReviewer:
@@ -366,6 +367,9 @@ class RecordReviewer:
             return analysis
         
         try:
+            require_singleton_operation(source_id=record_id, entry=upload_analysis,
+                                        json_file=os.path.join(self.zenodo_json_dir, record_id + '.json'),
+                                        paths=self.paths)
             client = create_zenodo_client(sandbox)
             deposition = client.get_deposition(upload_analysis['deposition_id'])
             

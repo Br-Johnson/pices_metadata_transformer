@@ -1,5 +1,38 @@
 # Original FGDC XML artifact contract
 
+## Approved identical-pair representation (version 2)
+
+The separately approved finite set of 228 identical XML pairs can be prepared as
+local content-class targets by `scripts.content_class_targets`. Each target uses
+`sha256:<raw-XML-hash>`, retains both original source IDs and filenames, and leaves
+historical canonical catalogue/provider IDs and DOI unset. Both complete metadata
+objects must agree and both version-1 policy/artifact bindings are checked independently.
+Additional semantic holds remain visible in the separate member assessments.
+
+Its version-2 `artifact_contract` binds the representation manifest, both members'
+source/payload/policy/version-1 artifact digests, the member-set digest, complete
+two-file classification, and both file names/sizes/SHA-256/MD5 values. The contract
+digest excludes its own `sha256` field. Full metadata and source XML remain in the
+prepared target, with explicit pair provenance and the version-2 contract digest.
+Use `validate_class_target` to rebuild from current source evidence; a self-hash
+alone is insufficient. The [measured example](../contracts/examples/original_xml_content_class_v2.json)
+is evidence for its exact pair only.
+
+This is an additive local representation, stored outside `zenodo_json`.
+The version-1 source pipeline and frozen source ledger remain unchanged. All class
+targets are ineligible for provider operations, including otherwise-supported
+classes. Their member IDs, known hashes, renamed original bytes, class contracts
+and selected registry history are refused by legacy source-backed operation,
+adoption and approval paths. Unsupported classes retain both member assessments;
+structural failures have no complete artifact contract. `--limit` counts whole
+classes. There is no class upload/resume/release implementation or enabling flag.
+
+See [ADR 0003](adr/0003-finite-identical-xml-record-targets.md) and the
+[runnable offline handoff](readiness/2026-10-04/alias228_target_handoff.md) for the
+source-file versus target counts and required later production reconciliation.
+
+## Version-1 singleton artifacts
+
 This is an explicit per-record option, not a migration of legacy records. The deposited object is the original XML metadata artifact, resource type `other`, with no underlying research data included. Its DOI identifies that artifact. Referenced work identifiers belong in reviewed relations; do not assign another work's DOI to the XML object.
 
 ## Activation and evidence

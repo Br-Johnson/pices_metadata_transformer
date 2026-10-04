@@ -13,6 +13,7 @@ from typing import Dict, List, Any, Optional
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.content_class_targets import require_singleton_operation, preflight_registry
 from scripts.upload_service import validate_deposition_response, assert_environment, prepare_metadata, read_json
 from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
 
@@ -47,7 +48,8 @@ class ZenodoVerifier:
         self.paths = OutputPaths(output_dir, "sandbox" if sandbox else "production")
         self.logger = get_logger()
         
-        # Initialize Zenodo client
+        preflight_registry(self.paths, read_json(self.paths.uploads_registry_path, {}))
+        # Initialize Zenodo client only after selected-source preflight.
         self.client = create_zenodo_client(sandbox)
         
         # File paths
@@ -73,7 +75,8 @@ class ZenodoVerifier:
             if key.startswith('_') or entry.get('upload_status') != 'success':
                 continue
             assert_environment(entry, self.paths.environment)
-            uploads.append(dict(entry, success=True))
+            require_singleton_operation(source_id=key, entry=entry, paths=self.paths)
+            uploads.append(dict(entry, success=True, fgdc_id=key))
         return uploads
 
     def verify_uploads(self, upload_log: List[Dict[str, Any]], limit: int = None) -> Dict[str, Any]:
@@ -139,6 +142,7 @@ class ZenodoVerifier:
         json_file = upload.get('json_file')
         
         try:
+            require_singleton_operation(entry=upload, paths=self.paths)
             assert_environment(upload, self.paths.environment)
             # Get deposition from Zenodo
             deposition = self.client.get_deposition(deposition_id)

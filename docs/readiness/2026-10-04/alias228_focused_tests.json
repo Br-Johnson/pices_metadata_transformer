@@ -1,0 +1,40 @@
+{
+  "commit": "dc10c9955e0e28ac1069d8b50ad729e40a255697",
+  "environment_cleared_dummy_credentials_only": true,
+  "errors": 0,
+  "failures": 0,
+  "guard_blocks": {
+    "bootstrap": {
+      "network": 4,
+      "private_reads": 1,
+      "processes": 1,
+      "writes": 1
+    },
+    "tests": {
+      "network": 0,
+      "private_reads": 0,
+      "processes": 0,
+      "writes": 0
+    }
+  },
+  "in_process_read_only_git_queries": 18,
+  "seconds": 5.832,
+  "selected_modules": [
+    "tests.test_content_class_targets",
+    "tests.test_content_class_guards",
+    "tests.test_content_class_review_gaps",
+    "tests.test_pipeline_safety",
+    "tests.test_artifact_contract",
+    "tests.test_agent_qa",
+    "tests.test_release_manifest",
+    "tests.test_metadata_contracts",
+    "tests.test_sandbox_canary"
+  ],
+  "source_bindings_unchanged": true,
+  "source_tree_sha256": "f517d2f656da1fd63bfeeacbc4e9c13d5b0b3467b4d7240d677517e11fd224fc",
+  "successful": true,
+  "tests_run": 134,
+  "unexpected_guard_call_sites": [],
+  "evidence_scope": "Guarded local focused run on modified working tree based on recorded commit; not actual GitHub CI. source_bindings_unchanged checks scripts/tests/contracts/ci/workflow, not FGDC bytes.",
+  "log_sha256": "f87b44d99896378ad002dacbf155868512d152081e6ab72ad67fadadb246e9af"
+}
