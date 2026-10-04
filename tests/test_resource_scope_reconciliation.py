@@ -165,7 +165,7 @@ class ResourceScopeReconciliationTests(unittest.TestCase):
             forged = read_json(NEW)
             forged["acquisition_contexts"]["FGDC-218"]["constraints"][
                 "./idinfo/useconst"
-            ] = "None"
+            ] = "Unreviewed new permission"
             target = Path(tmp) / "forged.json"
             atomic_json(target, forged)
             for profile in (target, Path(tmp) / "missing.json", None):
@@ -174,19 +174,24 @@ class ResourceScopeReconciliationTests(unittest.TestCase):
                     all(r["source_status"] == "held" for r in held["records"])
                 )
 
-    def test_agent_and_both_human_routes_reject_evidence_or_policy_changes(self):
+    def test_agent_and_both_human_routes_for_source_backed_resource(self):
+        self.human_routes("FGDC-218", "dataset_access_interpretation", NEW)
+
+    def test_agent_and_both_human_routes_for_reviewer_reconciled_source(self):
+        self.human_routes("FGDC-1041", "source_scope_attestation", SCOPE_NEW)
+
+    def human_routes(self, sid, policy_key, profile):
         from scripts.agent_qa import assess_source
         from scripts.artifact_contract import prepare_artifact
         from scripts.qa_manifest import QA_CHECKS, validate_approval
 
-        sid = "FGDC-218"
         with tempfile.TemporaryDirectory() as tmp:
             _, paths = self.classify(tmp, {sid})
             path = Path(paths.zenodo_json_dir) / (sid + ".json")
             payload = read_json(path)
             external = Path(tmp) / "evidence.json"
-            external.write_bytes(NEW.read_bytes())
-            payload["artifact_policy"]["dataset_access_interpretation"] = reference(
+            external.write_bytes(profile.read_bytes())
+            payload["artifact_policy"][policy_key] = reference(
                 external
             )
             atomic_json(path, payload)
@@ -233,24 +238,22 @@ class ResourceScopeReconciliationTests(unittest.TestCase):
                 }
                 validate_approval(manifest, sid, entry, paths)
                 assess_source(str(path), paths)
-                external.write_bytes(NEW.read_bytes() + b" ")
+                external.write_bytes(profile.read_bytes() + b" ")
                 with self.assertRaises(ValueError):
                     assess_source(str(path), paths)
                 with self.assertRaises(ValueError):
                     validate_approval(manifest, sid, entry, paths)
-                external.write_bytes(NEW.read_bytes())
+                external.write_bytes(profile.read_bytes())
                 for fault in ("withdraw", "license", "open", "conflict"):
                     changed = copy.deepcopy(payload)
                     if fault == "withdraw":
-                        changed["artifact_policy"].pop("dataset_access_interpretation")
+                        changed["artifact_policy"].pop(policy_key)
                     elif fault == "license":
                         changed["metadata"]["license"] = "cc-zero"
                     elif fault == "open":
                         changed["metadata"]["access_right"] = "open"
                     else:
-                        changed["artifact_policy"]["source_scope_attestation"] = (
-                            reference(DOCS / "source_scope_attestation_821.json")
-                        )
+                        changed["artifact_policy"]["source_scope_attestation" if policy_key == "dataset_access_interpretation" else "dataset_access_interpretation"] = reference(SCOPE_OLD if policy_key == "dataset_access_interpretation" else NEW)
                     atomic_json(path, changed)
                     with (
                         self.subTest(schema=schema, fault=fault),

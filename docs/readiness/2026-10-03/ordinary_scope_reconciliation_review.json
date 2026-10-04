@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "CLEAR_BOUNDED_SOURCE_AND_COMPLETE_OBJECT_REVIEW",
+  "reviewer": "/root/usda_dnr_role_access",
+  "reviewed_at": "2026-10-04T00:00:56.155178+00:00",
+  "source_head": "5111657181e41e64b4653db3f0281c86a15ff6f5",
+  "source_tree": "363b1a0de190f32f6cc85d2f4e93e9cc20382fc8",
+  "proposal_path": "/tmp/pices-ordinary83-reconciliation-proposals.json",
+  "proposal_sha256": "06d19863cb30cfdbea6c58463111e5aa9a1969a779fe25623f26737a848d113a",
+  "input_partition_sha256": "f515f99649e90586c2f5948dfaf03dba2df9f1479d4ee5633400bbb5f1de406a",
+  "baseline_report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+  "exact83_membership_sha256": "5b353acbd667f547167fcbc96eb6ca89221d20758f47f00ed00d29e43facbafd",
+  "members_sha256": "bbd51eb1f508400058d8873b2a8291ea3bb183a072812cfaabc65ea0545ac4ed",
+  "rows_sha256": "c99376d76e47409b472cfca7eb58fbe964ec450193d7c40a0e498a7ebae23652",
+  "old821_entire_object_canonical_sha256": "a07feaa7f99b0b0f22dd274036bf660346cf8acfdcfc61d2103f1ec8951b2a6f",
+  "checks": {
+    "exact83_original_and_baseline_copy_hashes_match": true,
+    "all83_baseline_held_access_only_nonalias_technical_pass": true,
+    "all83_raw_payload_and_complete_metadata_hashes_match_frozen_reviews": true,
+    "all83_existing_authority_source_hashes_match": true,
+    "all83_plain_exact_four_constraints_and_whole_xml_context_bound": true,
+    "metadata_security_extensions_or_extra_source_sections": 0,
+    "new83_disjoint_old821_prior491_source23_and_exceptions32": true,
+    "original821_questions_and_entire_object_unchanged": true,
+    "frozen_complete_proposal_crossbound_by_independent_reviewer": true
+  },
+  "counts": {
+    "source_members": 83,
+    "raw_four_field_strata": 20,
+    "authority_manifest_source_bindings": 4206,
+    "metadata_edits": 0,
+    "actual_promotions": 0
+  },
+  "findings": [],
+  "basis_and_provenance_limits": "Existing user-attested restoration authority and original data-only/public-metadata meanings reconciled against exact ordinary descriptions. Not SOURCE_BACKED standalone rights, not a direct83 human answer, not a new user attestation event or underlying-data license. Original821 objects and direct answer preserved verbatim.",
+  "independent_crossreview": {
+    "reviewer": "/root/unaami_role_access",
+    "status": "CLEAR",
+    "receipt_path": "/tmp/pices-ordinary83-source-independent-review.json",
+    "receipt_sha256": "fb504eec0d46c514f07932c54c870379e1e1c5f896e09d33179689f03b2cf4a6",
+    "independent_binding_path": "/tmp/pices-ordinary83-independent-binding-check.json",
+    "independent_binding_sha256": "b6fa6481d8e054944a341db9e3b3aa9d392b21a4ee5de2a322d81dde4e7aba3d"
+  },
+  "activities": {
+    "provider_network_requests": 0,
+    "credentials_private_stage_reads": false,
+    "repo_source_runtime_edits": false,
+    "tests_classifier_runs": false,
+    "broad_audits": false
+  },
+  "nonblocking_evidence_limit": "Five row.abstract convenience fields contain only leading whitespace because the source abstract has nested content. Complete source-root element bindings, title/abstract/purpose element hashes and complete baseline raw metadata preserve the full content; runtime must use those bindings rather than summary text as full evidence. Frozen proposal unchanged."
+}
