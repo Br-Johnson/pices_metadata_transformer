@@ -1,5 +1,9 @@
 # Current-owner raw inventory evidence — 2026-10-04
 
+Later evidence: the [two-detail closure](production_owner_file_coverage_closure.md)
+resolves the two file gaps using retained 22:17 UTC responses. This addendum and
+its review receipts retain the earlier 21:53 capture's scope and findings.
+
 This documentation-only addendum advances the evidence review after merged PR31
 (`4bc59af3ff4432e297e64d3c70b6c57ecdaf0390`). The frozen publication plan, source
 classifications, runtime code and all execution holds remain unchanged.

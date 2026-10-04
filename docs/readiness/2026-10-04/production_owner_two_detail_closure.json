@@ -1,0 +1,148 @@
+{
+  "capture_finished_at": "2026-10-04T22:17:14.457274+00:00",
+  "capture_started_at": "2026-10-04T22:17:12.062809+00:00",
+  "evidence_readiness": {
+    "current_file_descriptors_covered": 24,
+    "current_owner_exact_candidate_comparison_complete": true,
+    "direct_candidates": 0,
+    "drafts": 1,
+    "five_known_record_doi_associations_preserved": true,
+    "owned_records": 20,
+    "pair_members_preserved": 456,
+    "paired_targets_compared": 228,
+    "published": 19,
+    "retained_raw_current_owner_inventory_review_complete": true,
+    "scope": "Owner266679 visible inventory from 21:53 UTC, supplemented by exactly two22:17 UTC detail responses; non-atomic, with metadata and identity consistency checked.",
+    "title_only_pair_hints": 2,
+    "two_empty_listing_file_coverage_gaps_resolved": true
+  },
+  "frozen_plan_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad",
+  "kind": "independent_offline_two_detail_evidence_closure",
+  "manifest": {
+    "bytes": 7797,
+    "file_id": "file_0000000009bc81fd950e3273061ca2b5",
+    "library_file_id": "libfile_95ce0f435e54819195383f77a9eb60a4",
+    "sha256": "f375e5e37a3b5dc7da851666de252ff343000747e64651d2781f64578fe8f914"
+  },
+  "new_inventory_or_history_reads_needed_for_identified_gaps": false,
+  "nonclaims": [
+    "No global, other-owner, deleted/tombstone or historical absence.",
+    "No exact remote XML-byte verification or newly raw-verified version histories.",
+    "No new source association, DOI assignment, deletion inference or draft publication.",
+    "No create/retry allowance, registry reset, publish permission or provider action.",
+    "Earlier42 observations remain historical projections and receipts, not raw captures.",
+    "Frozen PR31 plan and all execution flags remain unchanged; this documentation does not override its runtime inputs."
+  ],
+  "prior_raw_listing_review_sha256": "3a0829ec40d56da34e6d055590c18d8228d468c83d39287703796357f8694a2e",
+  "provider_mutations": 0,
+  "provider_requests_by_this_review": 0,
+  "records": [
+    {
+      "all_returned_descriptor_fields_match_prior": true,
+      "complete_metadata_sha256": "502ce81b143d387e95e8275d2480ab791e3448d6e7546a128c5eab6c22620272",
+      "current_detail_file_count": 1,
+      "file_candidates_against_pinned_4206_originals": [],
+      "file_descriptors_canonical_sha256": "0819224498f5ccb1082984ac919db8eb6ab4dca4578f3bfe427932b95229fd21",
+      "identity_fields": {
+        "conceptdoi": "10.5281/zenodo.17317854",
+        "conceptrecid": "17317854",
+        "created": "2025-10-11T05:04:52.144966+00:00",
+        "doi": "10.5281/zenodo.17317855",
+        "id": 17317855,
+        "modified": "2025-10-11T05:04:52.571132+00:00",
+        "owner": 266679,
+        "record_id": 17317855,
+        "state": "done",
+        "submitted": true
+      },
+      "metadata_and_identity_match_listing_and_prior": true,
+      "raw_body_bytes": 3996,
+      "raw_body_file_id": "file_0000000026b081fdbfa03351f7e5c9e5",
+      "raw_body_sha256": "a80bb2e3ecb7295547a7bb484d879d54a34d003a51f479831b8645d4315832f9",
+      "raw_top_level_conceptdoi_present": true,
+      "raw_top_level_doi_present": true,
+      "record_id": 17317855,
+      "request": {
+        "body_read_finished_at": "2026-10-04T22:17:13.002680+00:00",
+        "body_saved_at": "2026-10-04T22:17:13.004298+00:00",
+        "content_encoding": "identity",
+        "finished_at": "2026-10-04T22:17:13.005356+00:00",
+        "http_status": 200,
+        "method": "GET",
+        "parsed_at": "2026-10-04T22:17:13.004994+00:00",
+        "query": {},
+        "raw_body_bytes": 3996,
+        "raw_body_file": "PICES-owned-deposition-17317855.raw.json",
+        "raw_body_sha256": "a80bb2e3ecb7295547a7bb484d879d54a34d003a51f479831b8645d4315832f9",
+        "record_id": 17317855,
+        "request_index": 1,
+        "saved_before_parsing": true,
+        "started_at": "2026-10-04T22:17:12.063326+00:00",
+        "url": "https://zenodo.org/api/deposit/depositions/17317855"
+      },
+      "reserved_doi": {
+        "doi": "10.5281/zenodo.17317855",
+        "recid": 17317855
+      },
+      "reserved_doi_is_not_published_doi": false
+    },
+    {
+      "all_returned_descriptor_fields_match_prior": true,
+      "complete_metadata_sha256": "aef3e8d1610024c5301578000e276b00fcdb769b8ff688e97750a28e12849bfe",
+      "current_detail_file_count": 3,
+      "file_candidates_against_pinned_4206_originals": [],
+      "file_descriptors_canonical_sha256": "d420cd58fceb0d1826d37e297fd59a256ff63bb4376b5dfdfb2718224a20ee07",
+      "identity_fields": {
+        "conceptrecid": "10783359",
+        "created": "2024-03-05T19:18:10.783787+00:00",
+        "id": 10783360,
+        "modified": "2024-03-05T19:27:16.854321+00:00",
+        "owner": 266679,
+        "record_id": 10783360,
+        "state": "unsubmitted",
+        "submitted": false
+      },
+      "metadata_and_identity_match_listing_and_prior": true,
+      "raw_body_bytes": 2829,
+      "raw_body_file_id": "file_0000000092b481fdab3c54957b1e01e9",
+      "raw_body_sha256": "578ac2e6997071111c76c665d8d2cf9e0609bcad2be4908f5e69134360092d23",
+      "raw_top_level_conceptdoi_present": false,
+      "raw_top_level_doi_present": false,
+      "record_id": 10783360,
+      "request": {
+        "body_read_finished_at": "2026-10-04T22:17:14.454519+00:00",
+        "body_saved_at": "2026-10-04T22:17:14.455518+00:00",
+        "content_encoding": "identity",
+        "finished_at": "2026-10-04T22:17:14.456587+00:00",
+        "http_status": 200,
+        "method": "GET",
+        "parsed_at": "2026-10-04T22:17:14.456479+00:00",
+        "query": {},
+        "raw_body_bytes": 2829,
+        "raw_body_file": "PICES-owned-deposition-10783360.raw.json",
+        "raw_body_sha256": "578ac2e6997071111c76c665d8d2cf9e0609bcad2be4908f5e69134360092d23",
+        "record_id": 10783360,
+        "request_index": 2,
+        "saved_before_parsing": true,
+        "started_at": "2026-10-04T22:17:14.163478+00:00",
+        "url": "https://zenodo.org/api/deposit/depositions/10783360"
+      },
+      "reserved_doi": {
+        "doi": "10.5281/zenodo.10783360",
+        "recid": 10783360
+      },
+      "reserved_doi_is_not_published_doi": true
+    }
+  ],
+  "remaining_requirements": [
+    "source identity adjudication and any execution-scoped current readback",
+    "prepared artifact and metadata policy validation",
+    "source-aware production transport compatibility",
+    "class-aware durable recovery and idempotent file execution/readback",
+    "independent QA and release evidence",
+    "bounded provider action grant"
+  ],
+  "repository_base": "01a8a8eb0a6dedacfbad27a1637632b1f7f4c737",
+  "reviewer": "Codex integration owner /root",
+  "schema_version": 1
+}

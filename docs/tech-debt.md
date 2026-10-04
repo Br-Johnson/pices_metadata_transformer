@@ -1,14 +1,15 @@
-# Current owner-listing evidence and two file gaps — 2026-10-04
+# Current owner-listing and file evidence reviewed — 2026-10-04
 
-The [raw inventory addendum](readiness/2026-10-04/production_owner_raw_inventory_addendum.md)
-supersedes the earlier unavailable-capture status for the new 21:53 UTC listing
-only. Three independently verified raw bodies establish a consistent 20-object
-owner listing. The earlier 42-request capture retained projections and receipts,
-not raw bodies. Metadata and five protected DOIs match; two fresh list arrays
-omit four historically observed file descriptors. Exactly the detail responses
-for 17317855 and 10783360 need retained-body review. No deletion or complete file
-coverage is inferred. The frozen PR31 manifest and every live hold remain intact;
-there is no new transport, recovery or execution implementation in this update.
+The [evidence closure](readiness/2026-10-04/production_owner_file_coverage_closure.md)
+combines the verified three-body 21:53 UTC owner listing with exactly two retained
+22:17 UTC detail bodies. Identity/metadata agree and four matching detail file
+descriptors resolve the two empty listing arrays. Scoped coverage is 20 owner
+records and 24 file descriptors, with zero direct candidates for all 228 pairs.
+The earlier 42-request capture remains projections and receipts, not raw bodies.
+No deletion, global absence or exact remote XML-byte identity is inferred. Draft
+10783360's reserved DOI remains distinct from its absent top-level DOI fields.
+The frozen PR31 manifest and every execution hold remain intact; there is no new
+transport, recovery or execution implementation in this documentation update.
 
 # Offline publication batch plan — recorded at the PR31 freeze, 2026-10-04
 

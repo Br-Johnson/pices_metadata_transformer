@@ -1,12 +1,13 @@
-## Current evidence handoff: retained raw owner inventory — 2026-10-04
+## Current evidence handoff: owner inventory and file coverage reviewed — 2026-10-04
 
 - [x] Independently verify three retained raw bodies (20/0/20), owner 266679, unchanged page-1 bytes, all 20 metadata hashes and the five protected IDs/DOIs.
 - [x] Reverify all 4,206 original descriptors and all 228 pair comparisons offline; preserve zero direct candidates as a limited observation with incomplete file coverage.
-- [ ] Parent dispatches exactly the two detail reads for 17317855 and 10783360; independently review retained bodies before closing their file-coverage gaps.
+- [x] Independently review the two retained 22:17 UTC detail bodies for 17317855 and 10783360: matching identity/metadata and four descriptors resolve the listing gaps, bringing scoped coverage to 24 files with zero direct pair candidates.
 - [ ] Keep transport/recovery, identity adoption, QA/release and provider-grant requirements separate. No new dependent implementation stack is authorized by this evidence update.
 
-See [the raw inventory addendum](readiness/2026-10-04/production_owner_raw_inventory_addendum.md).
-No inventory repeat or other detail/history requests are needed from current evidence.
+See [the exact evidence closure and remaining readiness](readiness/2026-10-04/production_owner_file_coverage_closure.md).
+No further provider reads are needed for the identified capture/file gaps. Future
+execution-scoped readback and all execution/release requirements remain separate.
 
 ## Completed increment: publication batch readiness — 2026-10-04
 
