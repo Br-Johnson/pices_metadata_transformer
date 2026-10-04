@@ -422,3 +422,18 @@ expiry/counters; no controller-generated extension or new create exists. Origina
 controlled files are hash-checked before requests; the full305-file historical
 inventory is parent/executor evidence and must not be described as root-verified.
 See readiness/2026-10-03/run02_owned_continuation_handoff.md.
+
+## Second empty response and prepared JSON evidence — 2026-10-04
+
+The second metadataPUT200 also failed all known metadata checks. Current dummy
+preparation proves both fixed bodies are serialized, but the live prepared body
+was not recorded. Standalone pre-send capture observes current bytes without
+consuming another action. A separate oneGET observes persisted state within the
+existing recovery expiry; neither recreates historical transmitted-byte evidence.
+
+Pinned modern metadata uses subjects rather than the packet's keywords. Publisher
+is optional. Partial-valid-data semantics mean that defect alone cannot explain
+every missing metadata field and file-access mismatch. Future packet/schema
+correction requires concrete diagnostics and a separately reviewed authorized
+action; current spent state remains held. No production compatibility inference.
+See readiness/2026-10-03/run02_body_diagnostics_handoff.md.

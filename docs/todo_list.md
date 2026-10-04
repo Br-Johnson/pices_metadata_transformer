@@ -415,3 +415,9 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Retain parent-reported201 create and canonical200 readback hashes; distinguish strict owned empty identity from absent submitted metadata. No explanation of the initial body failure is invented.
 - [x] Implement a separate no-CREATE ledger and exact parent grant, preserving the old failed ledger and create/diagnostic allowances. Apply full metadata/access checks immediately after one PUT before upload; three-read readback plus unchanged retry fits the remaining lifetime budget.
 - [x] Complete382 guarded tests and independent source/runtime/handoff review; freeze the eligible recovery PR for parent sole-executor dispatch. No provider operation by root; new active bound parent grant is still required.
+
+## Run02 second empty response: body diagnostics — 2026-10-04
+
+- [x] Reproduce actual committed shared-route JSON preparation offline: POST458bytes/PUT481bytes, correct JSON Content-Type/Length and full payload equality. Preserve both spent failed stages and historical196reads.
+- [x] Add a standalone capture stopping before send/adapter, plus pure safe canonical readback field/error projection and a one-GET196→197 parent-dispatch plan clipped to the current recovery expiry. Keep all312 prior files and existing controller runtimes unchanged.
+- [x] Complete391 guarded tests,9 independently repeated focused contracts and independent helper/handoff review; publish the frozen normal branch. Parent alone dispatches the sole executor; no repeated PUT/create or new window follows automatically.

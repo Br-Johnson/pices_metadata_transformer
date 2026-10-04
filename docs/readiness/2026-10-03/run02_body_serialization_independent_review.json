@@ -1,0 +1,268 @@
+{
+  "activity": {
+    "actual_adapter_calls": 0,
+    "credential_reads": 0,
+    "full_corpus_runs": 0,
+    "full_suite_runs": 0,
+    "primary_public_source_only": true,
+    "private_stage_reads": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "real_environment_value_reads": 0,
+    "repository_edits": 0
+  },
+  "actual_offline_tests": {
+    "count": 2,
+    "harness": "/tmp/pices-modern-body-serialization-independent.py",
+    "harness_sha256": "7c1f96d4a17a7eb42e61ba7fb594eda631979f8c62b6998f2e6d641690844082",
+    "log": "/tmp/pices-modern-body-serialization-independent.log",
+    "log_sha256": "f7cc45097ce5244c20cd60490a8e9472dfa6052ae2255dc11b8656327304a71a",
+    "result": "PASS",
+    "seconds": 0.021
+  },
+  "additional_primary_sources": [
+    {
+      "finding": "Top-levelmodern create/update fields andJSON content type",
+      "lines": [
+        9,
+        49,
+        386,
+        411
+      ],
+      "reference": "Current official production documentation, read2026-10-04; moving branch, not a claimed deployed code pin",
+      "url": "https://raw.githubusercontent.com/inveniosoftware/docs-invenio-rdm/production/docs/reference/rest_api_drafts_records.md"
+    },
+    {
+      "finding": "Resourcevocabulary/organization syntax, subjects forkeywords, publisheroptional",
+      "lines": [
+        207,
+        286,
+        527,
+        539,
+        617,
+        620
+      ],
+      "reference": "Current official production documentation, read2026-10-04; moving branch",
+      "url": "https://raw.githubusercontent.com/inveniosoftware/docs-invenio-rdm/production/docs/reference/metadata.md"
+    },
+    {
+      "finding": "NestedAttribute only changes attribute-baseddump access",
+      "lines": [
+        8,
+        18
+      ],
+      "source_pin": "v0.15.3 locked byZenodo uv.lock",
+      "url": "https://raw.githubusercontent.com/inveniosoftware/marshmallow-utils/v0.15.3/marshmallow_utils/fields/nestedattr.py"
+    },
+    {
+      "finding": "Default unknownRAISE andnestederror valid_data preservation",
+      "lines": [
+        217,
+        219,
+        531,
+        537
+      ],
+      "source_pin": "3.26.2 locked byZenodo uv.lock",
+      "url": "https://raw.githubusercontent.com/marshmallow-code/marshmallow/3.26.2/src/marshmallow/schema.py"
+    },
+    {
+      "finding": "Nestedload preservesnested valid_data whenraising",
+      "lines": [
+        612,
+        620
+      ],
+      "source_pin": "3.26.2 locked byZenodo uv.lock",
+      "url": "https://raw.githubusercontent.com/marshmallow-code/marshmallow/3.26.2/src/marshmallow/fields.py"
+    }
+  ],
+  "input_file": {
+    "bytes": 620,
+    "path": "/workspace/pices-run02-owned-continuation/docs/handoff/modern-synthetic-canary-20261003-code-02/metadata-put.json",
+    "sha256": "0197c230248e4192866b8662fa60a4cca4b05ed0d060fc67f6a9102bb6180128"
+  },
+  "kind": "pices_modern_exact_shared_route_body_serialization_independent_review_v1",
+  "one_canonical_get_plan": {
+    "actor": "Soleproviderexecutor,parentdispatched",
+    "budget": "One additionalGET only, historical196->197; separatedurableGETintent, nohiddenconstructor/probe/retry/redirect,20s/64KiB, clipactive recoveryexpiry andboundeddiagnosticwindow, no automaticextension.",
+    "candidate": "Exact already verified private run02candidate ID; hardconstructed/api/records/{validatedpositiveID}/draft withnoquery/body",
+    "causation": "GET observes persisted state; dummycapture proves localserialization only. No claim aboutlive bytes arriving, middleware/bodydiscard, deployedschema, orservercause without furtherconcreteevidence. No payloadfix or repeatPUT authority.",
+    "diagnostics": "Raw+decoded credential checks beforeprivatebounded200beforeimage persistence. Fixedidentity/created/owner/files/fullmetadata/access matches; errorspresent/type/count/schema flags; fixedknownerrorpath booleans andunknownerrorfield flag only. Neverraw messages/fieldnames.",
+    "immutability": "Preserve original201create and spentfailedmetadataPUT, bothfailedledgers andall312parent-reported priorfiles. No CREATE, PUT, DOI, upload, adoption, reset or furthercontinuation.",
+    "known_error_fields": [
+      "metadata",
+      "metadata.keywords",
+      "metadata.subjects",
+      "metadata.resource_type",
+      "metadata.creators",
+      "metadata.title",
+      "metadata.publication_date",
+      "metadata.publisher",
+      "metadata.description",
+      "access",
+      "access.files",
+      "files"
+    ],
+    "status": "SOURCE_SUPPORTED_BOUNDED_PLAN_CONCRETE_HELPER_DOCUMENT_NOT_YET_REVIEWED"
+  },
+  "packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+  "pre_send_captures": [
+    {
+      "accept_exact_modern": true,
+      "access_files_exact": true,
+      "adapter_calls": 0,
+      "allow_redirects_false": true,
+      "body_bytes": 458,
+      "body_sha256": "6699d88705dfc3daa76b8a41ac0cbb41e4fec3fc55c05fa25cb855c2e7d56978",
+      "body_type": "bytes",
+      "canonical_url_matches": true,
+      "content_length_matches": true,
+      "content_type_json": true,
+      "decoded_exact_payload_matches": true,
+      "has_metadata_object": true,
+      "intended_auth_matches": true,
+      "method": "POST",
+      "packet_file_bytes": 597,
+      "six_metadata_fields_present": true,
+      "stream_true": true,
+      "verify_enabled": true
+    },
+    {
+      "accept_exact_modern": true,
+      "access_files_exact": true,
+      "adapter_calls": 0,
+      "allow_redirects_false": true,
+      "body_bytes": 481,
+      "body_sha256": "1842cd59ad04211ce2368dd1410aa1fdaafa5d760edea5362c784fd02933c788",
+      "body_type": "bytes",
+      "canonical_url_matches": true,
+      "content_length_matches": true,
+      "content_type_json": true,
+      "decoded_exact_payload_matches": true,
+      "has_metadata_object": true,
+      "intended_auth_matches": true,
+      "method": "PUT",
+      "packet_file_bytes": 620,
+      "six_metadata_fields_present": true,
+      "stream_true": true,
+      "verify_enabled": true
+    }
+  ],
+  "primary_cached_sources": [
+    {
+      "finding": "Parsed JSON create forwarding and201",
+      "lines": [
+        84,
+        93
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/resources/records/resource.py",
+      "primary_url": null,
+      "sha256": "56cfcc2f9cb97884fe650738bc04332525aaa4819aa33c11181fef99fe2c9934",
+      "source_pin": null
+    },
+    {
+      "finding": "Parsed JSON draftPUT forwarding and200",
+      "lines": [
+        216,
+        231
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/resources/records/resource.py",
+      "primary_url": "https://files.pythonhosted.org/packages/be/8d/5ee92357e8837d887ec4c56c8c5fc30360fa23546a9542312c46bf5a1504/invenio_drafts_resources-11.0.3.tar.gz",
+      "sha256": "a81ac43c433a216f2475de3b25d21ffff1be655fc977cd74fc7a175257269208",
+      "source_pin": "locked sdist11.0.3 SHA24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0"
+    },
+    {
+      "finding": "application/json JSONDeserializer for modern record body",
+      "lines": [
+        275,
+        280
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/resources/config.py",
+      "primary_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/resources/config.py",
+      "sha256": "d51e1636513bd7f12ee421452edfd34e0850e94274876f626d3cce4fd1fafabe",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3"
+    },
+    {
+      "finding": "Organizational literal name; required primary fields; optional publisher; subjects declared andkeywords notdeclared",
+      "lines": [
+        80,
+        120,
+        351,
+        387
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/metadata.py",
+      "primary_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/schemas/metadata.py",
+      "sha256": "01c3c04db0bbbc1a381e3b602415c98aabe496387fd47051a661c4d80a7c177d",
+      "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3"
+    },
+    {
+      "finding": "raise_errorsFalse returns ValidationError.valid_data and field errors",
+      "lines": [
+        84,
+        103
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/records/schema.py",
+      "primary_url": null,
+      "sha256": "eb9b80ee4dbe60fecee9fa470f4d15c1d70b77b97b04ec6943d2266bbc7d39a6",
+      "source_pin": null
+    },
+    {
+      "finding": "Create/update store parsed valid metadata, or emptydictionary ifmissing",
+      "lines": [
+        26,
+        34
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/components/metadata.py",
+      "primary_url": null,
+      "sha256": "56a9e87265c1879fc6117a839d94f95fc74e86667a0d3558dc6850b4d4338c36",
+      "source_pin": null
+    },
+    {
+      "finding": "Draft create/update report partial metadata validation errors",
+      "lines": [
+        275,
+        334
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/services/records/service.py",
+      "primary_url": "https://files.pythonhosted.org/packages/be/8d/5ee92357e8837d887ec4c56c8c5fc30360fa23546a9542312c46bf5a1504/invenio_drafts_resources-11.0.3.tar.gz",
+      "sha256": "66cebef20154f1b5a180eb5faca38f1f2215e06c12085e9c86d2ca59bd139aff",
+      "source_pin": "locked sdist11.0.3 SHA24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0"
+    },
+    {
+      "finding": "Top-level unknownEXCLUDE with separate nestedMetadataSchema",
+      "lines": [
+        57,
+        78
+      ],
+      "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/record.py",
+      "primary_url": null,
+      "sha256": "010721368d635dc6727245d1a05589eda8a3d656fae662d8224cc4521e679e11",
+      "source_pin": null
+    }
+  ],
+  "remaining_blockers": [
+    "Actual historical preparedbody evidence absent; spentmutation remains held. New offlinecapture helper and singleGET handoff need review before parentdispatch. No repeatPUT/create orpayloadchange authorized bythisreceipt."
+  ],
+  "review_date": "2026-10-04",
+  "runtime_commit": "22c88b482d47191cd705068c3d3691e575dfb492",
+  "runtime_hashes": {
+    "scripts/modern_canary_errors.py": "2f1f68bf7fee4e39099b5969e2013e1bc01f30b9edef6a2cb7f44a275fbb5bf3",
+    "scripts/modern_owned_continuation.py": "5fb1b8275db0aa72f8175ad971bf8ceb1345cf240c4737e584229a603dc4c9c2",
+    "scripts/modern_synthetic_canary.py": "4865590399aa47d5a24ce52605500b5c2fcf12a4479d49cda1ec18d40566e435"
+  },
+  "safe_dry_run_contract": {
+    "limits": "FixedPOST/PUT synthetic inputs only, finitebody bound, onecapture perselectedinput, no retry/adapter/probe, failclosed ifcapture not reached or anynetworkblock triggered.",
+    "private_token_mode": "Only explicitly chosen soleexecutor mode may use already configured token; opaqueintendedauth equality only. No env/proxy/CA/netrc credential values printed or reconfigured. Root/reviewer uses dummycleared environment only.",
+    "projection": "Fixedknown method/route/content-type/auth/payload matchbooleans, bodyJSONtype/length/SHA, expected frozeninputhash, contentlengthmatch, completeknownfield flags. Never preparedbody/header/URL/exception strings orunknownkeys.",
+    "zero_transmission": "Separate offline CLI only; reconstruct lockedpublicsynthetic body; normal Session.request preparation with instanceSession.send replaced bycapture then trustedstop, no originalsend call. BlockHTTPAdapter/socketconnect/create_connection/connect_ex/DNS asbackstop. Never instantiateController onactualfailed stage or consume liveledger allowance."
+  },
+  "source_conclusions": [
+    "Official production RDM REST reference specifies POST/api/records and PUT/api/records/{id}/draft with top-levelmetadata/access/files objects and application/json, matching current sharedtransport json=body. Accept/vnd.inveniordm.v1+json selects response serializer rather than input shape.",
+    "Exact committed shared_execute, through real Session.request and preparation, serializes frozenPOST to458bytes and ownedPUT to481bytes; each decodedJSON equals the whole frozen payload and preserves all supplied6 metadata fields plus restricted file access. Send replaced by trusted localstop before adapter; this does not prove historical live request body.",
+    "Publisher is optional in locked RDM MetadataSchema and current official production reference Publisher(0-1). No source justification identifies omission of publisher as the cause or requires adding one.",
+    "organizational is an allowed creator type with nonempty name. The pinned Zenodo dataset vocabulary fixture includes dataset, but deployed vocabulary validity remains a provider diagnostic fact.",
+    "Concrete source schema defect: frozen metadata.keywords is undeclared. RDM uses metadata.subjects list with free-text subject instead. Locked MetadataSchema defaultsunknownRAISE; NestedAttribute does not override Nested loading.",
+    "Marshmallow Nested propagates valid_data from field errors; ServiceSchemaWrapper with raise_errorsFalse returns valid_data. Unknownkeywords alone does not prove loss of every other suppliedmetadata field or independent access.files. No deployed failure cause established.",
+    "Both create and update can report validation errors under successfulHTTP status, so HTTP201/200 alone is insufficient; return source field/schema flags from the canonicalGET without rawmessages."
+  ],
+  "status": "EXACT_DUMMY_PREPARED_BODY_PROVEN_ACTUAL_HISTORICAL_BODY_AND_CAUSE_UNPROVEN"
+}

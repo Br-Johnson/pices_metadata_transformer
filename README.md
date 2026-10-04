@@ -58,6 +58,9 @@ All create allowances remain spent/held. The
 freezes a distinct fictional trial with the same action ceiling, preserving normal
 environment routing and every old unresolved allowance. Its parent-bound dispatch
 must fall within the existing user approval; code changes issue no live grant.
+The [run02 body diagnostics](docs/readiness/2026-10-03/run02_body_diagnostics_handoff.md)
+capture prepared JSON offline and freeze one canonical readback under the existing
+recovery expiry. Both spent failed stages remain held; no repeated PUT or create.
 The
 [exact821 source scope answer](docs/readiness/2026-10-03/source_scope_attestation.md)
 supports791 promotions while retaining30 independent holds.
