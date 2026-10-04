@@ -1,4 +1,14 @@
-## Active increment: publication batch readiness — 2026-10-04
+## Current evidence handoff: retained raw owner inventory — 2026-10-04
+
+- [x] Independently verify three retained raw bodies (20/0/20), owner 266679, unchanged page-1 bytes, all 20 metadata hashes and the five protected IDs/DOIs.
+- [x] Reverify all 4,206 original descriptors and all 228 pair comparisons offline; preserve zero direct candidates as a limited observation with incomplete file coverage.
+- [ ] Parent dispatches exactly the two detail reads for 17317855 and 10783360; independently review retained bodies before closing their file-coverage gaps.
+- [ ] Keep transport/recovery, identity adoption, QA/release and provider-grant requirements separate. No new dependent implementation stack is authorized by this evidence update.
+
+See [the raw inventory addendum](readiness/2026-10-04/production_owner_raw_inventory_addendum.md).
+No inventory repeat or other detail/history requests are needed from current evidence.
+
+## Completed increment: publication batch readiness — 2026-10-04
 
 Base main `6825c2cda6b8932e2c053af9a76582452524dca3` preserves 3933 supported,
 39 held and six malformed record targets. This code lane performs no provider
@@ -9,7 +19,7 @@ requests or mutations; the separate Mac diagnostic remains with Brett and parent
 - [x] Audit existing batch/restart guards and implement only the missing offline publication/dry-run support; all live guards remain intact.
 - [x] Validate3978 targets,4206 originals and394 whole-target prospective batches; unchanged repeat and25 focused guarded tests pass with zero unexpected I/O.
 - [x] Reduce the remaining45 packet to two staged initial artifact questions and one conditional creator-evidence request; send none to Brett or source owners.
-- [ ] Complete independent current-head review and actual CI before merging; preserve the exact runnable handoff and current capture limit.
+- [x] Merge PR31 as 4bc59af3ff4432e297e64d3c70b6c57ecdaf0390 after independent current-head Codex review and 540 actual guarded CI tests; preserve the exact frozen plan and its historical capture limit.
 
 ## Completed increment: 25 residual target corrections — 2026-10-04
 

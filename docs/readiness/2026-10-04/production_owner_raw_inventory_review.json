@@ -1,0 +1,3795 @@
+{
+  "all_source_candidates_in_returned_fields": [],
+  "capture_finished_at": "2026-10-04T21:53:10.341359+00:00",
+  "capture_started_at": "2026-10-04T21:53:04.660410+00:00",
+  "current_owner_file_candidate_gate_complete": false,
+  "drafts": 1,
+  "excluded_restoration_record_ids": [
+    10042430,
+    15046283
+  ],
+  "file_coverage_gaps": [
+    {
+      "current_listing_file_count": 0,
+      "deletion_or_current_absence_established": false,
+      "prior_detail_file_count": 1,
+      "prior_observed_at": "2026-10-04T20:28:35.703929+00:00",
+      "record_id": 17317855,
+      "required_detail_endpoint": "https://zenodo.org/api/deposit/depositions/17317855"
+    },
+    {
+      "current_listing_file_count": 0,
+      "deletion_or_current_absence_established": false,
+      "prior_detail_file_count": 3,
+      "prior_observed_at": "2026-10-04T20:28:27.348063+00:00",
+      "record_id": 10783360,
+      "required_detail_endpoint": "https://zenodo.org/api/deposit/depositions/10783360"
+    }
+  ],
+  "fresh_file_descriptors_verified": 20,
+  "frozen_plan_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad",
+  "historical_projection": {
+    "classification": "retained sanitized observations, not raw provider bodies",
+    "library_file_id": "libfile_73bc0903e78081918d74a643785abab5",
+    "sha256": "97a0eedc90377be63fed27afe21d90e88132c8d15d1f9d59882aa224f458976b"
+  },
+  "kind": "independent_offline_review_of_retained_raw_owner_inventory",
+  "limits": [
+    "Current-owner listing and returned metadata are independently reviewable; two inconsistent empty listing file arrays leave file coverage incomplete.",
+    "The 42 prior request observations remain historical projections and receipts, not raw evidence.",
+    "No deletion, global absence, tombstone absence, historical nonexistence or exact remote file bytes are established.",
+    "No version histories were recaptured or promoted to freshly raw-verified history.",
+    "Existing source associations are preserved; raw provider fields alone do not prove or change source authorship or identity.",
+    "All source and publication, recovery, transport, QA/release and action-grant holds remain; the frozen plan is unchanged."
+  ],
+  "manifest": {
+    "bytes": 5532,
+    "file_id": "file_0000000086bc81fda1ca5399cdad77a7",
+    "library_file_id": "libfile_110c56cf9bcc8191a88e36b739984908",
+    "sha256": "4223e1d78297889755abb659621fb504a97f5fa566b5c743d1ce94d95ebf57e7"
+  },
+  "metadata_checks": [
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "ac5677114a2589756204c274d182138affde21f75575f740050775f159ee295f",
+      "prior_observed_at": "2026-10-04T20:28:44.132012+00:00",
+      "record_id": 17883973
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "aef95c42b55140ff468f73ca7b04701d509934d371577d0a7620e9ca4a696984",
+      "prior_observed_at": "2026-10-04T20:28:42.094112+00:00",
+      "record_id": 17783407
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "9a2338434bc42d06b08899a3661728442c7a97050c010af180de0bc44a784222",
+      "prior_observed_at": "2026-10-04T20:28:40.100183+00:00",
+      "record_id": 17317859
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "552e3289ce2645ff2c52b4975d09c2c4cc145ce2bd65f85639f83b2801aed290",
+      "prior_observed_at": "2026-10-04T20:28:37.802937+00:00",
+      "record_id": 17317857
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "502ce81b143d387e95e8275d2480ab791e3448d6e7546a128c5eab6c22620272",
+      "prior_observed_at": "2026-10-04T20:28:35.703929+00:00",
+      "record_id": 17317855
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "a8e7e744a82de2eb5c633e81fbfb771d6901b62e428cbf86dd81aeed5aff64ee",
+      "prior_observed_at": "2026-10-04T20:28:33.645727+00:00",
+      "record_id": 17317853
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "9b1524624fb3643976779f30aaf60f6bc6d9ff396d17c380f135a44700eb757e",
+      "prior_observed_at": "2026-10-04T20:28:31.528292+00:00",
+      "record_id": 17317851
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "f2cda80be5fda7d51ae05a10c4ccf69f9bae1a7f31037eae9622ba53f7dd9193",
+      "prior_observed_at": "2026-10-04T20:28:29.469658+00:00",
+      "record_id": 15046283
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "aef3e8d1610024c5301578000e276b00fcdb769b8ff688e97750a28e12849bfe",
+      "prior_observed_at": "2026-10-04T20:28:27.348063+00:00",
+      "record_id": 10783360
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "b9e6c38d34debc1e32d3b73025819ab0f33f7d4ac788182b9b76ca2734f23ebc",
+      "prior_observed_at": "2026-10-04T20:28:25.469549+00:00",
+      "record_id": 10042430
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "7a135d0eecda3c16efa80039658e857a8799f8e4b30b04d79183450c8b259233",
+      "prior_observed_at": "2026-10-04T20:28:23.146335+00:00",
+      "record_id": 7613259
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "4f0e6b2a071ca9b76cc5c935d1c514093fbea88094a6260d0065e67c60a60805",
+      "prior_observed_at": "2026-10-04T20:28:21.037721+00:00",
+      "record_id": 7613223
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "e99f5de88cfc00388c89fe698615c97e1be2d08eafdd0102d1f55dde8a04b419",
+      "prior_observed_at": "2026-10-04T20:28:18.927132+00:00",
+      "record_id": 7613135
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "3618f13171f87b575ce62880358d8031c45b0b67e91dd217d400cc739c3cf485",
+      "prior_observed_at": "2026-10-04T20:28:16.827077+00:00",
+      "record_id": 7613081
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "f204330329f98e21766efea7653bb433c2d921f8d18e0512a82f44dfff09174b",
+      "prior_observed_at": "2026-10-04T20:28:14.864066+00:00",
+      "record_id": 7439571
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "aa16e0e4957c046a8cbcbc92cd3150cdfe9f1e23b0339a1c47466283232bf906",
+      "prior_observed_at": "2026-10-04T20:28:12.829660+00:00",
+      "record_id": 7439561
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "e558534ab07a091c18f126d51d0650775365a1380511187a9667ff8259db1a2c",
+      "prior_observed_at": "2026-10-04T20:28:10.518016+00:00",
+      "record_id": 7439525
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "375aa696ae94ce770e2d109ad9b78affb26332b76ad14e6ca77c142e642884ea",
+      "prior_observed_at": "2026-10-04T20:28:08.443522+00:00",
+      "record_id": 6568203
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "b1ec5ffca566225aab155c5029716851ded1d252300e876fac6500a2a89de9d4",
+      "prior_observed_at": "2026-10-04T20:28:06.337460+00:00",
+      "record_id": 6485628
+    },
+    {
+      "matches_prior_projection": true,
+      "metadata_sha256": "52dd2b5360f7684bebc84ff5ab05507d20f25573191e83f263fc8d469138ee50",
+      "prior_observed_at": "2026-10-04T20:28:04.415129+00:00",
+      "record_id": 5719523
+    }
+  ],
+  "original_XML_files_reverified": 4206,
+  "owner": 266679,
+  "owner_records": 20,
+  "page1_byte_identical": true,
+  "pair_comparisons": [
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "source_ids": [
+        "FGDC-2953",
+        "FGDC-3181"
+      ],
+      "source_sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:0057974985f73e3d541a7247f14adec03cb30d2b00fcadf8095cca415fb94258",
+      "source_ids": [
+        "FGDC-2865",
+        "FGDC-3093"
+      ],
+      "source_sha256": "0057974985f73e3d541a7247f14adec03cb30d2b00fcadf8095cca415fb94258"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:00685901ab0f4706298e64239b1280fa70e0eb3ece713f977f87e294509429a0",
+      "source_ids": [
+        "FGDC-3025",
+        "FGDC-3253"
+      ],
+      "source_sha256": "00685901ab0f4706298e64239b1280fa70e0eb3ece713f977f87e294509429a0"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:00f90ad76b561b0266a3650c8c8e05e5b5087b48ac7e12a05550c7e0f494d799",
+      "source_ids": [
+        "FGDC-2879",
+        "FGDC-3107"
+      ],
+      "source_sha256": "00f90ad76b561b0266a3650c8c8e05e5b5087b48ac7e12a05550c7e0f494d799"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:0234c82e1eee02e1bf8ff89f130bfe7a586636a558899bd9649a98488063238e",
+      "source_ids": [
+        "FGDC-2891",
+        "FGDC-3119"
+      ],
+      "source_sha256": "0234c82e1eee02e1bf8ff89f130bfe7a586636a558899bd9649a98488063238e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:02d1e5ffb9eb185b0ba9db9d47d45094c46ddd647b4fbe7388066ea4f0db16da",
+      "source_ids": [
+        "FGDC-2851",
+        "FGDC-3079"
+      ],
+      "source_sha256": "02d1e5ffb9eb185b0ba9db9d47d45094c46ddd647b4fbe7388066ea4f0db16da"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:043e1f5c838e7d20f047722a8e2ed4ec0d1a59c271013690c949f452632ba12e",
+      "source_ids": [
+        "FGDC-2917",
+        "FGDC-3145"
+      ],
+      "source_sha256": "043e1f5c838e7d20f047722a8e2ed4ec0d1a59c271013690c949f452632ba12e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:06230e76144e6129de3b4daa58aa06614005b7c088089619eab5089ad02b20a9",
+      "source_ids": [
+        "FGDC-3027",
+        "FGDC-3255"
+      ],
+      "source_sha256": "06230e76144e6129de3b4daa58aa06614005b7c088089619eab5089ad02b20a9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:08a7fe7b1bb1322d326797af74149dea7516fdb29304ca6ef7d05b31ae66c4b7",
+      "source_ids": [
+        "FGDC-2858",
+        "FGDC-3086"
+      ],
+      "source_sha256": "08a7fe7b1bb1322d326797af74149dea7516fdb29304ca6ef7d05b31ae66c4b7"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:08e2c243c30f5bed157281216e01c3d7b6c21647d5e78ddeee1240774380e43a",
+      "source_ids": [
+        "FGDC-2947",
+        "FGDC-3175"
+      ],
+      "source_sha256": "08e2c243c30f5bed157281216e01c3d7b6c21647d5e78ddeee1240774380e43a"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:0a9db9b97fbd4615157cc1260b869d81571349f36213ff349fb9426a8e134546",
+      "source_ids": [
+        "FGDC-3014",
+        "FGDC-3242"
+      ],
+      "source_sha256": "0a9db9b97fbd4615157cc1260b869d81571349f36213ff349fb9426a8e134546"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:0b10316dcf9a46cdab7949592918df2cd232ff48cf7636cfb1c5b307260cf701",
+      "source_ids": [
+        "FGDC-2994",
+        "FGDC-3222"
+      ],
+      "source_sha256": "0b10316dcf9a46cdab7949592918df2cd232ff48cf7636cfb1c5b307260cf701"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:0d4162b709669eb7d6cce6b3eaa26776839c32f2b2bea67d7a1ada8363244f6b",
+      "source_ids": [
+        "FGDC-2963",
+        "FGDC-3191"
+      ],
+      "source_sha256": "0d4162b709669eb7d6cce6b3eaa26776839c32f2b2bea67d7a1ada8363244f6b"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:0d60030cf5cb6089f0cae8dd276fb7f7b1819478dd400fb2014bba32d7c7b2b9",
+      "source_ids": [
+        "FGDC-3032",
+        "FGDC-3260"
+      ],
+      "source_sha256": "0d60030cf5cb6089f0cae8dd276fb7f7b1819478dd400fb2014bba32d7c7b2b9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:1036eba58a9301cec826f665458a0305e44ae5543300640fb18f201098f9faed",
+      "source_ids": [
+        "FGDC-2854",
+        "FGDC-3082"
+      ],
+      "source_sha256": "1036eba58a9301cec826f665458a0305e44ae5543300640fb18f201098f9faed"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:11e1dd7caf29eb0e05bc31d53db766c2ba2dff7d2a2ac1e96db3cda6b37dd0d3",
+      "source_ids": [
+        "FGDC-3023",
+        "FGDC-3251"
+      ],
+      "source_sha256": "11e1dd7caf29eb0e05bc31d53db766c2ba2dff7d2a2ac1e96db3cda6b37dd0d3"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:1207dd6ecf3e4b68aa6138a898ccf72af12d4fd9a909a0a8bb6afbae59420524",
+      "source_ids": [
+        "FGDC-3040",
+        "FGDC-3268"
+      ],
+      "source_sha256": "1207dd6ecf3e4b68aa6138a898ccf72af12d4fd9a909a0a8bb6afbae59420524"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:17f29f788d738512c5e4e3941e98a44a04077473b45c0d92040b8e900e2e7554",
+      "source_ids": [
+        "FGDC-2841",
+        "FGDC-3069"
+      ],
+      "source_sha256": "17f29f788d738512c5e4e3941e98a44a04077473b45c0d92040b8e900e2e7554"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:19a4fa5285402b696d11bdff009dca34f604bd190806390ef077a374dbeb9cae",
+      "source_ids": [
+        "FGDC-2962",
+        "FGDC-3190"
+      ],
+      "source_sha256": "19a4fa5285402b696d11bdff009dca34f604bd190806390ef077a374dbeb9cae"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:1a3753ffd98af2e05eeba340d59183d5398d1d08c599fa62a79968e88cd3b040",
+      "source_ids": [
+        "FGDC-3002",
+        "FGDC-3230"
+      ],
+      "source_sha256": "1a3753ffd98af2e05eeba340d59183d5398d1d08c599fa62a79968e88cd3b040"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:1c72eef972645e3f1b561df91fd7eb08374d8d9d07a5dad8b423774082c1e62d",
+      "source_ids": [
+        "FGDC-2922",
+        "FGDC-3150"
+      ],
+      "source_sha256": "1c72eef972645e3f1b561df91fd7eb08374d8d9d07a5dad8b423774082c1e62d"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:1c86d7c7c59a1f79c85e944e87aa5cc2aa0ffc408f5c5b8468e222289cf424b8",
+      "source_ids": [
+        "FGDC-2950",
+        "FGDC-3178"
+      ],
+      "source_sha256": "1c86d7c7c59a1f79c85e944e87aa5cc2aa0ffc408f5c5b8468e222289cf424b8"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:1edf59604b0ce2b7a93ef9a0f22411d83c751f1584e7fde9e7ff9535753a2f6c",
+      "source_ids": [
+        "FGDC-3017",
+        "FGDC-3245"
+      ],
+      "source_sha256": "1edf59604b0ce2b7a93ef9a0f22411d83c751f1584e7fde9e7ff9535753a2f6c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:20005c353ba7931f4dc96e0698adfc994b42c07bd6bbaa4b3946650c80ea49a6",
+      "source_ids": [
+        "FGDC-2840",
+        "FGDC-3068"
+      ],
+      "source_sha256": "20005c353ba7931f4dc96e0698adfc994b42c07bd6bbaa4b3946650c80ea49a6"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:20a3bac8b456721eae85a0ca5909f011b0bc1f5e651eda7de5882c7e2e006045",
+      "source_ids": [
+        "FGDC-2924",
+        "FGDC-3152"
+      ],
+      "source_sha256": "20a3bac8b456721eae85a0ca5909f011b0bc1f5e651eda7de5882c7e2e006045"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:2518cd78ff22d6ac95fb8eec52994771282bc079675fd8aeb97d0e023160aba1",
+      "source_ids": [
+        "FGDC-3001",
+        "FGDC-3229"
+      ],
+      "source_sha256": "2518cd78ff22d6ac95fb8eec52994771282bc079675fd8aeb97d0e023160aba1"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:262bc60b36121bfc4c218ec771a995ea59d0bccefd87bd2a4ad04a8558919411",
+      "source_ids": [
+        "FGDC-2955",
+        "FGDC-3183"
+      ],
+      "source_sha256": "262bc60b36121bfc4c218ec771a995ea59d0bccefd87bd2a4ad04a8558919411"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "source_ids": [
+        "FGDC-2949",
+        "FGDC-3177"
+      ],
+      "source_sha256": "26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "source_ids": [
+        "FGDC-3015",
+        "FGDC-3243"
+      ],
+      "source_sha256": "29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:2b4b348c6eae038a39312d362342af68305358cc1e776bc42b4ad959a72f6bdb",
+      "source_ids": [
+        "FGDC-3011",
+        "FGDC-3239"
+      ],
+      "source_sha256": "2b4b348c6eae038a39312d362342af68305358cc1e776bc42b4ad959a72f6bdb"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:2b75d335087d2048a6f8dad2e3b984a6f313c8ccb3850b47d78ba4c278955a44",
+      "source_ids": [
+        "FGDC-2901",
+        "FGDC-3129"
+      ],
+      "source_sha256": "2b75d335087d2048a6f8dad2e3b984a6f313c8ccb3850b47d78ba4c278955a44"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:2b78bed889b5eafcafc81911979e9f5174b57b3ada7392d242ab4f01dfd6db95",
+      "source_ids": [
+        "FGDC-3020",
+        "FGDC-3248"
+      ],
+      "source_sha256": "2b78bed889b5eafcafc81911979e9f5174b57b3ada7392d242ab4f01dfd6db95"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:2c07951e6be5036d5c010846339da8b7adda2d1ffdcb81a34370bdf091ddfd3e",
+      "source_ids": [
+        "FGDC-3024",
+        "FGDC-3252"
+      ],
+      "source_sha256": "2c07951e6be5036d5c010846339da8b7adda2d1ffdcb81a34370bdf091ddfd3e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:2c0b55c3b0889bac1b577b28a73e2ee2777c48cd54564180a636a6e13343febe",
+      "source_ids": [
+        "FGDC-2951",
+        "FGDC-3179"
+      ],
+      "source_sha256": "2c0b55c3b0889bac1b577b28a73e2ee2777c48cd54564180a636a6e13343febe"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:2cb2d7df117b03100e82b5f216dcf9e174b90c644c4f221b4cc638afde922f45",
+      "source_ids": [
+        "FGDC-2970",
+        "FGDC-3198"
+      ],
+      "source_sha256": "2cb2d7df117b03100e82b5f216dcf9e174b90c644c4f221b4cc638afde922f45"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:2e2337ccc08ee551e21c339d2797bb23d96f914b9ab265a4d3007314e944be4b",
+      "source_ids": [
+        "FGDC-2999",
+        "FGDC-3227"
+      ],
+      "source_sha256": "2e2337ccc08ee551e21c339d2797bb23d96f914b9ab265a4d3007314e944be4b"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:2eaa9caf6eb481eade261a8e3e54f1aaf41d4a32df0a1d076ee9b40246a24c0d",
+      "source_ids": [
+        "FGDC-2942",
+        "FGDC-3170"
+      ],
+      "source_sha256": "2eaa9caf6eb481eade261a8e3e54f1aaf41d4a32df0a1d076ee9b40246a24c0d"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:30f5b5903c26724f7a5647bba5cc9c5e996888a427093968ce853a340b0d8366",
+      "source_ids": [
+        "FGDC-2871",
+        "FGDC-3099"
+      ],
+      "source_sha256": "30f5b5903c26724f7a5647bba5cc9c5e996888a427093968ce853a340b0d8366"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:3241d25b73a618a822925b4bf4345a38c1b8a61c83b02a0ddc7852ee1afa9b75",
+      "source_ids": [
+        "FGDC-3055",
+        "FGDC-3283"
+      ],
+      "source_sha256": "3241d25b73a618a822925b4bf4345a38c1b8a61c83b02a0ddc7852ee1afa9b75"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:32546731a8600267f61b8fc68c5cb8c061139c1b0e8ee4811c07e80f48f1250d",
+      "source_ids": [
+        "FGDC-2989",
+        "FGDC-3217"
+      ],
+      "source_sha256": "32546731a8600267f61b8fc68c5cb8c061139c1b0e8ee4811c07e80f48f1250d"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:32788808916a30df8052c73f3cd5927b1835b5bc5ced32da44b1ba1c1c83ea62",
+      "source_ids": [
+        "FGDC-2939",
+        "FGDC-3167"
+      ],
+      "source_sha256": "32788808916a30df8052c73f3cd5927b1835b5bc5ced32da44b1ba1c1c83ea62"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "source_ids": [
+        "FGDC-2982",
+        "FGDC-3210"
+      ],
+      "source_sha256": "327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:3545d2a03e23dd16f246ba2e836dc33f76dbe1394aa645e0debf85c5f55a3d96",
+      "source_ids": [
+        "FGDC-2838",
+        "FGDC-3066"
+      ],
+      "source_sha256": "3545d2a03e23dd16f246ba2e836dc33f76dbe1394aa645e0debf85c5f55a3d96"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:37eefff650fe433fc92f5ba4e0b32b24c2c7609689babb6e78d11de02904401f",
+      "source_ids": [
+        "FGDC-2852",
+        "FGDC-3080"
+      ],
+      "source_sha256": "37eefff650fe433fc92f5ba4e0b32b24c2c7609689babb6e78d11de02904401f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:3984ca9b51745f86bc0d903d08c8f0d42a5f21bbd376d94a64eba0604da8e73f",
+      "source_ids": [
+        "FGDC-2992",
+        "FGDC-3220"
+      ],
+      "source_sha256": "3984ca9b51745f86bc0d903d08c8f0d42a5f21bbd376d94a64eba0604da8e73f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:3b10c8879de129c36804c7ae4ee72cda774e30b5347f127a2905c7f266685935",
+      "source_ids": [
+        "FGDC-2944",
+        "FGDC-3172"
+      ],
+      "source_sha256": "3b10c8879de129c36804c7ae4ee72cda774e30b5347f127a2905c7f266685935"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:3b946823cdcbb4be330da319806c15ae4bfdb7562a051905aff62d1fbae31b5f",
+      "source_ids": [
+        "FGDC-2857",
+        "FGDC-3085"
+      ],
+      "source_sha256": "3b946823cdcbb4be330da319806c15ae4bfdb7562a051905aff62d1fbae31b5f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:3c905a19c9d6af0e1a7fc10c005b855bcf28d2af71c66c0deffa85bb5a845f2c",
+      "source_ids": [
+        "FGDC-2881",
+        "FGDC-3109"
+      ],
+      "source_sha256": "3c905a19c9d6af0e1a7fc10c005b855bcf28d2af71c66c0deffa85bb5a845f2c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:3d96535765615f35713befc593b61d0b301e39315dd584f3ee48705cd839abf7",
+      "source_ids": [
+        "FGDC-2870",
+        "FGDC-3098"
+      ],
+      "source_sha256": "3d96535765615f35713befc593b61d0b301e39315dd584f3ee48705cd839abf7"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:3e0e5b245b9a83830bc694de8d4041c98511a96b42b070a88677f6485f8b2eb8",
+      "source_ids": [
+        "FGDC-2898",
+        "FGDC-3126"
+      ],
+      "source_sha256": "3e0e5b245b9a83830bc694de8d4041c98511a96b42b070a88677f6485f8b2eb8"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:3ef04bbf4a0465f33d922658abd048e01ba8bcd1c698ecb016aafc67f2d725f3",
+      "source_ids": [
+        "FGDC-2859",
+        "FGDC-3087"
+      ],
+      "source_sha256": "3ef04bbf4a0465f33d922658abd048e01ba8bcd1c698ecb016aafc67f2d725f3"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:40b14a334379e5e416b69e6717ba8981c4488bf7d78388ce38cfacf0e614dd99",
+      "source_ids": [
+        "FGDC-2957",
+        "FGDC-3185"
+      ],
+      "source_sha256": "40b14a334379e5e416b69e6717ba8981c4488bf7d78388ce38cfacf0e614dd99"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:419a9f1c02cdc54276a4c316b5ef04f088562f6e1144a1601d2197c04c17f6c5",
+      "source_ids": [
+        "FGDC-2900",
+        "FGDC-3128"
+      ],
+      "source_sha256": "419a9f1c02cdc54276a4c316b5ef04f088562f6e1144a1601d2197c04c17f6c5"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "source_ids": [
+        "FGDC-2937",
+        "FGDC-3165"
+      ],
+      "source_sha256": "41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:4238aa318f7f89dfea6fa739b02dfcb0ed6072f98aa49cb7457196632f002fbb",
+      "source_ids": [
+        "FGDC-3050",
+        "FGDC-3278"
+      ],
+      "source_sha256": "4238aa318f7f89dfea6fa739b02dfcb0ed6072f98aa49cb7457196632f002fbb"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:42ba13b6ebf5f26f60ba75bd408b9e4d16181f38cf801d10ffb7dbdcaa7a4e36",
+      "source_ids": [
+        "FGDC-2945",
+        "FGDC-3173"
+      ],
+      "source_sha256": "42ba13b6ebf5f26f60ba75bd408b9e4d16181f38cf801d10ffb7dbdcaa7a4e36"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "source_ids": [
+        "FGDC-2915",
+        "FGDC-3143"
+      ],
+      "source_sha256": "4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "source_ids": [
+        "FGDC-2861",
+        "FGDC-3089"
+      ],
+      "source_sha256": "43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:470b7f7c062f0cea050474f109017048e7ba5715421c3eb0dab9189489749738",
+      "source_ids": [
+        "FGDC-2869",
+        "FGDC-3097"
+      ],
+      "source_sha256": "470b7f7c062f0cea050474f109017048e7ba5715421c3eb0dab9189489749738"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:47b7b632c9ac91138225abf7218374a5199823e017ff3a28e985f3e515e77320",
+      "source_ids": [
+        "FGDC-3030",
+        "FGDC-3258"
+      ],
+      "source_sha256": "47b7b632c9ac91138225abf7218374a5199823e017ff3a28e985f3e515e77320"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:48685e8f431bd1045e5d294441609ee8ca8230fbf3f597155a225c905eef500c",
+      "source_ids": [
+        "FGDC-2984",
+        "FGDC-3212"
+      ],
+      "source_sha256": "48685e8f431bd1045e5d294441609ee8ca8230fbf3f597155a225c905eef500c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:48fbdd49ad53843d2b41b9f71baaf8d0563d7718040357d22a8d87e7015c3af1",
+      "source_ids": [
+        "FGDC-2895",
+        "FGDC-3123"
+      ],
+      "source_sha256": "48fbdd49ad53843d2b41b9f71baaf8d0563d7718040357d22a8d87e7015c3af1"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:4a6c8e9c526c723a85e028873bdb38eba523bfaf2cb3f666fdc37246136bf183",
+      "source_ids": [
+        "FGDC-2880",
+        "FGDC-3108"
+      ],
+      "source_sha256": "4a6c8e9c526c723a85e028873bdb38eba523bfaf2cb3f666fdc37246136bf183"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:4c7a232a36c52b9da730f8300fc168c94f8baa500a4ee2c4588abb9165092f34",
+      "source_ids": [
+        "FGDC-2921",
+        "FGDC-3149"
+      ],
+      "source_sha256": "4c7a232a36c52b9da730f8300fc168c94f8baa500a4ee2c4588abb9165092f34"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:4cf60c5201a00edd9beec3571c3efe2c9db2f3b47905c14e663ac6a9d30c2051",
+      "source_ids": [
+        "FGDC-2846",
+        "FGDC-3074"
+      ],
+      "source_sha256": "4cf60c5201a00edd9beec3571c3efe2c9db2f3b47905c14e663ac6a9d30c2051"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:4ddf6f35e1f49fe67e9357784e591e3613a1b06a219381b5ab095047bede8db9",
+      "source_ids": [
+        "FGDC-3053",
+        "FGDC-3281"
+      ],
+      "source_sha256": "4ddf6f35e1f49fe67e9357784e591e3613a1b06a219381b5ab095047bede8db9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:4eb59ae7182fc297582ba615dd6ee966bb47b3df522578ea98dec3c677b5d630",
+      "source_ids": [
+        "FGDC-2893",
+        "FGDC-3121"
+      ],
+      "source_sha256": "4eb59ae7182fc297582ba615dd6ee966bb47b3df522578ea98dec3c677b5d630"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:4f2a8a205fa1b14a2ba01965e9e93607c55c7d2d425bdb456bdd0a8136841874",
+      "source_ids": [
+        "FGDC-2899",
+        "FGDC-3127"
+      ],
+      "source_sha256": "4f2a8a205fa1b14a2ba01965e9e93607c55c7d2d425bdb456bdd0a8136841874"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:504466cc8ef0a1cf11d858fced405b81d175d503d23b4e2a0e0d0615aa77b956",
+      "source_ids": [
+        "FGDC-2956",
+        "FGDC-3184"
+      ],
+      "source_sha256": "504466cc8ef0a1cf11d858fced405b81d175d503d23b4e2a0e0d0615aa77b956"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:50c95f15911411ee3f6a38e926eeb6b035340cf09539fb91b4b873a52e6991ef",
+      "source_ids": [
+        "FGDC-2943",
+        "FGDC-3171"
+      ],
+      "source_sha256": "50c95f15911411ee3f6a38e926eeb6b035340cf09539fb91b4b873a52e6991ef"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "source_ids": [
+        "FGDC-3060",
+        "FGDC-3288"
+      ],
+      "source_sha256": "51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:5516bb99b36b1cdfc05243df49970f307e741a0f3e911ac194d9bea307690de2",
+      "source_ids": [
+        "FGDC-2878",
+        "FGDC-3106"
+      ],
+      "source_sha256": "5516bb99b36b1cdfc05243df49970f307e741a0f3e911ac194d9bea307690de2"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:55d334aaa499684878f5b5d73fc3f7cada57d056c365cb306016482b5e5c9bf6",
+      "source_ids": [
+        "FGDC-2910",
+        "FGDC-3138"
+      ],
+      "source_sha256": "55d334aaa499684878f5b5d73fc3f7cada57d056c365cb306016482b5e5c9bf6"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:584a0f91ec877a42a8a2e9d9669f5ea3f17b342ff535691c77f71528f6aa3774",
+      "source_ids": [
+        "FGDC-2978",
+        "FGDC-3206"
+      ],
+      "source_sha256": "584a0f91ec877a42a8a2e9d9669f5ea3f17b342ff535691c77f71528f6aa3774"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:58694608b7ad8153849b25cdf6fb675eddd244e3cc992e2ce1aab3949d03fc4f",
+      "source_ids": [
+        "FGDC-2847",
+        "FGDC-3075"
+      ],
+      "source_sha256": "58694608b7ad8153849b25cdf6fb675eddd244e3cc992e2ce1aab3949d03fc4f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:5a914f0ecea30e39ea6d85318edf7d5c4876ad1303dad659a17347c4ca55ed2b",
+      "source_ids": [
+        "FGDC-3007",
+        "FGDC-3235"
+      ],
+      "source_sha256": "5a914f0ecea30e39ea6d85318edf7d5c4876ad1303dad659a17347c4ca55ed2b"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:5b4ae022cfc35250fe5add4f2605cc32fda6e595eea09c0c0b1c7e4dcdaa75cd",
+      "source_ids": [
+        "FGDC-2938",
+        "FGDC-3166"
+      ],
+      "source_sha256": "5b4ae022cfc35250fe5add4f2605cc32fda6e595eea09c0c0b1c7e4dcdaa75cd"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:5dc02dbf061253113df5888958036bd3d3cd9625e783cb075f6a4f31e8e85da5",
+      "source_ids": [
+        "FGDC-3005",
+        "FGDC-3233"
+      ],
+      "source_sha256": "5dc02dbf061253113df5888958036bd3d3cd9625e783cb075f6a4f31e8e85da5"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:5e25eb276bb38fb4d0ebe2428deea28da3d47365dedaba7fe07332a39d45adac",
+      "source_ids": [
+        "FGDC-2980",
+        "FGDC-3208"
+      ],
+      "source_sha256": "5e25eb276bb38fb4d0ebe2428deea28da3d47365dedaba7fe07332a39d45adac"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:5efbdd6ef846dcad940e144e4d78befbd8a67719ac68f81217ba829d192f474e",
+      "source_ids": [
+        "FGDC-3054",
+        "FGDC-3282"
+      ],
+      "source_sha256": "5efbdd6ef846dcad940e144e4d78befbd8a67719ac68f81217ba829d192f474e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:5f8ec5a2cd0ae3f009e785ad3b453fed0e930de79c1b29b096e0533d2e5e0fe6",
+      "source_ids": [
+        "FGDC-2977",
+        "FGDC-3205"
+      ],
+      "source_sha256": "5f8ec5a2cd0ae3f009e785ad3b453fed0e930de79c1b29b096e0533d2e5e0fe6"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:60458026de686481840ecc95ab5af8d38e2f7e022bc645ebfe932c3d6ba187aa",
+      "source_ids": [
+        "FGDC-3016",
+        "FGDC-3244"
+      ],
+      "source_sha256": "60458026de686481840ecc95ab5af8d38e2f7e022bc645ebfe932c3d6ba187aa"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:609f4c8cfc54e5e15757cc77b920da55b47461159521b98ac36e74b1ffe963a4",
+      "source_ids": [
+        "FGDC-2941",
+        "FGDC-3169"
+      ],
+      "source_sha256": "609f4c8cfc54e5e15757cc77b920da55b47461159521b98ac36e74b1ffe963a4"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:6131517411f850cc6e9ece3c7adbae8dffac3eec4ad9da9e1c321992b1a3dff6",
+      "source_ids": [
+        "FGDC-2896",
+        "FGDC-3124"
+      ],
+      "source_sha256": "6131517411f850cc6e9ece3c7adbae8dffac3eec4ad9da9e1c321992b1a3dff6"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:616a3428414fbf206f245a00b7c5f2c3cae0dc799e3f948b81ac314d19c61463",
+      "source_ids": [
+        "FGDC-2996",
+        "FGDC-3224"
+      ],
+      "source_sha256": "616a3428414fbf206f245a00b7c5f2c3cae0dc799e3f948b81ac314d19c61463"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:6176b570865f7a31238aa1d32c66940626986b116e26b85cea9830eedb69968b",
+      "source_ids": [
+        "FGDC-2888",
+        "FGDC-3116"
+      ],
+      "source_sha256": "6176b570865f7a31238aa1d32c66940626986b116e26b85cea9830eedb69968b"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:61a2ae9b98ffbf2de41fc84cee20ca3871e7bc652b92de09f6e7b265d6e861f3",
+      "source_ids": [
+        "FGDC-3064",
+        "FGDC-3292"
+      ],
+      "source_sha256": "61a2ae9b98ffbf2de41fc84cee20ca3871e7bc652b92de09f6e7b265d6e861f3"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:646d72f3d0dbab5e13e36626670916230a09be92c9de8ff40a38e08b9e32c514",
+      "source_ids": [
+        "FGDC-3019",
+        "FGDC-3247"
+      ],
+      "source_sha256": "646d72f3d0dbab5e13e36626670916230a09be92c9de8ff40a38e08b9e32c514"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:6493826fa458a5e69afe0e45462fdec1192df54ba205ffe873c90e567b14854e",
+      "source_ids": [
+        "FGDC-2885",
+        "FGDC-3113"
+      ],
+      "source_sha256": "6493826fa458a5e69afe0e45462fdec1192df54ba205ffe873c90e567b14854e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "source_ids": [
+        "FGDC-3026",
+        "FGDC-3254"
+      ],
+      "source_sha256": "650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:65ba604608fd6277520327d80a4b5be6f576ae8a420e5b2f86be802cd6e88ad9",
+      "source_ids": [
+        "FGDC-2884",
+        "FGDC-3112"
+      ],
+      "source_sha256": "65ba604608fd6277520327d80a4b5be6f576ae8a420e5b2f86be802cd6e88ad9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:66097bbcd0f102a76e6fd464be17ded1cbc3ae33ddfcad625f066689f42dcd21",
+      "source_ids": [
+        "FGDC-2920",
+        "FGDC-3148"
+      ],
+      "source_sha256": "66097bbcd0f102a76e6fd464be17ded1cbc3ae33ddfcad625f066689f42dcd21"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:66c3546caf70f9d47a877790aafa13e6b38e632d844ce72d46c4fc4670965559",
+      "source_ids": [
+        "FGDC-3057",
+        "FGDC-3285"
+      ],
+      "source_sha256": "66c3546caf70f9d47a877790aafa13e6b38e632d844ce72d46c4fc4670965559"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:679e5bbb8cb42a20a8cd11d97ba5e2fc22c6994d1c7637fdf70d89386f0fd5b0",
+      "source_ids": [
+        "FGDC-3062",
+        "FGDC-3290"
+      ],
+      "source_sha256": "679e5bbb8cb42a20a8cd11d97ba5e2fc22c6994d1c7637fdf70d89386f0fd5b0"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:6adb068c6326be1e67f5909c408839979d4eae01cff185ec292ed7c3e3caa9f2",
+      "source_ids": [
+        "FGDC-3006",
+        "FGDC-3234"
+      ],
+      "source_sha256": "6adb068c6326be1e67f5909c408839979d4eae01cff185ec292ed7c3e3caa9f2"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:6c6dd852c3be4fe1cb6b672d4694c7885f4e9e5d798e4351011882fecaecfaa6",
+      "source_ids": [
+        "FGDC-3033",
+        "FGDC-3261"
+      ],
+      "source_sha256": "6c6dd852c3be4fe1cb6b672d4694c7885f4e9e5d798e4351011882fecaecfaa6"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:6dc21b61ad5e3b29eb6efdb74e918ccfe1fa1c9b76aec5fdd150cd21dc121e75",
+      "source_ids": [
+        "FGDC-2903",
+        "FGDC-3131"
+      ],
+      "source_sha256": "6dc21b61ad5e3b29eb6efdb74e918ccfe1fa1c9b76aec5fdd150cd21dc121e75"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "source_ids": [
+        "FGDC-3059",
+        "FGDC-3287"
+      ],
+      "source_sha256": "6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:70749856f3a2562db90e2f2d73dcc8021387eb0be47d0a3ca09d02b5f5285a8c",
+      "source_ids": [
+        "FGDC-3018",
+        "FGDC-3246"
+      ],
+      "source_sha256": "70749856f3a2562db90e2f2d73dcc8021387eb0be47d0a3ca09d02b5f5285a8c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:71ed9cbef8d030f90a669f9da751cf3bfe6b6ae99b19db12df93c7df39577cc9",
+      "source_ids": [
+        "FGDC-3061",
+        "FGDC-3289"
+      ],
+      "source_sha256": "71ed9cbef8d030f90a669f9da751cf3bfe6b6ae99b19db12df93c7df39577cc9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:720e4a09f46a1f9e1daf116d866726ecfff91cdd99718efac27aacc119d65d9d",
+      "source_ids": [
+        "FGDC-2912",
+        "FGDC-3140"
+      ],
+      "source_sha256": "720e4a09f46a1f9e1daf116d866726ecfff91cdd99718efac27aacc119d65d9d"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:7299a7fbc4a6a6f27923f502a5ee54091d183e6d8d9888d8c1c30b9c48272c46",
+      "source_ids": [
+        "FGDC-2906",
+        "FGDC-3134"
+      ],
+      "source_sha256": "7299a7fbc4a6a6f27923f502a5ee54091d183e6d8d9888d8c1c30b9c48272c46"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:74b35a5c0aef15067faee807542f3f26c280ed1571d96175f356af0609e92cb2",
+      "source_ids": [
+        "FGDC-2991",
+        "FGDC-3219"
+      ],
+      "source_sha256": "74b35a5c0aef15067faee807542f3f26c280ed1571d96175f356af0609e92cb2"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:74c5abf19a61208749cec092f85e18eb28496f4fa9b4aec6dd5184dadfbab310",
+      "source_ids": [
+        "FGDC-2890",
+        "FGDC-3118"
+      ],
+      "source_sha256": "74c5abf19a61208749cec092f85e18eb28496f4fa9b4aec6dd5184dadfbab310"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:74eb25e08f826c809a8c93e59834501d27a94a1f3d090e004d84abb2271ea190",
+      "source_ids": [
+        "FGDC-2997",
+        "FGDC-3225"
+      ],
+      "source_sha256": "74eb25e08f826c809a8c93e59834501d27a94a1f3d090e004d84abb2271ea190"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:7768f41ce00d9e734de944e273a79ee3564d43a671b127d641e135409bf0c377",
+      "source_ids": [
+        "FGDC-2873",
+        "FGDC-3101"
+      ],
+      "source_sha256": "7768f41ce00d9e734de944e273a79ee3564d43a671b127d641e135409bf0c377"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:781c6dff4f379bf308997945728bc0c1174300ae51cdef7cfb68652fd634982e",
+      "source_ids": [
+        "FGDC-3052",
+        "FGDC-3280"
+      ],
+      "source_sha256": "781c6dff4f379bf308997945728bc0c1174300ae51cdef7cfb68652fd634982e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:784bedb6bb1cb20de6f852270e81ed635684a46bb151af5ed8e730bc6b29d9ab",
+      "source_ids": [
+        "FGDC-3042",
+        "FGDC-3270"
+      ],
+      "source_sha256": "784bedb6bb1cb20de6f852270e81ed635684a46bb151af5ed8e730bc6b29d9ab"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:78c33e1d6bb7551d87fee7cf4fc41d4d3ea92cfdfd0b320971c093d7ca165b2a",
+      "source_ids": [
+        "FGDC-2902",
+        "FGDC-3130"
+      ],
+      "source_sha256": "78c33e1d6bb7551d87fee7cf4fc41d4d3ea92cfdfd0b320971c093d7ca165b2a"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:799b119aeca6bab2cf1eabff8bc0c9df1cf4640e15f127c1ef8f86d70677e973",
+      "source_ids": [
+        "FGDC-2976",
+        "FGDC-3204"
+      ],
+      "source_sha256": "799b119aeca6bab2cf1eabff8bc0c9df1cf4640e15f127c1ef8f86d70677e973"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:79b48ee9dd1de8b837f2c6334bf8d46a1cfca54e3b655883c18b8f76a79ec402",
+      "source_ids": [
+        "FGDC-3051",
+        "FGDC-3279"
+      ],
+      "source_sha256": "79b48ee9dd1de8b837f2c6334bf8d46a1cfca54e3b655883c18b8f76a79ec402"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:7bfe1cbb1c85f4b11217c7168eb2305407696b63f846df8d8461ef55f8292433",
+      "source_ids": [
+        "FGDC-2908",
+        "FGDC-3136"
+      ],
+      "source_sha256": "7bfe1cbb1c85f4b11217c7168eb2305407696b63f846df8d8461ef55f8292433"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:7c2c4ea5f2cf48c589c5e3afa48457b1ff229efe93aa194e4380890639f9a26c",
+      "source_ids": [
+        "FGDC-2844",
+        "FGDC-3072"
+      ],
+      "source_sha256": "7c2c4ea5f2cf48c589c5e3afa48457b1ff229efe93aa194e4380890639f9a26c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:7dbffdb96305ff3a71894702b3e07fa0f526d22253fb329c0dd3770f53ca3e96",
+      "source_ids": [
+        "FGDC-2849",
+        "FGDC-3077"
+      ],
+      "source_sha256": "7dbffdb96305ff3a71894702b3e07fa0f526d22253fb329c0dd3770f53ca3e96"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "source_ids": [
+        "FGDC-2904",
+        "FGDC-3132"
+      ],
+      "source_sha256": "80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:81ec0fbb7ecb7dd50f4a119a67e9428934b7de66cb8ee3cbedff85640a8ded7e",
+      "source_ids": [
+        "FGDC-2966",
+        "FGDC-3194"
+      ],
+      "source_sha256": "81ec0fbb7ecb7dd50f4a119a67e9428934b7de66cb8ee3cbedff85640a8ded7e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:83d284b92685c6e91f31712ed1a889d24047c3b88d99c527f399264da983bd6d",
+      "source_ids": [
+        "FGDC-3056",
+        "FGDC-3284"
+      ],
+      "source_sha256": "83d284b92685c6e91f31712ed1a889d24047c3b88d99c527f399264da983bd6d"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:84250f8169dadb247a0c87393ca08ecc43aeb7cbbfa03c0e9150a8c3354288e5",
+      "source_ids": [
+        "FGDC-2889",
+        "FGDC-3117"
+      ],
+      "source_sha256": "84250f8169dadb247a0c87393ca08ecc43aeb7cbbfa03c0e9150a8c3354288e5"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:8498f8ea45c4bee77c0a75e827faed5e4f1d11b761479d4b5868783b1f1804b9",
+      "source_ids": [
+        "FGDC-3049",
+        "FGDC-3277"
+      ],
+      "source_sha256": "8498f8ea45c4bee77c0a75e827faed5e4f1d11b761479d4b5868783b1f1804b9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:8559a9894c79292f102e61412e98b61af18a6045d858fda4b293be99a5793550",
+      "source_ids": [
+        "FGDC-2882",
+        "FGDC-3110"
+      ],
+      "source_sha256": "8559a9894c79292f102e61412e98b61af18a6045d858fda4b293be99a5793550"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:86a3f70134c5765934806a7980310ff20ab983df7ba86b6ef0d54ed12f8bb976",
+      "source_ids": [
+        "FGDC-3031",
+        "FGDC-3259"
+      ],
+      "source_sha256": "86a3f70134c5765934806a7980310ff20ab983df7ba86b6ef0d54ed12f8bb976"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:86c7a76960666079facd67c81e5a5e5264f82e2efe5f03245c4b1cbf37057ca5",
+      "source_ids": [
+        "FGDC-2932",
+        "FGDC-3160"
+      ],
+      "source_sha256": "86c7a76960666079facd67c81e5a5e5264f82e2efe5f03245c4b1cbf37057ca5"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:876d176de491b359d863972e40fc7c5dbe32dfe3a9c0560ab3b59eeb45740d7d",
+      "source_ids": [
+        "FGDC-3039",
+        "FGDC-3267"
+      ],
+      "source_sha256": "876d176de491b359d863972e40fc7c5dbe32dfe3a9c0560ab3b59eeb45740d7d"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:87ab7801a6082edd52d0e1d35500fd96ec19cb8f7008fa73e544fbafabd489b0",
+      "source_ids": [
+        "FGDC-3028",
+        "FGDC-3256"
+      ],
+      "source_sha256": "87ab7801a6082edd52d0e1d35500fd96ec19cb8f7008fa73e544fbafabd489b0"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:889dcc65cfcf4e8a7be98cf8436d01378b7f5aa63b45b5d57e616ef61b4e0181",
+      "source_ids": [
+        "FGDC-3012",
+        "FGDC-3240"
+      ],
+      "source_sha256": "889dcc65cfcf4e8a7be98cf8436d01378b7f5aa63b45b5d57e616ef61b4e0181"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:8bc96a3db59d988ef8b471639dc09419e921ea0088c8d6c27b674869fea6034c",
+      "source_ids": [
+        "FGDC-2988",
+        "FGDC-3216"
+      ],
+      "source_sha256": "8bc96a3db59d988ef8b471639dc09419e921ea0088c8d6c27b674869fea6034c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "source_ids": [
+        "FGDC-2837",
+        "FGDC-3065"
+      ],
+      "source_sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:8bf3be3528cb2cc69aa815d3baae5264b4b4b64017b90f256a93981e6bfab98a",
+      "source_ids": [
+        "FGDC-2845",
+        "FGDC-3073"
+      ],
+      "source_sha256": "8bf3be3528cb2cc69aa815d3baae5264b4b4b64017b90f256a93981e6bfab98a"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:8c9ecf376c60e1b4c1dddb1e18f0865cbbc410887ab100c222e50587500e401b",
+      "source_ids": [
+        "FGDC-2860",
+        "FGDC-3088"
+      ],
+      "source_sha256": "8c9ecf376c60e1b4c1dddb1e18f0865cbbc410887ab100c222e50587500e401b"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:8d610ed681161472e5f572cae9d52695d751b8e3f70ec41761e5ba493f4319f4",
+      "source_ids": [
+        "FGDC-2931",
+        "FGDC-3159"
+      ],
+      "source_sha256": "8d610ed681161472e5f572cae9d52695d751b8e3f70ec41761e5ba493f4319f4"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:8e2add3b8a3642cadc131c3a6ccadfce4121072592f1fb0d3e4693db5c16cfc9",
+      "source_ids": [
+        "FGDC-2913",
+        "FGDC-3141"
+      ],
+      "source_sha256": "8e2add3b8a3642cadc131c3a6ccadfce4121072592f1fb0d3e4693db5c16cfc9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:8f6721c540a8801682821b1c0497ac87889afdbce2950a3e8e7824a7e78af4ea",
+      "source_ids": [
+        "FGDC-3045",
+        "FGDC-3273"
+      ],
+      "source_sha256": "8f6721c540a8801682821b1c0497ac87889afdbce2950a3e8e7824a7e78af4ea"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:91de35a07e07d70288383ede8c668fbfe80500ba230077d27f27defaa834c609",
+      "source_ids": [
+        "FGDC-3041",
+        "FGDC-3269"
+      ],
+      "source_sha256": "91de35a07e07d70288383ede8c668fbfe80500ba230077d27f27defaa834c609"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "source_ids": [
+        "FGDC-3037",
+        "FGDC-3265"
+      ],
+      "source_sha256": "921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "source_ids": [
+        "FGDC-2894",
+        "FGDC-3122"
+      ],
+      "source_sha256": "927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:94be051c86453becee850b436dcb304bf27421a51cd6b7e58f74a0c81fe7b82f",
+      "source_ids": [
+        "FGDC-2862",
+        "FGDC-3090"
+      ],
+      "source_sha256": "94be051c86453becee850b436dcb304bf27421a51cd6b7e58f74a0c81fe7b82f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:9567b76d95a51ac3e07891547df0f161d100777642463fd34c6701a95e1123b0",
+      "source_ids": [
+        "FGDC-2863",
+        "FGDC-3091"
+      ],
+      "source_sha256": "9567b76d95a51ac3e07891547df0f161d100777642463fd34c6701a95e1123b0"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:9635b61f9423b5e73f41b4b339e717d80f9fbe6baf0dbf54ac15890da436eed1",
+      "source_ids": [
+        "FGDC-3003",
+        "FGDC-3231"
+      ],
+      "source_sha256": "9635b61f9423b5e73f41b4b339e717d80f9fbe6baf0dbf54ac15890da436eed1"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:96d81f09a53849c8014ffb95c6b986be60db34c33fdf95f209a3f722d11315ee",
+      "source_ids": [
+        "FGDC-2933",
+        "FGDC-3161"
+      ],
+      "source_sha256": "96d81f09a53849c8014ffb95c6b986be60db34c33fdf95f209a3f722d11315ee"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:97a837ae20a074387091b097a3d9eb9db4524c047c10b5b4b9a1eb3075873612",
+      "source_ids": [
+        "FGDC-2907",
+        "FGDC-3135"
+      ],
+      "source_sha256": "97a837ae20a074387091b097a3d9eb9db4524c047c10b5b4b9a1eb3075873612"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:97e7a16fd54897bfb4368044ac77f4da7de410cab7327d53b68b867a3abeb47c",
+      "source_ids": [
+        "FGDC-2842",
+        "FGDC-3070"
+      ],
+      "source_sha256": "97e7a16fd54897bfb4368044ac77f4da7de410cab7327d53b68b867a3abeb47c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:99d7f76bb554a2b37c96f3cfa002ba41cdc36a6315fc4ae732ccee1f3c34d469",
+      "source_ids": [
+        "FGDC-2959",
+        "FGDC-3187"
+      ],
+      "source_sha256": "99d7f76bb554a2b37c96f3cfa002ba41cdc36a6315fc4ae732ccee1f3c34d469"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:9c243d1b1f312b0a0513db7b1b7600486f00d243d2fc7368cfec393b42fbf5c5",
+      "source_ids": [
+        "FGDC-2856",
+        "FGDC-3084"
+      ],
+      "source_sha256": "9c243d1b1f312b0a0513db7b1b7600486f00d243d2fc7368cfec393b42fbf5c5"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:9c378fc791115cc0d99fbbbdaf9e8f72ec3f312263c0dfb50b7d622bc7d61146",
+      "source_ids": [
+        "FGDC-2961",
+        "FGDC-3189"
+      ],
+      "source_sha256": "9c378fc791115cc0d99fbbbdaf9e8f72ec3f312263c0dfb50b7d622bc7d61146"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:9e6066fdc509e884b837a6f5b5d8c244a5f289194980392f73fdd0f1207465e4",
+      "source_ids": [
+        "FGDC-3035",
+        "FGDC-3263"
+      ],
+      "source_sha256": "9e6066fdc509e884b837a6f5b5d8c244a5f289194980392f73fdd0f1207465e4"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:a2b51c74bd83865943aed91f2b47d1f9a0435da00f0f4443b2d7f339a3cca896",
+      "source_ids": [
+        "FGDC-2911",
+        "FGDC-3139"
+      ],
+      "source_sha256": "a2b51c74bd83865943aed91f2b47d1f9a0435da00f0f4443b2d7f339a3cca896"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:a2d59b54ce81e9d8010c67cc88909061a5eab4333648de02fd17aa99e315d42e",
+      "source_ids": [
+        "FGDC-2874",
+        "FGDC-3102"
+      ],
+      "source_sha256": "a2d59b54ce81e9d8010c67cc88909061a5eab4333648de02fd17aa99e315d42e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:a2fdcf96fe190394080710739480913bcef3835c22faf65db50cfcc6796c1008",
+      "source_ids": [
+        "FGDC-2843",
+        "FGDC-3071"
+      ],
+      "source_sha256": "a2fdcf96fe190394080710739480913bcef3835c22faf65db50cfcc6796c1008"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:a3a798d1e6c221adfe32580577dd1cbd650ea3340e0a9ef2f90699800903bda3",
+      "source_ids": [
+        "FGDC-2974",
+        "FGDC-3202"
+      ],
+      "source_sha256": "a3a798d1e6c221adfe32580577dd1cbd650ea3340e0a9ef2f90699800903bda3"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:a5cc5c7b825adb5fadcd4cc9f1ddbef1a58ef5099c3cd392b020feeeeac4e383",
+      "source_ids": [
+        "FGDC-2965",
+        "FGDC-3193"
+      ],
+      "source_sha256": "a5cc5c7b825adb5fadcd4cc9f1ddbef1a58ef5099c3cd392b020feeeeac4e383"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "source_ids": [
+        "FGDC-2993",
+        "FGDC-3221"
+      ],
+      "source_sha256": "a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:a73e59b5bd0ec65631ed6b3e1df912117f0d03b95339be08d11f2af6c6a8ddfe",
+      "source_ids": [
+        "FGDC-3021",
+        "FGDC-3249"
+      ],
+      "source_sha256": "a73e59b5bd0ec65631ed6b3e1df912117f0d03b95339be08d11f2af6c6a8ddfe"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:a76edf6abe7861fbce5c470cc9a35f4f75b7a5a8e866c6bb1d57fb1e6292f872",
+      "source_ids": [
+        "FGDC-3043",
+        "FGDC-3271"
+      ],
+      "source_sha256": "a76edf6abe7861fbce5c470cc9a35f4f75b7a5a8e866c6bb1d57fb1e6292f872"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:a8bc3edb070724e4a2d4aab23ed90d98c51ea5b97c80cbee63cbbee7c5e3cedd",
+      "source_ids": [
+        "FGDC-3034",
+        "FGDC-3262"
+      ],
+      "source_sha256": "a8bc3edb070724e4a2d4aab23ed90d98c51ea5b97c80cbee63cbbee7c5e3cedd"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ae45cd6d49bcf671c3cc05ac122d109911c485d1987d426fd4af81bae182190f",
+      "source_ids": [
+        "FGDC-2979",
+        "FGDC-3207"
+      ],
+      "source_sha256": "ae45cd6d49bcf671c3cc05ac122d109911c485d1987d426fd4af81bae182190f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ae70668401c1c70565e0e2ce49b26706c6761beef8278d9179925f5b5d88ed77",
+      "source_ids": [
+        "FGDC-2909",
+        "FGDC-3137"
+      ],
+      "source_sha256": "ae70668401c1c70565e0e2ce49b26706c6761beef8278d9179925f5b5d88ed77"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:aed8dc374f2869c79a746ed40d8129e940d566719b3232a30b80a82b4a69b875",
+      "source_ids": [
+        "FGDC-2914",
+        "FGDC-3142"
+      ],
+      "source_sha256": "aed8dc374f2869c79a746ed40d8129e940d566719b3232a30b80a82b4a69b875"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:b2bd69df0f66730db9182c1c90ae8a4db446fa86b276414f3dde7e974e6535a2",
+      "source_ids": [
+        "FGDC-2855",
+        "FGDC-3083"
+      ],
+      "source_sha256": "b2bd69df0f66730db9182c1c90ae8a4db446fa86b276414f3dde7e974e6535a2"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:b2fdc54fa458ac46ef23c2058e70ae8d48ad55f546399562a2aa4aa734c7f26d",
+      "source_ids": [
+        "FGDC-2916",
+        "FGDC-3144"
+      ],
+      "source_sha256": "b2fdc54fa458ac46ef23c2058e70ae8d48ad55f546399562a2aa4aa734c7f26d"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:b3a866604fdded20289f6c79ccc85ae78b8e249d4c8dae1625c14ebb4dea402f",
+      "source_ids": [
+        "FGDC-2887",
+        "FGDC-3115"
+      ],
+      "source_sha256": "b3a866604fdded20289f6c79ccc85ae78b8e249d4c8dae1625c14ebb4dea402f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:b468b50cb099b16ed21e87e58d73ea460f006d983815f953f6a22f35fcb6e59e",
+      "source_ids": [
+        "FGDC-2853",
+        "FGDC-3081"
+      ],
+      "source_sha256": "b468b50cb099b16ed21e87e58d73ea460f006d983815f953f6a22f35fcb6e59e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:b53dc5aa076b2ee54382f4fecb05137ea8b2424da1b43b798a5944453823e295",
+      "source_ids": [
+        "FGDC-3036",
+        "FGDC-3264"
+      ],
+      "source_sha256": "b53dc5aa076b2ee54382f4fecb05137ea8b2424da1b43b798a5944453823e295"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:b792de0a2b5293b8a2bb0a0cd8d3bc49d28d9d7bdf78d2b8956491cdfa649e1d",
+      "source_ids": [
+        "FGDC-2886",
+        "FGDC-3114"
+      ],
+      "source_sha256": "b792de0a2b5293b8a2bb0a0cd8d3bc49d28d9d7bdf78d2b8956491cdfa649e1d"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "source_ids": [
+        "FGDC-2960",
+        "FGDC-3188"
+      ],
+      "source_sha256": "b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ba0d5363cfb8fa331e1feb2748bbeb1e8f68faae2e6a7718deec65363e24f2a6",
+      "source_ids": [
+        "FGDC-2877",
+        "FGDC-3105"
+      ],
+      "source_sha256": "ba0d5363cfb8fa331e1feb2748bbeb1e8f68faae2e6a7718deec65363e24f2a6"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:bb3f7deef777eac0b5890d37f31f0fe6943db5fe44053b38138ffa655f541432",
+      "source_ids": [
+        "FGDC-2928",
+        "FGDC-3156"
+      ],
+      "source_sha256": "bb3f7deef777eac0b5890d37f31f0fe6943db5fe44053b38138ffa655f541432"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:beeb92e66501fc8dd67eb415dfe2bde1c83632890a041ee15cf856ef8eda0aa4",
+      "source_ids": [
+        "FGDC-2952",
+        "FGDC-3180"
+      ],
+      "source_sha256": "beeb92e66501fc8dd67eb415dfe2bde1c83632890a041ee15cf856ef8eda0aa4"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:bf1a701c9edd057ed83107c06a4bfd675f7b82e77ebb274967419dca8cb8c862",
+      "source_ids": [
+        "FGDC-2918",
+        "FGDC-3146"
+      ],
+      "source_sha256": "bf1a701c9edd057ed83107c06a4bfd675f7b82e77ebb274967419dca8cb8c862"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:c0ef0b53aec8dc71556c2d1ebf8e8267b30f771b749d8b9965e74ef494d72532",
+      "source_ids": [
+        "FGDC-3009",
+        "FGDC-3237"
+      ],
+      "source_sha256": "c0ef0b53aec8dc71556c2d1ebf8e8267b30f771b749d8b9965e74ef494d72532"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:c106b2016fb714fe16f215daf621102da77b1e5a2fb758e768c60ec65ecb8340",
+      "source_ids": [
+        "FGDC-2958",
+        "FGDC-3186"
+      ],
+      "source_sha256": "c106b2016fb714fe16f215daf621102da77b1e5a2fb758e768c60ec65ecb8340"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:c4aa3a85ab4e958077f06612dabf23ea732696bcf657ff57ea2dd6150db4bae9",
+      "source_ids": [
+        "FGDC-2964",
+        "FGDC-3192"
+      ],
+      "source_sha256": "c4aa3a85ab4e958077f06612dabf23ea732696bcf657ff57ea2dd6150db4bae9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:c50297281dd9b0324b9bb7bf48239276627b3f5b780f3cf678536aa257e92063",
+      "source_ids": [
+        "FGDC-3010",
+        "FGDC-3238"
+      ],
+      "source_sha256": "c50297281dd9b0324b9bb7bf48239276627b3f5b780f3cf678536aa257e92063"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:c53c428f13f59263172f5ae9f2afe33394744f09551f1c6a388b6f489c5fafd3",
+      "source_ids": [
+        "FGDC-3029",
+        "FGDC-3257"
+      ],
+      "source_sha256": "c53c428f13f59263172f5ae9f2afe33394744f09551f1c6a388b6f489c5fafd3"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:c856afbad901e8222c2eece38ade7c3c3f68e27f8b6be14f3e3c9d4de87289ec",
+      "source_ids": [
+        "FGDC-3063",
+        "FGDC-3291"
+      ],
+      "source_sha256": "c856afbad901e8222c2eece38ade7c3c3f68e27f8b6be14f3e3c9d4de87289ec"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ca1d5e2614f0316d28d1729493b2a52ed6b6bb5149508ecbfa631802006ccb1d",
+      "source_ids": [
+        "FGDC-3044",
+        "FGDC-3272"
+      ],
+      "source_sha256": "ca1d5e2614f0316d28d1729493b2a52ed6b6bb5149508ecbfa631802006ccb1d"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ca6d4f64fb3d41b7c6cfbb4884ecd9d9aee4b7e1081794787dcb64e11c3ffd80",
+      "source_ids": [
+        "FGDC-2876",
+        "FGDC-3104"
+      ],
+      "source_sha256": "ca6d4f64fb3d41b7c6cfbb4884ecd9d9aee4b7e1081794787dcb64e11c3ffd80"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ca764287c29de733cba23e0e01235e2c953ac540d342c83779dbaaf518f96f3f",
+      "source_ids": [
+        "FGDC-2986",
+        "FGDC-3214"
+      ],
+      "source_sha256": "ca764287c29de733cba23e0e01235e2c953ac540d342c83779dbaaf518f96f3f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "source_ids": [
+        "FGDC-2948",
+        "FGDC-3176"
+      ],
+      "source_sha256": "ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ccfdd3e564721c637722bc39528815cb648444b1a6e3de3b0078fab9ff18acfe",
+      "source_ids": [
+        "FGDC-2995",
+        "FGDC-3223"
+      ],
+      "source_sha256": "ccfdd3e564721c637722bc39528815cb648444b1a6e3de3b0078fab9ff18acfe"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:cfeff877201b752e1828ef3d812edd61b7f73769ded42fdeb769deae3b3b11e8",
+      "source_ids": [
+        "FGDC-2905",
+        "FGDC-3133"
+      ],
+      "source_sha256": "cfeff877201b752e1828ef3d812edd61b7f73769ded42fdeb769deae3b3b11e8"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d132c7141939dc7fc1d8cb76d9973ef8afb44acd91b50d1d7eab23b9d9c40f09",
+      "source_ids": [
+        "FGDC-2972",
+        "FGDC-3200"
+      ],
+      "source_sha256": "d132c7141939dc7fc1d8cb76d9973ef8afb44acd91b50d1d7eab23b9d9c40f09"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d14425b381dd815b059d5fab973c99db057dc6bbb5331b66ee68522ec8e487a4",
+      "source_ids": [
+        "FGDC-2875",
+        "FGDC-3103"
+      ],
+      "source_sha256": "d14425b381dd815b059d5fab973c99db057dc6bbb5331b66ee68522ec8e487a4"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d28f8f9a023fb7df4961746479c2cff350e3801e78abbec958979b57ff763ad2",
+      "source_ids": [
+        "FGDC-3000",
+        "FGDC-3228"
+      ],
+      "source_sha256": "d28f8f9a023fb7df4961746479c2cff350e3801e78abbec958979b57ff763ad2"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d3982b991a93644657507e51c7d931f20dc810c676b7039613f44d8a5fd50a48",
+      "source_ids": [
+        "FGDC-2929",
+        "FGDC-3157"
+      ],
+      "source_sha256": "d3982b991a93644657507e51c7d931f20dc810c676b7039613f44d8a5fd50a48"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "source_ids": [
+        "FGDC-2850",
+        "FGDC-3078"
+      ],
+      "source_sha256": "d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d5aa3592053e8b55c36ee4c2d0e25bcb9ff6bbc30074eb2c5c18f26771f8d548",
+      "source_ids": [
+        "FGDC-3022",
+        "FGDC-3250"
+      ],
+      "source_sha256": "d5aa3592053e8b55c36ee4c2d0e25bcb9ff6bbc30074eb2c5c18f26771f8d548"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d5b2805699de6c4985fc7b8fb9fb0714b8b1454395c8241a6d50993a166b0cb6",
+      "source_ids": [
+        "FGDC-2923",
+        "FGDC-3151"
+      ],
+      "source_sha256": "d5b2805699de6c4985fc7b8fb9fb0714b8b1454395c8241a6d50993a166b0cb6"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "source_ids": [
+        "FGDC-2839",
+        "FGDC-3067"
+      ],
+      "source_sha256": "d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "source_ids": [
+        "FGDC-2926",
+        "FGDC-3154"
+      ],
+      "source_sha256": "d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d8aaae0145540ed28aa4010f102ac922f301799b39b43ad1a61bb5db130d54d1",
+      "source_ids": [
+        "FGDC-2968",
+        "FGDC-3196"
+      ],
+      "source_sha256": "d8aaae0145540ed28aa4010f102ac922f301799b39b43ad1a61bb5db130d54d1"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d99e58947157d22b9d56409c5c49ca6f772c94d5e83ab5f8630b13391a12ea1e",
+      "source_ids": [
+        "FGDC-2897",
+        "FGDC-3125"
+      ],
+      "source_sha256": "d99e58947157d22b9d56409c5c49ca6f772c94d5e83ab5f8630b13391a12ea1e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d99fb6f875fbc2b30b8e21f4a94226c84fc02f230ed12762a81b9ff206369f7f",
+      "source_ids": [
+        "FGDC-2969",
+        "FGDC-3197"
+      ],
+      "source_sha256": "d99fb6f875fbc2b30b8e21f4a94226c84fc02f230ed12762a81b9ff206369f7f"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:d9d6edc6d7799c73ead9c7e3ae8693b4f696f863e08834ece535c454186bf29c",
+      "source_ids": [
+        "FGDC-2925",
+        "FGDC-3153"
+      ],
+      "source_sha256": "d9d6edc6d7799c73ead9c7e3ae8693b4f696f863e08834ece535c454186bf29c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:da5db54591e32c5b34a1d35332c4c6426ae7565d20e8bb47a24308d9af3ea4ba",
+      "source_ids": [
+        "FGDC-2946",
+        "FGDC-3174"
+      ],
+      "source_sha256": "da5db54591e32c5b34a1d35332c4c6426ae7565d20e8bb47a24308d9af3ea4ba"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:dac74b3bc27dbc14f92e84f6a0686e02d02301e29923c7ccb8b6c181edcffff9",
+      "source_ids": [
+        "FGDC-2848",
+        "FGDC-3076"
+      ],
+      "source_sha256": "dac74b3bc27dbc14f92e84f6a0686e02d02301e29923c7ccb8b6c181edcffff9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:dc15ca6a2ef4f8979d08424f3e060ae26ab54f1de11c3fbd6a1168ccfd09754e",
+      "source_ids": [
+        "FGDC-3047",
+        "FGDC-3275"
+      ],
+      "source_sha256": "dc15ca6a2ef4f8979d08424f3e060ae26ab54f1de11c3fbd6a1168ccfd09754e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:dc90d6b237428c9be842bfd729edd2ad6f1d11ac0e76209d5cbfccd280764a8e",
+      "source_ids": [
+        "FGDC-2892",
+        "FGDC-3120"
+      ],
+      "source_sha256": "dc90d6b237428c9be842bfd729edd2ad6f1d11ac0e76209d5cbfccd280764a8e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:dd4cb1ad9e4350173112aa373dbf7b01be6ae296c937bb5c26243ee230ec5f27",
+      "source_ids": [
+        "FGDC-2868",
+        "FGDC-3096"
+      ],
+      "source_sha256": "dd4cb1ad9e4350173112aa373dbf7b01be6ae296c937bb5c26243ee230ec5f27"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:dde0010f8f4c15891cca79b3658337ca6106bb4fa85b5e59d7516392e53cddae",
+      "source_ids": [
+        "FGDC-2975",
+        "FGDC-3203"
+      ],
+      "source_sha256": "dde0010f8f4c15891cca79b3658337ca6106bb4fa85b5e59d7516392e53cddae"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:dfa2a06d87ff978ceb26315117f8dbe45b2a8fc7ee994ce4d7743b5e6ca82611",
+      "source_ids": [
+        "FGDC-2919",
+        "FGDC-3147"
+      ],
+      "source_sha256": "dfa2a06d87ff978ceb26315117f8dbe45b2a8fc7ee994ce4d7743b5e6ca82611"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:dfb2015562ef6060b5a0a56791069d28a658dccf9efbc57dbf80b2e479e9546e",
+      "source_ids": [
+        "FGDC-3038",
+        "FGDC-3266"
+      ],
+      "source_sha256": "dfb2015562ef6060b5a0a56791069d28a658dccf9efbc57dbf80b2e479e9546e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:dfbff13d9d4fddc4e0ee420dcf754faefcf033378d35a67d31dc4fe526edb4d9",
+      "source_ids": [
+        "FGDC-2990",
+        "FGDC-3218"
+      ],
+      "source_sha256": "dfbff13d9d4fddc4e0ee420dcf754faefcf033378d35a67d31dc4fe526edb4d9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:e16de5ff17117454df08682b4578d6828b657e6f60d1347ba7d9f3368b00dea3",
+      "source_ids": [
+        "FGDC-3046",
+        "FGDC-3274"
+      ],
+      "source_sha256": "e16de5ff17117454df08682b4578d6828b657e6f60d1347ba7d9f3368b00dea3"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:e457a1a1a3587179bfe1f36b5845ec3d71ece6c34904f23779e5f27a34dbfdb9",
+      "source_ids": [
+        "FGDC-3013",
+        "FGDC-3241"
+      ],
+      "source_sha256": "e457a1a1a3587179bfe1f36b5845ec3d71ece6c34904f23779e5f27a34dbfdb9"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:e4c38bae9a99b7a9773e57dda165320f2ea55a28d9e8324729837b8ca5be9d18",
+      "source_ids": [
+        "FGDC-2927",
+        "FGDC-3155"
+      ],
+      "source_sha256": "e4c38bae9a99b7a9773e57dda165320f2ea55a28d9e8324729837b8ca5be9d18"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:e538752a0a35fe5aee2c97efa8491227a5156e4b68f9a6650b42708e6a396d61",
+      "source_ids": [
+        "FGDC-2936",
+        "FGDC-3164"
+      ],
+      "source_sha256": "e538752a0a35fe5aee2c97efa8491227a5156e4b68f9a6650b42708e6a396d61"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:e60f3f228f0419fb678a8e05fb1fad9b594b15c559fbde43bdb41dc68b780bb1",
+      "source_ids": [
+        "FGDC-2866",
+        "FGDC-3094"
+      ],
+      "source_sha256": "e60f3f228f0419fb678a8e05fb1fad9b594b15c559fbde43bdb41dc68b780bb1"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "source_ids": [
+        "FGDC-2883",
+        "FGDC-3111"
+      ],
+      "source_sha256": "e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:e6cbd9194870c32c0e31b4890a29d6213753aa52b4981d7e929bb56b81c704e1",
+      "source_ids": [
+        "FGDC-2934",
+        "FGDC-3162"
+      ],
+      "source_sha256": "e6cbd9194870c32c0e31b4890a29d6213753aa52b4981d7e929bb56b81c704e1"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:eb9d64e32b53037e98dcd6546ab708a971c75ab058a4ee7c637098d523e8a827",
+      "source_ids": [
+        "FGDC-2981",
+        "FGDC-3209"
+      ],
+      "source_sha256": "eb9d64e32b53037e98dcd6546ab708a971c75ab058a4ee7c637098d523e8a827"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "source_ids": [
+        "FGDC-2872",
+        "FGDC-3100"
+      ],
+      "source_sha256": "ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ee6896f0b1a245459af68bda8a118704d59f4ea327e967cfa653af06a37e53e5",
+      "source_ids": [
+        "FGDC-3008",
+        "FGDC-3236"
+      ],
+      "source_sha256": "ee6896f0b1a245459af68bda8a118704d59f4ea327e967cfa653af06a37e53e5"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ee91a456cdf06d0611c9653831fd9f2c6594582bbfea25191f1ec4402147f35e",
+      "source_ids": [
+        "FGDC-2967",
+        "FGDC-3195"
+      ],
+      "source_sha256": "ee91a456cdf06d0611c9653831fd9f2c6594582bbfea25191f1ec4402147f35e"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ef0f622fb85a1dda6a3696a88b5edd92bda71008762d089a0d48a056b7909d4c",
+      "source_ids": [
+        "FGDC-2864",
+        "FGDC-3092"
+      ],
+      "source_sha256": "ef0f622fb85a1dda6a3696a88b5edd92bda71008762d089a0d48a056b7909d4c"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ef8e51e047d45c906eca150ade55a7fe98eab3814f0c78a7cde7915b5fb7d9e5",
+      "source_ids": [
+        "FGDC-3058",
+        "FGDC-3286"
+      ],
+      "source_sha256": "ef8e51e047d45c906eca150ade55a7fe98eab3814f0c78a7cde7915b5fb7d9e5"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "source_ids": [
+        "FGDC-3004",
+        "FGDC-3232"
+      ],
+      "source_sha256": "f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:f2d3d71812f8ad8018de017fd9a0cfa2033a58e75d607a77570b171359b8e4e3",
+      "source_ids": [
+        "FGDC-2998",
+        "FGDC-3226"
+      ],
+      "source_sha256": "f2d3d71812f8ad8018de017fd9a0cfa2033a58e75d607a77570b171359b8e4e3"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:f3a1ae81e5df689e3d7ec65780f737807721a81fb515e345a51d4fdc51e10081",
+      "source_ids": [
+        "FGDC-2867",
+        "FGDC-3095"
+      ],
+      "source_sha256": "f3a1ae81e5df689e3d7ec65780f737807721a81fb515e345a51d4fdc51e10081"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "source_ids": [
+        "FGDC-2971",
+        "FGDC-3199"
+      ],
+      "source_sha256": "f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:f5deef3c3d9a8acf0e169e35ea06d3d043c39b55230d9eb96cb0a9e887eb7cc3",
+      "source_ids": [
+        "FGDC-2935",
+        "FGDC-3163"
+      ],
+      "source_sha256": "f5deef3c3d9a8acf0e169e35ea06d3d043c39b55230d9eb96cb0a9e887eb7cc3"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:f724e80d30beb34a10a375b071d28ff0025495143bbebc6dccb6ef49c4ee0cc5",
+      "source_ids": [
+        "FGDC-2940",
+        "FGDC-3168"
+      ],
+      "source_sha256": "f724e80d30beb34a10a375b071d28ff0025495143bbebc6dccb6ef49c4ee0cc5"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:f7c6fad0f2ede5d1addc088f999dbff5b89a86ffa60598a18d373cc3c2c227ce",
+      "source_ids": [
+        "FGDC-2930",
+        "FGDC-3158"
+      ],
+      "source_sha256": "f7c6fad0f2ede5d1addc088f999dbff5b89a86ffa60598a18d373cc3c2c227ce"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:fb44d7c159b58c70a8fe6d6c7f45966038e9354755f2f244400b8ec00d18dab2",
+      "source_ids": [
+        "FGDC-2983",
+        "FGDC-3211"
+      ],
+      "source_sha256": "fb44d7c159b58c70a8fe6d6c7f45966038e9354755f2f244400b8ec00d18dab2"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:fc5b3234a1500382dd7667880f51e669a5dfdc3ba94f1257d78a5891d1667503",
+      "source_ids": [
+        "FGDC-2987",
+        "FGDC-3215"
+      ],
+      "source_sha256": "fc5b3234a1500382dd7667880f51e669a5dfdc3ba94f1257d78a5891d1667503"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "source_ids": [
+        "FGDC-3048",
+        "FGDC-3276"
+      ],
+      "source_sha256": "fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:fdb25d83f05b104d0c73db6365aef56570be101959cf8333217bb12d72f83c46",
+      "source_ids": [
+        "FGDC-2973",
+        "FGDC-3201"
+      ],
+      "source_sha256": "fdb25d83f05b104d0c73db6365aef56570be101959cf8333217bb12d72f83c46"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ff08f7a3e1e9895bd60895219c43aafee1c182a7defc98f6782f3986ef74bd5a",
+      "source_ids": [
+        "FGDC-2985",
+        "FGDC-3213"
+      ],
+      "source_sha256": "ff08f7a3e1e9895bd60895219c43aafee1c182a7defc98f6782f3986ef74bd5a"
+    },
+    {
+      "create_authorized": false,
+      "direct_candidates_in_returned_fields": [],
+      "file_coverage_hold_record_ids": [
+        10783360,
+        17317855
+      ],
+      "identity_adoption_authorized": false,
+      "record_target_id": "sha256:ffee49ac0dc497ed873943ec907f06d870aa42d577a1c7a325e9cc8d9595c0ea",
+      "source_ids": [
+        "FGDC-2954",
+        "FGDC-3182"
+      ],
+      "source_sha256": "ffee49ac0dc497ed873943ec907f06d870aa42d577a1c7a325e9cc8d9595c0ea"
+    }
+  ],
+  "pair_direct_candidates_in_returned_fields": [],
+  "pair_title_hints": [
+    {
+      "identity_proof": false,
+      "record_id": 17317851,
+      "source_ids": [
+        "FGDC-2920",
+        "FGDC-3027",
+        "FGDC-3148",
+        "FGDC-3255"
+      ]
+    }
+  ],
+  "protected_associations": [
+    {
+      "conceptdoi": "10.5281/zenodo.17317850",
+      "conceptrecid": "17317850",
+      "current_file_coverage_complete": true,
+      "doi": "10.5281/zenodo.17317851",
+      "historical_source_association_preserved": true,
+      "raw_listing_identity_fields_verified": true,
+      "record_id": 17317851,
+      "source_id": "FGDC-2043"
+    },
+    {
+      "conceptdoi": "10.5281/zenodo.17317852",
+      "conceptrecid": "17317852",
+      "current_file_coverage_complete": true,
+      "doi": "10.5281/zenodo.17317853",
+      "historical_source_association_preserved": true,
+      "raw_listing_identity_fields_verified": true,
+      "record_id": 17317853,
+      "source_id": "FGDC-2731"
+    },
+    {
+      "conceptdoi": "10.5281/zenodo.17317854",
+      "conceptrecid": "17317854",
+      "current_file_coverage_complete": false,
+      "doi": "10.5281/zenodo.17317855",
+      "historical_source_association_preserved": true,
+      "raw_listing_identity_fields_verified": true,
+      "record_id": 17317855,
+      "source_id": "FGDC-1238"
+    },
+    {
+      "conceptdoi": "10.5281/zenodo.17317856",
+      "conceptrecid": "17317856",
+      "current_file_coverage_complete": true,
+      "doi": "10.5281/zenodo.17317857",
+      "historical_source_association_preserved": true,
+      "raw_listing_identity_fields_verified": true,
+      "record_id": 17317857,
+      "source_id": "FGDC-2725"
+    },
+    {
+      "conceptdoi": "10.5281/zenodo.17317858",
+      "conceptrecid": "17317858",
+      "current_file_coverage_complete": true,
+      "doi": "10.5281/zenodo.17317859",
+      "historical_source_association_preserved": true,
+      "raw_listing_identity_fields_verified": true,
+      "record_id": 17317859,
+      "source_id": "FGDC-2057"
+    }
+  ],
+  "provider_mutations": 0,
+  "provider_requests_by_this_review": 0,
+  "published": 19,
+  "raw_owner_listing_capture_review_complete": true,
+  "raw_pagination_counts": [
+    20,
+    0,
+    20
+  ],
+  "raw_response_bodies": [
+    {
+      "body_read_finished_at": "2026-10-04T21:53:06.959019+00:00",
+      "body_saved_at": "2026-10-04T21:53:06.960731+00:00",
+      "content_encoding": "identity",
+      "deposition_ids": [
+        17883973,
+        17783407,
+        17317859,
+        17317857,
+        17317855,
+        17317853,
+        17317851,
+        15046283,
+        10783360,
+        10042430,
+        7613259,
+        7613223,
+        7613135,
+        7613081,
+        7439571,
+        7439561,
+        7439525,
+        6568203,
+        6485628,
+        5719523
+      ],
+      "finished_at": "2026-10-04T21:53:06.962151+00:00",
+      "http_status": 200,
+      "method": "GET",
+      "parsed_at": "2026-10-04T21:53:06.962131+00:00",
+      "query": {
+        "all_versions": "true",
+        "page": 1,
+        "size": 100,
+        "sort": "mostrecent"
+      },
+      "raw_body_bytes": 80271,
+      "raw_body_file": "PICES-owner-inventory-page1-first.raw.json",
+      "raw_body_sha256": "77b4792e26b4f1144b23da197e539e05611a887d0c965a4fe908b7d567c8cc50",
+      "request_index": 1,
+      "returned_count": 20,
+      "saved_before_parsing": true,
+      "started_at": "2026-10-04T21:53:04.660519+00:00",
+      "transferred_file_id": "file_0000000067e881fd838bd92810a1132e",
+      "url": "https://zenodo.org/api/deposit/depositions"
+    },
+    {
+      "body_read_finished_at": "2026-10-04T21:53:07.206861+00:00",
+      "body_saved_at": "2026-10-04T21:53:07.208130+00:00",
+      "content_encoding": "identity",
+      "deposition_ids": [],
+      "finished_at": "2026-10-04T21:53:07.208806+00:00",
+      "http_status": 200,
+      "method": "GET",
+      "parsed_at": "2026-10-04T21:53:07.208795+00:00",
+      "query": {
+        "all_versions": "true",
+        "page": 2,
+        "size": 100,
+        "sort": "mostrecent"
+      },
+      "raw_body_bytes": 2,
+      "raw_body_file": "PICES-owner-inventory-page2-terminal.raw.json",
+      "raw_body_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "request_index": 2,
+      "returned_count": 0,
+      "saved_before_parsing": true,
+      "started_at": "2026-10-04T21:53:06.963286+00:00",
+      "transferred_file_id": "file_00000000c39c81fdbeb965936ffbc48a",
+      "url": "https://zenodo.org/api/deposit/depositions"
+    },
+    {
+      "body_read_finished_at": "2026-10-04T21:53:10.337415+00:00",
+      "body_saved_at": "2026-10-04T21:53:10.339308+00:00",
+      "content_encoding": "identity",
+      "deposition_ids": [
+        17883973,
+        17783407,
+        17317859,
+        17317857,
+        17317855,
+        17317853,
+        17317851,
+        15046283,
+        10783360,
+        10042430,
+        7613259,
+        7613223,
+        7613135,
+        7613081,
+        7439571,
+        7439561,
+        7439525,
+        6568203,
+        6485628,
+        5719523
+      ],
+      "finished_at": "2026-10-04T21:53:10.340446+00:00",
+      "http_status": 200,
+      "method": "GET",
+      "parsed_at": "2026-10-04T21:53:10.340417+00:00",
+      "query": {
+        "all_versions": "true",
+        "page": 1,
+        "size": 100,
+        "sort": "mostrecent"
+      },
+      "raw_body_bytes": 80271,
+      "raw_body_file": "PICES-owner-inventory-page1-repeat.raw.json",
+      "raw_body_sha256": "77b4792e26b4f1144b23da197e539e05611a887d0c965a4fe908b7d567c8cc50",
+      "request_index": 3,
+      "returned_count": 20,
+      "saved_before_parsing": true,
+      "started_at": "2026-10-04T21:53:09.063426+00:00",
+      "transferred_file_id": "file_0000000022e881fdb125461b89c31d1e",
+      "url": "https://zenodo.org/api/deposit/depositions"
+    }
+  ],
+  "repository_base": "4bc59af3ff4432e297e64d3c70b6c57ecdaf0390",
+  "reviewer": "Codex integration owner /root",
+  "schema_version": 1
+}

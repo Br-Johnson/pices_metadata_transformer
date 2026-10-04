@@ -1,4 +1,16 @@
-# Offline publication batch plan — 2026-10-04
+# Current owner-listing evidence and two file gaps — 2026-10-04
+
+The [raw inventory addendum](readiness/2026-10-04/production_owner_raw_inventory_addendum.md)
+supersedes the earlier unavailable-capture status for the new 21:53 UTC listing
+only. Three independently verified raw bodies establish a consistent 20-object
+owner listing. The earlier 42-request capture retained projections and receipts,
+not raw bodies. Metadata and five protected DOIs match; two fresh list arrays
+omit four historically observed file descriptors. Exactly the detail responses
+for 17317855 and 10783360 need retained-body review. No deletion or complete file
+coverage is inferred. The frozen PR31 manifest and every live hold remain intact;
+there is no new transport, recovery or execution implementation in this update.
+
+# Offline publication batch plan — recorded at the PR31 freeze, 2026-10-04
 
 The new planner closes the missing whole-target preparation view without changing
 live entry points. It joins the finite PR30 ledger/projection to current reported

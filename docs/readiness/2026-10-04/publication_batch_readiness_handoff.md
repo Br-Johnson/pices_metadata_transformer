@@ -1,5 +1,12 @@
 # Publication batch readiness — 2026-10-04
 
+Post-merge evidence update: the [raw inventory addendum](production_owner_raw_inventory_addendum.md)
+verifies the new three-response owner listing and narrows the remaining capture
+gap to two specific file-detail responses. The frozen PR31 plan and the historical
+capture-limit statements below retain their original measurement scope; all
+execution holds remain. PR31 merged as `4bc59af3ff4432e297e64d3c70b6c57ecdaf0390`
+after 540 actual guarded CI tests and independent Codex review.
+
 Base: merged PR30, `6825c2cda6b8932e2c053af9a76582452524dca3`.
 The [offline planner](../../../scripts/publication_plan.py) adds the missing
 whole-target publication planning view without changing the uploader, class
