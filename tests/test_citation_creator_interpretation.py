@@ -63,15 +63,16 @@ class CitationCreatorInterpretationTests(unittest.TestCase):
                     self.validate(reference=reference)
 
     def test_missing_and_stale_manifest_rejected(self):
-        for reference in ({}, {**self.reference, 'manifest_path': '/missing'},
-                          {**self.reference, 'manifest_sha256': '0' * 64}):
-            with self.subTest(reference=reference), self.assertRaises(ValueError):
-                validate_creator_interpretation(reference, self.member['source_id'], self.member['source_sha256'], self.root)
+        with tempfile.TemporaryDirectory() as tmp:
+            missing = str(Path(tmp) / 'missing-manifest.json')
+            for reference in ({}, {**self.reference, 'manifest_path': missing},
+                              {**self.reference, 'manifest_sha256': '0' * 64}):
+                with self.subTest(reference=reference), self.assertRaises(ValueError):
+                    validate_creator_interpretation(reference, self.member['source_id'], self.member['source_sha256'], self.root)
 
     def prepared(self, tmp, enabled=True):
         from scripts.collection_qa import classify_collection
         from scripts.path_config import OutputPaths
-        from datetime import datetime, timezone
         import shutil
         source = Path(tmp) / 'sources'
         source.mkdir(exist_ok=True)
