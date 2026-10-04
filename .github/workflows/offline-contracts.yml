@@ -51,5 +51,7 @@ jobs:
           tests/test_residual_source_access.py tests/test_combined_source7.py
           docs/readiness/2026-10-04/validate_residual_source5.py
           docs/readiness/2026-10-04/validate_combined_source7.py
+          scripts/citation_creator_interpretation.py tests/test_resource29_reconciliation.py
+          tests/test_residual_creator3.py docs/readiness/2026-10-04/validate_residual_source32.py
       - name: Run guarded offline contracts
         run: python -B ci/run_offline_tests.py

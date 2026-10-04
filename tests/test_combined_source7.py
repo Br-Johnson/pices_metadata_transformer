@@ -64,7 +64,7 @@ class CombinedSource7Tests(unittest.TestCase):
                     interpretation.validate_dataset_access_interpretation(
                         five.REFERENCE(NEW), **member, root=root, reviewed_at=too_early)
         original_read = Path.read_bytes
-        refs = {e['manifest_path'] for key in interpretation.REVIEW_BLOCKS
+        refs = {e['manifest_path'] for key in interpretation.REVIEW_BLOCKS if key in profile
                 for e in profile[key]['original_statement_references']}
         for relative in refs:
             target = REPO / relative

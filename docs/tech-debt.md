@@ -1,5 +1,28 @@
 # Tech Debt Log
 
+## Finite residual resource and external credit evidence — 2026-10-04
+
+Resource592 adds four prior physical-copy interpretations and 25 source-reviewed
+resource contexts while retaining all 563 earlier objects and assessment times.
+Creator412 adds three exact same-work external credits and keeps all 409 earlier
+source bindings. Its three new cohorts require live local hashes of the retained
+proposal transcription, erratum and independent review; remote document bytes
+were not archived, so those hashes do not authenticate a retained remote page.
+Whole-root/origin checks and preserved role notes prevent contacts, hosts or
+analysis credits from silently becoming XML authorship. The missing WNPSST
+locator detail is corrected in a separate immutable erratum.
+
+Measured source accounting is 3,677/523/6; all 4,206 originals and 4,174 unselected rows
+remain exact. Twenty-nine raw metadata objects remain identical, while three
+creator objects and appended source-context notes change within the reviewed
+bounds. The two profiles are measured independently against the old counterpart
+to avoid counting administrative profile-reference changes as metadata edits.
+Full duplicated profiles remain intentional for the existing byte-pinned model.
+Four further resource proposals stay queued; identities, damaged exports, 22
+creator roles, dates, title and unresolved policy targets need the specific
+evidence in `readiness/2026-10-04/residual_source32_handoff.md`. No provider
+runtime, credential, remote verification or release authority changes here.
+
 ## Combined finite source profiles — 2026-10-04
 
 The seven-source integration retains both frozen review blocks and dispatches by

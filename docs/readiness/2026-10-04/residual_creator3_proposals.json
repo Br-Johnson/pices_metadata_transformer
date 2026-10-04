@@ -1,0 +1,3471 @@
+{
+  "actual_promotions": 0,
+  "all25_inventory": [
+    {
+      "source_id": "FGDC-10",
+      "source_sha256": "d6058b56805804d05348d45dd3e4686acc258dfc3495107b1d06cf345bbb592c"
+    },
+    {
+      "source_id": "FGDC-1206",
+      "source_sha256": "cb5d88557bc7d5eb5c5d2b5e48411efab46c5be0977260dccda9162bf614c1a6"
+    },
+    {
+      "source_id": "FGDC-1314",
+      "source_sha256": "ae5faad99f4b0abedd01767ffba167cadbc0a8236598c4d39a5346226903ba8b"
+    },
+    {
+      "source_id": "FGDC-2552",
+      "source_sha256": "b70b6e84d3b185b13451e8be125ba983d4c3c48df4c9b7d72463be2af781f511"
+    },
+    {
+      "source_id": "FGDC-2586",
+      "source_sha256": "01f654604ccd4e26e8d8dfbb64e4f9c8ee9350af954f4bd230396185f4cbf662"
+    },
+    {
+      "source_id": "FGDC-2664",
+      "source_sha256": "993fb2c2ae8a94b5a7a3e55b6bd344ea57753a4ffee2e4de45baf1b322a448b3"
+    },
+    {
+      "source_id": "FGDC-2817",
+      "source_sha256": "c18640475c937fa475ee45406d4a9cb1012ef8b96bb056f0b5435f995a13eb5c"
+    },
+    {
+      "source_id": "FGDC-3683",
+      "source_sha256": "63ee9cc74618ccca30fcddb633bfeccaaf65809e6e1bd065f65998a934cdde20"
+    },
+    {
+      "source_id": "FGDC-3919",
+      "source_sha256": "1d9f38fb6c83c2388b16075329009ec1c94ecc9ea46dfb64331f0d2313113c13"
+    },
+    {
+      "source_id": "FGDC-3920",
+      "source_sha256": "025ac052acf7f239a996c8321d2a52f24687a28d03c66f7e462f9f8fac0bbda1"
+    },
+    {
+      "source_id": "FGDC-3951",
+      "source_sha256": "e7a32206e486a6d2524921888e19074ce8e328e1ca5101e2e14e80bf72988ee5"
+    },
+    {
+      "source_id": "FGDC-3952",
+      "source_sha256": "0d36dc527b4ad8448205c07faf65125fa7a251174b4c27239dbe29a48243ce6c"
+    },
+    {
+      "source_id": "FGDC-3953",
+      "source_sha256": "3a6d35878b8f35f0db0c709fea2b37b77e13a5663097affe07642eaa989bb2ac"
+    },
+    {
+      "source_id": "FGDC-3954",
+      "source_sha256": "ba542626eadbdef783ea2734c2d24a8d8fbd7214560685b167c3325aa2e7138a"
+    },
+    {
+      "source_id": "FGDC-3956",
+      "source_sha256": "26275a9ad96548bb074b3b4459a316ddbafc0c9c4de874e5f279cc4909f12dce"
+    },
+    {
+      "source_id": "FGDC-3957",
+      "source_sha256": "24a9c5a5fc0bed2781141c6735343667edcae1b99b01bbebee3f459778622d33"
+    },
+    {
+      "source_id": "FGDC-3961",
+      "source_sha256": "824fdfd27b57d1be4d7a14731d52963568795ebbdb8205b181ceef0e2eb6967d"
+    },
+    {
+      "source_id": "FGDC-3966",
+      "source_sha256": "05679bc5934eacc9e8fb781c777c879a07887afbd02e757a8c394f4846a6cc07"
+    },
+    {
+      "source_id": "FGDC-3967",
+      "source_sha256": "80234c29ec0d251f055a2316a038daf4f1f005d90bdbb7b19e90a0317b947f77"
+    },
+    {
+      "source_id": "FGDC-3968",
+      "source_sha256": "e9680a57712405e0df4486f4507a10f9357b8b33af0f06ffeee7b38f08c697d2"
+    },
+    {
+      "source_id": "FGDC-3969",
+      "source_sha256": "9bae14e8ac15ad1001fc0a21c6aa93b8f2d8ba36eb911995a95b292c90ac505f"
+    },
+    {
+      "source_id": "FGDC-3975",
+      "source_sha256": "b3897a8af8dfb943db7dceaf4d2f094bda9244540d0bdf03cdbda420a12ac83e"
+    },
+    {
+      "source_id": "FGDC-3976",
+      "source_sha256": "4044ca27fe2e57c8269d670caa940353c623866a8d4006234d30c677490f5a04"
+    },
+    {
+      "source_id": "FGDC-3977",
+      "source_sha256": "1401dd05edb925db35b070ece055de3d22993b2972a7c73887730aa450be89c8"
+    },
+    {
+      "source_id": "FGDC-3978",
+      "source_sha256": "e38dc63f5d3195c4870739aaa6ea50e85785c059adcc5550be36b58064e9ccba"
+    }
+  ],
+  "all25_inventory_sha256": "a7757d681ab01c54a1b0a8e63189cc36bbd9bb44ee3992cf4fa06c00704f744f",
+  "baseline_report_path": "/workspace/pices-remaining-cohorts-qa/after/classification.json",
+  "baseline_report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+  "canonical_hash_recipe": "SHA256(UTF8(json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(comma,colon))))",
+  "compatibility_requirement": "Additive finite exact-hash creator cohort only. Retain all 409 prior creator objects/cohorts verbatim. For these three use exact primary_origin_element plus full-root supplemental_source_elements and required context notes. The empty-origin nodes have text null, so use the parsed-element preservation branch rather than string concatenation on raw_origin. External evidence must have a separately pinned reviewer artifact; existing original-XML validation alone does not prove live external content.",
+  "external_evidence_retention_limits": "Short reviewer-transcribed web extracts are retained here with their object hashes. Complete original external HTML/PDF bytes were not retained and have no byte hash. BHL first-page scan retrieval was unavailable. This packet asserts catalogue/bibliography evidence, not an inspected article byline image. Neither BHL digital-copy license nor public hosting grants rights to the original FGDC XML or underlying data.",
+  "input_review_path": "/workspace/pices-residual-source-next-20261004/docs/readiness/2026-10-04/unresolved_creator25_review.json",
+  "input_review_sha256": "fad807ca69b5e7c4588d3fc89b5065fb8da5250e02b034d8caee390c34b8ced4",
+  "preserved_requirements": [
+    "Original XML immutable",
+    "Original origin, title, abstract, purpose, four constraints and dates retained",
+    "Restricted access and blank license retained",
+    "All access/alias/creator/date/provider/release gates still mandatory",
+    "No name expansion, institution type, affiliation, input-provider authorship or XML authorship inference",
+    "No unresolved creator candidate promoted"
+  ],
+  "prior_creator409_profile_sha256": "f58ae360f225e6c6a1b2c717e389c766d67883c3d6fbb598acd19caa13d5ca24",
+  "proposals": [
+    {
+      "baseline_complete_raw_metadata": {
+        "access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
+        "access_right": "restricted",
+        "communities": [],
+        "contributors": [
+          {
+            "name": "Jarrett, N.E.",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Jarrett, N.E.",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": "83 Havelock St."
+          }
+        ],
+        "description": "The systematics and distributional ecology of component members of phoxocephalidean amphipod subfamilies Parharpiniinae, Pontharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae in coastal waters of the Pacific coast of North America, from the Bering Sea to northern California, are analyzed. Of the 22 regional species here recorded, the 11 species (50%) are new to science: Pontharpiniinae: Mandibulophoxus mayi, new species; M. alaskensis, new species; Brolginae: Paraphoxus rugosus new species, P. pacificus, new species, P. communis, new species, P. gracilis, new species, and P. similis, new species; Phoxocephalinae: Parametaphoxus quaylei, new species; Harpiniinae: Pseudharpinia inexpectata, new species; Heterophoxus conlanae, new species, and H. ellisi, new species. Biogeographically, the subfamilies Parharpiniinae and Pontharpiniinae, dominant along temperate-tropical Indo-Pacific and antipodean shores, appear to be relict along northeastern Pacific shores. The Brolginae, common in protected coastal shallows of the northern and southern hemispheres, the Phoxocephalinae, world-wide mainly in deeper shelf waters, and the Harpiniinae, dominant on finer sediments and in deeper waters of the northern hemisphere, are well represented in the present study region. Within the present study region, the total number of species of these five subfamilies combined is slightly less than that of the single regional subfamily Metharpiniinae (Jarrett and Bousfield, 1994). The present species were also taken less abundantly at stations with sandy sedimentary bottoms. Such bias may reflect their overall preference for finer, softer sediments, at greater depths, habitats that were not extensively sampled in present surveys. Only a few species of these subfamilies, notably within the primitive sand-burrowing Pontharpiniinae, occur commonly intertidally.",
+        "keywords": [
+          "Ammonia",
+          "Bering Sea",
+          "Alaska",
+          "Pacific Ocean",
+          "North America",
+          "North Pacific Ocean",
+          "pices-metadata-only"
+        ],
+        "license": "",
+        "notes": "Purpose: To report on the amphipod superfamily Phoxocephaloidea on the Pacific coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae, Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and distributional ecology\n\nStatus: Complete\n\nMaintenance frequency: None Planned\n\nAccess constraints: Check with Contributor\n\nUse constraints: Check with Contributor\n\nTemporal Information:\nCurrentness: Publication Date\nTemporal coverage: 1994-12-31 onwards\n\nSpatial coverage: W178.0, E-168.0, N67.5, S52.0 (crosses dateline)\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990204\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\n\nCurator decision: {\"metadata\": {\"creators\": [{\"name\": \"83 Havelock St.\"}], \"license\": \"\", \"publication_date\": \"19990204\"}}\nSource dataset citation originators are preserved for attribution; XML authorship is not independently established.",
+        "publication_date": "1999-02-04",
+        "publisher": "North Pacific Marine Science Organization",
+        "references": [],
+        "related_identifiers": [],
+        "subjects": [],
+        "title": "The Amphipod Superfamily Phoxocephaloidea on the Pacific Coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae, Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and Distributional Ecology",
+        "upload_type": "other"
+      },
+      "baseline_complete_raw_metadata_sha256_canonical_utf8": "e4c258d68c07ca6e922f037c812c93f0a90a71de0f6864e29abb14e75dff781e",
+      "baseline_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-10.json",
+      "baseline_payload_sha256": "5487e5dbec7c1137200ccb1215732f1b0d2935acc724bab19e982dec13dcda77",
+      "baseline_record": {
+        "creator_interpretation": "not_established",
+        "creator_interpretation_diagnostic": "Source ID/hash is outside reviewed creator interpretation membership",
+        "exact_copy_aliases": [],
+        "has_supported_xml_grant": false,
+        "hold_reasons": [
+          "Creator semantics are ambiguous"
+        ],
+        "metadata_date_precision": "day",
+        "new_reuse_license": "not_granted_by_rehosting_attestation",
+        "origin_stratum": "personal_or_unknown",
+        "prepared_payload_sha256": "5487e5dbec7c1137200ccb1215732f1b0d2935acc724bab19e982dec13dcda77",
+        "primary_date_stratum": "other",
+        "publication_approved": false,
+        "raw_metadata_access": "Check with Contributor",
+        "raw_metadata_date": "19990204",
+        "raw_metadata_rights": "Check with Contributor",
+        "raw_primary_date": "19941231",
+        "rehosting_authority": "USER_ATTESTED",
+        "remote_verified": false,
+        "routine_source_decisions": {
+          "creators": "primary dataset citation preserved; XML authorship not independently established",
+          "date": "explicit metadata creation/last-update day; not dataset publication",
+          "description": "HTML-escaped exact source abstract, or title if abstract absent",
+          "title": "exact source title"
+        },
+        "source_id": "FGDC-10",
+        "source_link_interpretation": "not_established",
+        "source_link_interpretation_diagnostic": "Source ID/hash is outside reviewed source link membership",
+        "source_scope_attestation": "USER_ATTESTED",
+        "source_sha256": "d6058b56805804d05348d45dd3e4686acc258dfc3495107b1d06cf345bbb592c",
+        "source_status": "held",
+        "source_status_without_aliases": "held",
+        "source_title_interpretation": "not_established",
+        "source_title_interpretation_diagnostic": "Source ID/hash is outside reviewed display title membership",
+        "technical_metadata": "pass"
+      },
+      "baseline_source_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-10.xml",
+      "baseline_source_copy_sha256": "d6058b56805804d05348d45dd3e4686acc258dfc3495107b1d06cf345bbb592c",
+      "creator_type_affiliation_identifiers_role_fields": "All omitted; exact name-only objects.",
+      "existing_full_creators": [
+        {
+          "name": "Jarrett, N.E."
+        },
+        {
+          "name": "E.L. Bousfield"
+        }
+      ],
+      "full_source_root_sha256_canonical_utf8": "c22d0494a11960cbc79d023f68dd51ea444a32939cf28ffcfdf2b0f06b46898e",
+      "original_abstract_literals": [
+        "The systematics and distributional ecology of component members of phoxocephalidean amphipod subfamilies Parharpiniinae, Pontharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae in coastal waters of the Pacific coast of North America, from the Bering Sea to northern California, are analyzed. Of the 22 regional species here recorded, the 11 species (50%) are new to science: Pontharpiniinae: Mandibulophoxus mayi, new species; M. alaskensis, new species; Brolginae: Paraphoxus rugosus new species, P. pacificus, new species, P. communis, new species, P. gracilis, new species, and P. similis, new species; Phoxocephalinae: Parametaphoxus quaylei, new species; Harpiniinae: Pseudharpinia inexpectata, new species; Heterophoxus conlanae, new species, and H. ellisi, new species. Biogeographically, the subfamilies Parharpiniinae and Pontharpiniinae, dominant along temperate-tropical Indo-Pacific and antipodean shores, appear to be relict along northeastern Pacific shores. The Brolginae, common in protected coastal shallows of the northern and southern hemispheres, the\n     Phoxocephalinae, world-wide mainly in deeper shelf waters, and the\n     Harpiniinae, dominant on finer sediments and in deeper waters of the northern\n     hemisphere, are well represented in the present study region. Within the\n     present study region, the total number of species of these five subfamilies\n     combined is slightly less than that of the single regional subfamily\n     Metharpiniinae (Jarrett and Bousfield, 1994). The present species were also\n     taken less abundantly at stations with sandy sedimentary bottoms. Such bias\n     may reflect their overall preference for finer, softer sediments, at greater\n     depths, habitats that were not extensively sampled in present surveys. Only a\n     few species of these subfamilies, notably within the primitive sand-burrowing\n     Pontharpiniinae, occur commonly intertidally."
+      ],
+      "original_four_constraints": {
+        "./idinfo/accconst": [
+          "Check with Contributor"
+        ],
+        "./idinfo/useconst": [
+          "Check with Contributor"
+        ],
+        "./metainfo/metac": [
+          "Check with Contributor"
+        ],
+        "./metainfo/metuc": [
+          "Check with Contributor"
+        ]
+      },
+      "original_metadata_date_literals": [
+        "19990204"
+      ],
+      "original_origin_literals": [
+        "83 Havelock St."
+      ],
+      "original_primary_date_literals": [
+        "19941231"
+      ],
+      "original_purpose_literals": [
+        "To report on the amphipod superfamily Phoxocephaloidea on the Pacific coast of North  America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae,  Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and  distributional ecology"
+      ],
+      "original_title_literals": [
+        "The Amphipod Superfamily Phoxocephaloidea on the Pacific Coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae,  Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and Distributional Ecology"
+      ],
+      "projected_baseline_after_metadata": {
+        "access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
+        "access_right": "restricted",
+        "communities": [],
+        "contributors": [
+          {
+            "name": "Jarrett, N.E.",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Jarrett, N.E.",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": "Jarrett, N.E."
+          },
+          {
+            "name": "E.L. Bousfield"
+          }
+        ],
+        "description": "The systematics and distributional ecology of component members of phoxocephalidean amphipod subfamilies Parharpiniinae, Pontharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae in coastal waters of the Pacific coast of North America, from the Bering Sea to northern California, are analyzed. Of the 22 regional species here recorded, the 11 species (50%) are new to science: Pontharpiniinae: Mandibulophoxus mayi, new species; M. alaskensis, new species; Brolginae: Paraphoxus rugosus new species, P. pacificus, new species, P. communis, new species, P. gracilis, new species, and P. similis, new species; Phoxocephalinae: Parametaphoxus quaylei, new species; Harpiniinae: Pseudharpinia inexpectata, new species; Heterophoxus conlanae, new species, and H. ellisi, new species. Biogeographically, the subfamilies Parharpiniinae and Pontharpiniinae, dominant along temperate-tropical Indo-Pacific and antipodean shores, appear to be relict along northeastern Pacific shores. The Brolginae, common in protected coastal shallows of the northern and southern hemispheres, the Phoxocephalinae, world-wide mainly in deeper shelf waters, and the Harpiniinae, dominant on finer sediments and in deeper waters of the northern hemisphere, are well represented in the present study region. Within the present study region, the total number of species of these five subfamilies combined is slightly less than that of the single regional subfamily Metharpiniinae (Jarrett and Bousfield, 1994). The present species were also taken less abundantly at stations with sandy sedimentary bottoms. Such bias may reflect their overall preference for finer, softer sediments, at greater depths, habitats that were not extensively sampled in present surveys. Only a few species of these subfamilies, notably within the primitive sand-burrowing Pontharpiniinae, occur commonly intertidally.",
+        "keywords": [
+          "Ammonia",
+          "Bering Sea",
+          "Alaska",
+          "Pacific Ocean",
+          "North America",
+          "North Pacific Ocean",
+          "pices-metadata-only"
+        ],
+        "license": "",
+        "notes": "Purpose: To report on the amphipod superfamily Phoxocephaloidea on the Pacific coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae, Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and distributional ecology\n\nStatus: Complete\n\nMaintenance frequency: None Planned\n\nAccess constraints: Check with Contributor\n\nUse constraints: Check with Contributor\n\nTemporal Information:\nCurrentness: Publication Date\nTemporal coverage: 1994-12-31 onwards\n\nSpatial coverage: W178.0, E-168.0, N67.5, S52.0 (crosses dateline)\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 19990204\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\n\nCurator decision: {\"metadata\": {\"creators\": [{\"name\": \"83 Havelock St.\"}], \"license\": \"\", \"publication_date\": \"19990204\"}}\nSource dataset citation originators are preserved for attribution; XML authorship is not independently established.\n\nOriginal primary citation origin XML (parsed representation): <origin>83 Havelock St.</origin>\n\nReviewed external-source citation context: The ordered author initials are supported by the NOAA bibliography entry for the exact Part II article and corroborated by the Biodiversity Heritage Library same-work author catalogue. The source primary origin remains the literal street address. The original source abstract refers separately to Part I; its parenthetical citation and point/distributor contacts are not used as the author evidence. The catalogue has a first-name spelling and issue discrepancy, so no name expansion, issue correction, or date correction is made. This external source supports article citation attribution, not original XML credit or XML authorship. Evidence: https://apps-afsc.fisheries.noaa.gov/REFM/REEM/SET/Cite.php (Part II reference); https://www.biodiversitylibrary.org/part/214923 (By catalogue field).",
+        "publication_date": "1999-02-04",
+        "publisher": "North Pacific Marine Science Organization",
+        "references": [],
+        "related_identifiers": [],
+        "subjects": [],
+        "title": "The Amphipod Superfamily Phoxocephaloidea on the Pacific Coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae, Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and Distributional Ecology",
+        "upload_type": "other"
+      },
+      "projected_baseline_after_metadata_sha256_canonical_utf8": "11084fa9c4861a095aa0cdc038b5d27803af3548ea8d5f24706c23cb70331724",
+      "projection_warning": "This is a deterministic review projection of the retained historical 0ec baseline with only creators and appended preservation notes changed. It is not a newly classified current-main prepared after-image, actual source-status promotion, or provider result. Root must independently bind the implemented current after-image.",
+      "proposed_cohort": {
+        "context_note": "Reviewed external-source citation context: The ordered author initials are supported by the NOAA bibliography entry for the exact Part II article and corroborated by the Biodiversity Heritage Library same-work author catalogue. The source primary origin remains the literal street address. The original source abstract refers separately to Part I; its parenthetical citation and point/distributor contacts are not used as the author evidence. The catalogue has a first-name spelling and issue discrepancy, so no name expansion, issue correction, or date correction is made. This external source supports article citation attribution, not original XML credit or XML authorship. Evidence: https://apps-afsc.fisheries.noaa.gov/REFM/REEM/SET/Cite.php (Part II reference); https://www.biodiversitylibrary.org/part/214923 (By catalogue field).",
+        "creators": [
+          {
+            "name": "Jarrett, N.E."
+          },
+          {
+            "name": "E.L. Bousfield"
+          }
+        ],
+        "evidence_type": "EXTERNAL_SOURCE_SUPPORTED_SAME_WORK_CITATION",
+        "external_credit_evidence": [
+          {
+            "evidence_kind": "institution-maintained same-work bibliography; not an inspected original article byline",
+            "hash_semantics": "The extraction object hash binds this reviewer transcription, not unretained remote HTML/PDF bytes.",
+            "locator": "References / Amphipoda Gammaridea / Jarrett and Bousfield 1994 Part II entry; parsed line 387",
+            "original_external_document_bytes_sha256": null,
+            "publisher": "NOAA Alaska Fisheries Science Center",
+            "quote": "Jarrett, N.E. and E.L. Bousfield.",
+            "retrieved_via": "web tool parsed public text / 2026-10-04",
+            "reviewer_extraction_sha256": "0cde8bf72e97f59f458704c8718a44a98ddbe1e5b51a47fe231e925600de50cc",
+            "same_work_match": {
+              "distinguishing_context": "The immediately preceding bibliography entry is Part I Metharpiniinae, a distinct work.",
+              "page_range": "71-150",
+              "publication": "Amphipacifica",
+              "title": "Same complete original source Part 2 title, including the five subfamilies; Part II is the matching Roman-numeral representation.",
+              "year": 1994
+            },
+            "url": "https://apps-afsc.fisheries.noaa.gov/REFM/REEM/SET/Cite.php"
+          },
+          {
+            "discrepancy": "This catalogue spells the first name Nonna and lists issue 1; a separate BHL author entry uses Norma, and NOAA lists issue 2. Only mutually supported printed initials and author order are proposed. No first-name, issue, or original source date change.",
+            "evidence_kind": "authoritative same-work catalogue By field; cached indexed catalogue text; not an inspected first-page image",
+            "hash_semantics": "The extraction object hash binds this reviewer transcription, not unretained remote HTML/PDF bytes.",
+            "locator": "Part 214923 / By field",
+            "original_external_document_bytes_sha256": null,
+            "publisher": "Biodiversity Heritage Library",
+            "quote": "Jarrett, Nonna E\nBousfield, E. L. (Edward Lloyd)",
+            "retrieved_via": "web tool parsed public text / 2026-10-04",
+            "reviewer_extraction_sha256": "8eed7fbff8656f97eac1534b4a98d1ed81784e2c9aa316e19bc39b99a9e3e35e",
+            "same_work_match": {
+              "page_range": "71--150",
+              "title": "Same complete original source Part 2 title and five-subfamily scope.",
+              "year": 1994
+            },
+            "url": "https://www.biodiversitylibrary.org/part/214923"
+          }
+        ],
+        "members": [
+          {
+            "source_id": "FGDC-10",
+            "source_sha256": "d6058b56805804d05348d45dd3e4686acc258dfc3495107b1d06cf345bbb592c"
+          }
+        ],
+        "preservation_required": true,
+        "primary_origin_element": {
+          "attributes": {},
+          "children": [],
+          "tag": "origin",
+          "tail": null,
+          "text": "83 Havelock St."
+        },
+        "profile": "external_same_work_citation_FGDC-10",
+        "raw_origin": "83 Havelock St.",
+        "supplemental_source_elements": [
+          {
+            "element": {
+              "attributes": {},
+              "children": [
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "origin",
+                              "tail": "\n        ",
+                              "text": "83 Havelock St."
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "pubdate",
+                              "tail": "\n        ",
+                              "text": "19941231"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "title",
+                              "tail": "\n      ",
+                              "text": "The Amphipod Superfamily Phoxocephaloidea on the Pacific Coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae,  Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and Distributional Ecology"
+                            }
+                          ],
+                          "tag": "citeinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "citation",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "abstract",
+                          "tail": "\n      ",
+                          "text": "The systematics and distributional ecology of component members of phoxocephalidean amphipod subfamilies Parharpiniinae, Pontharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae in coastal waters of the Pacific coast of North America, from the Bering Sea to northern California, are analyzed. Of the 22 regional species here recorded, the 11 species (50%) are new to science: Pontharpiniinae: Mandibulophoxus mayi, new species; M. alaskensis, new species; Brolginae: Paraphoxus rugosus new species, P. pacificus, new species, P. communis, new species, P. gracilis, new species, and P. similis, new species; Phoxocephalinae: Parametaphoxus quaylei, new species; Harpiniinae: Pseudharpinia inexpectata, new species; Heterophoxus conlanae, new species, and H. ellisi, new species. Biogeographically, the subfamilies Parharpiniinae and Pontharpiniinae, dominant along temperate-tropical Indo-Pacific and antipodean shores, appear to be relict along northeastern Pacific shores. The Brolginae, common in protected coastal shallows of the northern and southern hemispheres, the\n     Phoxocephalinae, world-wide mainly in deeper shelf waters, and the\n     Harpiniinae, dominant on finer sediments and in deeper waters of the northern\n     hemisphere, are well represented in the present study region. Within the\n     present study region, the total number of species of these five subfamilies\n     combined is slightly less than that of the single regional subfamily\n     Metharpiniinae (Jarrett and Bousfield, 1994). The present species were also\n     taken less abundantly at stations with sandy sedimentary bottoms. Such bias\n     may reflect their overall preference for finer, softer sediments, at greater\n     depths, habitats that were not extensively sampled in present surveys. Only a\n     few species of these subfamilies, notably within the primitive sand-burrowing\n     Pontharpiniinae, occur commonly intertidally."
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "purpose",
+                          "tail": "\n    ",
+                          "text": "To report on the amphipod superfamily Phoxocephaloidea on the Pacific coast of North  America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae,  Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and  distributional ecology"
+                        }
+                      ],
+                      "tag": "descript",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "begdate",
+                                  "tail": "\n          ",
+                                  "text": "19941231"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "enddate",
+                                  "tail": "\n        ",
+                                  "text": null
+                                }
+                              ],
+                              "tag": "rngdates",
+                              "tail": "\n      ",
+                              "text": "\n          "
+                            }
+                          ],
+                          "tag": "timeinfo",
+                          "tail": "\n      ",
+                          "text": "\n        "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "current",
+                          "tail": "\n    ",
+                          "text": "Publication Date"
+                        }
+                      ],
+                      "tag": "timeperd",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "progress",
+                          "tail": "\n      ",
+                          "text": "Complete"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "update",
+                          "tail": "\n    ",
+                          "text": "None Planned"
+                        }
+                      ],
+                      "tag": "status",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "westbc",
+                              "tail": "\n        ",
+                              "text": "178"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "eastbc",
+                              "tail": "\n        ",
+                              "text": "-168"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "northbc",
+                              "tail": "\n        ",
+                              "text": "67.5"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "southbc",
+                              "tail": "\n      ",
+                              "text": "52"
+                            }
+                          ],
+                          "tag": "bounding",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "spdom",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekt",
+                              "tail": "\n        ",
+                              "text": "Other"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Ammonia"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Bering Sea"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Alaska"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Pacific Ocean"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "North America"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n      ",
+                              "text": "North Pacific Ocean"
+                            }
+                          ],
+                          "tag": "theme",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "keywords",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "accconst",
+                      "tail": "\n    ",
+                      "text": "Check with Contributor"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "useconst",
+                      "tail": "\n    ",
+                      "text": "Check with Contributor"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "cntper",
+                                  "tail": "\n        ",
+                                  "text": "Jarrett, N.E."
+                                }
+                              ],
+                              "tag": "cntperp",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "addrtype",
+                                  "tail": "\n          ",
+                                  "text": "Mailing and Physical Address"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "address",
+                                  "tail": "\n          ",
+                                  "text": "83 Havelock St."
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "city",
+                                  "tail": "\n          ",
+                                  "text": "Ottawa"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "state",
+                                  "tail": "\n          ",
+                                  "text": "Ontario"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "postal",
+                                  "tail": "\n          ",
+                                  "text": "K1S 0A4"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "country",
+                                  "tail": "\n        ",
+                                  "text": "Canada"
+                                }
+                              ],
+                              "tag": "cntaddr",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntvoice",
+                              "tail": "\n        ",
+                              "text": null
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntfax",
+                              "tail": "\n        ",
+                              "text": null
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntemail",
+                              "tail": "\n      ",
+                              "text": null
+                            }
+                          ],
+                          "tag": "cntinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "ptcontac",
+                      "tail": "\n  ",
+                      "text": "\n      "
+                    }
+                  ],
+                  "tag": "idinfo",
+                  "tail": "\n  ",
+                  "text": "\n    "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "cntper",
+                                  "tail": "\n        ",
+                                  "text": "Jarrett, N.E."
+                                }
+                              ],
+                              "tag": "cntperp",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "addrtype",
+                                  "tail": "\n          ",
+                                  "text": "Mailing and Physical Address"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "address",
+                                  "tail": "\n          ",
+                                  "text": "83 Havelock St."
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "city",
+                                  "tail": "\n          ",
+                                  "text": "Ottawa"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "state",
+                                  "tail": "\n          ",
+                                  "text": "Ontario"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "postal",
+                                  "tail": "\n          ",
+                                  "text": "K1S 0A4"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "country",
+                                  "tail": "\n        ",
+                                  "text": "Canada"
+                                }
+                              ],
+                              "tag": "cntaddr",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntvoice",
+                              "tail": "\n        ",
+                              "text": null
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntfax",
+                              "tail": "\n        ",
+                              "text": null
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntemail",
+                              "tail": "\n      ",
+                              "text": null
+                            }
+                          ],
+                          "tag": "cntinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "distrib",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "distliab",
+                      "tail": "\n  ",
+                      "text": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty."
+                    }
+                  ],
+                  "tag": "distinfo",
+                  "tail": "\n  ",
+                  "text": "\n    "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metd",
+                      "tail": "\n    ",
+                      "text": "19990204"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "cntper",
+                                  "tail": "\n        ",
+                                  "text": "Kimberly Bahl"
+                                }
+                              ],
+                              "tag": "cntperp",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "addrtype",
+                                  "tail": "\n          ",
+                                  "text": "Mailing and Physical Address"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "address",
+                                  "tail": "\n          ",
+                                  "text": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "city",
+                                  "tail": "\n          ",
+                                  "text": "Seattle"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "state",
+                                  "tail": "\n          ",
+                                  "text": "WA"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "postal",
+                                  "tail": "\n          ",
+                                  "text": "98115"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "country",
+                                  "tail": "\n        ",
+                                  "text": "USA"
+                                }
+                              ],
+                              "tag": "cntaddr",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntvoice",
+                              "tail": "\n        ",
+                              "text": "206-526-4314"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntfax",
+                              "tail": "\n        ",
+                              "text": "206-526-6485"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntemail",
+                              "tail": "\n      ",
+                              "text": "kimberly.bahl@noaa.gov"
+                            }
+                          ],
+                          "tag": "cntinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "metc",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metstdn",
+                      "tail": "\n    ",
+                      "text": "Content Standards for Digital Geospatial Metadata"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metstdv",
+                      "tail": "\n    ",
+                      "text": "FGDC-STD-001-1998"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metac",
+                      "tail": "\n    ",
+                      "text": "Check with Contributor"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metuc",
+                      "tail": "\n  ",
+                      "text": "Check with Contributor"
+                    }
+                  ],
+                  "tag": "metainfo",
+                  "tail": "\n",
+                  "text": "\n    "
+                }
+              ],
+              "tag": "metadata",
+              "tail": null,
+              "text": "\n  "
+            },
+            "xpath": "."
+          }
+        ]
+      },
+      "proposed_only_changed_raw_metadata_fields": [
+        "creators",
+        "notes"
+      ],
+      "required_preservation_notes": [
+        "Original primary citation origin XML (parsed representation): <origin>83 Havelock St.</origin>",
+        "Reviewed external-source citation context: The ordered author initials are supported by the NOAA bibliography entry for the exact Part II article and corroborated by the Biodiversity Heritage Library same-work author catalogue. The source primary origin remains the literal street address. The original source abstract refers separately to Part I; its parenthetical citation and point/distributor contacts are not used as the author evidence. The catalogue has a first-name spelling and issue discrepancy, so no name expansion, issue correction, or date correction is made. This external source supports article citation attribution, not original XML credit or XML authorship. Evidence: https://apps-afsc.fisheries.noaa.gov/REFM/REEM/SET/Cite.php (Part II reference); https://www.biodiversitylibrary.org/part/214923 (By catalogue field)."
+      ],
+      "source_bytes": 6005,
+      "source_id": "FGDC-10",
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-10.xml",
+      "source_sha256": "d6058b56805804d05348d45dd3e4686acc258dfc3495107b1d06cf345bbb592c"
+    },
+    {
+      "baseline_complete_raw_metadata": {
+        "access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
+        "access_right": "restricted",
+        "communities": [],
+        "contributors": [
+          {
+            "name": "Okano, Hirofumi",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Okano, Hirofumi",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": ""
+          }
+        ],
+        "description": "10-day mean sea surface temperatures.in the western north Pacific Ocean. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access.",
+        "keywords": [
+          "Oceanography",
+          "Sea of Japan/East Sea",
+          "Yellow Sea/West Sea",
+          "East China Sea",
+          "Sea Surface Temperature (SST)",
+          "Northwestern Pacific Ocean",
+          "Bering Sea",
+          "Sea of Okhotsk",
+          "North Pacific Ocean",
+          "pices-metadata-only"
+        ],
+        "license": "",
+        "notes": "Purpose: To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: First time users must register to gain database access.\n\nUse constraints: None\n\nTemporal Information:\nCurrentness: Ground Condition\n\nSpatial coverage: W100.0, E180.0, N60.0, S0.0\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20050418\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\n\nCurator decision: {\"metadata\": {\"creators\": [{\"name\": \"\"}], \"license\": \"\", \"publication_date\": \"20050418\"}}\nSource dataset citation originators are preserved for attribution; XML authorship is not independently established.",
+        "publication_date": "2005-04-18",
+        "publisher": "North Pacific Marine Science Organization",
+        "references": [],
+        "related_identifiers": [],
+        "subjects": [
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Oceanography",
+            "scheme": "thesaurus",
+            "term": "Oceanography"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea of Japan/East Sea",
+            "scheme": "thesaurus",
+            "term": "Sea of Japan/East Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Yellow Sea/West Sea",
+            "scheme": "thesaurus",
+            "term": "Yellow Sea/West Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:East China Sea",
+            "scheme": "thesaurus",
+            "term": "East China Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea Surface Temperature (SST)",
+            "scheme": "thesaurus",
+            "term": "Sea Surface Temperature (SST)"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Northwestern Pacific Ocean",
+            "scheme": "thesaurus",
+            "term": "Northwestern Pacific Ocean"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Bering Sea",
+            "scheme": "thesaurus",
+            "term": "Bering Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea of Okhotsk",
+            "scheme": "thesaurus",
+            "term": "Sea of Okhotsk"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+            "scheme": "thesaurus",
+            "term": "North Pacific Ocean"
+          }
+        ],
+        "title": "Western North Pacific Sea Surface Temperatures in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) - FGDC XML metadata artifact",
+        "upload_type": "other"
+      },
+      "baseline_complete_raw_metadata_sha256_canonical_utf8": "62e70f87cfe281cc99a0f258c7473763119bc1f0e98bc0bc25417510ffe7f931",
+      "baseline_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3957.json",
+      "baseline_payload_sha256": "a8fb4edc0065d035d6a4be8b4836e3e2a887790a92ffdcf6082aabeaec09163d",
+      "baseline_record": {
+        "creator_interpretation": "not_established",
+        "creator_interpretation_diagnostic": "Source ID/hash is outside reviewed creator interpretation membership",
+        "dataset_access_interpretation": "SOURCE_BACKED",
+        "exact_copy_aliases": [],
+        "has_supported_xml_grant": false,
+        "hold_reasons": [
+          "Creator 1 has empty name",
+          "Invalid transformed metadata: Creator 1 has empty name"
+        ],
+        "metadata_date_precision": "day",
+        "new_reuse_license": "not_granted_by_rehosting_attestation",
+        "origin_stratum": "personal_or_unknown",
+        "prepared_payload_sha256": "a8fb4edc0065d035d6a4be8b4836e3e2a887790a92ffdcf6082aabeaec09163d",
+        "primary_date_stratum": "missing",
+        "publication_approved": false,
+        "raw_metadata_access": "First time users must register to gain database access.",
+        "raw_metadata_date": "20050418",
+        "raw_metadata_rights": "None",
+        "raw_primary_date": "",
+        "rehosting_authority": "USER_ATTESTED",
+        "remote_verified": false,
+        "routine_source_decisions": {
+          "creators": "primary dataset citation preserved; XML authorship not independently established",
+          "date": "explicit metadata creation/last-update day; not dataset publication",
+          "description": "HTML-escaped exact source abstract, or title if abstract absent",
+          "title": "exact source title plus artifact suffix"
+        },
+        "source_id": "FGDC-3957",
+        "source_link_interpretation": "not_established",
+        "source_link_interpretation_diagnostic": "Source ID/hash is outside reviewed source link membership",
+        "source_sha256": "24a9c5a5fc0bed2781141c6735343667edcae1b99b01bbebee3f459778622d33",
+        "source_status": "held",
+        "source_status_without_aliases": "held",
+        "source_title_interpretation": "not_established",
+        "source_title_interpretation_diagnostic": "Source ID/hash is outside reviewed display title membership",
+        "technical_metadata": "held"
+      },
+      "baseline_source_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3957.xml",
+      "baseline_source_copy_sha256": "24a9c5a5fc0bed2781141c6735343667edcae1b99b01bbebee3f459778622d33",
+      "creator_type_affiliation_identifiers_role_fields": "All omitted; exact name-only objects.",
+      "existing_full_creators": [
+        {
+          "name": "Office of Marine Prediction, the JMA"
+        }
+      ],
+      "full_source_root_sha256_canonical_utf8": "f69fdb47285176f17ca6c1c92d6baf2a80ac557ec53b887ce1269f09f828932a",
+      "original_abstract_literals": [
+        "\n        10-day mean sea surface temperatures.in the western north Pacific Ocean.\n        Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account.  First time users must register to gain database access.\n      "
+      ],
+      "original_four_constraints": {
+        "./idinfo/accconst": [
+          "First time users must register to gain database access."
+        ],
+        "./idinfo/useconst": [
+          "None"
+        ],
+        "./metainfo/metac": [
+          "First time users must register to gain database access."
+        ],
+        "./metainfo/metuc": [
+          "None"
+        ]
+      },
+      "original_metadata_date_literals": [
+        "20050418"
+      ],
+      "original_origin_literals": [
+        ""
+      ],
+      "original_primary_date_literals": [
+        ""
+      ],
+      "original_purpose_literals": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "original_title_literals": [
+        "Western North Pacific Sea Surface Temperatures in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+      ],
+      "projected_baseline_after_metadata": {
+        "access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
+        "access_right": "restricted",
+        "communities": [],
+        "contributors": [
+          {
+            "name": "Okano, Hirofumi",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Okano, Hirofumi",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": "Office of Marine Prediction, the JMA"
+          }
+        ],
+        "description": "10-day mean sea surface temperatures.in the western north Pacific Ocean. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access.",
+        "keywords": [
+          "Oceanography",
+          "Sea of Japan/East Sea",
+          "Yellow Sea/West Sea",
+          "East China Sea",
+          "Sea Surface Temperature (SST)",
+          "Northwestern Pacific Ocean",
+          "Bering Sea",
+          "Sea of Okhotsk",
+          "North Pacific Ocean",
+          "pices-metadata-only"
+        ],
+        "license": "",
+        "notes": "Purpose: To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: First time users must register to gain database access.\n\nUse constraints: None\n\nTemporal Information:\nCurrentness: Ground Condition\n\nSpatial coverage: W100.0, E180.0, N60.0, S0.0\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20050418\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\n\nCurator decision: {\"metadata\": {\"creators\": [{\"name\": \"\"}], \"license\": \"\", \"publication_date\": \"20050418\"}}\nSource dataset citation originators are preserved for attribution; XML authorship is not independently established.\n\nOriginal primary citation origin XML (parsed representation): <origin />\n\nReviewed external-source citation context: The linked historical RDMDB product format explicitly assigns analysis of the raw 10-day mean western North Pacific sea-surface-temperature product to the named office. Its separate normals and standard-deviation blocks are distinguished from the raw 10-day data described by this source. The original empty primary origin is preserved. This is a literal institutional analysis-product citation credit, not an inferred contact, database host, input-observation provider, XML credit, or XML authorship. No organization type, person role, affiliation, date, or rights is inferred. Evidence: https://near-goos1.jodc.go.jp/rdmdb/format/JMA/wnpsst.txt (analysis paragraph and data-format distinction); https://near-goos1.jodc.go.jp/rdmdb/datalist.html (historical WNPSST entry).",
+        "publication_date": "2005-04-18",
+        "publisher": "North Pacific Marine Science Organization",
+        "references": [],
+        "related_identifiers": [],
+        "subjects": [
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Oceanography",
+            "scheme": "thesaurus",
+            "term": "Oceanography"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea of Japan/East Sea",
+            "scheme": "thesaurus",
+            "term": "Sea of Japan/East Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Yellow Sea/West Sea",
+            "scheme": "thesaurus",
+            "term": "Yellow Sea/West Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:East China Sea",
+            "scheme": "thesaurus",
+            "term": "East China Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea Surface Temperature (SST)",
+            "scheme": "thesaurus",
+            "term": "Sea Surface Temperature (SST)"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Northwestern Pacific Ocean",
+            "scheme": "thesaurus",
+            "term": "Northwestern Pacific Ocean"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Bering Sea",
+            "scheme": "thesaurus",
+            "term": "Bering Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea of Okhotsk",
+            "scheme": "thesaurus",
+            "term": "Sea of Okhotsk"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+            "scheme": "thesaurus",
+            "term": "North Pacific Ocean"
+          }
+        ],
+        "title": "Western North Pacific Sea Surface Temperatures in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) - FGDC XML metadata artifact",
+        "upload_type": "other"
+      },
+      "projected_baseline_after_metadata_sha256_canonical_utf8": "720f58590e19269a1cff1e9e1e4ddfef2bcbe4fadf6166fceb99aad9116368f3",
+      "projection_warning": "This is a deterministic review projection of the retained historical 0ec baseline with only creators and appended preservation notes changed. It is not a newly classified current-main prepared after-image, actual source-status promotion, or provider result. Root must independently bind the implemented current after-image.",
+      "proposed_cohort": {
+        "context_note": "Reviewed external-source citation context: The linked historical RDMDB product format explicitly assigns analysis of the raw 10-day mean western North Pacific sea-surface-temperature product to the named office. Its separate normals and standard-deviation blocks are distinguished from the raw 10-day data described by this source. The original empty primary origin is preserved. This is a literal institutional analysis-product citation credit, not an inferred contact, database host, input-observation provider, XML credit, or XML authorship. No organization type, person role, affiliation, date, or rights is inferred. Evidence: https://near-goos1.jodc.go.jp/rdmdb/format/JMA/wnpsst.txt (analysis paragraph and data-format distinction); https://near-goos1.jodc.go.jp/rdmdb/datalist.html (historical WNPSST entry).",
+        "creators": [
+          {
+            "name": "Office of Marine Prediction, the JMA"
+          }
+        ],
+        "evidence_type": "EXTERNAL_SOURCE_SUPPORTED_SAME_WORK_CITATION",
+        "external_credit_evidence": [
+          {
+            "evidence_kind": "original product format documentation with explicit analysis credit",
+            "hash_semantics": "The extraction object hash binds this reviewer transcription, not unretained remote HTML/PDF bytes.",
+            "locator": "Analysis paragraph, text lines 10-11; raw 10-day definition lines 2-9 and format lines 27-39",
+            "original_external_document_bytes_sha256": null,
+            "publisher": "Japan Oceanographic Data Center / historical NEAR-GOOS RDMDB",
+            "quote": "The 10-day mean SSTs are analyzed at the Office of Marine Prediction, the\nJMA,",
+            "quote_whitespace_normalized_for_creator_name": true,
+            "retrieved_via": "web tool parsed public text / 2026-10-04",
+            "reviewer_extraction_sha256": "ce5b53f6daac7d015006da0f324e40c048ebfa3aa13b173a185402d3178a61ce",
+            "role_limit": "The analysis paragraph is the credit evidence. Compilation, satellite inputs, general database operation and the contact address are not additional creators.",
+            "same_work_match": {
+              "data_product": "WNPSST; the header additionally names wnpsstnorm, but the body explicitly describes the original raw 10-day mean dataset.",
+              "spatial_scope": "One-degree grid, 100E-180E, equator-60N, matching original source bounds.",
+              "temporal_product": "Raw 10-day means, explicitly distinguished from normal and standard-deviation blocks in the same document.",
+              "title": "Western North Pacific Sea Surface Temperatures"
+            },
+            "url": "https://near-goos1.jodc.go.jp/rdmdb/format/JMA/wnpsst.txt"
+          },
+          {
+            "evidence_kind": "source-linked original catalogue product crosswalk",
+            "hash_semantics": "The extraction object hash binds this reviewer transcription, not unretained remote HTML/PDF bytes.",
+            "locator": "Historical Western North Pacific Sea Surface Temperatures entry / yyyy_mm.wnpsst",
+            "original_external_document_bytes_sha256": null,
+            "publisher": "Japan Oceanographic Data Center / historical NEAR-GOOS RDMDB",
+            "quote": null,
+            "retrieved_via": "web tool parsed public text / 2026-10-04",
+            "reviewer_extraction_sha256": "63a048abd8566c254c9aff84ac91c1d1efb89032f5b3a2881147318973d668f1",
+            "same_work_match": {
+              "product_code": "wnpsst",
+              "temporal_product": "10-day mean sea surface temperature for northwest Pacific"
+            },
+            "url": "https://near-goos1.jodc.go.jp/rdmdb/datalist.html"
+          }
+        ],
+        "members": [
+          {
+            "source_id": "FGDC-3957",
+            "source_sha256": "24a9c5a5fc0bed2781141c6735343667edcae1b99b01bbebee3f459778622d33"
+          }
+        ],
+        "preservation_required": true,
+        "primary_origin_element": {
+          "attributes": {},
+          "children": [],
+          "tag": "origin",
+          "tail": null,
+          "text": null
+        },
+        "profile": "external_same_work_citation_FGDC-3957",
+        "raw_origin": null,
+        "supplemental_source_elements": [
+          {
+            "element": {
+              "attributes": {},
+              "children": [
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "origin",
+                              "tail": "\n        ",
+                              "text": null
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "pubdate",
+                              "tail": "\n        ",
+                              "text": null
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "title",
+                              "tail": "\n      ",
+                              "text": "Western North Pacific Sea Surface Temperatures in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+                            }
+                          ],
+                          "tag": "citeinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "citation",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "p",
+                              "tail": "\n        ",
+                              "text": "10-day mean sea surface temperatures.in the western north Pacific Ocean."
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "p",
+                              "tail": "\n      ",
+                              "text": "Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account.  First time users must register to gain database access."
+                            }
+                          ],
+                          "tag": "abstract",
+                          "tail": "\n      ",
+                          "text": "\n        "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "purpose",
+                          "tail": "\n    ",
+                          "text": "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+                        }
+                      ],
+                      "tag": "descript",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "timeinfo",
+                          "tail": "\n      ",
+                          "text": null
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "current",
+                          "tail": "\n    ",
+                          "text": "Ground Condition"
+                        }
+                      ],
+                      "tag": "timeperd",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "progress",
+                          "tail": "\n      ",
+                          "text": "In Progress"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "update",
+                          "tail": "\n    ",
+                          "text": "Unknown"
+                        }
+                      ],
+                      "tag": "status",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "westbc",
+                              "tail": "\n        ",
+                              "text": "100"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "eastbc",
+                              "tail": "\n        ",
+                              "text": "180"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "northbc",
+                              "tail": "\n        ",
+                              "text": "60"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "southbc",
+                              "tail": "\n      ",
+                              "text": "0"
+                            }
+                          ],
+                          "tag": "bounding",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "spdom",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekt",
+                              "tail": "\n        ",
+                              "text": "North Pacific Ecosystem Metadatabase"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n      ",
+                              "text": "Oceanography"
+                            }
+                          ],
+                          "tag": "theme",
+                          "tail": "\n      ",
+                          "text": "\n        "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekt",
+                              "tail": "\n        ",
+                              "text": "Other"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Sea of Japan/East Sea"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Yellow Sea/West Sea"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "East China Sea"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Sea Surface Temperature (SST)"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Northwestern Pacific Ocean"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Bering Sea"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Sea of Okhotsk"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n      ",
+                              "text": "North Pacific Ocean"
+                            }
+                          ],
+                          "tag": "theme",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "keywords",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "accconst",
+                      "tail": "\n    ",
+                      "text": "First time users must register to gain database access."
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "useconst",
+                      "tail": "\n    ",
+                      "text": "None"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "cntper",
+                                  "tail": "\n        ",
+                                  "text": "Okano, Hirofumi"
+                                }
+                              ],
+                              "tag": "cntperp",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "addrtype",
+                                  "tail": "\n          ",
+                                  "text": "Mailing and Physical Address"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "address",
+                                  "tail": "\n          ",
+                                  "text": "5-3-1 Tsukiji, Chuo-ku"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "city",
+                                  "tail": "\n          ",
+                                  "text": "Tokyo"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "state",
+                                  "tail": "\n          ",
+                                  "text": null
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "postal",
+                                  "tail": "\n          ",
+                                  "text": "104-0045"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "country",
+                                  "tail": "\n        ",
+                                  "text": "Japan"
+                                }
+                              ],
+                              "tag": "cntaddr",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntvoice",
+                              "tail": "\n        ",
+                              "text": "81-3-3541-4295"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntfax",
+                              "tail": "\n        ",
+                              "text": "81-3-3545-2885"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntemail",
+                              "tail": "\n      ",
+                              "text": "mail@jodc.go.jp"
+                            }
+                          ],
+                          "tag": "cntinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "ptcontac",
+                      "tail": "\n  ",
+                      "text": "\n      "
+                    }
+                  ],
+                  "tag": "idinfo",
+                  "tail": "\n  ",
+                  "text": "\n    "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "cntper",
+                                  "tail": "\n        ",
+                                  "text": "Okano, Hirofumi"
+                                }
+                              ],
+                              "tag": "cntperp",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "addrtype",
+                                  "tail": "\n          ",
+                                  "text": "Mailing and Physical Address"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "address",
+                                  "tail": "\n          ",
+                                  "text": "5-3-1 Tsukiji, Chuo-ku"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "city",
+                                  "tail": "\n          ",
+                                  "text": "Tokyo"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "state",
+                                  "tail": "\n          ",
+                                  "text": null
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "postal",
+                                  "tail": "\n          ",
+                                  "text": "104-0045"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "country",
+                                  "tail": "\n        ",
+                                  "text": "Japan"
+                                }
+                              ],
+                              "tag": "cntaddr",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntvoice",
+                              "tail": "\n        ",
+                              "text": "81-3-3541-4295"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntfax",
+                              "tail": "\n        ",
+                              "text": "81-3-3545-2885"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntemail",
+                              "tail": "\n      ",
+                              "text": "mail@jodc.go.jp"
+                            }
+                          ],
+                          "tag": "cntinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "distrib",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "distliab",
+                      "tail": "\n  ",
+                      "text": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty."
+                    }
+                  ],
+                  "tag": "distinfo",
+                  "tail": "\n  ",
+                  "text": "\n    "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metd",
+                      "tail": "\n    ",
+                      "text": "20050418"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "cntper",
+                                  "tail": "\n        ",
+                                  "text": "Kimberly Bahl"
+                                }
+                              ],
+                              "tag": "cntperp",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "addrtype",
+                                  "tail": "\n          ",
+                                  "text": "Mailing and Physical Address"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "address",
+                                  "tail": "\n          ",
+                                  "text": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "city",
+                                  "tail": "\n          ",
+                                  "text": "Seattle"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "state",
+                                  "tail": "\n          ",
+                                  "text": "WA"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "postal",
+                                  "tail": "\n          ",
+                                  "text": "98115"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "country",
+                                  "tail": "\n        ",
+                                  "text": "USA"
+                                }
+                              ],
+                              "tag": "cntaddr",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntvoice",
+                              "tail": "\n        ",
+                              "text": "206-526-4314"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntfax",
+                              "tail": "\n        ",
+                              "text": "206-526-6485"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntemail",
+                              "tail": "\n      ",
+                              "text": "kimberly.bahl@noaa.gov"
+                            }
+                          ],
+                          "tag": "cntinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "metc",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metstdn",
+                      "tail": "\n    ",
+                      "text": "Content Standards for Digital Geospatial Metadata"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metstdv",
+                      "tail": "\n    ",
+                      "text": "FGDC-STD-001-1998"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metac",
+                      "tail": "\n    ",
+                      "text": "First time users must register to gain database access."
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metuc",
+                      "tail": "\n  ",
+                      "text": "None"
+                    }
+                  ],
+                  "tag": "metainfo",
+                  "tail": "\n",
+                  "text": "\n    "
+                }
+              ],
+              "tag": "metadata",
+              "tail": null,
+              "text": "\n  "
+            },
+            "xpath": "."
+          }
+        ]
+      },
+      "proposed_only_changed_raw_metadata_fields": [
+        "creators",
+        "notes"
+      ],
+      "required_preservation_notes": [
+        "Original primary citation origin XML (parsed representation): <origin />",
+        "Reviewed external-source citation context: The linked historical RDMDB product format explicitly assigns analysis of the raw 10-day mean western North Pacific sea-surface-temperature product to the named office. Its separate normals and standard-deviation blocks are distinguished from the raw 10-day data described by this source. The original empty primary origin is preserved. This is a literal institutional analysis-product citation credit, not an inferred contact, database host, input-observation provider, XML credit, or XML authorship. No organization type, person role, affiliation, date, or rights is inferred. Evidence: https://near-goos1.jodc.go.jp/rdmdb/format/JMA/wnpsst.txt (analysis paragraph and data-format distinction); https://near-goos1.jodc.go.jp/rdmdb/datalist.html (historical WNPSST entry)."
+      ],
+      "source_bytes": 4420,
+      "source_id": "FGDC-3957",
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-3957.xml",
+      "source_sha256": "24a9c5a5fc0bed2781141c6735343667edcae1b99b01bbebee3f459778622d33"
+    },
+    {
+      "baseline_complete_raw_metadata": {
+        "access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
+        "access_right": "restricted",
+        "communities": [],
+        "contributors": [
+          {
+            "name": "Okano, Hirofumi",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Okano, Hirofumi",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": ""
+          }
+        ],
+        "description": "Daily analyses of sea ice concentration in the north-east Asian marginal seas for 0.05 degree latitudinal and longitudinal squares between 35°N and 65°N from 115°E to 165°E during the sea ice season from December through May next year. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access.",
+        "keywords": [
+          "Oceanography",
+          "Ice Physics",
+          "Sea Ice",
+          "Northwestern Pacific Ocean",
+          "Sea of Okhotsk",
+          "Sea of Japan/East Sea",
+          "Yellow Sea/West Sea",
+          "North Pacific Ocean",
+          "pices-metadata-only"
+        ],
+        "license": "",
+        "notes": "Purpose: To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: First time users must register to gain database access.\n\nUse constraints: None\n\nTemporal Information:\nCurrentness: Ground Condition\nTemporal coverage: 2003-01-01 onwards\n\nSpatial coverage: W115.0, E165.0, N65.0, S35.0\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20050418\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\n\nCurator decision: {\"metadata\": {\"creators\": [{\"name\": \"\"}], \"license\": \"\", \"publication_date\": \"20050418\"}}\nSource dataset citation originators are preserved for attribution; XML authorship is not independently established.",
+        "publication_date": "2005-04-18",
+        "publisher": "North Pacific Marine Science Organization",
+        "references": [],
+        "related_identifiers": [],
+        "subjects": [
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Oceanography",
+            "scheme": "thesaurus",
+            "term": "Oceanography"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Ice Physics",
+            "scheme": "thesaurus",
+            "term": "Ice Physics"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea Ice",
+            "scheme": "thesaurus",
+            "term": "Sea Ice"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Northwestern Pacific Ocean",
+            "scheme": "thesaurus",
+            "term": "Northwestern Pacific Ocean"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea of Okhotsk",
+            "scheme": "thesaurus",
+            "term": "Sea of Okhotsk"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea of Japan/East Sea",
+            "scheme": "thesaurus",
+            "term": "Sea of Japan/East Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Yellow Sea/West Sea",
+            "scheme": "thesaurus",
+            "term": "Yellow Sea/West Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+            "scheme": "thesaurus",
+            "term": "North Pacific Ocean"
+          }
+        ],
+        "title": "Sea Ice Concentration in the Northeast Asian Marginal Seas in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) - FGDC XML metadata artifact",
+        "upload_type": "other"
+      },
+      "baseline_complete_raw_metadata_sha256_canonical_utf8": "0907ef9ad70d16f3e2e9cf1285497b2be41e522a6aaf66956b3d88f039817bc6",
+      "baseline_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3961.json",
+      "baseline_payload_sha256": "1c6abd51922a10636906dbf4d1daef1ee8ec843764d4c9e28c89b994a99d448d",
+      "baseline_record": {
+        "creator_interpretation": "not_established",
+        "creator_interpretation_diagnostic": "Source ID/hash is outside reviewed creator interpretation membership",
+        "dataset_access_interpretation": "SOURCE_BACKED",
+        "exact_copy_aliases": [],
+        "has_supported_xml_grant": false,
+        "hold_reasons": [
+          "Creator 1 has empty name",
+          "Invalid transformed metadata: Creator 1 has empty name"
+        ],
+        "metadata_date_precision": "day",
+        "new_reuse_license": "not_granted_by_rehosting_attestation",
+        "origin_stratum": "personal_or_unknown",
+        "prepared_payload_sha256": "1c6abd51922a10636906dbf4d1daef1ee8ec843764d4c9e28c89b994a99d448d",
+        "primary_date_stratum": "missing",
+        "publication_approved": false,
+        "raw_metadata_access": "First time users must register to gain database access.",
+        "raw_metadata_date": "20050418",
+        "raw_metadata_rights": "None",
+        "raw_primary_date": "",
+        "rehosting_authority": "USER_ATTESTED",
+        "remote_verified": false,
+        "routine_source_decisions": {
+          "creators": "primary dataset citation preserved; XML authorship not independently established",
+          "date": "explicit metadata creation/last-update day; not dataset publication",
+          "description": "HTML-escaped exact source abstract, or title if abstract absent",
+          "title": "exact source title plus artifact suffix"
+        },
+        "source_id": "FGDC-3961",
+        "source_link_interpretation": "not_established",
+        "source_link_interpretation_diagnostic": "Source ID/hash is outside reviewed source link membership",
+        "source_sha256": "824fdfd27b57d1be4d7a14731d52963568795ebbdb8205b181ceef0e2eb6967d",
+        "source_status": "held",
+        "source_status_without_aliases": "held",
+        "source_title_interpretation": "not_established",
+        "source_title_interpretation_diagnostic": "Source ID/hash is outside reviewed display title membership",
+        "technical_metadata": "held"
+      },
+      "baseline_source_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3961.xml",
+      "baseline_source_copy_sha256": "824fdfd27b57d1be4d7a14731d52963568795ebbdb8205b181ceef0e2eb6967d",
+      "creator_type_affiliation_identifiers_role_fields": "All omitted; exact name-only objects.",
+      "existing_full_creators": [
+        {
+          "name": "Office of Marine Prediction of the Japan Meteorological Agency"
+        }
+      ],
+      "full_source_root_sha256_canonical_utf8": "73cef4901fa08496d197b5afe6ee35affeb7190767e7f89dca1bfcdae98c2090",
+      "original_abstract_literals": [
+        "\n        Daily analyses of sea ice concentration in the north-east Asian marginal seas for 0.05 degree latitudinal and longitudinal squares between 35°N and 65°N from 115°E to 165°E during the sea ice season from December through May next year.\n        Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account.  First time users must register to gain database access.\n      "
+      ],
+      "original_four_constraints": {
+        "./idinfo/accconst": [
+          "First time users must register to gain database access."
+        ],
+        "./idinfo/useconst": [
+          "None"
+        ],
+        "./metainfo/metac": [
+          "First time users must register to gain database access."
+        ],
+        "./metainfo/metuc": [
+          "None"
+        ]
+      },
+      "original_metadata_date_literals": [
+        "20050418"
+      ],
+      "original_origin_literals": [
+        ""
+      ],
+      "original_primary_date_literals": [
+        ""
+      ],
+      "original_purpose_literals": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "original_title_literals": [
+        "Sea Ice Concentration in the Northeast Asian Marginal Seas in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+      ],
+      "projected_baseline_after_metadata": {
+        "access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted.",
+        "access_right": "restricted",
+        "communities": [],
+        "contributors": [
+          {
+            "name": "Okano, Hirofumi",
+            "type": "ContactPerson"
+          },
+          {
+            "name": "Okano, Hirofumi",
+            "type": "Distributor"
+          },
+          {
+            "name": "North Pacific Marine Science Organization (PICES)",
+            "type": "Distributor"
+          }
+        ],
+        "creators": [
+          {
+            "name": "Office of Marine Prediction of the Japan Meteorological Agency"
+          }
+        ],
+        "description": "Daily analyses of sea ice concentration in the north-east Asian marginal seas for 0.05 degree latitudinal and longitudinal squares between 35°N and 65°N from 115°E to 165°E during the sea ice season from December through May next year. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access.",
+        "keywords": [
+          "Oceanography",
+          "Ice Physics",
+          "Sea Ice",
+          "Northwestern Pacific Ocean",
+          "Sea of Okhotsk",
+          "Sea of Japan/East Sea",
+          "Yellow Sea/West Sea",
+          "North Pacific Ocean",
+          "pices-metadata-only"
+        ],
+        "license": "",
+        "notes": "Purpose: To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project.\n\nStatus: In Progress\n\nMaintenance frequency: Unknown\n\nAccess constraints: First time users must register to gain database access.\n\nUse constraints: None\n\nTemporal Information:\nCurrentness: Ground Condition\nTemporal coverage: 2003-01-01 onwards\n\nSpatial coverage: W115.0, E165.0, N65.0, S35.0\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20050418\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\n\nCurator decision: {\"metadata\": {\"creators\": [{\"name\": \"\"}], \"license\": \"\", \"publication_date\": \"20050418\"}}\nSource dataset citation originators are preserved for attribution; XML authorship is not independently established.\n\nOriginal primary citation origin XML (parsed representation): <origin />\n\nReviewed external-source citation context: The historical RDMDB announcement dated January 27, 2004 explicitly assigns analysis of the northeast Asian marginal-seas sea-ice product to the named office. The linked product description matches the source daily analyses, 0.05-degree grid, 35N-65N/115E-165E bounds and December-May season. The announcement date is evidence context, not a replacement publication or metadata date. The original empty primary origin is preserved. This is a literal institutional analysis-product citation credit, not an inferred database host, observation ownership, original XML credit, or XML authorship. No organization type, person role, affiliation, date, or rights is inferred. Evidence: https://near-goos1.jodc.go.jp/rdmdb/news/RDMDBnews.html (January 27, 2004 entry); https://near-goos1.jodc.go.jp/rdmdb/datalist.html (historical SEA_ICE entry).",
+        "publication_date": "2005-04-18",
+        "publisher": "North Pacific Marine Science Organization",
+        "references": [],
+        "related_identifiers": [],
+        "subjects": [
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Oceanography",
+            "scheme": "thesaurus",
+            "term": "Oceanography"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Ice Physics",
+            "scheme": "thesaurus",
+            "term": "Ice Physics"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea Ice",
+            "scheme": "thesaurus",
+            "term": "Sea Ice"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Northwestern Pacific Ocean",
+            "scheme": "thesaurus",
+            "term": "Northwestern Pacific Ocean"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea of Okhotsk",
+            "scheme": "thesaurus",
+            "term": "Sea of Okhotsk"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Sea of Japan/East Sea",
+            "scheme": "thesaurus",
+            "term": "Sea of Japan/East Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:Yellow Sea/West Sea",
+            "scheme": "thesaurus",
+            "term": "Yellow Sea/West Sea"
+          },
+          {
+            "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+            "scheme": "thesaurus",
+            "term": "North Pacific Ocean"
+          }
+        ],
+        "title": "Sea Ice Concentration in the Northeast Asian Marginal Seas in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) - FGDC XML metadata artifact",
+        "upload_type": "other"
+      },
+      "projected_baseline_after_metadata_sha256_canonical_utf8": "1c40cce9ff0be3ef3dad50bc5b64a62f56aa6c3967fef024cfc87a042fb43d6c",
+      "projection_warning": "This is a deterministic review projection of the retained historical 0ec baseline with only creators and appended preservation notes changed. It is not a newly classified current-main prepared after-image, actual source-status promotion, or provider result. Root must independently bind the implemented current after-image.",
+      "proposed_cohort": {
+        "context_note": "Reviewed external-source citation context: The historical RDMDB announcement dated January 27, 2004 explicitly assigns analysis of the northeast Asian marginal-seas sea-ice product to the named office. The linked product description matches the source daily analyses, 0.05-degree grid, 35N-65N/115E-165E bounds and December-May season. The announcement date is evidence context, not a replacement publication or metadata date. The original empty primary origin is preserved. This is a literal institutional analysis-product citation credit, not an inferred database host, observation ownership, original XML credit, or XML authorship. No organization type, person role, affiliation, date, or rights is inferred. Evidence: https://near-goos1.jodc.go.jp/rdmdb/news/RDMDBnews.html (January 27, 2004 entry); https://near-goos1.jodc.go.jp/rdmdb/datalist.html (historical SEA_ICE entry).",
+        "creators": [
+          {
+            "name": "Office of Marine Prediction of the Japan Meteorological Agency"
+          }
+        ],
+        "evidence_type": "EXTERNAL_SOURCE_SUPPORTED_SAME_WORK_CITATION",
+        "external_credit_evidence": [
+          {
+            "evidence_kind": "contemporary original product announcement with explicit analysis credit",
+            "hash_semantics": "The extraction object hash binds this reviewer transcription, not unretained remote HTML/PDF bytes.",
+            "locator": "January 27, 2004 entry; parsed lines 660-663",
+            "original_external_document_bytes_sha256": null,
+            "publisher": "Japan Oceanographic Data Center / historical NEAR-GOOS RDMDB",
+            "quote": "analyzed at the Office of Marine Prediction of the Japan Meteorological Agency",
+            "retrieved_via": "web tool parsed public text / 2026-10-04",
+            "reviewer_extraction_sha256": "d78c8b74b6e84adeb22e544fec2e0ce7eab23ac6ec7bd3e2e6ba9a7e13662cca",
+            "same_work_match": {
+              "date_role": "Announcement date retained as evidence context only.",
+              "event_date": "2004-01-27",
+              "product": "Sea-ice concentration in northeast Asian marginal seas"
+            },
+            "url": "https://near-goos1.jodc.go.jp/rdmdb/news/RDMDBnews.html"
+          },
+          {
+            "evidence_kind": "source-linked original catalogue product crosswalk",
+            "hash_semantics": "The extraction object hash binds this reviewer transcription, not unretained remote HTML/PDF bytes.",
+            "locator": "Historical Sea Ice Concentration entry / yyyy_mm.seaice / parsed lines 301-313",
+            "original_external_document_bytes_sha256": null,
+            "publisher": "Japan Oceanographic Data Center / historical NEAR-GOOS RDMDB",
+            "quote": null,
+            "retrieved_via": "web tool parsed public text / 2026-10-04",
+            "reviewer_extraction_sha256": "54fae2b53c87dcf01a790ebaeb1dde4cd1057ff161a26ba3097d9b9b8fa9df2d",
+            "same_work_match": {
+              "product_code": "seaice",
+              "spatial_product": "0.05-degree grid; 35N-65N and 115E-165E",
+              "temporal_product": "Daily analyses during December-May"
+            },
+            "url": "https://near-goos1.jodc.go.jp/rdmdb/datalist.html"
+          }
+        ],
+        "members": [
+          {
+            "source_id": "FGDC-3961",
+            "source_sha256": "824fdfd27b57d1be4d7a14731d52963568795ebbdb8205b181ceef0e2eb6967d"
+          }
+        ],
+        "preservation_required": true,
+        "primary_origin_element": {
+          "attributes": {},
+          "children": [],
+          "tag": "origin",
+          "tail": null,
+          "text": null
+        },
+        "profile": "external_same_work_citation_FGDC-3961",
+        "raw_origin": null,
+        "supplemental_source_elements": [
+          {
+            "element": {
+              "attributes": {},
+              "children": [
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "origin",
+                              "tail": "\n        ",
+                              "text": null
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "pubdate",
+                              "tail": "\n        ",
+                              "text": null
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "title",
+                              "tail": "\n      ",
+                              "text": "Sea Ice Concentration in the Northeast Asian Marginal Seas in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+                            }
+                          ],
+                          "tag": "citeinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "citation",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "p",
+                              "tail": "\n        ",
+                              "text": "Daily analyses of sea ice concentration in the north-east Asian marginal seas for 0.05 degree latitudinal and longitudinal squares between 35°N and 65°N from 115°E to 165°E during the sea ice season from December through May next year."
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "p",
+                              "tail": "\n      ",
+                              "text": "Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account.  First time users must register to gain database access."
+                            }
+                          ],
+                          "tag": "abstract",
+                          "tail": "\n      ",
+                          "text": "\n        "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "purpose",
+                          "tail": "\n    ",
+                          "text": "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+                        }
+                      ],
+                      "tag": "descript",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "begdate",
+                                  "tail": "\n          ",
+                                  "text": "20030101"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "enddate",
+                                  "tail": "\n        ",
+                                  "text": null
+                                }
+                              ],
+                              "tag": "rngdates",
+                              "tail": "\n      ",
+                              "text": "\n          "
+                            }
+                          ],
+                          "tag": "timeinfo",
+                          "tail": "\n      ",
+                          "text": "\n        "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "current",
+                          "tail": "\n    ",
+                          "text": "Ground Condition"
+                        }
+                      ],
+                      "tag": "timeperd",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "progress",
+                          "tail": "\n      ",
+                          "text": "In Progress"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "update",
+                          "tail": "\n    ",
+                          "text": "Unknown"
+                        }
+                      ],
+                      "tag": "status",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "westbc",
+                              "tail": "\n        ",
+                              "text": "115"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "eastbc",
+                              "tail": "\n        ",
+                              "text": "165"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "northbc",
+                              "tail": "\n        ",
+                              "text": "65"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "southbc",
+                              "tail": "\n      ",
+                              "text": "35"
+                            }
+                          ],
+                          "tag": "bounding",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "spdom",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekt",
+                              "tail": "\n        ",
+                              "text": "North Pacific Ecosystem Metadatabase"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Oceanography"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n      ",
+                              "text": "Ice Physics"
+                            }
+                          ],
+                          "tag": "theme",
+                          "tail": "\n      ",
+                          "text": "\n        "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekt",
+                              "tail": "\n        ",
+                              "text": "Other"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Sea Ice"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Northwestern Pacific Ocean"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Sea of Okhotsk"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Sea of Japan/East Sea"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n        ",
+                              "text": "Yellow Sea/West Sea"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "themekey",
+                              "tail": "\n      ",
+                              "text": "North Pacific Ocean"
+                            }
+                          ],
+                          "tag": "theme",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "keywords",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "accconst",
+                      "tail": "\n    ",
+                      "text": "First time users must register to gain database access."
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "useconst",
+                      "tail": "\n    ",
+                      "text": "None"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "cntper",
+                                  "tail": "\n        ",
+                                  "text": "Okano, Hirofumi"
+                                }
+                              ],
+                              "tag": "cntperp",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "addrtype",
+                                  "tail": "\n          ",
+                                  "text": "Mailing and Physical Address"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "address",
+                                  "tail": "\n          ",
+                                  "text": "5-3-1 Tsukiji, Chuo-ku"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "city",
+                                  "tail": "\n          ",
+                                  "text": "Tokyo"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "state",
+                                  "tail": "\n          ",
+                                  "text": null
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "postal",
+                                  "tail": "\n          ",
+                                  "text": "104-0045"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "country",
+                                  "tail": "\n        ",
+                                  "text": "Japan"
+                                }
+                              ],
+                              "tag": "cntaddr",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntvoice",
+                              "tail": "\n        ",
+                              "text": "81-3-3541-4295"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntfax",
+                              "tail": "\n        ",
+                              "text": "81-3-3545-2885"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntemail",
+                              "tail": "\n      ",
+                              "text": "mail@jodc.go.jp"
+                            }
+                          ],
+                          "tag": "cntinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "ptcontac",
+                      "tail": "\n  ",
+                      "text": "\n      "
+                    }
+                  ],
+                  "tag": "idinfo",
+                  "tail": "\n  ",
+                  "text": "\n    "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "cntper",
+                                  "tail": "\n        ",
+                                  "text": "Okano, Hirofumi"
+                                }
+                              ],
+                              "tag": "cntperp",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "addrtype",
+                                  "tail": "\n          ",
+                                  "text": "Mailing and Physical Address"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "address",
+                                  "tail": "\n          ",
+                                  "text": "5-3-1 Tsukiji, Chuo-ku"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "city",
+                                  "tail": "\n          ",
+                                  "text": "Tokyo"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "state",
+                                  "tail": "\n          ",
+                                  "text": null
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "postal",
+                                  "tail": "\n          ",
+                                  "text": "104-0045"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "country",
+                                  "tail": "\n        ",
+                                  "text": "Japan"
+                                }
+                              ],
+                              "tag": "cntaddr",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntvoice",
+                              "tail": "\n        ",
+                              "text": "81-3-3541-4295"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntfax",
+                              "tail": "\n        ",
+                              "text": "81-3-3545-2885"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntemail",
+                              "tail": "\n      ",
+                              "text": "mail@jodc.go.jp"
+                            }
+                          ],
+                          "tag": "cntinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "distrib",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "distliab",
+                      "tail": "\n  ",
+                      "text": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty."
+                    }
+                  ],
+                  "tag": "distinfo",
+                  "tail": "\n  ",
+                  "text": "\n    "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metd",
+                      "tail": "\n    ",
+                      "text": "20050418"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "cntper",
+                                  "tail": "\n        ",
+                                  "text": "Kimberly Bahl"
+                                }
+                              ],
+                              "tag": "cntperp",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "addrtype",
+                                  "tail": "\n          ",
+                                  "text": "Mailing and Physical Address"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "address",
+                                  "tail": "\n          ",
+                                  "text": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "city",
+                                  "tail": "\n          ",
+                                  "text": "Seattle"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "state",
+                                  "tail": "\n          ",
+                                  "text": "WA"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "postal",
+                                  "tail": "\n          ",
+                                  "text": "98115"
+                                },
+                                {
+                                  "attributes": {},
+                                  "children": [],
+                                  "tag": "country",
+                                  "tail": "\n        ",
+                                  "text": "USA"
+                                }
+                              ],
+                              "tag": "cntaddr",
+                              "tail": "\n        ",
+                              "text": "\n          "
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntvoice",
+                              "tail": "\n        ",
+                              "text": "206-526-4314"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntfax",
+                              "tail": "\n        ",
+                              "text": "206-526-6485"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntemail",
+                              "tail": "\n      ",
+                              "text": "kimberly.bahl@noaa.gov"
+                            }
+                          ],
+                          "tag": "cntinfo",
+                          "tail": "\n    ",
+                          "text": "\n        "
+                        }
+                      ],
+                      "tag": "metc",
+                      "tail": "\n    ",
+                      "text": "\n      "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metstdn",
+                      "tail": "\n    ",
+                      "text": "Content Standards for Digital Geospatial Metadata"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metstdv",
+                      "tail": "\n    ",
+                      "text": "FGDC-STD-001-1998"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metac",
+                      "tail": "\n    ",
+                      "text": "First time users must register to gain database access."
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "metuc",
+                      "tail": "\n  ",
+                      "text": "None"
+                    }
+                  ],
+                  "tag": "metainfo",
+                  "tail": "\n",
+                  "text": "\n    "
+                }
+              ],
+              "tag": "metadata",
+              "tail": null,
+              "text": "\n  "
+            },
+            "xpath": "."
+          }
+        ]
+      },
+      "proposed_only_changed_raw_metadata_fields": [
+        "creators",
+        "notes"
+      ],
+      "required_preservation_notes": [
+        "Original primary citation origin XML (parsed representation): <origin />",
+        "Reviewed external-source citation context: The historical RDMDB announcement dated January 27, 2004 explicitly assigns analysis of the northeast Asian marginal-seas sea-ice product to the named office. The linked product description matches the source daily analyses, 0.05-degree grid, 35N-65N/115E-165E bounds and December-May season. The announcement date is evidence context, not a replacement publication or metadata date. The original empty primary origin is preserved. This is a literal institutional analysis-product citation credit, not an inferred database host, observation ownership, original XML credit, or XML authorship. No organization type, person role, affiliation, date, or rights is inferred. Evidence: https://near-goos1.jodc.go.jp/rdmdb/news/RDMDBnews.html (January 27, 2004 entry); https://near-goos1.jodc.go.jp/rdmdb/datalist.html (historical SEA_ICE entry)."
+      ],
+      "source_bytes": 4654,
+      "source_id": "FGDC-3961",
+      "source_path": "/workspace/pices-residual-source-next-20261004/FGDC/FGDC-3961.xml",
+      "source_sha256": "824fdfd27b57d1be4d7a14731d52963568795ebbdb8205b181ceef0e2eb6967d"
+    }
+  ],
+  "proposed_count": 3,
+  "proposed_inventory_sha256": "d81175eb67f289cc961ba2e0b6af698aa65a9d89ff8bb140d4c40c0a7ffe9cbd",
+  "proposed_source_ids": [
+    "FGDC-10",
+    "FGDC-3957",
+    "FGDC-3961"
+  ],
+  "provider_requests": 0,
+  "release_or_provider_verification": "Not evidenced by these offline/source research artifacts; no new publication or remote verification claim.",
+  "remaining_count": 22,
+  "remaining_inventory_sha256": "4e561f7b02dd6b7ae326acd8a2b193a6bade75686d3b6a37bc9abb5b67eb5186",
+  "remaining_question_groups": {
+    "NEAR_GOOS_empty_origin_product_credit_unresolved": [
+      "FGDC-3683",
+      "FGDC-3919",
+      "FGDC-3920",
+      "FGDC-3951",
+      "FGDC-3952",
+      "FGDC-3953",
+      "FGDC-3954",
+      "FGDC-3956",
+      "FGDC-3966",
+      "FGDC-3967",
+      "FGDC-3968",
+      "FGDC-3969",
+      "FGDC-3975",
+      "FGDC-3976",
+      "FGDC-3977",
+      "FGDC-3978"
+    ],
+    "atlas_chart_publication_role_unresolved": [
+      "FGDC-2552",
+      "FGDC-2586"
+    ],
+    "exact_publication_author_list_unresolved": [
+      "FGDC-1206",
+      "FGDC-1314",
+      "FGDC-2664",
+      "FGDC-2817"
+    ]
+  },
+  "remaining_questions": [
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "journal_venue_not_creator",
+      "minimal_question": "Provide the complete ordered byline or authoritative same-work catalogue credit for this exact article, with title and publication identity sufficient to distinguish translated titles or nearby works. The journal name cannot substitute for article authors.",
+      "origin_literals": [
+        "Journal of Cytology"
+      ],
+      "precise_evidence_gap": "The source primary publication date is Unpublished Material, and the bounded search did not establish a published exact-work byline. A nearby microscopy or journal article is insufficient.",
+      "question_group": "exact_publication_author_list_unresolved",
+      "source_attached_abstract_literals": [
+        "Electronic microscope research of chum juveniles olfactory epithelium is conducted before and after effect of copper and zinc salts. Some singularities destruction and recovery of olfactory epithelium cells are circumscribed. Information about terms of regeneration of the cells separate types are adduced."
+      ],
+      "source_id": "FGDC-1206",
+      "source_sha256": "cb5d88557bc7d5eb5c5d2b5e48411efab46c5be0977260dccda9162bf614c1a6",
+      "title": "Degenerative and Reduction Processes in Chum Juveniles Olfactory Epithelium (Oncorhynchus keta Walbaum: Salmoniformes) at Acute Effect of Copper and Zinc Salts"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "journal_venue_not_creator",
+      "minimal_question": "Provide the complete ordered byline or authoritative same-work catalogue credit for this exact article, with title and publication identity sufficient to distinguish translated titles or nearby works. The journal name cannot substitute for article authors.",
+      "origin_literals": [
+        "Journal Ontogenesis Vol 28, No 1, 1997, Russian Journal of Developmental Biology"
+      ],
+      "precise_evidence_gap": "Secondary bibliographic leads offer an apparent four-person byline, but no primary same-work byline/catalogue credit was verified. Do not promote these candidate names.",
+      "question_group": "exact_publication_author_list_unresolved",
+      "source_attached_abstract_literals": [
+        "Interaction between the organisms in the natural community and affects on this production capacity."
+      ],
+      "source_id": "FGDC-1314",
+      "source_sha256": "ae5faad99f4b0abedd01767ffba167cadbc0a8236598c4d39a5346226903ba8b",
+      "title": "Reproduction of Sea Urchins and Scallops in Coastal Communities Off the Sea of Japan"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "atlas_country_only",
+      "minimal_question": "Provide the exact edition/volume title page or authoritative catalogue responsibility statement with the explicitly credited producer/editor/author role. A country, library holder, publication direction, or modern host is not a creator.",
+      "origin_literals": [
+        "USSR"
+      ],
+      "precise_evidence_gap": "The source describes a three-volume Morskoi Atlas set without an exact source-backed creator/responsibility statement for the selected volume/edition.",
+      "question_group": "atlas_chart_publication_role_unresolved",
+      "source_attached_abstract_literals": [
+        "Publication Title: Morskoi Atlas = Marine atlas. Text in Russian. For full detailed English translation see 'An Evaluation of the \"Morskoi Atlas\" (With Translations from Volumes I and II)'. The Morskoi Atlas is devided into three parts: Volume I, navigation and geography; Volume II, physical geography; Volume III, military and political geography. Contains a comprehensive treatment of the marine environment of the earth. Contains sea charts and maps of important ports and naval bases, bathymetry, sea level, nature and velocity of currents, ice boundaries, ocean routes, national frontiers, earthquakes, volcanos, sediments, sea surface temperature, salinity, and density, range of tides, wind waves and swell, distribution of cetacea, sirenia, pinnipeds, ocean fishes, marine birds and algae, atmospheric pressure, cloudiness, fog, and storms."
+      ],
+      "source_id": "FGDC-2552",
+      "source_sha256": "b70b6e84d3b185b13451e8be125ba983d4c3c48df4c9b7d72463be2af781f511",
+      "title": "Seasonal and Annual Mean Maritime Surface Weather and Sea Data, and Seasonal Upper-level Winds and Temperature for the USSR (pub.1950)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "chart_publication_direction_only",
+      "minimal_question": "Provide the exact edition/volume title page or authoritative catalogue responsibility statement with the explicitly credited producer/editor/author role. A country, library holder, publication direction, or modern host is not a creator.",
+      "origin_literals": [
+        "Published by direction of the Chief of Naval Operations."
+      ],
+      "precise_evidence_gap": "The source names Normal pressure altitude charts for the Northern Hemisphere and publication by direction of the Chief of Naval Operations. The NOAA library inventory corroborates a 1953 holding, not a producer/author credit.",
+      "question_group": "atlas_chart_publication_role_unresolved",
+      "source_attached_abstract_literals": [
+        "Publication Title: Normal pressure altitude charts for the Northern Hemisphere. Contains summarized monthly maps of normal pressure and altitude; includes charts of geometric heights for each month at 1000-foot intervals from sea level to 10,000 feet. Includes bibliographical references. Available from the NOAA Library System: URL http://www.lib.noaa.gov/."
+      ],
+      "source_id": "FGDC-2586",
+      "source_sha256": "01f654604ccd4e26e8d8dfbb64e4f9c8ee9350af954f4bd230396185f4cbf662",
+      "title": "Maps of Upper-Level Heights for the Northern Hemisphere"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "journal_venue_not_creator",
+      "minimal_question": "Provide the complete ordered byline or authoritative same-work catalogue credit for this exact article, with title and publication identity sufficient to distinguish translated titles or nearby works. The journal name cannot substitute for article authors.",
+      "origin_literals": [
+        "Okeanologiya. Moscow"
+      ],
+      "precise_evidence_gap": "A later paper references a similarly translated 1993 hydrochemical-eddy article, but the exact-work identity and complete byline are not verified. Do not borrow its apparent author.",
+      "question_group": "exact_publication_author_list_unresolved",
+      "source_attached_abstract_literals": [
+        "The paper presents data showing the effect of mesoscale eddies on the distribution of phosphates, nitrates, ammonia nitrogen, organic phosphorus and nitrogen in the Bering Sea. An important role is played by powerful anticyclonic eddies along the edge of the continental slope. Water 'slips' over the slope sometimes down to depths of 600-1000 m and reaches the oxygen minimum layer. Under these conditions renewal of water in the oxygen minimum layer and upwelling of deep water in the adjacent cyclonic eddies take place. The new data call for revision of earlier ideas on the rate of vertical surface, intermediate and deep water exchange."
+      ],
+      "source_id": "FGDC-2664",
+      "source_sha256": "993fb2c2ae8a94b5a7a3e55b6bd344ea57753a4ffee2e4de45baf1b322a448b3",
+      "title": "Effect of Mesoscale Anticyclonic Eddies on the Hydrochemical Structure of the Bering Sea"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "journal_venue_not_creator",
+      "minimal_question": "Provide the complete ordered byline or authoritative same-work catalogue credit for this exact article, with title and publication identity sufficient to distinguish translated titles or nearby works. The journal name cannot substitute for article authors.",
+      "origin_literals": [
+        "Okeanologiya. Moscow"
+      ],
+      "precise_evidence_gap": "A 1999 Sea Grant chapter about organic nitrogen/ammonium/urea is a different work from this 1993 Okeanologiya article. Its authors are excluded.",
+      "question_group": "exact_publication_author_list_unresolved",
+      "source_attached_abstract_literals": [
+        "Urea determination data along 5 sections in the Bering Sea perpendicular to the coastline show that the distribution of urea is similar to that of ammonium nitrogen. Accumulation of urea and ammonium was generally observed under the thermocline but the absolute concentration of urea was slightly higher. With the total urea and ammonium content of 7-10 mu g-at N/l in the euphotic layer, 8-10g C/m super(2) organic matter per day may be produced in the process of photosynthesis due to nitrogen recycling."
+      ],
+      "source_id": "FGDC-2817",
+      "source_sha256": "c18640475c937fa475ee45406d4a9cb1012ef8b96bb056f0b5435f995a13eb5c",
+      "title": "Distribution Patterns of Urea in the Bering Sea and its Role in the Nitrogen Cycle"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Bathythermal data within the global ocean area Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3683",
+      "source_sha256": "63ee9cc74618ccca30fcddb633bfeccaaf65809e6e1bd065f65998a934cdde20",
+      "title": "Global Bathy Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Bathythermal observation data collected via Global Telecommunication System (GTS) in the WMO international code FM63 BATHY. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Real Time Data Base (RRTDB) at http://goos.kishou.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3919",
+      "source_sha256": "1d9f38fb6c83c2388b16075329009ec1c94ecc9ea46dfb64331f0d2313113c13",
+      "title": "GTS Bathythermal Observation Data in NEAR-GOOS Regional Real Time Data Base (RRTDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Temperature, salinity and current data collected via Global Telecommunication System (GTS) in the WMO international code FM64 TESAC. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Real Time Data Base (RRTDB) at http://goos.kishou.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3920",
+      "source_sha256": "025ac052acf7f239a996c8321d2a52f24687a28d03c66f7e462f9f8fac0bbda1",
+      "title": "GTS Oceanographic TESAC Data in NEAR-GOOS Regional Real Time Data Base (RRTDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Subsurface temperature decode data from the NEAR-GOOS area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3951",
+      "source_sha256": "e7a32206e486a6d2524921888e19074ce8e328e1ca5101e2e14e80bf72988ee5",
+      "title": "Subsurface Temperature Decode Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Subsurface temperature decode error result for the NEAR-GOOS area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3952",
+      "source_sha256": "0d36dc527b4ad8448205c07faf65125fa7a251174b4c27239dbe29a48243ce6c",
+      "title": "Subsurface Temperature Decode Error Report in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Global sea and sub surface temperature and salinity decode result. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3953",
+      "source_sha256": "3a6d35878b8f35f0db0c709fea2b37b77e13a5663097affe07642eaa989bb2ac",
+      "title": "Global Sea and Sub Surface Temperature and Salinity Decode in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The contemporary JODC RNODC report labels the matching product ADJSUBS (JMA) / PACSUBS (JMA), but the linked documentation credits changing analysis METHODS and their papers. Method-paper authors are not the product creator list; an explicit institutional production/analysis role for this precise product series is still needed.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Monthly mean subsurface temperature at the depths of 100m,200m and 400m in seas around Japan. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3954",
+      "source_sha256": "ba542626eadbdef783ea2734c2d24a8d8fbd7214560685b167c3325aa2e7138a",
+      "title": "Subsurface Temperature in Seas Around Japan in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The contemporary JODC RNODC report labels the matching product ADJSUBS (JMA) / PACSUBS (JMA), but the linked documentation credits changing analysis METHODS and their papers. Method-paper authors are not the product creator list; an explicit institutional production/analysis role for this precise product series is still needed.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Monthly mean subsurface temperatures at the depths of 100m, 200m and 400m in the Pacific Ocean. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3956",
+      "source_sha256": "26275a9ad96548bb074b3b4459a316ddbafc0c9c4de874e5f279cc4909f12dce",
+      "title": "Pacific Subsurface Temperatures in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Wind decode result from the NEAR-GOOS region. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3966",
+      "source_sha256": "05679bc5934eacc9e8fb781c777c879a07887afbd02e757a8c394f4846a6cc07",
+      "title": "Wind Decode Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Wind decode error result. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3967",
+      "source_sha256": "80234c29ec0d251f055a2316a038daf4f1f005d90bdbb7b19e90a0317b947f77",
+      "title": "Wind Decode Error Report in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Wind decode result (format ver.2.0). Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3968",
+      "source_sha256": "e9680a57712405e0df4486f4507a10f9357b8b33af0f06ffeee7b38f08c697d2",
+      "title": "Wind Decode Format Version 2.0 in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Global wind decode result. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3969",
+      "source_sha256": "9bae14e8ac15ad1001fc0a21c6aa93b8f2d8ba36eb911995a95b292c90ac505f",
+      "title": "Global Wind Decode in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Global buoy data within the global ocean area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3975",
+      "source_sha256": "b3897a8af8dfb943db7dceaf4d2f094bda9244540d0bdf03cdbda420a12ac83e",
+      "title": "Global Buoy Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Global ship data within the global ocean area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3976",
+      "source_sha256": "4044ca27fe2e57c8269d670caa940353c623866a8d4006234d30c677490f5a04",
+      "title": "Global Ship Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Global TESAC (temperature, salinity and current report from a sea station) data within the global ocean area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3977",
+      "source_sha256": "1401dd05edb925db35b070ece055de3d22993b2972a7c73887730aa450be89c8",
+      "title": "Global TESAC Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "consequence": "Preserve the original origin and source XML. Do not replace the creator objects until exact same-work credit evidence is independently reviewed; all other source/access/date/release gates continue.",
+      "disposition": "KEEP_CREATOR_HELD",
+      "existing_classification": "empty_origin_access_service_only",
+      "minimal_question": "Which institution or named person is explicitly credited with producing/analyzing this exact product or product series? Provide the original product-credit passage or a source-ID-bound product/credited-role crosswalk. Database hosting, collection through GTS, source availability and contacts do not establish creator credit.",
+      "origin_literals": [
+        ""
+      ],
+      "precise_evidence_gap": "The existing source records an empty origin and service/collection description. The targeted external review did not establish an explicit same-product producer/analyzer credit.",
+      "question_group": "NEAR_GOOS_empty_origin_product_credit_unresolved",
+      "source_attached_abstract_literals": [
+        "Global TRACKOB (report of marine surface observation along a ship's track) data within the global ocean area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "source_id": "FGDC-3978",
+      "source_sha256": "e38dc63f5d3195c4870739aaa6ea50e85785c059adcc5550be36b58064e9ccba",
+      "title": "Global TRACKOB Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    }
+  ],
+  "remaining_source_ids": [
+    "FGDC-1206",
+    "FGDC-1314",
+    "FGDC-2552",
+    "FGDC-2586",
+    "FGDC-2664",
+    "FGDC-2817",
+    "FGDC-3683",
+    "FGDC-3919",
+    "FGDC-3920",
+    "FGDC-3951",
+    "FGDC-3952",
+    "FGDC-3953",
+    "FGDC-3954",
+    "FGDC-3956",
+    "FGDC-3966",
+    "FGDC-3967",
+    "FGDC-3968",
+    "FGDC-3969",
+    "FGDC-3975",
+    "FGDC-3976",
+    "FGDC-3977",
+    "FGDC-3978"
+  ],
+  "repository_changes": 0,
+  "schema_version": 1,
+  "scope": "Bounded source-attached external same-work credit research for the already-reviewed 25 creator holds; no repeated whole-XML inventory.",
+  "source_head": "b5291c3d9cc7e6fd8fef455120329d00a46a6156",
+  "source_tree": "eaace4b020c5513080df7da77ff70abe87a357d1",
+  "status": "FROZEN_SOURCE_RESEARCH_PROPOSAL_FOR_INDEPENDENT_REVIEW"
+}
