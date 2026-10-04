@@ -575,3 +575,18 @@ A shared Controller input preflight prepares the actual fixed PUT without a gran
 ledger mutation or provider request. Parent starts a new window only after it passes.
 No old origin rewrite, chmod, grant revival, replay or source promotion follows.
 See readiness/2026-10-03/run02_evidence_layout_handoff.md.
+
+## Isolated residual five-source scope review — 2026-10-04
+
+Exact resource conditions can remain held after a creator repair because each
+interpretation manifest has finite membership. Five explicit publication/data
+cases now have a separately pinned REVIEWER_RECONCILED profile; restoration stays
+USER_ATTESTED. Keep each historical review block and timestamp when extending a
+profile, rather than treating a newer review as a rewrite of earlier evidence.
+The additive561 manifest duplicates its predecessor, matching the existing audit
+format; a future composition refactor must preserve byte-pinned review history,
+source bindings and fail-closed withdrawal before replacing this approach.
+FGDC4063 still needs its own password-target evidence. The other25 unresolved
+creators need actual same-work credits; contact/host inference cannot repair them.
+See readiness/2026-10-04/residual_source5_handoff.md. All counts are proposed until
+the designated sole integration owner applies and validates the isolated patch.

@@ -490,3 +490,9 @@ This local cohort has not been pushed or used for a provider operation.
 - [x] Replace broad provenance-tree selection with sealed exact manifest plus whole actual evidence subtrees. Preserve private leaves, canonical ancestry, hashes, no links/overlap and all prior counters.
 - [x] Complete read-only full-input preflight plus real Controller/Session prepared-send fixture,422 guarded tests and12 independent contracts in the same repair PR; merge the exact reviewed/tested tree through PR22 at f3184eca00656118746c3f92a171bb8f26c4c45f.
 - [ ] Parent receives sole executor's successful offline preflight receipt before beginning another bounded execution window. No root/provider requests; historical197 unchanged.
+
+## Isolated residual source lane — 2026-10-04
+
+- [x] Reconcile fetched ecfba4e, frozen source ledger and prior proposals; preserve integration ownership and exclude740/815/851/879/885/887. Independently review25 unresolved creators without inferred attribution.
+- [x] Implement and validate five exact resource-condition interpretations for1257/1258/1262/1273/4064; retain4063 without a demonstrated password target. Preserve USER_ATTESTED restoration, original821 evidence and all original XML.
+- [x] Freeze461 guarded tests, measured six-source before/after/repeat/withdrawal, independently reviewed proposed3643/557/6 counts and an isolated commit/patch for the sole integration owner. No main push, PR, merge or provider action. Evidence: readiness/2026-10-04/residual_source5_handoff.md.

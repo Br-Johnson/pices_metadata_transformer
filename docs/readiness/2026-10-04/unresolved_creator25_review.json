@@ -1,0 +1,779 @@
+{
+  "checks": {
+    "all_original_hashes_match_prior_exact_bindings": true,
+    "disjoint_from_earlier_proposals_and_other_owner_records": true,
+    "no_credit_mapping_invented": true,
+    "no_unresolved_ids_in_installed_citation_credit_manifest": true,
+    "original_XML_unchanged": true
+  },
+  "classes": {
+    "address_not_creator": {
+      "members": [
+        "FGDC-10"
+      ],
+      "question": "Supply the exact same-work publication byline or authoritative catalogue author credit for the Part 2 Phoxocephalidae work. The literal street address and Jarrett point/distributor contact cannot establish the full author list; Jarrett and Bousfield 1994 in the abstract describes the other Metharpiniinae study."
+    },
+    "atlas_country_only": {
+      "members": [
+        "FGDC-2552"
+      ],
+      "question": "Which named institution or people are explicitly credited for the cited Morskoi Atlas volume/edition? Supply the relevant title-page or authoritative catalogue credit; USSR and the library holding are insufficient."
+    },
+    "chart_publication_direction_only": {
+      "members": [
+        "FGDC-2586"
+      ],
+      "question": "Who is explicitly credited for Normal pressure altitude charts for the Northern Hemisphere? Supply the actual named author/producer/publisher role from its title page or catalogue; publication direction by the Chief of Naval Operations alone does not establish a creator."
+    },
+    "empty_origin_access_service_only": {
+      "members": [
+        "FGDC-3683",
+        "FGDC-3919",
+        "FGDC-3920",
+        "FGDC-3951",
+        "FGDC-3952",
+        "FGDC-3953",
+        "FGDC-3954",
+        "FGDC-3956",
+        "FGDC-3957",
+        "FGDC-3961",
+        "FGDC-3966",
+        "FGDC-3967",
+        "FGDC-3968",
+        "FGDC-3969",
+        "FGDC-3975",
+        "FGDC-3976",
+        "FGDC-3977",
+        "FGDC-3978"
+      ],
+      "question": "For each exact NEAR-GOOS data product, supply an explicit credited producer/analyzer/creator, or explicit authorship of this XML. Database availability, GTS transmission, project service, and named metadata/point/distributor contacts do not establish it. A single crosswalk is useful only if it explicitly binds each product and credited role."
+    },
+    "journal_venue_not_creator": {
+      "members": [
+        "FGDC-1206",
+        "FGDC-1314",
+        "FGDC-2664",
+        "FGDC-2817"
+      ],
+      "question": "Supply an exact same-work article byline or authoritative bibliographic author list, including author order. The journal/venue literal and named point/distributor contacts do not establish authorship."
+    }
+  },
+  "instructions": {
+    "AGENTS_md_read": true,
+    "checkout_agents_directory_exists": false,
+    "workspace_skills_directory_exists": false
+  },
+  "limits": [
+    "Current original source bytes and saved citation correction manifest checked; this source-only review does not rerun the full classification or claim current global counts.",
+    "Brett attestation retains USER_ATTESTED status and cannot provide missing creator identity.",
+    "No rights, dates, licenses, canonical identities, types or organization expansions proposed."
+  ],
+  "records": [
+    {
+      "abstract": [
+        "The systematics and distributional ecology of component members of phoxocephalidean amphipod subfamilies Parharpiniinae, Pontharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae in coastal waters of the Pacific coast of North America, from the Bering Sea to northern California, are analyzed. Of the 22 regional species here recorded, the 11 species (50%) are new to science: Pontharpiniinae: Mandibulophoxus mayi, new species; M. alaskensis, new species; Brolginae: Paraphoxus rugosus new species, P. pacificus, new species, P. communis, new species, P. gracilis, new species, and P. similis, new species; Phoxocephalinae: Parametaphoxus quaylei, new species; Harpiniinae: Pseudharpinia inexpectata, new species; Heterophoxus conlanae, new species, and H. ellisi, new species. Biogeographically, the subfamilies Parharpiniinae and Pontharpiniinae, dominant along temperate-tropical Indo-Pacific and antipodean shores, appear to be relict along northeastern Pacific shores. The Brolginae, common in protected coastal shallows of the northern and southern hemispheres, the Phoxocephalinae, world-wide mainly in deeper shelf waters, and the Harpiniinae, dominant on finer sediments and in deeper waters of the northern hemisphere, are well represented in the present study region. Within the present study region, the total number of species of these five subfamilies combined is slightly less than that of the single regional subfamily Metharpiniinae (Jarrett and Bousfield, 1994). The present species were also taken less abundantly at stations with sandy sedimentary bottoms. Such bias may reflect their overall preference for finer, softer sediments, at greater depths, habitats that were not extensively sampled in present surveys. Only a few species of these subfamilies, notably within the primitive sand-burrowing Pontharpiniinae, occur commonly intertidally."
+      ],
+      "classification": "address_not_creator",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        "83 Havelock St."
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator semantics are ambiguous"
+      ],
+      "purpose": [
+        "To report on the amphipod superfamily Phoxocephaloidea on the Pacific coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae, Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and distributional ecology"
+      ],
+      "source_bytes": 6005,
+      "source_id": "FGDC-10",
+      "source_sha256": "d6058b56805804d05348d45dd3e4686acc258dfc3495107b1d06cf345bbb592c",
+      "title": "The Amphipod Superfamily Phoxocephaloidea on the Pacific Coast of North America. Family Phoxocephalidae. Part 2. Subfamilies Pontharpiniinae, Parharpiniinae, Brolginae, Phoxocephalinae, and Harpiniinae. Systematics and Distributional Ecology"
+    },
+    {
+      "abstract": [
+        "Electronic microscope research of chum juveniles olfactory epithelium is conducted before and after effect of copper and zinc salts. Some singularities destruction and recovery of olfactory epithelium cells are circumscribed. Information about terms of regeneration of the cells separate types are adduced."
+      ],
+      "classification": "journal_venue_not_creator",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        "Journal of Cytology"
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator semantics are ambiguous"
+      ],
+      "purpose": [
+        "Research of influence of copper salts (concentration 30 mkg/l, 60 mkg/l, 190 mkg/l) and zinc (concentration 100 mkg/l) on olfactory epithelium juvenile of chum salmon."
+      ],
+      "source_bytes": 4548,
+      "source_id": "FGDC-1206",
+      "source_sha256": "cb5d88557bc7d5eb5c5d2b5e48411efab46c5be0977260dccda9162bf614c1a6",
+      "title": "Degenerative and Reduction Processes in Chum Juveniles Olfactory Epithelium (Oncorhynchus keta Walbaum: Salmoniformes) at Acute Effect of Copper and Zinc Salts"
+    },
+    {
+      "abstract": [
+        "Interaction between the organisms in the natural community and affects on this production capacity."
+      ],
+      "classification": "journal_venue_not_creator",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        "Journal Ontogenesis Vol 28, No 1, 1997, Russian Journal of Developmental Biology"
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator semantics are ambiguous"
+      ],
+      "purpose": [
+        "Study of hydrobionts biology in communities."
+      ],
+      "source_bytes": 4391,
+      "source_id": "FGDC-1314",
+      "source_sha256": "ae5faad99f4b0abedd01767ffba167cadbc0a8236598c4d39a5346226903ba8b",
+      "title": "Reproduction of Sea Urchins and Scallops in Coastal Communities Off the Sea of Japan"
+    },
+    {
+      "abstract": [
+        "The paper presents data showing the effect of mesoscale eddies on the distribution of phosphates, nitrates, ammonia nitrogen, organic phosphorus and nitrogen in the Bering Sea. An important role is played by powerful anticyclonic eddies along the edge of the continental slope. Water 'slips' over the slope sometimes down to depths of 600-1000 m and reaches the oxygen minimum layer. Under these conditions renewal of water in the oxygen minimum layer and upwelling of deep water in the adjacent cyclonic eddies take place. The new data call for revision of earlier ideas on the rate of vertical surface, intermediate and deep water exchange."
+      ],
+      "classification": "journal_venue_not_creator",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        "Okeanologiya. Moscow"
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator semantics are ambiguous"
+      ],
+      "purpose": [
+        "To show the effect of mesoscale anticyclonic eddies on the hydrochemical structure of the Bering Sea."
+      ],
+      "source_bytes": 4379,
+      "source_id": "FGDC-2664",
+      "source_sha256": "993fb2c2ae8a94b5a7a3e55b6bd344ea57753a4ffee2e4de45baf1b322a448b3",
+      "title": "Effect of Mesoscale Anticyclonic Eddies on the Hydrochemical Structure of the Bering Sea"
+    },
+    {
+      "abstract": [
+        "Urea determination data along 5 sections in the Bering Sea perpendicular to the coastline show that the distribution of urea is similar to that of ammonium nitrogen. Accumulation of urea and ammonium was generally observed under the thermocline but the absolute concentration of urea was slightly higher. With the total urea and ammonium content of 7-10 mu g-at N/l in the euphotic layer, 8-10g C/m super(2) organic matter per day may be produced in the process of photosynthesis due to nitrogen recycling."
+      ],
+      "classification": "journal_venue_not_creator",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        "Okeanologiya. Moscow"
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Metadata access terms need source-backed adjudication",
+        "Creator semantics are ambiguous"
+      ],
+      "purpose": [
+        "To report on the distribution patterns of urea in the Bering Sea and its role in the nitrogen cycle."
+      ],
+      "source_bytes": 4229,
+      "source_id": "FGDC-2817",
+      "source_sha256": "c18640475c937fa475ee45406d4a9cb1012ef8b96bb056f0b5435f995a13eb5c",
+      "title": "Distribution Patterns of Urea in the Bering Sea and its Role in the Nitrogen Cycle"
+    },
+    {
+      "abstract": [
+        "Publication Title: Morskoi Atlas = Marine atlas. Text in Russian. For full detailed English translation see 'An Evaluation of the \"Morskoi Atlas\" (With Translations from Volumes I and II)'. The Morskoi Atlas is devided into three parts: Volume I, navigation and geography; Volume II, physical geography; Volume III, military and political geography. Contains a comprehensive treatment of the marine environment of the earth. Contains sea charts and maps of important ports and naval bases, bathymetry, sea level, nature and velocity of currents, ice boundaries, ocean routes, national frontiers, earthquakes, volcanos, sediments, sea surface temperature, salinity, and density, range of tides, wind waves and swell, distribution of cetacea, sirenia, pinnipeds, ocean fishes, marine birds and algae, atmospheric pressure, cloudiness, fog, and storms."
+      ],
+      "classification": "atlas_country_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        "USSR"
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator semantics are ambiguous"
+      ],
+      "purpose": [
+        "A basic cartographic manual of ocean and seas. This publication is in the National Climatic Data Center's Foreign Data Library, and is one of many books, atlases, maps, charts and other printed materials received by the NCDC from many nations over the years."
+      ],
+      "source_bytes": 5331,
+      "source_id": "FGDC-2552",
+      "source_sha256": "b70b6e84d3b185b13451e8be125ba983d4c3c48df4c9b7d72463be2af781f511",
+      "title": "Seasonal and Annual Mean Maritime Surface Weather and Sea Data, and Seasonal Upper-level Winds and Temperature for the USSR (pub.1950)"
+    },
+    {
+      "abstract": [
+        "Publication Title: Normal pressure altitude charts for the Northern Hemisphere. Contains summarized monthly maps of normal pressure and altitude; includes charts of geometric heights for each month at 1000-foot intervals from sea level to 10,000 feet. Includes bibliographical references. Available from the NOAA Library System: URL http://www.lib.noaa.gov/."
+      ],
+      "classification": "chart_publication_direction_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        "Published by direction of the Chief of Naval Operations."
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator semantics are ambiguous"
+      ],
+      "purpose": [
+        "This publication is in the National Climatic Data Center's Foreign Data Library, and is one of many books, atlases, maps, charts and other printed materials received by the NCDC from many nations over the years."
+      ],
+      "source_bytes": 4446,
+      "source_id": "FGDC-2586",
+      "source_sha256": "01f654604ccd4e26e8d8dfbb64e4f9c8ee9350af954f4bd230396185f4cbf662",
+      "title": "Maps of Upper-Level Heights for the Northern Hemisphere"
+    },
+    {
+      "abstract": [
+        "Bathythermal data within the global ocean area Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4294,
+      "source_id": "FGDC-3683",
+      "source_sha256": "63ee9cc74618ccca30fcddb633bfeccaaf65809e6e1bd065f65998a934cdde20",
+      "title": "Global Bathy Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Bathythermal observation data collected via Global Telecommunication System (GTS) in the WMO international code FM63 BATHY. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Real Time Data Base (RRTDB) at http://goos.kishou.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4416,
+      "source_id": "FGDC-3919",
+      "source_sha256": "1d9f38fb6c83c2388b16075329009ec1c94ecc9ea46dfb64331f0d2313113c13",
+      "title": "GTS Bathythermal Observation Data in NEAR-GOOS Regional Real Time Data Base (RRTDB)"
+    },
+    {
+      "abstract": [
+        "Temperature, salinity and current data collected via Global Telecommunication System (GTS) in the WMO international code FM64 TESAC. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Real Time Data Base (RRTDB) at http://goos.kishou.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4377,
+      "source_id": "FGDC-3920",
+      "source_sha256": "025ac052acf7f239a996c8321d2a52f24687a28d03c66f7e462f9f8fac0bbda1",
+      "title": "GTS Oceanographic TESAC Data in NEAR-GOOS Regional Real Time Data Base (RRTDB)"
+    },
+    {
+      "abstract": [
+        "Subsurface temperature decode data from the NEAR-GOOS area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4461,
+      "source_id": "FGDC-3951",
+      "source_sha256": "e7a32206e486a6d2524921888e19074ce8e328e1ca5101e2e14e80bf72988ee5",
+      "title": "Subsurface Temperature Decode Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Subsurface temperature decode error result for the NEAR-GOOS area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4476,
+      "source_id": "FGDC-3952",
+      "source_sha256": "0d36dc527b4ad8448205c07faf65125fa7a251174b4c27239dbe29a48243ce6c",
+      "title": "Subsurface Temperature Decode Error Report in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Global sea and sub surface temperature and salinity decode result. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4372,
+      "source_id": "FGDC-3953",
+      "source_sha256": "3a6d35878b8f35f0db0c709fea2b37b77e13a5663097affe07642eaa989bb2ac",
+      "title": "Global Sea and Sub Surface Temperature and Salinity Decode in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Monthly mean subsurface temperature at the depths of 100m,200m and 400m in seas around Japan. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4398,
+      "source_id": "FGDC-3954",
+      "source_sha256": "ba542626eadbdef783ea2734c2d24a8d8fbd7214560685b167c3325aa2e7138a",
+      "title": "Subsurface Temperature in Seas Around Japan in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Monthly mean subsurface temperatures at the depths of 100m, 200m and 400m in the Pacific Ocean. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4359,
+      "source_id": "FGDC-3956",
+      "source_sha256": "26275a9ad96548bb074b3b4459a316ddbafc0c9c4de874e5f279cc4909f12dce",
+      "title": "Pacific Subsurface Temperatures in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "10-day mean sea surface temperatures.in the western north Pacific Ocean. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4420,
+      "source_id": "FGDC-3957",
+      "source_sha256": "24a9c5a5fc0bed2781141c6735343667edcae1b99b01bbebee3f459778622d33",
+      "title": "Western North Pacific Sea Surface Temperatures in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Daily analyses of sea ice concentration in the north-east Asian marginal seas for 0.05 degree latitudinal and longitudinal squares between 35°N and 65°N from 115°E to 165°E during the sea ice season from December through May next year. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4654,
+      "source_id": "FGDC-3961",
+      "source_sha256": "824fdfd27b57d1be4d7a14731d52963568795ebbdb8205b181ceef0e2eb6967d",
+      "title": "Sea Ice Concentration in the Northeast Asian Marginal Seas in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Wind decode result from the NEAR-GOOS region. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4318,
+      "source_id": "FGDC-3966",
+      "source_sha256": "05679bc5934eacc9e8fb781c777c879a07887afbd02e757a8c394f4846a6cc07",
+      "title": "Wind Decode Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Wind decode error result. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4306,
+      "source_id": "FGDC-3967",
+      "source_sha256": "80234c29ec0d251f055a2316a038daf4f1f005d90bdbb7b19e90a0317b947f77",
+      "title": "Wind Decode Error Report in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Wind decode result (format ver.2.0). Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4323,
+      "source_id": "FGDC-3968",
+      "source_sha256": "e9680a57712405e0df4486f4507a10f9357b8b33af0f06ffeee7b38f08c697d2",
+      "title": "Wind Decode Format Version 2.0 in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Global wind decode result. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4268,
+      "source_id": "FGDC-3969",
+      "source_sha256": "9bae14e8ac15ad1001fc0a21c6aa93b8f2d8ba36eb911995a95b292c90ac505f",
+      "title": "Global Wind Decode in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Global buoy data within the global ocean area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4285,
+      "source_id": "FGDC-3975",
+      "source_sha256": "b3897a8af8dfb943db7dceaf4d2f094bda9244540d0bdf03cdbda420a12ac83e",
+      "title": "Global Buoy Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Global ship data within the global ocean area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4250,
+      "source_id": "FGDC-3976",
+      "source_sha256": "4044ca27fe2e57c8269d670caa940353c623866a8d4006234d30c677490f5a04",
+      "title": "Global Ship Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Global TESAC (temperature, salinity and current report from a sea station) data within the global ocean area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4448,
+      "source_id": "FGDC-3977",
+      "source_sha256": "1401dd05edb925db35b070ece055de3d22993b2972a7c73887730aa450be89c8",
+      "title": "Global TESAC Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    },
+    {
+      "abstract": [
+        "Global TRACKOB (report of marine surface observation along a ship's track) data within the global ocean area. Data sets may be obtained directly from the North-East Asian Regional - Global Ocean Observing System (NEAR-GOOS) Regional Delayed Mode Data Base (RDMDB) at http://near-goos1.jodc.go.jp/ with a user account. First time users must register to gain database access."
+      ],
+      "classification": "empty_origin_access_service_only",
+      "decision": "retain_creator_hold_no_supported_new_correction",
+      "explicit_credit_fields_absent": [
+        "idinfo/citation/citeinfo/pubinfo",
+        "idinfo/descript/supplinf",
+        "idinfo/datacred",
+        "dataqual/lineage"
+      ],
+      "origin_literals": [
+        ""
+      ],
+      "prior_exact_binding_hold_reasons": [
+        "Creator 1 has empty name",
+        "Invalid transformed metadata: Creator 1 has empty name"
+      ],
+      "purpose": [
+        "To offer basic data service to NEAR-GOOS and GOOS communities as part of the NEAR-GOOS project."
+      ],
+      "source_bytes": 4373,
+      "source_id": "FGDC-3978",
+      "source_sha256": "e38dc63f5d3195c4870739aaa6ea50e85785c059adcc5550be36b58064e9ccba",
+      "title": "Global TRACKOB Data in NEAR-GOOS Regional Delayed Mode Data Base (RDMDB)"
+    }
+  ],
+  "saved_evidence_reconciled": [
+    {
+      "path": "docs/readiness/2026-10-03/remaining_source_questions_732.json",
+      "sha256": "3baf322609cc02657f400067aff4731656c110eb10bc55fc14af6bcc16b75892"
+    },
+    {
+      "path": "docs/readiness/2026-10-03/remaining_attribution_title_proposals.json",
+      "sha256": "afc9240c5281e1fc208c43ba57c2631ec06afb7247d2ffd574ea4e53418dd2d8"
+    },
+    {
+      "path": "docs/readiness/2026-10-03/remaining_attribution_title_contexts.json",
+      "sha256": "fb4a9b19c4d6ce7da2870d7abb234dfae3eb9a5ed95d703d500dc4e262ac9f6b"
+    },
+    {
+      "path": "docs/readiness/2026-10-03/remaining_source_creator_evidence_review.json",
+      "sha256": "6d299fc87c815442a3720fb13fb4105fdda8eb5cadeb961150d84666d5324fe1"
+    },
+    {
+      "path": "docs/readiness/2026-10-03/source_citation_credits_409.json",
+      "sha256": "f58ae360f225e6c6a1b2c717e389c766d67883c3d6fbb598acd19caa13d5ca24"
+    }
+  ],
+  "schema_version": 1,
+  "scope": {
+    "full_corpus_reaudit_performed": false,
+    "full_counts_recomputed": false,
+    "network_requests": 0,
+    "original_hashes_verified": 25,
+    "proposed_eligibility_delta": 0,
+    "provider_requests": 0,
+    "runtime_or_source_edits": 0,
+    "source_records": 25,
+    "supported_new_corrections": 0,
+    "tests_run": 0
+  },
+  "source_head": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+  "status": "READ_ONLY_SOURCE_REVIEW_NO_RUNTIME_CHANGE"
+}

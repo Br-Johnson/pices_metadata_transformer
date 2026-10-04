@@ -75,6 +75,15 @@ ledger yield **3638 supported /562 held /six malformed**. All raw metadata/XML a
 456 alias/31 exception holds remain intact; new cases are REVIEWER_RECONCILED with
 restricted unlicensed XML and separate provider gates.
 
+The isolated [five-source residual correction](docs/readiness/2026-10-04/residual_source5_handoff.md)
+measures five further held→supported interpretations for source-publication
+acknowledgment and recent-data password conditions. Its **proposed, unintegrated**
+counts are **3643 supported /557 held /six malformed**, derived from the current
+3638/562/6 ledger and bounded validation. Original XML and complete metadata remain
+unchanged; separate restoration authority stays USER_ATTESTED. FGDC4063 remains
+held without its own password-target evidence. The sole integration owner must
+combine this disjoint profile with any concurrently prepared changes.
+
 The [exact22 forestry GIS cohort](docs/readiness/2026-10-03/cnf_copy_media_handoff.md)
 adds finite copy-media acquisition interpretations while preserving literal
 Unknown use, all raw metadata and original XML. Its measured22-source delta plus
