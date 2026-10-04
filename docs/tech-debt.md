@@ -1,3 +1,19 @@
+# Finite identical-pair representation — 2026-10-04
+
+The approved 228 pairs now have separate offline record targets retaining both
+original files, IDs and policies. Both members are assessed, and version-1
+singleton contracts and the frozen source ledger remain intact. Raw-byte equality
+supports a shared local object; it cannot establish a historical primary source
+or identify an existing provider record. Shared operation guards therefore refuse
+class/member routing through legacy singleton paths, including stale or projected
+registry/QA evidence. Dormant replacement helpers are retired.
+
+Production reconciliation and class-aware durable execution, readback, QA and
+release remain unimplemented. All 228 targets are explicitly upload-ineligible;
+there is no override receipt or flag. Future work must retain existing records and
+DOIs and both original artifacts. Source-only assessment stays available for
+remaining creator/date/access evidence. See [ADR 0003](adr/0003-finite-identical-xml-record-targets.md).
+
 # Finite source15 and current alias evidence — 2026-10-04
 
 Fifteen exact source corrections preserve every prior resource596, creator412

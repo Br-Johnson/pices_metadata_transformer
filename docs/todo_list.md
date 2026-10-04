@@ -1,10 +1,21 @@
+## Active increment: approved identical-pair record targets — 2026-10-04
+
+Source15 PR27 merged as `dc10c9955e0e28ac1069d8b50ad729e40a255697` after 497 guarded offline tests and current-head independent Codex review. Source counts: 3696 supported / 504 held / 6 malformed.
+
+- [x] Reconcile the merged source15 checkpoint and approved finite pair authority.
+- [x] Prepare one versioned local target per exact pair, preserving both IDs/files and all source conditions.
+- [x] Refuse class/member provider operations, legacy approvals and identity adoption at shared entry points.
+- [x] Measure five complete pairs and exact repeat, then all 228 classes; retain 204 supported/24 held classes, both 456 originals and 3,750 singleton projections. Unique targets: 3,900 supported / 72 held / 6 malformed, all class uploads blocked. Preserve the first smoke display-newline failure and its correction.
+- [ ] Complete independent current-head review and actual CI, then merge under standing authorization.
+- [ ] Later executor stage: reconcile existing production records/DOIs and review class execution support before any class upload.
+
 # Remaining evidence and finite editorial review — 2026-10-04
 
 - [x] Reconcile PR26 on main 05d699e: 3,681 supported / 519 held / six malformed; preserve every prior profile, source and status binding.
 - [x] Independently review and measure the finite FGDC-233 title against current complete metadata; preserve all 35 earlier title members and complete citation context.
 - [x] Review three exact institutional credits and eleven resource contexts; measure fifteen total promotions to 3,696/504/6 with twelve passing guarded contracts, all originals and 4,191 unselected rows preserved. Retain policy19/pending3 holds and separate further creator research.
 - [x] Measure and independently verify current semantic QA for all 228 content classes: 204 otherwise-supported and 24 with additional holds; all 456 files remain held. Preserve the first-run runtime-binding correction and exact-baseline rerun.
-- [ ] Complete bounded preservation/repeat/withdrawal checks, independent Codex review and actual current-head CI before merging one coherent PR.
+- [x] Complete bounded preservation/repeat/withdrawal checks and merge PR27 after independent current-head Codex review and 497 actual guarded CI tests.
 - Brett approved one restored record per identical pair, preserving both IDs/files/provenance and requiring existing production identity/DOI reconciliation before upload. Implement in a separate increment after this source PR merges; report source-file and record-target counts separately.
 - Existing backup/history gaps remain queued while independent archival leads are researched. Provider actions and transport changes are outside this increment.
 

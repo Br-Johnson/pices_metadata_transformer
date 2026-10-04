@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "object_kind": "original_fgdc_xml_content_class",
+  "identity_kind": "exact_xml_content_class",
+  "record_target_id": "sha256:0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+  "source_sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+  "source_ids": [
+    "FGDC-2953",
+    "FGDC-3181"
+  ],
+  "source_filenames": [
+    "FGDC-2953.xml",
+    "FGDC-3181.xml"
+  ],
+  "canonical_source_id": null,
+  "canonical_catalogue_record_id": null,
+  "canonical_provider_record_id": null,
+  "canonical_provider_doi": null,
+  "reviewed_at": "2026-10-04T19:13:20Z",
+  "representation_manifest_sha256": "9e45fc869b0fe03220b44734cf429129f78dc93eb9fd20bf9b802398b684dda6",
+  "identity_representation_status": "approved",
+  "production_reconciliation_status": "pending",
+  "execution_status": "class_execution_not_implemented",
+  "upload_eligible": false,
+  "remote_verified": false,
+  "publication_approved": false,
+  "members": [
+    {
+      "source_id": "FGDC-2953",
+      "source_filename": "FGDC-2953.xml",
+      "source_sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "payload_sha256": "ec926ed37d60284172dbf8729aa50552b0edbb077b664bdabdb5391643f057b6",
+      "policy_sha256": "4df11a60d7b666217ef5aaea11f0b3b8c5338381af63505aec3f09bcf28825ff",
+      "artifact_v1_sha256": "a50ba7ff0229ea8cc6ccf7dfe001ab58df9c06154f78044e2c35f269c6cdb6ca"
+    },
+    {
+      "source_id": "FGDC-3181",
+      "source_filename": "FGDC-3181.xml",
+      "source_sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+      "payload_sha256": "e4fa48fce38a737db2e48a8023fe12ae0aa59d6cf53c35ac61fbcbb0f69e18da",
+      "policy_sha256": "4df11a60d7b666217ef5aaea11f0b3b8c5338381af63505aec3f09bcf28825ff",
+      "artifact_v1_sha256": "3da940c26f3180000fab0e83faf970c0ee712e35c073eedbf0e333016872f08f"
+    }
+  ],
+  "member_assessments": [
+    {
+      "source_id": "FGDC-2953",
+      "source_semantic_status": "supported",
+      "hold_reasons": []
+    },
+    {
+      "source_id": "FGDC-3181",
+      "source_semantic_status": "supported",
+      "hold_reasons": []
+    }
+  ],
+  "common_source_metadata_sha256": "568017ef66e67149a7aa27e06b31530c3a144c8de03722230050516c8265ea73",
+  "member_set_sha256": "e26e6cc915159d2c725a0241a2a6532caefb5f89d9d830d142d642e92527952c",
+  "source_semantic_status": "supported",
+  "content_classification": {
+    "inventory_complete": true,
+    "reviewer": "Codex offline class assembly; not release authority",
+    "reviewed_at": "2026-10-04T19:13:20Z",
+    "rationale": "Two original descriptive XML files, each bound to its own source policy",
+    "files": [
+      {
+        "name": "FGDC-2953.xml",
+        "role": "descriptive_metadata",
+        "evidence": "Exact original XML bytes and validated member artifact policy"
+      },
+      {
+        "name": "FGDC-3181.xml",
+        "role": "descriptive_metadata",
+        "evidence": "Exact original XML bytes and validated member artifact policy"
+      }
+    ],
+    "content_status": "metadata_only"
+  },
+  "artifact_contract": {
+    "schema_version": 2,
+    "object_kind": "original_fgdc_xml_content_class",
+    "identity_kind": "exact_xml_content_class",
+    "record_target_id": "sha256:0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+    "representation_manifest_sha256": "9e45fc869b0fe03220b44734cf429129f78dc93eb9fd20bf9b802398b684dda6",
+    "members": [
+      {
+        "source_id": "FGDC-2953",
+        "source_filename": "FGDC-2953.xml",
+        "source_sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+        "payload_sha256": "ec926ed37d60284172dbf8729aa50552b0edbb077b664bdabdb5391643f057b6",
+        "policy_sha256": "4df11a60d7b666217ef5aaea11f0b3b8c5338381af63505aec3f09bcf28825ff",
+        "artifact_v1_sha256": "a50ba7ff0229ea8cc6ccf7dfe001ab58df9c06154f78044e2c35f269c6cdb6ca"
+      },
+      {
+        "source_id": "FGDC-3181",
+        "source_filename": "FGDC-3181.xml",
+        "source_sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+        "payload_sha256": "e4fa48fce38a737db2e48a8023fe12ae0aa59d6cf53c35ac61fbcbb0f69e18da",
+        "policy_sha256": "4df11a60d7b666217ef5aaea11f0b3b8c5338381af63505aec3f09bcf28825ff",
+        "artifact_v1_sha256": "3da940c26f3180000fab0e83faf970c0ee712e35c073eedbf0e333016872f08f"
+      }
+    ],
+    "member_set_sha256": "e26e6cc915159d2c725a0241a2a6532caefb5f89d9d830d142d642e92527952c",
+    "classification_sha256": "5a6d16b71b6b1f64e81bba3c3ab97c3dd43e513996b0d19fb661d561c12f9d34",
+    "files": [
+      {
+        "name": "FGDC-2953.xml",
+        "size": 5952,
+        "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+        "md5": "2ea5477b881411113cc17ae2b8b9ff10",
+        "role": "descriptive_metadata"
+      },
+      {
+        "name": "FGDC-3181.xml",
+        "size": 5952,
+        "sha256": "0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+        "md5": "2ea5477b881411113cc17ae2b8b9ff10",
+        "role": "descriptive_metadata"
+      }
+    ],
+    "sha256": "ccc6f25a4b4945384151d79df644d561058d933d3424e0f9bcae6e7a8f2d81c4"
+  },
+  "metadata": {
+    "title": "Prince William Sound Sea Otter Distribution in Respect to Population Growth and Habitat Type - FGDC XML metadata artifact",
+    "upload_type": "other",
+    "publication_date": "2004-07-23",
+    "creators": [
+      {
+        "name": "Exxon Valdez Oil Spill Trustee Council",
+        "type": "Organization"
+      },
+      {
+        "name": "Bodkin, James",
+        "affiliation": "U.S. Geological Survey, Anchorage, Alaska"
+      },
+      {
+        "name": "Dean, Thomas A.",
+        "affiliation": "Coastal Resources Associates, Inc., Carlsbad, California"
+      }
+    ],
+    "description": "This report references population abundance data of sea otters (Enhydra lutris) from Prince William Sound, Alaska. The aforementioned data are referenced in citation: Irons, D.B., D.R. Nysewander, and J.L. Trapp. 1988. Prince William Sound Sea Otter Distribution in Respect to Population Growth and Habitat Type. Unpublished Report, USFWS, Anchorage, Alaska. This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals). Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above. The ProCite database record number corresponds to the Excel Procite Number. Reference Procite #493 for this literature&#x27;s metadata. The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska. For a detailed description of the three databases and the project, see &quot;Bodkin, J. L., and T. Dean. 2003. Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.&quot; available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.\n\n<p>Deposited content: descriptive metadata only; underlying research data are not included.</p>",
+    "access_right": "restricted",
+    "license": "",
+    "keywords": [
+      "Mammals",
+      "Population Abundance",
+      "Sea Otters (Enhydra lutris)",
+      "Prince William Sound",
+      "North Pacific Ocean",
+      "pices-metadata-only"
+    ],
+    "notes": "Purpose: Part of the design effort of the \"Alternative Sampling Designs for Nearshore Monitoring\" (Gulf Ecosystem Monitoring and Research Project). Provides a comprehensive historical perspective of locations and types of past studies conducted in the nearshore marine communities within Gulf of Alaska in the form of a geographical information system database.\n\nStatus: Complete\n\nMaintenance frequency: Unknown\n\nAccess constraints: Contact Source.\n\nUse constraints: Contact Source.\n\nTemporal Information:\nCurrentness: Sample Date\n\nSpatial coverage: W-147.16, E-147.16, N60.67, S60.67\n\nDistribution liability: While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.\n\nFGDC metadata date: 20040723\nFGDC metadata contact: Kimberly Bahl\nFGDC metadata standard: Content Standards for Digital Geospatial Metadata (version: FGDC-STD-001-1998)\n\nCurator decision: {\"metadata\": {\"creators\": [{\"name\": \"Exxon Valdez Oil Spill Trustee Council\", \"type\": \"Organization\"}, {\"affiliation\": \"U.S. Geological Survey, Anchorage, Alaska\", \"name\": \"Bodkin, James\"}, {\"affiliation\": \"Coastal Resources Associates, Inc., Carlsbad, California\", \"name\": \"Dean, Thomas A.\"}], \"license\": \"\", \"publication_date\": \"20040723\"}}\nSource dataset citation originators are preserved for attribution; XML authorship is not independently established.\n\nRecord includes migrated FGDC metadata from the archived PICES GeoNetwork metadata catalogue; deposited research-data availability is classified separately.\n\nOriginal FGDC metadata (XML):\n\n```xml\n<metadata>\n  <idinfo>\n    <citation>\n      <citeinfo>\n        <origin>Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.</origin>\n        <pubdate>122003</pubdate>\n        <title>Prince William Sound Sea Otter Distribution in Respect to Population Growth and Habitat Type</title>\n      </citeinfo>\n    </citation>\n    <descript>\n      <abstract>This report references population abundance data of sea otters (Enhydra lutris) from Prince William Sound, Alaska.\n\n  The aforementioned data are referenced in citation: Irons, D.B., D.R. Nysewander, and J.L. Trapp.  1988.  Prince William Sound Sea Otter Distribution in Respect to Population Growth and Habitat Type.  Unpublished Report, USFWS, Anchorage, Alaska.\n\n  This literature was collected as part of a metadatabase that represents one or more nearshore resources (from physical attributes such as water and air, to birds and mammals).  Each entry is viewable in three formats, 1) a geospatial explicit format (ArcView 3.3) named GIS ArcView 3.3 Near GEM project, 2) a spreadsheet format (Excel 2002 and within ArcView) named GEM Nearshore Metadata Set, and 3) a ProCite database named GEM Nearshore Metadata References, which consists of references included in 1 and 2 above.  The ProCite database record number corresponds to the Excel Procite Number.  Reference Procite #493 for this literature's metadata.\n\n  The metadata are maintained in digital format (ArcView 3.3, Excel 2002, and Procite) and are available from the Alaska Science Center, USGS in Anchorage, Alaska.\n\n  For a detailed description of the three databases and the project, see \"Bodkin, J. L., and T. Dean.  2003.  Alternative Sampling Designs for Nearshore Monitoring (Gulf Ecosystem Monitoring and Research Project G-030687), US Geological Survey, Alaska Science Center, Anchorage, Alaska.\" available on-line at http://www.evostc.state.ak.us/pdf/GEM_final_reports/030687.pdf.</abstract>\n      <purpose>Part of the design effort of the \"Alternative Sampling Designs for Nearshore Monitoring\" (Gulf Ecosystem Monitoring and Research Project).  Provides a comprehensive historical perspective of locations and types of past studies conducted in the nearshore marine communities within Gulf of Alaska in the form of a geographical information system database.</purpose>\n    </descript>\n    <timeperd>\n      <timeinfo>\n        <mdattim>\n          <sngdate>\n            <caldate>Summers of 1984 through 1985.</caldate>\n          </sngdate>\n        </mdattim>\n      </timeinfo>\n      <current>Sample Date</current>\n    </timeperd>\n    <status>\n      <progress>Complete</progress>\n      <update>Unknown</update>\n    </status>\n    <spdom>\n      <bounding>\n        <westbc>-147.16</westbc>\n        <eastbc>-147.16</eastbc>\n        <northbc>60.67</northbc>\n        <southbc>60.67</southbc>\n      </bounding>\n    </spdom>\n    <keywords>\n      <theme>\n        <themekt>North Pacific Ecosystem Metadatabase</themekt>\n        <themekey>Mammals</themekey>\n      </theme>\n      <theme>\n        <themekt>Other</themekt>\n        <themekey>Population Abundance</themekey>\n        <themekey>Sea Otters (Enhydra lutris)</themekey>\n        <themekey>Prince William Sound</themekey>\n        <themekey>North Pacific Ocean</themekey>\n      </theme>\n    </keywords>\n    <accconst>Contact Source.</accconst>\n    <useconst>Contact Source.</useconst>\n    <ptcontac>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bodkin, James L.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3550</cntvoice>\n        <cntfax />\n        <cntemail>james_bodkin@usgs.gov</cntemail>\n      </cntinfo>\n    </ptcontac>\n  </idinfo>\n  <distinfo>\n    <distrib>\n      <cntinfo>\n        <cntperp>\n          <cntper>Bodkin, James L.</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>1011 East Tudor Road</address>\n          <city>Anchorage</city>\n          <state>AK</state>\n          <postal>99503</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>907-786-3550</cntvoice>\n        <cntfax />\n        <cntemail>james_bodkin@usgs.gov</cntemail>\n      </cntinfo>\n    </distrib>\n    <distliab>While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty.</distliab>\n  </distinfo>\n  <metainfo>\n    <metd>20040723</metd>\n    <metc>\n      <cntinfo>\n        <cntperp>\n          <cntper>Kimberly Bahl</cntper>\n        </cntperp>\n        <cntaddr>\n          <addrtype>Mailing and Physical Address</addrtype>\n          <address>NOAA / AFSC / PMEL, 7600 Sand Point Way N.E.</address>\n          <city>Seattle</city>\n          <state>WA</state>\n          <postal>98115</postal>\n          <country>USA</country>\n        </cntaddr>\n        <cntvoice>206-526-4314</cntvoice>\n        <cntfax>206-526-6485</cntfax>\n        <cntemail>kimberly.bahl@noaa.gov</cntemail>\n      </cntinfo>\n    </metc>\n    <metstdn>Content Standards for Digital Geospatial Metadata</metstdn>\n    <metstdv>FGDC-STD-001-1998</metstdv>\n    <metac>Contact Source.</metac>\n    <metuc>Contact Source.</metuc>\n  </metainfo>\n</metadata>\n```\n\nOriginal XML content class: sha256:0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025. Both original source identities/files are retained: FGDC-2953.xml, FGDC-3181.xml. The preserved XML text applies to both byte-identical originals; no historical canonical source filename is selected. Underlying research data are not included. Class artifact contract SHA-256: ccc6f25a4b4945384151d79df644d561058d933d3424e0f9bcae6e7a8f2d81c4",
+    "related_identifiers": [],
+    "contributors": [
+      {
+        "name": "Bodkin, James L.",
+        "type": "ContactPerson"
+      },
+      {
+        "name": "Bodkin, James L.",
+        "type": "Distributor"
+      },
+      {
+        "name": "North Pacific Marine Science Organization (PICES)",
+        "type": "Distributor"
+      }
+    ],
+    "references": [],
+    "communities": [],
+    "subjects": [
+      {
+        "term": "Mammals",
+        "identifier": "North Pacific Ecosystem Metadatabase:Mammals",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Population Abundance",
+        "identifier": "North Pacific Ecosystem Metadatabase:Population Abundance",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Sea Otters (Enhydra lutris)",
+        "identifier": "North Pacific Ecosystem Metadatabase:Sea Otters (Enhydra lutris)",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "Prince William Sound",
+        "identifier": "North Pacific Ecosystem Metadatabase:Prince William Sound",
+        "scheme": "thesaurus"
+      },
+      {
+        "term": "North Pacific Ocean",
+        "identifier": "North Pacific Ecosystem Metadatabase:North Pacific Ocean",
+        "scheme": "thesaurus"
+      }
+    ],
+    "publisher": "North Pacific Marine Science Organization",
+    "access_conditions": "Descriptive metadata are publicly readable. Original XML files remain restricted while reuse rights are unresolved. Permission to rehost is USER_ATTESTED; no new license grant is asserted."
+  },
+  "metadata_sha256": "884de75c02c3d3c7ca4152ad257d5b7acade51f827968704221a1a72474960ae"
+}

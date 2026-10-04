@@ -10,11 +10,14 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from scripts.path_config import OutputPaths
+from scripts.content_class_targets import require_singleton_operation
 from scripts.artifact_contract import prepare_artifact, validate_files
 from scripts.upload_service import validate_deposition_response, validate_registry_identities, atomic_json, expected_host, ledger_lock, metadata_hash, prepare_metadata, read_json
 
 
 def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
+    require_singleton_operation(source_id=fgdc_id, entry=snapshot,
+                                json_file=Path(paths.zenodo_json_dir) / (fgdc_id + '.json'), paths=paths)
     if not reviewer or not rationale or snapshot.get('confirmed_fgdc_id') != fgdc_id:
         raise ValueError('Explicit reviewer, rationale and confirmed source identity required')
     endpoint = urlparse(snapshot.get('endpoint', ''))
@@ -40,6 +43,7 @@ def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
     with ledger_lock(paths):
         registry = read_json(paths.uploads_registry_path, {})
         existing = registry.get(fgdc_id, {})
+        require_singleton_operation(source_id=fgdc_id, entry=existing, json_file=json_file, paths=paths)
         if existing.get('deposition_id') and existing['deposition_id'] != record['id']:
             raise ValueError('Existing draft ID differs; resolve conflict manually')
         registry[fgdc_id] = dict(existing, environment=paths.environment,

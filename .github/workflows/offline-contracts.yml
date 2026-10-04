@@ -58,5 +58,8 @@ jobs:
           scripts/source_title_interpretation.py tests/test_residual_title233.py
           tests/test_sensitive_resource11.py tests/test_creator415_institution3.py
           docs/readiness/2026-10-04/validate_residual_evidence15.py
+          scripts/content_class_targets.py tests/test_content_class_targets.py
+          tests/test_content_class_guards.py tests/test_content_class_review_gaps.py
+          docs/readiness/2026-10-04/measure_alias228_targets.py
       - name: Run guarded offline contracts
         run: python -B ci/run_offline_tests.py

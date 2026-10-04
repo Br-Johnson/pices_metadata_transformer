@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from scripts.path_config import OutputPaths
+from scripts.content_class_targets import require_singleton_operation
 from scripts.upload_service import assert_environment, atomic_json, metadata_hash, prepare_metadata, read_json
 from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
 from scripts.rehosting_authority import validate_authority, validate_restricted_metadata
@@ -77,6 +78,7 @@ def prepare_manifest(paths):
     for fgdc_id, entry in sorted(registry.items()):
         if fgdc_id.startswith('_') or entry.get('upload_status') != 'success':
             continue
+        require_singleton_operation(source_id=fgdc_id, entry=entry, paths=paths)
         assert_environment(entry, paths.environment)
         metadata, source_path, source_hash = prepare_metadata(entry['json_file'], paths)
         artifact = prepare_artifact(read_json(entry['json_file']), source_path)
@@ -99,6 +101,7 @@ def prepare_manifest(paths):
 
 
 def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, remote_files=None):
+    require_singleton_operation(source_id=fgdc_id, entry=entry, paths=paths)
     assert_environment(entry, paths.environment)
     if (not manifest or manifest.get('schema_version') not in (1, 2)
             or manifest.get('environment') != paths.environment or not manifest.get('source_revision')):
@@ -107,6 +110,7 @@ def validate_approval(manifest, fgdc_id, entry, paths, remote_metadata=None, rem
     if len(matches) != 1:
         raise ValueError(f'{fgdc_id}: exactly one QA record required')
     record = matches[0]
+    require_singleton_operation(source_id=fgdc_id, entry=record)
     metadata, source_path, source_hash = prepare_metadata(entry['json_file'], paths)
     payload = read_json(entry['json_file'])
     artifact = prepare_artifact(payload, source_path)

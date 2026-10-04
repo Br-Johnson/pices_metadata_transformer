@@ -16,6 +16,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.content_class_targets import require_singleton_operation, preflight_registry
 from scripts.upload_service import validate_registry_identities, validate_deposition_response, assert_environment, atomic_json, ledger_lock, read_json
 from scripts.qa_manifest import validate_approval, validate_program_review
 from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
@@ -40,7 +41,13 @@ class RecordPublisher:
             raise ValueError('Sandbox canary ledgers cannot be published')
         self.logger = get_logger()
         
-        # Initialize Zenodo client
+        selected = None
+        if not sandbox:
+            selected = {row.get('fgdc_id') for row in self.qa_manifest.get('records', [])
+                        if row.get('qa', {}).get('approved') is True}
+            selected &= {row.get('fgdc_id') for row in self.release_manifest.get('records', [])}
+        preflight_registry(self.paths, read_json(self.paths.uploads_registry_path, {}), selected)
+        # Initialize Zenodo client only after selected-source preflight.
         self.client = create_zenodo_client(sandbox)
         
         # File paths
@@ -66,6 +73,7 @@ class RecordPublisher:
         entry = registry.get(fgdc_id)
         if not entry or entry.get('deposition_id') != deposition_id:
             raise ValueError('Upload ledger changed during publication')
+        require_singleton_operation(source_id=fgdc_id, entry=entry, paths=self.paths)
         entry['publish_status'] = 'published'
         entry['published_at'] = datetime.now().isoformat()
         entry['community_status'] = 'reported' if any(c.get('identifier') == 'pices' for c in communities) else 'unconfirmed'
@@ -161,6 +169,7 @@ class RecordPublisher:
     def _publish_single_record(self, upload):
         # Keep reconciliation/upload writers out of the entire approval-to-POST interval.
         try:
+            require_singleton_operation(entry=upload, paths=self.paths)
             with ledger_lock(self.paths):
                 registry = read_json(self.paths.uploads_registry_path, {})
                 if registry.get('_sandbox_canary'):
@@ -182,6 +191,7 @@ class RecordPublisher:
         json_file = upload.get('json_file')
         
         try:
+            require_singleton_operation(entry=upload, paths=self.paths)
             assert_environment(upload, self.paths.environment)
             fgdc_id = os.path.splitext(os.path.basename(json_file))[0]
             if not self.sandbox:
@@ -324,7 +334,21 @@ class RecordPublisher:
             }
     
     def _mark_as_metadata_only(self, deposition_id: int):
-        """Mark a deposition as metadata-only (no files)."""
+        """Legacy singleton-only metadata toggle; unknown identities cannot route here."""
+        registry = read_json(self.paths.uploads_registry_path, {})
+        matches = [(sid, entry) for sid, entry in registry.items()
+                   if not sid.startswith('_') and entry.get('deposition_id') == deposition_id]
+        if len(matches) != 1:
+            raise ValueError('Unique local singleton binding required before metadata toggle')
+        sid, entry = matches[0]
+        require_singleton_operation(source_id=sid, entry=entry, paths=self.paths)
+        assert_environment(entry, self.paths.environment)
+        metadata, source_path, source_hash = prepare_metadata(entry['json_file'], self.paths)
+        from scripts.upload_service import metadata_hash
+        if (source_hash != entry.get('source_sha256')
+                or metadata_hash(metadata) != entry.get('metadata_sha256')
+                or prepare_artifact(read_json(entry['json_file']), source_path) is not None):
+            raise ValueError('Current legacy singleton binding required before metadata toggle')
         try:
             # Get current metadata
             deposition = self.client.get_deposition(deposition_id)

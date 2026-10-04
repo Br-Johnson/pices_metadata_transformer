@@ -17,6 +17,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.logger import initialize_logger, get_logger
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.content_class_targets import require_singleton_operation
 
 
 class DuplicateChecker:
@@ -316,6 +317,10 @@ class DuplicateChecker:
         results = []
         
         for filename in filenames:
+            require_singleton_operation(source_id=filename,
+                                        entry=self.registry_entries.get(filename),
+                                        json_file=os.path.join('transformed', 'zenodo_json', filename + '.json'),
+                                        paths=self.paths)
             # Check if file is in local uploads
             in_local = filename in self.local_uploads
             
@@ -447,6 +452,13 @@ class DuplicateChecker:
         """Run comprehensive duplicate check."""
         self.logger.log_info("Starting comprehensive duplicate check...")
         
+        # Selected-source checks fail before inventory calls as well as title search.
+        if specific_files:
+            for filename in specific_files:
+                require_singleton_operation(source_id=filename,
+                                            entry=self.registry_entries.get(filename),
+                                            json_file=os.path.join('transformed', 'zenodo_json', filename + '.json'),
+                                            paths=self.paths)
         # Load all data
         self.load_local_uploads()
         self.load_zenodo_depositions()
@@ -558,6 +570,15 @@ def main():
     logger = get_logger()
     
     try:
+        specific_files = [f.strip() for f in args.check_files.split(',')] if args.check_files else None
+        if specific_files:
+            local_paths = OutputPaths(args.output_dir, 'sandbox' if sandbox else 'production')
+            from scripts.upload_service import read_json
+            local_registry = read_json(local_paths.uploads_registry_path, {})
+            for filename in specific_files:
+                require_singleton_operation(source_id=filename, entry=local_registry.get(filename),
+                                            json_file=os.path.join('transformed', 'zenodo_json', filename + '.json'),
+                                            paths=local_paths)
         # Create checker
         checker = DuplicateChecker(
             sandbox,

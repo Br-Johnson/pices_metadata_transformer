@@ -292,47 +292,10 @@ class ZenodoUploader:
             )
             return {}
 
-    def _maybe_replace_existing(self, base_name: str, title: str):
-        """Delete an existing sandbox deposition when replacement is requested."""
-        if not self.replace_duplicates:
-            return
-        if base_name in self._replacement_attempted:
-            return
-
-        entry = self.replacement_plan.get(base_name)
-        if not entry:
-            return
-
-        deposition_id = entry.get('existing_deposition_id')
-        if not deposition_id:
-            return
-
-        self.logger.log_info(
-            f"Replacing sandbox deposition {deposition_id} for {base_name} ({title or 'untitled'})"
-        )
-        try:
-            self.client.delete_deposition(deposition_id)
-            self.logger.log_info(f"Deleted existing deposition {deposition_id} prior to upload")
-        except ZenodoAPIError as exc:
-            self.logger.log_warning(
-                base_name,
-                "duplicate_replacement",
-                "deposition_delete_failed",
-                str(exc),
-                "Existing sandbox deposition removed before replacement upload",
-                suggestion="Delete the deposition manually in sandbox or ensure it is still in draft state",
-            )
-        except Exception as exc:  # noqa: BLE001
-            self.logger.log_warning(
-                base_name,
-                "duplicate_replacement",
-                "deposition_delete_unexpected_error",
-                str(exc),
-                "Existing sandbox deposition removed before replacement upload",
-                suggestion="Investigate sandbox API availability before retrying",
-            )
-
-        self._replacement_attempted.add(base_name)
+    def _maybe_replace_existing(self, base_name: str, title: Optional[str]) -> None:
+        """Automatic deletion/replacement remains retired, including direct calls."""
+        if self.replace_duplicates:
+            raise ValueError('Automatic replacement is retired; reconcile existing identities explicitly')
 
 
 def main():
@@ -387,6 +350,10 @@ def main():
     logger = get_logger()
 
     try:
+        selected_paths = OutputPaths(args.output, 'sandbox' if sandbox else 'production')
+        pending = DraftUploadService(selected_paths, 'sandbox' if sandbox else 'production').pending_files(args.limit)
+        if not pending:
+            raise ValueError('No eligible singleton inputs selected for upload')
         with create_zenodo_client(sandbox) as client:
             # Create uploader
             uploader = ZenodoUploader(sandbox, args.output, replace_duplicates=args.replace_duplicates)

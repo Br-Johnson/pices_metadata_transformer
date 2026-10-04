@@ -23,18 +23,19 @@ do not assert that CI passed.
 
 ## Latest finite source preparation
 
-The [combined seven-source correction](docs/readiness/2026-10-04/combined_source7_handoff.md)
-reconciles FGDC-885/887 and FGDC-1257/1258/1262/1273/4064. Select
-`docs/readiness/2026-10-04/finite_source_resource_access_563.json` with the existing
-`--dataset-access-interpretation-manifest` option and retain the other current
-source profiles, including `source_scope_reconciliation_904.json`. Both independent
-review blocks and their assessment times remain intact; earlier profiles remain
-accepted. The combined profile supersedes the separate 558/561 preparation choices.
+The [source15 handoff](docs/readiness/2026-10-04/residual_evidence15_handoff.md)
+records the current source profiles: resource access 607, citation credits 415,
+display titles 36, and the earlier complementary profiles. Its immutable source
+ledger contains **3,696 supported / 504 held / 6 malformed** original files.
+All 4,206 originals and earlier evidence remain preserved.
 
-Measured seven-record corrections plus frozen accounting yield **3,645 supported /
-555 held / 6 malformed**. All original XML, complete raw metadata, source conditions,
-restricted/unlicensed rights and 4,199 unselected statuses remain unchanged.
-Provider verification and publication require their separate evidence and gates.
+Brett separately approved one restored record per identical pair, retaining both
+source identities and files. The [class-target handoff](docs/readiness/2026-10-04/alias228_target_handoff.md)
+provides the finite offline representation for all 228 pairs and its guarded
+reproduction command. It creates a separate target view and version-2 two-file
+contracts. Legacy singleton operations refuse these pairs. Every class target
+remains upload-ineligible pending existing production record/DOI reconciliation
+and reviewed class execution support; source support is separate from release.
 
 ## 🏗️ Project Structure
 

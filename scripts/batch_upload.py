@@ -17,6 +17,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # ZenodoUploader functionality is now integrated into this script
 from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
 from scripts.path_config import OutputPaths, default_log_dir
+from scripts.content_class_targets import preflight_inputs
 from scripts.logger import get_logger
 from scripts.upload_service import DraftUploadService, atomic_json, read_json
 
@@ -113,30 +114,10 @@ class BatchUploader:
             return {}
 
     def _maybe_replace_existing(self, base_name: str, title: Optional[str], client) -> None:
-        """Delete an existing sandbox deposition when replacement is requested."""
-        if not self.replace_duplicates:
-            return
-        if base_name in self._replacement_attempted:
-            return
-        entry = self.replacement_plan.get(base_name)
-        if not entry:
-            return
+        """Automatic deletion/replacement remains retired, including direct calls."""
+        if self.replace_duplicates:
+            raise ValueError('Automatic replacement is retired; reconcile existing identities explicitly')
 
-        existing_id = entry.get('existing_deposition_id')
-        if not existing_id:
-            return
-
-        print(f"🗑️  Replacing existing sandbox record {existing_id} for {base_name} ({title or 'untitled'}).")
-        try:
-            client.delete_deposition(existing_id)
-            print(f"   ✅ Deleted existing deposition {existing_id} before upload.")
-        except ZenodoAPIError as exc:
-            print(f"   ⚠️  Unable to delete deposition {existing_id}: {exc}")
-        except Exception as exc:  # noqa: BLE001
-            print(f"   ⚠️  Unexpected issue deleting deposition {existing_id}: {exc}")
-
-        self._replacement_attempted.add(base_name)
-    
     def _signal_handler(self, signum, frame):
         """Handle shutdown signals gracefully."""
         print(f"\nReceived signal {signum}. Shutting down gracefully...")
@@ -149,6 +130,7 @@ class BatchUploader:
 
     def upload_batch(self, batch_files: List[str], batch_number: int) -> Dict[str, Any]:
         """Upload a single batch of files."""
+        preflight_inputs(self.paths, batch_files)
         print(f"\n=== BATCH {batch_number} ===")
         print(f"Uploading {len(batch_files)} files...")
         
