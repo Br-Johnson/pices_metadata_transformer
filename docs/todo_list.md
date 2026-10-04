@@ -1,3 +1,27 @@
+# Run02 response facts and root-cause reconciliation — 2026-10-04
+
+- [x] Correct the PUT2 interpretation: validation errors stopped before identity comparisons; observed_bytes is 3282, GET197 predates PUT2, publisher omission is verified and the second field remains unknown.
+- [x] Capture separate PUT/GET fixed containers, seven expected metadata/access comparisons, bounded safe error paths, observed/accepted warning flags and transport bytes/completeness/hash/vendor MIME before validation stops; return them on holds and clear stale GET diagnostics.
+- [x] Pass 68 affected guarded contracts and Astra ultra independent diagnostic/root-cause review; retain the earlier actual 445-test CI success at 66c5cb5 as historical evidence.
+- [ ] Verify actual final-head CI and anchored Codex review, then merge under standing authorization; the PR's checks/review timeline records the outcome.
+- [ ] Sole executor refreshes actual private staging/preflight for changed runtime bindings, preserving prior380-file/381-entry preflight evidence and all older stages; parent dispatches only after receipt reconciliation.
+- Current [response-update handoff](readiness/2026-10-03/run02_response_receipt_update_handoff.md) preserves the517-byte payload and existingPUT1/GET1 ceiling; successful metadata repair precedes a separately reviewed bounded DOI/file/readback/retry continuation. No dependent PR stack or provider action is created here.
+
+# Portable guarded CI in PR23 — 2026-10-04
+
+- [x] Add the portable dummy-credential/offline guard runner, policy contracts and secret-free standard Ubuntu workflow to the existing PR23; preserve every provider runtime/schema/payload binding.
+- Actual current-head run/check conclusions and substantive Codex review govern merge eligibility; local offline receipts are separate evidence. Complete verification and merge outcomes are recorded in the PR's GitHub checks/review timeline.
+- Parent reports actual private preflight at cd4f5e2 passed with zero provider requests. CI-only changes preserved its bindings; the later response runtime correction above now requires refreshed actual private preflight. No code change issues a provider grant.
+
+# Complete-schema same-draft repair — 2026-10-04
+
+- [x] Reconcile parent-reported HTTP200 PUT2 publisher/unknown validation errors, same-attempt missing-field/access flags, prepared494-byte proof, no followupGET, cumulativeGET197/PUT2/create1 and357 preserved entries. The second field and rawresponse remain unavailable; no request repeated.
+- [x] Pin official full modern record/definition schemas and service-required checks; validate all fictional writable fields locally. Add only documented publisher Zenodo to the synthetic projection; preserve original/source publishers.
+- [x] Reproduce official publisher and enabled-empty-file methods with dummy fixtures. Require a separately bound narrow missing-upload-warning policy after complete seven-field metadata/access/sameidentity/emptyfiles/absentDOI checks; generic controllers retain their error policy.
+- [x] Implement token-bound finite field-name diagnostics, a separate permanently bounded PUT1/GET1 ledger and complete357 expected-hash coverage with read-only preflight; no grants/provider operations by root.
+- [x] Pass436 guarded offline regressions, final14 affected tests,47 independent distinct contracts and isolated Ruff; freeze the reviewed runnable PR23 handoff. No configured CI run is claimed; the passing-CI automatic merge condition is not established.
+- [ ] Sole executor passes actual private offline preflight before parent binds any fresh <=600-second grant; execute once only under that dispatch.
+
 # Standing repository authorization — 2026-10-04
 
 - [x] Record Brett's authorization: merge PRs after passing CI and a Codex review of the current head without another approval; commit rules and documentation changes directly to main.

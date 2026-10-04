@@ -77,10 +77,12 @@ class DatasetAccessInterpretationTests(unittest.TestCase):
                     self.validate(reference=ref)
 
     def test_missing_stale_and_malformed_reference_rejected(self):
-        for ref in ({}, {**self.reference, 'manifest_path': '/missing'},
-                    {**self.reference, 'manifest_sha256': '0' * 64}):
-            with self.subTest(ref=ref), self.assertRaises(ValueError):
-                self.validate(reference=ref)
+        with tempfile.TemporaryDirectory() as tmp:
+            missing = str(Path(tmp) / 'missing-manifest.json')
+            for ref in ({}, {**self.reference, 'manifest_path': missing},
+                        {**self.reference, 'manifest_sha256': '0' * 64}):
+                with self.subTest(ref=ref), self.assertRaises(ValueError):
+                    self.validate(reference=ref)
 
     def prepared(self, tmp, enabled=True, authority=True, source_id='FGDC-3682'):
         from scripts.collection_qa import classify_collection

@@ -1,5 +1,59 @@
 # Tech Debt Log
 
+## Actual response facts before validation — 2026-10-04
+
+PUT2's nonempty errors stopped before identity comparisons; its phase label was
+not evidence of an identity mismatch. The observed body size is3282 bytes, and
+GET197 predates that PUT. Publisher omission is verified, but neither the
+unknown second error nor all-field absence is explained by publisher omission.
+The source-backed empty-file warning remains a hypothesis for the discarded label.
+PR23 now attaches fixed container types, seven expected-field/access comparisons,
+safe error paths and warning recognition/acceptance to each complete response
+before checks stop. Held output carries both PUT and GET observations; malformed
+or interrupted GET cannot inherit the validated PUT's latest flat diagnostic.
+The expected vendor MIME is recognized, and credential echoes suppress the
+body fingerprint/projections. The517-byte request and all action limits remain
+unchanged. Three runtime hashes change, so the prior380-file/381-entry private
+preflight must be preserved and refreshed against a new immutable stage binding.
+After metadata repair, a phase-specific DOI/file/readback/retry continuation and
+source-aware production adapter remain engineering work under existing authority.
+
+## Portable guarded CI — 2026-10-04
+
+PR23 originally had no workflow or automated check. The same PR now adds a
+standard public-repository Ubuntu job, immutable action pins, read-only token
+permissions and checkout without a persisted credential. The portable unittest
+runner clears its environment, uses dummy provider tokens, verifies installed
+guard probes, rejects unexpected transport/subprocess/private-file operations
+and allows writes only under its own temporary fixture root. Descriptor-relative
+mutations are resolved before policy checks. Source bindings are compared before
+and after all contracts. This prevents accidental I/O from the reviewed tests;
+it is not a sandbox for hostile code. Dependencies install before the guarded
+process, and no artifacts/caches or paid runner capacity are provisioned.
+Actual final-head Actions results and substantive Codex review are required before
+the standing merge rule applies. Provider runtime, schemas, packet and private
+preflight bindings remain unchanged by this CI implementation.
+
+## Complete modern schema and expected empty-file warning — 2026-10-04
+
+The prior six-field wire projection missed DataCite's semantic publisher
+requirement, which the generic storage schema leaves optional. The bounded
+synthetic repair now pins the full official record JSON schemas and adds all
+service-required and fixed-fixture checks, with no online reference resolution.
+The documented Zenodo host default applies only to the sealed fictional payload.
+Exact upstream method fixtures reproduce publisher and missing-upload errors.
+The latter can be accepted only by the separate metadata-stage ledger after all
+seven metadata fields, access, sealed identity, enabled-empty files and absent
+DOI pass, under an explicit warning-policy grant. Permission/toggle errors and
+every other validation error still hold. This is not publication readiness.
+PUT2's actual second label remains unknown; source reproduction does not recover
+it or explain the reported same-attempt missing metadata. A finite token-checked
+field-path projection now makes future genuine validation labels diagnosable
+without provider values/messages. All357 historical entries retain their previous
+expected hashes, GET197 remains a historical identity anchor, and both prior PUTs
+stay spent. Live service compatibility is still subject to sole-executor readback.
+See `readiness/2026-10-03/run02_complete_schema_repair_handoff.md`.
+
 ## Persistent repository authorization — 2026-10-04
 
 Older instructions required implementation confirmation and prohibited agents

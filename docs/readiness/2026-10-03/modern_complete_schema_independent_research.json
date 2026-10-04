@@ -1,0 +1,194 @@
+{
+  "activities": {
+    "actual_private_evidence_reads": false,
+    "credentials_environment_proxy_settings_inspection": false,
+    "full_classification_or_test_suite_runs": 0,
+    "provider_requests": 0,
+    "provider_writes": 0,
+    "public_primary_source_reads_and_two_public_raw_definition_downloads": true,
+    "repository_edits": false
+  },
+  "dummy_source_method_reproduction": {
+    "cases": 5,
+    "log": "/tmp/pices-modern-schema-component-repro.log",
+    "log_sha256": "c3af57db6c93115402d19a7acd6a3afa62be17d84433c57724b993ffb358f418",
+    "scope": "Exact upstream methods compiled from AST with dummy base/services under cleared env and socket/DNS blocks; no framework schema/service integration or live reproduction.",
+    "script": "/tmp/pices-modern-schema-component-repro.py",
+    "script_sha256": "f65670c39c03fea9cdb8a544dcccd307e15971fa0e439ba9c87117b0dee09884",
+    "status": "PASS"
+  },
+  "findings": [
+    {
+      "claim": "Publisher is required for Zenodo citation; Zenodo UI default is Zenodo.",
+      "official_docs": "https://help.zenodo.org/docs/deposit/describe-records/publisher/",
+      "scope": "Use literal publisher Zenodo for fixed fictional protocol fixture; not new PICES authorship/publisher inference or production mapping.",
+      "source": "https://github.com/zenodo/zenodo-rdm/blob/7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7/invenio.cfg#L881-L885"
+    },
+    {
+      "claim": "Generic metadata schema makes publisher optional; DataCite semantic validator still requires it even when no DOI identifier exists.",
+      "conclusion": "Publisher addition can satisfy this known semantic requirement without DOI reservation/allocation.",
+      "dispatch_source": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/pids/manager.py#L35-L48",
+      "source": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/pids/providers/datacite.py#L272-L306",
+      "test_source": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/tests/services/pids/providers/test_datacite_pid_provider.py#L220-L236"
+    },
+    {
+      "claim": "Enabled empty files emit files.enabled missing-upload warning during update_draft.",
+      "diagnostic_gap": "Existing whitelist lacks files.enabled and would project it as unknown.",
+      "live_second_error_identified": false,
+      "locked_sdist_local_lines": [
+        92,
+        151
+      ],
+      "same_field_other_causes": [
+        "permission to toggle file enabled flag denied",
+        "assign_files_enabled validation failure"
+      ],
+      "source": "https://github.com/inveniosoftware/invenio-drafts-resources/blob/v11.0.3/invenio_drafts_resources/services/records/components/base.py"
+    },
+    {
+      "claim": "Draft update commits valid input and returns component errors; successful status or component errors alone do not prove absent metadata/access.",
+      "current_absence_provenance": "Root reports same-PUT2 per-attempt sanitized diagnostics, not inferred from stale GET197. Reviewer has not inspected actual private response/diagnostic evidence.",
+      "locked_sdist_local_lines": [
+        275,
+        316
+      ],
+      "source": "https://github.com/inveniosoftware/invenio-drafts-resources/blob/v11.0.3/invenio_drafts_resources/services/records/service.py",
+      "valid_data_wrapper_local_lines": [
+        84,
+        103
+      ]
+    },
+    {
+      "additional_PID_semantic_required_field": "publisher",
+      "claim": "Official stored-record JSONSchema has no full top-level/metadata required list and is not equivalent to REST service semantics.",
+      "fixed_fixture_also_checks": [
+        "description",
+        "subjects",
+        "creator complete organizational object",
+        "exact namespace/title/date",
+        "record public/files restricted",
+        "files enabled and zero aggregate/entries",
+        "DOI absent"
+      ],
+      "required_service_fields": [
+        "resource_type",
+        "creators",
+        "title",
+        "publication_date"
+      ],
+      "scope": "Four local schemas plus explicit fixed-canary/service overlay; request-v1 reference remains unreachable only if overlay forbids review. No network schema resolver.",
+      "source": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/records/jsonschemas/records/record-v6.0.0.json",
+      "whole_record_ref_graph": [
+        "local://definitions-v1.0.0.json",
+        "local://definitions-v2.0.0.json",
+        "local://records/definitions-v2.0.0.json",
+        "local://requests/request-v1.0.0.json"
+      ]
+    }
+  ],
+  "narrow_empty_file_policy_assessment": {
+    "acceptable_errors": "Absent/empty errors, or exactly one files.enabled entry with exactly one fixed source missing-upload message.",
+    "does_not_authorize_execution_or_publish": true,
+    "fixed_upstream_messages": [
+      "Missing uploaded files. To disable files for this record please mark it as metadata-only.",
+      "Missing uploaded files."
+    ],
+    "not_generic_error_waiver": true,
+    "privacy": "Compare source-fixed messages in memory; persist only fixed diagnostic flags, never raw messages or arbitrary values.",
+    "reject": [
+      "additional errors/messages",
+      "permission/toggle errors",
+      "unknown fields",
+      "metadata/access/identity mismatch",
+      "disabled files",
+      "nonempty files",
+      "introduced PID/DOI"
+    ],
+    "required_before_acceptance": [
+      "same sealed ID/parent/owner/created/first unpublished draft/canonical links",
+      "full exact expected metadata including publisher",
+      "public record/restricted files access",
+      "enabled true, zero count/bytes, empty entries",
+      "DOI absent",
+      "bounded credential-free JSON and expected status"
+    ],
+    "status": "SOURCE_DEFENSIBLE_FOR_SEPARATELY_BOUND_FIXED_SYNTHETIC_STAGE_ONLY"
+  },
+  "pins": {
+    "Zenodo": "7111dde7d1ebf6f64bc695edf7ad8cce5bfa1ac7 (v26.6.1)",
+    "invenio_drafts_resources": "11.0.3; locked sdist SHA24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0",
+    "invenio_rdm_records": "35.2.0 feature/orcha d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+    "invenio_records_resources": "11.1.1 fix-read-many 12ca933194d9f5c4ea15eacc72ec220ee2cec197"
+  },
+  "remaining_limits": [
+    "Actual second live field remains unidentified without provider sanitized label; files.enabled is a primary-source-backed hypothesis.",
+    "Deployed Sandbox software/config version is not verified by pinned source.",
+    "Frozen implementation/tests/grant/handoff still require separate independent review; all old ledgers/counters/allowances remain spent."
+  ],
+  "reviewed_at": "2026-10-04T03:57:14.065395+00:00",
+  "reviewer": "/root/canary_review",
+  "schema_version": 1,
+  "source_files": {
+    "ServiceSchemaWrapper": {
+      "path": "/tmp/pices-modern-api-evidence-7111dde/resources/invenio_records_resources/services/records/schema.py",
+      "sha256": "eb9b80ee4dbe60fecee9fa470f4d15c1d70b77b97b04ec6943d2266bbc7d39a6"
+    },
+    "base_defs_v1": {
+      "path": "/tmp/pices-modern-schema-primary-12ca/definitions-v1.0.0.json",
+      "sha256": "eeb99397c4c4712990222c969b8f8a22566eecf32818434f32b1982ed5eaab74"
+    },
+    "base_defs_v2": {
+      "path": "/tmp/pices-modern-schema-primary-12ca/definitions-v2.0.0.json",
+      "sha256": "319e15bd15d15d7947c3298bee7c2db30f1b6c1de6e9500b869631b0828e13d6"
+    },
+    "draft_files_component": {
+      "path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/services/records/components/base.py",
+      "sha256": "7d7ff9d9fff566c28e1ad42cd129cb414484cea73c0ed8c6e129d73cc951ba97"
+    },
+    "draft_sdist": {
+      "path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources-11.0.3.tar.gz",
+      "sha256": "24a15474b83e171de7c63d01bfeae55af8162732b09d4186f9f88a5944ceb0b0"
+    },
+    "draft_service": {
+      "path": "/tmp/pices-modern-api-evidence-7111dde/invenio-drafts-resources/invenio_drafts_resources/services/records/service.py",
+      "sha256": "66cebef20154f1b5a180eb5faca38f1f2215e06c12085e9c86d2ca59bd139aff"
+    },
+    "rdm_DataCite_validator": {
+      "path": "/workspace/pices-schema-research-rdm/invenio_rdm_records/services/pids/providers/datacite.py",
+      "sha256": "ae3d745b0f5a8a8088f746989dda4bb6bb40c008863a73c947ab0f431419719a"
+    },
+    "rdm_PIDManager": {
+      "path": "/workspace/pices-schema-research-rdm/invenio_rdm_records/services/pids/manager.py",
+      "sha256": "5157d6893a5fdf3e3bf105c60cb3b8600aeb5fe5b47cf6f27e121d6389b14bbb"
+    },
+    "rdm_metadata_component": {
+      "path": "/workspace/pices-schema-research-rdm/invenio_rdm_records/services/components/metadata.py",
+      "sha256": "56a9e87265c1879fc6117a839d94f95fc74e86667a0d3558dc6850b4d4338c36"
+    },
+    "rdm_metadata_service_schema": {
+      "path": "/workspace/pices-schema-research-rdm/invenio_rdm_records/services/schemas/metadata.py",
+      "sha256": "01c3c04db0bbbc1a381e3b602415c98aabe496387fd47051a661c4d80a7c177d"
+    },
+    "rdm_record_defs_v2": {
+      "path": "/workspace/pices-schema-research-rdm/invenio_rdm_records/records/jsonschemas/records/definitions-v2.0.0.json",
+      "sha256": "09060efec922d22bee3103e6b259e11a3fc0c1bdfa8eafc3df6335aba0199865"
+    },
+    "rdm_record_v6": {
+      "path": "/workspace/pices-schema-research-rdm/invenio_rdm_records/records/jsonschemas/records/record-v6.0.0.json",
+      "sha256": "bf029b1a74d851ff9c5474a9a528a0c4a0530026abf1698caf67f8efe6b95b88"
+    },
+    "zenodo_UI_defaults": {
+      "path": "/workspace/pices-zenodo-api-research/invenio.cfg",
+      "sha256": "fac635e93d06c96aa340b52685354d7d871dcc8f22bfc4d7b09cbd41e4e8b3be"
+    },
+    "zenodo_minimal_record_fixture": {
+      "path": "/workspace/pices-zenodo-api-research/site/tests/conftest.py",
+      "sha256": "e6b359a9f74d7ccf62aa4566b0709a0510e55898dc8c224da769fe58da56ab25"
+    },
+    "zenodo_uv_lock": {
+      "path": "/workspace/pices-zenodo-api-research/uv.lock",
+      "sha256": "aa05d6aef7de46bae73d9eb342c53180b0143c331d51a5a92dde1341d933d84f"
+    }
+  },
+  "status": "SOURCE_RESEARCH_COMPLETE_IMPLEMENTATION_REVIEW_PENDING"
+}

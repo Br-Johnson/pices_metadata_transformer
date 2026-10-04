@@ -1,13 +1,12 @@
 """Offline correction cohorts compile to the existing, source-bound decisions."""
 import hashlib
+import io
 import json
-from copy import deepcopy
-import subprocess
-import sys
 import tempfile
 import unittest
+from contextlib import redirect_stderr
+from copy import deepcopy
 from pathlib import Path
-
 
 RAW = (b'<metadata><idinfo><citation><citeinfo><title>Example survey</title>'
        b'<origin>Example Marine Institute</origin><pubdate>20020101</pubdate>'
@@ -39,16 +38,27 @@ class CurationBatchTests(unittest.TestCase):
             'evidence': ['Source XML metainfo/metd: 20020430'],
         }
 
+    def run_cli(self, argv):
+        # Exercise the actual parser/main while inheriting the offline I/O guards.
+        from scripts.curation_batches import main
+        error = io.StringIO()
+        with redirect_stderr(error):
+            try:
+                code = main(argv)
+            except SystemExit as exc:
+                code = exc.code
+        return code, error.getvalue()
+
     def test_cli_compiles_exact_cohort_without_modifying_originals(self):
         manifest = self.root / 'batches.json'
         manifest.write_text(json.dumps({'schema_version': 1, 'batches': [self.batch]}))
         decisions = self.root / 'decisions.json'
         audit = self.root / 'audit.json'
-        result = subprocess.run([
-            sys.executable, '-m', 'scripts.curation_batches', '--sources', str(self.sources),
+        code, error = self.run_cli([
+            '--sources', str(self.sources),
             '--manifest', str(manifest), '--decisions-out', str(decisions),
-            '--audit-out', str(audit)], capture_output=True, text=True)
-        self.assertEqual(result.returncode, 0, result.stderr)
+            '--audit-out', str(audit)])
+        self.assertEqual(code, 0, error)
         compiled = json.loads(decisions.read_text())
         self.assertEqual(set(compiled), {'FGDC1', 'FGDC2'})
         for name in compiled:
@@ -189,11 +199,11 @@ class CurationBatchTests(unittest.TestCase):
             validate_outputs(decisions, self.sources)
         manifest = self.root / 'batches.json'
         manifest.write_text(json.dumps({'schema_version': 1, 'batches': [self.batch]}))
-        result = subprocess.run([sys.executable, '-m', 'scripts.curation_batches',
+        code, _ = self.run_cli([
             '--sources', str(self.sources), '--manifest', str(manifest),
             '--decisions-out', str(self.sources / 'FGDC1.xml'),
-            '--audit-out', str(self.root / 'audit.json')], capture_output=True, text=True)
-        self.assertNotEqual(result.returncode, 0)
+            '--audit-out', str(self.root / 'audit.json')])
+        self.assertNotEqual(code, 0)
         self.assertEqual((self.sources / 'FGDC1.xml').read_bytes(), RAW + b' ')
         self.assertFalse((self.root / 'audit.json').exists())
 
@@ -208,11 +218,10 @@ class CurationBatchTests(unittest.TestCase):
         os.link(self.sources / 'FGDC1.xml', target)
         manifest = self.root / 'batches.json'
         manifest.write_text(json.dumps({'schema_version': 1, 'batches': [self.batch]}))
-        result = subprocess.run([sys.executable, '-m', 'scripts.curation_batches',
+        code, _ = self.run_cli([
             '--sources', str(self.sources), '--manifest', str(manifest),
-            '--decisions-out', str(target), '--audit-out', str(self.root / 'audit.json')],
-            capture_output=True, text=True)
-        self.assertNotEqual(result.returncode, 0)
+            '--decisions-out', str(target), '--audit-out', str(self.root / 'audit.json')])
+        self.assertNotEqual(code, 0)
         self.assertEqual((self.sources / 'FGDC1.xml').read_bytes(), RAW)
 
     def test_structured_evidence_survives_and_inventory_is_deterministic(self):

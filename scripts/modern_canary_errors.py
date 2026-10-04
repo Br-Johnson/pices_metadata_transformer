@@ -19,21 +19,36 @@ VALIDATION_ERROR_FIELDS = (
     'metadata.publisher', 'metadata.description', 'access', 'access.files', 'files',
 )
 
+JSON_TYPES = {str: 'string', dict: 'object', list: 'array', int: 'integer',
+              float: 'number', bool: 'boolean', type(None): 'null'}
+RECORD_MIME = 'application/vnd.inveniordm.v1+json'
 
-def validation_errors_projection(data):
-    """Closed modern validation flags only, after caller checks credential echoes.
 
-    Messages and unknown field paths are never returned. A shape flag describes
-    the flat field-entry container only; this evidence never grants an action.
+def response_containers_projection(data):
+    """Distinguish absent and malformed fixed containers without retaining values."""
+    result = {'body_type': JSON_TYPES.get(type(data), 'other')}
+    for name in ('metadata', 'access', 'files', 'errors', 'pids', 'parent'):
+        present = isinstance(data, dict) and name in data
+        result[name + '_present'] = present
+        result[name + '_type'] = JSON_TYPES.get(type(data[name]), 'other') if present else 'missing'
+    return result
+
+
+def validation_errors_projection(data, token):
+    """Flags and bounded schema paths only; never messages or provider values.
+
+    The caller checks whole-body credential echoes first. Paths are checked
+    against credential variants before any length bound or truncation; unsafe
+    names are suppressed, rather than normalized into a different field.
     """
     present = isinstance(data, dict) and 'errors' in data
     errors = data.get('errors') if present else None
-    labels = {str: 'string', dict: 'object', list: 'array', int: 'integer',
-              bool: 'boolean', type(None): 'null'}
     result = {'errors_present': present,
-              'errors_type': labels.get(type(errors), 'other') if present else 'missing',
+              'errors_type': JSON_TYPES.get(type(errors), 'other') if present else 'missing',
               'errors_count': len(errors) if isinstance(errors, list) else None,
-              'errors_shape_supported': isinstance(errors, list), 'unknown_error_field_present': False}
+              'errors_shape_supported': isinstance(errors, list), 'unknown_error_field_present': False,
+              'error_fields': [], 'error_field_names_suppressed': False,
+              'error_field_names_truncated': False}
     result.update({name.replace('.', '_') + '_error_present': False for name in VALIDATION_ERROR_FIELDS})
     if isinstance(errors, list):
         for item in errors:
@@ -44,6 +59,24 @@ def validation_errors_projection(data):
                 result['unknown_error_field_present'] = True
             if not isinstance(item, dict) or not isinstance(field, str):
                 result['errors_shape_supported'] = False
+            # Modern paths use named components and bounded array indices.
+            # URLs, spaces, punctuation, controls and opaque strings cannot pass.
+            safe = (isinstance(field, str) and isinstance(token, str) and token
+                    and token.isascii() and len(field) <= 128
+                    and not any(secret in _normalized_error_text(field)
+                                for secret in _credential_variants(token)))
+            if safe:
+                safe = bool(re.fullmatch(
+                    r'[a-z_][a-z0-9_]{0,47}(?:\.[a-z_][a-z0-9_]{0,47}|\.[0-9]{1,4}|\[[0-9]{1,4}\]){0,11}', field))
+                safe = safe and not re.search(r'[A-Za-z0-9]{24,}', field)
+            if not safe:
+                result['error_field_names_suppressed'] = True
+            elif field not in result['error_fields']:
+                if len(result['error_fields']) < 16:
+                    result['error_fields'].append(field)
+                else:
+                    result['error_field_names_truncated'] = True
+        result['error_fields'].sort()
     return result
 
 
@@ -84,6 +117,12 @@ def _credential_variants(token):
     urlsafe = base64.urlsafe_b64encode(token.encode('ascii')).decode('ascii')
     return (token, quote(token, safe=''), html.escape(token), standard, urlsafe,
             standard.rstrip('='), urlsafe.rstrip('='))
+
+
+def body_credential_echoed(raw, data, token):
+    """Apply the existing credential variants to both bytes and decoded strings."""
+    return any(value.encode('ascii') in raw or credential_echoed(data, value)
+               for value in _credential_variants(token))
 
 class _HumanErrorText(HTMLParser):
     """Collect human heading/message text while excluding active markup content."""
@@ -153,12 +192,14 @@ def _safe_trace_headers(response, token):
             result[key] = value
     return result
 
-def response_projection(raw, response, method, token):
+def response_projection(raw, response, method, token, body_complete=True):
     """Retain selected redacted diagnostics; no other body, keys, values or headers."""
     status = response.status_code
     mime = response.headers.get('Content-Type', '').split(';', 1)[0].strip().lower()
     result = {'method': method, 'status': status if type(status) is int and 100 <= status <= 599 else None,
-              'content_type': mime if mime in ('application/json', 'text/html', 'text/plain', 'application/xml') else 'other',
+              'content_type': mime if mime in ('application/json', RECORD_MIME, 'text/html', 'text/plain', 'application/xml') else 'other',
+              'expected_record_mime': mime == RECORD_MIME,
+              'body_complete': body_complete, 'record_contract_diagnostics_available': False,
               'observed_bytes': len(raw), 'body_sha256': hashlib.sha256(raw).hexdigest()}
     data = None
     try:
@@ -170,7 +211,12 @@ def response_projection(raw, response, method, token):
         result['body_format'] = 'html' if b'<' in raw[:256] else 'other'
     text = raw.decode('utf-8', errors='replace').lower()
     result['error_categories'] = [phrase for phrase in ERROR_PHRASES if phrase in text] if result['status'] and result['status'] >= 400 else []
-    result['credential_echo_detected'] = token.encode('ascii') in raw or credential_echoed(data, token)
+    result['credential_echo_detected'] = body_credential_echoed(raw, data, token)
+    if result['credential_echo_detected']:
+        result['body_sha256'] = None
+    result['container_projection_available'] = body_complete and result['body_format'] == 'json' and not result['credential_echo_detected']
+    if result['container_projection_available']:
+        result['containers'] = response_containers_projection(data)
     if result['status'] and result['status'] >= 400:
         result['trace_identifiers'] = _safe_trace_headers(response, token)
         message, source = None, None

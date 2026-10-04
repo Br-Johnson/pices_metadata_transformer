@@ -1,0 +1,61 @@
+{
+  "additional_limits": {
+    "get": 1,
+    "metadata": 1
+  },
+  "all357_previous_evidence_expected_hashes_required": true,
+  "approved": false,
+  "create_pid_files_publish_delete_retry_reset_authorized": false,
+  "exact_missing_upload_warning_policy": {
+    "errors_max": 1,
+    "explicit_grant_flag": "allow_exact_missing_upload_warning",
+    "field": "files.enabled",
+    "field_name_alone_sufficient": false,
+    "full_metadata_access_identity_empty_files_absent_doi_required": true,
+    "messages_exact": [
+      "Missing uploaded files. To disable files for this record please mark it as metadata-only.",
+      "Missing uploaded files."
+    ],
+    "other_error_allowed": false,
+    "publication_ready": false
+  },
+  "executor": "01a0fed7-bf71-7384-95fd-3434599df03f",
+  "fresh_parent_window_seconds_max": 600,
+  "historical_get_intents": 197,
+  "kind": "controlled_same_run02_complete_schema_repair",
+  "maximum_cumulative_get_intents": 198,
+  "maximum_run02_metadata_put_intents": 3,
+  "namespace": "pices-modern-synthetic-20261003-code-02-schema-repair",
+  "offline_preflight_before_grant_required": true,
+  "old_grants_ledgers_counters_preserved": true,
+  "packet_sha256": "0f54838bf45ebecccaf575db4145c5a51cdd01507f0aaa6e9b418aadd786db13",
+  "parent_dispatch_required": true,
+  "per_request_wall_seconds_max": 20,
+  "prepared_put_bytes": 517,
+  "prepared_put_sha256": "71830ca80356953b8654dd0e589eeff15b1b46c08c313b98372936c85c09da7a",
+  "prior_run02_create_intents": 1,
+  "prior_run02_metadata_put_intents": 2,
+  "response_bytes_max": 65536,
+  "routes": [
+    {
+      "method": "PUT",
+      "path": "/api/records/{sealed_same_id}/draft",
+      "required_status": 200
+    },
+    {
+      "method": "GET",
+      "only_after_durable_validated_put": true,
+      "path": "/api/records/{sealed_same_id}/draft",
+      "required_status": 200
+    }
+  ],
+  "schema_files_sha256": {
+    "definitions-v1.0.0.json": "eeb99397c4c4712990222c969b8f8a22566eecf32818434f32b1982ed5eaab74",
+    "definitions-v2.0.0.json": "319e15bd15d15d7947c3298bee7c2db30f1b6c1de6e9500b869631b0828e13d6",
+    "record-definitions-v2.0.0.json": "09060efec922d22bee3103e6b259e11a3fc0c1bdfa8eafc3df6335aba0199865",
+    "record-v6.0.0.json": "bf029b1a74d851ff9c5474a9a528a0c4a0530026abf1698caf67f8efe6b95b88"
+  },
+  "schema_version": 1,
+  "source_record_publisher_inference_authorized": false,
+  "synthetic_publisher": "Zenodo"
+}

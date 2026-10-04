@@ -11,6 +11,16 @@ directly to `main`. The current [agent rules](AGENTS.md) supersede older reposit
 approval instructions retained in historical plans and handoffs. Provider action
 grants and production release requirements continue to apply independently.
 
+The [offline contracts workflow](.github/workflows/offline-contracts.yml) checks
+the exact PR head on a standard Ubuntu runner with read-only permissions and
+no provider secrets. Run its portable guard locally with
+`python -B ci/run_offline_tests.py`; optional `tests.test_…` module arguments select
+focused contracts. Test imports use a cleared environment and dummy credentials;
+network/subprocess/private-file guards allow writes only in temporary fixtures.
+The workflow runs all contracts and scoped lint. GitHub's actual run/check and
+current-head Codex review are the merge evidence; committed offline receipts alone
+do not assert that CI passed.
+
 ## 🏗️ Project Structure
 
 ```
@@ -48,6 +58,15 @@ pices_md_2/
 ```
 
 ## Production safety and review
+
+The [run02 response update](docs/readiness/2026-10-03/run02_response_receipt_update_handoff.md)
+corrects PUT2's receipt interpretation and captures distinct PUT/GET container,
+metadata/access, error-path, warning and transport facts before validation stops.
+It changes diagnostic runtime bindings while preserving the 517-byte payload and
+PUT1/GET1 limits. The sole executor must refresh actual private preflight for the
+final runtime before parent dispatch; the earlier successful preflight remains
+preserved. Successful metadata repair still leaves the DOI/file/readback/retry
+trial and source-aware production adapter to complete.
 
 The [exact42 resource reconciliation](docs/readiness/2026-10-03/resource_reconciliation_42_handoff.md)
 adds reviewed finite contexts to the compatible556 profile, preserving all514
@@ -101,6 +120,14 @@ contracts include complete 353-file staging, read-only controller preflight and
 prepared-send execution with mocked transport. The sole executor must complete
 the actual private offline preflight before the parent starts a fresh bounded
 action grant; no live provider result is claimed by these tests.
+Parent reports the controlled PUT2 exposed a publisher error and a discarded
+second label. The [complete-schema repair](docs/readiness/2026-10-03/run02_complete_schema_repair_handoff.md)
+validates every submitted fictional field locally, adds the documented host
+publisher only to that fixture, and preserves PUT2 and all selected historical entries.
+Its separate grant can accept only the exact upstream enabled-empty-file warning
+after full metadata/access/identity checks. Bounded field-name diagnostics make
+other validation errors readable without retaining messages or values. No source
+publisher or production release is inferred.
 The
 [exact821 source scope answer](docs/readiness/2026-10-03/source_scope_attestation.md)
 supports791 promotions while retaining30 independent holds.

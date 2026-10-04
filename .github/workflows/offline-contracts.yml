@@ -1,0 +1,49 @@
+name: Offline contracts
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pices-offline-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  offline-contracts:
+    name: Guarded offline contracts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PICES_EXPECTED_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+      PIP_CONFIG_FILE: /dev/null
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Check out exact head without a persisted credential
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - name: Verify checkout and install public dependencies
+        run: |
+          test "$(git rev-parse HEAD)" = "$PICES_EXPECTED_COMMIT"
+          python -m pip install --no-cache-dir -r requirements.txt ruff==0.16.10
+      - name: Lint repair and CI changes
+        run: >-
+          ruff check --isolated --select E4,E7,E9,F,I,B
+          ci/run_offline_tests.py tests/test_offline_ci.py tests/test_curation_batches.py
+          scripts/modern_canary_errors.py scripts/modern_synthetic_canary.py
+          scripts/modern_request_body_diagnostics.py scripts/modern_draft_schema.py
+          scripts/modern_run02_schema_repair.py tests/test_modern_canary_errors.py tests/test_modern_schema_repair.py
+      - name: Run guarded offline contracts
+        run: python -B ci/run_offline_tests.py
