@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "scope": "actual bounded selected-source delta; no fresh full-corpus audit",
+  "baseline_report_sha256": "0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708",
+  "limit": 2,
+  "selected_before": {
+    "supported": 0,
+    "held": 2,
+    "failed": 0
+  },
+  "selected_after": {
+    "supported": 2,
+    "held": 0,
+    "failed": 0
+  },
+  "baseline_counts": {
+    "supported": 3468,
+    "held": 732,
+    "malformed": 6
+  },
+  "prior22_delta_sha256": "f7c74308d39bed987971a9702e5095b5ecb1ec0944754c9a86e250f4dde50d1a",
+  "current_integrated_counts": {
+    "supported": 3638,
+    "held": 562,
+    "malformed": 6
+  },
+  "prior_integrated_ledger_sha256": "e9f248c1730aa59f4d89f9ddf66aedf05dd172c73dab190709ea3e8c6683b061",
+  "projected_counts_from_frozen_baseline_and_exact_delta": {
+    "supported": 3640,
+    "held": 560,
+    "malformed": 6
+  },
+  "all_other_source_memberships_unchanged_by_additive_profile": true,
+  "rows": [
+    {
+      "source_id": "FGDC-885",
+      "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488",
+      "baseline_payload_sha256": "f760a774ff2d7a013911f5207c9e4f95a07ccf35341684790c139856dc2f25c7",
+      "before_payload_sha256": "dd6316809ddb0b3a049a5b65e4fda0ed5a9a4bc75e18556b92c622a9f059b07c",
+      "after_payload_sha256": "e746a246d27ca7ff92407b9e6cb694278d76888390bf634e9335014828d5b673",
+      "raw_metadata_sha256": "456376ee58ee5e780347f964c438d4042a434aef940942241d4f1bb3878feaa4",
+      "only_added_policy_key": "dataset_access_interpretation",
+      "provenance": "REVIEWER_RECONCILED",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    },
+    {
+      "source_id": "FGDC-887",
+      "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582",
+      "baseline_payload_sha256": "795db08bbe1413f030a81f8820be00aa15c6f5e9769e9da153338ac34fc1100a",
+      "before_payload_sha256": "7e88860ac1d146d2789ac3cf2112146db99354b81df16e5b6e0b84b5da53109e",
+      "after_payload_sha256": "58b1fc3b852770025a3e63cb51390c09845bd210cb40d9c5167fca53ee5a81ce",
+      "raw_metadata_sha256": "94575ee0431a347f2d7e70c776575bfa06d9493081223afe3392185031a0a69b",
+      "only_added_policy_key": "dataset_access_interpretation",
+      "provenance": "REVIEWER_RECONCILED",
+      "before_status": "held",
+      "after_status": "supported",
+      "complete_raw_metadata_unchanged": true,
+      "original_and_copied_XML_unchanged": true
+    }
+  ],
+  "provider_requests": 0
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "status": "MEASURED_OFFLINE",
+  "scope": "Eight-source guarded before/after/repeat/withdrawal; frozen4206 ledger plus measured seven delta, not fresh full-corpus QA",
+  "reviewed_at": "2026-10-04T16:08:15.502671+00:00",
+  "base_main": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+  "prior_ledger_sha256": "e9f248c1730aa59f4d89f9ddf66aedf05dd172c73dab190709ea3e8c6683b061",
+  "profile_sha256": "7e9f66fc19968c3f2784ff0ea5ab6d1169c1bd165035e5612c78332567636224",
+  "current_counts_recounted": {
+    "supported": 3638,
+    "held": 562,
+    "failed": 6
+  },
+  "combined_counts_computed": {
+    "supported": 3645,
+    "held": 555,
+    "failed": 6
+  },
+  "combined_status_rows_sha256": "648074d12fb246a63cf3beb7febefdf3c009dd3fcbb92bf6aa9ee5e589ee1e76",
+  "measured_promotions": 7,
+  "all_unselected_status_objects_unchanged": true,
+  "unselected_status_objects": 4199,
+  "prior556_and_both_batch_member_context_review_objects_unchanged": true,
+  "all4206_original_xml_sha256_verified_before_and_after": true,
+  "original_xml_inventory_sha256": "66dbe250d3a91f0b377cdfc0a5054423516666d798273f1e30858a36f8f758a5",
+  "all456_alias_identities_and31_exceptions_still_held": true,
+  "resume_identical": true,
+  "withdrawal_restores_holds": true,
+  "provider_requests": 0,
+  "new_remote_verifications_or_publication_approvals": 0,
+  "rows": [
+    {
+      "source_id": "FGDC-1257",
+      "source_sha256": "343d0e1b6c7d96a3899dfe5173b84ce12f8a5174d77b7fbdf65a897a00416b42",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_canonical_sha256": "2ab0e1e50cc155acc01b87116cb97b109cc21cacc4c61eafac683799cc008240",
+      "after_payload_canonical_sha256": "573edc6876c3eb07769e1c70811f77dfa2dd81fa869a6b8c8c978e8457718fa7",
+      "unchanged_metadata_canonical_sha256": "61344dc12dd4d1131a210d8e1adb34e3ca3de949666c12e1eb3d55fee8effffe",
+      "complete_metadata_and_original_copied_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-1258",
+      "source_sha256": "fb72564a17bf0535a1cfeaab04dd92d674dcb164ce4d608cdd17c19a5b1bfac9",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_canonical_sha256": "ca193f0d8aa6eb43582b1396e6eb3a6c3133f108f566a7a69d9db70b0ede5106",
+      "after_payload_canonical_sha256": "bc450d56cf2ac4b6827b7e50659782841a63e367dbcd6cb95952c17ac2fb5705",
+      "unchanged_metadata_canonical_sha256": "947227ce35433dc9738c66696a4b1df16ba50cfc0a7b934f43e565b8e7f9f1ae",
+      "complete_metadata_and_original_copied_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-1262",
+      "source_sha256": "3b9761159b7036598d96e2fcee9651c8f1c32428840106c4edb5cf53483d93cc",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_canonical_sha256": "06f2fa902da52cac0b0c4bebeb6b2cc116b847e8ecd1f16765d617f24916c153",
+      "after_payload_canonical_sha256": "6a70e8ee0a4069b5c80bf165b0bc16f8f381c30a49f4409df84e8d5cc1e396a7",
+      "unchanged_metadata_canonical_sha256": "c10650ebdd8a1b3b3a10de32da4bef39d33f3b4542887d13b2a3f297c8abe30b",
+      "complete_metadata_and_original_copied_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-1273",
+      "source_sha256": "02957d0e04f214f4f02b72487d71923b613c01d81133967b17c2381626b1309a",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_canonical_sha256": "1caa2c78a8fb3462d74b03e1d7dbafcbccc3dfa24671085a300549e8794f8696",
+      "after_payload_canonical_sha256": "e9b9a55a238ab2b70bdcf62610f2d8a4aafbbd073f0e520308a04407f8565b46",
+      "unchanged_metadata_canonical_sha256": "8244b613ee521a9d3a53f26dbd1eb1aae23feca18a8a368b1f11482423bcf680",
+      "complete_metadata_and_original_copied_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-4063",
+      "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076",
+      "before_status": "held",
+      "after_status": "held",
+      "before_payload_canonical_sha256": "c20f57a6873d7c3b10450da73df73e5f8949e0add5cc45af5ee0bffd4cf02c3c",
+      "after_payload_canonical_sha256": "c20f57a6873d7c3b10450da73df73e5f8949e0add5cc45af5ee0bffd4cf02c3c",
+      "unchanged_metadata_canonical_sha256": "188a931fc14bb04dad0a7e2b23d33ddb00f47271de357bad21d0752423b4de9a",
+      "complete_metadata_and_original_copied_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-4064",
+      "source_sha256": "1b3891fe9136b5a95182c3e0b5a06929a7524870ba09479fd59c5148da26806c",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_canonical_sha256": "d7316b60c0bc9771b4e79a080c74d02f25ffca626e771142521142050a17a55d",
+      "after_payload_canonical_sha256": "2246ee0069b4cfd95f221780a287d3086deb0f2a779ec18c2bcccb826bb08caa",
+      "unchanged_metadata_canonical_sha256": "974791f4fa95f42748dcc8d3819481d112bdb9d362246bc6fdc53dfe350ae2d9",
+      "complete_metadata_and_original_copied_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-885",
+      "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_canonical_sha256": "0e60ec032c075d24602935e3e5807eb8adfa19b46861671712bb3d50186a4e27",
+      "after_payload_canonical_sha256": "bcd88c9660bf4d80cf10eb7b66ea3131bca8ae41b0fb6349f2daac6a3dddcda0",
+      "unchanged_metadata_canonical_sha256": "456376ee58ee5e780347f964c438d4042a434aef940942241d4f1bb3878feaa4",
+      "complete_metadata_and_original_copied_xml_unchanged": true
+    },
+    {
+      "source_id": "FGDC-887",
+      "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582",
+      "before_status": "held",
+      "after_status": "supported",
+      "before_payload_canonical_sha256": "085a3031ee7ceaa1c1042251cc9e6037e1d3ca7654c99be76d9d7f749d570beb",
+      "after_payload_canonical_sha256": "3de3daac3bc6fea6c8402a61f35dd345fe546b7dd39f50ed7f92ce397208f81c",
+      "unchanged_metadata_canonical_sha256": "94575ee0431a347f2d7e70c776575bfa06d9493081223afe3392185031a0a69b",
+      "complete_metadata_and_original_copied_xml_unchanged": true
+    }
+  ]
+}

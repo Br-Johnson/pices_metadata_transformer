@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "status": "SOURCE_REVIEW_CLEAR_FOR_ROOT_OWNED_FINITE_INTEGRATION_NOT_PROMOTED",
+  "evidence_type": "REVIEWER_RECONCILED",
+  "reviewer": "/root/astra_canary_root_cause",
+  "reviewed_at": "2026-10-04T06:38:08.497054+00:00",
+  "scope": "Independent full-source and provenance review of FGDC-885 and FGDC-887 only",
+  "reviewed_head": "0f95c6821218476457a7c362fa85bd2b76344682",
+  "reviewed_tree": "613afddb3a8c20f1db4b8bd60c646527260e40b0",
+  "tree_matches_local_main_object": "ecfba4ed3496c0a8d400eb2ace46800f0c166708",
+  "proposal_path": "/tmp/pices-npafc-report-notification2-proposals.json",
+  "proposal_sha256": "d68b56f27e2fa908a88d142d9690f3ef9f0ee40e3997476d478c457dbbc44459",
+  "members": [
+    {
+      "source_id": "FGDC-885",
+      "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+    },
+    {
+      "source_id": "FGDC-887",
+      "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+    }
+  ],
+  "source_findings": [
+    "Both complete XML roots contain descriptive cruise, methods, equipment, geographic and temporal information plus NPAFC report references. Neither contains station/catch measurement rows or the complete cited report. Scientific and geographic details are present and must be preserved.",
+    "FGDC-885 identifies NPAFC Doc.499 (18 pages), August 2000 research; FGDC-887 identifies NPAFC Doc.448 (22 pages), July and September 1999 research.",
+    "The exact access and notification constraints appear both in idinfo and metainfo. They do not expressly exempt XML. The bounded interpretation is reviewer reconciliation, supported by exact source content and separate existing metadata restoration authority.",
+    "Both exact source hashes are in the 4206 restoration authority. Neither is a direct member of the original821 question/answer scope or the earlier exact Contact Source / Contributor or Source cohorts. Contextual comparison must not expand those human answers.",
+    "Current committed source rows remain held, and the frozen source QA records identify only the two access-scope adjudication holds. Both have technical metadata pass and no exact-copy aliases. This review does not itself clear any hold."
+  ],
+  "verified_bindings": [
+    "Proposal member and acquisition-context digests; exactly two proposed members and zero prior556 overlap.",
+    "Both raw XML hashes, full root serialized contexts, context digests, all four exact singleton plain constraint elements and copied XML byte equality.",
+    "Both entire frozen payload file hashes, complete raw metadata object equality and before/proposed-after digests, notes/access-conditions hashes, restricted access, blank license and literal conditions retained.",
+    "Existing artifact-policy objects and creator-policy manifest hash; exact primary creators and roles retained, including FGDC-885 Jr./III and FGDC-887 G.M. Guthrie.",
+    "Current556 profile hash and member count556; all five original statement-reference rows copied verbatim and each referenced file hash verified.",
+    "Current committed ledger hash and exact held records, using its records array; initial reviewer lookup used a wrong collection key and was corrected, with both exact comparisons passing.",
+    "Frozen source QA classification hash 0ec37de02ea67af81d3b433a65e523c6c05f30220c667324e2fc3b6a367c8708 and selected rows; no fresh full-corpus classification performed."
+  ],
+  "row_bindings": [
+    {
+      "member": {
+        "source_id": "FGDC-885",
+        "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+      },
+      "complete_original_xml_context_sha256": "b7d55c2e4c4342160d7977d4eb0e5e273ea4e80a3ec609bbe4de0620cb1abb3a",
+      "baseline_payload_sha256": "f760a774ff2d7a013911f5207c9e4f95a07ccf35341684790c139856dc2f25c7",
+      "complete_raw_metadata_before_sha256": "456376ee58ee5e780347f964c438d4042a434aef940942241d4f1bb3878feaa4",
+      "complete_raw_metadata_proposed_after_sha256": "456376ee58ee5e780347f964c438d4042a434aef940942241d4f1bb3878feaa4",
+      "raw_notes_sha256": "69763010bf8e815a606423ed518165d55d68e9c1dce7d32d4be3add41a12c4b0",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a"
+    },
+    {
+      "member": {
+        "source_id": "FGDC-887",
+        "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+      },
+      "complete_original_xml_context_sha256": "463b272de8538c493a545103f8adf4a86ee0899f41710d5ea6a0232b454ac7df",
+      "baseline_payload_sha256": "795db08bbe1413f030a81f8820be00aa15c6f5e9769e9da153338ac34fc1100a",
+      "complete_raw_metadata_before_sha256": "94575ee0431a347f2d7e70c776575bfa06d9493081223afe3392185031a0a69b",
+      "complete_raw_metadata_proposed_after_sha256": "94575ee0431a347f2d7e70c776575bfa06d9493081223afe3392185031a0a69b",
+      "raw_notes_sha256": "df6240a1d708bad889252eab7231c85c10b007fd0b06ea42288429112db7a088",
+      "raw_access_conditions_sha256": "1ea3a8d792567f176c1ca890ef4f4aac20dd6c16bb8fa394d1b12e6c55ab573a"
+    }
+  ],
+  "original_statement_references": [
+    {
+      "key": "restoration_authority",
+      "manifest_path": "docs/readiness/2026-10-02/rehosting_authority.json",
+      "manifest_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "statement": "I have permission and instruction to rehost this metadata which was originally published on a geonetwork catalogue that we lost access to.",
+      "original_attested_at": "2026-10-02",
+      "original_provenance": null,
+      "original_scope": "historical_geonetwork_metadata",
+      "original_limits": "Restoration/rehosting only. Preserve source attribution and restrictions. No new CC license, underlying data rights or production release authority."
+    },
+    {
+      "key": "contact_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contact_source_interpretation.json",
+      "manifest_sha256": "f34e75dfe0430580815c79658cc054d8b8921c2cdf7e327980a4618e89a2852a",
+      "statement": "It means contact someone (source) to obtain the underlying dataset",
+      "original_attested_at": "2026-10-02T18:26:45Z",
+      "original_provenance": {
+        "message_id": "Sentinel_65661711ca288191a37b82e7dd3f9fd2",
+        "reply_to_message_id": "Sentinel_4eb86edc245c8191bb90f333ca044223",
+        "retrieval_attestation": "Parent retrieved the direct human reply; this does not independently verify permission.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "turn_id": "01a0fdde-64cc-75df-a66a-191efacb0410",
+        "user_item_id": "01a0fdde-66ca-7490-b287-0897fa441264"
+      },
+      "original_scope": "historical_geonetwork_contact_source_access",
+      "original_limits": "Access-wording interpretation only; separate USER_ATTESTED restoration authority is required. Retain raw XML and all dataset/use constraints. Do not interpret separately worded Check with Source. access constraints or grant a new license."
+    },
+    {
+      "key": "contributor_source_meaning",
+      "manifest_path": "docs/readiness/2026-10-02/contributor_source_interpretation.json",
+      "manifest_sha256": "054a4477c2e9fab1e3ec9e932888109be99568937e8623a5153866ca1f16da0d",
+      "statement": "yes",
+      "original_attested_at": "2026-10-02T23:43:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_2407c97336c88191a6a5ab9160a3e637",
+        "question": "in the PICES records, does “Check with Contributor or Source.” mean contacting them to obtain the underlying dataset, just like “Contact Source.”, rather than restricting reposting the metadata?",
+        "retrieval_attestation": "Parent supplied direct human reply; no independent agreement verification asserted.",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018",
+        "timestamp_precision": "minute"
+      },
+      "original_scope": "historical_geonetwork_contributor_or_source_access",
+      "original_limits": "Exact paired access/use cohort only; separate rehosting authority required. Preserve raw wording and all independent holds. No new license or release approval."
+    },
+    {
+      "key": "original_three_questions",
+      "manifest_path": "docs/readiness/2026-10-03/remaining_source_scope_questions_821.json",
+      "manifest_sha256": "ceb72f230679aa2f9d36aabd9e62abebd14c3382c74d59ff40bae74c0cb278ca",
+      "statement": null,
+      "original_attested_at": null,
+      "original_provenance": null,
+      "original_scope": "Precise source-scope questions extracted only from existing frozen census and independent reviews; no new audit, approval, licensing grant or status change. Root authors final packet.",
+      "original_limits": null
+    },
+    {
+      "key": "original_821_direct_reply",
+      "manifest_path": "docs/readiness/2026-10-03/source_scope_attestation_821.json",
+      "manifest_sha256": "3e2bc71f6cd409769a8ccb34912ec2c1a7a3802f3444c2446038e347dbc5a657",
+      "statement": "they reply to the underlying data. all these metadata records were public before",
+      "original_attested_at": "2026-10-03T20:20:00Z",
+      "original_provenance": {
+        "message_id": "Sentinel_e28f30cd7f308191b3ea2f19487dd34a",
+        "reply_to_message_id": "Sentinel_d7aa47e9454c81918b46da87263b4cae",
+        "source_thread_id": "01a0f2a9-8da9-7252-b293-c326ee80b018"
+      },
+      "original_scope": "exact_three_question_groups_821_historical_geonetwork_metadata",
+      "original_limits": "All original constraints and XML remain intact. The attestation clarifies scope only; existing separate user-attested rehosting authority keeps XML restricted and unlicensed. No attribution/date/title/alias hold is cleared by this scope decision."
+    }
+  ],
+  "material_findings": [],
+  "conditions_for_root_integration": [
+    "Add only the two exact ID/hash/full-root/four-field bindings as REVIEWER_RECONCILED; preserve all556 existing member/context/provenance objects and frozen historical artifacts.",
+    "Keep separate4206 restoration authority mandatory; retain restricted original XML, blank license and all literal access/use/metadata constraints. Do not claim notification fulfilled, new license, report/data publication right or new attestation.",
+    "Preserve existing creators, roles, titles, artifact-date semantics, raw primary dates, all scientific/geographic text and independent identity/alias/rights holds.",
+    "Root must implement and verify the finite rule, changed-hash/context rejection and measured exact-two delta before reporting new counts; this is source review, not implementation or release approval."
+  ],
+  "current_source_counts": {
+    "supported": 3638,
+    "held": 562,
+    "malformed": 6
+  },
+  "conditional_expected_counts_if_exactly_two_promotions_measured": {
+    "supported": 3640,
+    "held": 560,
+    "malformed": 6
+  },
+  "new_user_attestation_event": false,
+  "original_direct_question_membership_enlarged": false,
+  "notification_fulfilled": false,
+  "new_license_or_underlying_data_rights": false,
+  "actual_promotions": 0,
+  "provider_requests": 0,
+  "repo_edits": 0,
+  "private_provider_evidence_or_credential_reads": 0,
+  "integration_or_classifier_tests_run": 0,
+  "other35_reviewed": false,
+  "production_release_approval": false,
+  "remaining_blockers": "No material source-review blocker found for these exact two. Root-owned integration and validation remain outstanding; provider canary and production release remain separate."
+}

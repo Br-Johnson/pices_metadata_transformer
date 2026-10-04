@@ -1,5 +1,28 @@
 # Tech Debt Log
 
+## Combined finite source profiles — 2026-10-04
+
+The seven-source integration retains both frozen review blocks and dispatches by
+exact source ID/hash, preserving each review time. Profile 563 composes the
+previous 556, pair and five-record contexts; old profiles and receipts remain
+readable. Full-profile duplication is retained to preserve the established
+byte-pinned evidence model. Cached combined accounting is 3,645/555/6, with
+measured before/after, repeat and withdrawal for eight sources including one
+held control. No blanket access/creator heuristic, provider runtime change or
+release authority is introduced. See
+`readiness/2026-10-04/combined_source7_handoff.md`.
+
+## Exact NPAFC report-pair interpretation — 2026-10-04
+
+Profile 558 retains the entire 556-member profile context and earlier reviewer block,
+adding a separate exact 885/887 review. The classifier uses the matching ID/hash review
+without falling back to another block when its time/evidence check fails. Source
+notification and data-access wording remain literal; the original fields do not
+expressly exempt XML. Existing separate restoration authority, restricted XML,
+blank license and all independent holds remain required. Measured source-only
+accounting becomes 3,640/560/6; the 35 other deferred resource cases remain outside
+this finite interpretation. See `readiness/2026-10-03/npafc_report2_handoff.md`.
+
 ## Actual response facts before validation — 2026-10-04
 
 PUT2's nonempty errors stopped before identity comparisons; its phase label was
@@ -575,3 +598,18 @@ A shared Controller input preflight prepares the actual fixed PUT without a gran
 ledger mutation or provider request. Parent starts a new window only after it passes.
 No old origin rewrite, chmod, grant revival, replay or source promotion follows.
 See readiness/2026-10-03/run02_evidence_layout_handoff.md.
+
+## Isolated residual five-source scope review — 2026-10-04
+
+Exact resource conditions can remain held after a creator repair because each
+interpretation manifest has finite membership. Five explicit publication/data
+cases now have a separately pinned REVIEWER_RECONCILED profile; restoration stays
+USER_ATTESTED. Keep each historical review block and timestamp when extending a
+profile, rather than treating a newer review as a rewrite of earlier evidence.
+The additive561 manifest duplicates its predecessor, matching the existing audit
+format; a future composition refactor must preserve byte-pinned review history,
+source bindings and fail-closed withdrawal before replacing this approach.
+FGDC4063 still needs its own password-target evidence. The other25 unresolved
+creators need actual same-work credits; contact/host inference cannot repair them.
+See readiness/2026-10-04/residual_source5_handoff.md. All counts are proposed until
+the designated sole integration owner applies and validates the isolated patch.

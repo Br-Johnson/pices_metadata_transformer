@@ -45,5 +45,11 @@ jobs:
           scripts/modern_canary_errors.py scripts/modern_synthetic_canary.py
           scripts/modern_request_body_diagnostics.py scripts/modern_draft_schema.py
           scripts/modern_run02_schema_repair.py tests/test_modern_canary_errors.py tests/test_modern_schema_repair.py
+          scripts/dataset_access_interpretation.py tests/test_npafc_report2_reconciliation.py
+          docs/readiness/2026-10-03/guarded_npafc_report2_qa.py
+          docs/readiness/2026-10-03/integrate_npafc_report2_counts.py
+          tests/test_residual_source_access.py tests/test_combined_source7.py
+          docs/readiness/2026-10-04/validate_residual_source5.py
+          docs/readiness/2026-10-04/validate_combined_source7.py
       - name: Run guarded offline contracts
         run: python -B ci/run_offline_tests.py
