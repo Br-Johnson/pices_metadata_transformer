@@ -151,14 +151,22 @@ Grant files have exact keys. Both stages require `schema_version:1`,
 approval, `executor:"01a0f3ae-ee1c-7046-9b04-36d35803903c"`,
 `origin:"https://zenodo.org"`, `binding` from the bridge, the original absolute
 `state_root`, decimal-string `owner`, exact `limits`, UTC `started_at` and
-`expires_at`, nonempty `reviewed_by`, `token_scope:"deposit:write"`, and
-`documents`. Capture has `documents:{}`. Publication adds
+`expires_at`, nonempty `reviewed_by`, `token_scope`, and `documents`.
+Capture has `token_scope:"deposit:write"` and `documents:{}`. Publication requires
+`token_scope:"deposit:write deposit:actions"`, attested by the reviewing parent. Publication adds
 `exclusive_writer:true` and a `community` object with exactly `id`, `slug:"pices"`,
 `evidence_sha256`, `reviewed_by`, `open_submissions:true`, and
 `owner_authorized:true`. The parent must verify the underlying community evidence
 and permission; placeholders or a stale inventory do not establish those facts.
-Capture and publication grants use token scope `deposit:write`; this field does
-not configure or expand actual provider token permissions.
+The scope declaration is a client-required capability attestation; it neither
+configures the token nor proves backend enforcement. The pinned Zenodo
+`site/zenodo_rdm/legacy/scopes.py` documents `deposit:write` as upload-only and
+`deposit:actions` as publication capability. The examined modern owner/service
+permissions and locked OAuth REST authentication do not establish route-specific
+scope enforcement (the latter verifies `scopes=[]`). Publication must not rely
+on that absence of an examined backend check: the parent must verify that the
+provided token has both capabilities. Capture and original creation grants remain
+write-only. No token provisioning or permission-discovery request is added.
 
 ## Remaining coverage and gates
 

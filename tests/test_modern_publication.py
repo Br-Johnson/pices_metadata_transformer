@@ -120,7 +120,8 @@ class ModernPublicationTests(unittest.TestCase):
                  'binding': self.bound['binding'], 'state_root': str(draft.state_root(self.fixture.paths)),
                  'owner': '123', 'limits': publication.CAPTURE_LIMITS if action == 'capture' else publication.PUBLISH_LIMITS,
                  'started_at': NOW.isoformat(), 'expires_at': (NOW + timedelta(seconds=600)).isoformat(),
-                 'reviewed_by': 'Dummy parent reviewer', 'token_scope': 'deposit:write',
+                 'reviewed_by': 'Dummy parent reviewer',
+                 'token_scope': publication.CAPTURE_TOKEN_SCOPE if action == 'capture' else publication.PUBLICATION_TOKEN_SCOPE,
                  'documents': {k: sha(p.read_bytes()) for k, p in (documents or {}).items()}}
         if action == 'publish':
             value.update(exclusive_writer=True, community={'id': COMMUNITY, 'slug': 'pices',
@@ -272,6 +273,15 @@ class ModernPublicationTests(unittest.TestCase):
         release['release']['approved'] = False
         docs['release'].write_bytes(encode(release))
         self.grant('publish', docs)
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs)
+        self.assertEqual(self.transport.calls, [])
+
+    def test_write_only_token_attestation_cannot_authorize_publication(self):
+        docs = self.ready()
+        grant = parse(self.grant_path.read_bytes())
+        grant['token_scope'] = publication.CAPTURE_TOKEN_SCOPE
+        self.grant_path.write_bytes(encode(grant))
         with self.assertRaises(ValueError):
             self.runner(documents=docs)
         self.assertEqual(self.transport.calls, [])

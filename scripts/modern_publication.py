@@ -40,6 +40,8 @@ PR34_RUNTIME = '0f0a537dde0d6970ce6c64aad1169cf9ebb290cbcf7b527ab3917ace1393fff5
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'publish': 1, 'inclusion': 1}
 JSON = 'application/json'
+CAPTURE_TOKEN_SCOPE = 'deposit:write'
+PUBLICATION_TOKEN_SCOPE = 'deposit:write deposit:actions'
 
 
 def canonical_uuid(value):
@@ -277,6 +279,7 @@ def collision_check(paths, prepared, bound, claims=()):
 
 def authorize(grant, prepared, bound, paths, action, now, documents):
     limits = CAPTURE_LIMITS if action == 'capture' else PUBLISH_LIMITS
+    token_scope = CAPTURE_TOKEN_SCOPE if action == 'capture' else PUBLICATION_TOKEN_SCOPE
     expected = {'schema_version', 'kind', 'approved', 'executor', 'origin', 'binding', 'state_root',
                 'owner', 'limits', 'started_at', 'expires_at', 'reviewed_by', 'token_scope', 'documents'}
     if action == 'publish':
@@ -287,7 +290,7 @@ def authorize(grant, prepared, bound, paths, action, now, documents):
             and grant['binding'] == bound['binding'] and grant['state_root'] == str(draft.state_root(paths))
             and grant['owner'] == bound['identity']['owner'] and grant['limits'] == limits
             and all(type(v) is int for v in grant['limits'].values())
-            and grant['token_scope'] == 'deposit:write' and grant['documents'] == documents
+            and grant['token_scope'] == token_scope and grant['documents'] == documents
             and isinstance(grant['reviewed_by'], str) and grant['reviewed_by'].strip())
     start, end = draft.instant(grant['started_at']), draft.instant(grant['expires_at'])
     require(start <= now < end and 0 < (end - start).total_seconds() <= 600)
@@ -594,7 +597,8 @@ def main():
                 require(platform.system() == 'Darwin' and sys.stdin.isatty())
                 with warnings.catch_warnings():
                     warnings.simplefilter('error', getpass.GetPassWarning)
-                    token = getpass.getpass('Production token (memory only; deposit:write): ')
+                    scopes = CAPTURE_TOKEN_SCOPE if action == 'capture' else PUBLICATION_TOKEN_SCOPE
+                    token = getpass.getpass('Production token (memory only; ' + scopes + '): ')
                 runner = Runner(args.json_file, paths, args.preparation, args.old_grant, args.old_duplicate,
                                 args.grant, token, action=action, snapshot=args.snapshot, qa=args.qa,
                                 duplicate=args.duplicate, release=args.release)
