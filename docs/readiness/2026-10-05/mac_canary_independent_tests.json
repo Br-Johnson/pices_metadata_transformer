@@ -1,0 +1,72 @@
+{
+  "binding_limit": "Checkout head predates the new uncommitted runner; review binds exact runtime bytes below, not all current repository changes.",
+  "bounded_follow_up": "Exactly the same14 independent tests rerun once after parent-reported final SSL-preparation timeout, pre-connect remaining-time and duplicate-JSON token-scanner fixes. No new independent tests, broad review or broad suite run. Test file bytes unchanged; all14 PASS and dummy result/bundle pins restored.",
+  "broad_suite_runs": 0,
+  "checkout_head": "5d6e3f548f1b962321aa9941b713d387852bedad",
+  "coverage": [
+    "Fixed exact draft/file endpoints; no create/PID/publish/delete/alternate authority/draft/query; every tested301/302/303/307/308 fails without redirect",
+    "Baseline revision11 only and literal If-Match11 header through mocked stdlib transport",
+    "Parent grant closed fields/lifetime<=600s/expiry; live grant withdrawal before call and immediately after durable intent prevents dispatch",
+    "Every static file and runtime binding rechecked; rehashed checkpoint/result/source fixture cannot evade fixed pins; symlink/hardlink reject",
+    "Each of metadataPUT/file-initPOST/contentPUT/commitPOST uncertain exception leaves durable phase/operation intents and prevents execute reentry or mutation retry",
+    "Duplicate/partial files, size/checksum/PID/content-readback mismatch, malformed/duplicateJSON/oversized/bad MIME responses fail and remain spent",
+    "Initial fsync failure and final-result loss both preserve exclusive execution barrier",
+    "Successful execute6GET+4mutationmockrequests then exactlyoneGET-only4readback retry; revision change/tampered receipt/reentry reject",
+    "Raw/URL/base64/JSON token echoes suppress digest; provider exception is closed/redacted; token absent from persisted stages and output",
+    "CLI enters token once for execute plus newRunner retry; getpass fallback warning aborts before transport"
+  ],
+  "credentials_or_environment_read": 0,
+  "dummy_patches": "Only RESULT_SHA and BUNDLE_SHA pins patched to explicit dummy local transfer bytes; SOURCE/PAYLOAD/XML/MARKER pins and actual synthetic fixture bytes untouched. All patches context-managed and known result/bundle pins verified restored. Runtime was stable throughout successful final run.",
+  "initial_fixture_failures": "Before code stabilized, the dummy lifetime20min and fake request without timeout reflected an earlier runner signature. Updated to5min/timeout keyword; final14 tests passed. Those initial fixture failures are not material implementation findings.",
+  "log_path": "/tmp/pices-mac-canary-independent-tests.log",
+  "log_sha256": "9a4d8e6e6c3df4597126dfef5828181f1028c12f4f85049ec962b5e0bb3a5971",
+  "material_bugs_reproduced": 0,
+  "material_findings": [],
+  "network_guards": "socket.socket/create_connection/getaddrinfo/gethostbyname/gethostbyname_ex and stdlib HTTPSConnection blocked, except one deliberately mocked header adapter. Every teardown asserts zero forbidden network attempts; TLS context mocked in adapter check.",
+  "previous_successful_run": {
+    "elapsed_seconds": 0.52,
+    "log_sha256": "d89e489f20c6c3bc26cc2919874e2e490382f8d8061512ef7bc23409aa2602d6",
+    "receipt_sha256": "3dbf869b6756685a79eee3279542bb12396f4b5eeed5fbb4558446cd1d864ab3",
+    "runtime_sha256": "ee5dac3ffab72563610953f8ee16c6047b3c535eee23a670f53b8dc5f587b66e"
+  },
+  "private_provider_stages_read": 0,
+  "provider_requests": 0,
+  "public_packet_bindings": {
+    "/workspace/pices-mac-full-canary-20261005/AGENTS.md": "92a7b59b9187bfa8a64a8d73ff5636e97e5e8a378e68767e0400489543d4b995",
+    "/workspace/pices-mac-full-canary-20261005/docs/handoff/modern-synthetic-canary-20261003-code-02/metadata-put.json": "0197c230248e4192866b8662fa60a4cca4b05ed0d060fc67f6a9102bb6180128",
+    "/workspace/pices-mac-full-canary-20261005/docs/handoff/modern-synthetic-canary-20261003-code-02/selection.json": "d60dc6c3e9bbc6bc2b59876305989948e53e9682d8f70d1f990f057ca1e6945e",
+    "/workspace/pices-mac-full-canary-20261005/docs/handoff/modern-synthetic-canary-20261003-code-02/synthetic.xml": "7cf966d4c1396a3dc54cfad0b049394f70da59a8e02e9ec294dab00c3a8d4c1b"
+  },
+  "real_provider_or_Mac_transport_validation": "Not performed or evidenced by these offline mocked tests. Actual transferred checkpoint authenticity and fresh parent authorization remain separate operational evidence.",
+  "repository_edits": 0,
+  "reviewed_date": "2026-10-05",
+  "runtime_path": "/workspace/pices-mac-full-canary-20261005/scripts/mac_sandbox_canary.py",
+  "runtime_sha256": "d0c426fbe1c349dc694e1cee8ad3174346eb5f23ab9f65bb1b4af61c2ef0860a",
+  "schema_version": 1,
+  "scope": "Independent test-only review of Mac Sandbox continuation runner; dummy private local stages, mocked provider-shaped responses and blocked network. No source QA, repository edits, real checkpoint/provider/credential/environment access or broad suite run.",
+  "status": "PASS_INDEPENDENT_ADVERSARIAL_TEST_REVIEW",
+  "test_path": "/tmp/test_mac_sandbox_canary_independent.py",
+  "test_sha256": "36f110c5226ea9ec4ca91ced0d5ee2c209d47873b6b46c2359da48121ef37de8",
+  "tests": {
+    "count": 14,
+    "elapsed_seconds": 0.466,
+    "methods": [
+      "test_fixed_endpoint_no_create_pid_publish_delete_or_redirect",
+      "test_revision_11_only_and_if_match_11_header",
+      "test_grant_expiry_oversized_lifetime_and_expiry_between_requests",
+      "test_live_static_runtime_checkpoint_and_binding_guards",
+      "test_live_grant_withdrawal_before_call_and_after_durable_intent",
+      "test_each_uncertain_mutation_is_permanently_spent",
+      "test_partial_files_and_failed_readback_cannot_resume_writes",
+      "test_execute_and_retry_once_get_only_revision_bound_and_receipt_bound",
+      "test_fsync_failure_and_result_failure_leave_intents_spent",
+      "test_echo_variants_suppressed_and_cli_exception_is_redacted",
+      "test_cli_single_token_execute_then_get_only_retry",
+      "test_getpass_warning_blocks_fallback_before_any_request",
+      "test_empty_invalid_oversized_and_duplicate_json_responses_spend_run",
+      "test_symlink_hardlink_or_rehashed_fixture_mutation_rejected"
+    ],
+    "result": "PASS"
+  },
+  "worktree": "/workspace/pices-mac-full-canary-20261005"
+}
