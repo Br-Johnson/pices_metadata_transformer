@@ -40,7 +40,9 @@ the new runner's live behavior.
 The runner is a separately reviewed standard-library HTTPS client, with default
 certificate/hostname verification and no token, proxy, netrc or credential
 file lookup. Default TLS trust can honor OpenSSL certificate configuration; the
-runner does not inspect or change those settings. It does not claim to reuse the marker's Requests implementation.
+runner does not inspect or change certificate settings. It explicitly disables
+inherited TLS session-key logging before any connection, preserving the memory-only
+credential boundary. It does not claim to reuse the marker's Requests implementation.
 The first *counted* canonical GET verifies this client's route/authentication and
 exact transferred identity before the sole metadata PUT. If that GET fails, stop;
 there is no connectivity probe or alternate transport fallback.

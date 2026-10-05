@@ -252,6 +252,9 @@ class Transport:
         connection = None
         try:
             context = ssl.create_default_context()
+            # Default contexts inherit SSLKEYLOGFILE; never persist TLS secrets.
+            context.keylog_filename = None
+            require(context.keylog_filename is None)
             remaining = deadline - time.monotonic()
             require(remaining > 0)
             connection = http.client.HTTPSConnection('sandbox.zenodo.org', timeout=remaining, context=context)

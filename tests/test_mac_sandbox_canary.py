@@ -402,6 +402,32 @@ class MacCanaryTests(unittest.TestCase):
             self.assertEqual(mac.main(), 1)
         self.assertEqual(json.loads(output.getvalue())['held'], True)
 
+    def test_inherited_tls_key_logging_is_disabled_before_connection(self):
+        # Model a default context configured by SSLKEYLOGFILE without reading env.
+        context = mac.ssl.SSLContext(mac.ssl.PROTOCOL_TLS_CLIENT)
+        logfile = self.fixture.root / 'dummy-tls-keylog'
+        context.keylog_filename = str(logfile)
+        self.assertIsNotNone(context.keylog_filename)
+        before = logfile.read_bytes()
+        class Response:
+            status = 200
+            def getheader(self, name, default):
+                return 'application/json'
+            def read1(self, size):
+                return b''
+        with patch.object(mac.platform, 'system', return_value='Darwin'), \
+                patch.object(mac.ssl, 'create_default_context', return_value=context), \
+                patch.object(mac.http.client, 'HTTPSConnection') as connection:
+            connection.return_value.getresponse.return_value = Response()
+            def assert_private(*args, **kwargs):
+                self.assertIsNone(context.keylog_filename)
+            connection.return_value.request.side_effect = assert_private
+            mac.Transport(TOKEN).request('GET', mac.BASE, None, None)
+            self.assertIsNone(connection.call_args.kwargs['context'].keylog_filename)
+        self.assertEqual(logfile.read_bytes(), before)
+        self.assertTrue(context.check_hostname)
+        self.assertEqual(context.verify_mode, mac.ssl.CERT_REQUIRED)
+
     def test_real_transport_has_verified_tls_explicit_bytes_no_redirect_and_total_timer(self):
         class Response:
             status = 301

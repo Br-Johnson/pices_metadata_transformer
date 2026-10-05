@@ -619,7 +619,7 @@ This local cohort has not been pushed or used for a provider operation.
 
 - [x] Reconcile parent-reported corrected Mac marker success at02:47:55UTC: draft612988, revision10→11, GET/PUT/GET all200, title/publisher persisted. Bind successful result and receipt-bundle hashes without claiming cloud possession of their bytes.
 - [x] Preserve all cloud failed/spent receipts and source/production holds; Brett selected Mac for future provider execution. Cloud integration prepares code only; cloud transport diagnosis has ended.
-- [x] Pass28 focused offline tests,14 independent adversarial tests and final independent code/handoff review of the [bounded Mac continuation](readiness/2026-10-05/mac_canary_handoff.md): existing draft only, full517-byte metadata,439-byte fictional XML, ten GET and four mutations total, read-only unchanged retry.
+- [x] Pass29 focused offline tests,14 independent adversarial tests and final independent code/handoff review of the [bounded Mac continuation](readiness/2026-10-05/mac_canary_handoff.md): existing draft only, full517-byte metadata,439-byte fictional XML, ten GET and four mutations total, read-only unchanged retry.
 - [ ] Require actual final-head CI and frozen reviewed publication before provider dispatch.
 - [ ] Mac executor locally verifies transferred checkpoint/bundle, ownership and historical accounting, runtime/private-path preflight; parent binds the fresh600-second action grant, then Brett enters a fresh memory-only Sandbox token.
 - [ ] Managed DOI criterion, production transport/artifact/recovery/QA/release gates remain held. This narrower metadata/XML continuation does not complete the original DOI canary.

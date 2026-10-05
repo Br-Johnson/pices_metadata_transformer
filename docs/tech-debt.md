@@ -796,3 +796,10 @@ verifying all seven approved fictional metadata fields and exact XML bytes.
 No production/source mapping, payload, alias, ID/DOI, source-count or original
 canary criterion is relaxed. A later reviewed decision must resolve the DOI and
 production-specific validation/recovery/release gates before production dispatch.
+
+PR32 automatic Codex review identified inherited `SSLKEYLOGFILE` as a route for
+TLS session-secret persistence. The Mac runner now sets and verifies
+`context.keylog_filename = None` before constructing a connection, without reading
+credential/environment settings or changing certificate trust. A dummy-context
+regression verifies that a preconfigured key log receives no session secrets and
+TLS certificate/hostname checks stay enabled.

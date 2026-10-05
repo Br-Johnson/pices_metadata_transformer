@@ -1,0 +1,106 @@
+{
+  "adversarial_rerun": {
+    "adapted_script": "/tmp/test_mac_sandbox_canary_keylog_independent.py",
+    "adapted_script_sha256": "e518312a7b653de81529b243ce6fba5eb0d7238aede7f7f446cc10f55137d01e",
+    "final_errors": 0,
+    "final_failures": 0,
+    "final_passed": 14,
+    "final_tests": 14,
+    "first_attempt_error": "Obsolete create_default_context fixture returned object(), lacking keylog_filename; production code correctly refused it.",
+    "first_attempt_errors": 1,
+    "first_attempt_passed": 13,
+    "first_attempt_tests": 14,
+    "network_backstops": "socket/connection/DNS and HTTPSConnection blocked except exact local mocks; environment cleared; dummy result/ZIP pins restored; current runtime stable.",
+    "only_fixture_change": "Replace that single object() return with a dummy SSLContext(PROTOCOL_TLS_CLIENT); no test assertions or provider runtime changed.",
+    "original_script": "/tmp/test_mac_sandbox_canary_independent.py",
+    "original_script_sha256": "36f110c5226ea9ec4ca91ced0d5ee2c209d47873b6b46c2359da48121ef37de8"
+  },
+  "binding_note": "Final TLS keylog changes reviewed as working-tree bytes. No passing CI for this corrected head is claimed. Original byte-bound review and test logs remain unchanged.",
+  "files_sha256": {
+    "contracts/examples/mac_canary_checkpoint.json": "365cf6eb76a5102ea357cbc2e1d34349879bb9aaf1267347cdbd51eefee8bd5b",
+    "contracts/examples/mac_canary_grant.json": "57f560ec9ed112216a9231bfc66760395b4da5b2f9b8de2c125a86ddb40d3ec3",
+    "docs/readiness/2026-10-05/mac_canary_action_manifest.json": "97f2f02792e031265899402622df91c11809fcaf266586cc729a6288ccee0e4f",
+    "docs/readiness/2026-10-05/mac_canary_handoff.md": "2ca556954ea7c552820687f2e8de6f0928898f7cd193750fd78945b5a32da0e9",
+    "docs/tech-debt.md": "cf513ca7439f56ba6e45a3a041cfd680e666c5cf93e9881ff98b11cd5bb73f1b",
+    "docs/todo_list.md": "cfc6ee531b728f8af883fa13fcdf7be490f1992a25dfc812ae481107675a29e5",
+    "scripts/mac_sandbox_canary.py": "c60388f5aa9b57fa97f837d8ed1099db5ea23d825f71acd5c24a3af39e01abb4",
+    "tests/test_mac_sandbox_canary.py": "213b495f916bc9edb5224d644499d10f0eced017e3a70fccd9a78166a354a806"
+  },
+  "finding_resolved": {
+    "comment_id": 4180505944,
+    "fix": "Set context.keylog_filename=None and require it is None before constructing HTTPSConnection or initiating request/TLS handshake.",
+    "issue": "ssl.create_default_context may inherit SSLKEYLOGFILE and persist TLS session keys.",
+    "review_thread": "PRRT_kwDOQAppos6o5Wgp",
+    "scope": "Default certificate and hostname verification retained; no settings or credential inspection added. Per-request timer already covers context preparation."
+  },
+  "git_diff_check": "PASS",
+  "independent_guarded_focused": {
+    "command": "env -i PATH=/usr/bin:/bin PYTHONDONTWRITEBYTECODE=1 /tmp/pices-code-venv/bin/python -B ci/run_offline_tests.py tests.test_mac_sandbox_canary",
+    "deliberate_bootstrap_guard_blocks": {
+      "network": 4,
+      "private_reads": 1,
+      "processes": 1,
+      "writes": 1
+    },
+    "environment_cleared_dummy_credentials_only": true,
+    "errors": 0,
+    "failures": 0,
+    "runner_seconds": 0.594,
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "028bfe88a7f05fc91d67b7a3eda8395ffaa9ae16748cb8d1bbe02b247176d0f3",
+    "tests": 29,
+    "unexpected_test_guard_blocks": {
+      "network": 0,
+      "private_reads": 0,
+      "processes": 0,
+      "writes": 0
+    },
+    "unittest_seconds": 0.517
+  },
+  "keylog_regression_evidence": {
+    "actual_TLS_handshake_or_provider_used": false,
+    "dummy_log_bytes_unchanged": true,
+    "hostname_checks_and_CERT_REQUIRED_retained": true,
+    "log_disabled_before_mocked_connection_request": true,
+    "real_SSLContext_with_dummy_temporary_keylog": true
+  },
+  "local_base_commit": "172e289197d1d3bf03bbb91a53b0918782a02c9e",
+  "logs_sha256": {
+    "/tmp/pices-mac-canary-keylog-independent-adversarial-final.log": "fc7368b4c60e5bfaf97d64bcacf7663e26bc0904e1f5a14768540fb2d6f21692",
+    "/tmp/pices-mac-canary-keylog-independent-adversarial.log": "bec42bd99e5e4e493f8b6297a0883577c835c8b27e09ce2e0b2973dc9becef24",
+    "/tmp/pices-mac-canary-keylog-independent-focused.log": "23e1eb4cc551e88dea1b6421c2eb582f999729c23de3bfb976462ad0d39ef1c3"
+  },
+  "prior_published_head": "f0d1324684eb1c3d47533dc859cddc21ea0e644c",
+  "prior_review": {
+    "path": "/tmp/pices-mac-canary-independent-review.json",
+    "sha256": "6c1dfc26debc5c51026a9f2f1caee178690d2c3642cbe97de4abe7bde6f7a5fb"
+  },
+  "prohibited_actions_performed": {
+    "actual_credentials_or_settings_reads": 0,
+    "merges": 0,
+    "private_provider_stage_reads": 0,
+    "provider_requests": 0,
+    "repository_edits": 0
+  },
+  "remaining_gates": [
+    "Resolve native review finding and verify actual corrected-head CI/current-head Codex review before merge.",
+    "Mac executor locally verifies retained result/ZIP, exact transferred baseline/provenance, frozen source/runtime/TLS/private paths/fsync; parent binds fresh bounded grant.",
+    "Live outcome unverified; managed DOI/full original-canary and production readiness remain HELD."
+  ],
+  "remaining_material_findings": [],
+  "reviewed_worktree": "/workspace/pices-mac-full-canary-20261005",
+  "reviewer": "Independent Codex agent /root/canary_review",
+  "schema_version": 1,
+  "status": "CLEAR_NARROW_TLS_KEYLOG_FIX; FINAL_HEAD_CI_AND_MAC_PREFLIGHT_PENDING",
+  "unchanged_action_scope": {
+    "create_pid_publish_delete": 0,
+    "grant_max_seconds": 600,
+    "maximum_file_commit_post": 1,
+    "maximum_file_content_put": 1,
+    "maximum_file_init_post": 1,
+    "maximum_get": 10,
+    "maximum_metadata_put": 1,
+    "per_request_max_seconds": 20,
+    "response_max_bytes": 65536
+  }
+}
