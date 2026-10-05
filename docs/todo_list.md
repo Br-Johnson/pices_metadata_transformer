@@ -1,3 +1,14 @@
+## Active increment: durable production mutation recovery — 2026-10-05
+
+- [x] Reconcile main a1d39e2 (PR32 tree, 569 guarded CI tests) and current standing repository authority; retain the frozen Mac checkout.
+- [x] Freeze an independent production journal with fixed consumed actions, exact source/payload/artifact/identity bindings, protected record/DOI checks and directory durability.
+- [x] Pass 75 affected guarded contracts, including 31 new interruption/recovery/identity/transport tests; preserve source, class, QA/release and provider gates.
+- [ ] Complete substantive current-head Codex review and actual CI, publish a non-draft PR and merge under standing authorization.
+
+The journal advances legacy singleton recovery. Modern source-aware payloads and
+class execution remain missing; the Mac canary has no verified end-to-end pass.
+Provider account/access and all live actions remain with the parent and sole executor.
+
 ## Current evidence handoff: owner inventory and file coverage reviewed — 2026-10-04
 
 - [x] Independently verify three retained raw bodies (20/0/20), owner 266679, unchanged page-1 bytes, all 20 metadata hashes and the five protected IDs/DOIs.

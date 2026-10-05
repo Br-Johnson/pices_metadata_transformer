@@ -9,10 +9,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
-from scripts.path_config import OutputPaths
-from scripts.content_class_targets import require_singleton_operation
 from scripts.artifact_contract import prepare_artifact, validate_files
-from scripts.upload_service import validate_deposition_response, validate_registry_identities, atomic_json, expected_host, ledger_lock, metadata_hash, prepare_metadata, read_json
+from scripts.content_class_targets import require_singleton_operation
+from scripts.path_config import OutputPaths
+from scripts.production_mutations import MutationJournal, preserve_identity
+from scripts.upload_service import (
+    atomic_json,
+    expected_host,
+    ledger_lock,
+    metadata_hash,
+    prepare_metadata,
+    read_json,
+    validate_deposition_response,
+    validate_registry_identities,
+)
 
 
 def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
@@ -56,7 +66,10 @@ def reconcile(paths, fgdc_id, snapshot, reviewer, rationale):
                             'retrieved_at': snapshot['retrieved_at'],
                             'reviewed_at': datetime.now(timezone.utc).isoformat(),
                             'response_sha256': metadata_hash(record)})
+        registry[fgdc_id]['doi'] = preserve_identity(fgdc_id, registry[fgdc_id], record)
         validate_registry_identities(registry)
+        if paths.environment == 'production':
+            MutationJournal(paths).adopt(fgdc_id, registry[fgdc_id])
         atomic_json(paths.uploads_registry_path, registry)
     return registry[fgdc_id]
 

@@ -67,6 +67,9 @@ jobs:
           docs/readiness/2026-10-04/validate_residual_target_corrections.py
           scripts/mac_sandbox_canary.py tests/test_mac_sandbox_canary.py
           scripts/publication_plan.py tests/test_publication_plan.py
+          scripts/production_mutations.py tests/test_production_mutations.py
+          scripts/upload_service.py scripts/reconcile_draft.py
+          scripts/publish_records.py scripts/zenodo_api.py
           docs/readiness/2026-10-04/validate_publication_plan.py
       - name: Run guarded offline contracts
         run: python -B ci/run_offline_tests.py

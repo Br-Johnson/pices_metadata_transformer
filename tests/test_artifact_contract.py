@@ -10,6 +10,7 @@ from unittest.mock import Mock, patch
 
 from scripts.artifact_contract import prepare_artifact, validate_files
 from scripts.path_config import OutputPaths
+from scripts.production_mutations import MutationJournal
 from scripts.qa_manifest import prepare_manifest, validate_approval, QA_CHECKS
 from scripts.reconcile_draft import reconcile
 from scripts.upload_service import DraftUploadService, atomic_json, metadata_hash, prepare_metadata, read_json
@@ -192,7 +193,12 @@ class ArtifactTests(unittest.TestCase):
         target = Path(paths.zenodo_json_dir) / 'sample.json'
         target.write_bytes(self.json_file.read_bytes())
         # Both environments use the same immutable original source directory.
-        entry = dict(entry, environment='production', json_file=str(target), zenodo_url='https://zenodo.org/deposit/123')
+        entry = dict(entry, environment='production', json_file=str(target),
+                     zenodo_url='https://zenodo.org/deposit/123', doi='10.5281/zenodo.123')
+        # Establish explicit fresh-create provenance for this production fixture.
+        journal = MutationJournal(paths)
+        journal.begin('sample', dict(entry, deposition_id=None), 'create')
+        journal.confirm('sample', entry, 'create', self.remote)
         manifest = self.approve(paths, entry)
         with patch('scripts.publish_records.create_zenodo_client', return_value=self.client), patch('scripts.publish_records.get_logger', return_value=Mock()):
             release = prepare_release(manifest)
@@ -216,7 +222,12 @@ class ArtifactTests(unittest.TestCase):
         paths = OutputPaths(self.directory.name, 'production')
         target = Path(paths.zenodo_json_dir) / 'sample.json'
         target.write_bytes(self.json_file.read_bytes())
-        entry = dict(entry, environment='production', json_file=str(target), zenodo_url='https://zenodo.org/deposit/123')
+        entry = dict(entry, environment='production', json_file=str(target),
+                     zenodo_url='https://zenodo.org/deposit/123', doi='10.5281/zenodo.123')
+        # Establish explicit fresh-create provenance for this production fixture.
+        journal = MutationJournal(paths)
+        journal.begin('sample', dict(entry, deposition_id=None), 'create')
+        journal.confirm('sample', entry, 'create', self.remote)
         manifest = self.approve(paths, entry)
         with patch('scripts.publish_records.create_zenodo_client', return_value=self.client), patch('scripts.publish_records.get_logger', return_value=Mock()):
             release = prepare_release(manifest)

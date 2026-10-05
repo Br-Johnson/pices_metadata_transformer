@@ -4,24 +4,42 @@ Records uploaded to Zenodo are in 'unsubmitted' state and need to be published
 to be visible in communities and search results.
 """
 
-import os
-import json
 import argparse
-from datetime import datetime
-from typing import Dict, List, Any, Optional
-from tqdm import tqdm
+import json
+import os
 import sys
+from datetime import datetime
+from typing import Any, Dict, List
+
+from tqdm import tqdm
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from scripts.zenodo_api import create_zenodo_client, ZenodoAPIError
-from scripts.logger import initialize_logger, get_logger
+from scripts.artifact_contract import (
+    assert_artifact_binding,
+    prepare_artifact,
+    validate_files,
+)
+from scripts.content_class_targets import (
+    preflight_registry,
+    require_singleton_operation,
+)
+from scripts.logger import get_logger, initialize_logger
 from scripts.path_config import OutputPaths, default_log_dir
-from scripts.content_class_targets import require_singleton_operation, preflight_registry
-from scripts.upload_service import validate_registry_identities, validate_deposition_response, assert_environment, atomic_json, ledger_lock, read_json
+from scripts.production_mutations import MutationJournal
 from scripts.qa_manifest import validate_approval, validate_program_review
-from scripts.artifact_contract import prepare_artifact, assert_artifact_binding, validate_files
-from scripts.upload_service import prepare_metadata
 from scripts.release_manifest import validate_release
+from scripts.upload_service import (
+    assert_environment,
+    atomic_json,
+    ledger_lock,
+    prepare_metadata,
+    read_json,
+    validate_deposition_response,
+    validate_registry_identities,
+    validate_response_identity,
+)
+from scripts.zenodo_api import ZenodoAPIError, create_zenodo_client
 
 
 class RecordPublisher:
@@ -68,12 +86,16 @@ class RecordPublisher:
             'not_found': 0
         }
     
-    def _record_publication(self, fgdc_id, deposition_id, communities):
+    def _record_publication(self, fgdc_id, deposition_id, communities, remote):
         registry = read_json(self.paths.uploads_registry_path, {})
         entry = registry.get(fgdc_id)
         if not entry or entry.get('deposition_id') != deposition_id:
             raise ValueError('Upload ledger changed during publication')
         require_singleton_operation(source_id=fgdc_id, entry=entry, paths=self.paths)
+        entry['doi'] = validate_response_identity(fgdc_id, entry, remote, registry)
+        if self.paths.environment == 'production':
+            entry['doi'] = MutationJournal(self.paths).confirm(fgdc_id, entry, 'publish', remote)
+        validate_registry_identities(registry)
         entry['publish_status'] = 'published'
         entry['published_at'] = datetime.now().isoformat()
         entry['community_status'] = 'reported' if any(c.get('identifier') == 'pices' for c in communities) else 'unconfirmed'
@@ -156,7 +178,7 @@ class RecordPublisher:
         # Generate summary
         summary = self._generate_publish_summary()
         
-        self.logger.log_info(f"Publishing completed:")
+        self.logger.log_info("Publishing completed:")
         self.logger.log_info(f"  Total records: {summary['total_records']}")
         self.logger.log_info(f"  Successfully published: {summary['successful_publishes']}")
         self.logger.log_info(f"  Already published: {summary['already_published']}")
@@ -180,7 +202,7 @@ class RecordPublisher:
                 if any(current.get(key) != upload.get(key) for key in
                        ('deposition_id', 'metadata_sha256', 'source_sha256', 'environment', 'json_file', 'artifact_contract')):
                     raise ValueError('Upload ledger binding changed before publication')
-                return self._publish_locked(upload)
+                return self._publish_locked(dict(current))
         except Exception as exc:
             return {'deposition_id': upload.get('deposition_id'), 'json_file': upload.get('json_file'),
                     'publish_successful': False, 'error': str(exc), 'timestamp': datetime.now().isoformat()}
@@ -194,6 +216,11 @@ class RecordPublisher:
             require_singleton_operation(entry=upload, paths=self.paths)
             assert_environment(upload, self.paths.environment)
             fgdc_id = os.path.splitext(os.path.basename(json_file))[0]
+            journal = MutationJournal(self.paths) if not self.sandbox else None
+            if journal:
+                row = journal.validate(fgdc_id, upload)
+                if row and row.get('doi'):
+                    upload['doi'] = row['doi']
             if not self.sandbox:
                 validate_approval(self.qa_manifest, fgdc_id, upload, self.paths)
                 if self.qa_manifest.get('schema_version') == 2:
@@ -213,6 +240,8 @@ class RecordPublisher:
                 }
             
             validate_deposition_response(deposition, deposition_id)
+            upload['doi'] = validate_response_identity(fgdc_id, upload, deposition,
+                                                       read_json(self.paths.uploads_registry_path, {}))
             _, source_path, _ = prepare_metadata(json_file, self.paths)
             artifact = prepare_artifact(read_json(json_file), source_path)
             assert_artifact_binding(upload, artifact)
@@ -235,13 +264,13 @@ class RecordPublisher:
                         "Zenodo deposition metadata lacks 'pices' community",
                         "Confirm community membership in the Zenodo UI; add manually if required"
                     )
-                self._record_publication(fgdc_id, deposition_id, communities)
+                self._record_publication(fgdc_id, deposition_id, communities, deposition)
                 return {
                     'deposition_id': deposition_id,
                     'json_file': json_file,
                     'publish_successful': True,
                     'already_published': True,
-                    'doi': metadata_payload.get('prereserve_doi', {}).get('doi'),
+                    'doi': upload.get('doi'),
                     'timestamp': datetime.now().isoformat(),
                     'metadata': {
                         'title': metadata_payload.get('title', ''),
@@ -250,6 +279,10 @@ class RecordPublisher:
                 }
             
             # Publish the deposition
+            if journal:
+                if journal.validate(fgdc_id, upload) is None:
+                    raise ValueError('Legacy production publication history requires explicit reconciliation')
+                journal.begin(fgdc_id, upload, 'publish')
             published_deposition = self.client.publish_deposition(deposition_id)
             
             # Re-fetch metadata to ensure communities and final state are captured
@@ -267,11 +300,15 @@ class RecordPublisher:
                     "Retry fetching deposition details manually if community membership needs confirmation"
                 )
             
+            if journal and final_deposition is None:
+                raise ValueError('Production publication requires independent readback; reconcile')
+
             # Prefer the refreshed metadata when available
             metadata_payload = (final_deposition or published_deposition).get('metadata', {}) if (final_deposition or published_deposition) else {}
             
             # Get DOI and communities from the final payload
-            doi = metadata_payload.get('prereserve_doi', {}).get('doi')
+            doi = validate_response_identity(fgdc_id, upload, final_deposition or published_deposition,
+                                             read_json(self.paths.uploads_registry_path, {}))
             communities = metadata_payload.get('communities', []) or []
             
             # Warn if the PICES community is missing
@@ -294,7 +331,7 @@ class RecordPublisher:
             if not self.sandbox:
                 validate_approval(self.qa_manifest, fgdc_id, upload, self.paths,
                                   confirmed['metadata'], confirmed['files'])
-            self._record_publication(fgdc_id, deposition_id, communities)
+            self._record_publication(fgdc_id, deposition_id, communities, confirmed)
 
             result = {
                 'deposition_id': deposition_id,
@@ -335,6 +372,8 @@ class RecordPublisher:
     
     def _mark_as_metadata_only(self, deposition_id: int):
         """Legacy singleton-only metadata toggle; unknown identities cannot route here."""
+        if self.paths.environment == 'production':
+            raise ValueError('Production metadata remediation requires the journaled upload service')
         registry = read_json(self.paths.uploads_registry_path, {})
         matches = [(sid, entry) for sid, entry in registry.items()
                    if not sid.startswith('_') and entry.get('deposition_id') == deposition_id]
