@@ -348,6 +348,9 @@ class Runner:
             snapshot, qa, duplicate, release = (self.documents[k][0] for k in ('snapshot', 'qa', 'duplicate', 'release'))
             validate_snapshot(self.prepared, self.bound, snapshot)
             record = validate(qa, self.prepared, self.bound, snapshot, duplicate, now=self.now())
+            production = duplicate['production']
+            require(draft.instant(production['reviewed_at']) <= draft.instant(self.grant['started_at'])
+                    and draft.instant(self.grant['expires_at']) <= draft.instant(production['expires_at']))
             validate_release(release, qa, self.prepared.source_id, dict(record, environment='production'))
 
     def save(self):

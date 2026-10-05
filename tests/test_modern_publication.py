@@ -140,7 +140,7 @@ class ModernPublicationTests(unittest.TestCase):
         result = self.runner('capture').run()
         snapshot_path = Path(result['snapshot_path'])
         snapshot = parse(snapshot_path.read_bytes())
-        duplicate = raw_duplicates(self.prepared, now=NOW)
+        duplicate = raw_duplicates(self.prepared, bridge=self.bound, snapshot=snapshot, now=NOW)
         from scripts.modern_publication_qa import pending_manifest
         manifest = approve(pending_manifest(self.prepared, self.bound, snapshot, duplicate,
                            source_revision='a' * 40, now=NOW), now=NOW)
@@ -282,6 +282,48 @@ class ModernPublicationTests(unittest.TestCase):
         grant = parse(self.grant_path.read_bytes())
         grant['token_scope'] = publication.CAPTURE_TOKEN_SCOPE
         self.grant_path.write_bytes(encode(grant))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs)
+        self.assertEqual(self.transport.calls, [])
+
+    def test_external_only_or_foreign_owner_proof_never_dispatches(self):
+        docs = self.ready()
+        original = parse(docs['duplicate'].read_bytes())
+        for alteration in ('missing', 'foreign-owner', 'sandbox', 'history-unreconciled'):
+            with self.subTest(alteration=alteration):
+                duplicate = copy.deepcopy(original)
+                if alteration == 'missing':
+                    duplicate.pop('production')
+                elif alteration == 'foreign-owner':
+                    duplicate['production']['owner'] = '456'
+                elif alteration == 'sandbox':
+                    duplicate['production']['origin'] = 'https://sandbox.zenodo.org'
+                else:
+                    duplicate['production']['history_reconciled'] = False
+                docs['duplicate'].write_bytes(encode(duplicate))
+                self.grant('publish', docs)
+                with self.assertRaises(ValueError):
+                    self.runner(documents=docs)
+                self.assertEqual(self.transport.calls, [])
+
+    def test_production_proof_must_cover_entire_publication_grant(self):
+        docs = self.ready()
+        from scripts.modern_publication_qa import (
+            pending_manifest,
+            production_projection_hash,
+        )
+        duplicate = parse(docs['duplicate'].read_bytes())
+        duplicate['production']['expires_at'] = (NOW + timedelta(seconds=599)).isoformat()
+        duplicate['production']['reviewed_projection_sha256'] = production_projection_hash(duplicate['production'])
+        snapshot = parse(docs['snapshot'].read_bytes())
+        manifest = approve(pending_manifest(self.prepared, self.bound, snapshot, duplicate,
+                           source_revision='a' * 40, now=NOW), now=NOW)
+        release = prepare_release(manifest)
+        release['release'].update(approved=True, authority='Dummy human', authority_type='human',
+                                  authorized_at=NOW.isoformat(), rationale='Exact fixture release')
+        for key, value in (('duplicate', duplicate), ('qa', manifest), ('release', release)):
+            docs[key].write_bytes(encode(value))
+        self.grant('publish', docs)
         with self.assertRaises(ValueError):
             self.runner(documents=docs)
         self.assertEqual(self.transport.calls, [])

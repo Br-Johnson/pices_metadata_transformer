@@ -21,6 +21,13 @@ from scripts.production_mutations import EXCLUDED, PROTECTED
 from scripts.qa_manifest import QA_CHECKS, validate_program_review
 
 KIND = 'modern-singleton-qa-v1'
+PRODUCTION_SCOPES = {
+    'owner_inventory': 'all_owned_draft_and_published_records_versions_and_file_descriptors',
+    'source_history': 'all_retained_source_identity_and_mutation_attempts_in_original_state_root',
+}
+PRODUCTION_REVIEW_FIELDS = {
+    'reviewed_by', 'reviewer_type', 'reviewed_at', 'rationale', 'reviewed_projection_sha256',
+}
 
 
 def _require(condition, reason):
@@ -68,7 +75,86 @@ def _source_title(xml):
     raise ValueError('Modern publication QA: source title is missing')
 
 
-def _duplicate_evidence(prepared, duplicate, *, now):
+def production_projection_hash(production):
+    """The independent reviewer attests the complete projection, not empty flags."""
+    return sha(encode({key: value for key, value in production.items() if key not in PRODUCTION_REVIEW_FIELDS}))
+
+
+def validate_production(prepared, bridge, snapshot, production, *, now):
+    """Validate the independently reviewed production capture projection.
+
+    Capture authenticity and completeness require actual independent review by
+    the parent, as for a bounded provider grant. Hashes bind that decision; they
+    cannot establish its truth. Generic external searches and historical create
+    proofs cannot supply this separate current owner/source/history gate.
+    """
+    _require(isinstance(now, datetime) and now.tzinfo is not None and now.utcoffset() is not None,
+             'an aware production reconciliation time is required')
+    keys = {
+        'schema_version', 'kind', 'origin', 'owner', 'binding', 'preparation_binding',
+        'state_root', 'source_id', 'source_sha256', 'wire_sha256', 'own_records',
+        'matched_record_ids', 'matched_dois', 'excluded_record_ids', 'excluded_dois',
+        'unresolved_candidates', 'unresolved_attempts', 'historical_exception',
+        'complete', 'history_reconciled', 'checked_at', 'expires_at', 'inventory_sha256',
+        'history_sha256', 'captured_by', 'evidence',
+    } | PRODUCTION_REVIEW_FIELDS
+    _require(isinstance(production, dict) and set(production) == keys,
+             'fresh independently reviewed production reconciliation is required')
+    identity = bridge['identity']
+    _require(type(production['schema_version']) is int and production['schema_version'] == 1
+             and production['kind'] == 'modern-production-duplicate-v1'
+             and production['origin'] == 'https://zenodo.org' and production['owner'] == identity['owner']
+             and production['binding'] == bridge['binding']
+             and production['preparation_binding'] == prepared.binding
+             and _text(bridge.get('state_root')) and production['state_root'] == bridge['state_root']
+             and production['source_id'] == prepared.source_id
+             and production['source_sha256'] == sha(prepared.xml)
+             and production['wire_sha256'] == sha(prepared.body),
+             'production owner, source, wire, bridge or original state root differs')
+    _require(production['complete'] is True and production['history_reconciled'] is True
+             and production['own_records'] == [identity]
+             and production['matched_record_ids'] == [identity['id']]
+             and production['matched_dois'] == []
+             and production['excluded_record_ids'] == [identity['id']]
+             and production['excluded_dois'] == []
+             and production['unresolved_candidates'] == [] and production['unresolved_attempts'] == [],
+             'production reconciliation permits only the exact own draft and no unresolved history')
+    _require(all(_digest(bridge.get(key)) for key in ('draft_row_sha256', 'create_intent_sha256'))
+             and production['historical_exception'] == {
+                 key: bridge[key] for key in ('draft_row_sha256', 'create_intent_sha256')},
+             'production history exception must identify the preserved own draft row and intent')
+    _require(all(_text(production[key]) for key in ('captured_by', 'reviewed_by', 'rationale'))
+             and production['reviewer_type'] in ('human', 'agent')
+             and production['captured_by'].strip().casefold() != production['reviewed_by'].strip().casefold()
+             and _digest(production['reviewed_projection_sha256'])
+             and production['reviewed_projection_sha256'] == production_projection_hash(production),
+             'independent review must bind the exact production projection')
+    checked, expiry, reviewed = (_time(production[key]) for key in ('checked_at', 'expires_at', 'reviewed_at'))
+    captured = _time(snapshot['captured_at'])
+    _require(_time(identity['created']) <= captured <= checked <= reviewed <= now < expiry
+             and timedelta(0) < expiry - checked <= timedelta(hours=1),
+             'production reconciliation is stale, unreviewed or outside its one-hour window')
+    evidence = production['evidence']
+    _require(isinstance(evidence, list) and len(evidence) == 2
+             and all(isinstance(item, dict) and set(item) == {
+                 'role', 'scope', 'origin', 'owner', 'reference', 'sha256', 'observed_at'}
+                 and isinstance(item['role'], str) for item in evidence)
+             and {item['role'] for item in evidence} == set(PRODUCTION_SCOPES),
+             'both owner inventory and source history capture references are required')
+    for item in evidence:
+        role = item['role']
+        digest = production['inventory_sha256' if role == 'owner_inventory' else 'history_sha256']
+        _require(item['scope'] == PRODUCTION_SCOPES[role] and item['origin'] == 'https://zenodo.org'
+                 and item['owner'] == identity['owner'] and _text(item['reference'])
+                 and _digest(digest) and item['sha256'] == digest,
+                 'production capture scope, owner, origin or digest differs')
+        observed = _time(item['observed_at'])
+        _require(captured <= observed <= checked and expiry <= observed + timedelta(hours=1),
+                 'production capture must be current and precede its reviewed reconciliation')
+    return production
+
+
+def _duplicate_evidence(prepared, bridge, snapshot, duplicate, *, now):
     _require(isinstance(duplicate, dict)
              and type(duplicate.get('schema_version')) is int and duplicate['schema_version'] == 1
              and duplicate.get('status') == 'checked_no_match'
@@ -82,6 +168,7 @@ def _duplicate_evidence(prepared, duplicate, *, now):
              'complete source and modern wire-scoped duplicate evidence is required')
     _fresh(duplicate.get('checked_at'), now)
     _require(_time(duplicate.get('valid_until')) > now, 'duplicate evidence has expired')
+    validate_production(prepared, bridge, snapshot, duplicate.get('production'), now=now)
     title = _source_title(prepared.xml)
     for proof in duplicate['evidence']:
         _require(isinstance(proof, dict) and proof.get('status') == 'checked_no_match'
@@ -159,7 +246,7 @@ approved a record, reviewed the program, or authorized release.
         except (ValueError, binascii.Error):
             raise ValueError('Modern publication QA: malformed saved response bytes') from None
         _require(sha(raw) == response['response_sha256'], 'saved draft response bytes differ')
-    _duplicate_evidence(prepared, duplicate, now=now)
+    _duplicate_evidence(prepared, bridge, snapshot, duplicate, now=now)
     return copy.deepcopy({
         'schema_version': 1, 'kind': 'modern-singleton-qa-evidence-v1',
         'checks': dict.fromkeys(QA_CHECKS, True), 'source_id': prepared.source_id,
@@ -220,7 +307,8 @@ def validate(manifest, prepared, bridge, snapshot, duplicate, *, now: datetime) 
              and all(qa['checks'].get(key) is True for key in QA_CHECKS),
              'explicit record approval, reviewer provenance and all QA checks are required')
     reviewed = _time(qa.get('reviewed_at'))
-    evidence_times = [_time(snapshot['captured_at']), _time(duplicate['checked_at'])]
+    evidence_times = [_time(snapshot['captured_at']), _time(duplicate['checked_at']),
+                      _time(duplicate['production']['reviewed_at'])]
     evidence_times.extend(_time(proof['snapshot']['retrieved_at']) for proof in duplicate['evidence'])
     _require(max(evidence_times) <= reviewed <= now,
              'record review must follow all saved draft and duplicate evidence')

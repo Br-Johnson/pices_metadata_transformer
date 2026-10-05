@@ -79,6 +79,56 @@ The modern QA adapter uses fresh source preparation, this validated snapshot and
 fresh complete raw scoped duplicate evidence. It never fabricates legacy
 `/api/deposit/depositions` snapshots. The draft creation projection containing
 only reviewed inventory/history digests is insufficient for this QA step.
+A mandatory `duplicate.production` proof separately binds the actual production
+Zenodo owner, source/XML/wire hashes, current bridge/preparation, original state
+root, and original create-intent/draft-row history. The independently reviewed
+projection must reference fresh complete owned draft/published/version inventory
+with complete file coverage and complete source-attempt reconciliation. It records
+exactly one full matching own identity, excludes only that record ID and exact
+original attempt, and permits no other record/DOI matches, unresolved candidates,
+or uncertain attempts. A same-parent sibling cannot be excluded. Parent DOI
+families and source/title matches are never blanket exceptions.
+
+Its inventory/history capture digests and immutable references, observation times,
+explicit scopes and independent capture/reviewer provenance are bound by a
+canonical reviewed-projection digest. This is the same trusted parent-review
+boundary as the original creation proof: the controller validates the projection
+contract, while the parent must actually inspect the referenced captured evidence.
+A JSON flag or self-recomputed digest is not evidence of authentic review. No new
+raw API schema, scan cap or provider request is invented. External empty repository
+searches remain supplementary and cannot replace this mandatory Zenodo proof.
+
+Both production observations must follow the saved draft snapshot, review follows
+the observations, and the at-most-one-hour proof window must cover the entire
+publication grant. Record/program QA must follow this production review. Historical
+creation proof cannot be made fresh merely by changing dates or bindings.
+
+The exact `duplicate.production` keys are enforced by
+`modern_publication_qa.validate_production()`:
+
+- `schema_version:1`, `kind:"modern-production-duplicate-v1"`,
+  `origin:"https://zenodo.org"`, `owner`, `binding`, `preparation_binding`,
+  `state_root`, `source_id`, `source_sha256`, and `wire_sha256` match the bridge
+  and fresh preparation.
+- `own_records:[BRIDGE_IDENTITY]`, `matched_record_ids:[OWN_ID]`,
+  `excluded_record_ids:[OWN_ID]`; `matched_dois`, `excluded_dois`,
+  `unresolved_candidates`, and `unresolved_attempts` are empty lists.
+  `historical_exception` has exactly the bridge's `draft_row_sha256` and
+  `create_intent_sha256`. `complete` and `history_reconciled` are true only after
+  the actual complete captures and history are reviewed.
+- `checked_at`, `expires_at`, `inventory_sha256`, `history_sha256`, `captured_by`,
+  `reviewed_by`, `reviewer_type` (`human` or `agent`), `reviewed_at`, `rationale`,
+  `reviewed_projection_sha256`, and `evidence` retain real capture/review facts.
+  The capture and review actors must differ. Calculate the projection digest
+  with `production_projection_hash()` only for the independently reviewed block.
+- `evidence` contains exactly two entries, each with `role`, `scope`, `origin`,
+  `owner`, `reference`, `sha256`, and `observed_at`. The `owner_inventory` scope is
+  `all_owned_draft_and_published_records_versions_and_file_descriptors`; the
+  `source_history` scope is
+  `all_retained_source_identity_and_mutation_attempts_in_original_state_root`.
+  Each digest matches its corresponding top-level capture digest. References
+  identify retained evidence the parent actually inspected, not placeholders.
+
 A pending schema-2 manifest binds all evidence and remains unapproved. Explicit
 record checks, reviewer provenance, checked-no-match adjudication, independent
 program review and risk-stratified sampling remain required. Existing release

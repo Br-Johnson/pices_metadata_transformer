@@ -16,26 +16,54 @@ from scripts.qa_manifest import QA_CHECKS, approved_population_hash
 from tests.modern_singleton_fixtures import NOW, Fixture, prepare_sources
 
 
-def raw_duplicates(prepared, *, now=NOW):
-    """Synthetic saved DataCite inventory, explicitly scoped to this source title."""
+def raw_duplicates(prepared, *, bridge, snapshot, now=NOW):
+    """Test-only independently reviewed production proof plus raw external search."""
     node = ET.fromstring(prepared.xml).find('./idinfo/citation/citeinfo/title')
     title = re.sub(r'\s+', ' ', ''.join(node.itertext())).strip()
-    snapshot = {
+    raw_snapshot = {
         'repository': 'Offline fixture repository', 'endpoint': 'https://example.invalid/dois',
         'retrieved_at': now.isoformat(), 'query': title,
         'scope': 'Offline fixture source-title search; not a real global absence claim',
         'http_status': 200, 'format': 'datacite', 'scope_complete': True,
         'body': {'data': [], 'links': {}, 'meta': {'total': 0}},
     }
+    production = {
+        'schema_version': 1, 'kind': 'modern-production-duplicate-v1', 'origin': 'https://zenodo.org',
+        'owner': bridge['identity']['owner'], 'binding': bridge['binding'],
+        'preparation_binding': prepared.binding, 'state_root': bridge['state_root'],
+        'source_id': prepared.source_id, 'source_sha256': mapping.sha(prepared.xml),
+        'wire_sha256': mapping.sha(prepared.body), 'own_records': [copy.deepcopy(bridge['identity'])],
+        'matched_record_ids': [bridge['identity']['id']], 'matched_dois': [],
+        'excluded_record_ids': [bridge['identity']['id']], 'excluded_dois': [],
+        'unresolved_candidates': [], 'unresolved_attempts': [],
+        'historical_exception': {key: bridge[key] for key in ('draft_row_sha256', 'create_intent_sha256')},
+        'complete': True, 'history_reconciled': True, 'checked_at': now.isoformat(),
+        'expires_at': (now + timedelta(hours=1)).isoformat(),
+        'inventory_sha256': mapping.sha(b'Offline synthetic owner inventory capture'),
+        'history_sha256': mapping.sha(b'Offline synthetic source history reconciliation'),
+        'captured_by': 'Offline capture fixture', 'reviewed_by': 'Offline production evidence reviewer',
+        'reviewer_type': 'agent', 'reviewed_at': now.isoformat(),
+        'rationale': 'Explicit independent test-only owner, own draft and source history reconciliation',
+        'evidence': [],
+    }
+    for role, scope in qa.PRODUCTION_SCOPES.items():
+        production['evidence'].append({
+            'role': role, 'scope': scope, 'origin': 'https://zenodo.org', 'owner': bridge['identity']['owner'],
+            'reference': 'offline-synthetic-capture:' + role,
+            'sha256': production['inventory_sha256' if role == 'owner_inventory' else 'history_sha256'],
+            'observed_at': now.isoformat(),
+        })
+    production['reviewed_projection_sha256'] = qa.production_projection_hash(production)
     return {
         'schema_version': 1, 'status': 'checked_no_match', 'inventory_complete': True,
         'environment': 'production', 'fgdc_id': prepared.source_id,
         'source_sha256': mapping.sha(prepared.xml), 'metadata_sha256': mapping.sha(prepared.body),
         'candidates': [], 'scope': 'Offline fixture source-title search',
         'checked_at': now.isoformat(), 'valid_until': (now + timedelta(hours=1)).isoformat(),
+        'production': production,
         'evidence': [{'status': 'checked_no_match', 'inventory_complete': True,
-                      'endpoint': snapshot['endpoint'], 'scope': snapshot['scope'],
-                      'response_sha256': snapshot_inventory(snapshot)['response_sha256'], 'snapshot': snapshot}],
+                      'endpoint': raw_snapshot['endpoint'], 'scope': raw_snapshot['scope'],
+                      'response_sha256': snapshot_inventory(raw_snapshot)['response_sha256'], 'snapshot': raw_snapshot}],
     }
 
 
@@ -80,7 +108,8 @@ class ModernPublicationQATests(unittest.TestCase):
         self.bridge = {
             'kind': 'modern-singleton-bridge-v1', 'preparation_binding': self.prepared.binding,
             'identity': {'id': '19000001', 'parent_id': '19000000', 'owner': '123', 'created': NOW.isoformat()},
-            'verified_revision': 2,
+            'verified_revision': 2, 'state_root': self.fixture.grant['state_root'],
+            'draft_row_sha256': 'd' * 64, 'create_intent_sha256': 'e' * 64,
         }
         self.bridge['binding'] = mapping.sha(mapping.encode(self.bridge))
         remote = self.fixture.transport
@@ -101,7 +130,7 @@ class ModernPublicationQATests(unittest.TestCase):
             'identity': copy.deepcopy(self.bridge['identity']), 'revision_id': 2,
             'captured_at': NOW.isoformat(), 'responses': responses,
         }
-        self.duplicate = raw_duplicates(self.prepared)
+        self.duplicate = raw_duplicates(self.prepared, bridge=self.bridge, snapshot=self.snapshot)
 
     def pending(self):
         return qa.pending_manifest(self.prepared, self.bridge, self.snapshot, self.duplicate,
@@ -124,6 +153,11 @@ class ModernPublicationQATests(unittest.TestCase):
         self.bridge['binding'] = mapping.sha(mapping.encode({k: v for k, v in self.bridge.items() if k != 'binding'}))
         self.snapshot['bridge_binding'] = self.bridge['binding']
         self.snapshot['identity'] = copy.deepcopy(self.bridge['identity'])
+        self.duplicate = raw_duplicates(self.prepared, bridge=self.bridge, snapshot=self.snapshot)
+
+    def resign_production(self):
+        production = self.duplicate['production']
+        production['reviewed_projection_sha256'] = qa.production_projection_hash(production)
 
     def test_pending_manifest_supplies_evidence_without_any_approval(self):
         before = copy.deepcopy((self.bridge, self.snapshot, self.duplicate))
@@ -420,16 +454,167 @@ class ModernPublicationQATests(unittest.TestCase):
     def test_new_duplicate_check_or_raw_retrieval_invalidates_earlier_claimed_review(self):
         old = NOW - timedelta(minutes=30)
         review_time = NOW - timedelta(minutes=1)
+        self.bridge['identity']['created'] = (old - timedelta(minutes=1)).isoformat()
+        self.rebind_bridge()
         self.snapshot['captured_at'] = old.isoformat()
         for field in ('checked_at', 'retrieved_at'):
             with self.subTest(field=field):
-                self.duplicate = raw_duplicates(self.prepared, now=old)
+                self.duplicate = raw_duplicates(self.prepared, bridge=self.bridge, snapshot=self.snapshot, now=old)
                 target = self.duplicate if field == 'checked_at' else self.duplicate['evidence'][0]['snapshot']
                 target[field] = NOW.isoformat()
                 pending = self.pending()
                 with self.assertRaisesRegex(ValueError, 'record review must follow all saved'):
                     self.validate(approve(pending, now=review_time))
                 self.assertTrue(self.validate(approve(pending))['qa']['approved'])
+
+    def test_external_searches_and_old_create_proof_cannot_replace_production_reconciliation(self):
+        approved = approve(self.pending())
+        production = self.duplicate.pop('production')
+        with self.assertRaisesRegex(ValueError, 'production reconciliation is required'):
+            self.validate(approved)
+        self.duplicate['production'] = copy.deepcopy(self.fixture.proof)
+        with self.assertRaisesRegex(ValueError, 'production reconciliation is required'):
+            self.assess()
+        self.duplicate['production'] = production
+        self.assertIs(qa.validate_production(self.prepared, self.bridge, self.snapshot, production, now=NOW), production)
+
+    def test_production_owner_environment_root_source_wire_and_bridge_are_exact(self):
+        original = copy.deepcopy(self.duplicate['production'])
+        changes = [('schema_version', True), ('kind', 'generic-duplicate-proof'),
+                   ('origin', 'https://sandbox.zenodo.org'), ('owner', '124'), ('state_root', '/another/root'),
+                   ('source_id', 'FGDC-142'), ('source_sha256', '0' * 64), ('wire_sha256', '0' * 64),
+                   ('binding', '0' * 64), ('preparation_binding', '0' * 64)]
+        for key, value in changes:
+            with self.subTest(field=key):
+                self.duplicate['production'] = copy.deepcopy(original)
+                self.duplicate['production'][key] = value
+                self.resign_production()
+                with self.assertRaisesRegex(ValueError, 'production owner, source'):
+                    self.assess()
+
+    def test_only_exact_own_draft_may_match_or_be_excluded_from_production_inventory(self):
+        original = copy.deepcopy(self.duplicate['production'])
+        own = self.bridge['identity']['id']
+        changes = [('own_records', []), ('own_records', [self.bridge['identity']] * 2),
+                   ('matched_record_ids', []), ('matched_record_ids', [own, '19000002']),
+                   ('matched_dois', ['10.1234/new-duplicate']), ('excluded_record_ids', []),
+                   ('excluded_record_ids', [own, '19000002']), ('excluded_dois', ['10.1234/hidden'])]
+        for key, value in changes:
+            with self.subTest(field=key, value=value):
+                self.duplicate['production'] = copy.deepcopy(original)
+                self.duplicate['production'][key] = value
+                self.resign_production()
+                with self.assertRaisesRegex(ValueError, 'only the exact own draft'):
+                    self.assess()
+        for key, value in (('parent_id', '19000002'), ('owner', '124'),
+                           ('created', (NOW - timedelta(seconds=1)).isoformat())):
+            with self.subTest(identity_field=key):
+                self.duplicate['production'] = copy.deepcopy(original)
+                self.duplicate['production']['own_records'][0][key] = value
+                self.resign_production()
+                with self.assertRaisesRegex(ValueError, 'only the exact own draft'):
+                    self.assess()
+
+    def test_partial_inventory_or_unresolved_history_holds_despite_empty_external_search(self):
+        original = copy.deepcopy(self.duplicate['production'])
+        changes = [('complete', False), ('history_reconciled', False),
+                   ('unresolved_candidates', ['another matching source']),
+                   ('unresolved_attempts', [{'source_id': self.prepared.source_id, 'status': 'uncertain'}])]
+        for key, value in changes:
+            with self.subTest(field=key):
+                self.duplicate['production'] = copy.deepcopy(original)
+                self.duplicate['production'][key] = value
+                self.resign_production()
+                with self.assertRaisesRegex(ValueError, 'no unresolved history'):
+                    self.assess()
+        self.duplicate['production'] = copy.deepcopy(original)
+        self.duplicate['production']['historical_exception']['draft_row_sha256'] = '0' * 64
+        self.resign_production()
+        with self.assertRaisesRegex(ValueError, 'preserved own draft row and intent'):
+            self.assess()
+        self.duplicate['production']['historical_exception'] = {
+            'draft_row_sha256': self.bridge['draft_row_sha256'], 'create_intent_sha256': '0' * 64}
+        self.resign_production()
+        with self.assertRaisesRegex(ValueError, 'preserved own draft row and intent'):
+            self.assess()
+
+    def test_production_capture_has_both_reviewed_owner_and_history_references(self):
+        original = copy.deepcopy(self.duplicate['production'])
+        for change in ('missing_history', 'duplicate_role', 'wrong_scope', 'wrong_origin', 'wrong_owner',
+                       'missing_reference', 'wrong_capture_hash'):
+            with self.subTest(change=change):
+                self.duplicate['production'] = copy.deepcopy(original)
+                evidence = self.duplicate['production']['evidence']
+                if change == 'missing_history':
+                    evidence.pop()
+                elif change == 'duplicate_role':
+                    evidence[1] = copy.deepcopy(evidence[0])
+                else:
+                    key, value = {
+                        'wrong_scope': ('scope', 'arbitrary external title search'),
+                        'wrong_origin': ('origin', 'https://example.invalid'), 'wrong_owner': ('owner', '124'),
+                        'missing_reference': ('reference', ''), 'wrong_capture_hash': ('sha256', '0' * 64),
+                    }[change]
+                    evidence[0][key] = value
+                self.resign_production()
+                with self.assertRaises(ValueError):
+                    self.assess()
+
+    def test_production_projection_requires_independent_review_of_its_exact_content(self):
+        original = copy.deepcopy(self.duplicate['production'])
+        for key, value in (('captured_by', ''), ('reviewed_by', '  OFFLINE CAPTURE FIXTURE  '),
+                           ('reviewer_type', 'unattended'), ('rationale', ''), ('reviewed_projection_sha256', '0' * 64)):
+            with self.subTest(field=key):
+                self.duplicate['production'] = copy.deepcopy(original)
+                self.duplicate['production'][key] = value
+                if key != 'reviewed_projection_sha256':
+                    self.resign_production()
+                with self.assertRaisesRegex(ValueError, 'independent review must bind'):
+                    self.assess()
+        self.duplicate['production'] = copy.deepcopy(original)
+        self.duplicate['production']['evidence'][0]['reference'] = 'different-capture-reference'
+        with self.assertRaisesRegex(ValueError, 'independent review must bind'):
+            self.assess()
+
+    def test_production_window_cannot_be_stale_future_overlong_or_predate_snapshot(self):
+        original = copy.deepcopy(self.duplicate['production'])
+        for key, value in (('expires_at', NOW.isoformat()),
+                           ('expires_at', (NOW + timedelta(hours=1, seconds=1)).isoformat()),
+                           ('checked_at', (NOW - timedelta(seconds=1)).isoformat()),
+                           ('checked_at', (NOW + timedelta(seconds=1)).isoformat()),
+                           ('reviewed_at', (NOW - timedelta(seconds=1)).isoformat()),
+                           ('reviewed_at', (NOW + timedelta(seconds=1)).isoformat())):
+            with self.subTest(field=key, value=value):
+                self.duplicate['production'] = copy.deepcopy(original)
+                self.duplicate['production'][key] = value
+                self.resign_production()
+                with self.assertRaisesRegex(ValueError, 'one-hour window'):
+                    self.assess()
+        for offset in (-1, 1):
+            with self.subTest(capture_offset=offset):
+                self.duplicate['production'] = copy.deepcopy(original)
+                self.duplicate['production']['evidence'][0]['observed_at'] = (NOW + timedelta(seconds=offset)).isoformat()
+                self.resign_production()
+                with self.assertRaisesRegex(ValueError, 'production capture must be current'):
+                    self.assess()
+
+    def test_new_production_capture_or_review_invalidates_prior_qa_and_program_approval(self):
+        original_manifest = approve(self.pending())
+        self.duplicate['production']['evidence'][0]['reference'] = 'new-independently-reviewed-owner-capture'
+        self.resign_production()
+        with self.assertRaisesRegex(ValueError, 'stale or altered'):
+            self.validate(original_manifest)
+        old = NOW - timedelta(minutes=30)
+        self.bridge['identity']['created'] = (old - timedelta(minutes=1)).isoformat()
+        self.rebind_bridge()
+        self.snapshot['captured_at'] = old.isoformat()
+        self.duplicate = raw_duplicates(self.prepared, bridge=self.bridge, snapshot=self.snapshot, now=old)
+        production = self.duplicate['production']
+        production['reviewed_at'] = NOW.isoformat()
+        pending = self.pending()
+        with self.assertRaisesRegex(ValueError, 'record review must follow all saved'):
+            self.validate(approve(pending, now=NOW - timedelta(minutes=1)))
+        self.assertTrue(self.validate(approve(pending))['qa']['approved'])
 
 
 if __name__ == '__main__':
