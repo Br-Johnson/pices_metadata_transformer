@@ -26,6 +26,38 @@ EXCLUDED = {10042430, 15046283}
 ACTIONS = {'create', 'metadata', 'artifact', 'publish'}
 
 
+def reject_modern_attempt(paths, source_id, record_id=None):
+    """Modern and legacy lanes share spent-source barriers, including journal loss."""
+    root = Path(paths.uploads_registry_path).parent
+    intent = root / (source_id + '.modern-create-v1.intent.json')
+    modern = Path(paths.uploads_registry_path + '.modern-v1.json')
+    if intent.exists() or intent.is_symlink():
+        raise ValueError('Modern production attempt exists; legacy writes require reconciliation')
+    if modern.exists() or modern.is_symlink():
+        value = json.loads(modern.read_bytes())
+        if (not isinstance(value, dict) or value.get('kind') != 'modern-production-draft-attempts'
+                or type(value.get('schema_version')) is not int or value['schema_version'] != 1
+                or not isinstance(value.get('targets'), dict) or source_id in value['targets']):
+            raise ValueError('Modern production journal requires reconciliation before legacy writes')
+        occupied = set()
+        for row in value['targets'].values():
+            if not isinstance(row, dict):
+                raise ValueError('Malformed modern production identity evidence')
+            identity = row.get('identity')
+            if identity is not None and not isinstance(identity, dict):
+                raise ValueError('Malformed modern production identity evidence')
+            identifiers = [row.get('untrusted_candidate_id')]
+            if identity is not None:
+                identifiers.extend(identity.get(key) for key in ('id', 'parent_id'))
+            for identifier in identifiers:
+                if identifier is not None:
+                    if not isinstance(identifier, str) or not re.fullmatch('[1-9][0-9]{0,19}', identifier):
+                        raise ValueError('Malformed modern production identity evidence')
+                    occupied.add(identifier)
+        if record_id is not None and str(record_id) in occupied:
+            raise ValueError('Modern production record identity belongs to another attempted source')
+
+
 def doi_key(value):
     if value is None or value == '':
         return None
@@ -97,6 +129,7 @@ class MutationJournal:
     def __init__(self, paths):
         if paths.environment != 'production':
             raise ValueError('Mutation journal requires production-scoped paths')
+        self.paths = paths
         self.path = Path(paths.uploads_registry_path + '.mutations.json')
         self.data = (json.loads(self.path.read_text()) if self.path.exists() else
                      {'schema_version': 1, 'environment': 'production', 'targets': {}})
@@ -128,6 +161,7 @@ class MutationJournal:
                     raise ValueError('Invalid production mutation receipt')
 
     def validate(self, source_id, entry, *, adopting=False):
+        reject_modern_attempt(self.paths, source_id, entry.get('deposition_id'))
         preserve_identity(source_id, entry)
         binding = source_binding(source_id, entry)
         row = self.data['targets'].get(source_id)
