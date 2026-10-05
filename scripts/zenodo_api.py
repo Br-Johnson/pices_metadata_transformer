@@ -3,16 +3,17 @@ Zenodo API client with rate limiting, retry logic, and comprehensive error handl
 Handles all interactions with the Zenodo REST API.
 """
 
-import requests
-import json
-import time
-import os
-from datetime import datetime, timedelta
-from typing import Dict, List, Any, Optional, Tuple
-from urllib.parse import urljoin, urlparse, quote
 import logging
+import os
 import sys
+import time
+from datetime import datetime, timedelta
+from typing import Any, Dict, List, Optional
+from urllib.parse import quote, urljoin, urlparse
 from uuid import UUID
+
+import requests
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from scripts.logger import get_logger
@@ -194,8 +195,9 @@ class ZenodoAPIClient:
         
         url = urljoin(self.api_url, endpoint)
         
-        retries = 0 if method.upper() == "POST" or not _retry else self.max_retries
+        retries = self.max_retries if method.upper() in {"GET", "HEAD"} and _retry else 0
         kwargs.setdefault("timeout", 30)
+        kwargs["allow_redirects"] = False
         for attempt in range(retries + 1):
             try:
                 response = self.session.request(method, url, **kwargs)
@@ -206,6 +208,10 @@ class ZenodoAPIClient:
                     f"Attempt: {attempt + 1}/{self.max_retries + 1}"
                 )
                 
+                if 300 <= response.status_code < 400:
+                    raise ZenodoAPIError('API redirect refused', stage=_diagnostic_stage,
+                                         exception_type='HTTPStatus', status=response.status_code)
+
                 # Handle rate limiting
                 if response.status_code == 429:
                     if attempt < retries:

@@ -52,11 +52,20 @@ class ReleaseTests(unittest.TestCase):
 
     def test_agent_qa_publication_requires_program_review_and_separate_release(self):
         from tests.test_agent_qa import AgentQATests
+        from scripts.production_mutations import MutationJournal
         from scripts.publish_records import RecordPublisher
         from scripts.qa_manifest import approved_population_hash
+        from scripts.upload_service import atomic_json
         fixture = AgentQATests()
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
+        # This fixture represents a fresh journaled draft, not a legacy draft
+        # whose missing attempt history must hold publication.
+        fixture.entry['doi'] = '10.5281/zenodo.123'
+        atomic_json(fixture.paths.uploads_registry_path, {'sample': fixture.entry})
+        journal = MutationJournal(fixture.paths)
+        journal.begin('sample', dict(fixture.entry, deposition_id=None), 'create')
+        journal.confirm('sample', fixture.entry, 'create', fixture.remote['body'])
         manifest = fixture.build()
         self.assertTrue(manifest['records'][0]['qa']['approved'])
         release = prepare_release(manifest)

@@ -1,3 +1,18 @@
+# Durable production mutation recovery — 2026-10-05
+
+[ADR 0004](adr/0004-durable-production-mutation-attempts.md) integrates a separate,
+source-bound production journal at the existing singleton write boundaries.
+Fixed action keys, file/directory durability, same-record readback and protected
+identities prevent replay after uncertain effects or inventory refresh. Legacy
+unknown write history remains conservatively consumed. Preserving both state
+files is required; losing both is not automatically distinguishable from a fresh
+run. No reset/regrant mechanism is provided.
+
+This closes a legacy recovery gap without creating the missing modern production
+executor. Source-aware modern creator/publisher mappings, class-aware upload,
+protected published-file corrections and real provider rehearsal remain needed.
+No existing QA/release, source-integrity or executor assignment is relaxed.
+
 # Current owner-listing and file evidence reviewed — 2026-10-04
 
 The [evidence closure](readiness/2026-10-04/production_owner_file_coverage_closure.md)

@@ -22,7 +22,7 @@ class UploadBatchSelectionTests(unittest.TestCase):
         identifiers = itertools.count(101)
         self.client = Mock(base_url='https://sandbox.zenodo.org')
         self.client.create_deposition.side_effect = lambda: {'id': next(identifiers)}
-        self.client.update_deposition_metadata.side_effect = lambda identifier, metadata, **kwargs: {'metadata': metadata}
+        self.client.update_deposition_metadata.side_effect = lambda identifier, metadata, **kwargs: {'id': identifier, 'metadata': metadata}
         with patch('scripts.upload_to_zenodo.get_logger', return_value=Mock()):
             self.uploader = ZenodoUploader(output_dir=self.tmp.name)
         self.uploader.client = self.client

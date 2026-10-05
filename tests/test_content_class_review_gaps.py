@@ -280,7 +280,7 @@ class ContentClassReviewGapTests(unittest.TestCase):
         self.assertEqual(service.pending_files(), [str(self.file)])
         preflight_inputs(self.paths, [str(self.file)])
         self.client.create_deposition.return_value = {"id": 123}
-        self.client.update_deposition_metadata.return_value = {"metadata": {}}
+        self.client.update_deposition_metadata.return_value = {"id": 123, "metadata": {}}
         result = service.upload(str(self.file), self.client)
         self.assertTrue(result["success"], result.get("error"))
         self.client.create_deposition.assert_called_once_with()

@@ -7,6 +7,7 @@ An uncertain create is never retried automatically; recovery needs a verified ID
 from __future__ import annotations
 
 import contextlib
+import fcntl
 import hashlib
 import json
 import os
@@ -15,12 +16,16 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
-import fcntl
-
-from scripts.fgdc_utils import build_metadata_notes, load_fgdc_xml
+from scripts.artifact_contract import (
+    artifact_metadata,
+    assert_artifact_binding,
+    prepare_artifact,
+    validate_files,
+)
 from scripts.content_class_targets import require_singleton_operation
+from scripts.fgdc_utils import build_metadata_notes, load_fgdc_xml
+from scripts.production_mutations import MutationJournal, doi_key, preserve_identity
 from scripts.validate_zenodo import ZenodoValidator
-from scripts.artifact_contract import prepare_artifact, artifact_metadata, validate_files, assert_artifact_binding
 
 
 def metadata_hash(metadata: dict) -> str:
@@ -46,6 +51,11 @@ def atomic_json(path, payload):
             handle.flush()
             os.fsync(handle.fileno())
         os.replace(temporary, path)
+        directory_fd = os.open(path.parent, os.O_RDONLY | os.O_DIRECTORY)
+        try:
+            os.fsync(directory_fd)
+        finally:
+            os.close(directory_fd)
     finally:
         if os.path.exists(temporary):
             os.unlink(temporary)
@@ -91,9 +101,16 @@ def validate_deposition_response(record, deposition_id):
 def validate_registry_identities(registry):
     """A remote draft may belong to exactly one source identity in a ledger."""
     seen = set()
+    seen_dois = set()
     for key, entry in registry.items():
         if key.startswith('_'):
             continue
+        doi = preserve_identity(key, entry)
+        if doi:
+            doi_identity = (entry.get('environment'), doi_key(doi))
+            if doi_identity in seen_dois:
+                raise ValueError('Shared DOI in upload ledger')
+            seen_dois.add(doi_identity)
         identifier = entry.get('deposition_id')
         if identifier is None:
             continue
@@ -101,6 +118,13 @@ def validate_registry_identities(registry):
         if type(identifier) is not int or identifier < 1 or identity in seen:
             raise ValueError('Invalid or shared deposition ID in upload ledger')
         seen.add(identity)
+
+
+def validate_response_identity(source_id, entry, remote, registry):
+    """Check newly observed DOI against retained registry identities before writes."""
+    doi = preserve_identity(source_id, entry, remote)
+    validate_registry_identities(dict(registry, **{source_id: dict(entry, doi=doi)}))
+    return doi
 
 
 def require_inventory(safe, environment):
@@ -210,7 +234,14 @@ class DraftUploadService:
             from scripts.sandbox_canary import require_canary_context
             require_canary_context(self.canary, read_json(self.paths.safe_to_upload_path, {}), registry)
             validate_registry_identities(registry)
-            previous = registry.get(base, {})
+            previous = dict(registry.get(base, {}))
+            journal = MutationJournal(self.paths) if self.environment == 'production' else None
+            if journal and previous:
+                journal_row = journal.validate(base, previous)
+                if journal_row is None and previous.get('upload_status') != 'success':
+                    raise ValueError('Legacy incomplete production state requires explicit reconciliation')
+                if journal_row and journal_row.get('doi'):
+                    previous = dict(previous, doi=journal_row['doi'])
             require_singleton_operation(source_id=base, entry=previous,
                                         json_file=json_file, paths=self.paths)
             if previous:
@@ -223,14 +254,20 @@ class DraftUploadService:
                 if previous.get("metadata_sha256") != digest:
                     raise ValueError("Metadata changed; existing draft must be reviewed before updating")
                 if previous.get("upload_status") == "success":
-                    if artifact:
+                    if artifact or journal:
                         remote = validate_deposition_response(client.get_deposition(previous['deposition_id']), previous['deposition_id'])
+                        previous['doi'] = validate_response_identity(base, previous, remote, registry)
                         if self.canary and (remote.get('submitted') is not False or remote['state'] == 'done'):
                             raise ValueError('Canary retry requires an unpublished unsubmitted draft')
                         validate_files(remote['files'], artifact)
                         from scripts.verify_uploads import compare_metadata
                         if compare_metadata(metadata, remote['metadata']):
                             raise ValueError('Remote artifact metadata changed; human review required')
+                    if previous.get('doi') != registry[base].get('doi'):
+                        if journal and journal.validate(base, previous) is not None:
+                            journal.adopt(base, previous)
+                        registry[base] = previous
+                        atomic_json(self.paths.uploads_registry_path, registry)
                     return dict(previous, success=True, json_file=json_file, metadata=metadata)
             else:
                 safe = read_json(self.paths.safe_to_upload_path, {})
@@ -269,23 +306,41 @@ class DraftUploadService:
                     save()  # A crash/lost response from POST must not cause another POST.
                     # Include the namespace in the initial POST, so an uncertain
                     # create remains discoverable even before the later PUT.
+                    if journal:
+                        journal.begin(base, entry, 'create')
                     deposition = client.create_deposition(metadata) if self.canary else client.create_deposition()
                     candidate = dict(entry, deposition_id=deposition.get('id'))
                     if type(candidate['deposition_id']) is not int or candidate['deposition_id'] < 1:
                         raise ValueError('Invalid created deposition ID; reconcile uncertain creation')
                     validate_registry_identities(dict(registry, **{base: candidate}))
-                    entry["deposition_id"] = candidate['deposition_id']
+                    candidate['doi'] = validate_response_identity(base, candidate, deposition, registry)
+                    if journal:
+                        candidate['doi'] = journal.confirm(base, candidate, 'create', deposition)
+                    validate_registry_identities(dict(registry, **{base: candidate}))
+                    entry.update(candidate)
                     entry["zenodo_url"] = f"{client.base_url}/deposit/{deposition['id']}"
                     entry["needs_reconciliation"] = False
                     save()  # Persist remote ID before metadata update.
                 if artifact:
                     from scripts.verify_uploads import compare_metadata
                     remote = validate_deposition_response(client.get_deposition(entry['deposition_id']), entry['deposition_id'])
+                    entry['doi'] = validate_response_identity(base, entry, remote, registry)
                     if remote['state'] == 'done' or remote.get('submitted') is True:
                         raise ValueError('Artifact upload requires an unpublished unsubmitted draft')
                     missing = validate_files(remote['files'], artifact, allow_missing=True)
                     if compare_metadata(metadata, remote['metadata']):
+                        if journal:
+                            journal.begin(base, entry, 'metadata')
                         client.update_deposition_metadata(entry['deposition_id'], metadata)
+                        if journal:
+                            remote = validate_deposition_response(client.get_deposition(entry['deposition_id']), entry['deposition_id'])
+                            if (remote['state'] == 'done' or remote.get('submitted') is not False
+                                    or compare_metadata(metadata, remote['metadata'])):
+                                raise ValueError('Metadata mutation readback differs; reconcile')
+                            entry['doi'] = validate_response_identity(base, entry, remote, registry)
+                            missing = validate_files(remote['files'], artifact, allow_missing=True)
+                    if journal:
+                        journal.confirm(base, entry, 'metadata', remote)
                     if missing:
                         # Upload an immutable snapshot, not a mutable source path; never edit the original.
                         raw = Path(xml_path).read_bytes()
@@ -294,16 +349,39 @@ class DraftUploadService:
                         with tempfile.TemporaryDirectory(prefix='fgdc-artifact-') as temporary:
                             snapshot = Path(temporary) / Path(xml_path).name
                             snapshot.write_bytes(raw)
+                            if journal:
+                                journal.begin(base, entry, 'artifact')
                             client.upload_file(entry['deposition_id'], str(snapshot), filename=snapshot.name)
                     updated = validate_deposition_response(client.get_deposition(entry['deposition_id']), entry['deposition_id'])
                     validate_files(updated['files'], artifact)
                     if updated['state'] == 'done' or updated.get('submitted') is True or compare_metadata(metadata, updated['metadata']):
                         raise ValueError('Draft artifact readback differs from intended payload')
+                    entry['doi'] = validate_response_identity(base, entry, updated, registry)
+                    if journal:
+                        journal.confirm(base, entry, 'artifact', updated)
                 else:
-                    updated = client.update_deposition_metadata(entry["deposition_id"], metadata,
-                                                                files={"enabled": False})
+                    if journal:
+                        # Legacy no-file targets are read back before and after their one PUT.
+                        from scripts.verify_uploads import compare_metadata
+                        remote = validate_deposition_response(client.get_deposition(entry['deposition_id']), entry['deposition_id'])
+                        entry['doi'] = validate_response_identity(base, entry, remote, registry)
+                        if remote['state'] == 'done' or remote.get('submitted') is not False or remote['files']:
+                            raise ValueError('No-file metadata update requires an empty unpublished draft')
+                        if compare_metadata(metadata, remote['metadata']):
+                            journal.begin(base, entry, 'metadata')
+                            client.update_deposition_metadata(entry['deposition_id'], metadata, files={'enabled': False})
+                        updated = validate_deposition_response(client.get_deposition(entry['deposition_id']), entry['deposition_id'])
+                        if (updated['state'] == 'done' or updated.get('submitted') is not False
+                                or updated['files'] or compare_metadata(metadata, updated['metadata'])):
+                            raise ValueError('No-file metadata readback differs; reconcile')
+                        entry['doi'] = validate_response_identity(base, entry, updated, registry)
+                        journal.confirm(base, entry, 'metadata', updated)
+                    else:
+                        updated = client.update_deposition_metadata(entry["deposition_id"], metadata,
+                                                                    files={"enabled": False})
                 entry.update(success=True, upload_status="success", publish_status="draft",
-                             doi=updated.get("metadata", {}).get("prereserve_doi", {}).get("doi"))
+                             doi=preserve_identity(base, entry, updated))
+                validate_registry_identities(dict(registry, **{base: entry}))
                 entry.pop("error", None)
             except Exception as exc:
                 entry.update(error=str(exc), upload_status="failed", success=False)
