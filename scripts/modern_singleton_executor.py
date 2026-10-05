@@ -138,9 +138,10 @@ class Transport:
         require(platform.system() == 'Darwin')
         self.token = token
 
-    def request(self, method, path, body, *, timeout):
+    def request(self, method, path, body, *, timeout, accept=MIME):
         require(0 < timeout <= TIMEOUT)
-        headers = {'Authorization': 'Bearer ' + self.token, 'Accept': MIME,
+        require(accept in (MIME, 'application/json'))
+        headers = {'Authorization': 'Bearer ' + self.token, 'Accept': accept,
                    'Accept-Encoding': 'identity', 'Connection': 'close'}
         if body is not None:
             headers['Content-Type'] = 'application/octet-stream' if path.endswith('/content') else 'application/json'
