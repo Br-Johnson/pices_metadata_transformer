@@ -13,6 +13,7 @@ from scripts.dto import BibliographicLink, build_canonical_dto, save_dto
 from scripts.fgdc_to_zenodo import FGDCToZenodoTransformer
 from scripts.generate_jsonld_catalogue import build_jsonld, validate_records, write_jsonld
 from scripts.path_config import OutputPaths
+from scripts.production_mutations import MutationJournal
 from scripts.publish_records import RecordPublisher
 from scripts.release_manifest import prepare_release
 from scripts.qa_manifest import prepare_manifest, validate_approval
@@ -149,7 +150,8 @@ class HumanQATests(unittest.TestCase):
         self.metadata = metadata
         self.entry = {'environment': 'production', 'zenodo_url': 'https://zenodo.org/deposit/123',
                       'deposition_id': 123, 'json_file': str(self.file), 'upload_status': 'success',
-                      'metadata_sha256': metadata_hash(metadata), 'source_sha256': source_hash}
+                      'metadata_sha256': metadata_hash(metadata), 'source_sha256': source_hash,
+                      'doi': '10.5281/zenodo.123'}
         atomic_json(self.paths.uploads_registry_path, {'sample': self.entry})
         self.manifest = prepare_manifest(self.paths)
         self.publisher = RecordPublisher.__new__(RecordPublisher)
@@ -158,6 +160,11 @@ class HumanQATests(unittest.TestCase):
         self.publisher.qa_manifest = self.manifest
 
     def approve(self):
+        # Synthetic fresh-create provenance is separate from the QA and release
+        # assertions below. Bind after any test-specific pre-upload payload edits.
+        journal = MutationJournal(self.paths)
+        journal.begin('sample', dict(self.entry, deposition_id=None), 'create')
+        journal.confirm('sample', self.entry, 'create', {'id': 123, 'doi': self.entry['doi']})
         record = self.manifest['records'][0]
         record['qa'].update(approved=True, reviewer='Fixture reviewer', reviewed_at='2026-01-01T00:00:00Z', rationale='Offline test only')
         record['qa']['checks'] = {check: True for check in record['qa']['checks']}
@@ -261,7 +268,8 @@ class HumanQATests(unittest.TestCase):
 
     def test_unrelated_unapproved_draft_does_not_block_bounded_selection(self):
         registry = read_json(self.paths.uploads_registry_path)
-        registry['aaa-unapproved'] = dict(self.entry, deposition_id=124, zenodo_url='https://zenodo.org/deposit/124')
+        registry['aaa-unapproved'] = dict(self.entry, deposition_id=124, zenodo_url='https://zenodo.org/deposit/124',
+                                         doi='10.5281/zenodo.124')
         atomic_json(self.paths.uploads_registry_path, registry)
         self.approve()
         pending = dict(self.manifest['records'][0], fgdc_id='aaa-unapproved', qa={'approved': False})
@@ -295,7 +303,8 @@ class HumanQATests(unittest.TestCase):
 
     def test_release_selection_precedes_limit_even_when_other_record_has_qa(self):
         self.approve()
-        other = dict(self.entry, deposition_id=124, zenodo_url='https://zenodo.org/deposit/124')
+        other = dict(self.entry, deposition_id=124, zenodo_url='https://zenodo.org/deposit/124',
+                     doi='10.5281/zenodo.124')
         atomic_json(self.paths.uploads_registry_path, {'aaa-other': other, 'sample': self.entry})
         self.manifest['records'].insert(0, dict(self.manifest['records'][0], fgdc_id='aaa-other', deposition_id=124))
         release = prepare_release(self.manifest, ['sample'])

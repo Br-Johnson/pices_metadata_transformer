@@ -53,7 +53,7 @@ class ContentClassGuardTests(unittest.TestCase):
         )
         self.client = Mock(base_url="https://sandbox.zenodo.org")
         self.client.create_deposition.return_value = {"id": 123}
-        self.client.update_deposition_metadata.return_value = {"metadata": {}}
+        self.client.update_deposition_metadata.return_value = {"id": 123, "metadata": {}}
         self.service = DraftUploadService(self.paths, "sandbox")
         self.file = self.write_input(MEMBERS[0], self.raw)
         self.entry = self.make_entry(self.file)
