@@ -1,3 +1,18 @@
+# Finite modern publication and evidence boundary — 2026-10-05
+
+[ADR 0006](adr/0006-finite-modern-singleton-publication.md) adds a narrow bridge
+from verified PR34 drafts, immutable saved-response QA, exact release, bounded
+publication/PICES submission and GET-only recovery. Publication has no examined
+server-side revision precondition: exclusive-writer authority and immediate
+readback reduce but cannot eliminate external-writer races. DOI observations are
+not proof of asynchronous registration; inclusion submission is not membership.
+
+Only the original 19 singleton artifacts are mapped. Future runtime compatibility,
+remaining singleton mappings, paired targets and protected published-file repairs
+need separate reviewed increments. No live canary pass or production authority is
+inferred from these offline contracts. Lost inclusion responses without request
+identity remain held for explicit reconciliation, preserving the one-POST budget.
+
 # Durable production mutation recovery — 2026-10-05
 
 [ADR 0004](adr/0004-durable-production-mutation-attempts.md) integrates a separate,

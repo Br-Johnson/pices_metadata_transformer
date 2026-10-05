@@ -1,9 +1,21 @@
-## Active increment: finite modern singleton drafts — 2026-10-05
+## Active increment: finite modern singleton publication — 2026-10-05
+
+- [x] Reconcile PR34 main `cef1ccf`, its 638 passing guarded CI tests and current-head Codex review; preserve the original19-source scope and all original files.
+- [x] Verify retained publication/PID semantics and identify the explicit PR34 runtime compatibility bridge; keep original creation evidence and budgets intact.
+- [x] Implement modern saved-response QA, independent program review, exact human release, bounded publication and identity/files/DOI readback; resolve the separate PICES submission contract from retained source. This is code coverage, not a live verification result.
+- [x] Pass 112 combined guarded contracts, then 28 publication regressions after independent-review corrections; zero unexpected I/O and unchanged source bindings. Substantive independent review approves the final runtime.
+- [ ] Publish the coherent non-draft PR, pass actual current-head CI and merge under standing repository authority; preserve the PR timeline as the final receipt.
+
+The full Mac canary has not run: the prompt expired, the validated checkpoint
+remains revision11 and cumulative207GET/7PUT/1create/1UI counts are unchanged.
+No cloud provider action, credential access or live readiness is inferred.
+
+## Completed increment: finite modern singleton drafts — 2026-10-05
 
 - [x] Reconcile PR33 main `108b93e`, its 600 passing guarded CI tests and current-head Codex review; audit standing workflow authority without rewriting frozen evidence.
 - [x] Freeze a separate source-aware mapping for the 19 reviewed NCDC/NESDIS/NOAA singleton artifacts and the supported create/init/content/commit protocol.
 - [x] Implement exact source/schema/identity/readback bindings and durable, bounded attempts; pass 69 guarded mapping, executor and legacy contracts with unchanged source bindings and zero unexpected I/O.
-- [ ] Complete independent review and actual current-head CI, then publish and merge the functional increment under standing authorization.
+- [x] Merge PR34 as `cef1ccf` after substantive current-head Codex review and 638 passing actual guarded CI tests.
 
 No production grant or duplicate absence is inferred from source support. Modern
 publication/QA integration, paired classes and protected-record corrections remain

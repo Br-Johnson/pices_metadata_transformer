@@ -14,7 +14,9 @@ grants and production release requirements continue to apply independently.
 The [finite modern singleton draft executor](docs/adr/0005-finite-modern-singleton-drafts.md)
 adds source-aware mapping and guarded offline execution tests for 19 reviewed XML
 artifacts. It requires separate live grants and duplicate/history evidence and
-does not implement production publication or paired-class execution.
+is complemented by the [bounded publication integration](docs/adr/0006-finite-modern-singleton-publication.md).
+Publication requires saved modern QA evidence, independent program review and a
+separate human release. Paired-class execution remains outside this finite path.
 
 The [offline contracts workflow](.github/workflows/offline-contracts.yml) checks
 the exact PR head on a standard Ubuntu runner with read-only permissions and
@@ -31,9 +33,9 @@ do not assert that CI passed.
 The [publication batch handoff](docs/readiness/2026-10-04/publication_batch_readiness_handoff.md)
 provides a guarded offline plan for all 3,978 targets. Its 394 prospective batches
 contain 3,933 supported targets and preserve all 4,161 associated original files.
-The 45 held/malformed targets remain excluded from batching. All targets are
-nonexecutable pending their identity, payload, transport, recovery and release
-gates. The plan preserves the five existing record/DOI associations and records
+The 45 held/malformed targets remain excluded from batching. The frozen planner
+emits no executable actions. The separate modern path covers only 19 singletons;
+live actions still require identity, transport, recovery, QA and release gates. The plan preserves the five existing record/DOI associations and records
 the fresh owner-inventory result as parent-reported evidence pending raw-capture
 review. Missing restart state never grants permission to create.
 

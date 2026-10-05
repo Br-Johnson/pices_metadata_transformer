@@ -26,7 +26,7 @@ EXCLUDED = {10042430, 15046283}
 ACTIONS = {'create', 'metadata', 'artifact', 'publish'}
 
 
-def reject_modern_attempt(paths, source_id, record_id=None):
+def reject_modern_attempt(paths, source_id, record_id=None, doi=None):
     """Modern and legacy lanes share spent-source barriers, including journal loss."""
     root = Path(paths.uploads_registry_path).parent
     intent = root / (source_id + '.modern-create-v1.intent.json')
@@ -56,6 +56,27 @@ def reject_modern_attempt(paths, source_id, record_id=None):
                     occupied.add(identifier)
         if record_id is not None and str(record_id) in occupied:
             raise ValueError('Modern production record identity belongs to another attempted source')
+    publication = Path(paths.uploads_registry_path + '.modern-publication-v1.json')
+    if publication.exists() or publication.is_symlink():
+        if publication.is_symlink():
+            raise ValueError('Modern publication journal requires reconciliation')
+        value = json.loads(publication.read_bytes())
+        if (not isinstance(value, dict) or value.get('kind') != 'modern-singleton-publish-attempts-v1'
+                or type(value.get('schema_version')) is not int or value['schema_version'] != 1
+                or not isinstance(value.get('targets'), dict) or source_id in value['targets']):
+            raise ValueError('Modern publication journal requires reconciliation')
+        for row in value['targets'].values():
+            if not isinstance(row, dict) or not isinstance(row.get('doi_claims'), list):
+                raise ValueError('Malformed modern publication DOI evidence')
+            identity = row.get('identity')
+            if (not isinstance(identity, dict) or any(not isinstance(identity.get(key), str)
+                    or not re.fullmatch('[1-9][0-9]{0,19}', identity[key]) for key in ('id', 'parent_id'))):
+                raise ValueError('Malformed modern publication record evidence')
+            if record_id is not None and str(record_id) in (identity['id'], identity['parent_id']):
+                raise ValueError('Modern publication record belongs to another attempted source')
+            claims = {doi_key(claim) for claim in row['doi_claims']}
+            if None in claims or (doi_key(doi) is not None and doi_key(doi) in claims):
+                raise ValueError('Modern publication DOI belongs to another attempted source')
 
 
 def doi_key(value):
@@ -161,7 +182,7 @@ class MutationJournal:
                     raise ValueError('Invalid production mutation receipt')
 
     def validate(self, source_id, entry, *, adopting=False):
-        reject_modern_attempt(self.paths, source_id, entry.get('deposition_id'))
+        reject_modern_attempt(self.paths, source_id, entry.get('deposition_id'), entry.get('doi'))
         preserve_identity(source_id, entry)
         binding = source_binding(source_id, entry)
         row = self.data['targets'].get(source_id)

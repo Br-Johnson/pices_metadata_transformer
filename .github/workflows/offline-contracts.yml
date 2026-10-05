@@ -68,6 +68,8 @@ jobs:
           scripts/mac_sandbox_canary.py tests/test_mac_sandbox_canary.py
           scripts/publication_plan.py tests/test_publication_plan.py
           scripts/production_mutations.py tests/test_production_mutations.py
+          scripts/modern_publication.py scripts/modern_publication_qa.py
+          tests/test_modern_publication.py tests/test_modern_publication_qa.py
           scripts/modern_singleton.py scripts/modern_singleton_executor.py
           tests/modern_singleton_fixtures.py tests/test_modern_singleton.py tests/test_modern_singleton_executor.py
           scripts/upload_service.py scripts/reconcile_draft.py
