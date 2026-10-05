@@ -11,6 +11,11 @@ directly to `main`. The current [agent rules](AGENTS.md) supersede older reposit
 approval instructions retained in historical plans and handoffs. Provider action
 grants and production release requirements continue to apply independently.
 
+The [finite modern singleton draft executor](docs/adr/0005-finite-modern-singleton-drafts.md)
+adds source-aware mapping and guarded offline execution tests for 19 reviewed XML
+artifacts. It requires separate live grants and duplicate/history evidence and
+does not implement production publication or paired-class execution.
+
 The [offline contracts workflow](.github/workflows/offline-contracts.yml) checks
 the exact PR head on a standard Ubuntu runner with read-only permissions and
 no provider secrets. Run its portable guard locally with

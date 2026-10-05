@@ -1,9 +1,20 @@
-## Active increment: durable production mutation recovery — 2026-10-05
+## Active increment: finite modern singleton drafts — 2026-10-05
+
+- [x] Reconcile PR33 main `108b93e`, its 600 passing guarded CI tests and current-head Codex review; audit standing workflow authority without rewriting frozen evidence.
+- [x] Freeze a separate source-aware mapping for the 19 reviewed NCDC/NESDIS/NOAA singleton artifacts and the supported create/init/content/commit protocol.
+- [x] Implement exact source/schema/identity/readback bindings and durable, bounded attempts; pass 69 guarded mapping, executor and legacy contracts with unchanged source bindings and zero unexpected I/O.
+- [ ] Complete independent review and actual current-head CI, then publish and merge the functional increment under standing authorization.
+
+No production grant or duplicate absence is inferred from source support. Modern
+publication/QA integration, paired classes and protected-record corrections remain
+separate work. The parent and sole provider executor retain all live actions.
+
+## Completed increment: durable production mutation recovery — 2026-10-05
 
 - [x] Reconcile main a1d39e2 (PR32 tree, 569 guarded CI tests) and current standing repository authority; retain the frozen Mac checkout.
 - [x] Freeze an independent production journal with fixed consumed actions, exact source/payload/artifact/identity bindings, protected record/DOI checks and directory durability.
 - [x] Pass 75 affected guarded contracts, including 31 new interruption/recovery/identity/transport tests; preserve source, class, QA/release and provider gates.
-- [ ] Complete substantive current-head Codex review and actual CI, publish a non-draft PR and merge under standing authorization.
+- [x] Merge PR33 as `108b93e` after substantive current-head Codex review and 600 passing actual guarded CI tests.
 
 The journal advances legacy singleton recovery. Modern source-aware payloads and
 class execution remain missing; the Mac canary has no verified end-to-end pass.

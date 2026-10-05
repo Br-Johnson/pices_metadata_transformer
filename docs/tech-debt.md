@@ -795,6 +795,22 @@ creators need actual same-work credits; contact/host inference cannot repair the
 See readiness/2026-10-04/residual_source5_handoff.md. All counts are proposed until
 the designated sole integration owner applies and validates the isolated patch.
 
+## Modern singleton execution boundary — 2026-10-05
+
+The modern draft executor uses a distinct journal because modern string IDs and
+init/content/commit actions do not fit the legacy mutation schema. A shared
+source barrier prevents either lane from recreating a source attempted by the
+other. Both the independent journal and permanent create intent are required
+recovery evidence; neither may be reset after an uncertain response.
+
+This finite19 mapper preserves complete legacy metadata in an escaped block.
+Deployment HTML sanitization must pass exact remote readback before acceptance.
+Modern QA/release/publication, broader creator mappings, paired targets and
+protected-record corrections remain mandatory separate increments. Interrupted
+pending files and recovery after the original600-second grant remain held;
+renewal and unspent-step continuation require their own reviewed contracts.
+See [ADR0005](adr/0005-finite-modern-singleton-drafts.md).
+
 ## Mac-only bounded continuation — 2026-10-05
 
 Brett selected the Mac as the sole provider execution route after its corrected
