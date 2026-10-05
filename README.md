@@ -1165,6 +1165,8 @@ Offline source classification can apply the exact, source-bound [Contact Source 
 
 The separate [Contributor or Source interpretation](docs/readiness/2026-10-02/contributor_source_profile.md) records Brett's 23:43 UTC attestation for exactly 585 source/hash pairs. Enable it with `--contributor-access-interpretation-manifest`; it does not remove independent creator/date holds or grant a license or publication approval.
 
+The current [Mac-only synthetic continuation](docs/readiness/2026-10-05/mac_canary_handoff.md) prepares full metadata, original fictional XML, exact readback and a read-only unchanged retry on existing Sandbox draft612988. It requires verified local checkpoint transfer, the frozen reviewed runtime, a fresh parent-bound action grant and hidden token entry. Cloud execution has ended; source, DOI and production release holds remain effective.
+
 A narrow [sandbox canary handoff](docs/handoff/sandbox-canary-20261002/EXECUTOR.md) supports previously authorized historical duplicate tolerance for exactly three pinned sources. It requires the explicit `canary_plan` checker/service argument and a dedicated namespace-bound sandbox ledger; there is no global duplicate override. Production rejects the exception. The frozen plan, inventory freshness, own-run idempotency and draft-only gates remain mandatory.
 
 The opt-in [literal institutional citation profile](docs/readiness/2026-10-03/institution_citation_profile.md) pins 72 source/hash pairs while preserving full creator objects and all metadata. Together with the reviewed DFO70 profile, fresh/resumed source-only QA supports 2,121 records; nine new-cohort residuals, remote verification and production release gates remain held.

@@ -779,3 +779,27 @@ FGDC4063 still needs its own password-target evidence. The other25 unresolved
 creators need actual same-work credits; contact/host inference cannot repair them.
 See readiness/2026-10-04/residual_source5_handoff.md. All counts are proposed until
 the designated sole integration owner applies and validates the isolated patch.
+
+## Mac-only bounded continuation — 2026-10-05
+
+Brett selected the Mac as the sole provider execution route after its corrected
+319-byte marker persisted. Cloud evidence stays historical; cloud-cause diagnosis
+is no longer a prerequisite. The new standalone stdlib TLS runner is a separately
+reviewed Mac trial, not the Requests transport used by that successful marker.
+Its first counted canonical GET must prove route/auth and the sealed revision11
+before any write. Actual result/bundle/identity transfer and local fsync/runtime
+verification remain preflight gates; the cloud integrator has only parent-provided
+hashes. See [the exact action handoff](readiness/2026-10-05/mac_canary_handoff.md).
+
+This increment deliberately leaves managed DOI reservation untested/held while
+verifying all seven approved fictional metadata fields and exact XML bytes.
+No production/source mapping, payload, alias, ID/DOI, source-count or original
+canary criterion is relaxed. A later reviewed decision must resolve the DOI and
+production-specific validation/recovery/release gates before production dispatch.
+
+PR32 automatic Codex review identified inherited `SSLKEYLOGFILE` as a route for
+TLS session-secret persistence. The Mac runner now sets and verifies
+`context.keylog_filename = None` before constructing a connection, without reading
+credential/environment settings or changing certificate trust. A dummy-context
+regression verifies that a preconfigured key log receives no session secrets and
+TLS certificate/hostname checks stay enabled.

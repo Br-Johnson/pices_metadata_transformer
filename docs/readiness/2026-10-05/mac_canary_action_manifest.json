@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "approved": false,
+  "executor": "01a0f3ae-ee1c-7046-9b04-36d35803903c",
+  "execution_environment": "Mac only; parent dispatch after locally verified transfer",
+  "namespace": "pices-modern-synthetic-20261003-code-02",
+  "origin": "https://sandbox.zenodo.org",
+  "draft_id": "612988",
+  "baseline_revision": 11,
+  "bare_if_match": "11",
+  "limits": {
+    "get": 10,
+    "metadata": 1,
+    "init": 1,
+    "content": 1,
+    "commit": 1
+  },
+  "total_provider_calls": 14,
+  "total_mutations": 4,
+  "grant_max_seconds": 600,
+  "request_wall_max_seconds": 20,
+  "response_max_bytes": 65536,
+  "create": 0,
+  "doi_reservation": 0,
+  "publish": 0,
+  "delete": 0,
+  "automatic_redirects": 0,
+  "automatic_transport_retries": 0,
+  "original_managed_doi_canary_criterion": "HELD_UNREHEARSED_NOT_WAIVED",
+  "prior_result_sha256": "f3c68007ac6a84007c1938235f7e7c78bc0741292f11c8ddb74e4d8c55161d39",
+  "prior_bundle_sha256": "f2141c916b38a53168edca63f0af79b47df3e9913653f3538aba040ca9a20f7c",
+  "marker_payload_bytes": 319,
+  "marker_payload_sha256": "7eeb89d71da59de6953b0a27675e666962ea22c98d3c843a9aee257613d51a93",
+  "full_payload_bytes": 517,
+  "full_payload_sha256": "71830ca80356953b8654dd0e589eeff15b1b46c08c313b98372936c85c09da7a",
+  "xml_bytes": 439,
+  "xml_sha256": "7cf966d4c1396a3dc54cfad0b049394f70da59a8e02e9ec294dab00c3a8d4c1b",
+  "actions": [
+    {
+      "sequence": 1,
+      "method": "GET",
+      "path": "/api/records/612988/draft",
+      "purpose": "baseline",
+      "expected_status": 200
+    },
+    {
+      "sequence": 2,
+      "method": "PUT",
+      "path": "/api/records/612988/draft",
+      "purpose": "metadata",
+      "expected_status": 200
+    },
+    {
+      "sequence": 3,
+      "method": "GET",
+      "path": "/api/records/612988/draft",
+      "purpose": "metadata_readback",
+      "expected_status": 200
+    },
+    {
+      "sequence": 4,
+      "method": "POST",
+      "path": "/api/records/612988/draft/files",
+      "purpose": "init",
+      "expected_status": 201
+    },
+    {
+      "sequence": 5,
+      "method": "PUT",
+      "path": "/api/records/612988/draft/files/pices-modern-synthetic-20261003-code-02.xml/content",
+      "purpose": "content",
+      "expected_status": 200
+    },
+    {
+      "sequence": 6,
+      "method": "POST",
+      "path": "/api/records/612988/draft/files/pices-modern-synthetic-20261003-code-02.xml/commit",
+      "purpose": "commit",
+      "expected_status": 200
+    },
+    {
+      "sequence": 7,
+      "method": "GET",
+      "path": "/api/records/612988/draft",
+      "purpose": "readback_draft",
+      "expected_status": 200
+    },
+    {
+      "sequence": 8,
+      "method": "GET",
+      "path": "/api/records/612988/draft/files",
+      "purpose": "readback_files",
+      "expected_status": 200
+    },
+    {
+      "sequence": 9,
+      "method": "GET",
+      "path": "/api/records/612988/draft/files/pices-modern-synthetic-20261003-code-02.xml",
+      "purpose": "readback_file_detail",
+      "expected_status": 200
+    },
+    {
+      "sequence": 10,
+      "method": "GET",
+      "path": "/api/records/612988/draft/files/pices-modern-synthetic-20261003-code-02.xml/content",
+      "purpose": "readback_xml_bytes",
+      "expected_status": 200
+    },
+    {
+      "sequence": 11,
+      "method": "GET",
+      "path": "/api/records/612988/draft",
+      "purpose": "unchanged_retry_draft",
+      "expected_status": 200
+    },
+    {
+      "sequence": 12,
+      "method": "GET",
+      "path": "/api/records/612988/draft/files",
+      "purpose": "unchanged_retry_files",
+      "expected_status": 200
+    },
+    {
+      "sequence": 13,
+      "method": "GET",
+      "path": "/api/records/612988/draft/files/pices-modern-synthetic-20261003-code-02.xml",
+      "purpose": "unchanged_retry_file_detail",
+      "expected_status": 200
+    },
+    {
+      "sequence": 14,
+      "method": "GET",
+      "path": "/api/records/612988/draft/files/pices-modern-synthetic-20261003-code-02.xml/content",
+      "purpose": "unchanged_retry_xml_bytes",
+      "expected_status": 200
+    }
+  ],
+  "unverified_until_local_preflight": [
+    "actual Mac receipt/bundle bytes",
+    "exact owner/parent/created/baseline metadata/access projection",
+    "historical held checkpoint and cumulative accounting transfer",
+    "Mac runtime source hash/TLS trust/private path/fsync compatibility",
+    "fresh token with sandbox deposit:write"
+  ],
+  "completion_scope": "full synthetic metadata and exact fictional XML persisted, read back twice; unchanged retry has zero writes; no full original canary/DOI/production readiness claim"
+}

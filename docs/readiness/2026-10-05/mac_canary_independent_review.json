@@ -1,0 +1,110 @@
+{
+  "base_commit": "5d6e3f548f1b962321aa9941b713d387852bedad",
+  "binding_note": "New implementation and documentation were reviewed as working-tree bytes; hashes bind the tested final files. The base commit does not contain the new runner. No final-head CI result is claimed.",
+  "files_sha256": {
+    ".github/workflows/offline-contracts.yml": "0d36c209d3abd4816d6788f9c228f04297dbe1883f5546f5cec8157623f14ba6",
+    "contracts/examples/mac_canary_checkpoint.json": "365cf6eb76a5102ea357cbc2e1d34349879bb9aaf1267347cdbd51eefee8bd5b",
+    "contracts/examples/mac_canary_grant.json": "57f560ec9ed112216a9231bfc66760395b4da5b2f9b8de2c125a86ddb40d3ec3",
+    "docs/readiness/2026-10-05/mac_canary_action_manifest.json": "97f2f02792e031265899402622df91c11809fcaf266586cc729a6288ccee0e4f",
+    "docs/readiness/2026-10-05/mac_canary_handoff.md": "9a1321c055e2ca8eadb19379ac1d5f37d9ea7f6ed7b977a4bf9ebb8fd835e293",
+    "docs/tech-debt.md": "7ec08c0ca11008eb65b2657d2fbf1d2e6ae24c9d218757c94ff9ea86db943d6c",
+    "docs/todo_list.md": "afe0c09a87e1613c969c230fd0e604346899e04aff1325799fc745d2096936eb",
+    "scripts/mac_sandbox_canary.py": "d0c426fbe1c349dc694e1cee8ad3174346eb5f23ab9f65bb1b4af61c2ef0860a",
+    "tests/test_mac_sandbox_canary.py": "b79b058d78d8c2e277d58b76f0cb7ac4060ac3c0023ab84d31a12fc3e9848d93"
+  },
+  "fixture_bindings": {
+    "bare_metadata_if_match": "11",
+    "full_metadata_bytes": 517,
+    "full_metadata_sha256": "71830ca80356953b8654dd0e589eeff15b1b46c08c313b98372936c85c09da7a",
+    "metadata_response_revision": 12,
+    "source_metadata_sha256": "0197c230248e4192866b8662fa60a4cca4b05ed0d060fc67f6a9102bb6180128",
+    "xml_bytes": 439,
+    "xml_md5": "a34b1bdba8624abcb496bfc91fd98f8d",
+    "xml_sha256": "7cf966d4c1396a3dc54cfad0b049394f70da59a8e02e9ec294dab00c3a8d4c1b"
+  },
+  "git_diff_check": "PASS",
+  "independent_focused_tests": {
+    "bootstrap_deliberate_guard_blocks": {
+      "network": 4,
+      "private_reads": 1,
+      "processes": 1,
+      "writes": 1
+    },
+    "command": "env -i PATH=/usr/bin:/bin PYTHONDONTWRITEBYTECODE=1 /tmp/pices-code-venv/bin/python -B ci/run_offline_tests.py tests.test_mac_sandbox_canary",
+    "cwd": "/workspace/pices-mac-full-canary-20261005",
+    "errors": 0,
+    "failures": 0,
+    "guarded_runner_seconds": 0.556,
+    "log": "/tmp/pices-mac-canary-independent-focused.log",
+    "log_sha256": "e9ce651f5dc5444d2c649e1090980821f46a9477d677f4ae7bb8f7e27de63c13",
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "2bb1b40fe61fa97c35fb7ed378d98bef9748653122bfb5c15d1b4a401fa11688",
+    "tests": 28,
+    "unexpected_test_guard_blocks": {
+      "network": 0,
+      "private_reads": 0,
+      "processes": 0,
+      "writes": 0
+    },
+    "unittest_seconds": 0.482
+  },
+  "material_remaining_review_findings": [],
+  "prohibited_actions_performed": {
+    "actual_credentials_or_settings_reads": 0,
+    "private_provider_stage_reads": 0,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "repository_merges": 0
+  },
+  "remaining_execution_gates": [
+    "Parent-provided Mac result and ZIP bytes were not available to this reviewer; sole Mac executor must locally verify exact pinned bytes and complete baseline/projection provenance.",
+    "Verify frozen source hash, Darwin/Python/runtime, default TLS trust, private-file modes and file/directory fsync using offline local preflight.",
+    "Parent must bind the new bounded grant after local evidence verification; fresh Sandbox deposit:write token entered privately by the user.",
+    "Actual final-head CI and current-head Codex review remain repository merge gates; this receipt reports focused offline tests only.",
+    "Live Mac metadata/XML/readback/retry outcome and the original managed DOI criterion remain unverified."
+  ],
+  "resolved_findings": [
+    "Malformed falsey errors rejected; exact list and only fixed upstream pre-upload files.enabled warning permitted.",
+    "Grant clipped to600s and shared across reconstructed phases, re-read before intent and transport; expiry after fsync prevents request.",
+    "Escaped-token scanning retains all duplicate JSON key/value pairs; reproduced suppression before response fingerprint.",
+    "TLS-context/connection preparation now starts under the request timer; reproduced21s preparation refuses entry into HTTPSConnection/request for20s allowance.",
+    "Optional empty serializer defaults accepted without admitting new content, creator roles, identifiers or affiliations.",
+    "Handoff explicitly records Mac executor reassignment and default OpenSSL trust semantics."
+  ],
+  "reviewed_worktree": "/workspace/pices-mac-full-canary-20261005",
+  "reviewer": "Independent Codex agent /root/canary_review",
+  "schema_version": 1,
+  "scope": {
+    "create_pid_publish_delete": 0,
+    "execute_gets": 6,
+    "executor": "01a0f3ae-ee1c-7046-9b04-36d35803903c",
+    "existing_draft_id": "612988",
+    "grant_max_seconds": 600,
+    "limits": {
+      "commit": 1,
+      "content": 1,
+      "get": 10,
+      "init": 1,
+      "metadata": 1
+    },
+    "maximum_mutations": 4,
+    "maximum_provider_intents": 14,
+    "namespace": "pices-modern-synthetic-20261003-code-02",
+    "redirects_and_transport_retries": 0,
+    "request_wall_max_seconds": 20,
+    "response_max_bytes": 65536,
+    "unchanged_retry_gets": 4,
+    "unchanged_retry_mutations": 0
+  },
+  "status": "CLEAR_FOR_FROZEN_CODE_HANDOFF; LOCAL_MAC_PREFLIGHT_AND_PARENT_GRANT_PENDING",
+  "substantive_checks": [
+    "Exact sealed revision11 owner/parent/created/full baseline before the metadata PUT; first unpublished draft, absent PID and empty enabled file inventory.",
+    "All seven intended metadata fields and exact access after PUT and canonical GET before file initialization; harmless documented empty serializer defaults only.",
+    "Single canonical local-transfer filename, complete list/detail/embedded file checks, exact size/checksum and byte-identical XML in final readback and unchanged retry.",
+    "Fresh parent-bound grant and local result/ZIP pins, repeated immutable input/grant checks; per-phase and per-action exclusive fsynced intents preserve uncertain/spent actions and reject reentry.",
+    "Mac-only hidden token prompt, direct default verified TLS; no credential/proxy/netrc lookup or alternate route; source and handoff explicitly distinguish this transport from the earlier successful Requests client.",
+    "Both request preparation and transport are within the POSIX wall timer, clipped to the immutable shared grant; deadline rechecks after durable intent and response.",
+    "Closed status/size/fingerprint receipts only; raw, escaped, percent-encoded, base64 and decoded JSON credential checks preserve duplicate keys before fingerprinting.",
+    "No old cloud-stage migration/reset, production action, or managed DOI allocation; original nonempty managed DOI/full original-canary/production-readiness criteria remain HELD."
+  ]
+}
