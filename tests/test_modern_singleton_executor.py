@@ -555,14 +555,15 @@ class ModernSingletonTransportTests(unittest.TestCase):
                       patch('scripts.modern_singleton_executor.signal.setitimer', return_value=(0, 0)),
                       patch('scripts.modern_singleton_executor.time.monotonic', return_value=10)):
                     result = Transport(fixtures.TOKEN).request(method, path, body, timeout=5)
-                self.assertEqual(result, (status, MIME, b'{"fixture":true}'))
+                self.assertEqual((result.status, result.mime, result.body), (status, MIME, b'{"fixture":true}'))
+                self.assertTrue(result.complete)
                 constructor.assert_called_once_with('zenodo.org', timeout=5, context=context)
                 self.assertIsNone(context.keylog_filename)
                 connection.request.assert_called_once_with(method, path, body=body, headers={
                     'Authorization': 'Bearer ' + fixtures.TOKEN, 'Accept': MIME,
                     'Accept-Encoding': 'identity', 'Connection': 'close',
                     'Content-Type': content_type, 'Content-Length': str(len(body))})
-                response.getheader.assert_called_once_with('Content-Type', '')
+                self.assertEqual([call.args for call in response.getheader.call_args_list], [('Content-Type', ''), ('Location',)])
                 connection.close.assert_called_once()
                 self.assertTrue(all(0 < call.args[0] <= 5 for call in connection.sock.settimeout.call_args_list))
 
@@ -585,8 +586,9 @@ class ModernSingletonTransportTests(unittest.TestCase):
                       patch('scripts.modern_singleton_executor.time.monotonic',
                             side_effect=[0, 1, 21] if fault == 'deadline' else None,
                             return_value=10)):
-                    with self.assertRaises(ValueError):
-                        Transport(fixtures.TOKEN).request('GET', '/api/records/19000001/draft', None, timeout=20)
+                    result = Transport(fixtures.TOKEN).request('GET', '/api/records/19000001/draft', None, timeout=20)
+                    self.assertFalse(result.complete)
+                    self.assertEqual(result.read_error, 'body_limit' if fault == 'oversize' else 'read_interrupted')
                 constructor.assert_called_once()
                 connection.request.assert_called_once()
                 connection.close.assert_called_once()

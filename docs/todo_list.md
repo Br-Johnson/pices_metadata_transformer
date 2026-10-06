@@ -1,10 +1,27 @@
-## Active increment: finite Exxon203 paired metadata preparation — 2026-10-06
+## Active increment: retain bounded modern response evidence — 2026-10-06
+
+- [x] Reconcile PR43 and the parent-reported first production create HTTP403 at12:05UTC. Its body and Location were not retained; cause remains unknown. A later publicGET reported unusual network traffic, which does not establish the create failure's cause.
+- [x] Preserve status and bounded credential-screened MIME/Location/body diagnostics before protocol rejection, in exclusive sidecars bound to the spent request. Handle truncated/interrupted bodies without accepting them.
+- [ ] Pass affected offline contracts, substantive current-head Codex review and full CI, then merge under standing authorization.
+- [ ] Complete the separate finite read-only unknown-create reconciliation route. Existing readback requires a known identity and completed upload; no create retry or state reset follows from this repair.
+
+The PR42 Mac create remains spent; no verified production identity or publication
+is claimed. No further provider requests until supported network recovery and
+parent dispatch. Brett confirmed PICES as the intended production destination;
+accepted inclusion and remote membership/default verification remain required.
+The finite92 mapper remains frozen at5211518 with57 passing focused tests and no
+new coverage claim. AquaDocs cached comparison is authorized: existing records
+may be linked with verified related identifiers. The supplied partial public ZIP
+could not be materialized after the initial supported attempt and one permitted
+retry; no absence or catalogue comparison is inferred from inaccessible bytes.
+
+## Completed increment: finite Exxon203 paired metadata preparation — 2026-10-06
 
 - [x] Reconcile PR42, standing authority and live executor availability; preserve sole code ownership and frozen evidence.
 - [x] Independently establish 203 supported exact pairs /406 originals under existing attribution and pair authority.
 - [x] Implement separate modern class preparation with both originals, complete legacy metadata and closed singleton/provider/release guards.
 - [x] Measure all 203 twice and all 3,262 retained singleton payloads once; verify all 4,206 originals, 25,421 retained public files and 18 profiles. All four guarded shards and 31 affected tests pass with unchanged bindings.
-- [ ] Resolve substantive independent review, pass applicable current-head CI and merge before the successor cohort.
+- [x] Merge PR43 at `3a00dbcf44aa831e8eddf88350ab9aa9d9441f2b` after independent exact-head Codex review and 829 passing guarded CI tests; retain the tested tree and receipts.
 
 ## Completed increment: finite institutional91 wire representation — 2026-10-06
 

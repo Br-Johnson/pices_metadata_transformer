@@ -52,6 +52,7 @@ PR39_RUNTIME = '7c3e7184f490cc4e43743f12fa831d58e6b79d8e36f93bd7e9c92a2a637f57be
 PR40_RUNTIME = '999c23a83d9fbcb800f612c150708c474069f9baf0e9ef192e39107cd3633ec9'
 PR41_RUNTIME = 'a23fa32cd7312616100a0d34e9b328234a98cd3cd173821d55d494f326ac85d4'
 PR42_RUNTIME = 'd09495acd462e7a51c3c1344265758ed8482256e9d901c05b64711734316ef2d'
+PR43_RUNTIME = '31dd71eb8bfe8c87f50d7ff3c4cbc22f045d926c099f81c21db2dc6df70614a2'
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'review': 1, 'submit': 1}
 JSON = 'application/json'
@@ -108,7 +109,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
         compatible.add(PR41_RUNTIME)
     if prepared.evidence['policy'] in (POLICY, EXTENSION_POLICY, DIRECT_POLICY, EXXON_POLICY,
                                      PICES_POLICY, INSTITUTION_POLICY):
-        compatible.add(PR42_RUNTIME)
+        compatible.update((PR42_RUNTIME, PR43_RUNTIME))
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
             and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
@@ -133,7 +134,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     completed = draft.completed_on_content(row, prepared)
     # Historical clients could emit only the marker-free four-write transcript.
     require(not completed or evidence['runtime_sha256'] in
-            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME, PR41_RUNTIME, PR42_RUNTIME))
+            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME, PR41_RUNTIME, PR42_RUNTIME, PR43_RUNTIME))
     writes = [('create', 'POST', '/api/records', 201, sha(prepared.body)),
               ('init', 'POST', base + '/files', 201, sha(encode([{'key': prepared.source_id + '.xml'}]))),
               ('content', 'PUT', file + '/content', 200, sha(prepared.xml)),
@@ -484,15 +485,14 @@ class Runner:
                         (draft.instant(self.grant['expires_at']) - self.now()).total_seconds())
         require(remaining > 0)
         try:
-            status, mime, raw = self.transport.request(method, path, body, timeout=remaining, accept=accept)
+            response = self.transport.request(method, path, body, timeout=remaining, accept=accept)
         except Exception:
             raise Held('Publication request interrupted; attempt remains spent') from None
-        require(type(status) is int and isinstance(raw, bytes) and len(raw) <= draft.MAX_BYTES)
-        suppressed = echoed(raw, self.token)
-        receipt.update(http_status=status, credential_suppressed=suppressed, bytes=len(raw),
-                       response_sha256=None if suppressed else sha(raw))
-        self.save()
-        require(not suppressed and isinstance(mime, str))
+        response = draft.normalize_response(response)
+        evidence = draft.retain_response(self.journal_path, self.prepared.source_id, self.grant_sha,
+                                        len(self.row['requests']) - 1, receipt, response, self.token, self.save)
+        status, mime, raw = response.status, response.mime, response.body
+        require(response.complete and not evidence['credential_suppressed'] and isinstance(mime, str))
         # Receipt of identity evidence is not a new provider action. Retain it
         # even when a grant expires or is revoked while the request is in flight.
         # Preserve the existing reject-only observation boundary before the new

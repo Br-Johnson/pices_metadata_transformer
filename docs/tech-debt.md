@@ -929,3 +929,19 @@ production identity reconciliation need their own class-aware contracts. The 25
 remaining source-supported pairs require finite creator projections. Do not route
 any pair through the singleton executor or choose a canonical member as a shortcut.
 See [ADR0010](adr/0010-finite-modern-content-class-preparation.md).
+
+## 2026-10-06: response diagnostics and unknown-create recovery
+
+A first modern production create returned403 without retained response body or
+Location. Preserve this evidentiary gap; the later public403 does not establish
+the original cause. New diagnostic sidecars are exclusive, mode0600 and fsynced,
+with a64KiB maximum body prefix and the complete safe body's hash. Partial or
+credential-bearing bodies remain omitted; no diagnostic grants replay or identity
+adoption. Keeping body evidence outside the1MiB journals preserves their existing
+reader bound. Historical rows and their hashes are never retrofitted.
+
+The existing modern readback route cannot reconcile a spent create with unknown
+identity. A separately reviewed finite read-only route is still required. The
+AquaDocs comparison also needs actual readable cache evidence and reviewed
+positive-candidate relationships; the current empty-inventory QA branch cannot
+approve those matches. These are active release blockers, not source QA failures.
