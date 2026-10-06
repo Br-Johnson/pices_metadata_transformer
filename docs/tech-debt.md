@@ -1,3 +1,19 @@
+# Finite institutional91 wire representation — 2026-10-06
+
+Nine exact institutional citation groups supply a modern organizational type for
+91 existing name-only credits. The finite manifest binds each original hash,
+parsed origin element and complete legacy creator array; it adds no authors,
+collectors, affiliations or names. The 79 remaining direct interpretation holds,
+creator426 residuals, DFO Staff70, protected identities and 228 paired targets
+remain separate. Source support does not change.
+
+This extends the explicit representation pattern used for PICES26. Verified PR41
+preparations may bridge only for the five prior policies when all nonruntime
+fields and original attempts validate; new institutional91 preparations cannot
+backdate. Started operations and spent budgets do not migrate. A source-looking
+institutional name alone never makes an unlisted record eligible. See the
+[handoff](readiness/2026-10-06/modern_institution91_handoff.md).
+
 # Finite PICES institutional wire representation — 2026-10-06
 
 The exact 26 PICES citations need an explicit modern organizational representation

@@ -45,6 +45,9 @@ EXXON_POLICY = 'modern-xml-exxon412-v1'
 PICES_MAPPING = ROOT / 'docs/readiness/2026-10-06/modern_pices_singletons26.json'
 PICES_MAPPING_SHA = '15d5f40fe829919a0ff9d9b81bcfc6205b2cd4042a3891e4dc9e4b3595204670'
 PICES_POLICY = 'modern-xml-pices26-v1'
+INSTITUTION_MAPPING = ROOT / 'docs/readiness/2026-10-06/modern_institution_singletons91.json'
+INSTITUTION_MAPPING_SHA = '19dd282e701bb115e256c90cac0ebaba0cfa1b49baf748dc4bf55106cc22dfd1'
+INSTITUTION_POLICY = 'modern-xml-institutions91-v1'
 PRESERVATION_LABEL = (
     'Legacy assembled metadata, preserved without field loss. Publisher values in this '
     'block are legacy mapping values, not independently source-attested publishers. '
@@ -246,9 +249,61 @@ def pices_source_policy(source_id):
         and manifest['modern_creators'] == [{'person_or_org': {'name': name, 'type': 'organizational'}}]
         and manifest['members'] == profile['members'] and len(manifest['members']) == 26)
     ids = [row['source_id'] for row in manifest['members']]
-    require(len(set(ids)) == 26 and source_id in ids and not set(ids) & set(PROTECTED))
+    require(len(set(ids)) == 26 and not set(ids) & set(PROTECTED))
+    if source_id not in ids:
+        return institution_source_policy(source_id)
     return manifest, {'schema_version': 5, 'policy': PICES_POLICY,
                       'mapping_manifest_sha256': PICES_MAPPING_SHA, 'creator_cohort': profile['profile']}
+
+
+def institution_source_policy(source_id):
+    """Nine reviewed literal institutional credits; keep legacy names untyped.
+
+    This finite representation decision does not infer entities from other
+    names, occupational roles, program titles or person/institution compounds.
+    """
+    manifest = pinned(INSTITUTION_MAPPING, INSTITUTION_MAPPING_SHA)
+    require(isinstance(manifest, dict) and set(manifest) == {
+        'schema_version', 'kind', 'policy', 'source_plan_sha256', 'source_census_sha256',
+        'review_sha256', 'binding_review_sha256', 'member_count', 'group_count', 'groups'}
+        and type(manifest['schema_version']) is int and manifest['schema_version'] == 1
+        and manifest['kind'] == 'modern-institutional-singletons-v1'
+        and manifest['policy'] == INSTITUTION_POLICY and manifest['source_plan_sha256'] == PLAN_SHA
+        and type(manifest['member_count']) is int and manifest['member_count'] == 91
+        and type(manifest['group_count']) is int and manifest['group_count'] == 9
+        and isinstance(manifest['groups'], list) and len(manifest['groups']) == 9)
+    ids, profiles, matches = [], [], []
+    for group in manifest['groups']:
+        require(isinstance(group, dict) and set(group) == {
+            'profile', 'creators', 'modern_creators', 'primary_origin_variants', 'members'}
+            and isinstance(group['profile'], str) and re.fullmatch(r'institution-origin-0[1-9]', group['profile'])
+            and isinstance(group['creators'], list) and len(group['creators']) == 1
+            and isinstance(group['creators'][0], dict) and set(group['creators'][0]) == {'name'}
+            and isinstance(group['creators'][0]['name'], str) and group['creators'][0]['name'].strip()
+            and group['modern_creators'] == [
+                {'person_or_org': {'name': group['creators'][0]['name'], 'type': 'organizational'}}]
+            and isinstance(group['primary_origin_variants'], list) and group['primary_origin_variants']
+            and all(isinstance(origins, list) and len(origins) == 1
+                    and isinstance(origins[0], dict)
+                    and set(origins[0]) == {'tag', 'attributes', 'text', 'tail', 'children'}
+                    and origins[0]['tag'] == 'origin' and origins[0]['attributes'] == {}
+                    and origins[0]['children'] == [] and origins[0]['tail'] is None
+                    and isinstance(origins[0]['text'], str) and origins[0]['text'].strip()
+                    for origins in group['primary_origin_variants'])
+            and isinstance(group['members'], list) and group['members'])
+        profiles.append(group['profile'])
+        for member in group['members']:
+            require(isinstance(member, dict) and set(member) == {'source_id', 'source_sha256'}
+                    and isinstance(member['source_id'], str) and re.fullmatch(r'FGDC-[1-9][0-9]*', member['source_id'])
+                    and member['source_id'] not in PROTECTED
+                    and isinstance(member['source_sha256'], str) and re.fullmatch('[0-9a-f]{64}', member['source_sha256']))
+            ids.append(member['source_id'])
+            if member['source_id'] == source_id:
+                matches.append(group)
+    require(len(profiles) == len(set(profiles)) == 9 and len(ids) == len(set(ids)) == 91 and len(matches) == 1)
+    selected = matches[0]
+    return selected, {'schema_version': 6, 'policy': INSTITUTION_POLICY,
+                      'mapping_manifest_sha256': INSTITUTION_MAPPING_SHA, 'creator_cohort': selected['profile']}
 
 
 def runtime_binding():
@@ -317,8 +372,10 @@ def prepare(json_file, paths):
     direct = policy_fields['policy'] == DIRECT_POLICY
     exxon = policy_fields['policy'] == EXXON_POLICY
     pices = policy_fields['policy'] == PICES_POLICY
-    authority_sha = EXXON_SHA if exxon else (DIRECT_SHA if direct else PROFILE_SHA)
-    if direct:
+    institution = policy_fields['policy'] == INSTITUTION_POLICY
+    authority_sha = (INSTITUTION_MAPPING_SHA if institution else
+                     (EXXON_SHA if exxon else (DIRECT_SHA if direct else PROFILE_SHA)))
+    if direct or institution:
         require('creator_interpretation' not in policy)
     else:
         reference = policy.get('creator_interpretation', {})
@@ -328,7 +385,7 @@ def prepare(json_file, paths):
     require(source_sha == sha(xml) == members[sid] and artifact is not None
             and artifact['source_id'] == sid and len(artifact['files']) == 1
             and artifact['files'][0]['sha256'] == source_sha)
-    if direct:
+    if direct or institution:
         origins = ET.fromstring(xml).findall('./idinfo/citation/citeinfo/origin')
         require(origins and [source_element(node) for node in origins] in selected['primary_origin_variants'])
     target = next(row for row in pinned(PLAN, PLAN_SHA)['targets'] if row['record_target_id'] == sid)
@@ -338,7 +395,7 @@ def prepare(json_file, paths):
             and target['identity_decision']['production_doi'] is None)
     validate_restricted_metadata(metadata)
     require(metadata['creators'] == selected['creators'])
-    if exxon or pices:
+    if exxon or pices or institution:
         creators = selected['modern_creators']
     else:
         require(all(set(c) == {'name', 'type'} and c['type'] == 'Organization'

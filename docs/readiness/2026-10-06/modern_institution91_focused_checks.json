@@ -1,0 +1,121 @@
+{
+  "earlier_interrupted": {
+    "exit_code": 130,
+    "log_path": "/tmp/pices-institution91-focused-v1.log",
+    "log_sha256": "57d484e3c7c57af12add3571c34d9cebd61b04c3b4eff24b2ab5702a06c0a8dc",
+    "reason": "Initial focused run stopped after independent review and observed errors exposed raw-string versus parsed-element origin mismatch. Fixed before measured runtime."
+  },
+  "final_source_tree_sha256": "6ae0735b354c59139a237f63e408e4fe6cad5c6376e4efdd6375f7e73bc96494",
+  "kind": "guarded-institutional91-focused-checks",
+  "provider_requests": 0,
+  "runs": [
+    {
+      "log_path": "/tmp/pices-institution91-focused-v2.log",
+      "log_sha256": "7375eaa784c8f1e37c82be58e2ae70a8b5e5ea277da8bc9c2044c42758fb0927",
+      "result": {
+        "commit": "4c4606602b95f94fb02c85c8d69afdd01b6fb70b",
+        "environment_cleared_dummy_credentials_only": true,
+        "errors": 0,
+        "failures": 0,
+        "guard_blocks": {
+          "bootstrap": {
+            "network": 4,
+            "private_reads": 1,
+            "processes": 1,
+            "writes": 1
+          },
+          "tests": {
+            "network": 0,
+            "private_reads": 0,
+            "processes": 0,
+            "writes": 0
+          }
+        },
+        "in_process_read_only_git_queries": 0,
+        "seconds": 582.789,
+        "selected_modules": [
+          "tests.test_modern_institution_coverage",
+          "tests.test_modern_pices_coverage",
+          "tests.test_modern_publication",
+          "tests.test_modern_publication_qa"
+        ],
+        "source_bindings_unchanged": true,
+        "source_tree_sha256": "6f9998d0da71cebde30990c445ec7f89287e4226bde1bcf5133c6a665c038d7a",
+        "successful": true,
+        "tests_run": 106,
+        "unexpected_guard_call_sites": []
+      }
+    },
+    {
+      "log_path": "/tmp/pices-institution91-focused-v3.log",
+      "log_sha256": "cb09f8c3a676cf005a5d28e2164a8a67798ee5898be88f3c075ee7de8c40d4e0",
+      "result": {
+        "commit": "95b93dd69aee0127536530d22537e2453448e291",
+        "environment_cleared_dummy_credentials_only": true,
+        "errors": 1,
+        "failures": 0,
+        "guard_blocks": {
+          "bootstrap": {
+            "network": 4,
+            "private_reads": 1,
+            "processes": 1,
+            "writes": 1
+          },
+          "tests": {
+            "network": 0,
+            "private_reads": 0,
+            "processes": 0,
+            "writes": 0
+          }
+        },
+        "in_process_read_only_git_queries": 0,
+        "seconds": 68.234,
+        "selected_modules": [
+          "tests.test_modern_institution_coverage"
+        ],
+        "source_bindings_unchanged": true,
+        "source_tree_sha256": "b53a1ef7279b377e994f5f78526799c623c0c13da9aff3adf6d39f3be755c2ef",
+        "successful": false,
+        "tests_run": 10,
+        "unexpected_guard_call_sites": []
+      }
+    },
+    {
+      "log_path": "/tmp/pices-institution91-focused-v4.log",
+      "log_sha256": "e23f3b9b1ea85eedb9580503623822063d5fea5f285f44e59e01fabd7cf39e9d",
+      "result": {
+        "commit": "8d6e00b5e07b3f9dd471af0fdcdd39eecb93c665",
+        "environment_cleared_dummy_credentials_only": true,
+        "errors": 0,
+        "failures": 0,
+        "guard_blocks": {
+          "bootstrap": {
+            "network": 4,
+            "private_reads": 1,
+            "processes": 1,
+            "writes": 1
+          },
+          "tests": {
+            "network": 0,
+            "private_reads": 0,
+            "processes": 0,
+            "writes": 0
+          }
+        },
+        "in_process_read_only_git_queries": 0,
+        "seconds": 67.296,
+        "selected_modules": [
+          "tests.test_modern_institution_coverage"
+        ],
+        "source_bindings_unchanged": true,
+        "source_tree_sha256": "6ae0735b354c59139a237f63e408e4fe6cad5c6376e4efdd6375f7e73bc96494",
+        "successful": true,
+        "tests_run": 10,
+        "unexpected_guard_call_sites": []
+      }
+    }
+  ],
+  "runtime_sha256": "d09495acd462e7a51c3c1344265758ed8482256e9d901c05b64711734316ef2d",
+  "schema_version": 1,
+  "staging": "106 contracts pass on the corrected runtime before direct-mapper rejection assertions and schema6 QA substitution coverage. The 10-test strengthened run rejects its future-dated positive-control fixture. Corrected final 10 contracts pass; runtime unchanged and each source/test binding retained accurately. Measurements bind the pre-clock-correction test tree, not the final test tree. Full current-head CI is recorded in the PR."
+}
