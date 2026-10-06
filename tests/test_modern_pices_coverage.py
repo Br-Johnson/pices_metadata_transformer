@@ -136,8 +136,10 @@ class ModernPicesCoverageTests(unittest.TestCase):
                 self.assertEqual(self.fixture(sid).prepared.evidence['schema_version'], version)
         self.assertEqual(fixture.transport.calls, [])
         profile = mapping.pinned(mapping.PROFILE, mapping.PROFILE_SHA)
+        # SOA now has a finite citation policy; MSO Anchorage remains untyped.
         outside = next(row['members'][0]['source_id'] for row in profile['cohorts']
-                       if row['profile'] == 'china_soa_literal_20')
+                       if row['profile'] == 'plain_institution_program_37_FGDC-2232')
+        self.assertEqual(outside, 'FGDC-2232')
         for sid in (outside, *PROTECTED):
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.pices_source_policy(sid)

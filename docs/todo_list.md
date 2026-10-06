@@ -1,10 +1,18 @@
-## Active increment: bounded unknown-create observations — 2026-10-06
+## Active increment: finite citation organizations129 — 2026-10-06
+
+- [x] Verify merged PR45 recovery and publish its exact release receipt; preserve all provider holds and standing rules.
+- [x] Independently review129 exact complete creator arrays across53 groups, preserving frozen92 plus the additive Ecotrust37 joint-actor context. Preserve original dates, all legacy creators, rights and raw XML.
+- [x] Freeze the finite mapper and historical-runtime compatibility; pass independent code/helper review and 11 focused guarded tests at unchanged185-file binding.
+- [x] Measure all129 new preparations twice and all3262 retained singleton plus203 paired preparations once. All four guarded shards and the independently checked saved-file aggregate pass; all4206 originals and retained evidence match. Coverage is3594 targets /3797 originals, with339 remaining (314 singletons +25 pairs). See the [frozen handoff](readiness/2026-10-06/modern_citationorg129_handoff.md).
+- [ ] Pass independent current-head code review and full CI, then merge under standing authorization. Keep all160 other residual creator426 sources, DFO Staff70, other direct holds and25 unmapped pairs outside this increment.
+
+## Completed code increment: bounded unknown-create observations — 2026-10-06
 
 - [x] Verify PR44 merged at `ff6f56a65e6adafdb5957652dae925ce7142b0a7`, with 863 passing full CI tests and exact-head independent Codex review. Original FGDC and maintained rules Git objects match.
 - [x] Integrate the independently reviewed finite GET-only FGDC-141 observation controller and 37 adversarial test cases. Bind the actual original 403, submitted wire, full preparation, owner and canonical spent state; keep all original evidence immutable.
-- [ ] Pass focused guarded tests, final independent review and full current-head CI; publish the frozen [recovery handoff](readiness/2026-10-06/modern_unknown_create_handoff.md).
+- [x] Pass 58 affected focused tests and 900 full current-head guarded CI tests; merge independently reviewed PR45 at `4fea3934bf7445700e7d8d18ecf3c517f07ce5f7`. Publish the [exact machine-readable release](readiness/2026-10-06/modern_unknown_create_release.json) and [recovery instructions](readiness/2026-10-06/modern_unknown_create_handoff.md).
 - [ ] Parent verifies actual retained packets, owner and supported network recovery before separately granting and dispatching one bounded read-only observation. A match, empty listing or 404 authorizes no adoption or create replay.
-- [ ] Resume the frozen finite92 mapper only after the urgent recovery code gates; no additional mapping coverage has been claimed.
+- [x] Preserve frozen92 checkpoint and source/test receipts. Its reviewed arrays plus independently reviewed Ecotrust37 form the next finite129 projection; no new measured coverage is yet claimed.
 
 AquaDocs comparison/linkage is explicitly deferred by Brett until after initial
 production publication: [decision](readiness/2026-10-06/aquadocs_deferred_followup.json).

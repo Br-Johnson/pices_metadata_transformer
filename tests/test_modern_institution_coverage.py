@@ -136,7 +136,7 @@ class ModernInstitutionCoverageTests(unittest.TestCase):
         review = mapping.parse((mapping.INSTITUTION_MAPPING.parent / 'modern_institution91_source_review.json').read_bytes())
         ids = [r['source_id'] for r in review['held']['members']]
         self.assertEqual(len(ids), 79)
-        for sid in (*ids, 'FGDC-3875', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
+        for sid in (*ids, 'FGDC-2232', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.institution_source_policy(sid)
 

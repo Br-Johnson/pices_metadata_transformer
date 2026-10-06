@@ -48,6 +48,13 @@ PICES_POLICY = 'modern-xml-pices26-v1'
 INSTITUTION_MAPPING = ROOT / 'docs/readiness/2026-10-06/modern_institution_singletons91.json'
 INSTITUTION_MAPPING_SHA = '19dd282e701bb115e256c90cac0ebaba0cfa1b49baf748dc4bf55106cc22dfd1'
 INSTITUTION_POLICY = 'modern-xml-institutions91-v1'
+CITATION_ORG_MAPPING = ROOT / 'docs/readiness/2026-10-06/modern_citation_organizations129.json'
+CITATION_ORG_MAPPING_SHA = '8ac4f141433dbbc58513ee968942ec23d2f484949b751fa01cba6bbcc393aee3'
+CITATION_ORG_REVIEW = ROOT / 'docs/readiness/2026-10-06/modern_citationorg129_independent_review.json'
+CITATION_ORG_REVIEW_SHA = 'dc9033829412054b0aed2a5ec354e9133889736859a39d727aeba98e59ae88c3'
+CITATION_ORG_SOURCE = ROOT / 'docs/readiness/2026-10-06/modern_citationorg129_source_review.json'
+CITATION_ORG_SOURCE_SHA = 'ceeaec8fdd29b3a56dceb700d2b3c47395ec54d0755c4bc3018a01f50d359168'
+CITATION_ORG_POLICY = 'modern-xml-citation-organizations129-v1'
 PRESERVATION_LABEL = (
     'Legacy assembled metadata, preserved without field loss. Publisher values in this '
     'block are legacy mapping values, not independently source-attested publishers. '
@@ -300,10 +307,64 @@ def institution_source_policy(source_id):
             ids.append(member['source_id'])
             if member['source_id'] == source_id:
                 matches.append(group)
-    require(len(profiles) == len(set(profiles)) == 9 and len(ids) == len(set(ids)) == 91 and len(matches) == 1)
+    require(len(profiles) == len(set(profiles)) == 9 and len(ids) == len(set(ids)) == 91 and len(matches) <= 1)
+    if not matches:
+        return citation_organization_source_policy(source_id)
     selected = matches[0]
     return selected, {'schema_version': 6, 'policy': INSTITUTION_POLICY,
                       'mapping_manifest_sha256': INSTITUTION_MAPPING_SHA, 'creator_cohort': selected['profile']}
+
+
+def citation_organization_source_policy(source_id):
+    """129 reviewed name-only arrays; preserve current profile credit and order.
+
+    The independent finite review supplies institutional typing. No program,
+    collection, occupation or other untyped credit inherits that decision.
+    """
+    manifest = pinned(CITATION_ORG_MAPPING, CITATION_ORG_MAPPING_SHA)
+    review = pinned(CITATION_ORG_REVIEW, CITATION_ORG_REVIEW_SHA)
+    source = pinned(CITATION_ORG_SOURCE, CITATION_ORG_SOURCE_SHA)
+    profiles = {row['profile']: row for row in pinned(PROFILE, PROFILE_SHA)['cohorts']}
+    bindings = {row['source_id']: row for row in review['verified_source_bindings']}
+    expected = []
+    for group in review['approved_projection_groups']:
+        expected.append({
+            'group': group['cluster_index'], 'creators': group['complete_legacy_creators'],
+            'modern_creators': group['proposed_modern_creators'],
+            'members': [dict(member, creator_cohort=bindings[member['source_id']]['creator_cohort'],
+                             cohort_object_sha256=bindings[member['source_id']]['cohort_object_sha256'])
+                        for member in group['members']]})
+    header = {'schema_version': 1, 'kind': 'modern-citation-organizations129-v1',
+              'policy': CITATION_ORG_POLICY, 'creator_profile_sha256': PROFILE_SHA,
+              'source_plan_sha256': PLAN_SHA, 'source_review_sha256': CITATION_ORG_SOURCE_SHA,
+              'independent_review_sha256': CITATION_ORG_REVIEW_SHA, 'member_count': 129, 'group_count': 53}
+    require(isinstance(manifest, dict) and set(manifest) == set(header) | {'groups'}
+            and all(type(manifest[key]) is type(value) and manifest[key] == value
+                    for key, value in header.items())
+            and manifest['groups'] == expected and len(expected) == 53
+            and source['members'] == review['approved_members'] and len(bindings) == 129)
+    members, matches = [], []
+    for group in expected:
+        creators = group['creators']
+        require(creators and all(set(creator) == {'name'} and isinstance(creator['name'], str)
+                                 and creator['name'].strip() for creator in creators)
+                and group['modern_creators'] == [
+                    {'person_or_org': {'name': creator['name'], 'type': 'organizational'}} for creator in creators])
+        for member in group['members']:
+            sid, digest = member['source_id'], member['source_sha256']
+            profile = profiles[member['creator_cohort']]
+            require(sid not in PROTECTED and profile['creators'] == creators
+                    and sha(encode(profile)) == member['cohort_object_sha256']
+                    and {'source_id': sid, 'source_sha256': digest} in profile['members'])
+            members.append({'source_id': sid, 'source_sha256': digest})
+            if sid == source_id:
+                matches.append((group, member['creator_cohort']))
+    require(len(members) == len({row['source_id'] for row in members}) == 129
+            and sorted(members, key=lambda row: int(row['source_id'][5:])) == review['approved_members']
+            and len(matches) == 1)
+    selected, cohort_name = matches[0]
+    return selected, {'schema_version': 7, 'policy': CITATION_ORG_POLICY,
+                      'mapping_manifest_sha256': CITATION_ORG_MAPPING_SHA, 'creator_cohort': cohort_name}
 
 
 def runtime_binding():
@@ -373,6 +434,7 @@ def prepare(json_file, paths):
     exxon = policy_fields['policy'] == EXXON_POLICY
     pices = policy_fields['policy'] == PICES_POLICY
     institution = policy_fields['policy'] == INSTITUTION_POLICY
+    citation_org = policy_fields['policy'] == CITATION_ORG_POLICY
     authority_sha = (INSTITUTION_MAPPING_SHA if institution else
                      (EXXON_SHA if exxon else (DIRECT_SHA if direct else PROFILE_SHA)))
     if direct or institution:
@@ -395,7 +457,7 @@ def prepare(json_file, paths):
             and target['identity_decision']['production_doi'] is None)
     validate_restricted_metadata(metadata)
     require(metadata['creators'] == selected['creators'])
-    if exxon or pices or institution:
+    if exxon or pices or institution or citation_org:
         creators = selected['modern_creators']
     else:
         require(all(set(c) == {'name', 'type'} and c['type'] == 'Organization'
