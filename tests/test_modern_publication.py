@@ -399,8 +399,14 @@ class ModernPublicationTests(unittest.TestCase):
             self.bridge()
 
     def test_named_pr34_runtime_bridges_without_rewriting_old_history(self):
+        self.assert_historical_runtime_bridges(publication.PR34_RUNTIME)
+
+    def test_named_pr35_runtime_bridges_without_rewriting_old_history(self):
+        self.assert_historical_runtime_bridges(publication.PR35_RUNTIME)
+
+    def assert_historical_runtime_bridges(self, runtime):
         packet = parse(self.packet.read_bytes())
-        packet['evidence']['runtime_sha256'] = publication.PR34_RUNTIME
+        packet['evidence']['runtime_sha256'] = runtime
         packet['binding'] = sha(encode(packet['evidence']))
         self.packet.write_bytes(encode(packet))
         self.fixture.change_proof(binding=packet['binding'])
@@ -418,9 +424,38 @@ class ModernPublicationTests(unittest.TestCase):
         path.write_bytes(encode(value))
         original = path.read_bytes()
         current, bound = self.bridge()
-        self.assertEqual(bound['original_runtime_sha256'], publication.PR34_RUNTIME)
+        self.assertEqual(bound['original_runtime_sha256'], runtime)
         self.assertEqual(current, self.prepared)
         self.assertEqual(original, path.read_bytes())
+
+    def test_started_capture_is_not_migrated_or_regranted_for_another_runtime(self):
+        self.assert_historical_runtime_bridges(publication.PR35_RUNTIME)
+        self.prepared, self.bound = self.bridge()
+        self.grant('capture')
+        self.runner('capture').run()
+        calls = len(self.transport.calls)
+        with patch('scripts.modern_singleton.runtime_binding', return_value='a' * 64):
+            self.prepared, self.bound = self.bridge()
+            self.grant('capture')
+            with self.assertRaises(ValueError):
+                self.runner('capture').run(read_only=True)
+        self.assertEqual(len(self.transport.calls), calls)
+
+    def test_started_publication_is_not_migrated_for_another_runtime(self):
+        self.assert_historical_runtime_bridges(publication.PR35_RUNTIME)
+        self.prepared, self.bound = self.bridge()
+        docs = self.ready()
+        self.runner(documents=docs).run()
+        calls = len(self.transport.calls)
+        path = Path(self.fixture.paths.uploads_registry_path + '.modern-publication-v1.json')
+        original = path.read_bytes()
+        with patch('scripts.modern_singleton.runtime_binding', return_value='a' * 64):
+            self.prepared, self.bound = self.bridge()
+            self.grant('publish', docs)
+            with self.assertRaises(ValueError):
+                self.runner(documents=docs).run(read_only=True)
+        self.assertEqual(len(self.transport.calls), calls)
+        self.assertEqual(path.read_bytes(), original)
 
     def test_failed_response_preserves_untrusted_doi_against_later_adoption(self):
         docs = self.ready()
