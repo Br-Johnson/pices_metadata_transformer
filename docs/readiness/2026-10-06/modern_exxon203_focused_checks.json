@@ -1,0 +1,39 @@
+{
+  "kind": "guarded-exxon203-focused-checks",
+  "log_path": "/tmp/pices-exxon203-focused-v1.log",
+  "log_sha256": "1d61b81af023808e52d9967caba27779a7899d41c6571effc106ba7fae9d148c",
+  "provider_mutations": 0,
+  "provider_requests": 0,
+  "result": {
+    "commit": "bdedf7a7447603f71827c1895a5749823321d53f",
+    "environment_cleared_dummy_credentials_only": true,
+    "errors": 0,
+    "failures": 0,
+    "guard_blocks": {
+      "bootstrap": {
+        "network": 4,
+        "private_reads": 1,
+        "processes": 1,
+        "writes": 1
+      },
+      "tests": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      }
+    },
+    "in_process_read_only_git_queries": 0,
+    "seconds": 37.073,
+    "selected_modules": [
+      "tests.test_modern_content_class",
+      "tests.test_content_class_targets",
+      "tests.test_content_class_guards"
+    ],
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "8daa38ea93d3ba93bc862e783f788a921454ec5567072ab78015d059f68c551d",
+    "successful": true,
+    "tests_run": 31,
+    "unexpected_guard_call_sites": []
+  }
+}

@@ -917,3 +917,15 @@ TLS session-secret persistence. The Mac runner now sets and verifies
 credential/environment settings or changing certificate trust. A dummy-context
 regression verifies that a preconfigured key log receives no session secrets and
 TLS certificate/hostname checks stay enabled.
+
+## Modern paired metadata preparation — 2026-10-06
+
+The first 203 paired wire proposals reuse the approved local pair identity and reviewed
+Exxon attribution. A separate `PreparedClass` retains both filenames, raw bytes,
+member policies/artifacts and complete assembled class metadata. It grants no
+provider execution. Multi-file attempt journaling, cross-lane identity barriers,
+uncertain-create recovery, full two-file readback, community QA/release and existing
+production identity reconciliation need their own class-aware contracts. The 25
+remaining source-supported pairs require finite creator projections. Do not route
+any pair through the singleton executor or choose a canonical member as a shortcut.
+See [ADR0010](adr/0010-finite-modern-content-class-preparation.md).
