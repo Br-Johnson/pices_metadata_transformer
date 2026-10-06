@@ -6,7 +6,7 @@ targets outside the mapper (534 singletons + 228 pairs). The
 `effab194b3621fc867542ab366b57d7f1091400b4ba6ebfabf6f0270955bc208`,
 verifies all 26 new mappings twice, all 3,145 prior wires and nonruntime evidence,
 18,488 retained evidence files, 11 referenced public profiles and all 4,206 XML
-originals. Source/test binding is
+originals. Measurement and 104-test source/test binding is
 `866f2324c3280b5d512a186bd763c792a6e15dd0440f09c605fd46239d8bb632`.
 All four guards report zero unexpected events.
 
@@ -45,7 +45,7 @@ Run indices 0 through 3 once, each with a distinct fresh temporary output:
 
 ```sh
 python -B docs/readiness/2026-10-06/measure_modern_pices26_coverage.py \
-  --repo /workspace/pices-modern-residual-20261006 \
+  --repo /workspace/pices-modern-residual-ci-20261006 \
   --output /tmp/pices-pices26-reproduce-shard0 --shard-index 0
 ```
 
@@ -66,7 +66,8 @@ Retain each `coverage.json`, `wire_artifact_manifest.json`,
 ```sh
 python -B ci/run_offline_tests.py tests.test_modern_pices_coverage \
   tests.test_modern_singleton tests.test_modern_publication \
-  tests.test_modern_publication_qa
+  tests.test_modern_publication_qa tests.test_modern_organizational_coverage \
+  tests.test_modern_primary_organizations
 ```
 
 The first aggregate receipt retained a stale hash for the now-289-member
@@ -78,7 +79,13 @@ No mapper or measurement was rerun for that receipt-only correction.
 
 **104 affected guarded tests pass** in 627.188 seconds, with unchanged source
 bindings and zero unexpected guard events. The [focused receipt](modern_pices26_focused_checks.json)
-retains the actual result and earlier interrupted/failed attempts. Current-head
+retains the actual result and earlier interrupted/failed attempts. **25 additional
+affected tests pass** in 126.544 seconds after replacing two stale PICES rejection
+fixtures with the still-unmapped SOA FGDC-3875. Both rejection assertions remain.
+The runtime and measured mappings are unchanged; the final source/test binding is
+`95a9fc0a61340735148698ff275a964fd700124ac582248e43a7fd81b9694503`.
+The receipt preserves the distinct staged bindings rather than claiming the earlier
+104-test run used these final test files. Current-head
 GitHub CI, independent Codex review and the merge result are recorded in the PR
 timeline; local receipts identify the base checkout plus measured changes and
 do not claim to be a CI run of the later published commit.

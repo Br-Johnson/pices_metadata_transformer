@@ -1,5 +1,47 @@
 {
   "actual_local_changes_measured": true,
+  "additional_final_tests": {
+    "changed_files": {
+      "tests/test_modern_organizational_coverage.py": "dd575e7e92fc03aceb5908265a10389929d6ad60557be4d6f7aafd2581c775d2",
+      "tests/test_modern_primary_organizations.py": "c9c8b1399848ed3f6a0a8f364a5ff55d959db64db61dd6d59f473398a96c53b5"
+    },
+    "log": "/tmp/pices-pices26-existing-cohorts-v1.log",
+    "log_sha256": "61f19ba6d53b7fc6293627bb077e63b3f98f00f72b104c1e85b3c0149b24fd72",
+    "prior_focused_receipt_sha256": "899b3c94d8351bf67380796dc271e133f6f998de67b5a2f6f47ab39646058980",
+    "reason": "Two inherited rejection fixtures still treated now-admitted FGDC-1319 as unselected. Replace only that fixture with still-unmapped SOA FGDC-3875 and preserve both rejection assertions. No runtime or measured mapping changed; actual measurement and104-test bindings remain historical, while these25 tests cover the final source/test binding.",
+    "result": {
+      "commit": "e84ebe00001d9f590d2fd9b38ccd3f08cf88d147",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 0,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 0,
+      "seconds": 126.544,
+      "selected_modules": [
+        "tests.test_modern_organizational_coverage",
+        "tests.test_modern_primary_organizations"
+      ],
+      "source_bindings_unchanged": true,
+      "source_tree_sha256": "95a9fc0a61340735148698ff275a964fd700124ac582248e43a7fd81b9694503",
+      "successful": true,
+      "tests_run": 25,
+      "unexpected_guard_call_sites": []
+    },
+    "runtime_unchanged": true
+  },
   "earlier_attempts": [
     {
       "exit_code": 130,

@@ -3,7 +3,7 @@
 - [x] Reconcile PR40 and standing merge/documentation authorization; preserve frozen checkouts, source profiles and provider journals.
 - [x] Independently review the exact 26 PICES institutional citations. Approve only their modern organizational representation; preserve name-only legacy credits. DFO Staff70 and all other residual cohorts remain outside.
 - [x] Measure all 26 fresh mappings twice and all 3,145 prior wire/nonruntime comparisons once. Coverage is 3,171; 762 targets remain (534 singletons + 228 pairs). All 4,206 original hashes and 18,488 retained evidence files/11 referenced profiles match; all four guarded shards pass.
-- [x] Pass 104 affected guarded tests with unchanged bindings and zero unexpected I/O; resolve the independent aggregate-membership hash finding and preserve earlier failed receipts.
+- [x] Pass 104 core and 25 additional affected guarded tests with unchanged per-run bindings and zero unexpected I/O. Update two stale PICES rejection fixtures to still-unmapped SOA without weakening assertions; runtime and measurements remain unchanged. Resolve the aggregate-membership hash finding and preserve all earlier receipts.
 - [ ] Freeze independent current-head review and actual CI, then merge the exact reviewed tree and retain the PR receipt.
 - [x] Verify the raw source-bound FGDC-141 comparison: no supported candidate in the October 4 capture of 20 owned records/24 descriptors. Preserve unknown history and evidenced production attempts separately; no grant or provider action follows.
 
