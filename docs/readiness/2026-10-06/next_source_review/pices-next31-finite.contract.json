@@ -1,0 +1,1627 @@
+{
+  "activity": "Composition of independently approved source vectors and an implementation/test design; not a new semantic source decision.",
+  "approved_membership_sha256": "1602de63f4dafe4c0eabdf7ab366a955c4e479ed57f1b75680d620f89160bc4b",
+  "base": {
+    "head": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+    "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+    "tree": "8a483aef1629d26123812afe1c8a8ee48b95954d"
+  },
+  "bounded_existing_test_updates": [
+    {
+      "change": "Assert42 old routes,28 exact new policy routes,9 retained rejection; do not drop the old assertions or make all historical79 positive.",
+      "function": "test_historical79_split_into_exact42_reviewed_and37_retained_holds",
+      "line": 135,
+      "path": "tests/test_modern_institution_coverage.py"
+    },
+    {
+      "change": "Assert82+20+3+55; new BASIS3 route only, retained55 reject, old82/20 exact policy matches unchanged.",
+      "function": "test_historical160_split_into_reviewed82_program20_and58_retained_holds",
+      "line": 142,
+      "path": "tests/test_modern_citation_organizations.py"
+    },
+    {
+      "change": "184/197/4068 global source_policy negatives become stale. Add exact positive new policy selection but retain renamed/wrong-payload preparation rejection.3786 remains held.",
+      "function": "test_unselected_person_reference_paired_protected_and_held_sources_stay_blocked",
+      "line": 285,
+      "path": "tests/test_modern_primary_organizations.py"
+    },
+    {
+      "change": "Historical personal29 negatives are policy194-specific and remain unchanged, including BASIS3.",
+      "line": 237,
+      "path": "tests/test_modern_reviewed_creators.py"
+    },
+    {
+      "change": "All29 program/Unaami negatives remain unchanged; no new31 intersection.",
+      "line": 219,
+      "path": "tests/test_modern_program_organizations.py"
+    }
+  ],
+  "current_actual": {
+    "full_ci_conclusion": "Not assessed by this design task; parent owns CI reconciliation.",
+    "new_admissions_from_this_design": 0,
+    "new_coverage": 0,
+    "new_preparations": 0,
+    "original_xml_files_represented": 4011,
+    "prepared_classes": 203,
+    "remaining_pairs": 25,
+    "remaining_singletons": 100,
+    "remaining_supported_targets": 125,
+    "singletons": 3605,
+    "validation_pin": {
+      "bytes": 75489,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20_validation.json",
+      "sha256": "23efeba9c464769f8050af26224679aabbe3995c3b725c9ae436b56498a00a8e"
+    },
+    "wire_prepared_targets": 3808
+  },
+  "current_live_input_pins": [
+    {
+      "bytes": 877461,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2"
+    },
+    {
+      "bytes": 6312934,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/publication_plan.json",
+      "sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+    },
+    {
+      "bytes": 357011,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-02/rehosting_authority.json",
+      "sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8"
+    },
+    {
+      "bytes": 460626,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_institution91_source_bindings.json",
+      "sha256": "0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633"
+    }
+  ],
+  "exact_inputs": {
+    "basis_proposal": {
+      "bytes": 1349008,
+      "path": "/tmp/pices-basis19-modern-personal-source-proposals.json",
+      "sha256": "3dffa1313c1b31a9950277658df01b334b0632ac204c982054abe1cf54672faf"
+    },
+    "basis_review": {
+      "bytes": 30599,
+      "path": "/tmp/pices-basis19-independent-complete-array-review.json",
+      "sha256": "0f791b51da0294d494053393ba48a40170dbd4f26c049007486d5568e658b7da"
+    },
+    "contract_proposal": {
+      "bytes": 596657,
+      "path": "/tmp/pices-contract-chain9-modern-source-proposals.json",
+      "sha256": "1ee3bc21bb5d02a201a311fe794f503ad4fbb2c89d850c5be75b0aba5e26e9a1"
+    },
+    "contract_review": {
+      "bytes": 110107,
+      "path": "/tmp/pices-contract-chain9-independent-source-review.json",
+      "sha256": "2ce5c267e37168aaa8c8c1202c756a167459c9c031b96e16dc34aa760ff58d83"
+    },
+    "direct_primary_evidence": {
+      "bytes": 9995,
+      "path": "/tmp/pices-direct14-primary-evidence.json",
+      "sha256": "17f91192d3b7d8770134ef587a111bed7821b38ebf50798b288aeba9d23a97e7"
+    },
+    "direct_proposal": {
+      "bytes": 635387,
+      "path": "/tmp/pices-direct14-modern-source-proposals.json",
+      "sha256": "5ce44b703e5b7881e0fb3067cf74ed1ecd90e46d4ff869ead8df4e5cb202d1a0"
+    },
+    "direct_review": {
+      "bytes": 51745,
+      "path": "/tmp/pices-direct14-independent-source-review.json",
+      "sha256": "8caff527a8752db3975470806d88623b3fdc4bd9100ba40a393471c1c4c09597"
+    },
+    "office_primary_evidence": {
+      "bytes": 7245,
+      "path": "/tmp/pices-role-office11-primary-evidence.json",
+      "sha256": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66"
+    },
+    "office_proposal": {
+      "bytes": 268285,
+      "path": "/tmp/pices-role-office11-modern-source-proposals.json",
+      "sha256": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd"
+    },
+    "office_review": {
+      "bytes": 48777,
+      "path": "/tmp/pices-role-office11-independent-source-review.json",
+      "sha256": "dbde3f4c6a36b9368b75683e21ab9dff1098968285eef0abd9eba896a37fc673"
+    }
+  },
+  "exact_partition_source_ids": {
+    "basis3": [
+      "FGDC-3809",
+      "FGDC-3810",
+      "FGDC-3812"
+    ],
+    "contract8": [
+      "FGDC-723",
+      "FGDC-725",
+      "FGDC-755",
+      "FGDC-757",
+      "FGDC-760",
+      "FGDC-770",
+      "FGDC-785",
+      "FGDC-817"
+    ],
+    "direct10": [
+      "FGDC-296",
+      "FGDC-1905",
+      "FGDC-1941",
+      "FGDC-2559",
+      "FGDC-2597",
+      "FGDC-3600",
+      "FGDC-3789",
+      "FGDC-3793",
+      "FGDC-3794",
+      "FGDC-4068"
+    ],
+    "office10": [
+      "FGDC-184",
+      "FGDC-197",
+      "FGDC-248",
+      "FGDC-249",
+      "FGDC-250",
+      "FGDC-251",
+      "FGDC-254",
+      "FGDC-261",
+      "FGDC-262",
+      "FGDC-2709"
+    ]
+  },
+  "frozen_mixed11_artifacts_preserved": [
+    {
+      "bytes": 55836,
+      "path": "/tmp/pices-mixed11-next-increment.manifest.json",
+      "sha256": "34f20e836b8a70aba5b36659dbe07b8199202b8a76eb5896264b29934dadcad1"
+    },
+    {
+      "bytes": 76962,
+      "path": "/tmp/pices-mixed11-next-increment.contract.json",
+      "sha256": "d4c8eea9da6da32986a6e95a4ee5fd514b957b65a62cdd0e1f09b9030bd2f792"
+    },
+    {
+      "bytes": 4546,
+      "path": "/tmp/pices-mixed11-next-increment.md",
+      "sha256": "268bfa157b94b2490aacab7dec75131767570ffa1f1c08f5aaf01b1290cbdb62"
+    },
+    {
+      "bytes": 6931,
+      "path": "/tmp/pices-mixed11-next-increment.receipt.json",
+      "sha256": "d97764bd895a86a127d3446c364b3d5d9260d0afb87be44a1911b392770ebaf1"
+    }
+  ],
+  "future_measurement_only_after_reviewed_code_freeze": {
+    "new31": "All31 actual preparations twice with exact source/input/wire/evidence pins; first10 smoke is required. No source-status changes.",
+    "old3808": "Use latest retained program20 baselines (3605singletons+203classes), exact prepared inputs and historical assessment time. Compare full wire and every nonruntime field, all original bytes/policies/profiles; do not reclassify old records or execute prior measurement helpers.",
+    "paired_next25": "Separate later preparation policy/design; both25 and current203 remain non-executing classes.",
+    "remaining_subtraction_design_only": {
+      "candidate_remaining_members": [
+        {
+          "source_id": "FGDC-287",
+          "source_sha256": "c1fbb8aa99f3e48d2d29a3c2ed46158a07703de90be7974bab3831452981d0e2"
+        },
+        {
+          "source_id": "FGDC-411",
+          "source_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b"
+        },
+        {
+          "source_id": "FGDC-419",
+          "source_sha256": "71853896a5ae9232d45166d89d06ceceda9f533e1fac5d0ea67c4dba899c18dc"
+        },
+        {
+          "source_id": "FGDC-542",
+          "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c"
+        },
+        {
+          "source_id": "FGDC-545",
+          "source_sha256": "82ac680b3d26bb8f80b4642d21e314813247a8ba74c3faddd7d73bfffbd89e23"
+        },
+        {
+          "source_id": "FGDC-546",
+          "source_sha256": "8f6d9e0d603255b0156a6c6b356e6973f2429c782672406a5b50827400483662"
+        },
+        {
+          "source_id": "FGDC-547",
+          "source_sha256": "777f31dd1bd7686f8a94a6559efc27bd11255d1c3ee7feeebdd1b180ae3b8724"
+        },
+        {
+          "source_id": "FGDC-548",
+          "source_sha256": "e48070eb5a688b732bce467796b932f80ecbe600e7e3297e68d5709538629c7c"
+        },
+        {
+          "source_id": "FGDC-549",
+          "source_sha256": "b27410843d7a077362d7348cfa5da3c0889dde6850ce97fe23515c2094ac06d3"
+        },
+        {
+          "source_id": "FGDC-550",
+          "source_sha256": "703288a7c4460de563e91b6cab47ab41fcf62b6fc41f30c92910dedf8426d14b"
+        },
+        {
+          "source_id": "FGDC-551",
+          "source_sha256": "26031acb0be2cd0ccf8b63623fbe5d4453d3415f748dcd083c5a55acc259a16a"
+        },
+        {
+          "source_id": "FGDC-552",
+          "source_sha256": "342928f5a48294371b35eca91d0303065d5dfdb1eb151195bfe20621ec9c7bd8"
+        },
+        {
+          "source_id": "FGDC-553",
+          "source_sha256": "ad5907dd4660cb821b828e980a023a08c7b65d4a2f59a0fcb4f484049a7191a8"
+        },
+        {
+          "source_id": "FGDC-554",
+          "source_sha256": "3189d71b2848856a1bdba644c05fbfeb33e09f7c1fe7bdef1c366f6ce00d7c21"
+        },
+        {
+          "source_id": "FGDC-556",
+          "source_sha256": "006d4437d0049c3762958209ffe02ed4f0df5f1b1ef54acdd30276375ad0008f"
+        },
+        {
+          "source_id": "FGDC-557",
+          "source_sha256": "b61781d15506505c3cec592f53250e0429944f5da578c5ac79a54959fff2a7c7"
+        },
+        {
+          "source_id": "FGDC-558",
+          "source_sha256": "07ff9e68edab62873e6db271c43f2908462478009d2ca861bafbd5f918dc60b9"
+        },
+        {
+          "source_id": "FGDC-559",
+          "source_sha256": "facb54511675fc9c0403c9616998575af910b3e5b4cd948fe77fe5bab2042700"
+        },
+        {
+          "source_id": "FGDC-560",
+          "source_sha256": "e1701f70ad40d3b4f50c57239bc15c71de793d55e89e821b6ad9b66917c067cf"
+        },
+        {
+          "source_id": "FGDC-573",
+          "source_sha256": "8f169b58da27c345ed4f4111d6419d89749fb6be11cfb042326d6f5563d8bbe9"
+        },
+        {
+          "source_id": "FGDC-574",
+          "source_sha256": "f76cfeb5103c7ebc9ba1108d9cbfd22b94a889a8aea800521b047bf8c02747ac"
+        },
+        {
+          "source_id": "FGDC-575",
+          "source_sha256": "12f2a7bd8cf3c4587424b343414e61cbf7fcfe8cbd5378f13b219e746376d214"
+        },
+        {
+          "source_id": "FGDC-576",
+          "source_sha256": "5ee0491be59e811aae0a1eda9508a22c6fa837bc893ac9f818d2147e38cbdaa9"
+        },
+        {
+          "source_id": "FGDC-578",
+          "source_sha256": "734e45aec7e8eef957cacf29a479b54c16f21130260a97724016e2a75d17df09"
+        },
+        {
+          "source_id": "FGDC-579",
+          "source_sha256": "8bb135ccc245a35398d8279d887e6c2c5911b6d1029060bb3fea0f2584d8da1b"
+        },
+        {
+          "source_id": "FGDC-580",
+          "source_sha256": "139a5568a7bbf46daacd63128812124fd9a0033c48532d8313d1735d4fdf95a4"
+        },
+        {
+          "source_id": "FGDC-581",
+          "source_sha256": "b384c383a8621f38a6b734b4f88690efb33add6f1123178dd7670385e021e23c"
+        },
+        {
+          "source_id": "FGDC-715",
+          "source_sha256": "e1b36e7702814f7fa4fe104076d422df26252506785d4a61755e0a2f35ae5278"
+        },
+        {
+          "source_id": "FGDC-771",
+          "source_sha256": "afdab5a682082fc944ee7ab3a004c626a20468e5784f828adf1e63fc55a43af5"
+        },
+        {
+          "source_id": "FGDC-859",
+          "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4"
+        },
+        {
+          "source_id": "FGDC-885",
+          "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+        },
+        {
+          "source_id": "FGDC-887",
+          "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+        },
+        {
+          "source_id": "FGDC-893",
+          "source_sha256": "696bb0f03106622c6ad0585cb36209b56bcc65fd94b82278607becbb36725b5c"
+        },
+        {
+          "source_id": "FGDC-1238",
+          "source_sha256": "c559cd8b956683c71c2fd240e583bc5817b2cf7f5bcc390955578c1e1e15aa2f"
+        },
+        {
+          "source_id": "FGDC-2043",
+          "source_sha256": "9fc45ede1eff08d39e06618ae4b081ba5a6244a886a1a817fb2b4640b145790d"
+        },
+        {
+          "source_id": "FGDC-2057",
+          "source_sha256": "e0b48017a563544dedb618f5106e84dbeaf18ca7af1cbda83d93371cdd73736b"
+        },
+        {
+          "source_id": "FGDC-2229",
+          "source_sha256": "1b76d5b088aa37631ce835434285121f22f0ac39f048a27d0fbedbb19895f8ee"
+        },
+        {
+          "source_id": "FGDC-2234",
+          "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+        },
+        {
+          "source_id": "FGDC-2235",
+          "source_sha256": "87987d08962dd27c2a63a3ef9290dceddecd9ae4a108ae5256bec28a3cf2378d"
+        },
+        {
+          "source_id": "FGDC-2296",
+          "source_sha256": "8f1bc867c1ad8bdd8d842dbc294360def39bbc57d145c90113f3877f084e079a"
+        },
+        {
+          "source_id": "FGDC-2413",
+          "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728"
+        },
+        {
+          "source_id": "FGDC-2587",
+          "source_sha256": "e0524fa518c066a4d2b40886bd53c3fcea4073c7b02e12ce5a331aad2a957f65"
+        },
+        {
+          "source_id": "FGDC-2668",
+          "source_sha256": "554c38ba3ad5c3bdbdc17aeed63361e30783aca26770d32fe3e46980af58785c"
+        },
+        {
+          "source_id": "FGDC-2674",
+          "source_sha256": "b38af5b7f620dc0051fcdd79354dd4fc23efde7b6837a4c410d6ec02a07426f0"
+        },
+        {
+          "source_id": "FGDC-2683",
+          "source_sha256": "190e3cff17272e516358f6cf106a491e19ba98d5f8de4d7f32f11c360b9b832f"
+        },
+        {
+          "source_id": "FGDC-2725",
+          "source_sha256": "f8c85ff810507722578d0ccf592d8dc1b1518529f7574745ff900ff5347dccdc"
+        },
+        {
+          "source_id": "FGDC-2731",
+          "source_sha256": "2f08555afe0c393d0c9e826d8fa3f78ddf5f5068a1575cf04218912265ec3a6c"
+        },
+        {
+          "source_id": "FGDC-2824",
+          "source_sha256": "e277e932e0fb1fe8e8efb5e1d1d9af4606a4dfe20c40e61884a4e34fa9dd1a6e"
+        },
+        {
+          "source_id": "FGDC-3599",
+          "source_sha256": "e68427690dad4285c3cdf893e0cee5b254a9064c4a00331c23e7875d4881c267"
+        },
+        {
+          "source_id": "FGDC-3680",
+          "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+        },
+        {
+          "source_id": "FGDC-3681",
+          "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+        },
+        {
+          "source_id": "FGDC-3786",
+          "source_sha256": "b6b89196b97d22066fb3325b19f78811c7b00c1c13b2efebd6c3ddcaa72b9329"
+        },
+        {
+          "source_id": "FGDC-3800",
+          "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+        },
+        {
+          "source_id": "FGDC-3802",
+          "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+        },
+        {
+          "source_id": "FGDC-3803",
+          "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+        },
+        {
+          "source_id": "FGDC-3804",
+          "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+        },
+        {
+          "source_id": "FGDC-3805",
+          "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+        },
+        {
+          "source_id": "FGDC-3806",
+          "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+        },
+        {
+          "source_id": "FGDC-3807",
+          "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+        },
+        {
+          "source_id": "FGDC-3808",
+          "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+        },
+        {
+          "source_id": "FGDC-3814",
+          "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+        },
+        {
+          "source_id": "FGDC-3816",
+          "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+        },
+        {
+          "source_id": "FGDC-3817",
+          "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+        },
+        {
+          "source_id": "FGDC-3825",
+          "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+        },
+        {
+          "source_id": "FGDC-3831",
+          "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+        },
+        {
+          "source_id": "FGDC-3838",
+          "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+        },
+        {
+          "source_id": "FGDC-3851",
+          "source_sha256": "c84125a527d9746840b85c1abc78c580e49648c0cbe54a93a69fb544663d672e"
+        },
+        {
+          "source_id": "FGDC-3873",
+          "source_sha256": "a69efb77584a9d7f7a57f027061db3fc7cab02e99af265682b83e10fa49464bb"
+        },
+        {
+          "source_id": "FGDC-3970",
+          "source_sha256": "0e6fe45c03f5d1ab78a70fef4ccd36c395a0090c02be4b6c93e8fb21c4a3d8b2"
+        }
+      ],
+      "candidate_remaining_membership_sha256": "b440797e2058368e0cc70d55693623ee41d198122aa843582f41ab2da732dd1c",
+      "candidate_remaining_pairs": 25,
+      "candidate_remaining_singletons": 69,
+      "candidate_remaining_total": 94,
+      "candidate_represented_originals_if_all31_verified": 4042,
+      "candidate_total_prepared_targets_if_all31_verified": 3839,
+      "not_actual_coverage": true
+    }
+  },
+  "hash_recipe": "Exact file bytes for file pins; canonical JSON uses sorted keys, compact comma/colon separators, ensure_ascii=True and UTF-8. Source-root nodes retain all text/attributes/internal tails; only selected outer tail omitted.",
+  "historical_runtime_compatibility": {
+    "PROGRAM20_RUNTIME": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+    "all_nonruntime_evidence_equal": true,
+    "exact_old_policy_schema_pairs": [
+      {
+        "policy": "modern-xml-ncdc19-v1",
+        "schema_version": 1
+      },
+      {
+        "policy": "modern-xml-organizations86-v1",
+        "schema_version": 2
+      },
+      {
+        "policy": "modern-xml-direct-organizations-v1",
+        "schema_version": 3
+      },
+      {
+        "policy": "modern-xml-exxon412-v1",
+        "schema_version": 4
+      },
+      {
+        "policy": "modern-xml-pices26-v1",
+        "schema_version": 5
+      },
+      {
+        "policy": "modern-xml-institutions91-v1",
+        "schema_version": 6
+      },
+      {
+        "policy": "modern-xml-citation-organizations129-v1",
+        "schema_version": 7
+      },
+      {
+        "policy": "modern-xml-reviewed-creators194-v1",
+        "schema_version": 8
+      },
+      {
+        "policy": "modern-xml-program-organizations20-v1",
+        "schema_version": 9
+      }
+    ],
+    "new10_allowed_on_any_historical_runtime": false,
+    "publication_bridge": "Add only this actual runtime for exact old9 pairs, including both valid upload transcript branches/completed marker. Preserve all prior narrower compatibility rules. No grant renewal, state namespace or attempt migration.",
+    "tests": "Reject any new schema10 preparation backdated to every historical runtime before transport or old grant/journal consumption; old9 compatibility requires exact nonruntime equality. Fixed141 recovery behavior/limits unchanged.",
+    "unknown_create_bridge": "If runtime change requires compatibility, add actual PROGRAM20_RUNTIME to the existing fixed-FGDC141 recovery context only under exact old9 policy/schema restriction; SOURCE_ID remains FGDC-141, so no new31 source becomes recoverable. Preserve actual submitted bytes, old consumed403 create intent, independent journal, original grant/proof, supported-network proof and parent dispatch. Do not create a new recovery path, replenish create budget or broaden SOURCE_ID."
+  },
+  "independent_test_impact_corroboration": {
+    "agent": "/root/mac_transfer_review/community_contract_audit",
+    "head": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+    "result": "Independently confirmed exact31 disjointness,79/160 partitions and three stale literal global negative fixtures; no new source judgment or execution."
+  },
+  "integration_writer": "/root sole repository code writer",
+  "kind": "unimplemented-next31-finite-projection-integration-and-test-contract",
+  "limits": {
+    "coverage_change": 0,
+    "measurements": 0,
+    "network_requests": 0,
+    "pairs_execution_enabled": false,
+    "preparations": 0,
+    "project_imports": 0,
+    "provider_action_grant": null,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "source_judgments_added": 0,
+    "source_review_receipts_rewritten": 0,
+    "tests": 0
+  },
+  "manifest": {
+    "bytes": 274632,
+    "path": "/tmp/pices-next31-finite.manifest.json",
+    "sha256": "e4780cab4644dc795d92be898386853f35254efcbb4c555288f957e735a6d25d"
+  },
+  "minimal_runtime_integration_contract": [
+    "One additive finite source-policy selector after existing program20 has validated all its fixed inputs and found zero matches. Preserve one-match program20 return exactly; never suppress missing/malformed earlier-policy exceptions or route arbitrary absent/invalid entries into this policy.",
+    "Verify exact review/document pins, headers, exact independently approved union31 and full rows reconstructed from the referenced approved decision objects. Validate original source bytes/full root, complete ordered primary elements/full legacy creator object, current supported singleton plan, existing authority and rehosting binding. Reject all held/unreviewed or self-rehashed additions.",
+    "BASIS3 uses the unchanged current426 cohort and PROFILE_SHA. Direct28 must be outside every426 cohort and retain literal absence of artifact_policy.creator_interpretation; creator_authority_sha is the new31 mapping SHA only for those direct rows. Preserve seven analyst legacy objects without adding type keys.",
+    "Use the whole reviewed vector including exact personal components, type, order, trailing organizations, free-text affiliation strings and full contractual group strings. No generic name parser, institution keyword rule, role classifier, contract splitter or external lookup runs in preparation.",
+    "Direct10 alone uses an explicit reversible structural adaptation from source-reviewed person_or_org.given_names to service person_or_org.given_name. Keep the original reviewed vector/hash and separately bind the service vector/hash. Every other key/value/order/affiliation must compare exactly. BASIS3 already uses given_name and is unchanged; no generic normalization.",
+    "Preserve complete freshly assessed legacy metadata unchanged. For schema10 only, place the finite bound additional_preservation_paragraphs as individually HTML-escaped <p> elements between the existing preservation label and existing unchanged escaped JSON <pre> block in the one type=other additional_description. Do not alter old9 block construction, source metadata, notes, dates, rights or add another description object.",
+    "Office10 uses exact independently required role-preservation notes; contract8 uses exact previously approved full-citation/contract context. BASIS3 and direct10 use the finite source-facing context paragraphs in this draft, derived from and bounded by their unchanged reviewed constraints. These drafted paragraph renderings require ordinary implementation review; they are not new source judgments.",
+    "Current source QA, complete publication readback and preservation checks must select schema10 through the same finite source_policy result. No journal, intent, action-budget, lock, transport, recovery-state, provider permission, PICES community acceptance, duplicate/protected identity or release-grant changes."
+  ],
+  "new_evidence_fields": {
+    "creator_authority_kind": "creator426 for BASIS3 only; direct for other28",
+    "creator_cohort": "exact existing426 cohort for BASIS3; null for direct28",
+    "mapping_manifest_sha256": "final reviewed finite31 manifest SHA, not a historical runtime SHA",
+    "policy": "modern-xml-reviewed-citations31-v1",
+    "schema_version": 10
+  },
+  "preservation_constraints": [
+    "The whole original and full legacy metadata remain immutable. Historical payloads bound here are retained examples, not fresh/current preparations and not a replacement for source assessment.",
+    "Keep all source-specific contexts: BASIS Sonya Elmajatii versus citation Elmajjati; contract direction and hierarchy; qualified office/custodian/analyst capacities; external Hatakeyama enrichment versus literal names; shared-source affiliations versus verified employment; distinct contact/distributor/support roles.",
+    "FGDC-296 manuscript-use condition remains unresolved; the earlier article is not proof of fulfillment. FGDC-3793 route mismatch remains visible and separate source QA/release consideration. FGDC-3600 retains its Cooper-only citation alongside two primary originators. FGDC-2709 preserves the separate four-person bibliography and its1990? qualifier.",
+    "Original metadata dates support the existing XML-artifact date policy only. Underlying unknown or conflicting publication/sample dates remain unchanged; source notes forbidding an inferred dataset publication date do not invalidate the separately established source_metadata_date artifact semantics.",
+    "All files remain restricted; original license stays blank and no rights/license is added to modern metadata. Original four constraint strings, protected5 identity/DOIs and unrelated exclusions remain pinned. No newly reviewed vector grants XML authorship or equal scientific authorship."
+  ],
+  "prior_policy_inputs_unchanged": [
+    {
+      "bytes": 17463,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-05/modern_organizational_extension86.json",
+      "sha256": "c78074384f29310e5cdc0c23dddc6b47161e516bc0222ddbbe0a36dfbc9a1dcf"
+    },
+    {
+      "bytes": 559239,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_organizations.json",
+      "sha256": "35512b48636ae563acfc26a77c547699bba2dfe767e414e995e83079e3f3eb13"
+    },
+    {
+      "bytes": 57207,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_exxon_singletons412.json",
+      "sha256": "5dbfeb098ee8b3bbad0e06d020c1c14c88e32363d45fab4e69a5cc961482a94f"
+    },
+    {
+      "bytes": 4283,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_pices_singletons26.json",
+      "sha256": "15d5f40fe829919a0ff9d9b81bcfc6205b2cd4042a3891e4dc9e4b3595204670"
+    },
+    {
+      "bytes": 20587,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_institution_singletons91.json",
+      "sha256": "19dd282e701bb115e256c90cac0ebaba0cfa1b49baf748dc4bf55106cc22dfd1"
+    },
+    {
+      "bytes": 47131,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_citation_organizations129.json",
+      "sha256": "8ac4f141433dbbc58513ee968942ec23d2f484949b751fa01cba6bbcc393aee3"
+    },
+    {
+      "bytes": 186759,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_reviewed_creators194.json",
+      "sha256": "c7d0b522bf7e9a9c990b6cbdf93797280ff1e57979e6bd133186905c4deec6c3"
+    },
+    {
+      "bytes": 50756,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20.json",
+      "sha256": "0485e9c5e24566df94ad59397b8bdf2ebde375e88504d9f419bc61b71a0b20e1"
+    }
+  ],
+  "prior_runtime_source_pins": [
+    {
+      "bytes": 45725,
+      "path": "/workspace/pices-main/scripts/modern_singleton.py",
+      "sha256": "b2b5a607ae338e00d15e097bb0f53e2f4d8c1de6c45fb244e90ab87ac8106365"
+    },
+    {
+      "bytes": 45927,
+      "path": "/workspace/pices-main/scripts/modern_publication.py",
+      "sha256": "09ea0a16a0978566c736a28a4c22b64cc10e165c21af7222b8ac4d6da7e94b72"
+    },
+    {
+      "bytes": 24427,
+      "path": "/workspace/pices-main/scripts/modern_publication_qa.py",
+      "sha256": "eec120db4a1ea7e6969a73a9a3db3a1ded23a3e4756457777961fc12f9eaca84"
+    },
+    {
+      "bytes": 32177,
+      "path": "/workspace/pices-main/scripts/modern_singleton_executor.py",
+      "sha256": "d1afaf95ad7118678f3c5fa0e428650ddb74a0ee12fd4c3ee723350115ec3cbe"
+    }
+  ],
+  "required_focused_tests": [
+    "Exact independent approval union31, four disjoint partitions,19 whole service-vector groups,65 creator objects (36personal/29organizational), direct28 outside426, BASIS3 correct cohort. No held22, remaining9 direct negatives, source aliases, protected5 or pair members admitted.",
+    "First10 fresh preparations as smoke then all31 once and deterministic repeats; include all four partitions and FGDC2597/2559. Exact source-reviewed vectors retained, direct10 singular-key service projection has exact inverse; reject source-key plural in submitted wire and reject generic alias handling.",
+    "Whole legacy creator arrays/payload bytes unchanged, seven office analyst entries remain name-only in legacy, entire current metadata JSON and original XML preserved, no added/dropped creator or reordered affiliation. Preserve source constraints, restricted files/blank license and artifact date semantics.",
+    "Every new source context paragraph is present exactly once in the existing type-other preservation block and escaped; JSON pre body remains exact full metadata. Missing/truncated/swapped/enriched paragraph or raw markup must fail readback. Office role notes, contract phrases, BASIS spelling and Hatakeyama enrichment/capture limits are assertions.",
+    "Withdraw or mutate each new manifest/source/review input, source hash/root/origin, plan/cohort/direct authority, review decision, vector value/type/count/order, affiliation, adaptation key or context paragraph. Even with local manifest rehash, reject mismatch against independently pinned reviews/expected rows; no hidden partial arrays.",
+    "Verify all nine earlier policies remain selectable when new evidence is unavailable and preserve old complete wire/nonruntime evidence using retained exact inputs/times. Exercise old9 PROGRAM20 bridge with both pending+commit and completed-on-content evidence, including exact counts and unchanged marker guards.",
+    "New31 current-runtime mocked bounded upload/community-first QA/release/readback/retry path; preserve existing uncertainty/collision/redirect/token/ownership/protected-ID+DOI and accepted-PICES completion guards. Fixed141 unknown-create403 is still spent and read-only recovery-gated; new31 cannot enter fixed141 route.",
+    "Run appropriate affected guarded modules and final actual main-head CI after independent implementation review. This design has not run tests or selected a success count."
+  ],
+  "schema_version": 1,
+  "selection_authority": "Take only independent reviews: BASIS3 from review0f791..., contract8 from2ce5..., office10 fromdbde..., direct10 from8caff.... Original proposal counts are not admission authority. Their rejected and held rows remain evidence.",
+  "service_adaptation_contract": {
+    "changed_values_or_order": false,
+    "evidence": "Current scripts/modern_singleton.py validate_modern_creator_array requires type/family_name/given_name; match_metadata compares the same key. This design does not execute those functions.",
+    "generic_alias_acceptance": false,
+    "reverse_equality_required": true,
+    "reviewed_vector_kept_exact": true,
+    "scope": "Only direct10 exact approved source rows",
+    "service_key": "given_name",
+    "source_key": "given_names"
+  },
+  "source_documents_for_future_exact_copy": {
+    "basis_proposal": {
+      "path": "docs/readiness/2026-10-06/modern_next31_basis_proposal.json",
+      "sha256": "3dffa1313c1b31a9950277658df01b334b0632ac204c982054abe1cf54672faf"
+    },
+    "basis_review": {
+      "path": "docs/readiness/2026-10-06/modern_next31_basis_review.json",
+      "sha256": "0f791b51da0294d494053393ba48a40170dbd4f26c049007486d5568e658b7da"
+    },
+    "contract_proposal": {
+      "path": "docs/readiness/2026-10-06/modern_next31_contract_proposal.json",
+      "sha256": "1ee3bc21bb5d02a201a311fe794f503ad4fbb2c89d850c5be75b0aba5e26e9a1"
+    },
+    "contract_review": {
+      "path": "docs/readiness/2026-10-06/modern_next31_contract_review.json",
+      "sha256": "2ce5c267e37168aaa8c8c1202c756a167459c9c031b96e16dc34aa760ff58d83"
+    },
+    "direct_primary_evidence": {
+      "path": "docs/readiness/2026-10-06/modern_next31_direct_primary_evidence.json",
+      "sha256": "17f91192d3b7d8770134ef587a111bed7821b38ebf50798b288aeba9d23a97e7"
+    },
+    "direct_proposal": {
+      "path": "docs/readiness/2026-10-06/modern_next31_direct_proposal.json",
+      "sha256": "5ce44b703e5b7881e0fb3067cf74ed1ecd90e46d4ff869ead8df4e5cb202d1a0"
+    },
+    "direct_review": {
+      "path": "docs/readiness/2026-10-06/modern_next31_direct_review.json",
+      "sha256": "8caff527a8752db3975470806d88623b3fdc4bd9100ba40a393471c1c4c09597"
+    },
+    "office_primary_evidence": {
+      "path": "docs/readiness/2026-10-06/modern_next31_office_primary_evidence.json",
+      "sha256": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66"
+    },
+    "office_proposal": {
+      "path": "docs/readiness/2026-10-06/modern_next31_office_proposal.json",
+      "sha256": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd"
+    },
+    "office_review": {
+      "path": "docs/readiness/2026-10-06/modern_next31_office_review.json",
+      "sha256": "dbde3f4c6a36b9368b75683e21ab9dff1098968285eef0abd9eba896a37fc673"
+    }
+  },
+  "static_binding_reconciliation31": [
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "a337d4e85b47eac7fefefa3f7a6a93ddd7b690b0273ff1839371afa884651f09",
+      "current_plan_target_sha256": "c6bc2f91749536afabe7b378c762c290a71f49285cb2aff5722184c2a97d865d",
+      "historical_payload_sha256": "3c7c75efb2777bfedd47d3e8a63deb6ad5ca49f0618d1e40c7372fd4af4387d2",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-184",
+      "source_root_sha256": "9b1c423485153be6a356aae4e29356f7948550be1efa1b573f992c409eb90fb9",
+      "source_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "b69164a79398526e6abef84dc7b93836d6f09e6e11bd9f3c2fec9ec813ac3551",
+      "current_plan_target_sha256": "418b238e1735cd41e88007ebabc4d1f5c5e4471e730bb8ebbf0bc2d29e770fd1",
+      "historical_payload_sha256": "b29e75e5895e361305d7900183c7689d1a060a0e9534f7e74ef9dd29f98f1811",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-197",
+      "source_root_sha256": "5e1aec797550596642b4c7ac22704869d006c2d119f793541b551396a49e72af",
+      "source_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "current_plan_target_sha256": "99bc111c963775dfbfef6b193e7fe42f056ba3cb97a3da77a172f4d9c0443518",
+      "historical_payload_sha256": "3b1f52ebe935d15fa7989647f2ca357b4b3d52a120025874477d0358944b9d37",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-248",
+      "source_root_sha256": "9f3d6d310a36e6fdaf61d4d3e6c2b0b9d6d46de02bc52b0c74e19fc140d00c28",
+      "source_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "current_plan_target_sha256": "d787481f46345df111d2ee4882f914e22b45bc844d8d236dee9988ac41bc2b88",
+      "historical_payload_sha256": "6e8ae69eae3104990016644efc5e751d507b94b50d072246be9a237f067339ec",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-249",
+      "source_root_sha256": "2a9a3b8ffdfffbdd469985f66d617fb396f5234c1c0475f369460cfe04d8402a",
+      "source_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "current_plan_target_sha256": "1d84f041fdd669b8e9d81e523dcf080c423af577033645a8f2573a9403634ab7",
+      "historical_payload_sha256": "6a425ec0bebace930781462554940f8d33c22e02eebf163916501e82e6f7b229",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-250",
+      "source_root_sha256": "165166e5ce4604c4dd0d5a5c7083653f2debc5325e94205fd7b63369d9aafedd",
+      "source_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "current_plan_target_sha256": "420ad8cde578bd2f17aedcec3486040f4d6155ddb2e90e70e9344c320c0b54b2",
+      "historical_payload_sha256": "4662084648d609a839fcd98d0c6bac41ea5a2051bf5f35bd15a669d4713c9987",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-251",
+      "source_root_sha256": "7ba001936919999b60e62f0c41125453645b2b5949216a6419c40856c0a0acbe",
+      "source_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "current_plan_target_sha256": "645b85eac3d1a8f16655ad14f7a56c70e72e4aad6f26d626a1fafb2026d01848",
+      "historical_payload_sha256": "d339d1384641a94a8673562fba73540cac1787e7175135ae72c1e6619157e2ea",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-254",
+      "source_root_sha256": "5df621f012a21002c7cfb07a36cf137dcd4081910dcb4dab2b10fcbbe0a0b8f9",
+      "source_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "current_plan_target_sha256": "aae78f91dc9a8b8815ab8230bf54ccec413253ff1a4eb531bcc719d321903fd5",
+      "historical_payload_sha256": "7e549d6d9f6922f758f94f0bc39bc2251893f82086a6238b772f01b3b38f5e6c",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-261",
+      "source_root_sha256": "850d6890db8322686429689f86fdf21db873c65eb3593f3de07a84aa483e8c54",
+      "source_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "current_plan_target_sha256": "cf71e592d6da45447aedad282bf65d0180e5679c5f0a6f58d6e3585a8b38acd8",
+      "historical_payload_sha256": "7c4f2f35fa1b35aa404d53b630cf1a2c506559af31818b16d07775d715c65642",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-262",
+      "source_root_sha256": "b0f1e49a12713cecf6f26ed54b96974ac0a94f7dc4312e8c809281eb72e60ce1",
+      "source_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "422fd84e4767c6b3862897bcd95f5481d598e1ca2c08a4c268bf53b4d9a0ace2",
+      "current_plan_target_sha256": "954622b76c0a443b80bfb8043e13c5e67e96f6e05266c1ee9cdeec7274a68726",
+      "historical_payload_sha256": "ff80ffcc83043b0a595cf4a635b34da8eb3cbee9f65506ccc67743ec36b9b145",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-296",
+      "source_root_sha256": "ba1bf96264ee796de7d7ccb4173cd4548e43a77fc415be07166b878ee8c2d60e",
+      "source_sha256": "95b389f34c706a9e5cda9876c81f0cbc40b12080c2f4cec42f322c7383e3bd43"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "257cbb69d9430d4007baf657c7cde15c499bfa81aa70fe1a619c1e8412c03402",
+      "current_plan_target_sha256": "37209b4a8e195d3cb43485b25c5c8ed7ea297f02beba5c23ec7eff879025b813",
+      "historical_payload_sha256": "d321e5852dfbfcf742dd3919c84856d1ec268cfa78ffeb6c94e66402f8903c21",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-723",
+      "source_root_sha256": "2b91700adf83cdcff501ff3113eb5e2602d3ac21fd5c0ea3ae77ae6f750a52c0",
+      "source_sha256": "f652edb80b7f49d3f70d71ef27b5097e34af886fa41dcfbda4f4a0907b0ffd3a"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "257cbb69d9430d4007baf657c7cde15c499bfa81aa70fe1a619c1e8412c03402",
+      "current_plan_target_sha256": "dfbb042767ff14d23c58107970cc0fce0e8780c2a7ed55ff74749dd70ce2d639",
+      "historical_payload_sha256": "71b67af104c076d242386b7eccb361d050b8c3977e985aa1b429ac90ff7bedd4",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-725",
+      "source_root_sha256": "d63a5f1e32c165c9d95c3613895a43b6baf09d311803a6f502df61de0d78ad33",
+      "source_sha256": "5e77b53da45cbfd7dcb7e68e9da66574e0a1ee876fe8afeff1527dfce61b23f1"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "9ce63c01cba1e7a68faf1397fb1ad87d52a75674e9805206ee5b9ecc2b31bf31",
+      "current_plan_target_sha256": "d7273a14cf6be87c179a99f9f6fa7600a4b3726c3905b19c59b86d83d995f0cc",
+      "historical_payload_sha256": "4dcf770b60eb88f5fecdfeb31d3cc279d04e75e44fd8fdc879ab2fe1e4d6216f",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-755",
+      "source_root_sha256": "9ac16d82d53c2f6debfd52144536b7519aec5dd92dd646f8b9769606e72e4794",
+      "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "9ce63c01cba1e7a68faf1397fb1ad87d52a75674e9805206ee5b9ecc2b31bf31",
+      "current_plan_target_sha256": "ba53955785a582e7e607693edebd3406947cc58d89862a8eaf23f2a6bab428b4",
+      "historical_payload_sha256": "70be0aa9279c73e2774247bf6c377299a5dd146bf8c543705f6c2ee37940e0df",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-757",
+      "source_root_sha256": "81937d9f2ee2ddb51b3ed3ffbb9a65743e64b6c70d33e7171ced5a1a73243f00",
+      "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "9ce63c01cba1e7a68faf1397fb1ad87d52a75674e9805206ee5b9ecc2b31bf31",
+      "current_plan_target_sha256": "250ac81e1eb142bc7d7379ba92f73fc0a96c836ebb7e57cb1f6b683a826f84ea",
+      "historical_payload_sha256": "2086dc81a22250c357972788edbb850ffa818b4840f08607f1e85cbb59335149",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-760",
+      "source_root_sha256": "56681b74a355a6ee3bf9a9e82f921dc8674f8ecbeb5c6d30194c6298d1f5a303",
+      "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "fee15338ff675f4f13007537772ec688f05306d5c85e0028dc0a5531b07695dd",
+      "current_plan_target_sha256": "6233ca9cfd18068e086e1181948f37dccdd446a91f9d4c94c5420e8c59626863",
+      "historical_payload_sha256": "feac1a708dd721ec940f9eb40ce40f14e58f5a6d6f6594add39172730340f69d",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-770",
+      "source_root_sha256": "80e5a72757568849492c1fd2818c47d12d004584c0c8f1dce7bee7003b596afb",
+      "source_sha256": "51729916302421ebdc9029022e940e3928381eb1fa37ddecda92577afb095398"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "29f3ba912e31a8c9406f56703bc281d9cf4287e611f8385b9bc141e5f98bf0ef",
+      "current_plan_target_sha256": "d9fb1c260c08f756c404fb7b3ea2bb8fdae101dd199efc682a3df9f31bab899c",
+      "historical_payload_sha256": "bd5500618412e2bec147e9c497a04bc54ce8d9eeae4e40f6ab2d521be3ef1e18",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-785",
+      "source_root_sha256": "c497356f822dac233145b88c008cf0921294effddc8114f3e59b0a45a1975166",
+      "source_sha256": "eadafc1d01732e0b32924d9a5acb3dae62d0a1aac4cde510d2eac9430337def0"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "1a51c71629d02adfa1a51884b923d8d03de84f9a912d81212ab8fb9363b37a9d",
+      "current_plan_target_sha256": "10b33f1ac25fb10250433b253fa059c72eaaafa1101f607fe4c4b8f65cfe29c4",
+      "historical_payload_sha256": "58ab25311c4f5e208d86d182d16143cb548adec7c2e3e5e335b583f789d37180",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-817",
+      "source_root_sha256": "85dd8c9fa18b1cbfc5c4dd72ccae77349c8300999c39a5c59b9a47ffe353d623",
+      "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "cf03b2d83f2a419276a804f4b6517932201d5dde2dd510d0f13875124ad5890b",
+      "current_plan_target_sha256": "95d6818f7a20f25d1f2a4dd2b5e2f29bef30385f216ecff052eb0a97c4e601f9",
+      "historical_payload_sha256": "1ba6ca853d714e3e7c56c07e7ac65fcdb606170780637fd1ec79778782fb5e36",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-1905",
+      "source_root_sha256": "fd241df0e758b57a92a50c6262ad5964682093606eefbb2af139d9ea770614d7",
+      "source_sha256": "cd945a4a80ecfd606bbc08b620144eed3c97c57b5b6b8d8c83aabf037409754c"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "b182cabea9423fd6f08f2e557cdf46e776c47c76849e263c5a6a900a142a0ac5",
+      "current_plan_target_sha256": "8225e68019361fd16688eb5a66aed522316f97ccbfa6ef2e0634faf5c4206de4",
+      "historical_payload_sha256": "99cbb037654dc54cad0a40907702514f25a55c8ca8850fcf546c092690b4f541",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-1941",
+      "source_root_sha256": "700140b6b9561e9349bd683fb910e10aa941d955a1b94ccacf2854136f76e9c5",
+      "source_sha256": "50f59b3f73656d8836cecd136d76a11119abcbcbfa1a562ae6ec15b9b1a43b04"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "c523214f09cd21201e1e3039cabe779231349027533d5b3fb3a56bed4b816a6c",
+      "current_plan_target_sha256": "665811fcf546ba50b7913e5e8b4785a60189792935e2afadc30fd4a488777cab",
+      "historical_payload_sha256": "2bcc3971bbdd07a4b48d017613bbd047a25be31d693fc6228b1e1552eab0f19f",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-2559",
+      "source_root_sha256": "4e00856837f5f40c9de4b6b831e4ed695b8e31e7d633623cfa1a48542751db08",
+      "source_sha256": "47f605b4a5334b2e375afe0792779ef2cba5f5c67d3a2d79d3c2745d826e42b4"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "9208df4180e03ff328986ad9fbb75646b14a77b4e553092875df5cd81a2b7d03",
+      "current_plan_target_sha256": "06ef988fdc5e69bf5e169b0629bdca98033ab1aa8d6b8da5e75460fe9750348f",
+      "historical_payload_sha256": "7829841bddb0b9fd9f17dbe6398bc92ccdedc0528dfb83d5cb9d86a69dcaa5b1",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-2597",
+      "source_root_sha256": "75817d768ef7294f0fa0d8e1ee1527a90b9d792ef6857208aa0fe8627a2c7877",
+      "source_sha256": "ebbc654aa567e4fee5cad30847de107b65839f2f7c648fc5dd041f58e8bfa88d"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "15ff66ebd54fd7511e4b5e2ce0d2576523ceb8f1b6ba891e5c5480a99e9b1abc",
+      "current_plan_target_sha256": "8624b7a02016ae90731c87202566d59c07536bdcc9a928d2a4a518155009bd76",
+      "historical_payload_sha256": "4c875c4fb321bde1f6ba5a0f9a957366c895bc6e194c247393a65b6a9d1d16f5",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-2709",
+      "source_root_sha256": "d08195c984a3f4f94ccd97c10c0136847574c393c7bbaf57b97dbc7b0aa2fb22",
+      "source_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "537f4859db87bc7b8a38824f9fbc91ccdd73813ec1c1ac9822d831ba7fd2b73e",
+      "current_plan_target_sha256": "7e1107845f636a0bf623800f1f83cea1c30cdac87e3640f1ec69c18fcbb22473",
+      "historical_payload_sha256": "24aa5a84b221be783938ee882a68f0df18e84a49fd3077c0a3a91b17ba18c078",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-3600",
+      "source_root_sha256": "21a3bced113a51e2679c6557829a5a6d191aab957870af0123148c9163ea4418",
+      "source_sha256": "e6bc7f2cac8751e369ce68622631cbab97f9c887988fef2336194d615c113aa0"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "ba698f802a31b01fd4ece7c6fa51305d376ea23d95dbbd9370b1309da044c301",
+      "current_plan_target_sha256": "629d4bb0f815898366415fe428ba81228da75e2bf8478963d8527893030c6d85",
+      "historical_payload_sha256": "8cf0e46df9645efbcfc69707690eeaa735e9d8c2d5bd662e969224ef498f8715",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-3789",
+      "source_root_sha256": "8057db815473ad64bafdf09f79f0cbd08b6dc5b3862467b5c3d6878dbcd4fcc5",
+      "source_sha256": "0400063e073bd04d3b75fc03e916dc84c478389c871ebcb153e686a7f3d1f88a"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "062bd9113cb82fbf6dd942a17d06a04b11ed1acbb065a09732d56335691a5b15",
+      "current_plan_target_sha256": "935665c1d0b369dba90ad3f99216d0bc7d7f4202b4f82baf4601894d1decfaa8",
+      "historical_payload_sha256": "e5170a5877aca06d83f0fa1a2aeb97af74f39c3636d5a2f82fd16da095200842",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-3793",
+      "source_root_sha256": "eae40b6af122aa2dfa55372daf29280f729273f2744ff03c505ddef8a21ac5e3",
+      "source_sha256": "dd2c4faf965c1d12699a3cc26667102437191ecbb05a12586931144fbe4e2c82"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "062bd9113cb82fbf6dd942a17d06a04b11ed1acbb065a09732d56335691a5b15",
+      "current_plan_target_sha256": "9c89bcd48724d33f1505fef5269063b3aa5bdd320d11a0920bc5b6cdb6db4ace",
+      "historical_payload_sha256": "a537e4a6986b43bae33303525a7dabb6655ff3037e7ae106ecb12994415ea7ba",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-3794",
+      "source_root_sha256": "2ca1c9d472e5cd96028a050b35e2bde2ead3c9c50693def0ed67c2882b9c0953",
+      "source_sha256": "2708f0ca3f0f1fa17c0d50be2de3b014f01c38fb0b52b8666e7fd3925d75dbf8"
+    },
+    {
+      "authority": "creator426",
+      "complete_legacy_creators_sha256": "fdfa2e1a1f3b8df672efb086b7bc02ce6a7cc94781776ded3a31f2137c815de6",
+      "current_plan_target_sha256": "19ad0e9996dcf5d89d1d3570e06ee03a4d506423cd37226108211e68b1942a36",
+      "historical_payload_sha256": "2b6dca1d7f97b3630031ebcb16668fe6181ee05dd31b38bb25159a81a99d85e2",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-3809",
+      "source_root_sha256": "7c9421284200426b68523e5e4e840dc8aaa64946b350eefe6f59a32ea7ba8c87",
+      "source_sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9"
+    },
+    {
+      "authority": "creator426",
+      "complete_legacy_creators_sha256": "fdfa2e1a1f3b8df672efb086b7bc02ce6a7cc94781776ded3a31f2137c815de6",
+      "current_plan_target_sha256": "ba58305b179738a860aa10e69fbb9f7107d9f16ef94b40aeacf5bdbdba7721ea",
+      "historical_payload_sha256": "aed7bf5e3a5e35da9b475f684111102b2277b0c015b587bf9ce798b75b1d8d76",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-3810",
+      "source_root_sha256": "2fc425d7725ad54ac17e357cb857306aaaab6fea60554921f1d4381fea710203",
+      "source_sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e"
+    },
+    {
+      "authority": "creator426",
+      "complete_legacy_creators_sha256": "fdfa2e1a1f3b8df672efb086b7bc02ce6a7cc94781776ded3a31f2137c815de6",
+      "current_plan_target_sha256": "a2c00d63900bea53406608dd5d0fbd0d8c36a9ca519de07a690ce24a9e4c57b7",
+      "historical_payload_sha256": "6a1faf6e3bcd1c51efd2e24d44471034cb04d9dabe0cbd0c311ed5329a59e735",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-3812",
+      "source_root_sha256": "e67a7bb8618945c8282d6e94eb2899d329d47183de03590e3cab232d569ef8fc",
+      "source_sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640"
+    },
+    {
+      "authority": "direct",
+      "complete_legacy_creators_sha256": "b8b5f2bd4e277cb8d94b107e08821154e163a00f652682f6707f3af6d5667b70",
+      "current_plan_target_sha256": "26ba8f36690d3ded984638aaa626d342155b7ab1ca9d4cb5f209393669dadc50",
+      "historical_payload_sha256": "ab92579ee44733d03318913505ea553bc01caa9a8c0539d4aee05344f77e7238",
+      "protected_or_pair": false,
+      "service_adaptation_exact_inverse": true,
+      "source_and_review_vector_equal": true,
+      "source_id": "FGDC-4068",
+      "source_root_sha256": "18a26e8f4ff16623190378a4187d14ccca76790bc59b9bb8d192cdd280c8040b",
+      "source_sha256": "8ab7e260eb2827aeadee6effcbbbd1bc10a2e09a3c6098dcca0d153a230d762b"
+    }
+  ],
+  "static_binding_reconciliation31_sha256": "eb43ad26884fb29c45fe029b8d64d9cca45b24883cce379032a91c83bc7de50d",
+  "status": "DESIGN_ONLY_UNIMPLEMENTED",
+  "test_partitions": {
+    "citation160": {
+      "counts": [
+        82,
+        20,
+        3,
+        55
+      ],
+      "existing82": [
+        "FGDC-1",
+        "FGDC-10",
+        "FGDC-125",
+        "FGDC-152",
+        "FGDC-289",
+        "FGDC-340",
+        "FGDC-450",
+        "FGDC-794",
+        "FGDC-905",
+        "FGDC-906",
+        "FGDC-1095",
+        "FGDC-1220",
+        "FGDC-1256",
+        "FGDC-1257",
+        "FGDC-1258",
+        "FGDC-1262",
+        "FGDC-1263",
+        "FGDC-1269",
+        "FGDC-1271",
+        "FGDC-1273",
+        "FGDC-1314",
+        "FGDC-1424",
+        "FGDC-1532",
+        "FGDC-1643",
+        "FGDC-1754",
+        "FGDC-1903",
+        "FGDC-1904",
+        "FGDC-2228",
+        "FGDC-2243",
+        "FGDC-2293",
+        "FGDC-2524",
+        "FGDC-2636",
+        "FGDC-2638",
+        "FGDC-2640",
+        "FGDC-2641",
+        "FGDC-2642",
+        "FGDC-2643",
+        "FGDC-2645",
+        "FGDC-2655",
+        "FGDC-2656",
+        "FGDC-2664",
+        "FGDC-2667",
+        "FGDC-2675",
+        "FGDC-2676",
+        "FGDC-2680",
+        "FGDC-2682",
+        "FGDC-2684",
+        "FGDC-2686",
+        "FGDC-2690",
+        "FGDC-2691",
+        "FGDC-2694",
+        "FGDC-2695",
+        "FGDC-2702",
+        "FGDC-2712",
+        "FGDC-2713",
+        "FGDC-2714",
+        "FGDC-2715",
+        "FGDC-3592",
+        "FGDC-3593",
+        "FGDC-3594",
+        "FGDC-3595",
+        "FGDC-3774",
+        "FGDC-3779",
+        "FGDC-3813",
+        "FGDC-3815",
+        "FGDC-3818",
+        "FGDC-3822",
+        "FGDC-3823",
+        "FGDC-3824",
+        "FGDC-3826",
+        "FGDC-3827",
+        "FGDC-3828",
+        "FGDC-3829",
+        "FGDC-3830",
+        "FGDC-3833",
+        "FGDC-3834",
+        "FGDC-3835",
+        "FGDC-3836",
+        "FGDC-3837",
+        "FGDC-3852",
+        "FGDC-4011",
+        "FGDC-4067"
+      ],
+      "existing_program20": [
+        "FGDC-355",
+        "FGDC-360",
+        "FGDC-669",
+        "FGDC-1291",
+        "FGDC-1765",
+        "FGDC-1767",
+        "FGDC-1791",
+        "FGDC-1946",
+        "FGDC-2197",
+        "FGDC-2232",
+        "FGDC-2302",
+        "FGDC-3776",
+        "FGDC-3777",
+        "FGDC-3788",
+        "FGDC-3926",
+        "FGDC-3928",
+        "FGDC-4017",
+        "FGDC-4028",
+        "FGDC-4061",
+        "FGDC-4064"
+      ],
+      "new_basis3": [
+        "FGDC-3809",
+        "FGDC-3810",
+        "FGDC-3812"
+      ],
+      "retained55": [
+        "FGDC-419",
+        "FGDC-542",
+        "FGDC-545",
+        "FGDC-546",
+        "FGDC-547",
+        "FGDC-548",
+        "FGDC-549",
+        "FGDC-550",
+        "FGDC-551",
+        "FGDC-552",
+        "FGDC-553",
+        "FGDC-554",
+        "FGDC-556",
+        "FGDC-557",
+        "FGDC-558",
+        "FGDC-559",
+        "FGDC-560",
+        "FGDC-573",
+        "FGDC-574",
+        "FGDC-575",
+        "FGDC-576",
+        "FGDC-578",
+        "FGDC-579",
+        "FGDC-580",
+        "FGDC-581",
+        "FGDC-715",
+        "FGDC-859",
+        "FGDC-885",
+        "FGDC-887",
+        "FGDC-893",
+        "FGDC-2234",
+        "FGDC-2296",
+        "FGDC-2413",
+        "FGDC-2587",
+        "FGDC-2674",
+        "FGDC-2683",
+        "FGDC-3680",
+        "FGDC-3681",
+        "FGDC-3800",
+        "FGDC-3802",
+        "FGDC-3803",
+        "FGDC-3804",
+        "FGDC-3805",
+        "FGDC-3806",
+        "FGDC-3807",
+        "FGDC-3808",
+        "FGDC-3814",
+        "FGDC-3816",
+        "FGDC-3817",
+        "FGDC-3825",
+        "FGDC-3831",
+        "FGDC-3838",
+        "FGDC-3851",
+        "FGDC-3873",
+        "FGDC-3970"
+      ]
+    },
+    "institution79": {
+      "counts": [
+        42,
+        28,
+        9
+      ],
+      "existing42": [
+        "FGDC-540",
+        "FGDC-627",
+        "FGDC-728",
+        "FGDC-729",
+        "FGDC-754",
+        "FGDC-768",
+        "FGDC-898",
+        "FGDC-907",
+        "FGDC-1268",
+        "FGDC-1342",
+        "FGDC-1796",
+        "FGDC-1943",
+        "FGDC-2236",
+        "FGDC-2239",
+        "FGDC-2602",
+        "FGDC-2605",
+        "FGDC-2619",
+        "FGDC-2634",
+        "FGDC-2637",
+        "FGDC-2644",
+        "FGDC-2646",
+        "FGDC-2671",
+        "FGDC-2673",
+        "FGDC-2677",
+        "FGDC-2679",
+        "FGDC-2681",
+        "FGDC-2685",
+        "FGDC-2687",
+        "FGDC-2689",
+        "FGDC-2705",
+        "FGDC-2706",
+        "FGDC-3591",
+        "FGDC-3596",
+        "FGDC-3597",
+        "FGDC-3743",
+        "FGDC-3787",
+        "FGDC-3795",
+        "FGDC-3797",
+        "FGDC-4050",
+        "FGDC-4051",
+        "FGDC-4066",
+        "FGDC-4070"
+      ],
+      "new28": [
+        "FGDC-184",
+        "FGDC-197",
+        "FGDC-248",
+        "FGDC-249",
+        "FGDC-250",
+        "FGDC-251",
+        "FGDC-254",
+        "FGDC-261",
+        "FGDC-262",
+        "FGDC-296",
+        "FGDC-723",
+        "FGDC-725",
+        "FGDC-755",
+        "FGDC-757",
+        "FGDC-760",
+        "FGDC-770",
+        "FGDC-785",
+        "FGDC-817",
+        "FGDC-1905",
+        "FGDC-1941",
+        "FGDC-2559",
+        "FGDC-2597",
+        "FGDC-2709",
+        "FGDC-3600",
+        "FGDC-3789",
+        "FGDC-3793",
+        "FGDC-3794",
+        "FGDC-4068"
+      ],
+      "retained9": [
+        "FGDC-287",
+        "FGDC-411",
+        "FGDC-771",
+        "FGDC-2229",
+        "FGDC-2235",
+        "FGDC-2668",
+        "FGDC-2824",
+        "FGDC-3599",
+        "FGDC-3786"
+      ]
+    },
+    "program_unaami29": {
+      "members": [
+        {
+          "source_id": "FGDC-419",
+          "source_sha256": "71853896a5ae9232d45166d89d06ceceda9f533e1fac5d0ea67c4dba899c18dc"
+        },
+        {
+          "source_id": "FGDC-545",
+          "source_sha256": "82ac680b3d26bb8f80b4642d21e314813247a8ba74c3faddd7d73bfffbd89e23"
+        },
+        {
+          "source_id": "FGDC-546",
+          "source_sha256": "8f6d9e0d603255b0156a6c6b356e6973f2429c782672406a5b50827400483662"
+        },
+        {
+          "source_id": "FGDC-547",
+          "source_sha256": "777f31dd1bd7686f8a94a6559efc27bd11255d1c3ee7feeebdd1b180ae3b8724"
+        },
+        {
+          "source_id": "FGDC-548",
+          "source_sha256": "e48070eb5a688b732bce467796b932f80ecbe600e7e3297e68d5709538629c7c"
+        },
+        {
+          "source_id": "FGDC-549",
+          "source_sha256": "b27410843d7a077362d7348cfa5da3c0889dde6850ce97fe23515c2094ac06d3"
+        },
+        {
+          "source_id": "FGDC-550",
+          "source_sha256": "703288a7c4460de563e91b6cab47ab41fcf62b6fc41f30c92910dedf8426d14b"
+        },
+        {
+          "source_id": "FGDC-551",
+          "source_sha256": "26031acb0be2cd0ccf8b63623fbe5d4453d3415f748dcd083c5a55acc259a16a"
+        },
+        {
+          "source_id": "FGDC-552",
+          "source_sha256": "342928f5a48294371b35eca91d0303065d5dfdb1eb151195bfe20621ec9c7bd8"
+        },
+        {
+          "source_id": "FGDC-553",
+          "source_sha256": "ad5907dd4660cb821b828e980a023a08c7b65d4a2f59a0fcb4f484049a7191a8"
+        },
+        {
+          "source_id": "FGDC-554",
+          "source_sha256": "3189d71b2848856a1bdba644c05fbfeb33e09f7c1fe7bdef1c366f6ce00d7c21"
+        },
+        {
+          "source_id": "FGDC-556",
+          "source_sha256": "006d4437d0049c3762958209ffe02ed4f0df5f1b1ef54acdd30276375ad0008f"
+        },
+        {
+          "source_id": "FGDC-557",
+          "source_sha256": "b61781d15506505c3cec592f53250e0429944f5da578c5ac79a54959fff2a7c7"
+        },
+        {
+          "source_id": "FGDC-558",
+          "source_sha256": "07ff9e68edab62873e6db271c43f2908462478009d2ca861bafbd5f918dc60b9"
+        },
+        {
+          "source_id": "FGDC-559",
+          "source_sha256": "facb54511675fc9c0403c9616998575af910b3e5b4cd948fe77fe5bab2042700"
+        },
+        {
+          "source_id": "FGDC-560",
+          "source_sha256": "e1701f70ad40d3b4f50c57239bc15c71de793d55e89e821b6ad9b66917c067cf"
+        },
+        {
+          "source_id": "FGDC-573",
+          "source_sha256": "8f169b58da27c345ed4f4111d6419d89749fb6be11cfb042326d6f5563d8bbe9"
+        },
+        {
+          "source_id": "FGDC-574",
+          "source_sha256": "f76cfeb5103c7ebc9ba1108d9cbfd22b94a889a8aea800521b047bf8c02747ac"
+        },
+        {
+          "source_id": "FGDC-575",
+          "source_sha256": "12f2a7bd8cf3c4587424b343414e61cbf7fcfe8cbd5378f13b219e746376d214"
+        },
+        {
+          "source_id": "FGDC-576",
+          "source_sha256": "5ee0491be59e811aae0a1eda9508a22c6fa837bc893ac9f818d2147e38cbdaa9"
+        },
+        {
+          "source_id": "FGDC-578",
+          "source_sha256": "734e45aec7e8eef957cacf29a479b54c16f21130260a97724016e2a75d17df09"
+        },
+        {
+          "source_id": "FGDC-579",
+          "source_sha256": "8bb135ccc245a35398d8279d887e6c2c5911b6d1029060bb3fea0f2584d8da1b"
+        },
+        {
+          "source_id": "FGDC-580",
+          "source_sha256": "139a5568a7bbf46daacd63128812124fd9a0033c48532d8313d1735d4fdf95a4"
+        },
+        {
+          "source_id": "FGDC-581",
+          "source_sha256": "b384c383a8621f38a6b734b4f88690efb33add6f1123178dd7670385e021e23c"
+        },
+        {
+          "source_id": "FGDC-715",
+          "source_sha256": "e1b36e7702814f7fa4fe104076d422df26252506785d4a61755e0a2f35ae5278"
+        },
+        {
+          "source_id": "FGDC-859",
+          "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4"
+        },
+        {
+          "source_id": "FGDC-2296",
+          "source_sha256": "8f1bc867c1ad8bdd8d842dbc294360def39bbc57d145c90113f3877f084e079a"
+        },
+        {
+          "source_id": "FGDC-3873",
+          "source_sha256": "a69efb77584a9d7f7a57f027061db3fc7cab02e99af265682b83e10fa49464bb"
+        },
+        {
+          "source_id": "FGDC-3970",
+          "source_sha256": "0e6fe45c03f5d1ab78a70fef4ccd36c395a0090c02be4b6c93e8fb21c4a3d8b2"
+        }
+      ],
+      "remain_globally_held": true
+    },
+    "scoped_policy194_personal29": {
+      "all29_still_excluded_from_policy194": true,
+      "frozen_members": [
+        {
+          "source_id": "FGDC-542",
+          "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c"
+        },
+        {
+          "source_id": "FGDC-885",
+          "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+        },
+        {
+          "source_id": "FGDC-887",
+          "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+        },
+        {
+          "source_id": "FGDC-893",
+          "source_sha256": "696bb0f03106622c6ad0585cb36209b56bcc65fd94b82278607becbb36725b5c"
+        },
+        {
+          "source_id": "FGDC-2234",
+          "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+        },
+        {
+          "source_id": "FGDC-2413",
+          "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728"
+        },
+        {
+          "source_id": "FGDC-2587",
+          "source_sha256": "e0524fa518c066a4d2b40886bd53c3fcea4073c7b02e12ce5a331aad2a957f65"
+        },
+        {
+          "source_id": "FGDC-2674",
+          "source_sha256": "b38af5b7f620dc0051fcdd79354dd4fc23efde7b6837a4c410d6ec02a07426f0"
+        },
+        {
+          "source_id": "FGDC-2683",
+          "source_sha256": "190e3cff17272e516358f6cf106a491e19ba98d5f8de4d7f32f11c360b9b832f"
+        },
+        {
+          "source_id": "FGDC-3680",
+          "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+        },
+        {
+          "source_id": "FGDC-3681",
+          "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+        },
+        {
+          "source_id": "FGDC-3800",
+          "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+        },
+        {
+          "source_id": "FGDC-3802",
+          "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+        },
+        {
+          "source_id": "FGDC-3803",
+          "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+        },
+        {
+          "source_id": "FGDC-3804",
+          "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+        },
+        {
+          "source_id": "FGDC-3805",
+          "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+        },
+        {
+          "source_id": "FGDC-3806",
+          "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+        },
+        {
+          "source_id": "FGDC-3807",
+          "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+        },
+        {
+          "source_id": "FGDC-3808",
+          "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+        },
+        {
+          "source_id": "FGDC-3809",
+          "source_sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9"
+        },
+        {
+          "source_id": "FGDC-3810",
+          "source_sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e"
+        },
+        {
+          "source_id": "FGDC-3812",
+          "source_sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640"
+        },
+        {
+          "source_id": "FGDC-3814",
+          "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+        },
+        {
+          "source_id": "FGDC-3816",
+          "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+        },
+        {
+          "source_id": "FGDC-3817",
+          "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+        },
+        {
+          "source_id": "FGDC-3825",
+          "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+        },
+        {
+          "source_id": "FGDC-3831",
+          "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+        },
+        {
+          "source_id": "FGDC-3838",
+          "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+        },
+        {
+          "source_id": "FGDC-3851",
+          "source_sha256": "c84125a527d9746840b85c1abc78c580e49648c0cbe54a93a69fb544663d672e"
+        }
+      ],
+      "globally_still_held_after_future31": [
+        "FGDC-542",
+        "FGDC-885",
+        "FGDC-887",
+        "FGDC-893",
+        "FGDC-2234",
+        "FGDC-2413",
+        "FGDC-2587",
+        "FGDC-2674",
+        "FGDC-2683",
+        "FGDC-3680",
+        "FGDC-3681",
+        "FGDC-3800",
+        "FGDC-3802",
+        "FGDC-3803",
+        "FGDC-3804",
+        "FGDC-3805",
+        "FGDC-3806",
+        "FGDC-3807",
+        "FGDC-3808",
+        "FGDC-3814",
+        "FGDC-3816",
+        "FGDC-3817",
+        "FGDC-3825",
+        "FGDC-3831",
+        "FGDC-3838",
+        "FGDC-3851"
+      ]
+    }
+  }
+}

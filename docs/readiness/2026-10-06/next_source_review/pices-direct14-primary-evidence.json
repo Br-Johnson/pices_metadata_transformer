@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "kind": "direct14-public-primary-evidence-notes-v1",
+  "observed_date": "2026-10-06",
+  "scope": "Bounded public non-provider research for the assigned14 source records; not provider evidence or an independent approval.",
+  "capture_limits": "These are exact URLs, short tool-visible quotations and bounded paraphrases. No raw-page/body byte hashes are asserted. Search excerpts are distinguished from opened pages. Source XML/retained metadata hashes are recorded separately.",
+  "evidence": [
+    {
+      "id": "noaa-baker-nursing",
+      "source_ids": [
+        "FGDC-296"
+      ],
+      "url": "https://repository.library.noaa.gov/view/noaa/19870/noaa_19870_DS1.pdf",
+      "title": "The Feeding Cycles of Northern Fur Seals",
+      "authority": "NOAA institutional repository, agency-authored feature",
+      "retrieval": "Opened PDF, four pages; relevant text on page4, lines315-317 of tool extraction; screenshot request also succeeded.",
+      "short_quote": "JASON BAKER",
+      "observed_facts": "The1992 feature attributes authorship to Jason Baker of the National Marine Mammal Laboratory and discusses nursing lines in juvenile fur-seal teeth as indicators of feeding cycles and survival.",
+      "supports": "Corroborates that the exact literal Jason Baker in this scientific subject context is a person; source-specific Baker/family and Jason/given interpretation.",
+      "does_not_support": "Not proof that this earlier article fulfilled the later XML's manuscript-use condition. Does not authorize adding D., replacing literal National Marine Fisheries Service affiliation, adding the article's date, or promoting Loughlin from contact."
+    },
+    {
+      "id": "nsidc-ammr-wang",
+      "source_ids": [
+        "FGDC-1905"
+      ],
+      "url": "https://nsidc.org/data/nsidc-0194/versions/1",
+      "title": "AMMR Air and Brightness Temperature Data, Wakasa Bay, Version1",
+      "authority": "NASA National Snow and Ice Data Center Distributed Active Archive Center",
+      "retrieval": "Opened official data page; citation visible at tool-extraction line74.",
+      "short_quote": "Wang, J. (2004).",
+      "observed_facts": "The exact AMMR/Wakasa Bay data title is attributed to Wang, J. The page's January14-February3,2003 observation window matches the original XML's experiment context.",
+      "supports": "Exact-work corroboration of Wang as family name, paired with literal James supplied by the original XML.",
+      "does_not_support": "No R. insertion, new DOI/identifier, new publication date, different affiliation, or license change is proposed. The online dataset and restored XML artifact remain distinct objects."
+    },
+    {
+      "id": "uaf-williams-thesis",
+      "source_ids": [
+        "FGDC-1941"
+      ],
+      "url": "https://www.uaf.edu/commence/files/2003/degrees/sfos.pdf",
+      "title": "University of Alaska Fairbanks2003 commencement, School of Fisheries and Ocean Sciences",
+      "authority": "Degree-granting University of Alaska Fairbanks",
+      "retrieval": "Opened four-page PDF; author/thesis text visible on page3, tool-extraction lines130-138. A later screenshot attempt timed out; no screenshot verification is claimed.",
+      "short_quote": "William James Williams",
+      "observed_facts": "The university lists this graduate beside the exact Alaska Coastal Current thesis title and a matching physical-oceanography modeling summary.",
+      "supports": "The original's William J. Williams is the named thesis author. Preserve original given_names William J. and family_name Williams; no expansion to James is needed.",
+      "does_not_support": "Does not promote the supervisor or coauthors of later derivative papers, change the artifact date, or replace the literal Institute of Marine Science affiliation with a later employer."
+    },
+    {
+      "id": "harvard-climatic-maps",
+      "source_ids": [
+        "FGDC-2559"
+      ],
+      "url": "https://harvardforest1.fas.harvard.edu/publications/pdfs/Raup_BotanicalRev_1941_Pt1.pdf",
+      "title": "Botanical Problems in Boreal America.I",
+      "authority": "Harvard-hosted publication authored by Hugh M. Raup",
+      "retrieval": "Public indexed PDF excerpt; no independent raw PDF byte capture.",
+      "short_quote": "These maps were prepared with the collaboration of Connor",
+      "observed_facts": "The discussion links Ward and Brooks's climate work with maps prepared in collaboration with Connor and separately published in1936.",
+      "supports": "Corroborates the three surname relationships in the original citation context. The finite proposal still uses only the source's exact initials and order.",
+      "does_not_support": "Not an independently complete atlas byline or evidence of each person's employment. No extra et-al. authors are imported, and no initials are expanded."
+    },
+    {
+      "id": "kyoto-asia1964-reference",
+      "source_ids": [
+        "FGDC-2597"
+      ],
+      "url": "https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/55729/1/KJ00000132624.pdf",
+      "title": "東南アジアの気候の特性について(I)",
+      "authority": "Kyoto University research publication,1973; repository-maintained indexed PDF",
+      "retrieval": "Public search extraction of reference3 on printed page147. Later direct opens of the dspace and non-dspace PDF forms were unavailable; do not claim a retained raw PDF.",
+      "short_quote": "畠山久尚 1964.「アジアの気候」",
+      "observed_facts": "The reference names 畠山久尚 for the1964 Asian climate volume from Kokin Shoin,577pages, matching the book identified in the source XML abstract.",
+      "supports": "Same-work Japanese-name link for the XML's Dr.Hatakeyama; combine with the institutional romanization and former-JMA-role evidence below.",
+      "does_not_support": "Does not independently establish a complete book author list or authorize promoting other editors/authors into the restored XML's primary-origin list."
+    },
+    {
+      "id": "kyoto-hatakeyama-alias",
+      "source_ids": [
+        "FGDC-2597"
+      ],
+      "url": "https://repository.kulib.kyoto-u.ac.jp/dspace/handle/2433/55114",
+      "title": "Hydrological and Meteorological Features: An Outline of the Climate in Southeast Asia",
+      "authority": "Kyoto University repository's author metadata for its1966 journal publication",
+      "retrieval": "Public search result exposes repository Authors and Author Alias fields. Direct open redirected to /handle/2433/55114 with no extracted text; no raw body capture claimed.",
+      "short_quote": "Hatakeyama, Hisanao",
+      "observed_facts": "Author field is 畠山, 久尚 and the author-alias field explicitly supplies the family-first Latin-script form quoted above.",
+      "supports": "Source-specific romanized name-part interpretation Hatakeyama/family and Hisanao/given for the Japanese identity linked by the other two primary sources.",
+      "does_not_support": "This is a different1966 work, used only for the identity's romanization. It supplies no new FGDC publication date, creator role, affiliation or identifier."
+    },
+    {
+      "id": "metsoc-hatakeyama-role",
+      "source_ids": [
+        "FGDC-2597"
+      ],
+      "url": "https://www.metsoc.jp/about/successive-presidents",
+      "title": "Successive Presidents of the Meteorological Society of Japan",
+      "authority": "The society's own historical office-holder record",
+      "retrieval": "Opened page, row5 at tool-extraction line15.",
+      "short_quote": "畠山　久尚",
+      "observed_facts": "The society identifies this1965-1968 president's former position as head of the Japan Meteorological Agency (元・気象庁長官), matching the distinctive role in the XML origin.",
+      "supports": "Independent role-context corroboration of the same Japanese identity; finite join with the exact-work reference and explicit romanization.",
+      "does_not_support": "Former role is not a present affiliation. No structured JMA affiliation, honorary title, editor role, or expanded book creator list is proposed."
+    },
+    {
+      "id": "tufs-asia1964-catalog",
+      "source_ids": [
+        "FGDC-2597"
+      ],
+      "url": "https://www-lib.tufs.ac.jp/opac/xc/search/%2A?date_df_gap=%2B1YEAR&filter%5B0%5D=type%3Amanifestation&filter%5B1%5D=language_fc%3A%22Japanese%22&filter%5B2%5D=locations_fc%3A%22AA-Ken+Collections%281F+Reading+Room%29%22&filter%5B4%5D=date_df%3A%5B1960-01-01T00%3A00%3A00Z+TO+1969-12-31T23%3A59%3A59Z%5D&ql=1&remove_facet=1&rows=100",
+      "title": "Tokyo University of Foreign Studies library catalog: Asia climate,1964",
+      "authority": "University library primary catalog",
+      "retrieval": "Public indexed catalog entry63; direct page open returned403. No access bypass or raw-page capture.",
+      "short_quote": "アジアの気候 畠山久尚監修 ; 倉嶋厚[等]著",
+      "observed_facts": "Entry63 identifies the same1964 Japanese Asia-climate book, publisher古今書院, series世界気候誌 volume1. It explicitly credits 畠山久尚 in the supervisory-editor field and separately lists authors.",
+      "supports": "Additional exact-work link to the Japanese personal identity; this is not a title/position-only match.",
+      "does_not_support": "Do not replace the XML primary credit with a full book-author list, add a structured editor role, or claim the restored XML was authored by this person."
+    }
+  ],
+  "additional_lookup_limits": [
+    "The JMA150-year history's indexed office-holder row independently showed 畠山久尚/はたけやまひさなお; a106MB full PDF exceeded tool size and a section URL returned404. The proposal does not depend on claiming either raw PDF was read.",
+    "Secondary mirrors, social/research profiles and bookseller results were discovery-only and are not authority for any proposed vector.",
+    "No Zenodo, AquaDocs, authenticated connector, provider credential or private executor state was accessed."
+  ]
+}

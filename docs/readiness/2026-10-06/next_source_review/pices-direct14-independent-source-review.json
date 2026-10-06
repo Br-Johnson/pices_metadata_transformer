@@ -1,0 +1,972 @@
+{
+  "schema_version": 1,
+  "kind": "direct14-independent-complete-array-source-review-v1",
+  "reviewer": "Codex /root/mac_transfer_review",
+  "reviewed_date": "2026-10-06",
+  "verdict": "APPROVE_EXACT10_COMPLETE_SOURCE_PROJECTIONS_HOLD4_COMPLETE_ARRAYS",
+  "scope": "Source interpretation only. No mapping implementation, coverage increment, provider credential/grant, production identity/recovery decision or release approval.",
+  "frozen_repository": {
+    "path": "/workspace/pices-main",
+    "head": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+    "tree": "8a483aef1629d26123812afe1c8a8ee48b95954d",
+    "read_only_git_status_observed_clean": true,
+    "ci_conclusion_not_assessed": true
+  },
+  "proposal_pin": {
+    "path": "/tmp/pices-direct14-modern-source-proposals.json",
+    "sha256": "5ce44b703e5b7881e0fb3067cf74ed1ecd90e46d4ff869ead8df4e5cb202d1a0",
+    "bytes": 635387
+  },
+  "proposal_rows_sha256_ascii": "e5ea15135f5d9e971fddb4ae7767fa9c434d286346a7d4e31b0c1f5a272199d4",
+  "author_public_evidence_pin": {
+    "path": "/tmp/pices-direct14-primary-evidence.json",
+    "bytes": 9995,
+    "sha256": "17f91192d3b7d8770134ef587a111bed7821b38ebf50798b288aeba9d23a97e7"
+  },
+  "proposal_markdown_pin": {
+    "path": "/tmp/pices-direct14-modern-source-proposals.md",
+    "sha256": "8bde348280368ef2dffef4ebad72d7818cc3e572d115c05fa6830325fce0fb8f"
+  },
+  "independent_binding_verification_pin": {
+    "path": "/tmp/pices-direct14-independent-bindings-verification.json",
+    "sha256": "774125125998ca78653c913346a712fc41fcc23174468e157d4d5acdeded60c7",
+    "bytes": 16285
+  },
+  "input_pins": {
+    "reconciliation": {
+      "path": "/tmp/pices-program20-remaining100-reconciliation.json",
+      "bytes": 384179,
+      "sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a"
+    },
+    "upper7_source_extraction": {
+      "path": "/tmp/pices-direct14-upper-source-extract.json",
+      "bytes": 66602,
+      "sha256": "55ae0d6a628803acca41f71452ae98c451407b0ef36a512ffac35e8a42a67623"
+    },
+    "institution91_bindings": {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_institution91_source_bindings.json",
+      "bytes": 460626,
+      "sha256": "0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633"
+    },
+    "institution91_source": {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_institution91_source_review.json",
+      "bytes": 185808,
+      "sha256": "8cc6bd3a75de1e63b28b18f325a04d17333a356647804221d256a25d91f5b662"
+    },
+    "plan": {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/publication_plan.json",
+      "bytes": 6312934,
+      "sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+    },
+    "direct_a": {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "bytes": 682540,
+      "sha256": "e7a1b1f1e1df9ddc282504aedf6074abdb9a2a0b2e4e2230270ec29a54c2e38b"
+    },
+    "direct_b": {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "bytes": 1143031,
+      "sha256": "b31f0b7fd194afb9be121ce08cd5c7e4a7ef76a3c554902b9a462e8743b38ff1"
+    },
+    "direct_selection": {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_selection.json",
+      "bytes": 74417,
+      "sha256": "6f359520df74f31f1b54bf24d5a0123fe099245cc80a410fed396aa390729d33"
+    },
+    "creator426": {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "bytes": 877461,
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2"
+    }
+  },
+  "approved_source_ids": [
+    "FGDC-296",
+    "FGDC-1905",
+    "FGDC-1941",
+    "FGDC-2559",
+    "FGDC-2597",
+    "FGDC-3600",
+    "FGDC-3789",
+    "FGDC-3793",
+    "FGDC-3794",
+    "FGDC-4068"
+  ],
+  "approved_membership_sha256_ascii": "8e251116e2efc5941e77b8b72f31cf457c413bd64c6a231def7c2fbbfa4cf08b",
+  "held_source_ids": [
+    "FGDC-287",
+    "FGDC-2235",
+    "FGDC-2668",
+    "FGDC-3599"
+  ],
+  "held_membership_sha256_ascii": "711951b7e647e4410cd41f0787169d2f5f4ebec366621c01390fba1c27300477",
+  "rows": [
+    {
+      "source_id": "FGDC-287",
+      "decision": "HOLD_COMPLETE_ARRAY",
+      "proposal_json_pointer": "/rows/0",
+      "source_bindings": {
+        "source_id": "FGDC-287",
+        "source_sha256": "c1fbb8aa99f3e48d2d29a3c2ed46158a07703de90be7974bab3831452981d0e2",
+        "source_root_sha256_ascii": "ec0bc3afddf397d2cc6e890befd4bac545c55668d5fe0bf719a6a9cf743c3d7a",
+        "retained_payload_sha256": "e32624b80ef13440e21b4fe713c154b9a72e518f31fac26acdc1219bc5c2d6f0",
+        "legacy_metadata_sha256_ascii": "2a68d96f5bf71c4b88921a0c5d4d1b02371ee3c6da891cb3087dc1f5faa47f84",
+        "legacy_creators_sha256_ascii": "ead2a299304659b2cc4992193e98ce63217117380625321d06f0d2ed0d5e2280",
+        "artifact_policy_sha256_ascii": "6f321c952bd91e18c9779f0179b0ae81b85f37e3ce3272c8ecaf61cac1d52bea",
+        "current_plan_target_sha256_ascii": "592d61881c07c27772a590b18d392ccb0f8af9f21538e067335f7303a7427599",
+        "proposed_vector_sha256_ascii": null,
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "NOAA/NMFS/AFSC & the University of Washington with partial support from SEBSCC Pat Livingston (AFSC) and Jesus Jurado-Molina (Univ. Wash)",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "ead2a299304659b2cc4992193e98ce63217117380625321d06f0d2ed0d5e2280",
+      "primary_origins": [
+        "NOAA/NMFS/AFSC & the University of Washington with partial support from SEBSCC  Pat Livingston (AFSC) and Jesus Jurado-Molina (Univ. Wash)"
+      ],
+      "source_context_sha256_ascii": "44407eeaa85b7aaa4551cff888ea957dd63438a96639b76fe105e216bb055826",
+      "approved_modern_creators": null,
+      "approved_vector_sha256_ascii": null,
+      "independent_rationale": "Hold the whole array. The compound primary origin mixes two institutions, explicit SEBSCC support and two people without an unambiguous boundary. No person-only omission or conversion of support into a creator is justified.",
+      "interpretation_class": "unresolved_whole_array",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-296",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/1",
+      "source_bindings": {
+        "source_id": "FGDC-296",
+        "source_sha256": "95b389f34c706a9e5cda9876c81f0cbc40b12080c2f4cec42f322c7383e3bd43",
+        "source_root_sha256_ascii": "ba1bf96264ee796de7d7ccb4173cd4548e43a77fc415be07166b878ee8c2d60e",
+        "retained_payload_sha256": "ff80ffcc83043b0a595cf4a635b34da8eb3cbee9f65506ccc67743ec36b9b145",
+        "legacy_metadata_sha256_ascii": "6499aee4bd36469f2543505b20afcf67fd5884c8e82aca3707de64f638a05936",
+        "legacy_creators_sha256_ascii": "422fd84e4767c6b3862897bcd95f5481d598e1ca2c08a4c268bf53b4d9a0ace2",
+        "artifact_policy_sha256_ascii": "2036ea9cb082f97f0bdd4e775cbfbb9aac6ba5e81cb92cb0946e66971a96273e",
+        "current_plan_target_sha256_ascii": "954622b76c0a443b80bfb8043e13c5e67e96f6e05266c1ee9cdeec7274a68726",
+        "proposed_vector_sha256_ascii": "463054cdcba850576c44636a6f6d2db5154f95e08547f55c97fde5f9477d9630",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "Jason Baker: National Marine Fisheries Service",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "422fd84e4767c6b3862897bcd95f5481d598e1ca2c08a4c268bf53b4d9a0ace2",
+      "primary_origins": [
+        "Jason Baker:  National Marine Fisheries Service"
+      ],
+      "source_context_sha256_ascii": "ece4309a41fdfee80d5da7d72619e2c02e4ff34d467cabc13a0306a1fbc0a268",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Baker",
+            "given_names": "Jason"
+          },
+          "affiliations": [
+            {
+              "name": "National Marine Fisheries Service"
+            }
+          ]
+        }
+      ],
+      "approved_vector_sha256_ascii": "463054cdcba850576c44636a6f6d2db5154f95e08547f55c97fde5f9477d9630",
+      "independent_rationale": "Approve exact Baker / Jason with the literal National Marine Fisheries Service affiliation. The colon distinguishes a named person from the institution. No extra initial or contact-author promotion is made. The manuscript-use condition remains unchanged and unresolved.",
+      "interpretation_class": "finite_literal_name_and_source_affiliation_interpretation",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [
+        "noaa-baker-nursing"
+      ],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-1905",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/2",
+      "source_bindings": {
+        "source_id": "FGDC-1905",
+        "source_sha256": "cd945a4a80ecfd606bbc08b620144eed3c97c57b5b6b8d8c83aabf037409754c",
+        "source_root_sha256_ascii": "fd241df0e758b57a92a50c6262ad5964682093606eefbb2af139d9ea770614d7",
+        "retained_payload_sha256": "1ba6ca853d714e3e7c56c07e7ac65fcdb606170780637fd1ec79778782fb5e36",
+        "legacy_metadata_sha256_ascii": "de690e1887f5f4df5e01ff565eb64a71b11572f7ec9c899e3af51512caf1477a",
+        "legacy_creators_sha256_ascii": "cf03b2d83f2a419276a804f4b6517932201d5dde2dd510d0f13875124ad5890b",
+        "artifact_policy_sha256_ascii": "9235f5078df28b7b6892e7390d4c21ae2da2efb62123852b1991f1ce2fba2e4d",
+        "current_plan_target_sha256_ascii": "95d6818f7a20f25d1f2a4dd2b5e2f29bef30385f216ecff052eb0a97c4e601f9",
+        "proposed_vector_sha256_ascii": "9a35353fbe26255a3a609fe28e75736fa1b7ff46371e94e6b784f20f5d034fe8",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "James Wang, NASA Goddard Space Flight Center",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "cf03b2d83f2a419276a804f4b6517932201d5dde2dd510d0f13875124ad5890b",
+      "primary_origins": [
+        "James Wang, NASA Goddard Space Flight Center"
+      ],
+      "source_context_sha256_ascii": "b7599a52d9f396f4da53ed9a0b4889941ce6ae88da7c1f3604b9f72e837f040c",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Wang",
+            "given_names": "James"
+          },
+          "affiliations": [
+            {
+              "name": "NASA Goddard Space Flight Center"
+            }
+          ]
+        }
+      ],
+      "approved_vector_sha256_ascii": "9a35353fbe26255a3a609fe28e75736fa1b7ff46371e94e6b784f20f5d034fe8",
+      "independent_rationale": "Approve exact Wang / James with NASA Goddard Space Flight Center. The finite person/institution boundary is clear in this source; the author-retained exact-work citation is corroborative. No R., DOI, date, affiliation replacement or license is imported.",
+      "interpretation_class": "finite_literal_name_and_source_affiliation_interpretation",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [
+        "nsidc-ammr-wang"
+      ],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-1941",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/3",
+      "source_bindings": {
+        "source_id": "FGDC-1941",
+        "source_sha256": "50f59b3f73656d8836cecd136d76a11119abcbcbfa1a562ae6ec15b9b1a43b04",
+        "source_root_sha256_ascii": "700140b6b9561e9349bd683fb910e10aa941d955a1b94ccacf2854136f76e9c5",
+        "retained_payload_sha256": "99cbb037654dc54cad0a40907702514f25a55c8ca8850fcf546c092690b4f541",
+        "legacy_metadata_sha256_ascii": "9c3482dae6ccd660d9f78e17a9c33c1e871fecbf7c74e53be6bde8d465259a94",
+        "legacy_creators_sha256_ascii": "b182cabea9423fd6f08f2e557cdf46e776c47c76849e263c5a6a900a142a0ac5",
+        "artifact_policy_sha256_ascii": "465083a95ff18c6ef184295056337c0fa5fdb2eec9cec5ea301c3c8adb622667",
+        "current_plan_target_sha256_ascii": "8225e68019361fd16688eb5a66aed522316f97ccbfa6ef2e0634faf5c4206de4",
+        "proposed_vector_sha256_ascii": "27b40856d974946c0f10fb8eb033c5a24809d6d2441ac4ce54aa792ac9ef99fb",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "William J. Williams, Institute of Marine Science, University of Alaska, Fairbanks, AK 99775",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "b182cabea9423fd6f08f2e557cdf46e776c47c76849e263c5a6a900a142a0ac5",
+      "primary_origins": [
+        "William J. Williams, Institute of Marine Science, University of Alaska, Fairbanks, AK 99775"
+      ],
+      "source_context_sha256_ascii": "bbf4eef8a90c84198b4517ec4a1988b4e624ef2e21fac8bca1c6e168fecff786",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Williams",
+            "given_names": "William J."
+          },
+          "affiliations": [
+            {
+              "name": "Institute of Marine Science, University of Alaska, Fairbanks, AK 99775"
+            }
+          ]
+        }
+      ],
+      "approved_vector_sha256_ascii": "27b40856d974946c0f10fb8eb033c5a24809d6d2441ac4ce54aa792ac9ef99fb",
+      "independent_rationale": "Approve Williams / William J. and the entire literal institution/location affiliation. This preserves the source initials without expanding J. The primary origin and thesis context identify a person; supervisor/contact credit is not promoted.",
+      "interpretation_class": "finite_literal_name_and_source_affiliation_interpretation",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [
+        "uaf-williams-thesis"
+      ],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-2235",
+      "decision": "HOLD_COMPLETE_ARRAY",
+      "proposal_json_pointer": "/rows/4",
+      "source_bindings": {
+        "source_id": "FGDC-2235",
+        "source_sha256": "87987d08962dd27c2a63a3ef9290dceddecd9ae4a108ae5256bec28a3cf2378d",
+        "source_root_sha256_ascii": "affdd5e285b95dd438399d55e1e9e5d6d48cdf7db0404168f36cba2b2de340c9",
+        "retained_payload_sha256": "7582bcd8ffd6baf9eadc8a2e491a3aecc6c52ecd5598e822586a3cfe87f3d3a7",
+        "legacy_metadata_sha256_ascii": "3fccd24e0469d89918ef6fe55fd82400828ca0a762bfc6994653390f2baf3871",
+        "legacy_creators_sha256_ascii": "3492c210ab766f6c4bffe14f567b8856d154e660ce21e98619225f06a2b2ad70",
+        "artifact_policy_sha256_ascii": "18f4cb8ae32599490950bb6bf477e527f4a505f3ce721587ade8b7a037694a13",
+        "current_plan_target_sha256_ascii": "98de0e361428aa37756a234f3d9818c7f47906f8609981efba20b73b76b68330",
+        "proposed_vector_sha256_ascii": null,
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "Cliff Mass et al., University of Washington (UW). Dept. of Atmospheric Sciences",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "3492c210ab766f6c4bffe14f567b8856d154e660ce21e98619225f06a2b2ad70",
+      "primary_origins": [
+        "Cliff Mass et al., University of Washington (UW). Dept. of Atmospheric Sciences"
+      ],
+      "source_context_sha256_ascii": "85c4004fe93d66937bf0b51595ff03b1abc67ab1712f4f2a692819e9a9a91e4a",
+      "approved_modern_creators": null,
+      "approved_vector_sha256_ascii": null,
+      "independent_rationale": "Hold the whole array. Explicit et al. leaves additional originators unresolved. A one-person or department-only vector would erase the incomplete collective attribution.",
+      "interpretation_class": "unresolved_whole_array",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-2559",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/5",
+      "source_bindings": {
+        "source_id": "FGDC-2559",
+        "source_sha256": "47f605b4a5334b2e375afe0792779ef2cba5f5c67d3a2d79d3c2745d826e42b4",
+        "source_root_sha256_ascii": "4e00856837f5f40c9de4b6b831e4ed695b8e31e7d633623cfa1a48542751db08",
+        "retained_payload_sha256": "2bcc3971bbdd07a4b48d017613bbd047a25be31d693fc6228b1e1552eab0f19f",
+        "legacy_metadata_sha256_ascii": "4c5bfe8faf050c118354d4d5d8be13fd81e4735af8336a6f31bb596764e8e0ef",
+        "legacy_creators_sha256_ascii": "c523214f09cd21201e1e3039cabe779231349027533d5b3fb3a56bed4b816a6c",
+        "artifact_policy_sha256_ascii": "918429d955bc3fd8c8b5ee34ee08a4e821c19d144dd1cf3c1f847a5c449cc195",
+        "current_plan_target_sha256_ascii": "665811fcf546ba50b7913e5e8b4785a60189792935e2afadc30fd4a488777cab",
+        "proposed_vector_sha256_ascii": "e0dd26741d6a424cfbdd8dccc8a623e8832904dbe4c2ae6df9153a5e26555b78",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "R. Dec. Ward, C.F. Brooks and A.J. Connor of Blue Hill Meteorological Observatory, Harvard University",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "c523214f09cd21201e1e3039cabe779231349027533d5b3fb3a56bed4b816a6c",
+      "primary_origins": [
+        "R. Dec. Ward, C.F. Brooks and A.J. Connor of Blue Hill Meteorological Observatory, Harvard University"
+      ],
+      "source_context_sha256_ascii": "59cdccb77fb8b3626c2a21a1b8ab97b5a046fecd5ce31c66a3beaf4efbc04ccb",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Ward",
+            "given_names": "R. Dec."
+          },
+          "affiliations": [
+            {
+              "name": "Blue Hill Meteorological Observatory, Harvard University"
+            }
+          ]
+        },
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Brooks",
+            "given_names": "C.F."
+          },
+          "affiliations": [
+            {
+              "name": "Blue Hill Meteorological Observatory, Harvard University"
+            }
+          ]
+        },
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Connor",
+            "given_names": "A.J."
+          },
+          "affiliations": [
+            {
+              "name": "Blue Hill Meteorological Observatory, Harvard University"
+            }
+          ]
+        }
+      ],
+      "approved_vector_sha256_ascii": "e0dd26741d6a424cfbdd8dccc8a623e8832904dbe4c2ae6df9153a5e26555b78",
+      "independent_rationale": "Approve exact ordered Ward / R. Dec.; Brooks / C.F.; Connor / A.J. The terminal of-phrase is defensibly read as a shared source attribution for the connected list. This is a disclosed finite grammatical interpretation, not independent proof of employment. Preserve the complete compound credit. Harvard discussion is only surname/work corroboration; do not import extra authors or expand initials.",
+      "interpretation_class": "finite_literal_name_and_source_affiliation_interpretation",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [
+        "harvard-climatic-maps"
+      ],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-2597",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/6",
+      "source_bindings": {
+        "source_id": "FGDC-2597",
+        "source_sha256": "ebbc654aa567e4fee5cad30847de107b65839f2f7c648fc5dd041f58e8bfa88d",
+        "source_root_sha256_ascii": "75817d768ef7294f0fa0d8e1ee1527a90b9d792ef6857208aa0fe8627a2c7877",
+        "retained_payload_sha256": "7829841bddb0b9fd9f17dbe6398bc92ccdedc0528dfb83d5cb9d86a69dcaa5b1",
+        "legacy_metadata_sha256_ascii": "9d8a104d253148165e7a584110e93c0e5322caa45c784619d36e85a94b1dbd8a",
+        "legacy_creators_sha256_ascii": "9208df4180e03ff328986ad9fbb75646b14a77b4e553092875df5cd81a2b7d03",
+        "artifact_policy_sha256_ascii": "94313a6bceffca7cc3d372b3cd78f7ec18503bd1cee1cf45f94e982bd3519488",
+        "current_plan_target_sha256_ascii": "06ef988fdc5e69bf5e169b0629bdca98033ab1aa8d6b8da5e75460fe9750348f",
+        "proposed_vector_sha256_ascii": "9aa80056cb98780e0eb2c8c0014dd28f5d9043b2a94a3905c5ac6349f0134932",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "Dr. Hatakeyama, former Director-General of the Japan Meteorological Agency.",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "9208df4180e03ff328986ad9fbb75646b14a77b4e553092875df5cd81a2b7d03",
+      "primary_origins": [
+        "Dr. Hatakeyama, former Director-General of the Japan Meteorological Agency."
+      ],
+      "source_context_sha256_ascii": "3265b3d5eae498aa6f9924f197c4a08281dc9312823867dfa8254ee395133423",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Hatakeyama",
+            "given_names": "Hisanao"
+          }
+        }
+      ],
+      "approved_vector_sha256_ascii": "9aa80056cb98780e0eb2c8c0014dd28f5d9043b2a94a3905c5ac6349f0134932",
+      "independent_rationale": "Approve the exact one-person Hatakeyama / Hisanao vector as explicitly disclosed external enrichment. Independently corroborated primary-site evidence joins the 1964 Asia-climate work to the Japanese name, Kyoto author metadata explicitly supplies the Romanized surname/given-name pair, and the society historical office-holder record matches the distinctive former-JMA-chief role. This is stronger than a position-only inference. Preserve the source honorary title/former role and the distinction between this source-primary credited person and the complete book byline. No current JMA affiliation, structured editor role, identifier or extra creator is approved.",
+      "interpretation_class": "explicit_external_identity_enrichment",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [
+        "kyoto-asia1964-reference",
+        "kyoto-hatakeyama-alias",
+        "metsoc-hatakeyama-role",
+        "tufs-asia1964-catalog"
+      ],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-2668",
+      "decision": "HOLD_COMPLETE_ARRAY",
+      "proposal_json_pointer": "/rows/7",
+      "source_bindings": {
+        "source_id": "FGDC-2668",
+        "source_sha256": "554c38ba3ad5c3bdbdc17aeed63361e30783aca26770d32fe3e46980af58785c",
+        "source_root_sha256_ascii": "34570ba91a1eceea941c124c8195c3158855b3fb095e939e5fc69653a291dcc4",
+        "retained_payload_sha256": "5eb2afd6bcab4e9da4b4b9c5e76da426a0ca49b30fc5b911c92d4c2b230468dc",
+        "legacy_metadata_sha256_ascii": "7cb24d1c3eb91b05d81259d6f901269896a29ac56983aff7f0daef2ba08c7d48",
+        "legacy_creators_sha256_ascii": "61cb4c4d2581faca22e5487b76906282f870c768344c33264e05679036b726da",
+        "artifact_policy_sha256_ascii": "7b765f5b27ce4d13d3db1c561b636e8446e987bc3e52788ea71dbe7ed455124f",
+        "current_plan_target_sha256_ascii": "46077c2e62562b9a185b0b7d23ee080a49615ec855669188d0a0bdd14d05dc86",
+        "proposed_vector_sha256_ascii": null,
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "61cb4c4d2581faca22e5487b76906282f870c768344c33264e05679036b726da",
+      "primary_origins": [
+        "C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey"
+      ],
+      "source_context_sha256_ascii": "7e410c82195c38805bfbcfe2ba462b3ae5778386fb51c9f3af25e18b1ac0d3ce",
+      "approved_modern_creators": null,
+      "approved_vector_sha256_ascii": null,
+      "independent_rationale": "Hold the whole array. Four primary-origin people versus three in the same-title article citation, Johnson’s explicit museum qualifier, ambiguous scope of the trailing USGS phrase and Barber’s Jr. suffix require a complete reviewed afterimage. Do not omit Phillips or silently lose the suffix.",
+      "interpretation_class": "unresolved_whole_array",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-3599",
+      "decision": "HOLD_COMPLETE_ARRAY",
+      "proposal_json_pointer": "/rows/8",
+      "source_bindings": {
+        "source_id": "FGDC-3599",
+        "source_sha256": "e68427690dad4285c3cdf893e0cee5b254a9064c4a00331c23e7875d4881c267",
+        "source_root_sha256_ascii": "262e92e1cd76581b3a6a3d9bab8cb693621590b58f44be6379d4a7360ca38367",
+        "retained_payload_sha256": "8aa2dbdec303b9bef1228733fb68e1fcff9242025bb2fbef0ecb315cc3576029",
+        "legacy_metadata_sha256_ascii": "3a37e71852df1047e69173c8c1e229c5125ab0fe18b06ff7f93bd12cf0891196",
+        "legacy_creators_sha256_ascii": "7f1726fb96ff859a0c0807ea33774e465efe395078036893fb92b3b21094e89c",
+        "artifact_policy_sha256_ascii": "4df2dd0dcf4cc4481cd891ebfcfd723d935937ef534b61fd2ecfd454ae541f6f",
+        "current_plan_target_sha256_ascii": "be8f16a0a10eaffc6c8a17c287557af698cc657b1e3e2d67ae1ce824094ac639",
+        "proposed_vector_sha256_ascii": null,
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS.",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "7f1726fb96ff859a0c0807ea33774e465efe395078036893fb92b3b21094e89c",
+      "primary_origins": [
+        "U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS."
+      ],
+      "source_context_sha256_ascii": "0682bb00ea02140ab0692b11db8b2e9d14f11581e23a14045458fc13d1481bbe",
+      "approved_modern_creators": null,
+      "approved_vector_sha256_ascii": null,
+      "independent_rationale": "Hold the whole array. The literal ONR primary credit and its explicitly supporting role in the abstract need a coherent complete representation. Neither dropping ONR nor converting support into an unqualified author is approved.",
+      "interpretation_class": "unresolved_whole_array",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-3600",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/9",
+      "source_bindings": {
+        "source_id": "FGDC-3600",
+        "source_sha256": "e6bc7f2cac8751e369ce68622631cbab97f9c887988fef2336194d615c113aa0",
+        "source_root_sha256_ascii": "21a3bced113a51e2679c6557829a5a6d191aab957870af0123148c9163ea4418",
+        "retained_payload_sha256": "24aa5a84b221be783938ee882a68f0df18e84a49fd3077c0a3a91b17ba18c078",
+        "legacy_metadata_sha256_ascii": "20c1ec408ed91d9f7cc982de0e46908546d305f4a3ddf537735025a209d3ddef",
+        "legacy_creators_sha256_ascii": "537f4859db87bc7b8a38824f9fbc91ccdd73813ec1c1ac9822d831ba7fd2b73e",
+        "artifact_policy_sha256_ascii": "910c565e4af6dba05a420e135bd9536e7d0822a08653046c487872d38aa251ce",
+        "current_plan_target_sha256_ascii": "7e1107845f636a0bf623800f1f83cea1c30cdac87e3640f1ec69c18fcbb22473",
+        "proposed_vector_sha256_ascii": "27d804f380cd98ad45bdcc0ee8aab08361f93a27ecca2807cdba027b67532f81",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "Lee Cooper and Jacqueline Grebmeier, University of Tennessee",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "537f4859db87bc7b8a38824f9fbc91ccdd73813ec1c1ac9822d831ba7fd2b73e",
+      "primary_origins": [
+        "Lee Cooper and Jacqueline Grebmeier, University of Tennessee"
+      ],
+      "source_context_sha256_ascii": "b7d833961067f7ff1be34eb203d40f1065df5a9bc664a555f0efb8daf2922b6d",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Cooper",
+            "given_names": "Lee"
+          },
+          "affiliations": [
+            {
+              "name": "University of Tennessee"
+            }
+          ]
+        },
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Grebmeier",
+            "given_names": "Jacqueline"
+          },
+          "affiliations": [
+            {
+              "name": "University of Tennessee"
+            }
+          ]
+        }
+      ],
+      "approved_vector_sha256_ascii": "27d804f380cd98ad45bdcc0ee8aab08361f93a27ecca2807cdba027b67532f81",
+      "independent_rationale": "Approve the two exact primary-origin people, Cooper / Lee and Grebmeier / Jacqueline, in order with the source’s shared Tennessee affiliation. Preserve the separate Cooper-only data-citation instruction. It neither negates the primary two-person credit nor authorizes adding W. or inventing roles.",
+      "interpretation_class": "finite_literal_name_and_source_affiliation_interpretation",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-3789",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/10",
+      "source_bindings": {
+        "source_id": "FGDC-3789",
+        "source_sha256": "0400063e073bd04d3b75fc03e916dc84c478389c871ebcb153e686a7f3d1f88a",
+        "source_root_sha256_ascii": "8057db815473ad64bafdf09f79f0cbd08b6dc5b3862467b5c3d6878dbcd4fcc5",
+        "retained_payload_sha256": "8cf0e46df9645efbcfc69707690eeaa735e9d8c2d5bd662e969224ef498f8715",
+        "legacy_metadata_sha256_ascii": "31183680a858e6166ddf5a269b63d1c3330edbafed8d08e920442003efa8ef59",
+        "legacy_creators_sha256_ascii": "ba698f802a31b01fd4ece7c6fa51305d376ea23d95dbbd9370b1309da044c301",
+        "artifact_policy_sha256_ascii": "6e65ad244c023d9dcadca01b961cdd9e11e3947a20a2592d87d565dbfbb5b082",
+        "current_plan_target_sha256_ascii": "629d4bb0f815898366415fe428ba81228da75e2bf8478963d8527893030c6d85",
+        "proposed_vector_sha256_ascii": "f9f8b4c35c92592ee7bfff17c037b1033e84350d69e81d3a7a514d05db52d876",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "R. Tsuda of University of Hawaii, Honolulu",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "ba698f802a31b01fd4ece7c6fa51305d376ea23d95dbbd9370b1309da044c301",
+      "primary_origins": [
+        "R. Tsuda of University of Hawaii, Honolulu"
+      ],
+      "source_context_sha256_ascii": "1c2344bf5fb9189f36d1bc903638929d4bc57bfb2bae099bf579fbf195f9efdd",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Tsuda",
+            "given_names": "R."
+          },
+          "affiliations": [
+            {
+              "name": "University of Hawaii, Honolulu"
+            }
+          ]
+        }
+      ],
+      "approved_vector_sha256_ascii": "f9f8b4c35c92592ee7bfff17c037b1033e84350d69e81d3a7a514d05db52d876",
+      "independent_rationale": "Approve Tsuda / R. with the entire literal University of Hawaii, Honolulu affiliation. This is finite parsing of an explicit personal initial/surname credit, not identity expansion. Retain the COPEPOD/original-PI citation duty and do not promote a contact.",
+      "interpretation_class": "finite_literal_name_and_source_affiliation_interpretation",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-3793",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/11",
+      "source_bindings": {
+        "source_id": "FGDC-3793",
+        "source_sha256": "dd2c4faf965c1d12699a3cc26667102437191ecbb05a12586931144fbe4e2c82",
+        "source_root_sha256_ascii": "eae40b6af122aa2dfa55372daf29280f729273f2744ff03c505ddef8a21ac5e3",
+        "retained_payload_sha256": "e5170a5877aca06d83f0fa1a2aeb97af74f39c3636d5a2f82fd16da095200842",
+        "legacy_metadata_sha256_ascii": "0a4f768c03b6816e11e02babf3f8085003da47cfebd6061976a650c0c87cb754",
+        "legacy_creators_sha256_ascii": "062bd9113cb82fbf6dd942a17d06a04b11ed1acbb065a09732d56335691a5b15",
+        "artifact_policy_sha256_ascii": "7f438a1da4796637867e6ed0dd2228c20951f9af08b7c8e9dd6e2e5381e94d74",
+        "current_plan_target_sha256_ascii": "935665c1d0b369dba90ad3f99216d0bc7d7f4202b4f82baf4601894d1decfaa8",
+        "proposed_vector_sha256_ascii": "1284fcece223222af7190efa8c9f8242cd8cfa866b89424519a03a20068aa7d1",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "062bd9113cb82fbf6dd942a17d06a04b11ed1acbb065a09732d56335691a5b15",
+      "primary_origins": [
+        "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences"
+      ],
+      "source_context_sha256_ascii": "5488e613be3ab23dacf2bc254d41b593b1e08d0ee8f86801b50dfe283c0bd319",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Halverson",
+            "given_names": "Mark"
+          },
+          "affiliations": [
+            {
+              "name": "University of British Columbia, Department of Earth and Ocean Sciences"
+            }
+          ]
+        },
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Pawlowicz",
+            "given_names": "Rich"
+          },
+          "affiliations": [
+            {
+              "name": "University of British Columbia, Department of Earth and Ocean Sciences"
+            }
+          ]
+        },
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Lee",
+            "given_names": "Randall"
+          },
+          "affiliations": [
+            {
+              "name": "University of British Columbia, Department of Earth and Ocean Sciences"
+            }
+          ]
+        }
+      ],
+      "approved_vector_sha256_ascii": "1284fcece223222af7190efa8c9f8242cd8cfa866b89424519a03a20068aa7d1",
+      "independent_rationale": "Approve exact ordered Halverson / Mark; Pawlowicz / Rich; Lee / Randall with the literal shared UBC department affiliation. This resolves only creator representation. Keep the title/North-URL versus abstract Tsawwassen/Duke Point mismatch visible for independent source QA; do not repair the geography or collapse this source into FGDC-3794.",
+      "interpretation_class": "finite_literal_name_and_source_affiliation_interpretation",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-3794",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/12",
+      "source_bindings": {
+        "source_id": "FGDC-3794",
+        "source_sha256": "2708f0ca3f0f1fa17c0d50be2de3b014f01c38fb0b52b8666e7fd3925d75dbf8",
+        "source_root_sha256_ascii": "2ca1c9d472e5cd96028a050b35e2bde2ead3c9c50693def0ed67c2882b9c0953",
+        "retained_payload_sha256": "a537e4a6986b43bae33303525a7dabb6655ff3037e7ae106ecb12994415ea7ba",
+        "legacy_metadata_sha256_ascii": "97a3629472ef28bd995116e227b15dcf8291db7d0cb5b6a49aba8e350b54bf50",
+        "legacy_creators_sha256_ascii": "062bd9113cb82fbf6dd942a17d06a04b11ed1acbb065a09732d56335691a5b15",
+        "artifact_policy_sha256_ascii": "8df7a2716cae662927db84d01a60ff01e312d74e7ce31b391603ea4d4bed18bb",
+        "current_plan_target_sha256_ascii": "9c89bcd48724d33f1505fef5269063b3aa5bdd320d11a0920bc5b6cdb6db4ace",
+        "proposed_vector_sha256_ascii": "1284fcece223222af7190efa8c9f8242cd8cfa866b89424519a03a20068aa7d1",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "062bd9113cb82fbf6dd942a17d06a04b11ed1acbb065a09732d56335691a5b15",
+      "primary_origins": [
+        "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences"
+      ],
+      "source_context_sha256_ascii": "db7d73b61aa2c4eb7e154862b0d5104ba25faf52d8bb31dd777ff72601c67f06",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Halverson",
+            "given_names": "Mark"
+          },
+          "affiliations": [
+            {
+              "name": "University of British Columbia, Department of Earth and Ocean Sciences"
+            }
+          ]
+        },
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Pawlowicz",
+            "given_names": "Rich"
+          },
+          "affiliations": [
+            {
+              "name": "University of British Columbia, Department of Earth and Ocean Sciences"
+            }
+          ]
+        },
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Lee",
+            "given_names": "Randall"
+          },
+          "affiliations": [
+            {
+              "name": "University of British Columbia, Department of Earth and Ocean Sciences"
+            }
+          ]
+        }
+      ],
+      "approved_vector_sha256_ascii": "1284fcece223222af7190efa8c9f8242cd8cfa866b89424519a03a20068aa7d1",
+      "independent_rationale": "Approve the same exact three-person vector and shared UBC department affiliation as a separate source-bound array. Shared creators are not evidence of record equivalence. No Rich expansion, route edit, collaborator promotion or date inference.",
+      "interpretation_class": "finite_literal_name_and_source_affiliation_interpretation",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [],
+      "runtime_admission": false,
+      "provider_authority": false
+    },
+    {
+      "source_id": "FGDC-4068",
+      "decision": "APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION",
+      "proposal_json_pointer": "/rows/13",
+      "source_bindings": {
+        "source_id": "FGDC-4068",
+        "source_sha256": "8ab7e260eb2827aeadee6effcbbbd1bc10a2e09a3c6098dcca0d153a230d762b",
+        "source_root_sha256_ascii": "18a26e8f4ff16623190378a4187d14ccca76790bc59b9bb8d192cdd280c8040b",
+        "retained_payload_sha256": "ab92579ee44733d03318913505ea553bc01caa9a8c0539d4aee05344f77e7238",
+        "legacy_metadata_sha256_ascii": "d052cd6a63c87ee4fa289c9ece8db86ffa5190ccb91866f68f7e57a603a7671c",
+        "legacy_creators_sha256_ascii": "b8b5f2bd4e277cb8d94b107e08821154e163a00f652682f6707f3af6d5667b70",
+        "artifact_policy_sha256_ascii": "0749e3f8fe21ab53be6bc0a8af0aa65fad30bc28723b67a9c1f063ba8ba6120a",
+        "current_plan_target_sha256_ascii": "26ba8f36690d3ded984638aaa626d342155b7ab1ca9d4cb5f209393669dadc50",
+        "proposed_vector_sha256_ascii": "d151db3b79c1b166558aeeaacd6a7b0bc6507b4e2bcf2022932aec114d633993",
+        "outside_creator426": true,
+        "original_three_copies_equal": true,
+        "verified": true
+      },
+      "complete_legacy_creators": [
+        {
+          "name": "James B. Wood and Catriona Day, National Resource Center for Cephalopods, University of Texas Medical Branch",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256_ascii": "b8b5f2bd4e277cb8d94b107e08821154e163a00f652682f6707f3af6d5667b70",
+      "primary_origins": [
+        "James B. Wood and Catriona Day, National Resource Center for Cephalopods, University of Texas Medical Branch"
+      ],
+      "source_context_sha256_ascii": "1e2e25acef95e629eab4d151e67065b0d463a95ee2f072d842612e4ab05c1cd5",
+      "approved_modern_creators": [
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Wood",
+            "given_names": "James B."
+          },
+          "affiliations": [
+            {
+              "name": "National Resource Center for Cephalopods, University of Texas Medical Branch"
+            }
+          ]
+        },
+        {
+          "person_or_org": {
+            "type": "personal",
+            "family_name": "Day",
+            "given_names": "Catriona"
+          },
+          "affiliations": [
+            {
+              "name": "National Resource Center for Cephalopods, University of Texas Medical Branch"
+            }
+          ]
+        }
+      ],
+      "approved_vector_sha256_ascii": "d151db3b79c1b166558aeeaacd6a7b0bc6507b4e2bcf2022932aec114d633993",
+      "independent_rationale": "Approve Wood / James B. and Day / Catriona in source order with the literal shared NRCC/University of Texas Medical Branch affiliation. Internal Day, Catriona inversion corroborates that boundary. The Vancouver contact address is a different role; do not substitute it, expand B., or promote taxonomy/image/Smithsonian collaborators.",
+      "interpretation_class": "finite_literal_name_and_source_affiliation_interpretation",
+      "author_context_and_exclusion_requirements_retained": true,
+      "author_evidence_ids": [],
+      "runtime_admission": false,
+      "provider_authority": false
+    }
+  ],
+  "rows_sha256_ascii": "f2693a3ee9d95c2d4c95bf72457095c9ee47ff29f213dab9871088dda722d4aa",
+  "counts": {
+    "source_arrays_reviewed": 14,
+    "exact_arrays_approved": 10,
+    "complete_arrays_held": 4,
+    "approved_ordered_creator_occurrences": 18,
+    "literal_affiliation_occurrences": 17,
+    "external_given_name_enrichments": 1,
+    "source_roots_verified": 14,
+    "original_copies_verified": 42,
+    "complete_retained_payloads_verified": 14,
+    "current_plan_targets_verified": 14,
+    "runtime_admissions": 0,
+    "coverage_change": 0
+  },
+  "independent_public_primary_corroboration": [
+    {
+      "id": "independent-kyoto-alias",
+      "source_ids": [
+        "FGDC-2597"
+      ],
+      "url": "https://repository.kulib.kyoto-u.ac.jp/dspace/handle/2433/55114",
+      "retrieval": "Independent official-domain search returned the repository item metadata. Direct open redirected to /handle/2433/55114 with zero extracted lines.",
+      "observed_short_fields": {
+        "Authors": "畠山, 久尚",
+        "Author Alias": "Hatakeyama, Hisanao"
+      },
+      "support": "Explicit romanized family/given names for the Japanese personal identity; the 1966 work is used only for this alias.",
+      "limits": "Indexed primary-site metadata, not retained page bytes; not the source book and not new creator-role/date/affiliation authority."
+    },
+    {
+      "id": "independent-kyoto-same-work",
+      "source_ids": [
+        "FGDC-2597"
+      ],
+      "url": "https://repository.kulib.kyoto-u.ac.jp/dspace/bitstream/2433/55729/1/KJ00000132624.pdf",
+      "retrieval": "Independent official-domain search exposed reference 3 on printed page 147. A subsequent direct PDF open was unavailable through the tool.",
+      "observed_short_quote": "畠山久尚 1964.「アジアの気候」",
+      "support": "The same 1964 Asia-climate work is associated with the Japanese personal name; reference identifies the world-climate series first volume and Kokin Shoin.",
+      "limits": "Search-index extraction only; no PDF-byte or complete-byline claim."
+    },
+    {
+      "id": "independent-metsoc-former-jma",
+      "source_ids": [
+        "FGDC-2597"
+      ],
+      "url": "https://www.metsoc.jp/about/successive-presidents",
+      "retrieval": "Independently opened the society historical table; fifth row at extracted line 15.",
+      "observed_short_fields": {
+        "name": "畠山 久尚",
+        "position": "元・気象庁長官"
+      },
+      "support": "The society itself records this person as former head of the Japan Meteorological Agency, matching the original’s distinctive role.",
+      "limits": "Role-context corroboration, not present affiliation or XML authorship."
+    },
+    {
+      "id": "independent-tufs-same-work-role",
+      "source_ids": [
+        "FGDC-2597"
+      ],
+      "url": "https://www-lib.tufs.ac.jp/opac/xc/search/%2A?date_df_gap=%2B1YEAR&filter%5B0%5D=type%3Amanifestation&filter%5B1%5D=japanese_western_book_fc%3A%22Japanese+Books%22&filter%5B2%5D=locations_fc%3A%22AA-Ken+Collections%281F+Reading+Room%29%22&filter%5B4%5D=date_df%3A%5B1960-01-01T00%3A00%3A00Z+TO+1969-12-31T23%3A59%3A59Z%5D&ql=1&remove_facet=1&rows=50",
+      "retrieval": "Independent public search returned primary library catalogue entry 41. Direct open returned 403; no retry or bypass.",
+      "observed_short_quote": "アジアの気候 畠山久尚監修 ; 倉嶋厚[等]著",
+      "support": "The same 1964 work distinguishes supervisory credit for Hatakeyama from separate book authors; do not convert this one-person source credit into a claim of sole book authorship.",
+      "limits": "Indexed catalogue entry only; no raw page capture, no extra author import."
+    }
+  ],
+  "public_evidence_limits": "Only the listed Hatakeyama chain was independently revisited on the public web. The author-retained NOAA, NSIDC, UAF and Harvard evidence was read as attributed supplementary corroboration, not claimed independently reopened. No raw web-page/PDF hashes are asserted. Ordinary literal finite name boundaries do not depend on a universally required external inverted-name identity bridge.",
+  "narrow_peer_corroboration": {
+    "agent": "/root/mac_transfer_review/community_contract_audit",
+    "scope": "FGDC-2559 only",
+    "verdict": "APPROVE_EXACT_SHARED_SOURCE_AFFILIATION_INTERPRETATION",
+    "source_sha256": "47f605b4a5334b2e375afe0792779ef2cba5f5c67d3a2d79d3c2745d826e42b4",
+    "approved_vector_sha256_ascii": "e0dd26741d6a424cfbdd8dccc8a623e8832904dbe4c2ae6df9153a5e26555b78",
+    "limits": "No independent employment assertion or complete external atlas byline; no separate artifact or provider authority."
+  },
+  "mandatory_preservation": [
+    "Original XML and its full ordered legacy metadata/creator array remain byte/object unchanged. Bind any later finite policy to these exact source/root/legacy/context/vector hashes and current supported singleton plan; no generic name splitter or type heuristic.",
+    "All 14 are default direct-origin sources outside creator426. Existing heuristic Organization labels are preserved legacy objects, not semantic authority for the modern personal vectors. No creator426 authority may be fabricated.",
+    "Keep the complete source citation, role qualifications and contextual limits visibly preserved. FGDC-2597 must disclose that Hisanao is an external identity enrichment and retain former/honorary-role context without present JMA affiliation or sole-book-authorship claims.",
+    "The shared affiliation readings in 2559, 3600, 3793, 3794 and 4068 are finite interpretations of their explicit compound source credits, not externally verified employment, current addresses or named-role enrichment.",
+    "Keep FGDC-296 manuscript-use condition, FGDC-3789 citation duty, other access/use language, restricted original XML, blank license, source-metadata-date semantics and pinned user-attested rehosting evidence unchanged.",
+    "Keep FGDC-3793 title/North URL versus abstract route inconsistency as a separate unresolved source-QA fact. This creator review does not clear geographic identity/release; 3793 and 3794 remain separate source identities.",
+    "No deletion/addition of named primary persons, invented unnamed et-al. members, contact/distributor/supporter promotion, middle-name expansion, affiliation identifier, role, DOI, date or license is approved beyond the exact disclosed vectors.",
+    "All four held arrays remain whole. No partial-vector admission or use of this receipt as proof of source identity, duplicate absence, current provider permissions, recovered uncertain writes or publication authority."
+  ],
+  "operation_limits": {
+    "repository_edits": 0,
+    "project_imports": 0,
+    "tests": 0,
+    "preparations": 0,
+    "measurements": 0,
+    "provider_or_zenodo_requests": 0,
+    "aquadocs_requests": 0,
+    "credential_or_private_executor_reads": 0,
+    "public_non_provider_primary_research_only": true,
+    "writes_only_tmp_review_artifacts": true
+  },
+  "verification_notes": [
+    "The independent data checker initially assumed membership was an ID list and context abstracts were plain element.text. The packet actually uses source/hash membership objects and full itertext. Those checker assumptions were corrected, input packets stayed unchanged, and all final equality checks passed. No source defect was found."
+  ],
+  "digest_definition": "SHA256 file pins cover exact file bytes. Object/list digests use json.dumps(value, sort_keys=True, separators=(comma, colon), ensure_ascii=True), UTF-8. Membership digests here cover the exact ordered source-ID arrays separately from the proposal source/hash-membership digest."
+}

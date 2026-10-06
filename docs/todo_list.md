@@ -12,13 +12,13 @@ Earlier checklist entries below preserve their historical state. This section an
 the maintained rules supersede their workflow timing and pending-code statements;
 original journals, grants, receipts and frozen historical instructions are unchanged.
 
-## Active increment: exact program organizations20 — 2026-10-06
+## Completed increment: exact program organizations20 — 2026-10-06
 
 - [x] Reconcile sole root ownership and clean local/remote main `8b84f9db5ea2d536de3ed01a60f147fc6cbc6246`; verify actual executor availability after the 18:03 UTC callback. The reviewed194 code head retains its 921-test CI pass.
 - [x] Install the exact independent source review for 20 complete organizational arrays. Preserve all 29 program/Unaami holds, all 29 personal holds and the five protected identities; no source eligibility or license changes.
 - [x] Complete finite schema9 mapping, exact creator426 authority and narrow historical compatibility. All 74 guarded focused/affected checks pass, with zero unexpected I/O; preserve the distinct pre/post-comment source bindings and unchanged runtime. Frozen schema1–8 vectors and recovery evidence remain intact.
-- [x] Measure all new20 twice and all prior3,788 once across four guarded parts, then verify the saved-file aggregate: actual3,808 targets /4,011 originals;125 remain (100 singletons +25 pairs). All4,206 originals,39,232 retained public files and32 profiles match. Independent actual-result review passed; exact commit review and full main CI remain.
-- [ ] Publish independently reviewed implementation directly to main, verify actual full CI and save the release. Identify the minimum paired-execution work separately; provider access stays paused and AquaDocs deferred.
+- [x] Measure all new20 twice and all prior3,788 once across four guarded parts, then verify the saved-file aggregate: actual3,808 targets /4,011 originals;125 remain (100 singletons +25 pairs). All4,206 originals,39,232 retained public files and32 profiles match. Independent actual-result and exact commit reviews passed, followed by 929 passing full main CI tests.
+- [x] Publish independently reviewed commit `7ea7a6476f3307b368cff1980a3c9fa45b40af88` directly to main, verify 929 passing full CI tests and save the release. Preserve the separate minimal paired-execution design; provider access stays paused and AquaDocs deferred.
 
 ## Completed increment: exact reviewed creators194 — 2026-10-06
 
@@ -843,3 +843,6 @@ This local cohort has not been pushed or used for a provider operation.
 - [ ] Require actual final-head CI and frozen reviewed publication before provider dispatch.
 - [ ] Mac executor locally verifies transferred checkpoint/bundle, ownership and historical accounting, runtime/private-path preflight; parent binds the fresh600-second action grant, then Brett enters a fresh memory-only Sandbox token.
 - [ ] Managed DOI criterion, production transport/artifact/recovery/QA/release gates remain held. This narrower metadata/XML continuation does not complete the original DOI canary.
+
+
+- [ ] Implement and independently review the [31-source finite design](readiness/2026-10-06/next_source_review/README.md), then measure actual preparation before changing coverage. Separately implement the reviewed 25 remaining pair preparations and required pair execution guards. Source review alone grants no provider action.

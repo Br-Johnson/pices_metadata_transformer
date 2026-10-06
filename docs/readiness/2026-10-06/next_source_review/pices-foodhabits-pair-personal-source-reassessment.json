@@ -1,0 +1,216 @@
+{
+  "approved_complete_modern_creators": null,
+  "candidate_limit": "Recorded solely to identify the remaining parts decision, not a manifest or permissible mapping. Do not implement even the first object independently.",
+  "candidate_not_approved": [
+    {
+      "person_or_org": {
+        "family_name": "Livingston",
+        "given_name": "Pat",
+        "type": "personal"
+      }
+    },
+    {
+      "person_or_org": {
+        "family_name": "Smith",
+        "given_name": "Douglas",
+        "type": "personal"
+      }
+    }
+  ],
+  "complete_modern_projection_approved": false,
+  "current_profile": {
+    "cohort_sha256": "ad09064418a521841839c7d3e83acf72a7b385def9f98e137f21476f0e586ec2",
+    "context_note": "Reviewed citation context: The complete primary citation of Food Habits Database explicitly names Pat Livingston, Ed., followed by Douglas Smith, Compiler. Preserve the literal ordered name credits Pat Livingston and Douglas Smith as untyped source-resource citation credits, limited respectively to the stated editing and compilation roles. Do not expand Pat to Patricia, infer personal identity links, affiliation objects, original observation/data authorship, or authorship of the FGDC XML. The National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA) hierarchy remains preserved in the original origin below; it is not an additional named creator or a legal-entity inference. Michael Bailey remains the source contact/distributor, and Kimberly Bahl remains the metadata contact. Bering Sea commercial-species scope, original19940601 citation date,19850501–19970802 sampling interval,19970802 metadata date, and literal Read only / None constraints remain unchanged. No new access permission, license or provider identity follows.",
+    "full_current_legacy_creators": [
+      {
+        "name": "Pat Livingston"
+      },
+      {
+        "name": "Douglas Smith"
+      }
+    ],
+    "full_current_legacy_creators_sha256": "e9916110f009b376d2644fd00bdadeb776927550f0841a8598c9dc7920c029b7",
+    "name": "exact_food_habits_primary_editor_compiler_pair"
+  },
+  "evidence": [
+    {
+      "exact_relevant_literal": "Livingston, Pat",
+      "finding": "Explicit inverted personal-name listing at NMFS/AKFSC/REFMD, same institutional and Seattle-campus context as the original source. Supports family Livingston, literal given Pat, without expansion or a new identifier.",
+      "id": "noaa_exact_pat_directory",
+      "retrieval": "Web tool successfully opened and parsed HTML, lines114–118; direct curl CONNECT rejected403, no raw HTML byte hash",
+      "role_limit": "The directory supplies parts evidence only; source XML supplies the editor credit.",
+      "title": "EcoFOCI Phone List",
+      "url": "https://www.pmel.noaa.gov/foci/foci-tel.shtml"
+    },
+    {
+      "exact_relevant_literal": "Livingston, Pat",
+      "finding": "NOAA personal-author catalogue and RIS use the exact inverted literal; the same record also uses natural-order Pat Livingston and surname-plus-initial citation. The work concerns eastern/western Bering Sea food webs. This independently corroborates the name boundary, not a credit on the 1994 database.",
+      "id": "noaa_exact_pat_catalogue",
+      "retrieval": "Web tool successfully opened and parsed HTML, lines33,42–48,54–66; direct curl CONNECT rejected403, no raw HTML byte hash",
+      "title": "Alaska Fisheries Science Center Quarterly Report: April, May, June, 2003",
+      "url": "https://repository.library.noaa.gov/view/noaa/19964"
+    },
+    {
+      "finding": "AFSC institutional history describes Pat Livingston developing the groundfish feeding-ecology program and the associated food-habits database, including eastern Bering Sea diet information. This makes the directory/catalogue contextual match substantive. It does not replace the exact source editor limitation with scientific-data authorship.",
+      "id": "noaa_pat_database_context",
+      "retrieval": "Web tool successfully opened and parsed HTML, lines27–38,47–50; direct curl CONNECT rejected403, no raw HTML byte hash",
+      "title": "Pat Livingston Retires From the Alaska Fisheries Science Center",
+      "url": "https://apps-afsc.fisheries.noaa.gov/Quarterly/OND2014/divrptsREFM15.htm"
+    },
+    {
+      "exact_relevant_literals": [
+        "D. M. Smith",
+        "P. A. Livingston"
+      ],
+      "finding": "Same NOAA AFSC REFM scientific area and co-credit context, but this is a different work and presents initials. It does not explicitly equate the original Douglas Smith compiler with that author. Not sufficient to add M., convert Douglas to Doug, or supply the missing exact parts evidence.",
+      "id": "related_afsc_initials_not_identity_bridge",
+      "retrieval": "Web tool successfully parsed184-page PDF; byline/citation on PDF pages0–2. No raw PDF download/hash or screenshot verification claimed.",
+      "title": "Food Habits of Some Commercially Important Groundfish off the Coasts of California, Oregon, Washington, and British Columbia",
+      "url": "https://apps-afsc.fisheries.noaa.gov/Publications/AFSC-TM/NOAA-TM-AFSC-102.pdf"
+    },
+    {
+      "finding": "Natural-order Douglas Smith in a relevant institution alone does not establish explicit parts or a compiler-identity link.",
+      "id": "afsc_douglas_byline_lead_not_proof",
+      "retrieval": "Search result reports Jimmie Traynor and Douglas Smith at AFSC; direct web PDF open failed. Lead only, not full-document or raw-byte evidence.",
+      "title": "NOAA Technical Report NMFS126, Summer Distribution and Abundance of Age-0 Walleye Pollock in the Bering Sea",
+      "url": "https://repository.library.noaa.gov/view/noaa/2996/noaa_2996_DS1.pdf"
+    },
+    {
+      "exact_relevant_literal": "Smith, Douglas M.",
+      "finding": "Relevant institution/time/region but an additional middle initial and a different work; no explicit link to this source compiler. No identity-equivalence claim or added initial is approved.",
+      "id": "afsc_douglas_m_catalogue_lead_not_proof",
+      "retrieval": "NOAA catalogue text available in web search result; not independently opened/downloaded in this review. Lead only.",
+      "title": "Distribution, abundance, and biological characteristics of groundfish in the eastern Bering Sea, May–September1985 surveys",
+      "url": "https://repository.library.noaa.gov/view/noaa/26574"
+    }
+  ],
+  "existing_review": {
+    "effect": "Retain whole-pair hold; narrow parts uncertainty with new evidence, do not alter approved24.",
+    "path": "/tmp/pices-nonexxon25-pair-source-review.json",
+    "sha256": "455b5e015eca7f93e96b1a75ecd0a1998adaaa6ee37a38a512c18f2f913c7d94"
+  },
+  "independent_narrow_douglas_search": {
+    "path": "/tmp/pices-douglas-smith-primary-research.json",
+    "result": "No exact database-linked inverted name or initials bridge found; independently retains complete-array hold. The receipt separates explicit inverted Smith,Douglas M. from unproved compiler equivalence.",
+    "sha256": "0173cb9dcba95b0d84250a872e44c56a858f6b1264519704cc1bf6a833093e29"
+  },
+  "input_pins": [
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/publication_plan.json",
+      "sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/approved_alias_representation_228.json",
+      "sha256": "9e45fc869b0fe03220b44734cf429129f78dc93eb9fd20bf9b802398b684dda6"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/alias456_source_to_content.json",
+      "sha256": "9c110638bd161483727aed1b42e516fdc7a3c9d8134c97a9a70abff690750bbb"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/alias_pair_approach_authority.json",
+      "sha256": "ea3c0dba61ba03a330c80fc204f70ae3b88669f5ede5f22e60015b4bdb828130"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-02/rehosting_authority.json",
+      "sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/residual_pair4_editorial_creator_proposals.json",
+      "sha256": "ba294addf4521bd4d656b2c2d0dc1d3b66e954194169ffffb1c3bb7088a27a73"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/residual_pair4_editorial_creator_review.json",
+      "sha256": "df9cb1170c25f335ecb828102e250d65843b0d4af2cd275f257a268bec1d6600"
+    },
+    {
+      "path": "/workspace/pices-main/scripts/citation_creator_interpretation.py",
+      "sha256": "ddc66396d31c4b0c7f17a11e5054e4d1222459c1d392ce70b1663b5e1ea4c7e3"
+    }
+  ],
+  "kind": "foodhabits_personal_pair_exact_parts_source_reassessment",
+  "members": [
+    {
+      "full_root_sha256": "282d7036537d313d2d59a6dfb6cc9cec559bf83ccd641a0a9714afbb8a88d871",
+      "source_bytes": 4153,
+      "source_id": "FGDC-2837",
+      "source_sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237"
+    },
+    {
+      "full_root_sha256": "282d7036537d313d2d59a6dfb6cc9cec559bf83ccd641a0a9714afbb8a88d871",
+      "source_bytes": 4153,
+      "source_id": "FGDC-3065",
+      "source_sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237"
+    }
+  ],
+  "method_limits": {
+    "classification_or_preparation_or_measurement": false,
+    "negative_evidence_limit": "Bounded targeted search did not resolve Douglas; this is not a claim that no primary proof exists anywhere.",
+    "new_coverage_claim": false,
+    "project_imports": false,
+    "provider_zenodo_aquadocs_or_credential_requests": false,
+    "public_primary_web_research": true,
+    "raw_primary_web_bytes_retained": false,
+    "remote_limit": "Web parsed text was readable. Three bounded raw HTML downloads were blocked at CONNECT403; no raw HTML/PDF body hash or visual verification claimed. Search-only leads are clearly marked and do not support approval.",
+    "repository_changes": false,
+    "source_xml_and_canonical_full_root_rechecked": true,
+    "standard_library_only_for_source_json_xml_hash_bindings": true,
+    "tests": false
+  },
+  "per_credit_assessment": [
+    {
+      "eligible_as_partial_array": false,
+      "evidence_ids": [
+        "noaa_exact_pat_directory",
+        "noaa_exact_pat_catalogue",
+        "noaa_pat_database_context"
+      ],
+      "finding": "Literal family/given boundary supported by exact inverted NOAA directory/catalogue and relevant institutional database history. No name expansion, identity identifier, affiliation object or broadened authorship.",
+      "literal": "Pat Livingston",
+      "source_role": "Ed. (editor)",
+      "supported_parts_for_review_only": {
+        "family_name": "Livingston",
+        "given_name": "Pat"
+      }
+    },
+    {
+      "eligible_as_partial_array": false,
+      "evidence_ids": [
+        "related_afsc_initials_not_identity_bridge",
+        "afsc_douglas_byline_lead_not_proof",
+        "afsc_douglas_m_catalogue_lead_not_proof"
+      ],
+      "finding": "Person and compilation credit are explicit in original source; an explicit source-linked family/given boundary was not located. Related Douglas Smith, Doug Smith and D. M. Smith references are insufficient for unqualified identity or parts approval.",
+      "literal": "Douglas Smith",
+      "source_role": "Compiler",
+      "supported_parts_for_review_only": null
+    }
+  ],
+  "plan_target_sha256": "adc2dbcd382da19ded0fcf6792b70679721672567396a1cb644a4136bf78c0ba",
+  "preservation": [
+    "Keep both4153-byte originals and exact separate filenames; no canonical source selection or collapse of equal bytes.",
+    "Keep Pat Livingston then Douglas Smith, with editor then compiler limitations. No observation/data/XML authorship inference, contact promotion, NOAA substitution, added creator, affiliation or identifier.",
+    "Do not expand Pat to Patricia; do not insert Douglas middle initial, convert to Doug, or correct any name.",
+    "Preserve raw19940601 citation date,19850501–19970802 sample interval,19970802 metadata date, four Read only/None constraints and liability text, and existing rights/rehosting policy. No public-source rights are transferred to the XML.",
+    "Historical payloads in the binding receipt retain an earlier combined Organization creator and are explicitly not the current426 creator array; no fresh preparation was run.",
+    "Keep existing source semantic support distinct from unresolved modern parts. All plan execution/readback/publication flags, null provider identities, and spent provider-state gates remain unchanged."
+  ],
+  "record_target_id": "sha256:8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+  "remaining_questions": [
+    "Need authoritative primary explicit family/given or inverted/initials evidence linked adequately to this exact Douglas Smith database compiler; a same-work credit or documented source-specific link would resolve the uncertainty.",
+    "If that evidence is found, independently review the complete two-object modern projection while retaining literal editor/compiler context and all existing legacy metadata. No user naming decision is requested now."
+  ],
+  "schema_version": 1,
+  "scope": "Only FGDC-2837 and FGDC-3065; whole ordered two-person array",
+  "source_binding_receipt": {
+    "includes": "Both actual original full roots/raw fields, current complete cohort, plan target and explicitly historical payload/policy rows",
+    "path": "/tmp/pices-foodhabits-pair-current-source-bindings.json",
+    "sha256": "b353004cd8c4328d51db32cec4dbbfed092d6f97d715b1f1cb65460d21bea9db"
+  },
+  "source_membership_sha256": "7cb2af2b6c6938bbd3634422fb1e2f2498837cecd1b8e8c3e0e40baaed179842",
+  "verdict": "HOLD_COMPLETE_PAIR_DOUGLAS_EXACT_PARTS_UNRESOLVED"
+}

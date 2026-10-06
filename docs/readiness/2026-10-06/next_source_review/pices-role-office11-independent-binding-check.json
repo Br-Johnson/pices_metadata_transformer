@@ -1,0 +1,2343 @@
+{
+  "schema_version": 1,
+  "kind": "role-office11-independent-mechanical-binding-check",
+  "reviewer": "/root/mutation_contract_tests/direct14_source_extract",
+  "status": "PASS_MECHANICAL_BINDINGS_ONLY",
+  "scope": "Only exact11 role-office evidence and directly bound files. Mechanical byte/object/membership equality, not semantic approval, source promotion, runtime admission, current eligibility measurement or provider authority.",
+  "semantics_reserved_to_parent": "/root/mutation_contract_tests",
+  "hash_recipe": "SHA256 raw file bytes; object bodies use UTF-8 JSON sorted keys, compact separators, ensure_ascii=False, no trailing newline. Existing opaque census cluster identifiers are checked by exact retained row/member reference; no undocumented cluster-ID algorithm is inferred.",
+  "expected_source_ids": [
+    "FGDC-184",
+    "FGDC-197",
+    "FGDC-248",
+    "FGDC-249",
+    "FGDC-250",
+    "FGDC-251",
+    "FGDC-254",
+    "FGDC-261",
+    "FGDC-262",
+    "FGDC-411",
+    "FGDC-2709"
+  ],
+  "proposed_source_ids": [
+    "FGDC-184",
+    "FGDC-197",
+    "FGDC-248",
+    "FGDC-249",
+    "FGDC-250",
+    "FGDC-251",
+    "FGDC-254",
+    "FGDC-261",
+    "FGDC-262",
+    "FGDC-2709"
+  ],
+  "held_source_ids": [
+    "FGDC-411"
+  ],
+  "artifact_pins": {
+    "pices-role-office11-modern-source-proposals.json": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd",
+    "pices-role-office11-primary-evidence.json": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66",
+    "pices-role-office11-source-delivery-receipt.json": "8488d300494ba9d1aafb33ff7138e355df7fec7a8acebb0725f128f81c521a71"
+  },
+  "file_hash_checks": [
+    {
+      "role": "parent-supplied frozen artifact",
+      "path": "/tmp/pices-role-office11-modern-source-proposals.json",
+      "expected_sha256": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd",
+      "actual_sha256": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd",
+      "bytes": 268285,
+      "passed": true
+    },
+    {
+      "role": "parent-supplied frozen artifact",
+      "path": "/tmp/pices-role-office11-primary-evidence.json",
+      "expected_sha256": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66",
+      "actual_sha256": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66",
+      "bytes": 7245,
+      "passed": true
+    },
+    {
+      "role": "parent-supplied frozen artifact",
+      "path": "/tmp/pices-role-office11-source-delivery-receipt.json",
+      "expected_sha256": "8488d300494ba9d1aafb33ff7138e355df7fec7a8acebb0725f128f81c521a71",
+      "actual_sha256": "8488d300494ba9d1aafb33ff7138e355df7fec7a8acebb0725f128f81c521a71",
+      "bytes": 3504,
+      "passed": true
+    },
+    {
+      "role": "proposal input file",
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json",
+      "expected_sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a",
+      "actual_sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a",
+      "bytes": 384179,
+      "passed": true
+    },
+    {
+      "role": "proposal input file",
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "expected_sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2",
+      "actual_sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2",
+      "bytes": 877461,
+      "passed": true
+    },
+    {
+      "role": "proposal input file",
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/publication_plan.json",
+      "expected_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad",
+      "actual_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad",
+      "bytes": 6312934,
+      "passed": true
+    },
+    {
+      "role": "proposal input file",
+      "path": "/workspace/pices-main/docs/readiness/2026-10-02/rehosting_authority.json",
+      "expected_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "actual_sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "bytes": 357011,
+      "passed": true
+    },
+    {
+      "role": "proposal input file",
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_institution91_source_bindings.json",
+      "expected_sha256": "0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633",
+      "actual_sha256": "0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633",
+      "bytes": 460626,
+      "passed": true
+    },
+    {
+      "role": "proposal input file",
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "expected_sha256": "e7a1b1f1e1df9ddc282504aedf6074abdb9a2a0b2e4e2230270ec29a54c2e38b",
+      "actual_sha256": "e7a1b1f1e1df9ddc282504aedf6074abdb9a2a0b2e4e2230270ec29a54c2e38b",
+      "bytes": 682540,
+      "passed": true
+    },
+    {
+      "role": "proposal input file",
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "expected_sha256": "b31f0b7fd194afb9be121ce08cd5c7e4a7ef76a3c554902b9a462e8743b38ff1",
+      "actual_sha256": "b31f0b7fd194afb9be121ce08cd5c7e4a7ef76a3c554902b9a462e8743b38ff1",
+      "bytes": 1143031,
+      "passed": true
+    },
+    {
+      "role": "proposal input file",
+      "path": "/tmp/pices-pr37-remaining-census.json",
+      "expected_sha256": "64a19fe425a9e998fdce0afa8f47b6d38ff4cf58bb6f326573ea8dd2b1bb5043",
+      "actual_sha256": "64a19fe425a9e998fdce0afa8f47b6d38ff4cf58bb6f326573ea8dd2b1bb5043",
+      "bytes": 1248433,
+      "passed": true
+    },
+    {
+      "role": "delivery artifact file",
+      "path": "/tmp/pices-role-office11-modern-source-proposals.json",
+      "expected_sha256": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd",
+      "actual_sha256": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd",
+      "bytes": 268285,
+      "passed": true
+    },
+    {
+      "role": "delivery artifact file",
+      "path": "/tmp/pices-role-office11-primary-evidence.json",
+      "expected_sha256": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66",
+      "actual_sha256": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66",
+      "bytes": 7245,
+      "passed": true
+    },
+    {
+      "role": "delivery artifact file",
+      "path": "/tmp/pices-role-office11-modern-source-proposals.md",
+      "expected_sha256": "d5d9223178adafde18d68d1304b0be471a3acec4800924ca3e12d32ddea5f520",
+      "actual_sha256": "d5d9223178adafde18d68d1304b0be471a3acec4800924ca3e12d32ddea5f520",
+      "bytes": 3457,
+      "passed": true
+    },
+    {
+      "role": "primary evidence authoring-support final_addendum",
+      "path": "/tmp/pices-role-qualified-411-2709-office-capacity-addendum.json",
+      "expected_sha256": "82bc879ffe99f3e0b1393acf7314b93ba51888a62b1e3eb1225a25061a32b65f",
+      "actual_sha256": "82bc879ffe99f3e0b1393acf7314b93ba51888a62b1e3eb1225a25061a32b65f",
+      "bytes": 8052,
+      "passed": true
+    },
+    {
+      "role": "primary evidence authoring-support initial_note_preserved",
+      "path": "/tmp/pices-role-qualified-411-2709-source-note.json",
+      "expected_sha256": "d8f2456022638c75d4dbd9b09a78ab97be177596596a7df018bbda931ba33bcd",
+      "actual_sha256": "d8f2456022638c75d4dbd9b09a78ab97be177596596a7df018bbda931ba33bcd",
+      "bytes": 12220,
+      "passed": true
+    },
+    {
+      "role": "FGDC-184 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-184.xml",
+      "expected_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "actual_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "bytes": 4491,
+      "passed": true
+    },
+    {
+      "role": "FGDC-184 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-184.xml",
+      "expected_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "actual_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "bytes": 4491,
+      "passed": true
+    },
+    {
+      "role": "FGDC-184 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-184.xml",
+      "expected_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "actual_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "bytes": 4491,
+      "passed": true
+    },
+    {
+      "role": "FGDC-184 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-184.json",
+      "expected_sha256": "3c7c75efb2777bfedd47d3e8a63deb6ad5ca49f0618d1e40c7372fd4af4387d2",
+      "actual_sha256": "3c7c75efb2777bfedd47d3e8a63deb6ad5ca49f0618d1e40c7372fd4af4387d2",
+      "bytes": 5480,
+      "passed": true
+    },
+    {
+      "role": "FGDC-197 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-197.xml",
+      "expected_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "actual_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "bytes": 4223,
+      "passed": true
+    },
+    {
+      "role": "FGDC-197 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-197.xml",
+      "expected_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "actual_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "bytes": 4223,
+      "passed": true
+    },
+    {
+      "role": "FGDC-197 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-197.xml",
+      "expected_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "actual_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "bytes": 4223,
+      "passed": true
+    },
+    {
+      "role": "FGDC-197 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-197.json",
+      "expected_sha256": "b29e75e5895e361305d7900183c7689d1a060a0e9534f7e74ef9dd29f98f1811",
+      "actual_sha256": "b29e75e5895e361305d7900183c7689d1a060a0e9534f7e74ef9dd29f98f1811",
+      "bytes": 4867,
+      "passed": true
+    },
+    {
+      "role": "FGDC-248 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-248.xml",
+      "expected_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "actual_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "bytes": 4740,
+      "passed": true
+    },
+    {
+      "role": "FGDC-248 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-248.xml",
+      "expected_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "actual_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "bytes": 4740,
+      "passed": true
+    },
+    {
+      "role": "FGDC-248 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-248.xml",
+      "expected_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "actual_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "bytes": 4740,
+      "passed": true
+    },
+    {
+      "role": "FGDC-248 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-248.json",
+      "expected_sha256": "3b1f52ebe935d15fa7989647f2ca357b4b3d52a120025874477d0358944b9d37",
+      "actual_sha256": "3b1f52ebe935d15fa7989647f2ca357b4b3d52a120025874477d0358944b9d37",
+      "bytes": 5671,
+      "passed": true
+    },
+    {
+      "role": "FGDC-249 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-249.xml",
+      "expected_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "actual_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "bytes": 4326,
+      "passed": true
+    },
+    {
+      "role": "FGDC-249 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-249.xml",
+      "expected_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "actual_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "bytes": 4326,
+      "passed": true
+    },
+    {
+      "role": "FGDC-249 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-249.xml",
+      "expected_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "actual_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "bytes": 4326,
+      "passed": true
+    },
+    {
+      "role": "FGDC-249 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-249.json",
+      "expected_sha256": "6e8ae69eae3104990016644efc5e751d507b94b50d072246be9a237f067339ec",
+      "actual_sha256": "6e8ae69eae3104990016644efc5e751d507b94b50d072246be9a237f067339ec",
+      "bytes": 5055,
+      "passed": true
+    },
+    {
+      "role": "FGDC-250 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-250.xml",
+      "expected_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "actual_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "bytes": 4873,
+      "passed": true
+    },
+    {
+      "role": "FGDC-250 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-250.xml",
+      "expected_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "actual_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "bytes": 4873,
+      "passed": true
+    },
+    {
+      "role": "FGDC-250 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-250.xml",
+      "expected_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "actual_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "bytes": 4873,
+      "passed": true
+    },
+    {
+      "role": "FGDC-250 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-250.json",
+      "expected_sha256": "6a425ec0bebace930781462554940f8d33c22e02eebf163916501e82e6f7b229",
+      "actual_sha256": "6a425ec0bebace930781462554940f8d33c22e02eebf163916501e82e6f7b229",
+      "bytes": 5955,
+      "passed": true
+    },
+    {
+      "role": "FGDC-251 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-251.xml",
+      "expected_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "actual_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "bytes": 4318,
+      "passed": true
+    },
+    {
+      "role": "FGDC-251 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-251.xml",
+      "expected_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "actual_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "bytes": 4318,
+      "passed": true
+    },
+    {
+      "role": "FGDC-251 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-251.xml",
+      "expected_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "actual_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "bytes": 4318,
+      "passed": true
+    },
+    {
+      "role": "FGDC-251 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-251.json",
+      "expected_sha256": "4662084648d609a839fcd98d0c6bac41ea5a2051bf5f35bd15a669d4713c9987",
+      "actual_sha256": "4662084648d609a839fcd98d0c6bac41ea5a2051bf5f35bd15a669d4713c9987",
+      "bytes": 5045,
+      "passed": true
+    },
+    {
+      "role": "FGDC-254 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-254.xml",
+      "expected_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "actual_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "bytes": 4022,
+      "passed": true
+    },
+    {
+      "role": "FGDC-254 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-254.xml",
+      "expected_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "actual_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "bytes": 4022,
+      "passed": true
+    },
+    {
+      "role": "FGDC-254 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-254.xml",
+      "expected_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "actual_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "bytes": 4022,
+      "passed": true
+    },
+    {
+      "role": "FGDC-254 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-254.json",
+      "expected_sha256": "d339d1384641a94a8673562fba73540cac1787e7175135ae72c1e6619157e2ea",
+      "actual_sha256": "d339d1384641a94a8673562fba73540cac1787e7175135ae72c1e6619157e2ea",
+      "bytes": 4827,
+      "passed": true
+    },
+    {
+      "role": "FGDC-261 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-261.xml",
+      "expected_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "actual_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "bytes": 4057,
+      "passed": true
+    },
+    {
+      "role": "FGDC-261 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-261.xml",
+      "expected_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "actual_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "bytes": 4057,
+      "passed": true
+    },
+    {
+      "role": "FGDC-261 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-261.xml",
+      "expected_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "actual_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "bytes": 4057,
+      "passed": true
+    },
+    {
+      "role": "FGDC-261 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-261.json",
+      "expected_sha256": "7e549d6d9f6922f758f94f0bc39bc2251893f82086a6238b772f01b3b38f5e6c",
+      "actual_sha256": "7e549d6d9f6922f758f94f0bc39bc2251893f82086a6238b772f01b3b38f5e6c",
+      "bytes": 4803,
+      "passed": true
+    },
+    {
+      "role": "FGDC-262 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-262.xml",
+      "expected_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "actual_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "bytes": 4144,
+      "passed": true
+    },
+    {
+      "role": "FGDC-262 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-262.xml",
+      "expected_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "actual_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "bytes": 4144,
+      "passed": true
+    },
+    {
+      "role": "FGDC-262 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-262.xml",
+      "expected_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "actual_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "bytes": 4144,
+      "passed": true
+    },
+    {
+      "role": "FGDC-262 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-262.json",
+      "expected_sha256": "7c4f2f35fa1b35aa404d53b630cf1a2c506559af31818b16d07775d715c65642",
+      "actual_sha256": "7c4f2f35fa1b35aa404d53b630cf1a2c506559af31818b16d07775d715c65642",
+      "bytes": 4755,
+      "passed": true
+    },
+    {
+      "role": "FGDC-411 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-411.xml",
+      "expected_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "actual_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "bytes": 4424,
+      "passed": true
+    },
+    {
+      "role": "FGDC-411 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-411.xml",
+      "expected_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "actual_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "bytes": 4424,
+      "passed": true
+    },
+    {
+      "role": "FGDC-411 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-411.xml",
+      "expected_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "actual_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "bytes": 4424,
+      "passed": true
+    },
+    {
+      "role": "FGDC-411 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-411.json",
+      "expected_sha256": "cc17546c7178bf80790e6029dff52e4a4ab6236d067939f820ccd432c95ce4b0",
+      "actual_sha256": "cc17546c7178bf80790e6029dff52e4a4ab6236d067939f820ccd432c95ce4b0",
+      "bytes": 4951,
+      "passed": true
+    },
+    {
+      "role": "FGDC-2709 original XML",
+      "path": "/workspace/pices-main/FGDC/FGDC-2709.xml",
+      "expected_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "actual_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "bytes": 4863,
+      "passed": true
+    },
+    {
+      "role": "FGDC-2709 retained copied XML",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-2709.xml",
+      "expected_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "actual_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "bytes": 4863,
+      "passed": true
+    },
+    {
+      "role": "FGDC-2709 historical original XML",
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-2709.xml",
+      "expected_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "actual_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "bytes": 4863,
+      "passed": true
+    },
+    {
+      "role": "FGDC-2709 full legacy payload",
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-2709.json",
+      "expected_sha256": "4c875c4fb321bde1f6ba5a0f9a957366c895bc6e194c247393a65b6a9d1d16f5",
+      "actual_sha256": "4c875c4fb321bde1f6ba5a0f9a957366c895bc6e194c247393a65b6a9d1d16f5",
+      "bytes": 6288,
+      "passed": true
+    }
+  ],
+  "global_checks": [
+    {
+      "check": "primary evidence snapshot is deep-equal to pinned evidence document",
+      "passed": true
+    },
+    {
+      "check": "primary evidence reference names exact file/hash",
+      "passed": true
+    },
+    {
+      "check": "exact11 membership in numeric order",
+      "passed": true
+    },
+    {
+      "check": "exact proposed10 membership in numeric order",
+      "passed": true
+    },
+    {
+      "check": "exact held411 membership",
+      "passed": true
+    },
+    {
+      "check": "proposal frozen inventory group equals current retained inventory group",
+      "passed": true
+    },
+    {
+      "check": "proposal members equal inventory members",
+      "passed": true
+    },
+    {
+      "check": "source rows exactly match membership without repeats",
+      "passed": true
+    },
+    {
+      "check": "canonical membership_sha256",
+      "passed": true,
+      "detail": {
+        "declared": "442c8cedd8784e785e55af2573ba02afd70dc6b37dd83eb014ef8f9aac97136e",
+        "recomputed": "442c8cedd8784e785e55af2573ba02afd70dc6b37dd83eb014ef8f9aac97136e"
+      }
+    },
+    {
+      "check": "canonical proposed_membership_sha256",
+      "passed": true,
+      "detail": {
+        "declared": "958517de5e91e13f77bb6c93297fea4eeb0c02f5bbc18be43828447465b0f8f4",
+        "recomputed": "958517de5e91e13f77bb6c93297fea4eeb0c02f5bbc18be43828447465b0f8f4"
+      }
+    },
+    {
+      "check": "canonical held_membership_sha256",
+      "passed": true,
+      "detail": {
+        "declared": "b459b0ea158ca24e9ccb342d35d459551d68e13268f87abe40b8631af100839b",
+        "recomputed": "b459b0ea158ca24e9ccb342d35d459551d68e13268f87abe40b8631af100839b"
+      }
+    },
+    {
+      "check": "canonical source_rows_sha256",
+      "passed": true,
+      "detail": {
+        "declared": "bdd29e1da7c7a44e6e61e18d7b1bdfaa3d650efb4ca7827e4e795b4f8046c3fa",
+        "recomputed": "bdd29e1da7c7a44e6e61e18d7b1bdfaa3d650efb4ca7827e4e795b4f8046c3fa"
+      }
+    },
+    {
+      "check": "inventory membership digest equals proposal digest",
+      "passed": true
+    },
+    {
+      "check": "delivery exact inventory path/hash/group/membership binding",
+      "passed": true
+    },
+    {
+      "check": "delivery proposed IDs and digest match",
+      "passed": true
+    },
+    {
+      "check": "delivery hold IDs and digest match",
+      "passed": true
+    },
+    {
+      "check": "delivery source-row body digest matches",
+      "passed": true
+    },
+    {
+      "check": "delivery observed checkout head matches proposal",
+      "passed": true
+    },
+    {
+      "check": "group membership partitions exact11 without duplication",
+      "passed": true
+    },
+    {
+      "check": "five unique groups/four proposal groups/one held group",
+      "passed": true
+    },
+    {
+      "check": "primary evidence identifiers are unique",
+      "passed": true
+    },
+    {
+      "check": "declared counts agree with actual arrays",
+      "passed": true
+    },
+    {
+      "check": "scope retains source-only pending-review/no-admission boundary",
+      "passed": true
+    },
+    {
+      "check": "all read input/raw files unchanged during static check",
+      "passed": true
+    }
+  ],
+  "source_checks": [
+    {
+      "source_id": "FGDC-184",
+      "source_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "legacy_array_sha256": "a337d4e85b47eac7fefefa3f7a6a93ddd7b690b0273ff1839371afa884651f09",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-197",
+      "source_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "legacy_array_sha256": "b69164a79398526e6abef84dc7b93836d6f09e6e11bd9f3c2fec9ec813ac3551",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-248",
+      "source_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "legacy_array_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-249",
+      "source_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "legacy_array_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-250",
+      "source_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "legacy_array_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-251",
+      "source_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "legacy_array_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-254",
+      "source_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "legacy_array_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-261",
+      "source_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "legacy_array_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-262",
+      "source_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "legacy_array_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-411",
+      "source_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "legacy_array_sha256": "0fba8adb957e167e5e7d7290f4f1c7ee1d7bf2b7b084dd1c85fcdcd5ce12c2ab",
+      "legacy_count": 1,
+      "proposed_count": null,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "held411 array is null in row and group",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "source_id": "FGDC-2709",
+      "source_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "legacy_array_sha256": "15ff66ebd54fd7511e4b5e2ce0d2576523ceb8f1b6ba891e5c5480a99e9b1abc",
+      "legacy_count": 1,
+      "proposed_count": 1,
+      "all_checks_passed": true,
+      "checks": [
+        {
+          "check": "embedded full original XML equals raw source bytes",
+          "passed": true
+        },
+        {
+          "check": "embedded original hash and byte count",
+          "passed": true
+        },
+        {
+          "check": "source path names the current original",
+          "passed": true
+        },
+        {
+          "check": "primary origin strings equal XML recursive text",
+          "passed": true
+        },
+        {
+          "check": "source hash agrees with inventory member",
+          "passed": true
+        },
+        {
+          "check": "complete retained inventory row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete retained binding row deep equality",
+          "passed": true
+        },
+        {
+          "check": "complete frozen plan target deep equality",
+          "passed": true
+        },
+        {
+          "check": "plan target canonical hash matches both row and inventory",
+          "passed": true
+        },
+        {
+          "check": "retained and historical originals are byte-equal to current source",
+          "passed": true
+        },
+        {
+          "check": "historical payload reference equals prior binding path/hash",
+          "passed": true
+        },
+        {
+          "check": "full metadata plus all extra fields equal complete historical payload",
+          "passed": true
+        },
+        {
+          "check": "complete legacy arrays equal all source-policy/current-plan evidence",
+          "passed": true
+        },
+        {
+          "check": "creator complete-array digest agrees",
+          "passed": true
+        },
+        {
+          "check": "legacy full literal names/order/count equal primary origins",
+          "passed": true
+        },
+        {
+          "check": "census cluster reference binds exact member/hash and complete arrays",
+          "passed": true
+        },
+        {
+          "check": "census cluster membership digest",
+          "passed": true
+        },
+        {
+          "check": "census retained payload and creator hashes match",
+          "passed": true
+        },
+        {
+          "check": "row complete arrays/decision match assigned proposal group",
+          "passed": true
+        },
+        {
+          "check": "row rationale/evidence/preservation/gap match assigned group",
+          "passed": true
+        },
+        {
+          "check": "proposed exact shape/full literal/order/count preserved",
+          "passed": true
+        },
+        {
+          "check": "cited evidence identifiers exist and apply to source",
+          "passed": true
+        },
+        {
+          "check": "no current creator426 intersection and row claim exact",
+          "passed": true
+        },
+        {
+          "check": "current plan supported singleton and expected original raw binding",
+          "passed": true
+        },
+        {
+          "check": "current plan closed flags unchanged",
+          "passed": true
+        },
+        {
+          "check": "current plan unprotected identity unchanged",
+          "passed": true
+        },
+        {
+          "check": "source proposal retains false authority/change claims",
+          "passed": true
+        },
+        {
+          "check": "prior inventory authority flags remain false",
+          "passed": true
+        },
+        {
+          "check": "literal title/date/four-constraint field notes match original XML",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "input_stability": [
+    {
+      "path": "/tmp/pices-role-office11-modern-source-proposals.json",
+      "sha256": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd",
+      "unchanged": true
+    },
+    {
+      "path": "/tmp/pices-role-office11-primary-evidence.json",
+      "sha256": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66",
+      "unchanged": true
+    },
+    {
+      "path": "/tmp/pices-role-office11-source-delivery-receipt.json",
+      "sha256": "8488d300494ba9d1aafb33ff7138e355df7fec7a8acebb0725f128f81c521a71",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json",
+      "sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/publication_plan.json",
+      "sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-02/rehosting_authority.json",
+      "sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_institution91_source_bindings.json",
+      "sha256": "0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "sha256": "e7a1b1f1e1df9ddc282504aedf6074abdb9a2a0b2e4e2230270ec29a54c2e38b",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "sha256": "b31f0b7fd194afb9be121ce08cd5c7e4a7ef76a3c554902b9a462e8743b38ff1",
+      "unchanged": true
+    },
+    {
+      "path": "/tmp/pices-pr37-remaining-census.json",
+      "sha256": "64a19fe425a9e998fdce0afa8f47b6d38ff4cf58bb6f326573ea8dd2b1bb5043",
+      "unchanged": true
+    },
+    {
+      "path": "/tmp/pices-role-office11-modern-source-proposals.md",
+      "sha256": "d5d9223178adafde18d68d1304b0be471a3acec4800924ca3e12d32ddea5f520",
+      "unchanged": true
+    },
+    {
+      "path": "/tmp/pices-role-qualified-411-2709-office-capacity-addendum.json",
+      "sha256": "82bc879ffe99f3e0b1393acf7314b93ba51888a62b1e3eb1225a25061a32b65f",
+      "unchanged": true
+    },
+    {
+      "path": "/tmp/pices-role-qualified-411-2709-source-note.json",
+      "sha256": "d8f2456022638c75d4dbd9b09a78ab97be177596596a7df018bbda931ba33bcd",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-184.xml",
+      "sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-184.xml",
+      "sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-184.xml",
+      "sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-184.json",
+      "sha256": "3c7c75efb2777bfedd47d3e8a63deb6ad5ca49f0618d1e40c7372fd4af4387d2",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-197.xml",
+      "sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-197.xml",
+      "sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-197.xml",
+      "sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-197.json",
+      "sha256": "b29e75e5895e361305d7900183c7689d1a060a0e9534f7e74ef9dd29f98f1811",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-248.xml",
+      "sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-248.xml",
+      "sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-248.xml",
+      "sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-248.json",
+      "sha256": "3b1f52ebe935d15fa7989647f2ca357b4b3d52a120025874477d0358944b9d37",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-249.xml",
+      "sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-249.xml",
+      "sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-249.xml",
+      "sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-249.json",
+      "sha256": "6e8ae69eae3104990016644efc5e751d507b94b50d072246be9a237f067339ec",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-250.xml",
+      "sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-250.xml",
+      "sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-250.xml",
+      "sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-250.json",
+      "sha256": "6a425ec0bebace930781462554940f8d33c22e02eebf163916501e82e6f7b229",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-251.xml",
+      "sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-251.xml",
+      "sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-251.xml",
+      "sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-251.json",
+      "sha256": "4662084648d609a839fcd98d0c6bac41ea5a2051bf5f35bd15a669d4713c9987",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-254.xml",
+      "sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-254.xml",
+      "sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-254.xml",
+      "sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-254.json",
+      "sha256": "d339d1384641a94a8673562fba73540cac1787e7175135ae72c1e6619157e2ea",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-261.xml",
+      "sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-261.xml",
+      "sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-261.xml",
+      "sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-261.json",
+      "sha256": "7e549d6d9f6922f758f94f0bc39bc2251893f82086a6238b772f01b3b38f5e6c",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-262.xml",
+      "sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-262.xml",
+      "sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-262.xml",
+      "sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-262.json",
+      "sha256": "7c4f2f35fa1b35aa404d53b630cf1a2c506559af31818b16d07775d715c65642",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-411.xml",
+      "sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-411.xml",
+      "sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-411.xml",
+      "sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-411.json",
+      "sha256": "cc17546c7178bf80790e6029dff52e4a4ab6236d067939f820ccd432c95ce4b0",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-main/FGDC/FGDC-2709.xml",
+      "sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-2709.xml",
+      "sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-modern-residual-ci-20261006/FGDC/FGDC-2709.xml",
+      "sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "unchanged": true
+    },
+    {
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-2709.json",
+      "sha256": "4c875c4fb321bde1f6ba5a0f9a957366c895bc6e194c247393a65b6a9d1d16f5",
+      "unchanged": true
+    }
+  ],
+  "findings": [],
+  "limits": [
+    "No public web re-fetch or raw remote-body verification. The evidence explicitly retains parsed-text references rather than original remote bytes.",
+    "No Git checkout-head audit, semantic evidence appraisal, project import, runtime helper, test, preparation, provider/Zenodo/AquaDocs request, credential access, or repository edit.",
+    "Exact frozen historical payload equality is not a claim that those payloads are newly prepared or currently admitted."
+  ],
+  "operations": {
+    "project_imports": 0,
+    "tests": 0,
+    "preparations": 0,
+    "project_helpers": 0,
+    "network_requests": 0,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "credential_reads": 0,
+    "output_files_written": 1
+  },
+  "summary": {
+    "originals_checked": 11,
+    "unique_local_inputs_checked": 58,
+    "file_hash_checks": 60,
+    "global_checks": 24,
+    "source_checks": 319,
+    "findings": 0
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "kind": "source_only_role_office11_delivery_receipt",
+  "date": "2026-10-06",
+  "status": "FROZEN_PROPOSAL_READY_FOR_INDEPENDENT_SOURCE_REVIEW",
+  "artifacts": [
+    {"path":"/tmp/pices-role-office11-modern-source-proposals.json","sha256":"971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd"},
+    {"path":"/tmp/pices-role-office11-primary-evidence.json","sha256":"168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66"},
+    {"path":"/tmp/pices-role-office11-modern-source-proposals.md","sha256":"d5d9223178adafde18d68d1304b0be471a3acec4800924ca3e12d32ddea5f520"}
+  ],
+  "exact_inventory": {"path":"/workspace/pices-main/docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json","sha256":"15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a","group":"direct_role_qualified_offices11","membership_sha256":"442c8cedd8784e785e55af2573ba02afd70dc6b37dd83eb014ef8f9aac97136e"},
+  "source_checkout_head_observed": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+  "proposed_source_ids": ["FGDC-184","FGDC-197","FGDC-248","FGDC-249","FGDC-250","FGDC-251","FGDC-254","FGDC-261","FGDC-262","FGDC-2709"],
+  "proposed_membership_sha256": "958517de5e91e13f77bb6c93297fea4eeb0c02f5bbc18be43828447465b0f8f4",
+  "held_source_ids": ["FGDC-411"],
+  "held_membership_sha256": "b459b0ea158ca24e9ccb342d35d459551d68e13268f87abe40b8631af100839b",
+  "complete_source_rows_sha256": "bdd29e1da7c7a44e6e61e18d7b1bdfaa3d650efb4ca7827e4e795b4f8046c3fa",
+  "retained_exactness": "Eleven exact original byte hashes and embedded full XML strings, complete current legacy arrays, complete saved metadata examples, full current frozen plan targets, eight input pins and all five complete cohort arrays are included. Ten proposed arrays preserve the exact whole source names and organizational qualifiers; one complete array held.",
+  "static_source_data_crosschecks": {"all_eleven_original_and_embedded_xml_hashes_match":true,"all_eleven_historical_payload_and_copy_hashes_match":true,"all_legacy_array_comparisons_match":true,"all_eight_input_file_hashes_match":true,"all_member_group_evidence_bindings_present":true,"exact_membership_equals_inventory":true,"creator426_intersections":0,"all_current_plan_flags_closed":true},
+  "limits": [
+    "Source-only proposal; final independent review remains pending. Authoring-support challenge does not replace that review.",
+    "No repository edits, imports, tests, mapper execution, classification, preparation, measurement, provider/Zenodo/AquaDocs requests or credential access.",
+    "Complete raw XML is preserved and hash-checked. No new XML canonical-tree digest or parser run is claimed.",
+    "Public primary sources corroborate institutional capacity only; no imported identity, affiliation, role, date, license or access authority. Parsed web evidence has no remote raw-byte hash; child retrieval is explicitly attributed.",
+    "Current program20 scope, source/coverage totals, provider pause, spent unknown-create hold, supported-network-recovery requirement and user-deferred AquaDocs follow-up are unchanged."
+  ],
+  "remaining_blocker": "FGDC-411 lacks a supported institutional-office interpretation or primary-credit personal parts. Preserve full Professor Emeritus label and hold; do not promote the named contact. No new user permission gate is established.",
+  "next_step": "Parent assigns independent source review of this exact frozen proposal before any integration or preparation."
+}

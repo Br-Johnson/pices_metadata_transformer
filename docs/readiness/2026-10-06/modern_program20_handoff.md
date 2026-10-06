@@ -15,7 +15,10 @@ not remote verification or publication.
 
 All **74 guarded checks passed**: eight new tests and 66 affected-policy tests,
 with zero failures and no unexpected I/O. Independent [actual-result review](modern_program20_validation_review.json)
-also passed. Main publication and full CI are pending. The base commit
+also passed. Reviewed commit `7ea7a6476f3307b368cff1980a3c9fa45b40af88` is on main and passed
+929 full guarded CI tests. The [release receipt](modern_program20_release.json)
+and [final commit review](modern_program20_final_review.json) retain that evidence.
+Documentation-only completion preserves all tested code and source bindings. The base commit
 `8b84f9db5ea2d536de3ed01a60f147fc6cbc6246` does not contain the new implementation;
 local tests and measurements bind the actual frozen working bytes separately.
 
@@ -107,3 +110,8 @@ identity reconciliation, record QA, a separate human release, accepted community
 membership and default readback remain required. Only the separately assigned Mac
 executor can act under a new bounded parent grant. AquaDocs remains deferred until
 after initial publication and is neither completed nor an initial blocker.
+
+
+The [source-only follow-up archive](next_source_review/README.md) preserves independently
+reviewed interpretations for 31 additional singletons and 25 remaining pairs. Its
+designs are unimplemented; the actual 3,808-target coverage above is unchanged.

@@ -22,8 +22,8 @@ historical refs. Subsequent implementation uses the maintained main checkout.
 The [exact program20 increment](docs/readiness/2026-10-06/modern_program20_handoff.md)
 and its [guarded measurements](docs/readiness/2026-10-06/modern_program20_validation.json)
 cover **3,808 prepared targets / 4,011 originals**; **125 supported targets remain**
-(100 singletons and 25 pairs). All 74 focused/affected tests and independent code/result reviews passed;
-main publication and full CI are pending. Source eligibility is unchanged, and
+(100 singletons and 25 pairs). The [release receipt](docs/readiness/2026-10-06/modern_program20_release.json) records
+independent commit review, 74 focused/affected checks and 929 passing full CI tests. Source eligibility is unchanged, and
 paired execution remains disabled. The earlier completed milestone follows.
 
 The [exact reviewed194 increment](docs/readiness/2026-10-06/modern_reviewed_creators194_handoff.md)

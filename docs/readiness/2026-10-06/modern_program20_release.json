@@ -1,0 +1,422 @@
+{
+  "aggregate_validation_file": "docs/readiness/2026-10-06/modern_program20_validation.json",
+  "aggregate_validation_sha256": "23efeba9c464769f8050af26224679aabbe3995c3b725c9ae436b56498a00a8e",
+  "aquadocs": {
+    "completed": false,
+    "decision": "deferred_by_user_until_after_initial_publication",
+    "decision_file": "docs/readiness/2026-10-06/aquadocs_deferred_followup.json",
+    "exclusions_added": 0,
+    "initial_publication_blocker": false,
+    "links_added": 0,
+    "passed": false
+  },
+  "branch": "main",
+  "complete_creator_arrays": 17,
+  "coverage": {
+    "fresh_new_prepare_calls": 40,
+    "new_class_execution_enabled": false,
+    "new_program_singletons": 20,
+    "prior_retained_class_targets": 203,
+    "prior_retained_singletons": 3585,
+    "retained_class_prepare_comparisons": 203,
+    "retained_input_prepare_comparisons": 3585,
+    "total_class_targets": 203,
+    "total_represented_originals": 4011,
+    "total_singletons": 3605,
+    "total_wire_prepared_targets": 3808
+  },
+  "creator_authority": "existing creator426 profile; unchanged",
+  "documentation_followup": {
+    "checks": "JSON, document links, exact source/runtime/policy and original-XML Git-object preservation",
+    "full_ci_evidence_is_for_reviewed_code_head": true,
+    "full_ci_rerun_for_documentation_only": false,
+    "runtime_source_tests_unchanged": true,
+    "skip_mechanism_reference": "https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs"
+  },
+  "evidence_scope": "Reviewed code and preparation only; no source promotion, identity adoption, provider grant/outcome, PICES membership or publication approval.",
+  "focused_checks_file": "docs/readiness/2026-10-06/modern_program20_focused_checks.json",
+  "focused_checks_sha256": "4df1f0026ce395f28f1d3861beecbf25c20b4fbde35672abdf60ff16d30f5433",
+  "full_ci": {
+    "conclusion": "success",
+    "job_id": 112439052315,
+    "log_sha256": "bb7d1cd7f63d7ed694c47177f65e0b69d2f750ccc926e300151112b6c288ac72",
+    "result": {
+      "commit": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 0,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 72,
+      "seconds": 2734.709,
+      "selected_modules": [
+        "all"
+      ],
+      "source_bindings_unchanged": true,
+      "source_tree_sha256": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7",
+      "successful": true,
+      "tests_run": 929,
+      "unexpected_guard_call_sites": []
+    },
+    "run_id": 37513103035,
+    "status": "completed",
+    "url": "https://github.com/Br-Johnson/pices_metadata_transformer/actions/runs/37513103035"
+  },
+  "handoff": "docs/readiness/2026-10-06/modern_program20_handoff.md",
+  "historical_runtime_bridge": {
+    "all_nonruntime_evidence_identical_required": true,
+    "new_policy_backdating": false,
+    "only_eight_then_existing_policies": true,
+    "original_state_modified": false,
+    "reviewed194_runtime_sha256": "6cc86a1740fcd93e65d42e21b1c199c160974c607be54db71f43d3e25466349e"
+  },
+  "independent_aggregate_review_sha256": "90666e22ac3139bb0683edfd3ba3f7c1deb06a8ac2c32e56feeb4654ec98d431",
+  "independent_code_review": {
+    "file": "docs/readiness/2026-10-06/modern_program20_final_review.json",
+    "receipt_sha256": "3804e30a6b47c6fec32db2e116a66f81c1b3283f2d7bcaf55bd70a625a144dd5",
+    "reviewer": "/root/direct_credit_review_b",
+    "status": "APPROVE_NO_MATERIAL_FINDINGS"
+  },
+  "independent_source_review_sha256": "f0cfcd9a0fe12cdac1d52cd399355c2da09033c0e42a2279140c555bb2bd983b",
+  "kind": "pices-modern-program20-code-release",
+  "measurement_code_state": {
+    "base_revision": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+    "base_revision_is_new20_code_commit": false,
+    "kind": "frozen_staged_working_tree",
+    "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+    "source_tree_file_count": 188,
+    "source_tree_sha256": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7"
+  },
+  "modern_creator_objects": 29,
+  "new_production_publications_verified": 0,
+  "new_source_count": 20,
+  "original_create_outcome": "unresolved",
+  "original_create_replay": false,
+  "paired_execution": {
+    "design_file": "docs/readiness/2026-10-06/modern_paired_execution_design.md",
+    "design_sha256": "a75d3d1f55f219d3f897582998ffe381aa75b99380e4157cf0c64f866eaafdc6",
+    "implemented": false,
+    "necessary_scope": "Exact two-member identity and durable action state, per-file completion, seven-GET fences, class QA/release and community-first publication.",
+    "provider_grant": null
+  },
+  "parent": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+  "preserved_gates": [
+    "internal_and_production_identity_dedup",
+    "source_QA",
+    "uncertain_create_hold",
+    "accepted_PICES_membership_and_default_remote_readback",
+    "sole_executor_and_separate_parent_grants",
+    "separate_publication_release"
+  ],
+  "provider_dispatch_authorized": false,
+  "provider_hold": {
+    "assessment_sha256": "3a51888432ea533025a384cfd04cd093ceceb46687f3a46e139872548ae3328c",
+    "checked_at": "2026-10-06T13:18:42Z",
+    "current_public_GET_status": 403,
+    "original_create_cause": "unknown",
+    "source": "parent-relayed evidence; no provider calls in code lane",
+    "status": "support_pending",
+    "ticket": "3327790"
+  },
+  "provider_requests": 0,
+  "recovery_handoff": {
+    "file": "docs/readiness/2026-10-06/modern_unknown_create_release.json",
+    "frozen_runtime_sha256": "d1055bf636fe04299be2b670af1b3aeefcae6c64149996b85cea469b672ea4f2",
+    "sha256": "e0d34c46903066b95e55786dcbc0f9e82089b9ceadb8b9f91199c019b1ac8bbf"
+  },
+  "remaining": {
+    "pairs": 25,
+    "singletons": 100,
+    "supported_targets": 125
+  },
+  "remaining_source_inventory": {
+    "file": "docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json",
+    "scope": "Frozen dependency reconciliation; later source-only proposals are not implemented coverage.",
+    "sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a"
+  },
+  "repository": "Br-Johnson/pices_metadata_transformer",
+  "retained_hold_sets": {
+    "personal29": [
+      {
+        "source_id": "FGDC-542",
+        "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c"
+      },
+      {
+        "source_id": "FGDC-885",
+        "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+      },
+      {
+        "source_id": "FGDC-887",
+        "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+      },
+      {
+        "source_id": "FGDC-893",
+        "source_sha256": "696bb0f03106622c6ad0585cb36209b56bcc65fd94b82278607becbb36725b5c"
+      },
+      {
+        "source_id": "FGDC-2234",
+        "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+      },
+      {
+        "source_id": "FGDC-2413",
+        "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728"
+      },
+      {
+        "source_id": "FGDC-2587",
+        "source_sha256": "e0524fa518c066a4d2b40886bd53c3fcea4073c7b02e12ce5a331aad2a957f65"
+      },
+      {
+        "source_id": "FGDC-2674",
+        "source_sha256": "b38af5b7f620dc0051fcdd79354dd4fc23efde7b6837a4c410d6ec02a07426f0"
+      },
+      {
+        "source_id": "FGDC-2683",
+        "source_sha256": "190e3cff17272e516358f6cf106a491e19ba98d5f8de4d7f32f11c360b9b832f"
+      },
+      {
+        "source_id": "FGDC-3680",
+        "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+      },
+      {
+        "source_id": "FGDC-3681",
+        "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+      },
+      {
+        "source_id": "FGDC-3800",
+        "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+      },
+      {
+        "source_id": "FGDC-3802",
+        "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+      },
+      {
+        "source_id": "FGDC-3803",
+        "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+      },
+      {
+        "source_id": "FGDC-3804",
+        "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+      },
+      {
+        "source_id": "FGDC-3805",
+        "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+      },
+      {
+        "source_id": "FGDC-3806",
+        "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+      },
+      {
+        "source_id": "FGDC-3807",
+        "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+      },
+      {
+        "source_id": "FGDC-3808",
+        "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+      },
+      {
+        "source_id": "FGDC-3809",
+        "source_sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9"
+      },
+      {
+        "source_id": "FGDC-3810",
+        "source_sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e"
+      },
+      {
+        "source_id": "FGDC-3812",
+        "source_sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640"
+      },
+      {
+        "source_id": "FGDC-3814",
+        "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+      },
+      {
+        "source_id": "FGDC-3816",
+        "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+      },
+      {
+        "source_id": "FGDC-3817",
+        "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+      },
+      {
+        "source_id": "FGDC-3825",
+        "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+      },
+      {
+        "source_id": "FGDC-3831",
+        "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+      },
+      {
+        "source_id": "FGDC-3838",
+        "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+      },
+      {
+        "source_id": "FGDC-3851",
+        "source_sha256": "c84125a527d9746840b85c1abc78c580e49648c0cbe54a93a69fb544663d672e"
+      }
+    ],
+    "program_unaami29": [
+      {
+        "source_id": "FGDC-419",
+        "source_sha256": "71853896a5ae9232d45166d89d06ceceda9f533e1fac5d0ea67c4dba899c18dc"
+      },
+      {
+        "source_id": "FGDC-545",
+        "source_sha256": "82ac680b3d26bb8f80b4642d21e314813247a8ba74c3faddd7d73bfffbd89e23"
+      },
+      {
+        "source_id": "FGDC-546",
+        "source_sha256": "8f6d9e0d603255b0156a6c6b356e6973f2429c782672406a5b50827400483662"
+      },
+      {
+        "source_id": "FGDC-547",
+        "source_sha256": "777f31dd1bd7686f8a94a6559efc27bd11255d1c3ee7feeebdd1b180ae3b8724"
+      },
+      {
+        "source_id": "FGDC-548",
+        "source_sha256": "e48070eb5a688b732bce467796b932f80ecbe600e7e3297e68d5709538629c7c"
+      },
+      {
+        "source_id": "FGDC-549",
+        "source_sha256": "b27410843d7a077362d7348cfa5da3c0889dde6850ce97fe23515c2094ac06d3"
+      },
+      {
+        "source_id": "FGDC-550",
+        "source_sha256": "703288a7c4460de563e91b6cab47ab41fcf62b6fc41f30c92910dedf8426d14b"
+      },
+      {
+        "source_id": "FGDC-551",
+        "source_sha256": "26031acb0be2cd0ccf8b63623fbe5d4453d3415f748dcd083c5a55acc259a16a"
+      },
+      {
+        "source_id": "FGDC-552",
+        "source_sha256": "342928f5a48294371b35eca91d0303065d5dfdb1eb151195bfe20621ec9c7bd8"
+      },
+      {
+        "source_id": "FGDC-553",
+        "source_sha256": "ad5907dd4660cb821b828e980a023a08c7b65d4a2f59a0fcb4f484049a7191a8"
+      },
+      {
+        "source_id": "FGDC-554",
+        "source_sha256": "3189d71b2848856a1bdba644c05fbfeb33e09f7c1fe7bdef1c366f6ce00d7c21"
+      },
+      {
+        "source_id": "FGDC-556",
+        "source_sha256": "006d4437d0049c3762958209ffe02ed4f0df5f1b1ef54acdd30276375ad0008f"
+      },
+      {
+        "source_id": "FGDC-557",
+        "source_sha256": "b61781d15506505c3cec592f53250e0429944f5da578c5ac79a54959fff2a7c7"
+      },
+      {
+        "source_id": "FGDC-558",
+        "source_sha256": "07ff9e68edab62873e6db271c43f2908462478009d2ca861bafbd5f918dc60b9"
+      },
+      {
+        "source_id": "FGDC-559",
+        "source_sha256": "facb54511675fc9c0403c9616998575af910b3e5b4cd948fe77fe5bab2042700"
+      },
+      {
+        "source_id": "FGDC-560",
+        "source_sha256": "e1701f70ad40d3b4f50c57239bc15c71de793d55e89e821b6ad9b66917c067cf"
+      },
+      {
+        "source_id": "FGDC-573",
+        "source_sha256": "8f169b58da27c345ed4f4111d6419d89749fb6be11cfb042326d6f5563d8bbe9"
+      },
+      {
+        "source_id": "FGDC-574",
+        "source_sha256": "f76cfeb5103c7ebc9ba1108d9cbfd22b94a889a8aea800521b047bf8c02747ac"
+      },
+      {
+        "source_id": "FGDC-575",
+        "source_sha256": "12f2a7bd8cf3c4587424b343414e61cbf7fcfe8cbd5378f13b219e746376d214"
+      },
+      {
+        "source_id": "FGDC-576",
+        "source_sha256": "5ee0491be59e811aae0a1eda9508a22c6fa837bc893ac9f818d2147e38cbdaa9"
+      },
+      {
+        "source_id": "FGDC-578",
+        "source_sha256": "734e45aec7e8eef957cacf29a479b54c16f21130260a97724016e2a75d17df09"
+      },
+      {
+        "source_id": "FGDC-579",
+        "source_sha256": "8bb135ccc245a35398d8279d887e6c2c5911b6d1029060bb3fea0f2584d8da1b"
+      },
+      {
+        "source_id": "FGDC-580",
+        "source_sha256": "139a5568a7bbf46daacd63128812124fd9a0033c48532d8313d1735d4fdf95a4"
+      },
+      {
+        "source_id": "FGDC-581",
+        "source_sha256": "b384c383a8621f38a6b734b4f88690efb33add6f1123178dd7670385e021e23c"
+      },
+      {
+        "source_id": "FGDC-715",
+        "source_sha256": "e1b36e7702814f7fa4fe104076d422df26252506785d4a61755e0a2f35ae5278"
+      },
+      {
+        "source_id": "FGDC-859",
+        "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4"
+      },
+      {
+        "source_id": "FGDC-2296",
+        "source_sha256": "8f1bc867c1ad8bdd8d842dbc294360def39bbc57d145c90113f3877f084e079a"
+      },
+      {
+        "source_id": "FGDC-3873",
+        "source_sha256": "a69efb77584a9d7f7a57f027061db3fc7cab02e99af265682b83e10fa49464bb"
+      },
+      {
+        "source_id": "FGDC-3970",
+        "source_sha256": "0e6fe45c03f5d1ab78a70fef4ccd36c395a0090c02be4b6c93e8fb21c4a3d8b2"
+      }
+    ]
+  },
+  "retained_profile_file_count": 32,
+  "retained_public_file_count": 39232,
+  "reviewed_head": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+  "reviewed_tree": "8a483aef1629d26123812afe1c8a8ee48b95954d",
+  "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+  "schema_version": 1,
+  "sole_provider_executor": "01a0f3ae-ee1c-7046-9b04-36d35803903c",
+  "source_integrity": {
+    "original_FGDC_git_tree": "6c509a3e62252888a6709d1df94bcf109b83241b",
+    "original_xml_aggregate_sha256": "3430315763379ef81c393cca00eb776952df3ad3f66856ef4b15edd48e396013",
+    "original_xml_count": 4206
+  },
+  "source_manifest_file": "docs/readiness/2026-10-06/modern_program20.json",
+  "source_manifest_sha256": "0485e9c5e24566df94ad59397b8bdf2ebde375e88504d9f419bc61b71a0b20e1",
+  "source_packet_sha256": "56f6e99cefe31bcba6802781e2746771947d448cd2c9ad4cde4c66d58c35653d",
+  "source_status_unchanged": {
+    "malformed_targets": 6,
+    "source_held_targets": 39,
+    "source_promotions": 0,
+    "supported_pair_targets": 228,
+    "supported_singletons": 3705,
+    "supported_targets": 3933
+  },
+  "source_test_file_count": 188,
+  "source_test_sha256": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7",
+  "status": "reviewed_main_code_ready_provider_dispatch_held",
+  "support_ticket_observation": {
+    "observed_at": "2026-10-06T17:33:00Z",
+    "provenance": "parent-reported; root has not independently fetched the support response",
+    "provider_requests_resumed": false,
+    "status": "automated acknowledgement only",
+    "ticket": "3327790"
+  },
+  "workflow": "standing-authorized direct-main implementation after branch reconciliation"
+}
