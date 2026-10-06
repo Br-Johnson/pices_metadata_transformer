@@ -4,12 +4,15 @@ This project transforms 4,206 FGDC XML metadata records to Zenodo JSON format an
 
 ## Agent repository workflow
 
-Brett's standing authorization of 2026-10-04 permits agents to merge pull requests
-without another approval after passing CI and a Codex review of the current PR
-head. Agents may also commit rules changes and other documentation updates
-directly to `main`. The current [agent rules](AGENTS.md) supersede older repository
-approval instructions retained in historical plans and handoffs. Provider action
-grants and production release requirements continue to apply independently.
+Brett's current authorization permits merging pull requests without another
+approval after CI passes and Codex review covers the current head. After
+reconciling current relevant branch work, authorized implementation continues
+directly on `main`, with appropriate checks and independent review before
+publication. Rules and documentation updates may also be committed directly to
+`main`. The current [agent rules](AGENTS.md) supersede older approval and routine
+feature-branch instructions retained in historical checkouts, plans and handoffs.
+Preserve those checkpoints and branches as evidence. Existing provider action
+grants, source integrity and production release requirements remain effective.
 
 The current [community-first release handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md)
 holds the first production draft for actual Mac-reviewed PICES authority, record
