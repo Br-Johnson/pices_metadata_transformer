@@ -37,6 +37,11 @@ EXTENSION_POLICY = 'modern-xml-organizations86-v1'
 DIRECT_PROFILE = ROOT / 'docs/readiness/2026-10-06/modern_direct_primary_organizations.json'
 DIRECT_SHA = '35512b48636ae563acfc26a77c547699bba2dfe767e414e995e83079e3f3eb13'
 DIRECT_POLICY = 'modern-xml-direct-organizations-v1'
+EXXON_PROFILE = ROOT / 'docs/readiness/2026-10-02/exxon_citation_interpretation.json'
+EXXON_SHA = 'ee49147aec99d83cf54cb7fa4e59f7e50229967af0f08f5408e97144367e99e5'
+EXXON_MAPPING = ROOT / 'docs/readiness/2026-10-06/modern_exxon_singletons412.json'
+EXXON_MAPPING_SHA = '5dbfeb098ee8b3bbad0e06d020c1c14c88e32363d45fab4e69a5cc961482a94f'
+EXXON_POLICY = 'modern-xml-exxon412-v1'
 PRESERVATION_LABEL = (
     'Legacy assembled metadata, preserved without field loss. Publisher values in this '
     'block are legacy mapping values, not independently source-attested publishers. '
@@ -160,10 +165,55 @@ def direct_source_policy(source_id):
             if member['source_id'] == source_id:
                 matches.append(group)
     require(len(profiles) == len(set(profiles)) and len(ids) == len(set(ids)) == manifest['member_count']
-            and len(matches) == 1)
+            and len(matches) <= 1)
+    if not matches:
+        return exxon_source_policy(source_id)
     selected = matches[0]
     return selected, {'schema_version': 3, 'policy': DIRECT_POLICY,
                       'mapping_manifest_sha256': DIRECT_SHA, 'creator_cohort': selected['profile']}
+
+
+def exxon_source_policy(source_id):
+    """One reviewed mixed creator projection; never split arbitrary source names."""
+    manifest = pinned(EXXON_MAPPING, EXXON_MAPPING_SHA)
+    profile = pinned(EXXON_PROFILE, EXXON_SHA)
+    require(isinstance(manifest, dict) and set(manifest) == {
+        'schema_version', 'kind', 'policy', 'profile', 'source_plan_sha256',
+        'creator_profile_sha256', 'review_sha256', 'service_contract_sha256',
+        'creators', 'modern_creators', 'members'}
+        and type(manifest['schema_version']) is int and manifest['schema_version'] == 1
+        and manifest['kind'] == 'modern-exxon-singletons-v1' and manifest['policy'] == EXXON_POLICY
+        and manifest['profile'] == profile['profile']
+        and manifest['source_plan_sha256'] == PLAN_SHA
+        and manifest['creator_profile_sha256'] == EXXON_SHA
+        and manifest['creators'] == profile['creators']
+        and isinstance(manifest['members'], list) and len(manifest['members']) == 412)
+    modern = manifest['modern_creators']
+    require(isinstance(modern, list) and len(modern) == len(profile['creators']) == 3)
+    for legacy, current in zip(profile['creators'], modern, strict=True):
+        if legacy.get('type') == 'Organization':
+            require(current == {'person_or_org': {'name': legacy['name'], 'type': 'organizational'}})
+        else:
+            require(isinstance(current, dict) and set(current) == {'person_or_org', 'affiliations'})
+            person = current['person_or_org']
+            require(isinstance(person, dict) and set(person) == {'type', 'family_name', 'given_name'}
+                    and person['type'] == 'personal'
+                    and all(isinstance(person[key], str) and person[key].strip()
+                            for key in ('family_name', 'given_name'))
+                    and person['family_name'] + ', ' + person['given_name'] == legacy['name']
+                    and current['affiliations'] == [{'name': legacy['affiliation']}])
+    original = {member['source_id']: member['source_sha256'] for member in profile['members']}
+    ids = []
+    for member in manifest['members']:
+        require(isinstance(member, dict) and set(member) == {'source_id', 'source_sha256'}
+                and isinstance(member['source_id'], str) and member['source_id'] in original
+                and member['source_sha256'] == original[member['source_id']]
+                and member['source_id'] not in PROTECTED)
+        ids.append(member['source_id'])
+    require(len(set(ids)) == 412 and ids == sorted(ids, key=lambda sid: int(sid[5:]))
+            and source_id in ids)
+    return manifest, {'schema_version': 4, 'policy': EXXON_POLICY,
+                      'mapping_manifest_sha256': EXXON_MAPPING_SHA, 'creator_cohort': profile['profile']}
 
 
 def runtime_binding():
@@ -187,6 +237,20 @@ def validate_payload(payload):
             and meta['resource_type'] == {'id': 'other'} and meta['publisher'] == 'Zenodo'
             and all(isinstance(meta[key], str) and meta[key] for key in
                     ('title', 'description', 'publication_date')))
+    require(isinstance(meta['creators'], list) and meta['creators'])
+    for creator in meta['creators']:
+        require(isinstance(creator, dict) and set(creator) <= {'person_or_org', 'affiliations'})
+        person = creator.get('person_or_org')
+        require(isinstance(person, dict))
+        keys = ({'type', 'family_name', 'given_name'} if person.get('type') == 'personal'
+                else {'type', 'name'})
+        require(person.get('type') in ('personal', 'organizational') and set(person) == keys
+                and all(isinstance(person[key], str) and person[key].strip() for key in keys))
+        if 'affiliations' in creator:
+            require(isinstance(creator['affiliations'], list) and creator['affiliations']
+                    and all(isinstance(value, dict) and set(value) == {'name'}
+                            and isinstance(value['name'], str) and value['name'].strip()
+                            for value in creator['affiliations']))
 
 
 @dataclass(frozen=True)
@@ -216,11 +280,13 @@ def prepare(json_file, paths):
     policy = payload.get('artifact_policy', {})
     require(isinstance(policy, dict))
     direct = policy_fields['policy'] == DIRECT_POLICY
+    exxon = policy_fields['policy'] == EXXON_POLICY
+    authority_sha = EXXON_SHA if exxon else (DIRECT_SHA if direct else PROFILE_SHA)
     if direct:
         require('creator_interpretation' not in policy)
     else:
         reference = policy.get('creator_interpretation', {})
-        require(isinstance(reference, dict) and reference.get('manifest_sha256') == PROFILE_SHA)
+        require(isinstance(reference, dict) and reference.get('manifest_sha256') == authority_sha)
     metadata, source_sha, artifact, _ = assess_source(json_file, paths)
     xml = (ROOT / 'FGDC' / (sid + '.xml')).read_bytes()
     require(source_sha == sha(xml) == members[sid] and artifact is not None
@@ -235,17 +301,21 @@ def prepare(json_file, paths):
             and target['identity_decision']['production_record_id'] is None
             and target['identity_decision']['production_doi'] is None)
     validate_restricted_metadata(metadata)
-    require(metadata['creators'] == selected['creators']
-            and all(set(c) == {'name', 'type'} and c['type'] == 'Organization'
+    require(metadata['creators'] == selected['creators'])
+    if exxon:
+        creators = selected['modern_creators']
+    else:
+        require(all(set(c) == {'name', 'type'} and c['type'] == 'Organization'
                     for c in selected['creators']))
+        creators = [{'person_or_org': {'name': c['name'], 'type': 'organizational'}}
+                    for c in metadata['creators']]
     keywords = metadata.get('keywords', [])
     require(isinstance(keywords, list) and all(isinstance(k, str) and k.strip() for k in keywords))
     legacy = encode(metadata)
     preservation = '<p>' + PRESERVATION_LABEL + '</p><pre>' + html.escape(legacy.decode()) + '</pre>'
     wire = {'metadata': {
         'resource_type': {'id': 'other'}, 'title': metadata['title'],
-        'creators': [{'person_or_org': {'name': c['name'], 'type': 'organizational'}}
-                     for c in metadata['creators']],
+        'creators': creators,
         'publication_date': metadata['publication_date'], 'publisher': 'Zenodo',
         'description': metadata['description'], 'subjects': [{'subject': k} for k in keywords],
         'additional_descriptions': [{'type': {'id': 'other'}, 'description': preservation}],
@@ -255,7 +325,7 @@ def prepare(json_file, paths):
     evidence = {**policy_fields, 'source_id': sid,
                 'source_sha256': source_sha, 'prepared_input_sha256': sha(raw_input),
                 'legacy_metadata_sha256': sha(legacy), 'wire_sha256': sha(body),
-                'artifact_contract': artifact, 'creator_profile_sha256': DIRECT_SHA if direct else PROFILE_SHA,
+                'artifact_contract': artifact, 'creator_profile_sha256': authority_sha,
                 'source_plan_sha256': PLAN_SHA, 'runtime_sha256': runtime_binding(),
                 'schema_sha256': {name: digest for name, (_, digest) in SCHEMA_FILES.items()}}
     return Prepared(sid, body, xml, evidence, sha(encode(evidence)))
@@ -279,11 +349,29 @@ def compare_metadata(actual, expected):
     require(isinstance(creators, list) and len(creators) == len(expected['creators']))
     for value, wanted in zip(creators, expected['creators'], strict=True):
         require(isinstance(value, dict) and set(value) <= {'person_or_org', 'affiliations', 'role'}
-                and value.get('affiliations') in (None, []) and value.get('role') in (None, {}))
+                and value.get('role') in (None, {}))
+        affiliations = wanted.get('affiliations', [])
+        if affiliations:
+            actual_affiliations = value.get('affiliations')
+            require(isinstance(actual_affiliations, list) and len(actual_affiliations) == len(affiliations))
+            for actual_affiliation, affiliation in zip(actual_affiliations, affiliations, strict=True):
+                require(isinstance(actual_affiliation, dict)
+                        and set(actual_affiliation) <= {'name', 'identifiers'}
+                        and actual_affiliation.get('name') == affiliation['name']
+                        and actual_affiliation.get('identifiers') in (None, []))
+        else:
+            require(value.get('affiliations') in (None, []))
         person = value.get('person_or_org')
-        require(isinstance(person, dict) and set(person) <= {'name', 'type', 'identifiers'}
-                and person.get('identifiers') in (None, [])
-                and all(person.get(k) == v for k, v in wanted['person_or_org'].items()))
+        expected_person = wanted['person_or_org']
+        require(isinstance(person, dict) and person.get('identifiers') in (None, [])
+                and all(person.get(key) == wanted_value for key, wanted_value in expected_person.items()))
+        if expected_person['type'] == 'personal':
+            require(set(person) <= {'name', 'type', 'family_name', 'given_name', 'identifiers'})
+            # The pinned service derives this display from the two reviewed fields.
+            if 'name' in person:
+                require(person['name'] == expected_person['family_name'] + ', ' + expected_person['given_name'])
+        else:
+            require(set(person) <= {'name', 'type', 'identifiers'})
     descriptions = actual.get('additional_descriptions')
     require(isinstance(descriptions, list) and len(descriptions) == 1)
     value, wanted = descriptions[0], expected['additional_descriptions'][0]

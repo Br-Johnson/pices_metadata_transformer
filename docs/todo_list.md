@@ -1,9 +1,26 @@
-## Active increment: next finite primary-citation mapping cohort — 2026-10-06
+## Active increment: next remaining modern target group — 2026-10-06
+
+- [x] Reconcile PR37 main `ad7ea769`, 730 actual CI tests and reviewed tree `7e0bc655`; preserve its frozen checkout and evidence.
+- [x] Partition all 1,200 remaining supported targets and select exactly 412 unprotected Exxon-profile singletons; retain the two protected profile members, 203 related pairs and all other source/identity boundaries.
+- [x] Measure all 412 fresh mappings and repeats, unchanged wire/nonruntime evidence for all 2,733 prior mappings, and all 4,206 original XML hashes. Pass 148 focused guarded tests. Actual modern coverage is 3,145; 788 supported targets remain outside (560 singletons + 228 pairs).
+- [ ] Complete independent current-head review, actual CI, normal merge and executable handoff.
+
+Parent reports the sole Mac executor completed the bounded Sandbox draft612988
+upload/readback canary at revision13: exact 439-byte XML downloads and repeat/final
+fence passed, draft unpublished with no PID. Closure SHA256
+`e109ae135006ba5829ff44e8e0da289e6cc985f7c506d7a57e9f89bf565df948` remains Mac-local.
+Reported cumulative counts are 220 GET / 9 PUT / 1 create / 1 UI / 1 file-init /
+0 commits. A separate reviewed production-client repair must support the observed
+already-completed upload and identical duplicate binary Content-Type before a
+production batch. This code lane performs no provider action or production
+publication. See the [executable handoff](readiness/2026-10-06/modern_exxon_handoff.md).
+
+## Completed increment: direct primary-citation mapping — 2026-10-06
 
 - [x] Reconcile PR36 merge `5755a26`, its 715 passing actual guarded CI tests and exact-head independent Codex review; retain its frozen tree and all receipts.
 - [x] Independently review 357 direct-citation groups covering 2,697 typed candidates; select exactly 294 groups / 2,628 sources and retain 69 mapping holds. Review receipts and exact source/hash/origin/creator manifest are frozen.
 - [x] Verify all 2,628 fresh mappings and repeats across four guarded shards, unchanged original 105 wire/nonruntime beforeimages, all 4,206 original XML hashes and 130 passing focused tests. Actual modern coverage is 2,733; 1,200 supported targets remain outside (972 singletons + 228 pairs). All source/state/rights/identity boundaries remain effective.
-- [ ] Obtain independent current-head review, pass actual CI, merge under standing repository authority and provide frozen execution instructions.
+- [x] Merge PR37 at `ad7ea7691217686b20a72685cfd57868fd217613` after exact-head independent Codex approval and 730 passing actual guarded CI tests; main/tree/parents and original FGDC tree verified.
 
 Parent's corrected live report: on October 6 around 00:36 UTC the Mac canary
 received baseline GET 200 and metadata PUT 200 (517-byte payload, If-Match 11),

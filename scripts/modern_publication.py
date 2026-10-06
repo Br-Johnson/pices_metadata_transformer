@@ -22,6 +22,7 @@ from pathlib import Path
 from scripts import modern_singleton_executor as draft
 from scripts.mac_sandbox_canary import echoed
 from scripts.modern_singleton import (
+    DIRECT_POLICY,
     EXTENSION_POLICY,
     POLICY,
     Held,
@@ -41,6 +42,7 @@ from scripts.upload_service import atomic_json, ledger_lock, read_json
 PR34_RUNTIME = '0f0a537dde0d6970ce6c64aad1169cf9ebb290cbcf7b527ab3917ace1393fff5'
 PR35_RUNTIME = '30092eff4631d7543f24b8ecabf0a85c294da8fcc4c308ecc97224e38b58b270'
 PR36_RUNTIME = '046a7257ed29e6c5b09c8956455ee3dbf0b811fad5ee9e3b36cef493119ea6c4'
+PR37_RUNTIME = '7e93a95ba980918cf687221a56bc4a60eb5b219ac53406a8b2175b0f46e0d90a'
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'publish': 1, 'inclusion': 1}
 JSON = 'application/json'
@@ -62,7 +64,7 @@ def request_identifier(value):
 def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_path):
     """Validate old requests at their old times, never revive the old grant.
 
-    PR34/35 apply only to the original19; PR36 also covers the following86.
+    PR34/35 cover original19; PR36 also covers86; PR37 also covers direct2628.
     Every nonruntime field must match. Original files and receipts stay intact.
     """
     prepared = prepare(json_file, paths)
@@ -72,9 +74,11 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     evidence = packet['evidence']
     compatible = {prepared.evidence['runtime_sha256']}
     if prepared.evidence['policy'] == POLICY and prepared.evidence['schema_version'] == 1:
-        compatible.update((PR34_RUNTIME, PR35_RUNTIME, PR36_RUNTIME))
+        compatible.update((PR34_RUNTIME, PR35_RUNTIME, PR36_RUNTIME, PR37_RUNTIME))
     elif prepared.evidence['policy'] == EXTENSION_POLICY and prepared.evidence['schema_version'] == 2:
-        compatible.add(PR36_RUNTIME)
+        compatible.update((PR36_RUNTIME, PR37_RUNTIME))
+    elif prepared.evidence['policy'] == DIRECT_POLICY and prepared.evidence['schema_version'] == 3:
+        compatible.add(PR37_RUNTIME)
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
             and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
