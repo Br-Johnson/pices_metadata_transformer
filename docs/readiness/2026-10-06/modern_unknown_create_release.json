@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "kind": "pices-modern-unknown-create-code-handoff",
+  "status": "merged_code_ready_provider_dispatch_held",
+  "provider_dispatch_authorized": false,
+  "repository": "Br-Johnson/pices_metadata_transformer",
+  "pr": 45,
+  "branch": "handoff/modern-unknown-create-20261006",
+  "reviewed_head": "7da0d7e573d5ce6761200d05a9f0474fbc4dfc71",
+  "reviewed_tree": "812f63ad0bd0eb8679240336702c5b731e365467",
+  "merge_sha": "4fea3934bf7445700e7d8d18ecf3c517f07ce5f7",
+  "runtime_sha256": "d1055bf636fe04299be2b670af1b3aeefcae6c64149996b85cea469b672ea4f2",
+  "source_test_sha256": "2c84405b1360fa3d0e4d1d12b1a3993afdab830a1c34fec7a735401663e20079",
+  "source_test_file_count": 184,
+  "controller": "scripts/modern_unknown_create.py",
+  "controller_sha256": "e31ac7cb256aaaaafa68e2f8e7ae0169f7281fa00756240b839d3d157db039a1",
+  "instructions": "docs/readiness/2026-10-06/modern_unknown_create_handoff.md",
+  "independent_review": {
+    "verdict": "APPROVE",
+    "review_id": 5429345107,
+    "receipt_sha256": "a418442ed06fc0a9ba020f9217c6d1873ea0486bcc37669448595e0b06a0d572",
+    "unresolved_material_findings": 0,
+    "url": "https://github.com/Br-Johnson/pices_metadata_transformer/pull/45#pullrequestreview-5429345107"
+  },
+  "focused_tests": {
+    "initial_affected": 56,
+    "additional_historical": 2,
+    "passed": 58,
+    "unexpected_io": 0
+  },
+  "full_ci": {
+    "run_id": 37473618658,
+    "job_id": 112303210780,
+    "status": "completed",
+    "result": {
+      "commit": "7da0d7e573d5ce6761200d05a9f0474fbc4dfc71",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 0,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 72,
+      "seconds": 2213.014,
+      "selected_modules": [
+        "all"
+      ],
+      "source_bindings_unchanged": true,
+      "source_tree_sha256": "2c84405b1360fa3d0e4d1d12b1a3993afdab830a1c34fec7a735401663e20079",
+      "successful": true,
+      "tests_run": 900,
+      "unexpected_guard_call_sites": []
+    },
+    "conclusion": "success",
+    "url": "https://github.com/Br-Johnson/pices_metadata_transformer/actions/runs/37473618658"
+  },
+  "operation": {
+    "source_id": "FGDC-141",
+    "origin": "https://zenodo.org",
+    "executor": "01a0f3ae-ee1c-7046-9b04-36d35803903c",
+    "methods": [
+      "GET"
+    ],
+    "get_limit": 240,
+    "page_limit": 200,
+    "total_seconds_limit": 600,
+    "per_request_seconds_limit": 20,
+    "redirects": false,
+    "create_replay": false,
+    "identity_adoption": false,
+    "mutations": false,
+    "automatic_continuation": false,
+    "original_create_outcome": "unresolved"
+  },
+  "required_actual_inputs": [
+    "original_output_root",
+    "original_prepared_FGDC141_json",
+    "original_preparation_packet",
+    "actual_submitted_wire",
+    "original_grant",
+    "original_duplicate_proof",
+    "parent_recovery_packet",
+    "owner_proof",
+    "supported_network_recovery_proof",
+    "fresh_separately_reviewed_GET_only_grant"
+  ],
+  "parent_packet": {
+    "expected_sha256": "e52e6cb05a2ec01cc0bd4abc0e658bde8dfa61fb2a231164c0346f3c740795e2",
+    "bytes_verified_in_code_lane": false
+  },
+  "source_integrity": {
+    "original_xml_count": 4206,
+    "original_xml_aggregate_sha256": "3430315763379ef81c393cca00eb776952df3ad3f66856ef4b15edd48e396013",
+    "original_FGDC_git_tree": "6c509a3e62252888a6709d1df94bcf109b83241b"
+  },
+  "restoration_readiness": {
+    "supported_targets": 3933,
+    "supported_originals": 4161,
+    "supported_singletons": 3705,
+    "supported_pairs": 228,
+    "source_held_targets": 39,
+    "malformed": 6,
+    "wire_prepared_targets": 3465,
+    "wire_prepared_originals": 3668,
+    "wire_prepared_singletons": 3262,
+    "wire_prepared_pairs": 203,
+    "remaining_wire_targets": 468,
+    "remaining_singletons": 443,
+    "remaining_pairs": 25,
+    "paired_provider_execution_enabled": false,
+    "new_production_publications_verified": 0
+  },
+  "provider_hold": {
+    "status": "support_pending",
+    "ticket": "3327790",
+    "source": "parent-relayed evidence; no provider calls in code lane",
+    "current_public_GET_status": 403,
+    "checked_at": "2026-10-06T13:18:42Z",
+    "assessment_sha256": "3a51888432ea533025a384cfd04cd093ceceb46687f3a46e139872548ae3328c",
+    "original_create_cause": "unknown"
+  },
+  "aquadocs": {
+    "decision": "deferred_by_user_until_after_initial_publication",
+    "completed": false,
+    "passed": false,
+    "initial_publication_blocker": false,
+    "links_added": 0,
+    "exclusions_added": 0,
+    "decision_file": "docs/readiness/2026-10-06/aquadocs_deferred_followup.json"
+  },
+  "preserved_gates": [
+    "internal_and_production_identity_dedup",
+    "source_QA",
+    "uncertain_create_hold",
+    "accepted_PICES_membership_and_default_remote_readback",
+    "sole_executor_and_separate_parent_grants",
+    "separate_publication_release"
+  ],
+  "provider_requests_in_code_lane": 0,
+  "merged_at": "2026-10-06T14:26:46Z",
+  "evidence_scope": "This handoff binds tested PR45 code; a later documentation-only commit may publish this receipt without changing that code tree. It is not provider authorization or a verified production outcome."
+}
