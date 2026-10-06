@@ -21,21 +21,50 @@ OBJECT = {k: '00000000-0000-4000-8000-' + str(i).zfill(12)
           for i, k in enumerate(('file_id', 'version_id', 'bucket_id'), 1)}
 
 
+def community(bound, *, now=NOW, include_directly=True):
+    """Explicit synthetic authority, not evidence of actual PICES permissions."""
+    value = {
+        'schema_version': 1, 'kind': 'modern-pices-authority-v1', 'origin': draft.ORIGIN,
+        'id': COMMUNITY, 'slug': 'pices', 'parent_id': None,
+        'owner': bound['identity']['owner'], 'record_id': bound['identity']['id'],
+        'visibility': 'public', 'submission_policy': 'open', 'review_policy': 'members',
+        'permissions': dict(manage=True, read_draft=True, submit_record=True, include_directly=include_directly),
+        'captured_by': 'Dummy Mac', 'checked_at': now.isoformat(),
+        'expires_at': (now + timedelta(hours=1)).isoformat(),
+        'evidence': [{'role': 'community', 'reference': 'offline-community-fixture', 'sha256': 'c' * 64},
+                     {'role': 'permissions', 'reference': 'offline-permission-fixture', 'sha256': 'd' * 64}],
+    }
+    value.update(reviewed_by='Dummy parent', reviewed_at=now.isoformat(),
+                 reviewed_projection_sha256=sha(encode(value)))
+    return value
+
+
 class Transport:
-    """Source-supported modern subset; no claim of deployed API compatibility."""
+    """Synthetic community-first service; never personal-only publication."""
     def __init__(self, fixture):
         self.fixture = fixture
         self.inner = fixture.transport
         self.calls = []
         self.published = False
         self.included = False
+        self.review_created = False
+        self.submitted = False
+        self.accept_on_submit = True
+        self.request_status = None
+        self.review_revision_delta = 0
         self.fail_before = self.fail_after = None
         self.change = lambda index, response: response
         self.doi = '10.5281/zenodo.19000001'
         self.request_id = 'opaque-safe-request-1'
 
+    def accept(self):
+        assert self.submitted
+        self.request_status = 'accepted'
+        self.published = self.included = True
+
     def request_record(self):
-        return {'id': self.request_id, 'type': 'community-inclusion', 'status': 'submitted', 'is_open': True,
+        return {'id': self.request_id, 'type': 'community-submission', 'status': self.request_status,
+                'is_open': self.request_status == 'submitted', 'is_closed': self.request_status == 'accepted',
                 'topic': {'record': self.inner.identifier}, 'receiver': {'community': COMMUNITY},
                 'created_by': {'user': '123'}}
 
@@ -46,26 +75,29 @@ class Transport:
         if index == self.fail_before:
             raise TimeoutError(fixtures.TOKEN)
         base = '/api/records/' + self.inner.identifier
-        media = accept
         if path.startswith('/api/requests/'):
-            assert accept == 'application/json' and self.included and path == '/api/requests/' + self.request_id
-            response = 200, media, encode(self.request_record())
-        elif path == base + '/communities':
-            assert self.published and method == 'POST' and accept == 'application/json'
-            assert parse(body) == {'communities': [{'id': COMMUNITY, 'require_review': True}]}
-            self.included = True
-            response = 200, media, encode({'processed': [{'community_id': COMMUNITY,
-                         'request_id': self.request_id, 'request': self.request_record()}]})
+            assert method == 'GET' and body is None and accept == 'application/json'
+            assert self.review_created and path == '/api/requests/' + self.request_id
+            response = 200, accept, encode(self.request_record())
+        elif path == base + '/draft/review':
+            assert method == 'PUT' and accept == 'application/json'
+            assert not self.review_created and not self.published
+            assert parse(body) == {'type': 'community-submission', 'receiver': {'community': COMMUNITY}}
+            self.review_created, self.request_status = True, 'created'
+            self.inner.revision += self.review_revision_delta
+            response = 200, accept, encode(self.request_record())
+        elif path == base + '/draft/actions/submit-review':
+            assert self.review_created and not self.submitted and not self.published
+            assert method == 'POST' and accept == 'application/json' and parse(body) == {'require_review': False}
+            self.submitted, self.request_status = True, 'submitted'
+            if self.accept_on_submit:
+                self.accept()
+            response = 202, accept, encode(self.request_record())
         else:
-            publish = path.endswith('/actions/publish')
-            if publish:
-                assert body is None and method == 'POST'
-                self.published = True
-                translated = self.inner.base
-            else:
-                translated = path if '/draft' in path else path.replace(base, self.inner.base, 1)
-                if '/draft' not in path:
-                    assert self.published
+            assert method == 'GET' and body is None
+            translated = path if '/draft' in path else path.replace(base, self.inner.base, 1)
+            if '/draft' not in path:
+                assert self.published and self.included
             status, mime, raw = self.inner.request('GET', translated, None, timeout=timeout)
             if mime != 'application/octet-stream':
                 value = parse(raw)
@@ -78,14 +110,20 @@ class Transport:
                 elif isinstance(value.get('entries'), list):
                     for entry in value['entries']:
                         enhance(entry)
-                elif 'metadata' in value and self.published:
-                    value.update(is_published=True, status='published', created=NOW.isoformat(), revision_id=1,
-                                 pids={'doi': {'provider': 'datacite', 'identifier': self.doi},
-                                       'oai': {'provider': 'oai', 'identifier': 'oai:zenodo.org:' + self.inner.identifier}})
-                    value['parent']['pids'] = {'doi': {'provider': 'datacite', 'identifier': '10.5281/zenodo.19000000'}}
-                    value['links'] = {k: v.replace('/draft', '') for k, v in value['links'].items()}
+                elif 'metadata' in value:
+                    if self.published:
+                        value.update(is_published=True, status='published', created=NOW.isoformat(), revision_id=1,
+                                     pids={'doi': {'provider': 'datacite', 'identifier': self.doi},
+                                           'oai': {'provider': 'oai', 'identifier': 'oai:zenodo.org:' + self.inner.identifier}})
+                        value['parent']['pids'] = {'doi': {'provider': 'datacite', 'identifier': '10.5281/zenodo.19000000'}}
+                        value['parent']['communities'] = {'ids': [COMMUNITY], 'default': COMMUNITY}
+                        value['links'] = {k: v.replace('/draft', '') for k, v in value['links'].items()}
+                    elif self.review_created:
+                        value['status'] = 'draft_with_review'
+                        value['parent']['review'] = {'id': self.request_id, 'type': 'community-submission',
+                                                     'receiver': {'community': COMMUNITY}}
                 raw = encode(value)
-            response = 202 if publish else status, mime, raw
+            response = status, mime, raw
         if index == self.fail_after:
             raise TimeoutError('Lost dummy response ' + fixtures.TOKEN)
         return self.change(index, response)
@@ -124,9 +162,8 @@ class ModernPublicationTests(unittest.TestCase):
                  'token_scope': publication.CAPTURE_TOKEN_SCOPE if action == 'capture' else publication.PUBLICATION_TOKEN_SCOPE,
                  'documents': {k: sha(p.read_bytes()) for k, p in (documents or {}).items()}}
         if action == 'publish':
-            value.update(exclusive_writer=True, community={'id': COMMUNITY, 'slug': 'pices',
-                         'evidence_sha256': 'd' * 64, 'reviewed_by': 'Dummy parent',
-                         'open_submissions': True, 'owner_authorized': True})
+            value.update(schema_version=2, kind='modern-singleton-publish-grant-v2',
+                         exclusive_writer=True, community=getattr(self, 'community_authority', community(self.bound)))
         self.grant_path.write_bytes(encode(value))
 
     def runner(self, action='publish', documents=None):
@@ -135,7 +172,9 @@ class ModernPublicationTests(unittest.TestCase):
                                   self.grant_path, fixtures.TOKEN, action=action, transport=self.transport,
                                   now=lambda: NOW, **(documents or {}))
 
-    def ready(self):
+    def ready(self, *, authority=None):
+        self.community_authority = authority if authority is not None else community(self.bound)
+        self.transport.accept_on_submit = self.community_authority['permissions']['include_directly']
         self.grant('capture')
         result = self.runner('capture').run()
         snapshot_path = Path(result['snapshot_path'])
@@ -143,7 +182,7 @@ class ModernPublicationTests(unittest.TestCase):
         duplicate = raw_duplicates(self.prepared, bridge=self.bound, snapshot=snapshot, now=NOW)
         from scripts.modern_publication_qa import pending_manifest
         manifest = approve(pending_manifest(self.prepared, self.bound, snapshot, duplicate,
-                           source_revision='a' * 40, now=NOW), now=NOW)
+                           source_revision='a' * 40, now=NOW, community=self.community_authority), now=NOW)
         release = prepare_release(manifest)
         release['release'].update(approved=True, authority='Dummy human', authority_type='human',
                                   authorized_at=NOW.isoformat(), rationale='Exact fixture release')
@@ -154,6 +193,10 @@ class ModernPublicationTests(unittest.TestCase):
         self.grant('publish', documents)
         self.transport.calls.clear()
         return documents
+
+    def publication_row(self):
+        path = Path(self.fixture.paths.uploads_registry_path + '.modern-publication-v1.json')
+        return parse(path.read_bytes())['targets'][self.prepared.source_id]
 
     def mutate_response(self, index, transform):
         def change(i, response):
@@ -181,40 +224,275 @@ class ModernPublicationTests(unittest.TestCase):
         first = self.runner(documents=docs).run()
         self.assertTrue(first['published_verified'])
         self.assertTrue(first['community_submission_verified'])
-        self.assertFalse(first['community_membership_verified'])
+        self.assertTrue(first['community_membership_verified'])
+        self.assertTrue(first['release_complete'])
         self.assertFalse(first['doi_registration_verified'])
-        self.assertEqual(first['counts'], {'get': 16, 'publish': 1, 'inclusion': 1})
+        self.assertEqual(first['counts'], {'get': 16, 'review': 1, 'submit': 1})
+        base = self.fixture.transport.base
+        writes = [r for r in self.transport.calls if r[0] != 'GET']
+        self.assertEqual(writes, [
+            ('PUT', base + '/review', encode({'type': 'community-submission',
+                                             'receiver': {'community': COMMUNITY}}), 'application/json'),
+            ('POST', base + '/actions/submit-review', encode({'require_review': False}), 'application/json')])
         result = self.runner(documents=docs).run(read_only=True)
         self.assertEqual(result['counts'], publication.PUBLISH_LIMITS)
-        self.assertEqual(len([r for r in self.transport.calls if r[0] == 'POST']), 2)
+        self.assertTrue(result['release_complete'])
+        self.assertEqual([r for r in self.transport.calls if r[0] != 'GET'], writes)
+        self.assertFalse(any(r[1].endswith(('/actions/publish', '/communities')) for r in self.transport.calls))
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run(read_only=True)
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run()
 
-    def test_lost_publish_response_recovers_read_only_without_inclusion(self):
+    def test_lost_review_response_holds_without_recovery_dispatch(self):
         docs = self.ready()
         self.transport.fail_after = 5
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run()
+        self.assertTrue(self.transport.review_created)
+        self.assertFalse(self.transport.published)
         self.transport.fail_after = None
-        result = self.runner(documents=docs).run(read_only=True)
-        self.assertTrue(result['published_verified'])
-        self.assertFalse(result['community_submission_verified'])
-        self.assertEqual(result['counts'], {'get': 10, 'publish': 1, 'inclusion': 0})
-        self.assertEqual(len([r for r in self.transport.calls if r[0] == 'POST']), 1)
+        for read_only in (False, True):
+            with self.assertRaises(ValueError):
+                self.runner(documents=docs).run(read_only=read_only)
+        self.assertEqual(len(self.transport.calls), 6)
+        self.assertEqual([r[0] for r in self.transport.calls if r[0] != 'GET'], ['PUT'])
 
-    def test_lost_inclusion_response_does_not_repeat_or_search(self):
+    def test_lost_submit_response_recovers_accepted_record_with_gets_only(self):
         docs = self.ready()
         self.transport.fail_after = 11
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run()
         self.transport.fail_after = None
         result = self.runner(documents=docs).run(read_only=True)
-        self.assertTrue(result['published_verified'])
-        self.assertFalse(result['community_submission_verified'])
-        self.assertEqual(len([r for r in self.transport.calls if r[0] == 'POST']), 2)
-        self.assertFalse(any('/api/requests/' in r[1] for r in self.transport.calls))
+        self.assertTrue(result['release_complete'])
+        self.assertTrue(result['community_membership_verified'])
+        self.assertEqual(result['counts'], {'get': 16, 'review': 1, 'submit': 1})
+        self.assertEqual([r[0] for r in self.transport.calls[12:]], ['GET'] * 6)
+        self.assertEqual(self.transport.calls[12][1], '/api/requests/' + self.transport.request_id)
+
+    def test_pending_submission_is_incomplete_until_later_get_only_acceptance(self):
+        docs = self.ready(authority=community(self.bound, include_directly=False))
+        pending = self.runner(documents=docs).run()
+        self.assertEqual(pending['request_status'], 'submitted')
+        self.assertTrue(pending['community_submission_verified'])
+        for flag in ('published_verified', 'community_membership_verified', 'release_complete'):
+            self.assertFalse(pending[flag])
+        self.assertFalse(self.transport.published)
+        self.assertEqual(pending['counts'], {'get': 11, 'review': 1, 'submit': 1})
+        self.assertEqual(len(self.transport.calls), 13)
+        writes = [r for r in self.transport.calls if r[0] != 'GET']
+        self.transport.accept()
+        complete = self.runner(documents=docs).run(read_only=True)
+        self.assertTrue(complete['release_complete'])
+        self.assertEqual(complete['counts'], {'get': 17, 'review': 1, 'submit': 1})
+        self.assertEqual([r for r in self.transport.calls[13:] if r[0] != 'GET'], [])
+        self.assertEqual([r for r in self.transport.calls if r[0] != 'GET'], writes)
+
+    def test_submit_failure_without_effect_cannot_be_replayed(self):
+        docs = self.ready()
+        self.transport.fail_before = 11
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.transport.fail_before = None
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run(read_only=True)
+        self.assertFalse(self.transport.published)
+        self.assertEqual([r[0] for r in self.transport.calls if r[0] != 'GET'], ['PUT', 'POST'])
+        self.assertEqual(self.transport.calls[-1][1], '/api/requests/' + self.transport.request_id)
+
+    def test_existing_draft_review_prevents_review_write(self):
+        docs = self.ready()
+        self.mutate_response(0, lambda value: value['parent'].update(review={
+            'id': 'existing-review', 'type': 'community-submission', 'receiver': {'community': COMMUNITY}}))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.assertTrue(all(call[0] == 'GET' for call in self.transport.calls))
+        self.assertFalse(self.transport.review_created)
+
+    def test_top_level_review_on_either_initial_record_read_prevents_review_write(self):
+        for case, index in enumerate((0, 4)):
+            with self.subTest(response_index=index):
+                if case:
+                    self.setUp()
+                docs = self.ready()
+                self.mutate_response(index, lambda value: value.update(review={
+                    'id': 'fallback-review', 'type': 'community-submission',
+                    'receiver': {'community': COMMUNITY}}))
+                with self.assertRaises(ValueError):
+                    self.runner(documents=docs).run()
+                self.assertEqual([call[0] for call in self.transport.calls], ['GET'] * 5)
+                self.assertFalse(self.transport.review_created)
+                self.assertFalse(self.transport.published)
+
+    def test_postreview_requires_draft_with_review_at_both_record_boundaries(self):
+        cases = [(index, status) for index in (6, 10) for status in ('draft', 'in_review')]
+        for case, (index, status) in enumerate(cases):
+            with self.subTest(response_index=index, status=status):
+                if case:
+                    self.setUp()
+                docs = self.ready()
+                self.mutate_response(index, lambda value, status=status: value.update(status=status))
+                with self.assertRaises(ValueError):
+                    self.runner(documents=docs).run()
+                self.assertEqual([call[0] for call in self.transport.calls if call[0] != 'GET'], ['PUT'])
+                self.assertEqual(len(self.transport.calls), 11)
+                self.assertFalse(self.transport.submitted)
+                self.assertFalse(self.transport.published)
+
+    def test_top_level_review_on_either_postreview_record_prevents_submit(self):
+        for case, index in enumerate((6, 10)):
+            with self.subTest(response_index=index):
+                if case:
+                    self.setUp()
+                docs = self.ready()
+                self.mutate_response(index, lambda value: value.update(review={
+                    'id': self.transport.request_id, 'type': 'community-submission',
+                    'receiver': {'community': COMMUNITY}}))
+                with self.assertRaises(ValueError):
+                    self.runner(documents=docs).run()
+                self.assertEqual([call[0] for call in self.transport.calls if call[0] != 'GET'], ['PUT'])
+                self.assertEqual(len(self.transport.calls), 11)
+                self.assertFalse(self.transport.submitted)
+                self.assertFalse(self.transport.published)
+
+    def test_top_level_review_on_either_published_record_prevents_completion(self):
+        for case, index in enumerate((13, 17)):
+            with self.subTest(response_index=index):
+                if case:
+                    self.setUp()
+                docs = self.ready()
+                self.mutate_response(index, lambda value: value.update(review={
+                    'id': 'unexpected-published-review', 'type': 'community-submission',
+                    'receiver': {'community': COMMUNITY}}))
+                with self.assertRaises(ValueError):
+                    self.runner(documents=docs).run()
+                self.assertEqual([call[0] for call in self.transport.calls if call[0] != 'GET'], ['PUT', 'POST'])
+                self.assertEqual(len(self.transport.calls), index + 1)
+                self.assertFalse(self.publication_row().get('published_verified', False))
+
+    def test_review_response_destination_conflict_prevents_submit(self):
+        docs = self.ready()
+        self.mutate_response(5, lambda value: value.update(receiver={'community': '00000000-0000-4000-8000-000000000001'}))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.assertEqual(len(self.transport.calls), 6)
+        self.assertFalse(self.transport.submitted)
+
+    def test_postreview_metadata_change_prevents_submit(self):
+        docs = self.ready()
+        self.mutate_response(6, lambda value: value['metadata'].update(title='Changed after review creation'))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.assertEqual([r[0] for r in self.transport.calls if r[0] != 'GET'], ['PUT'])
+        self.assertFalse(self.transport.published)
+
+    def test_postreview_file_object_change_prevents_submit(self):
+        docs = self.ready()
+        self.mutate_response(8, lambda value: value.update(file_id='00000000-0000-4000-8000-000000000099'))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.assertEqual([r[0] for r in self.transport.calls if r[0] != 'GET'], ['PUT'])
+        self.assertFalse(self.transport.published)
+
+    def test_postreview_bracketed_revision_change_prevents_submit(self):
+        docs = self.ready()
+        self.mutate_response(10, lambda value: value.update(revision_id=value['revision_id'] + 1))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.assertEqual([r[0] for r in self.transport.calls if r[0] != 'GET'], ['PUT'])
+        self.assertFalse(self.transport.published)
+
+    def test_postreview_destination_change_prevents_submit(self):
+        docs = self.ready()
+        self.mutate_response(10, lambda value: value['parent']['review'].update(receiver={
+            'community': '00000000-0000-4000-8000-000000000001'}))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.assertEqual([r[0] for r in self.transport.calls if r[0] != 'GET'], ['PUT'])
+        self.assertFalse(self.transport.published)
+
+    def test_review_can_advance_revision_before_a_stable_exact_snapshot(self):
+        docs = self.ready()
+        self.transport.review_revision_delta = 1
+        self.assertTrue(self.runner(documents=docs).run()['release_complete'])
+        self.assertEqual(self.transport.inner.revision, self.bound['verified_revision'] + 1)
+
+    def test_accepted_request_requires_exact_membership_default_and_no_review(self):
+        changes = {
+            'missing': lambda parent: parent.update(communities={'ids': [], 'default': COMMUNITY}),
+            'wrong': lambda parent: parent.update(communities={'ids': ['00000000-0000-4000-8000-000000000001'], 'default': COMMUNITY}),
+            'extra': lambda parent: parent['communities']['ids'].append('00000000-0000-4000-8000-000000000001'),
+            'default': lambda parent: parent['communities'].update(default=None),
+            'review': lambda parent: parent.update(review={'id': 'still-open-review'}),
+        }
+        for index, (name, change) in enumerate(changes.items()):
+            with self.subTest(change=name):
+                if index:
+                    self.setUp()
+                docs = self.ready()
+                self.mutate_response(13, lambda value, change=change: change(value['parent']))
+                with self.assertRaises(ValueError):
+                    self.runner(documents=docs).run()
+                self.assertFalse(self.publication_row().get('published_verified', False))
+                self.assertEqual(len(self.transport.calls), 14)
+
+    def test_old_direct_publication_journal_cannot_migrate_into_community_first_execution(self):
+        docs = self.ready()
+        self.runner(documents=docs).run()
+        path = Path(self.fixture.paths.uploads_registry_path + '.modern-publication-v1.json')
+        original = parse(path.read_bytes())
+        intent = draft.state_root(self.fixture.paths) / (self.prepared.source_id + '.modern-publish-v1.intent.json')
+        intent_bytes = intent.read_bytes()
+        self.transport.calls.clear()
+        for historical_counts in (False, True):
+            with self.subTest(historical_counts=historical_counts):
+                old = copy.deepcopy(original)
+                row = old['targets'][self.prepared.source_id]
+                row.pop('protocol')
+                if historical_counts:
+                    row['counts'] = {'get': 16, 'publish': 1, 'inclusion': 1}
+                    for receipt in row['requests']:
+                        if receipt['kind'] == 'review':
+                            receipt.update(kind='publish', method='POST',
+                                           path=self.fixture.transport.base + '/actions/publish')
+                        elif receipt['kind'] == 'submit':
+                            receipt.update(kind='inclusion', method='POST',
+                                           path='/api/records/' + self.bound['identity']['id'] + '/communities')
+                raw = encode(old)
+                path.write_bytes(raw)
+                for read_only in (False, True):
+                    with self.assertRaises(ValueError):
+                        self.runner(documents=docs).run(read_only=read_only)
+                self.assertEqual(self.transport.calls, [])
+                self.assertEqual(path.read_bytes(), raw)
+                self.assertEqual(intent.read_bytes(), intent_bytes)
+
+    def test_postreview_stable_revision_cannot_regress_before_qa(self):
+        docs = self.ready()
+        self.transport.review_revision_delta = -1
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.assertEqual([r[0] for r in self.transport.calls if r[0] != 'GET'], ['PUT'])
+        self.assertFalse(self.transport.published)
+
+    def test_accepted_submission_cannot_regress_to_pending_on_request_readback(self):
+        docs = self.ready()
+        self.mutate_response(12, lambda value: value.update(status='submitted', is_open=True, is_closed=False))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.assertEqual(len(self.transport.calls), 13)
+        self.assertFalse(self.publication_row().get('published_verified', False))
+
+    def test_submit_response_wrong_request_identity_prevents_public_record_reads(self):
+        docs = self.ready()
+        self.mutate_response(11, lambda value: value.update(id='another-safe-request'))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs).run()
+        self.assertEqual(len(self.transport.calls), 12)
+        self.assertFalse(self.publication_row().get('published_verified', False))
 
     def test_prepublication_changed_revision_prevents_post(self):
         docs = self.ready()
@@ -225,24 +503,24 @@ class ModernPublicationTests(unittest.TestCase):
 
     def test_published_changed_identity_held(self):
         docs = self.ready()
-        self.mutate_response(5, lambda data: data.update(id='19000002'))
+        self.mutate_response(13, lambda data: data.update(id='19000002'))
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run()
-        self.assertEqual(len(self.transport.calls), 6)
+        self.assertEqual(len(self.transport.calls), 14)
 
     def test_published_file_object_swap_held(self):
         docs = self.ready()
-        self.mutate_response(8, lambda data: data.update(file_id='00000000-0000-4000-8000-000000000099'))
+        self.mutate_response(15, lambda data: data.update(file_id='00000000-0000-4000-8000-000000000099'))
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run()
-        self.assertFalse(self.transport.included)
+        self.assertFalse(self.publication_row().get('published_verified', False))
 
     def test_doi_changed_on_readback_held(self):
         docs = self.ready()
-        self.mutate_response(6, lambda data: data['pids']['doi'].update(identifier='10.5281/zenodo.99999999'))
+        self.mutate_response(17, lambda data: data['pids']['doi'].update(identifier='10.5281/zenodo.99999999'))
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run()
-        self.assertFalse(self.transport.included)
+        self.assertFalse(self.publication_row().get('published_verified', False))
 
     def test_legacy_doi_collision_blocks_confirmation(self):
         docs = self.ready()
@@ -250,13 +528,59 @@ class ModernPublicationTests(unittest.TestCase):
                                   'doi': self.transport.doi}}))
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run()
-        self.assertFalse(self.transport.included)
+        self.assertFalse(self.publication_row().get('published_verified', False))
 
     def test_legacy_cannot_adopt_modern_doi(self):
         docs = self.ready()
         self.runner(documents=docs).run()
         with self.assertRaises(ValueError):
             reject_modern_attempt(self.fixture.paths, 'FGDC-4', 98765, self.transport.doi.upper())
+
+    def test_old_publication_grant_cannot_dispatch_community_first_protocol(self):
+        docs = self.ready()
+        value = parse(self.grant_path.read_bytes())
+        value.update(schema_version=1, kind='modern-singleton-publish-grant-v1')
+        self.grant_path.write_bytes(encode(value))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs)
+        self.assertEqual(self.transport.calls, [])
+
+    def test_precommunity_qa_and_release_cannot_authorize_publication(self):
+        from scripts.modern_publication_qa import pending_manifest
+        docs = self.ready()
+        snapshot, duplicate = (parse(docs[k].read_bytes()) for k in ('snapshot', 'duplicate'))
+        qa = approve(pending_manifest(self.prepared, self.bound, snapshot, duplicate,
+                     source_revision='a' * 40, now=NOW), now=NOW)
+        release = prepare_release(qa)
+        release['release'].update(approved=True, authority='Dummy human', authority_type='human',
+                                  authorized_at=NOW.isoformat(), rationale='Explicit old fixture release')
+        docs['qa'].write_bytes(encode(qa))
+        docs['release'].write_bytes(encode(release))
+        self.grant('publish', docs)
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs)
+        self.assertEqual(self.transport.calls, [])
+
+    def test_freshly_reviewed_other_destination_does_not_reuse_qa_or_release(self):
+        from scripts.modern_publication_qa import community_projection_hash
+        docs = self.ready()
+        value = parse(self.grant_path.read_bytes())
+        value['community']['id'] = '00000000-0000-4000-8000-000000000001'
+        value['community']['reviewed_projection_sha256'] = community_projection_hash(value['community'])
+        self.grant_path.write_bytes(encode(value))
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs)
+        self.assertEqual(self.transport.calls, [])
+
+    def test_community_authority_must_cover_entire_publication_grant(self):
+        from scripts.modern_publication_qa import community_projection_hash
+        authority = community(self.bound)
+        authority['expires_at'] = (NOW + timedelta(seconds=599)).isoformat()
+        authority['reviewed_projection_sha256'] = community_projection_hash(authority)
+        docs = self.ready(authority=authority)
+        with self.assertRaises(ValueError):
+            self.runner(documents=docs)
+        self.assertEqual(self.transport.calls, [])
 
     def test_expired_or_unapproved_new_grant_never_dispatches(self):
         docs = self.ready()
@@ -317,7 +641,7 @@ class ModernPublicationTests(unittest.TestCase):
         duplicate['production']['reviewed_projection_sha256'] = production_projection_hash(duplicate['production'])
         snapshot = parse(docs['snapshot'].read_bytes())
         manifest = approve(pending_manifest(self.prepared, self.bound, snapshot, duplicate,
-                           source_revision='a' * 40, now=NOW), now=NOW)
+                           source_revision='a' * 40, now=NOW, community=community(self.bound)), now=NOW)
         release = prepare_release(manifest)
         release['release'].update(approved=True, authority='Dummy human', authority_type='human',
                                   authorized_at=NOW.isoformat(), rationale='Exact fixture release')
@@ -459,7 +783,7 @@ class ModernPublicationTests(unittest.TestCase):
 
     def test_failed_response_preserves_untrusted_doi_against_later_adoption(self):
         docs = self.ready()
-        self.mutate_response(5, lambda data: data['metadata'].update(title='Wrong provider title'))
+        self.mutate_response(13, lambda data: data['metadata'].update(title='Wrong provider title'))
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run()
         row = parse(Path(self.fixture.paths.uploads_registry_path + '.modern-publication-v1.json').read_bytes())['targets']['FGDC-141']
@@ -470,10 +794,10 @@ class ModernPublicationTests(unittest.TestCase):
 
     def test_foreign_oai_identifier_held(self):
         docs = self.ready()
-        self.mutate_response(5, lambda data: data['pids']['oai'].update(identifier='oai:zenodo.org:98765'))
+        self.mutate_response(13, lambda data: data['pids']['oai'].update(identifier='oai:zenodo.org:98765'))
         with self.assertRaises(ValueError):
             self.runner(documents=docs).run()
-        self.assertFalse(self.transport.included)
+        self.assertFalse(self.publication_row().get('published_verified', False))
 
     def test_integer_request_open_flag_held(self):
         docs = self.ready()
@@ -509,7 +833,7 @@ class ModernPublicationTests(unittest.TestCase):
         path = Path(self.fixture.paths.uploads_registry_path + '.modern-publication-v1.json')
         original = parse(path.read_bytes())
         self.transport.calls.clear()
-        for request_id in ('../records/98765', '?token=unsafe', ''):
+        for request_id in ('../records/98765', '?token=unsafe', '', 'different-safe-request'):
             with self.subTest(request_id=request_id):
                 changed = copy.deepcopy(original)
                 changed['targets']['FGDC-141']['request_id'] = request_id
@@ -521,7 +845,7 @@ class ModernPublicationTests(unittest.TestCase):
     def test_grant_revocation_during_publish_retains_doi_evidence_but_stops(self):
         docs = self.ready()
         def revoke(index, response):
-            if index == 5:
+            if index == 13:
                 value = parse(self.grant_path.read_bytes())
                 value['approved'] = False
                 self.grant_path.write_bytes(encode(value))
@@ -531,9 +855,9 @@ class ModernPublicationTests(unittest.TestCase):
             self.runner(documents=docs).run()
         row = parse(Path(self.fixture.paths.uploads_registry_path + '.modern-publication-v1.json').read_bytes())['targets']['FGDC-141']
         self.assertIn(self.transport.doi, row['doi_claims'])
-        self.assertEqual(row['counts']['publish'], 1)
+        self.assertEqual(row['counts']['submit'], 1)
         self.assertNotIn('published_baseline', row)
-        self.assertEqual(len(self.transport.calls), 6)
+        self.assertEqual(len(self.transport.calls), 14)
 
     def test_grant_expiry_during_publish_retains_doi_evidence_but_stops(self):
         docs = self.ready()
@@ -541,7 +865,7 @@ class ModernPublicationTests(unittest.TestCase):
         clock = [NOW]
         runner.now = lambda: clock[0]
         def expire(index, response):
-            if index == 5:
+            if index == 13:
                 clock[0] += timedelta(seconds=600)
             return response
         self.transport.change = expire
@@ -549,9 +873,9 @@ class ModernPublicationTests(unittest.TestCase):
             runner.run()
         row = parse(Path(self.fixture.paths.uploads_registry_path + '.modern-publication-v1.json').read_bytes())['targets']['FGDC-141']
         self.assertIn(self.transport.doi, row['doi_claims'])
-        self.assertEqual(row['counts']['publish'], 1)
+        self.assertEqual(row['counts']['submit'], 1)
         self.assertNotIn('published_baseline', row)
-        self.assertEqual(len(self.transport.calls), 6)
+        self.assertEqual(len(self.transport.calls), 14)
 
 
 if __name__ == '__main__':

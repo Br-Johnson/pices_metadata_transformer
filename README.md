@@ -11,6 +11,17 @@ directly to `main`. The current [agent rules](AGENTS.md) supersede older reposit
 approval instructions retained in historical plans and handoffs. Provider action
 grants and production release requirements continue to apply independently.
 
+The current [community-first release handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md)
+holds the first production draft for actual Mac-reviewed PICES authority, record
+QA and human release before a separately granted review/submission route. Its
+implementation tests, independent review and CI are pending. PR38 merged at
+`4a3703df949a952bb7b9b00544a3132cea771bfc` with 748 passing CI tests and measured
+modern coverage of **3,145 targets; 788 remain outside**. PR39 merged at
+`8c0f77210b24859c89dcb5ecae2aba3331f34c29` with 767 passing CI tests, adding
+completed-on-PUT handling and identical duplicate bare binary Content-Type
+compatibility. These are code checkpoints; provider execution requires its own
+evidence and grant. Earlier checkpoints below remain historical evidence.
+
 The [finite direct-primary increment](docs/adr/0008-finite-direct-primary-organizations.md)
 adds 2,628 supported singleton targets in 294 independently reviewed
 institutional-credit groups. Actual guarded coverage is **2,733 of 3,933 supported

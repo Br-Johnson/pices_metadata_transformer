@@ -1,8 +1,9 @@
 """Finite modern singleton publication with immutable draft history and bounded I/O.
 
 Only a verified compatible-runtime draft can cross the versioned bridge. A fresh
-read-only capture precedes explicit QA and human release. Publish and community
-submission each spend one durable attempt; recovery never dispatches mutations.
+read-only capture precedes explicit QA and human release. A PICES review is set
+before submission can publish; recovery never dispatches mutations. Accepted
+membership and complete readback, not a pending request, establish completion.
 """
 
 import argparse
@@ -45,8 +46,9 @@ PR35_RUNTIME = '30092eff4631d7543f24b8ecabf0a85c294da8fcc4c308ecc97224e38b58b270
 PR36_RUNTIME = '046a7257ed29e6c5b09c8956455ee3dbf0b811fad5ee9e3b36cef493119ea6c4'
 PR37_RUNTIME = '7e93a95ba980918cf687221a56bc4a60eb5b219ac53406a8b2175b0f46e0d90a'
 PR38_RUNTIME = '1ac72000a7697bedef5b6e76ca0a28252a85f36bb0529a7e521c68aa4177d9e2'
+PR39_RUNTIME = '7c3e7184f490cc4e43743f12fa831d58e6b79d8e36f93bd7e9c92a2a637f57be'
 CAPTURE_LIMITS = {'get': 5}
-PUBLISH_LIMITS = {'get': 22, 'publish': 1, 'inclusion': 1}
+PUBLISH_LIMITS = {'get': 22, 'review': 1, 'submit': 1}
 JSON = 'application/json'
 CAPTURE_TOKEN_SCOPE = 'deposit:write'
 PUBLICATION_TOKEN_SCOPE = 'deposit:write deposit:actions'
@@ -61,6 +63,18 @@ def request_identifier(value):
     # Retained request schema establishes an opaque string, not a UUID contract.
     require(isinstance(value, str) and re.fullmatch(r'[A-Za-z0-9_-]{1,128}', value))
     return value
+
+
+def validate_request(value, bound, community, request_id, *, created=False):
+    require(isinstance(value, dict) and request_identifier(value.get('id')) == request_id
+            and value.get('type') == 'community-submission'
+            and value.get('topic') == {'record': bound['identity']['id']}
+            and value.get('receiver') == {'community': community['id']}
+            and value.get('created_by') == {'user': bound['identity']['owner']}
+            and type(value.get('is_open')) is bool and type(value.get('is_closed')) is bool
+            and (value.get('status'), value.get('is_open'), value.get('is_closed'))
+                in ((('created', False, False),) if created else
+                    (('submitted', True, False), ('accepted', False, True))))
 
 
 def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_path):
@@ -83,6 +97,8 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
         compatible.update((PR37_RUNTIME, PR38_RUNTIME))
     elif prepared.evidence['policy'] == EXXON_POLICY and prepared.evidence['schema_version'] == 4:
         compatible.add(PR38_RUNTIME)
+    if prepared.evidence['policy'] in (POLICY, EXTENSION_POLICY, DIRECT_POLICY, EXXON_POLICY):
+        compatible.add(PR39_RUNTIME)
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
             and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
@@ -106,7 +122,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     file = base + '/files/' + prepared.source_id + '.xml'
     completed = draft.completed_on_content(row, prepared)
     # Historical clients could emit only the marker-free four-write transcript.
-    require(not completed or evidence['runtime_sha256'] == prepared.evidence['runtime_sha256'])
+    require(not completed or evidence['runtime_sha256'] in (prepared.evidence['runtime_sha256'], PR39_RUNTIME))
     writes = [('create', 'POST', '/api/records', 201, sha(prepared.body)),
               ('init', 'POST', base + '/files', 201, sha(encode([{'key': prepared.source_id + '.xml'}]))),
               ('content', 'PUT', file + '/content', 200, sha(prepared.xml)),
@@ -194,6 +210,8 @@ def validate_snapshot(prepared, bound, snapshot):
     validator.record(values[0], True, bound['verified_revision'])
     validator.record(values[4], True, bound['verified_revision'])
     require(all(value.get('parent', {}).get('communities', {}).get('ids', []) == []
+                and 'review' not in value.get('parent', {})
+                and 'review' not in value
                 for value in (values[0], values[4])))
     require(isinstance(values[1], dict) and isinstance(values[1].get('entries'), list)
             and len(values[1]['entries']) == 1)
@@ -225,7 +243,7 @@ def pids(data):
     return {'record': copy.deepcopy(values), 'parent': copy.deepcopy(parent)}
 
 
-def published_record(data, prepared, bound, started, now, community_id, baseline=None):
+def published_record(data, prepared, bound, started, now, community, baseline=None):
     require(isinstance(data, dict) and data.get('is_published') is True and data.get('status') == 'published'
             and data.get('id') == bound['identity']['id']
             and data.get('parent', {}).get('id') == bound['identity']['parent_id']
@@ -247,8 +265,12 @@ def published_record(data, prepared, bound, started, now, community_id, baseline
             and set(files['entries']) == {key} and type(files.get('count')) is int and files['count'] == 1
             and type(files.get('total_bytes')) is int and files['total_bytes'] == len(prepared.xml))
     published_file(files['entries'][key], prepared, bound, links=False)
-    communities = data.get('parent', {}).get('communities', {}).get('ids', [])
-    require(isinstance(communities, list) and communities in ([], [community_id]))
+    membership = data.get('parent', {}).get('communities', {})
+    communities = membership.get('ids')
+    expected = [community['id']] + ([community['parent_id']] if community['parent_id'] else [])
+    require(isinstance(communities, list) and all(isinstance(v, str) for v in communities)
+            and sorted(communities) == sorted(expected) and membership.get('default') == community['id']
+            and 'review' not in data.get('parent', {}) and 'review' not in data)
     observed = {'created': data['created'], 'revision_id': data['revision_id'], 'pids': pids(data)}
     if baseline is not None:
         require(observed == baseline)
@@ -307,8 +329,9 @@ def authorize(grant, prepared, bound, paths, action, now, documents):
                 'owner', 'limits', 'started_at', 'expires_at', 'reviewed_by', 'token_scope', 'documents'}
     if action == 'publish':
         expected |= {'exclusive_writer', 'community'}
-    require(set(grant) == expected and type(grant['schema_version']) is int and grant['schema_version'] == 1
-            and grant['kind'] == 'modern-singleton-' + action + '-grant-v1' and grant['approved'] is True
+    version = 1 if action == 'capture' else 2
+    require(set(grant) == expected and type(grant['schema_version']) is int and grant['schema_version'] == version
+            and grant['kind'] == 'modern-singleton-' + action + '-grant-v' + str(version) and grant['approved'] is True
             and grant['executor'] == draft.EXECUTOR and grant['origin'] == draft.ORIGIN
             and grant['binding'] == bound['binding'] and grant['state_root'] == str(draft.state_root(paths))
             and grant['owner'] == bound['identity']['owner'] and grant['limits'] == limits
@@ -319,13 +342,10 @@ def authorize(grant, prepared, bound, paths, action, now, documents):
     require(start <= now < end and 0 < (end - start).total_seconds() <= 600)
     if action == 'publish':
         require(grant['exclusive_writer'] is True)
-        community = grant['community']
-        require(isinstance(community, dict) and set(community) == {'id', 'slug', 'evidence_sha256', 'reviewed_by',
-                'open_submissions', 'owner_authorized'} and canonical_uuid(community['id'])
-                and community['slug'] == 'pices' and community['open_submissions'] is True
-                and community['owner_authorized'] is True and isinstance(community['reviewed_by'], str)
-                and community['reviewed_by'].strip())
-        draft.digest(community['evidence_sha256'])
+        from scripts.modern_publication_qa import validate_community
+        community = validate_community(grant['community'], bound, now=now)
+        require(draft.instant(community['reviewed_at']) <= start
+                and end <= draft.instant(community['expires_at']))
 
 
 class Runner:
@@ -370,7 +390,8 @@ class Runner:
             from scripts.modern_publication_qa import validate
             snapshot, qa, duplicate, release = (self.documents[k][0] for k in ('snapshot', 'qa', 'duplicate', 'release'))
             validate_snapshot(self.prepared, self.bound, snapshot)
-            record = validate(qa, self.prepared, self.bound, snapshot, duplicate, now=self.now())
+            record = validate(qa, self.prepared, self.bound, snapshot, duplicate, now=self.now(),
+                              community=self.grant['community'])
             production = duplicate['production']
             require(draft.instant(production['reviewed_at']) <= draft.instant(self.grant['started_at'])
                     and draft.instant(self.grant['expires_at']) <= draft.instant(production['expires_at']))
@@ -389,6 +410,9 @@ class Runner:
                 and self.journal['kind'] == kind and isinstance(self.journal['targets'], dict))
         self.row = self.journal['targets'].get(self.prepared.source_id)
         if self.row is not None:
+            # Same canonical v1 state paths preserve old attempts. A new protocol
+            # never migrates/reopens an own-source v1 publication row or intent.
+            require(self.action == 'capture' or self.row.get('protocol') == 'community-first-v2')
             intent, intent_sha = draft.read_document(self.intent_path)
             require(intent == {'schema_version': 1, 'binding': self.bound['binding'],
                     'grant_sha256': self.grant_sha, 'state_root': str(self.root), 'action': self.action})
@@ -402,11 +426,17 @@ class Runner:
             require(all(r.get('kind') in self.limits for r in self.row['requests']))
             if self.row.get('request_id') is not None:
                 request_identifier(self.row['request_id'])
-                require(self.action == 'publish' and self.row['counts']['inclusion'] == 1
-                        and any(r.get('kind') == 'inclusion' and r.get('method') == 'POST'
-                                and r.get('path') == routes(self.prepared, self.bound, True)[0] + '/communities'
+                require(self.action == 'publish' and self.row['counts']['review'] == 1
+                        and any(r.get('kind') == 'review' and r.get('method') == 'PUT'
+                                and r.get('path') == routes(self.prepared, self.bound)[0] + '/review'
                                 and r.get('http_status') == 200 and r.get('credential_suppressed') is False
+                                and r.get('response_sha256') == self.row.get('review_response_sha256')
                                 for r in self.row['requests']))
+                draft.digest(self.row.get('review_response_sha256'))
+                review_raw = base64.b64decode(self.row.get('review_response_base64', ''), validate=True)
+                require(len(review_raw) <= draft.MAX_BYTES and sha(review_raw) == self.row['review_response_sha256'])
+                validate_request(parse(review_raw), self.bound, self.grant['community'],
+                                 self.row['request_id'], created=True)
             collision_check(self.paths, self.prepared, self.bound, self.row.get('doi_claims', []))
 
     def call(self, kind, path, *, binary=False):
@@ -414,14 +444,17 @@ class Runner:
         public = routes(self.prepared, self.bound, True)
         drafts = routes(self.prepared, self.bound)
         method, body, expected, accept = 'GET', None, 200, draft.MIME
-        if kind == 'publish':
-            require(self.action == 'publish' and path == drafts[0] + '/actions/publish')
-            method, expected = 'POST', 202
-        elif kind == 'inclusion':
-            require(self.action == 'publish' and path == public[0] + '/communities'
-                    and self.row.get('published_verified') is True)
-            method, accept = 'POST', JSON
-            body = encode({'communities': [{'id': self.grant['community']['id'], 'require_review': True}]})
+        if kind == 'review':
+            require(self.action == 'publish' and path == drafts[0] + '/review'
+                    and self.row.get('initial_draft_verified') is True and self.row['counts']['submit'] == 0)
+            method, accept = 'PUT', JSON
+            body = encode({'type': 'community-submission', 'receiver': {'community': self.grant['community']['id']}})
+        elif kind == 'submit':
+            require(self.action == 'publish' and path == drafts[0] + '/actions/submit-review'
+                    and self.row.get('review_draft_verified') is True and self.row.get('request_status') == 'created'
+                    and self.row['counts']['review'] == 1 and self.row.get('request_id'))
+            method, expected, accept = 'POST', 202, JSON
+            body = encode({'require_review': False})
         else:
             request_path = ('/api/requests/' + request_identifier(self.row['request_id'])
                             if self.row.get('request_id') else None)
@@ -455,13 +488,16 @@ class Runner:
         # stricter header parser can reject an otherwise parseable response.
         observed_media = mime.split(';', 1)[0].strip().lower()
         value = raw if binary else parse(raw)
-        if (self.action == 'publish' and (kind == 'publish' or path == public[0])
+        if (self.action == 'publish' and (kind == 'submit' or path == public[0])
                 and observed_media in (draft.MIME, JSON)):
             self.retain_doi_claims(value)
         media = draft.response_media_type(mime, binary=binary)
         require(status == expected)
         require(media in (draft.BINARY_MEDIA if binary else {accept}))
         self.current()
+        if kind == 'review':
+            self.row['review_response_base64'] = base64.b64encode(raw).decode()
+            self.save()
         if kind == 'get':
             self.raw_responses.append({'method': 'GET', 'path': path, 'http_status': status, 'media_type': media,
                                        'body_base64': base64.b64encode(raw).decode(), 'response_sha256': sha(raw)})
@@ -476,6 +512,40 @@ class Runner:
                     'captured_at': self.now().isoformat(), 'responses': self.raw_responses[offset:]}
         validate_snapshot(self.prepared, self.bound, snapshot)
         return snapshot
+
+    def read_review_draft(self):
+        """Fence the reviewed draft without assuming a fixed revision increment.
+
+        Review PUT has no demonstrated server-side CAS. The exclusive-writer
+        grant and these exact metadata/file/review fences precede submission.
+        """
+        values = [self.call('get', path, binary=i == 3)
+                  for i, path in enumerate(routes(self.prepared, self.bound))]
+        validator = draft_validator(self.prepared, self.bound)
+        revision = values[0].get('revision_id')
+        require(type(revision) is int and revision >= self.bound['verified_revision'])
+        for value in (values[0], values[4]):
+            # Pinned DraftStatus maps a created review to draft_with_review.
+            # Validate that exact state first, then reuse all ordinary draft
+            # invariants on a local status-only projection; raw receipts stay intact.
+            require(value.get('status') == 'draft_with_review' and 'review' not in value)
+            validator.record(dict(value, status='draft'), True, revision)
+            parent = value.get('parent', {})
+            require(parent.get('communities', {}).get('ids', []) == [])
+            review = parent.get('review')
+            require(isinstance(review, dict)
+                    and {k: review.get(k) for k in ('id', 'type', 'receiver')} == {
+                        'id': self.row['request_id'], 'type': 'community-submission',
+                        'receiver': {'community': self.grant['community']['id']}})
+        require(isinstance(values[1], dict) and isinstance(values[1].get('entries'), list)
+                and len(values[1]['entries']) == 1)
+        validator.file(values[1]['entries'][0], True)
+        validator.file(values[2], True)
+        require(file_identity(values[1]['entries'][0]) == file_identity(values[2]) == self.file_identity
+                and values[3] == self.prepared.xml)
+        self.row['review_draft_verified'] = True
+        self.row['review_revision'] = revision
+        self.save()
 
     def retain_doi_claims(self, data):
         # Keep reject-only observations even when metadata, identity or PID
@@ -500,7 +570,7 @@ class Runner:
     def inspect_published(self, data):
         self.retain_doi_claims(data)
         observed, communities = published_record(data, self.prepared, self.bound,
-                  draft.instant(self.grant['started_at']), self.now(), self.grant['community']['id'],
+                  draft.instant(self.grant['started_at']), self.now(), self.grant['community'],
                   self.row.get('published_baseline'))
         claims = [observed['pids'][k]['doi']['identifier'] for k in ('record', 'parent')]
         collision_check(self.paths, self.prepared, self.bound, self.row['doi_claims'])
@@ -523,14 +593,9 @@ class Runner:
         self.row['published_verified'] = True
         self.save()
 
-    def request_record(self, value):
-        require(isinstance(value, dict) and request_identifier(value.get('id')) == self.row['request_id']
-                and value.get('type') == 'community-inclusion'
-                and value.get('topic') == {'record': self.bound['identity']['id']}
-                and value.get('receiver') == {'community': self.grant['community']['id']}
-                and value.get('created_by') == {'user': self.bound['identity']['owner']}
-                and type(value.get('is_open')) is bool
-                and (value.get('status'), value.get('is_open')) in (('submitted', True), ('accepted', False)))
+    def request_record(self, value, *, created=False):
+        validate_request(value, self.bound, self.grant['community'], self.row['request_id'], created=created)
+        require(self.row.get('request_status') != 'accepted' or value['status'] == 'accepted')
         self.row['request_status'] = value['status']
         self.save()
 
@@ -538,12 +603,11 @@ class Runner:
         with ledger_lock(self.paths):
             self.load()
             if read_only:
-                require(self.action == 'publish' and self.row is not None and self.row['counts']['publish'] == 1)
-                needed = 5 + int(bool(self.row.get('request_id')))
-                require(self.row['counts']['get'] + needed <= self.limits['get'])
-                if self.row.get('request_id'):
-                    self.request_record(self.call('get', '/api/requests/' + self.row['request_id']))
-                self.read_published()
+                require(self.action == 'publish' and self.row is not None
+                        and self.row['counts']['submit'] == 1 and self.row.get('request_id'))
+                # Reserve enough for acceptance plus a complete record/file fence;
+                # a pending observation consumes only its actual one GET.
+                require(self.row['counts']['get'] + 6 <= self.limits['get'])
             else:
                 require(self.row is None and not self.intent_path.exists())
                 intent = {'schema_version': 1, 'binding': self.bound['binding'], 'grant_sha256': self.grant_sha,
@@ -552,6 +616,8 @@ class Runner:
                 self.row = {'binding': self.bound['binding'], 'grant_sha256': self.grant_sha,
                             'intent_sha256': sha(encode(intent)), 'identity': self.bound['identity'],
                             'counts': dict.fromkeys(self.limits, 0), 'requests': [], 'doi_claims': []}
+                if self.action == 'publish':
+                    self.row['protocol'] = 'community-first-v2'
                 self.journal['targets'][self.prepared.source_id] = self.row
                 self.save()
                 snapshot = self.read_draft()
@@ -562,27 +628,29 @@ class Runner:
                     return {'capture_verified': True, 'snapshot_path': str(self.snapshot_path),
                             'snapshot_sha256': self.row['snapshot_sha256'], 'counts': self.row['counts']}
                 require(file_identity(validate_snapshot(self.prepared, self.bound, snapshot)[2]) == self.file_identity)
-                # Exact metadata/revision/file bytes are checked again immediately before POST.
-                base = routes(self.prepared, self.bound, True)[0]
-                self.inspect_published(self.call('publish', base + '/draft/actions/publish'))
+                self.row['initial_draft_verified'] = True
+                self.save()
+                base = routes(self.prepared, self.bound)[0]
+                value = self.call('review', base + '/review')
+                require(isinstance(value, dict))
+                self.row['request_id'] = request_identifier(value.get('id'))
+                self.row['review_response_sha256'] = self.row['requests'][-1]['response_sha256']
+                self.save()  # Preserve known identity even if later validation fails.
+                self.request_record(value, created=True)
+                self.read_review_draft()
+                # This action can publish. current() validates exact QA, human
+                # release, destination and remaining authority before dispatch.
+                self.request_record(self.call('submit', base + '/actions/submit-review'))
+            self.request_record(self.call('get', '/api/requests/' + self.row['request_id']))
+            accepted = self.row['request_status'] == 'accepted'
+            if accepted:
                 self.read_published()
-                value = self.call('inclusion', base + '/communities')
-                require(isinstance(value, dict) and value.get('errors', []) == []
-                        and isinstance(value.get('processed'), list) and len(value['processed']) == 1)
-                processed = value['processed'][0]
-                require(isinstance(processed, dict) and processed.get('community_id') == self.grant['community']['id'])
-                self.row['request_id'] = request_identifier(processed.get('request_id'))
-                self.save()  # Known request identity survives later semantic/readback failures.
-                self.request_record(processed.get('request'))
-                require(self.row['request_status'] == 'submitted')
-                self.request_record(self.call('get', '/api/requests/' + self.row['request_id']))
-                self.read_published()
-            accepted = self.row.get('request_status') == 'accepted'
-            require(not accepted or self.row.get('communities') == [self.grant['community']['id']])
-            return {'published_verified': self.row.get('published_verified', False),
+            complete = accepted and self.row.get('published_verified') is True
+            return {'release_complete': complete, 'request_status': self.row['request_status'],
+                    'published_verified': complete,
                     'identity': self.bound['identity'], 'pids': self.row.get('published_baseline', {}).get('pids'),
-                    'community_submission_verified': self.row.get('request_status') in ('submitted', 'accepted'),
-                    'community_membership_verified': accepted, 'doi_registration_verified': False,
+                    'community_submission_verified': self.row['request_status'] in ('submitted', 'accepted'),
+                    'community_membership_verified': complete, 'doi_registration_verified': False,
                     'counts': self.row['counts'].copy(), 'read_only': read_only}
 
 
@@ -595,7 +663,7 @@ def main():
     parser.add_argument('action', choices=('bridge', 'capture', 'prepare-qa', 'preflight', 'publish', 'readback'))
     for key in ('json-file', 'output-dir', 'preparation', 'old-grant', 'old-duplicate'):
         parser.add_argument('--' + key, required=True)
-    for key in ('grant', 'snapshot', 'qa', 'duplicate', 'release', 'manifest', 'source-revision'):
+    for key in ('grant', 'snapshot', 'qa', 'duplicate', 'release', 'manifest', 'source-revision', 'community'):
         parser.add_argument('--' + key)
     args = parser.parse_args()
     try:
@@ -605,11 +673,12 @@ def main():
             result = {'bridge': bound, 'provider_requests': 0}
         elif args.action == 'prepare-qa':
             from scripts.modern_publication_qa import pending_manifest
-            require(args.snapshot and args.duplicate and args.manifest and args.source_revision)
+            require(args.snapshot and args.duplicate and args.manifest and args.source_revision and args.community)
             snapshot = draft.read_document(args.snapshot)[0]
             validate_snapshot(prepared, bound, snapshot)
             manifest = pending_manifest(prepared, bound, snapshot, draft.read_document(args.duplicate)[0],
-                                        source_revision=args.source_revision, now=datetime.now(timezone.utc))
+                                        source_revision=args.source_revision, now=datetime.now(timezone.utc),
+                                        community=draft.read_document(args.community)[0])
             draft.permanent_intent(args.manifest, manifest)
             result = {'qa_prepared': True, 'approved': False, 'provider_requests': 0}
         else:

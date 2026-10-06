@@ -394,12 +394,13 @@ class ModernExxonCoverageTests(unittest.TestCase):
         self.assertTrue(result['community_submission_verified'])
         retry = harness.runner(documents=documents).run(read_only=True)
         self.assertEqual(retry['counts'], publication.PUBLISH_LIMITS)
-        self.assertEqual(sum(call[0] == 'POST' for call in harness.transport.calls), 2)
-        self.assertFalse(retry['community_membership_verified'])
+        self.assertEqual([call[0] for call in harness.transport.calls if call[0] != 'GET'], ['PUT', 'POST'])
+        self.assertTrue(retry['community_membership_verified'])
+        self.assertTrue(retry['release_complete'])
         self.assertFalse(retry['doi_registration_verified'])
 
-    def test_changed_person_before_publication_or_after_publish_blocks_next_write(self):
-        for response_index in (0, 5):
+    def test_changed_person_before_review_or_after_review_blocks_submission(self):
+        for response_index in (0, 6):
             with self.subTest(response_index=response_index):
                 fixture = self.fixture()
                 fixture.transport.change = canonical_person_names
@@ -415,9 +416,9 @@ class ModernExxonCoverageTests(unittest.TestCase):
                 harness.transport.change = corrupt
                 with self.assertRaises(ValueError):
                     harness.runner(documents=documents).run()
-                posts = [call for call in harness.transport.calls if call[0] == 'POST']
-                self.assertEqual(len(posts), int(response_index == 5))
-                self.assertFalse(any(call[1].endswith('/communities') for call in posts))
+                writes = [call for call in harness.transport.calls if call[0] != 'GET']
+                self.assertEqual([call[0] for call in writes], ['PUT'] if response_index == 6 else [])
+                self.assertFalse(harness.transport.published)
 
     def test_uncertain_create_cannot_repeat_after_journal_loss_or_new_grant(self):
         for effect in (False, True):

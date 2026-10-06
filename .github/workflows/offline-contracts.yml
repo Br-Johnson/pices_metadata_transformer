@@ -70,6 +70,7 @@ jobs:
           scripts/production_mutations.py tests/test_production_mutations.py
           scripts/modern_publication.py scripts/modern_publication_qa.py
           tests/test_modern_publication.py tests/test_modern_publication_qa.py
+          tests/test_modern_community_authority.py
           scripts/modern_singleton.py scripts/modern_singleton_executor.py
           tests/modern_singleton_fixtures.py tests/test_modern_singleton.py tests/test_modern_singleton_executor.py
           tests/test_modern_organizational_coverage.py

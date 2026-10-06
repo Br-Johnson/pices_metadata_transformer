@@ -113,9 +113,10 @@ class ModernUploadCompatibilityTests(unittest.TestCase):
         self.assertTrue(result['community_submission_verified'])
         retry = harness.runner(documents=documents).run(read_only=True)
         self.assertEqual(retry['counts'], publication.PUBLISH_LIMITS)
-        self.assertEqual(sum(call[0] == 'POST' for call in harness.transport.calls), 2)
+        self.assertEqual([call[0] for call in harness.transport.calls if call[0] != 'GET'], ['PUT', 'POST'])
         self.assertEqual(self.journal_path(fixture).read_bytes(), original_history)
-        self.assertFalse(retry['community_membership_verified'])
+        self.assertTrue(retry['community_membership_verified'])
+        self.assertTrue(retry['release_complete'])
         self.assertFalse(retry['doi_registration_verified'])
 
     def test_pending_content_keeps_commit_and_complete_publication_workflow(self):
@@ -316,6 +317,15 @@ class ModernUploadCompatibilityTests(unittest.TestCase):
                 self.assertTrue(harness.runner('capture').run()['capture_verified'])
                 self.assertEqual({path: path.read_bytes() for path in retained}, retained)
 
+    def test_historical_pr39_completed_upload_bridges_without_rewriting_receipts(self):
+        harness = organizational_tests.PublicationFixture(self.fixture('FGDC-1839', completed=True))
+        retained = exxon_tests.save_historical_runtime(harness, publication.PR39_RUNTIME)
+        harness.prepared, harness.bound = harness.bridge()
+        self.assertEqual(harness.bound['original_runtime_sha256'], publication.PR39_RUNTIME)
+        documents = harness.ready()
+        self.assertTrue(harness.runner(documents=documents).run()['release_complete'])
+        self.assertEqual({path: path.read_bytes() for path in retained}, retained)
+
     def test_three_write_completed_marker_cannot_be_backdated_to_pr38(self):
         harness = organizational_tests.PublicationFixture(self.fixture('FGDC-1839', completed=True))
         retained = exxon_tests.save_historical_runtime(harness, publication.PR38_RUNTIME)
@@ -383,7 +393,7 @@ class ModernUploadCompatibilityTests(unittest.TestCase):
         documents = harness.ready()
         def corrupt_header(index, response):
             status, media, raw = response
-            return (status, draft.MIME + ';\tcharset=utf-8', raw) if index == 5 else response
+            return (status, draft.MIME + ';\tcharset=utf-8', raw) if index == 13 else response
         harness.transport.change = corrupt_header
         with self.assertRaises(ValueError):
             harness.runner(documents=documents).run()
@@ -392,15 +402,15 @@ class ModernUploadCompatibilityTests(unittest.TestCase):
         self.assertIn(harness.transport.doi, row['doi_claims'])
         self.assertNotIn('published_baseline', row)
         self.assertNotIn('published_verified', row)
-        self.assertEqual(row['counts']['publish'], 1)
-        self.assertEqual(row['counts']['inclusion'], 0)
-        self.assertEqual(len(harness.transport.calls), 6)
+        self.assertEqual(row['counts']['submit'], 1)
+        self.assertEqual(row['counts']['review'], 1)
+        self.assertEqual(len(harness.transport.calls), 14)
         with self.assertRaises(ValueError):
             reject_modern_attempt(harness.fixture.paths, 'FGDC-4', 98765, harness.transport.doi)
         reject_modern_attempt(harness.fixture.paths, 'FGDC-4', 98765, '10.5281/zenodo.98765')
         with self.assertRaises(ValueError):
             harness.runner(documents=documents).run()
-        self.assertEqual(len(harness.transport.calls), 6)
+        self.assertEqual(len(harness.transport.calls), 14)
 
     def test_completed_content_redirect_and_token_echo_never_commit_or_leak(self):
         for mode in ('redirect', 'token'):

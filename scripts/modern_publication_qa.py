@@ -12,6 +12,7 @@ import base64
 import binascii
 import copy
 import re
+import uuid
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 
@@ -32,6 +33,7 @@ from scripts.production_mutations import EXCLUDED, PROTECTED
 from scripts.qa_manifest import QA_CHECKS, validate_program_review
 
 KIND = 'modern-singleton-qa-v1'
+COMMUNITY_KIND = 'modern-singleton-community-qa-v2'
 PRODUCTION_SCOPES = {
     'owner_inventory': 'all_owned_draft_and_published_records_versions_and_file_descriptors',
     'source_history': 'all_retained_source_identity_and_mutation_attempts_in_original_state_root',
@@ -70,6 +72,60 @@ def _fresh(value, now):
     _require(timedelta(0) <= now - result <= timedelta(hours=24),
              'saved evidence is stale or from the future')
     return result
+
+
+def community_projection_hash(community):
+    return sha(encode({k: v for k, v in community.items()
+                       if k not in {'reviewed_by', 'reviewed_at', 'reviewed_projection_sha256'}}))
+
+
+def validate_community(community, bridge, *, now):
+    """Bind independently reviewed Mac evidence, not guessed API permission keys.
+
+    The named permissions are effective permissions interpreted from retained
+    evidence by the reviewer. Hashes bind that interpretation, not its truth.
+    Missing hierarchy/permissions must not be projected as null/false defaults.
+    """
+    keys = {'schema_version', 'kind', 'origin', 'id', 'slug', 'parent_id', 'owner', 'record_id',
+            'visibility', 'submission_policy', 'review_policy', 'permissions', 'captured_by',
+            'checked_at', 'expires_at', 'reviewed_by', 'reviewed_at',
+            'reviewed_projection_sha256', 'evidence'}
+    _require(isinstance(community, dict) and set(community) == keys,
+             'complete reviewed PICES identity, hierarchy and permission evidence is required')
+    _require(type(community['schema_version']) is int and community['schema_version'] == 1
+             and community['kind'] == 'modern-pices-authority-v1'
+             and community['origin'] == 'https://zenodo.org' and community['slug'] == 'pices'
+             and community['owner'] == bridge['identity']['owner']
+             and community['record_id'] == bridge['identity']['id']
+             and community['visibility'] == 'public'
+             and community['submission_policy'] in ('open', 'closed')
+             and community['review_policy'] in ('open', 'closed', 'members'), 'PICES destination or policy differs')
+    for value in (community['id'], community['parent_id']):
+        if value is None:
+            _require(community['id'] is not None, 'PICES UUID is missing')
+        else:
+            _require(isinstance(value, str) and str(uuid.UUID(value)) == value, 'invalid community UUID')
+    _require(community['parent_id'] != community['id'], 'community hierarchy is cyclic')
+    permissions = community['permissions']
+    _require(isinstance(permissions, dict)
+             and set(permissions) == {'manage', 'read_draft', 'submit_record', 'include_directly'}
+             and all(type(v) is bool for v in permissions.values())
+             and all(permissions[k] for k in ('manage', 'read_draft', 'submit_record')),
+             'effective owner/draft and community submission permissions are required')
+    _require(_text(community['captured_by']) and _text(community['reviewed_by'])
+             and community['captured_by'].strip().casefold() != community['reviewed_by'].strip().casefold()
+             and community['reviewed_projection_sha256'] == community_projection_hash(community),
+             'independent review must bind the exact PICES authority projection')
+    checked, reviewed, expiry = (_time(community[k]) for k in ('checked_at', 'reviewed_at', 'expires_at'))
+    _require(checked <= reviewed <= now < expiry and timedelta(0) < expiry - checked <= timedelta(hours=1),
+             'community authority evidence is stale or unreviewed')
+    evidence = community['evidence']
+    _require(isinstance(evidence, list) and len(evidence) == 2
+             and all(isinstance(item, dict) and set(item) == {'role', 'reference', 'sha256'}
+                     and _text(item['role']) and _text(item['reference']) and _digest(item['sha256']) for item in evidence)
+             and {item['role'] for item in evidence} == {'community', 'permissions'},
+             'retained community and authenticated permission capture references are required')
+    return community
 
 
 def _source_title(xml):
@@ -198,7 +254,7 @@ def _duplicate_evidence(prepared, bridge, snapshot, duplicate, *, now):
         _fresh(raw.get('retrieved_at'), now)
 
 
-def assess(prepared, bridge: dict, snapshot: dict, duplicate: dict, *, now: datetime) -> dict:
+def assess(prepared, bridge: dict, snapshot: dict, duplicate: dict, *, now: datetime, community=None) -> dict:
     """Bind validated modern inputs and complete raw duplicate evidence, offline.
 
 Successful assessment supplies evidence only. It does not imply a reviewer has
@@ -264,7 +320,7 @@ approved a record, reviewed the program, or authorized release.
             raise ValueError('Modern publication QA: malformed saved response bytes') from None
         _require(sha(raw) == response['response_sha256'], 'saved draft response bytes differ')
     _duplicate_evidence(prepared, bridge, snapshot, duplicate, now=now)
-    return copy.deepcopy({
+    result = {
         'schema_version': 1, 'kind': 'modern-singleton-qa-evidence-v1',
         'checks': dict.fromkeys(QA_CHECKS, True), 'source_id': prepared.source_id,
         'source_sha256': sha(prepared.xml), 'metadata_sha256': sha(prepared.body),
@@ -275,13 +331,19 @@ approved a record, reviewed the program, or authorized release.
         'remote_snapshot': {'sha256': sha(encode(snapshot)), 'captured_at': snapshot['captured_at'],
                             'revision_id': revision},
         'duplicate_snapshot': {'sha256': sha(encode(duplicate))}, 'raw_duplicate_proof': duplicate,
-    })
+    }
+    if community is not None:
+        validate_community(community, bridge, now=now)
+        result.update(schema_version=2, kind='modern-singleton-community-qa-evidence-v2',
+                      community_authority=community)
+    return copy.deepcopy(result)
 
 
-def pending_manifest(prepared, bridge, snapshot, duplicate, *, source_revision: str, now: datetime) -> dict:
+def pending_manifest(prepared, bridge, snapshot, duplicate, *, source_revision: str, now: datetime,
+                     community=None) -> dict:
     """Produce an unapproved schema 2 manifest, retaining evidence for reviewers."""
     _require(_text(source_revision), 'source revision is required')
-    evidence = assess(prepared, bridge, snapshot, duplicate, now=now)
+    evidence = assess(prepared, bridge, snapshot, duplicate, now=now, community=community)
     row = {
         'fgdc_id': prepared.source_id, 'deposition_id': bridge['identity']['id'],
         'source_sha256': evidence['source_sha256'], 'metadata_sha256': evidence['metadata_sha256'],
@@ -291,17 +353,18 @@ def pending_manifest(prepared, bridge, snapshot, duplicate, *, source_revision: 
                'checks': dict.fromkeys(QA_CHECKS, False), 'evidence': [sha(encode(evidence))]},
         'duplicate_review': {'status': 'pending', 'classification': None, 'rationale': '', 'evidence': []},
     }
-    return {'schema_version': 2, 'kind': KIND, 'environment': 'production',
+    return {'schema_version': 2, 'kind': COMMUNITY_KIND if community is not None else KIND, 'environment': 'production',
             'source_revision': source_revision, 'prepared_at': now.isoformat(), 'records': [row],
             'program_review': {name: {'status': 'pending', 'evidence': []}
                                for name in ('independent_review', 'risk_stratified_spotcheck')}}
 
 
-def validate(manifest, prepared, bridge, snapshot, duplicate, *, now: datetime) -> dict:
+def validate(manifest, prepared, bridge, snapshot, duplicate, *, now: datetime, community=None) -> dict:
     """Require explicit record approval and independently bound program review."""
-    current = assess(prepared, bridge, snapshot, duplicate, now=now)
+    current = assess(prepared, bridge, snapshot, duplicate, now=now, community=community)
     _require(isinstance(manifest, dict) and type(manifest.get('schema_version')) is int
-             and manifest['schema_version'] == 2 and manifest.get('kind') == KIND
+             and manifest['schema_version'] == 2
+             and manifest.get('kind') == (COMMUNITY_KIND if community is not None else KIND)
              and manifest.get('environment') == 'production' and _text(manifest.get('source_revision')),
              'a versioned production modern QA manifest is required')
     rows = manifest.get('records')
@@ -326,6 +389,8 @@ def validate(manifest, prepared, bridge, snapshot, duplicate, *, now: datetime) 
     reviewed = _time(qa.get('reviewed_at'))
     evidence_times = [_time(snapshot['captured_at']), _time(duplicate['checked_at']),
                       _time(duplicate['production']['reviewed_at'])]
+    if community is not None:
+        evidence_times.append(_time(community['reviewed_at']))
     evidence_times.extend(_time(proof['snapshot']['retrieved_at']) for proof in duplicate['evidence'])
     _require(max(evidence_times) <= reviewed <= now,
              'record review must follow all saved draft and duplicate evidence')

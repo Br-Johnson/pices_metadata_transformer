@@ -1,15 +1,32 @@
-## Active increment: production upload compatibility — 2026-10-06
+## Active increment: first-record community-first release — 2026-10-06
+
+- [x] Reconcile the actual PR38 and PR39 merges and preserve their measured coverage, compatibility repairs and historical journals.
+- [x] Document the finite community-first v2 plan: at most 22 GETs, one draft-review PUT and one submit-review POST within 600 seconds, using the original canonical state paths.
+- [x] Freeze the community-first implementation, resolve independent review findings, pass 159 core and eight final authority contracts, and preserve all 4,206 original XML hashes. Retain separate staged bindings and interrupted receipts.
+- [ ] Complete independent current-head review and actual final-tree CI, then record the merge in the PR handoff.
+- [ ] Obtain and independently review the actual Mac PICES UUID, hierarchy, policies and effective owner/draft/submission permissions. Bind that exact authority projection to QA, human release and the separate v2 grant before either write.
+- [ ] Reconcile the first record's current preparation, original identity/attempt history, duplicate evidence and saved draft fence. Parent alone dispatches any separately approved live actions to the sole Mac executor.
+
+Submitted review is incomplete until `release_complete:true` confirms accepted
+status and the full published XML, metadata, identity and actual PICES
+membership/default readback. Recovery is
+GET-only within the original grant and remaining budget; old attempts are never
+migrated, reset or replayed. No direct publication fallback or community acceptance
+action is authorized. Pending beyond expiry requires separately reviewed read-only
+continuation, with no new writes. See the [community-first handoff](readiness/2026-10-06/modern_pices_community_handoff.md).
+
+## Completed increment: production upload compatibility — 2026-10-06
 
 - [x] Reconcile the parent-reported Mac canary closure and four offline compatibility reproductions; preserve the Mac-local receipt and all spent attempts. No cloud provider action or raw/private fixture access.
 - [x] Draft the bounded completed-on-PUT branch and shared identical-bare-binary Content-Type rule, retaining the same grant maxima, metadata wire, original XML, canonical state and all source/identity/release gates.
 - [x] Freeze the repaired runtime and pass 135 affected guarded tests, including 19 new compatibility regressions, with unchanged source bindings and zero unexpected I/O. Reverify all 4,206 original XML hashes. Resolve the review finding by retaining reject-only DOI observations before strict MIME rejection.
-- [ ] Complete substantive independent current-head review and actual CI, then record the actual merge.
+- [x] Merge PR39 at `8c0f77210b24859c89dcb5ecae2aba3331f34c29` after independent current-head Codex review and 767 passing actual guarded CI tests. Preserve its frozen runtime, original XML and historical journals.
 - [ ] Reconcile the requested exact sanitized Mac responses and current FGDC-141 preparation/runtime/duplicate-history evidence before any separately granted production dispatch by parent to the sole Mac executor.
 
 Parent reports draft612988 closed at revision13 with exact XML/retry/fence and no
 PID; closure SHA256
 `e109ae135006ba5829ff44e8e0da289e6cc985f7c506d7a57e9f89bf565df948`
-remains Mac-local. The repaired current branch uses three writes plus five GETs
+remains Mac-local. The merged compatibility runtime uses three writes plus five GETs
 when the fully validated content PUT is already completed; pending content retains
 the four-write branch. Commit stays at maximum one in the same grant and is
 actually zero only with the validated durable completion marker. Historical
@@ -30,7 +47,7 @@ upload/readback canary at revision13: exact 439-byte XML downloads and repeat/fi
 fence passed, draft unpublished with no PID. Closure SHA256
 `e109ae135006ba5829ff44e8e0da289e6cc985f7c506d7a57e9f89bf565df948` remains Mac-local.
 Reported cumulative counts are 220 GET / 9 PUT / 1 create / 1 UI / 1 file-init /
-0 commits. The active compatibility increment above addresses the reported
+0 commits. The completed compatibility increment above addresses the reported
 already-completed upload and identical duplicate binary Content-Type before a
 production batch. This code lane performs no provider action or production
 publication. See the [executable handoff](readiness/2026-10-06/modern_exxon_handoff.md).
