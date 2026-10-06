@@ -1,3 +1,12 @@
+## 2026-10-06: bounded unknown-create observations and deferred AquaDocs follow-up
+
+- PR44 diagnostics are merged and verified. The original production 403 had no retained body/Location and still has unknown outcome/cause; later network-restriction observations cannot explain it retrospectively.
+- The new GET-only controller observes all returned owned IDs without title/date/file exclusions. Even a terminal, stable legacy listing cannot establish modern draft coverage or absence. Modern 404s, conflicting or multiple bodies and unread candidates remain explicitly unresolved. Adoption/replay require a separate reviewed resolution; this increment grants neither.
+- The canonical recovery intent has no reset or continuation path. Future continuation must preserve actual cumulative GETs, all raw observations and the original create intent. Raw received-body accounting is distinct from larger base64 sidecar storage; the shared 1 MiB document loader must not be used for a maximum-sized wrapped raw sidecar.
+- Preserve explicit PR44 historical-runtime compatibility for the same six singleton policies and original journals. No provider action follows from repository merge.
+- Full PR44 CI took 2,177 seconds. The bounded workflow timeout is raised from 45 to 60 minutes to accommodate the additional adversarial recovery suite without removing checks or increasing concurrency; no plan/capacity change is requested.
+- AquaDocs comparison and related-identifier work is deferred by explicit user decision until after initial production publication. It is not completed/passed and is nonblocking for that initial release. Preserve both cache/transfer and adjudication evidence, source QA, internal/production identity dedup, uncertain-create hold, PICES acceptance/readback and separate provider release.
+
 # Finite institutional91 wire representation — 2026-10-06
 
 Nine exact institutional citation groups supply a modern organizational type for

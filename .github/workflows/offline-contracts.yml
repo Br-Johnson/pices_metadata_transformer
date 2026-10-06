@@ -18,7 +18,7 @@ jobs:
   offline-contracts:
     name: Guarded offline contracts
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 60
     env:
       PICES_EXPECTED_COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
       PIP_CONFIG_FILE: /dev/null
@@ -68,6 +68,9 @@ jobs:
           scripts/mac_sandbox_canary.py tests/test_mac_sandbox_canary.py
           scripts/publication_plan.py tests/test_publication_plan.py
           scripts/production_mutations.py tests/test_production_mutations.py
+          scripts/modern_response_evidence.py tests/test_modern_response_evidence.py
+          scripts/modern_unknown_create.py tests/test_modern_unknown_create.py
+          tests/test_modern_unknown_create_history.py
           scripts/modern_publication.py scripts/modern_publication_qa.py
           tests/test_modern_publication.py tests/test_modern_publication_qa.py
           tests/test_modern_community_authority.py
