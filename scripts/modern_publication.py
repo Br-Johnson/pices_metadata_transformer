@@ -26,6 +26,7 @@ from scripts.modern_singleton import (
     DIRECT_POLICY,
     EXTENSION_POLICY,
     EXXON_POLICY,
+    PICES_POLICY,
     POLICY,
     Held,
     Prepared,
@@ -48,6 +49,7 @@ PR37_RUNTIME = '7e93a95ba980918cf687221a56bc4a60eb5b219ac53406a8b2175b0f46e0d90a
 PR38_RUNTIME = '1ac72000a7697bedef5b6e76ca0a28252a85f36bb0529a7e521c68aa4177d9e2'
 PR39_RUNTIME = '7c3e7184f490cc4e43743f12fa831d58e6b79d8e36f93bd7e9c92a2a637f57be'
 PR40_RUNTIME = '999c23a83d9fbcb800f612c150708c474069f9baf0e9ef192e39107cd3633ec9'
+PR41_RUNTIME = 'a23fa32cd7312616100a0d34e9b328234a98cd3cd173821d55d494f326ac85d4'
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'review': 1, 'submit': 1}
 JSON = 'application/json'
@@ -100,6 +102,8 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
         compatible.add(PR38_RUNTIME)
     if prepared.evidence['policy'] in (POLICY, EXTENSION_POLICY, DIRECT_POLICY, EXXON_POLICY):
         compatible.update((PR39_RUNTIME, PR40_RUNTIME))
+    if prepared.evidence['policy'] in (POLICY, EXTENSION_POLICY, DIRECT_POLICY, EXXON_POLICY, PICES_POLICY):
+        compatible.add(PR41_RUNTIME)
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
             and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
@@ -124,7 +128,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     completed = draft.completed_on_content(row, prepared)
     # Historical clients could emit only the marker-free four-write transcript.
     require(not completed or evidence['runtime_sha256'] in
-            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME))
+            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME, PR41_RUNTIME))
     writes = [('create', 'POST', '/api/records', 201, sha(prepared.body)),
               ('init', 'POST', base + '/files', 201, sha(encode([{'key': prepared.source_id + '.xml'}]))),
               ('content', 'PUT', file + '/content', 200, sha(prepared.xml)),

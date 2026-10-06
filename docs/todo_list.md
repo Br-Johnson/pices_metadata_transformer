@@ -1,10 +1,23 @@
-## Active increment: finite PICES26 wire representation — 2026-10-06
+## Active increment: finite institutional91 wire representation — 2026-10-06
+
+- [x] Reconcile PR41 and the standing repository rules; preserve frozen checkouts and all prior receipts.
+- [x] Select 91 exact name-only institutional citations across nine source-reviewed groups; retain 79 direct interpretation holds, all other residual cohorts and the 228 paired targets.
+- [x] Implement source/hash/parsed-origin/full-creator bindings and a wire-only organizational projection with unchanged legacy metadata; resolve the initial origin-representation mismatch.
+- [x] Measure all 91 new mappings twice and all 3,171 prior payloads once: 3,262 mapped, 671 remaining (443 singletons + 228 pairs). Verify all 4,206 originals, 21,779 retained files and 14 exact public profiles. Pass 106 staged and 10 final affected guarded contracts; preserve distinct test bindings and earlier failures.
+- [ ] Complete independent current-head review and actual CI, then merge the exact tested tree.
+
+Parent reports the October 6 production inventory independently repeated the
+October 4 capture byte-for-byte. Preserve both observations; the committed raw
+comparison remains explicitly dated October 4. This lane makes no provider calls.
+Production destination confirmation and live dispatch remain with parent.
+
+## Completed increment: finite PICES26 wire representation — 2026-10-06
 
 - [x] Reconcile PR40 and standing merge/documentation authorization; preserve frozen checkouts, source profiles and provider journals.
 - [x] Independently review the exact 26 PICES institutional citations. Approve only their modern organizational representation; preserve name-only legacy credits. DFO Staff70 and all other residual cohorts remain outside.
 - [x] Measure all 26 fresh mappings twice and all 3,145 prior wire/nonruntime comparisons once. Coverage is 3,171; 762 targets remain (534 singletons + 228 pairs). All 4,206 original hashes and 18,488 retained evidence files/11 referenced profiles match; all four guarded shards pass.
 - [x] Pass 104 core and 25 additional affected guarded tests with unchanged per-run bindings and zero unexpected I/O. Update two stale PICES rejection fixtures to still-unmapped SOA without weakening assertions; runtime and measurements remain unchanged. Resolve the aggregate-membership hash finding and preserve all earlier receipts.
-- [ ] Freeze independent current-head review and actual CI, then merge the exact reviewed tree and retain the PR receipt.
+- [x] Merge PR41 at `cc59095583cfabae2c258f71cb212892eb652b05` from reviewed head `4b74c9a898deb10d2945e85ea8d29176e3ba624e` after 806 passing guarded CI tests and exact-head independent Codex review; retain the tested tree and receipts.
 - [x] Verify the raw source-bound FGDC-141 comparison: no supported candidate in the October 4 capture of 20 owned records/24 descriptors. Preserve unknown history and evidenced production attempts separately; no grant or provider action follows.
 
 The PICES destination answer remains with Brett and parent. Source citation typing
