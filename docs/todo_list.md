@@ -1,10 +1,18 @@
-## Active increment: finite institutional91 wire representation — 2026-10-06
+## Active increment: finite Exxon203 paired metadata preparation — 2026-10-06
+
+- [x] Reconcile PR42, standing authority and live executor availability; preserve sole code ownership and frozen evidence.
+- [x] Independently establish 203 supported exact pairs /406 originals under existing attribution and pair authority.
+- [x] Implement separate modern class preparation with both originals, complete legacy metadata and closed singleton/provider/release guards.
+- [x] Measure all 203 twice and all 3,262 retained singleton payloads once; verify all 4,206 originals, 25,421 retained public files and 18 profiles. All four guarded shards and 31 affected tests pass with unchanged bindings.
+- [ ] Resolve substantive independent review, pass applicable current-head CI and merge before the successor cohort.
+
+## Completed increment: finite institutional91 wire representation — 2026-10-06
 
 - [x] Reconcile PR41 and the standing repository rules; preserve frozen checkouts and all prior receipts.
 - [x] Select 91 exact name-only institutional citations across nine source-reviewed groups; retain 79 direct interpretation holds, all other residual cohorts and the 228 paired targets.
 - [x] Implement source/hash/parsed-origin/full-creator bindings and a wire-only organizational projection with unchanged legacy metadata; resolve the initial origin-representation mismatch.
 - [x] Measure all 91 new mappings twice and all 3,171 prior payloads once: 3,262 mapped, 671 remaining (443 singletons + 228 pairs). Verify all 4,206 originals, 21,779 retained files and 14 exact public profiles. Pass 106 staged and 10 final affected guarded contracts; preserve distinct test bindings and earlier failures.
-- [ ] Complete independent current-head review and actual CI, then merge the exact tested tree.
+- [x] Merge PR42 at `5ed97a764e1937474315bc9711701e06cc031bd7` after exact-head independent Codex review and 816 passing actual guarded CI tests; retain its frozen tree and receipts.
 
 Parent reports the October 6 production inventory independently repeated the
 October 4 capture byte-for-byte. Preserve both observations; the committed raw
