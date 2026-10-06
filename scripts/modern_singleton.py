@@ -1,6 +1,6 @@
 """Finite source-aware modern mapping; no provider or publication authority.
 
-Only the original 19 and a pinned extension of 86 organizational singletons are supported.
+Only explicitly pinned organizational singleton groups are supported.
 Every preparation reruns semantic assessment and preserves assembled legacy
 metadata separately from the explicitly selected repository-host publisher.
 """
@@ -9,6 +9,7 @@ import hashlib
 import html
 import json
 import re
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -17,6 +18,7 @@ from referencing import Registry, Resource
 from referencing.jsonschema import DRAFT7
 
 from scripts.agent_qa import assess_source
+from scripts.citation_creator_interpretation import source_element
 from scripts.content_class_targets import require_singleton_operation
 from scripts.modern_draft_schema import SCHEMA_FILES, SCHEMAS
 from scripts.production_mutations import PROTECTED
@@ -32,6 +34,9 @@ POLICY = 'modern-xml-ncdc19-v1'
 EXTENSION = ROOT / 'docs/readiness/2026-10-05/modern_organizational_extension86.json'
 EXTENSION_SHA = 'c78074384f29310e5cdc0c23dddc6b47161e516bc0222ddbbe0a36dfbc9a1dcf'
 EXTENSION_POLICY = 'modern-xml-organizations86-v1'
+DIRECT_PROFILE = ROOT / 'docs/readiness/2026-10-06/modern_direct_primary_organizations.json'
+DIRECT_SHA = '35512b48636ae563acfc26a77c547699bba2dfe767e414e995e83079e3f3eb13'
+DIRECT_POLICY = 'modern-xml-direct-organizations-v1'
 PRESERVATION_LABEL = (
     'Legacy assembled metadata, preserved without field loss. Publisher values in this '
     'block are legacy mapping values, not independently source-attested publishers. '
@@ -107,7 +112,9 @@ def source_policy(source_id):
     ids = [row['source_id'] for row in members]
     require(len(set(ids)) == 86 and ids == sorted(ids, key=lambda sid: int(sid[5:])))
     matched = [row for row in members if row['source_id'] == source_id]
-    require(len(matched) == 1)
+    require(len(matched) <= 1)
+    if not matched:
+        return direct_source_policy(source_id)
     member = matched[0]
     selected = [row for row in pinned(PROFILE, PROFILE_SHA)['cohorts']
                 if row['profile'] == member['creator_cohort']]
@@ -115,6 +122,48 @@ def source_policy(source_id):
             in selected[0]['members'])
     return selected[0], {'schema_version': 2, 'policy': EXTENSION_POLICY,
                          'mapping_manifest_sha256': EXTENSION_SHA, 'creator_cohort': member['creator_cohort']}
+
+
+def direct_source_policy(source_id):
+    """Exact reviewed primary-citation credits, separate from citation426 authority.
+
+    Default organization detection only nominated candidates. This immutable
+    manifest supplies the finite independent review and full creator objects.
+    """
+    manifest = pinned(DIRECT_PROFILE, DIRECT_SHA)
+    require(isinstance(manifest, dict) and set(manifest) == {
+        'schema_version', 'kind', 'policy', 'source_plan_sha256', 'source_census_sha256',
+        'review_sha256', 'member_count', 'group_count', 'groups'}
+        and type(manifest['schema_version']) is int and manifest['schema_version'] == 1
+        and manifest['kind'] == 'modern-direct-primary-organizations-v1'
+        and manifest['policy'] == DIRECT_POLICY and manifest['source_plan_sha256'] == PLAN_SHA
+        and type(manifest['member_count']) is int and manifest['member_count'] > 0
+        and type(manifest['group_count']) is int and manifest['group_count'] > 0
+        and isinstance(manifest['groups'], list) and len(manifest['groups']) == manifest['group_count'])
+    ids, profiles, matches = [], [], []
+    for group in manifest['groups']:
+        require(isinstance(group, dict) and set(group) == {
+            'profile', 'creators', 'primary_origin_variants', 'members'}
+            and isinstance(group['profile'], str) and re.fullmatch(r'primary-origin-[0-9]{3}', group['profile'])
+            and isinstance(group['creators'], list) and group['creators']
+            and all(isinstance(creator, dict) and set(creator) == {'name', 'type'}
+                    and isinstance(creator['name'], str) and creator['name'].strip()
+                    and creator['type'] == 'Organization' for creator in group['creators'])
+            and isinstance(group['primary_origin_variants'], list) and group['primary_origin_variants']
+            and isinstance(group['members'], list) and group['members'])
+        profiles.append(group['profile'])
+        for member in group['members']:
+            require(isinstance(member, dict) and set(member) == {'source_id', 'source_sha256'}
+                    and isinstance(member['source_id'], str) and re.fullmatch(r'FGDC-[1-9][0-9]*', member['source_id'])
+                    and isinstance(member['source_sha256'], str) and re.fullmatch('[0-9a-f]{64}', member['source_sha256']))
+            ids.append(member['source_id'])
+            if member['source_id'] == source_id:
+                matches.append(group)
+    require(len(profiles) == len(set(profiles)) and len(ids) == len(set(ids)) == manifest['member_count']
+            and len(matches) == 1)
+    selected = matches[0]
+    return selected, {'schema_version': 3, 'policy': DIRECT_POLICY,
+                      'mapping_manifest_sha256': DIRECT_SHA, 'creator_cohort': selected['profile']}
 
 
 def runtime_binding():
@@ -164,13 +213,22 @@ def prepare(json_file, paths):
     require(sid in members)
     raw_input = json_file.read_bytes()
     payload = parse(raw_input)
-    reference = payload.get('artifact_policy', {}).get('creator_interpretation', {})
-    require(reference.get('manifest_sha256') == PROFILE_SHA)
+    policy = payload.get('artifact_policy', {})
+    require(isinstance(policy, dict))
+    direct = policy_fields['policy'] == DIRECT_POLICY
+    if direct:
+        require('creator_interpretation' not in policy)
+    else:
+        reference = policy.get('creator_interpretation', {})
+        require(isinstance(reference, dict) and reference.get('manifest_sha256') == PROFILE_SHA)
     metadata, source_sha, artifact, _ = assess_source(json_file, paths)
     xml = (ROOT / 'FGDC' / (sid + '.xml')).read_bytes()
     require(source_sha == sha(xml) == members[sid] and artifact is not None
             and artifact['source_id'] == sid and len(artifact['files']) == 1
             and artifact['files'][0]['sha256'] == source_sha)
+    if direct:
+        origins = ET.fromstring(xml).findall('./idinfo/citation/citeinfo/origin')
+        require(origins and [source_element(node) for node in origins] in selected['primary_origin_variants'])
     target = next(row for row in pinned(PLAN, PLAN_SHA)['targets'] if row['record_target_id'] == sid)
     require(target['source_ids'] == [sid] and target['source_semantic_status'] == 'supported'
             and target['source_sha256'] == source_sha
@@ -197,7 +255,7 @@ def prepare(json_file, paths):
     evidence = {**policy_fields, 'source_id': sid,
                 'source_sha256': source_sha, 'prepared_input_sha256': sha(raw_input),
                 'legacy_metadata_sha256': sha(legacy), 'wire_sha256': sha(body),
-                'artifact_contract': artifact, 'creator_profile_sha256': PROFILE_SHA,
+                'artifact_contract': artifact, 'creator_profile_sha256': DIRECT_SHA if direct else PROFILE_SHA,
                 'source_plan_sha256': PLAN_SHA, 'runtime_sha256': runtime_binding(),
                 'schema_sha256': {name: digest for name, (_, digest) in SCHEMA_FILES.items()}}
     return Prepared(sid, body, xml, evidence, sha(encode(evidence)))

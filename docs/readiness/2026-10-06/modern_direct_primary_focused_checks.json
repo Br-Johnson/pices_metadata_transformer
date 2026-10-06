@@ -1,0 +1,35 @@
+{
+  "commit": "a8991106833a414f8e610a6a3ec9eb637ba72be5",
+  "environment_cleared_dummy_credentials_only": true,
+  "errors": 0,
+  "failures": 0,
+  "guard_blocks": {
+    "bootstrap": {
+      "network": 4,
+      "private_reads": 1,
+      "processes": 1,
+      "writes": 1
+    },
+    "tests": {
+      "network": 0,
+      "private_reads": 0,
+      "processes": 0,
+      "writes": 0
+    }
+  },
+  "in_process_read_only_git_queries": 0,
+  "seconds": 522.104,
+  "selected_modules": [
+    "tests.test_modern_primary_organizations",
+    "tests.test_modern_organizational_coverage",
+    "tests.test_modern_singleton",
+    "tests.test_modern_singleton_executor",
+    "tests.test_modern_publication",
+    "tests.test_modern_publication_qa"
+  ],
+  "source_bindings_unchanged": true,
+  "source_tree_sha256": "0ecd4a4457e9c434918e1d59138de98863a57cee55afb2178efdb7824a973bc8",
+  "successful": true,
+  "tests_run": 130,
+  "unexpected_guard_call_sites": []
+}

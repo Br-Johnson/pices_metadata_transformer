@@ -1,0 +1,1844 @@
+{
+  "approved_membership_sha256": "4b89316e4f419a7580cdfa921e857a632481d4ea36507196aa71118e1f4afa50",
+  "base_revision": "a8991106833a414f8e610a6a3ec9eb637ba72be5",
+  "base_tree": "0c5abba08d236a8e20d260844c287346a9bbd446",
+  "count_evidence": "105 retained modern singletons +2,628 independently selected =2,733 projected;3,705-2,733=972 remaining singletons;3,933-2,733=1,200 remaining supported targets. No actual mapping completion claim.",
+  "counts": {
+    "mapping_hold_groups": 63,
+    "mapping_hold_sources": 69,
+    "pinned_plan_supported_singletons_unchanged": 3705,
+    "pinned_plan_supported_total_unchanged": 3933,
+    "prior_modern_singletons": 105,
+    "projected_modern_singletons_after_successful_mapping": 2733,
+    "projected_remaining_supported_singletons_after_successful_mapping": 972,
+    "projected_supported_targets_outside_modern_scope_after_successful_mapping": 1200,
+    "reviewed_Organization_groups": 357,
+    "reviewed_Organization_sources": 2697,
+    "selected_groups": 294,
+    "selected_sources": 2628,
+    "supported_pair_targets_outside_singleton_mapper": 228,
+    "untyped_direct_primary_candidates_not_in_review": 101
+  },
+  "held_membership_sha256": "58729e4cf9d07f78e065d1c9c678a9465e3a94eeb5760328a7cee3939a0a2ad9",
+  "kind": "finite-modern-direct-primary-organizations-selection",
+  "manifest": {
+    "path": "docs/readiness/2026-10-06/modern_direct_primary_organizations.json",
+    "sha256": "35512b48636ae563acfc26a77c547699bba2dfe767e414e995e83079e3f3eb13"
+  },
+  "mapping_hold_group_ids": [
+    "primary-origin-060",
+    "primary-origin-097",
+    "primary-origin-098",
+    "primary-origin-110",
+    "primary-origin-141",
+    "primary-origin-142",
+    "primary-origin-151",
+    "primary-origin-153",
+    "primary-origin-156",
+    "primary-origin-157",
+    "primary-origin-159",
+    "primary-origin-160",
+    "primary-origin-164",
+    "primary-origin-167",
+    "primary-origin-168",
+    "primary-origin-171",
+    "primary-origin-173",
+    "primary-origin-177",
+    "primary-origin-178",
+    "primary-origin-179",
+    "primary-origin-190",
+    "primary-origin-197",
+    "primary-origin-198",
+    "primary-origin-199",
+    "primary-origin-200",
+    "primary-origin-205",
+    "primary-origin-218",
+    "primary-origin-219",
+    "primary-origin-222",
+    "primary-origin-225",
+    "primary-origin-226",
+    "primary-origin-229",
+    "primary-origin-235",
+    "primary-origin-237",
+    "primary-origin-239",
+    "primary-origin-240",
+    "primary-origin-248",
+    "primary-origin-288",
+    "primary-origin-290",
+    "primary-origin-293",
+    "primary-origin-295",
+    "primary-origin-297",
+    "primary-origin-298",
+    "primary-origin-299",
+    "primary-origin-302",
+    "primary-origin-304",
+    "primary-origin-311",
+    "primary-origin-312",
+    "primary-origin-318",
+    "primary-origin-319",
+    "primary-origin-325",
+    "primary-origin-332",
+    "primary-origin-333",
+    "primary-origin-334",
+    "primary-origin-335",
+    "primary-origin-338",
+    "primary-origin-342",
+    "primary-origin-359",
+    "primary-origin-360",
+    "primary-origin-366",
+    "primary-origin-367",
+    "primary-origin-368",
+    "primary-origin-369"
+  ],
+  "mapping_hold_source_ids": [
+    "FGDC-184",
+    "FGDC-197",
+    "FGDC-287",
+    "FGDC-296",
+    "FGDC-411",
+    "FGDC-540",
+    "FGDC-627",
+    "FGDC-723",
+    "FGDC-725",
+    "FGDC-728",
+    "FGDC-729",
+    "FGDC-754",
+    "FGDC-755",
+    "FGDC-757",
+    "FGDC-760",
+    "FGDC-768",
+    "FGDC-770",
+    "FGDC-771",
+    "FGDC-785",
+    "FGDC-817",
+    "FGDC-898",
+    "FGDC-1268",
+    "FGDC-1342",
+    "FGDC-1905",
+    "FGDC-1941",
+    "FGDC-1943",
+    "FGDC-2229",
+    "FGDC-2235",
+    "FGDC-2236",
+    "FGDC-2239",
+    "FGDC-2559",
+    "FGDC-2597",
+    "FGDC-2602",
+    "FGDC-2605",
+    "FGDC-2619",
+    "FGDC-2634",
+    "FGDC-2637",
+    "FGDC-2644",
+    "FGDC-2646",
+    "FGDC-2668",
+    "FGDC-2671",
+    "FGDC-2673",
+    "FGDC-2677",
+    "FGDC-2679",
+    "FGDC-2681",
+    "FGDC-2685",
+    "FGDC-2687",
+    "FGDC-2689",
+    "FGDC-2705",
+    "FGDC-2706",
+    "FGDC-2709",
+    "FGDC-2824",
+    "FGDC-3591",
+    "FGDC-3596",
+    "FGDC-3597",
+    "FGDC-3599",
+    "FGDC-3600",
+    "FGDC-3743",
+    "FGDC-3786",
+    "FGDC-3789",
+    "FGDC-3793",
+    "FGDC-3794",
+    "FGDC-3795",
+    "FGDC-3797",
+    "FGDC-4050",
+    "FGDC-4051",
+    "FGDC-4066",
+    "FGDC-4068",
+    "FGDC-4070"
+  ],
+  "mapping_holds": [
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska, Anchorage",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-754",
+          "source_sha256": "98dde95d8391f6dc2c3e1e90b8909e146cd7872347b8a969c6b8feea5a7a5b62"
+        },
+        {
+          "source_id": "FGDC-755",
+          "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+        },
+        {
+          "source_id": "FGDC-757",
+          "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+        },
+        {
+          "source_id": "FGDC-760",
+          "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+        }
+      ],
+      "profile": "primary-origin-060",
+      "rationale": "The primary field explicitly describes AHTNA/Copper River Native Association contracting to ISER/UAA. The abstract also describes compilation on contract; a contract chain is not a clear single institutional entity name for this unchanged mapping.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 4
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Census of Marine Life and Rutgers, The State University of New Jersey",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-4066",
+          "source_sha256": "570743f631edb21fbecb9fc73d494619be695cc56747c155b7bfdc72dc051c86"
+        },
+        {
+          "source_id": "FGDC-4070",
+          "source_sha256": "59c01b5274a15704d572952259661f841986305dc6303df01f440cc533c1ac3f"
+        }
+      ],
+      "profile": "primary-origin-097",
+      "rationale": "Census of Marine Life is expressly called a program in the purpose and is joined to Rutgers by and. This program/university compound does not establish a single clear institutional entity shape for unchanged organizational mapping.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 2
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Chenega Corporation contract to Stan Sears and Associates.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-723",
+          "source_sha256": "f652edb80b7f49d3f70d71ef27b5097e34af886fa41dcfbda4f4a0907b0ffd3a"
+        },
+        {
+          "source_id": "FGDC-725",
+          "source_sha256": "5e77b53da45cbfd7dcb7e68e9da66574e0a1ee876fe8afeff1527dfce61b23f1"
+        }
+      ],
+      "profile": "primary-origin-098",
+      "rationale": "Chenega Corporation contract to Stan Sears and Associates is an explicit contracting relationship, not a clear single institutional name; preserve the current source record outside this increment pending role adjudication.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 2
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3793",
+          "source_sha256": "dd2c4faf965c1d12699a3cc26667102437191ecbb05a12586931144fbe4e2c82"
+        },
+        {
+          "source_id": "FGDC-3794",
+          "source_sha256": "2708f0ca3f0f1fa17c0d50be2de3b014f01c38fb0b52b8666e7fd3925d75dbf8"
+        }
+      ],
+      "profile": "primary-origin-110",
+      "rationale": "The origin explicitly names Mark Halverson, Rich Pawlowicz and Randall Lee of a university department. It is a people/institution compound, not an organizational entity despite the existing heuristic type.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 2
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "AHTNA/Copper River Native Association contract to Institute of Social and Economic Research, University of Alaska Anchorage",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-627",
+          "source_sha256": "0d54b89cbd3650ee0c4e943b7efa51ce32cf7fb2ff56c9644e8f459f51892e29"
+        }
+      ],
+      "profile": "primary-origin-141",
+      "rationale": "The AHTNA/Copper River Native Association field explicitly contracts to ISER/UAA; the abstract confirms compilation for the association. Retain outside the unchanged organizational-name increment pending role adjudication.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Alaska Coastal Zone Management Program, Division of Governmental Coordination, State of Alaska contract to Environment and Natural Resources Institute, University of Alaska, Anchorage",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-817",
+          "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f"
+        }
+      ],
+      "profile": "primary-origin-142",
+      "rationale": "The primary field is a program/state-government contract-to-university-institute chain. The institution, commissioner and contractor roles cannot be represented as a clear single institutional name without further judgment.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Alaska Native Science Commission / UAA: Institute for Social & Economic Research (comp.)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-540",
+          "source_sha256": "238a93f4774206ed0e91da103e8cb56c565b21f9678e51e56aa224e9094d14ed"
+        }
+      ],
+      "profile": "primary-origin-151",
+      "rationale": "The slash-separated commission/UAA institute credit includes an explicit (comp.) role qualifier. This composite compiler attribution needs role/entity judgment beyond mapping a literal unqualified institutional name unchanged.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Alyeska Pipeline Service Company contracted to EMCOM Alaska Inc.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-728",
+          "source_sha256": "f302e62287858fbcc533178f0e8be5780ef47f852c469e5ec25a912ac3087f8e"
+        }
+      ],
+      "profile": "primary-origin-153",
+      "rationale": "Alyeska Pipeline Service Company contracted to EMCOM Alaska Inc. explicitly encodes a contracting relationship. The project-description context does not turn that relationship into a single institutional entity name.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "B.L. Wing of Alaska Fisheries Science Center, Alaska and D.R. Barnard of Alaska Department of Fish and Game, Alaska",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3797",
+          "source_sha256": "ae0a6db211c6de14aa4c260ba5a6d6fd79fa246d10d19c9eb855016dab28ed54"
+        }
+      ],
+      "profile": "primary-origin-156",
+      "rationale": "B.L. Wing of AFSC and D.R. Barnard of ADF&G are explicitly two people with institutions; the coral-guide reference corroborates the person names, so Organization is not a defensible unchanged entity type.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Brown, E.J., Finney, B., Hills, S. and Dommisse, M. - American Fisheries Society, Bethesda, MD",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-1943",
+          "source_sha256": "a2173eb81bec31283444aec1f9d8a35598b80919f5e7c761f036efad91e1e579"
+        }
+      ],
+      "profile": "primary-origin-157",
+      "rationale": "The primary field lists Brown, Finney, Hills and Dommisse, then American Fisheries Society and a place; the abstract identifies a publication reference. This is a people/publication-institution compound.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2668",
+          "source_sha256": "554c38ba3ad5c3bdbdc17aeed63361e30783aca26770d32fe3e46980af58785c"
+        }
+      ],
+      "profile": "primary-origin-159",
+      "rationale": "The origin explicitly combines named people, a parenthetical museum and USGS. Keep outside the organizational increment without splitting or assigning affiliations.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "C. Hans Nelson: U. S. Geological Survey (USGS), Menlo Park, California 94025, U.S.A.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2681",
+          "source_sha256": "e64ffd40145d3334ca7c9db14c08c0a9b64e7e83bb468f29c7503b41ec311fdb"
+        }
+      ],
+      "profile": "primary-origin-160",
+      "rationale": "C. Hans Nelson is explicitly a person followed by USGS and its postal location; preserving this entire person/institution field as an organizational name is unsupported.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Chris Lunsford: (AFSC Quarterly Report: Jul. - Sep. 2002) National Oceanic and Atmospheric Administration (NOAA), National Marine Fisheries Service (NMFS), Alaska Fisheries Science Center (AFSC)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-898",
+          "source_sha256": "1334667052fe51efa3b8c0f9136638ea952abd4c610e97a0611ddc887a04a193"
+        }
+      ],
+      "profile": "primary-origin-164",
+      "rationale": "Chris Lunsford is a named person followed by an AFSC Quarterly Report venue/date and NOAA hierarchy. The whole field is a person/venue/institution compound, not a single organization name.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Cliff Mass et al., University of Washington (UW). Dept. of Atmospheric Sciences",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2235",
+          "source_sha256": "87987d08962dd27c2a63a3ef9290dceddecd9ae4a108ae5256bec28a3cf2378d"
+        }
+      ],
+      "profile": "primary-origin-167",
+      "rationale": "Cliff Mass et al. explicitly credits people alongside the University of Washington department; do not map the whole field as one organization or infer its additional people.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Clifford A. Barnes and Thomas G. Thompson of the University of Washington",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2706",
+          "source_sha256": "e61b964c0241beeed4586d2591be65073057a7da7bc2d50163b7861b45dbb133"
+        }
+      ],
+      "profile": "primary-origin-168",
+      "rationale": "Clifford A. Barnes and Thomas G. Thompson of the University of Washington explicitly names two people and their institution; the descriptive reference confirms those person authors.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "David M. Hopkins, US Geological Survey, Menlo Park, California",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2605",
+          "source_sha256": "d57c1843bc342983bf9e746ce93ebd0610730bd04e2c9332f018594fa4622fcb"
+        }
+      ],
+      "profile": "primary-origin-171",
+      "rationale": "David M. Hopkins is a named person followed by USGS and a location; the reference confirms a person author, so the complete field cannot be retained as an organizational identity.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Department of Fisheries and Oceans, Institute of Ocean Sciences, Custodian Marine Environmental Data Service",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-197",
+          "source_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac"
+        }
+      ],
+      "profile": "primary-origin-173",
+      "rationale": "The primary field appends Custodian Marine Environmental Data Service to DFO/Institute of Ocean Sciences. Custodian is an explicit role-bearing attribution within a composite credit, requiring further entity/role judgment.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Director, U.S. Fish and Wildlife Service (USF&WS)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2709",
+          "source_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7"
+        }
+      ],
+      "profile": "primary-origin-177",
+      "rationale": "Director, U.S. Fish and Wildlife Service identifies an office-holder role rather than an unqualified agency name. The descriptive reference also lists people; keep the unresolved office-holder/entity attribution outside this increment.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Dr. Hatakeyama, former Director-General of the Japan Meteorological Agency.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2597",
+          "source_sha256": "ebbc654aa567e4fee5cad30847de107b65839f2f7c648fc5dd041f58e8bfa88d"
+        }
+      ],
+      "profile": "primary-origin-178",
+      "rationale": "Dr. Hatakeyama, former Director-General explicitly identifies a person by title and former agency role; the existing Organization type is a heuristic false positive.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Drs. J. L. Reid and A. W. Mantyla at Scripps Institute of Oceanography",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3743",
+          "source_sha256": "6aa904978e8ae2fe33ee22604e0f686c3260cc84fcd70f65e7fff806ea79902e"
+        }
+      ],
+      "profile": "primary-origin-179",
+      "rationale": "Drs. J. L. Reid and A. W. Mantyla at Scripps explicitly names two people and their institution; the abstract corroborates their data-provider role and does not justify a single organizational identity.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Fisheries and Oceans Canada - Pacific Region, Institute of Ocean Science, Oceanographic Data Manager",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-184",
+          "source_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953"
+        }
+      ],
+      "profile": "primary-origin-190",
+      "rationale": "The otherwise institutional hierarchy ends in Oceanographic Data Manager, a job-role label whose organizational-versus-personal capacity is unspecified. The lighthouse-data context does not resolve that role.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Gerald A. Sanger and Scott A. Hatch of the Alaska Fish and Wildlife Research Center, U.S. Fish and Wildlife Service, Anchorage, Alaska",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2644",
+          "source_sha256": "a8c1a330e66beff3e6d657290a7fd7464c27385a913629c96da74a814b9300db"
+        }
+      ],
+      "profile": "primary-origin-197",
+      "rationale": "Origin explicitly names Gerald A. Sanger and Scott A. Hatch of a research center/service; this is a people/institution compound, corroborated by the named-author report reference.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Gerald A. Sanger of the University of Washington, Department of Oceanography, Seattle Washington.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2646",
+          "source_sha256": "861854e2c5949d6c0ea6c43733b9782a1339d6ede13c269240660f8d8956aa04"
+        }
+      ],
+      "profile": "primary-origin-198",
+      "rationale": "Origin explicitly names Gerald A. Sanger of a university department; the article reference confirms personal authorship and the whole string cannot be cleared as institutional.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Gerald Sanger, U.S. Fish and Wildlife Service (USFWS)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2634",
+          "source_sha256": "fcf33c07fc9240d80e9f3595773c2652eb35b2f50b561b20cb1bda0efa30de83"
+        }
+      ],
+      "profile": "primary-origin-199",
+      "rationale": "Origin combines Gerald Sanger with USFWS; the report reference names Sanger. Preserve for separate person/institution interpretation.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Gerald Sanger, University of Washington, Department of Oceanography, Seattle, Washington 98105.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2637",
+          "source_sha256": "7bd583609bbccb615da904664f8797fdf3daa1d3571eb76c4a78c4cc78b79be1"
+        }
+      ],
+      "profile": "primary-origin-200",
+      "rationale": "Origin combines Gerald Sanger with the University of Washington department and address. The checklist reference names Sanger; an organizational mapping would type a person/institution compound.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Gunnar I. Roden, University of Washington (UW), School of Oceanography",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2239",
+          "source_sha256": "6aa70c93a0221bd3ecafdb1ef39fe88a73594d3ac99d9af5bd243e5581ad4c16"
+        }
+      ],
+      "profile": "primary-origin-205",
+      "rationale": "Origin names Gunnar I. Roden followed by a university school. The CTD report context supplies no basis to type that personal/institutional compound as one organization.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "James B. Wood and Catriona Day, National Resource Center for Cephalopods, University of Texas Medical Branch",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-4068",
+          "source_sha256": "8ab7e260eb2827aeadee6effcbbbd1bc10a2e09a3c6098dcca0d153a230d762b"
+        }
+      ],
+      "profile": "primary-origin-218",
+      "rationale": "Origin explicitly credits James B. Wood and Catriona Day followed by a resource center and university branch. The persons cannot remain hidden inside an organizational creator.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "James Wang, NASA Goddard Space Flight Center",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-1905",
+          "source_sha256": "cd945a4a80ecfd606bbc08b620144eed3c97c57b5b6b8d8c83aabf037409754c"
+        }
+      ],
+      "profile": "primary-origin-219",
+      "rationale": "Origin names James Wang followed by NASA Goddard Space Flight Center. This person/institution compound requires separate interpretation.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Japan Oceanographic Data Center (JODC), CSK (Cooperative Study of the Kuroshio and adjacent regions) and Kuroshio Exploitation & utilization Research (KER)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3786",
+          "source_sha256": "b6b89196b97d22066fb3325b19f78811c7b00c1c13b2efebd6c3ddcaa72b9329"
+        }
+      ],
+      "profile": "primary-origin-222",
+      "rationale": "The origin mixes JODC with CSK and KER study/research labels. The context describes JODC data but does not establish those appended studies as organizational entities or resolve their distinct roles.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Jason Baker: National Marine Fisheries Service",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-296",
+          "source_sha256": "95b389f34c706a9e5cda9876c81f0cbc40b12080c2f4cec42f322c7383e3bd43"
+        }
+      ],
+      "profile": "primary-origin-225",
+      "rationale": "Origin explicitly names Jason Baker before National Marine Fisheries Service. Retain for person/institution interpretation rather than type the full compound as an organization.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Joe R. Goodman, John H. Lincoln, Thomas G. Thompson, and Frederick A. Zeusler of the University of Washington, Seattle, Washington, USA.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2705",
+          "source_sha256": "b169b499e371b4e6de6c3fb6ebd4d5128ac946a8b71e4725303343392facf766"
+        }
+      ],
+      "profile": "primary-origin-226",
+      "rationale": "Origin lists four named people of the University of Washington; the report reference repeats the personal authors. It is not an institutional-only credit.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Ken Furuya of University of Tokyo, Dept. Aquatic Bioscience",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2236",
+          "source_sha256": "65a9efe465eed3fb44f6a6d173f00150babcc5b243724a7739425e78cbbc10fb"
+        }
+      ],
+      "profile": "primary-origin-229",
+      "rationale": "Ken Furuya of University of Tokyo is explicitly a person/institution relationship. Organizational typing of the entire existing object is unsuitable.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Kristin McDougall: U. S. Geological Survey (USGS), Menlo Park, California 94025, U.S.A.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2685",
+          "source_sha256": "fb264b171fe29c0efd37a789b722b4f9bd98657f513c4ce8fe9668d203ec7b03"
+        }
+      ],
+      "profile": "primary-origin-235",
+      "rationale": "Origin explicitly names Kristin McDougall before USGS and a postal address. The reference names McDougall, confirming this is a person/institution compound.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "L.K. Coachman and R.B. Tripp of the University of Washington (UW), School of Oceanography",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2677",
+          "source_sha256": "6db754139524ea1f1197115a24a32a4b3a7460219df0bb53800f2404a855e083"
+        }
+      ],
+      "profile": "primary-origin-237",
+      "rationale": "Origin explicitly names L.K. Coachman and R.B. Tripp of a university school, corroborated by the named report references. It requires personal-creator interpretation.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Lee Cooper and Jacqueline Grebmeier, University of Tennessee",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3600",
+          "source_sha256": "e6bc7f2cac8751e369ce68622631cbab97f9c887988fef2336194d615c113aa0"
+        }
+      ],
+      "profile": "primary-origin-239",
+      "rationale": "Origin explicitly credits Lee Cooper and Jacqueline Grebmeier followed by the University of Tennessee. The personal data citation reinforces that this is not an institutional-only name.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "MS Thesis, University of Washington (UW)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2229",
+          "source_sha256": "1b76d5b088aa37631ce835434285121f22f0ac39f048a27d0fbedbb19895f8ee"
+        }
+      ],
+      "profile": "primary-origin-240",
+      "rationale": "MS Thesis is a document/degree designation followed by a university, not a clear institutional entity name; the minimal Thesis abstract does not resolve the creator role.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "NOAA/NMFS/AFSC & the University of Washington with partial support from SEBSCC Pat Livingston (AFSC) and Jesus Jurado-Molina (Univ. Wash)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-287",
+          "source_sha256": "c1fbb8aa99f3e48d2d29a3c2ed46158a07703de90be7974bab3831452981d0e2"
+        }
+      ],
+      "profile": "primary-origin-248",
+      "rationale": "The origin combines NOAA/AFSC, the University of Washington, partial support from SEBSCC and named people Pat Livingston and Jesus Jurado-Molina. This explicit support/person/institution compound cannot be cleared unchanged as organizational.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "P.A. Moiseev of the Ichthyological Team of the Russian Academy of Science, Institute of Animal Morphology, Ichthyological Team",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2689",
+          "source_sha256": "4cdb89e2a2746b0c3d61bf43ef540d67860a0c2c72b42768e0af1e54fee85a9c"
+        }
+      ],
+      "profile": "primary-origin-288",
+      "rationale": "The origin begins with the named person P.A. Moiseev and attaches an ichthyological team and academy/institute hierarchy. The abstract cites Moiseev publications. One Organization object would conflate a person with institutions; no splitting or repair is authorized.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Pacific Meridian Resources contracted by Ducks Unlimited contracted by Chugach National Forest, U.S. Bureau of land Management",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-771",
+          "source_sha256": "afdab5a682082fc944ee7ab3a004c626a20468e5784f828adf1e63fc55a43af5"
+        }
+      ],
+      "profile": "primary-origin-290",
+      "rationale": "The origin expresses a contracting chain from Pacific Meridian Resources through Ducks Unlimited to Chugach National Forest and a bureau. The brief landcover context does not resolve that chain as one organizational entity; hold the unsplit literal creator.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Prince William Sound Science Center, Sound Ecosystem Assessment (SEA)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-729",
+          "source_sha256": "00a8cd230b30a612bf4d0df0c5415045c15e4cc05a72b23198f1f5764a665b02"
+        }
+      ],
+      "profile": "primary-origin-293",
+      "rationale": "The origin appends Sound Ecosystem Assessment (SEA) to Prince William Sound Science Center. The complete context centers on a SEA database, SEAOCEAN and SEADATA projects, and multiple SEA groups without establishing SEA as an institutional unit. Hold the institution/program-or-product compound unchanged for adjudication.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Professor Emeritus of the University of Alaska Fairbanks (UAF), School of Fisheries and Ocean Sciences (SFOS), Institute of Marine Science (IMS)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-411",
+          "source_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b"
+        }
+      ],
+      "profile": "primary-origin-295",
+      "rationale": "Professor Emeritus of the university is a personal academic role, not the name of an organizational unit. The PROBES context does not identify that person within the primary origin; the institution suffix cannot justify typing the whole origin Organization.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "R. Dec. Ward, C.F. Brooks and A.J. Connor of Blue Hill Meteorological Observatory, Harvard University",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2559",
+          "source_sha256": "47f605b4a5334b2e375afe0792779ef2cba5f5c67d3a2d79d3c2745d826e42b4"
+        }
+      ],
+      "profile": "primary-origin-297",
+      "rationale": "The origin enumerates R. Dec. Ward, C.F. Brooks and A.J. Connor, followed by observatory/university affiliation wording. The climatic-map context does not turn those named people into an organization; hold without splitting or deleting identities.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "R. Tsuda of University of Hawaii, Honolulu",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3789",
+          "source_sha256": "0400063e073bd04d3b75fc03e916dc84c478389c871ebcb153e686a7f3d1f88a"
+        }
+      ],
+      "profile": "primary-origin-298",
+      "rationale": "The origin names R. Tsuda of University of Hawaii, Honolulu. The cruise-data context also calls for original-PI citation when available. The complete literal origin is a person/institution compound and cannot be approved as one Organization.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Ralph Hunter (Retired) and the U.S. Geological Survey (USGS)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2687",
+          "source_sha256": "8936c241bf3b1f59a4f9a30effc70b657901570ac700d8e6da706b3f8ede99ec"
+        }
+      ],
+      "profile": "primary-origin-299",
+      "rationale": "The origin explicitly joins Ralph Hunter (Retired) with USGS, and the abstract cites Hunter and coauthors. Preserve all text for adjudication; one Organization object would hide the named person.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Resource Data INC., Anchorage, AK, under contract to USGS, BRD, Alaska Biological Science Center",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-785",
+          "source_sha256": "eadafc1d01732e0b32924d9a5acb3dae62d0a1aac4cde510d2eac9430337def0"
+        }
+      ],
+      "profile": "primary-origin-302",
+      "rationale": "The origin combines Resource Data INC. and its location with an explicit under-contract-to relationship to USGS, BRD and Alaska Biological Science Center. Bathymetry context does not resolve this as one institution; retain the complete string on hold.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Rich Pawlowicz of University of British Columbia, Department of Earth and Ocean Sciences",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3795",
+          "source_sha256": "5f826e9ab251a456f736f60c5d869c4550c4553c64d6c5c47c542032a62c7d92"
+        }
+      ],
+      "profile": "primary-origin-304",
+      "rationale": "The primary origin names Rich Pawlowicz followed by his university and department. The STRATOGEM data context does not justify representing the named person and institution as one Organization; hold unsplit.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Sam Stocker of the University of Alaska Fairbanks (UAF), School of Fisheries and Ocean Sciences (SFOS), Institute of Marine Science (IMS)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2671",
+          "source_sha256": "871196f70c476752086619990b3dd5fdd7c67bf9b3df4aa1d0bcd203694b5ae0"
+        }
+      ],
+      "profile": "primary-origin-311",
+      "rationale": "The origin begins Sam Stocker of the university/school/institute, while the reference separately spells Stoker, Sam W. This remains a named person/institution compound requiring adjudication; do not correct the spelling or type the whole string Organization.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Sathy Naidu - University of Alaska Fairbanks (UAF)",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-1268",
+          "source_sha256": "c5636b682fd6b3ca395bf90475f38ace9fc6ee13132ff4fc0767bcdc483363c8"
+        }
+      ],
+      "profile": "primary-origin-312",
+      "rationale": "The origin joins Sathy Naidu and University of Alaska Fairbanks. The purpose explicitly describes Naidu as a marine scientist and study leader, confirming a person/institution compound; hold the entire original string.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Steve Romaine, Institute of Ocean Sciences",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-1342",
+          "source_sha256": "13176c489b4da25b22f7c09f659066aca88ad307eba74fb0f1c3f7989b75566b"
+        }
+      ],
+      "profile": "primary-origin-318",
+      "rationale": "Steve Romaine is a named person followed by Institute of Ocean Sciences in the sole origin. The database context and contact-permission language cannot establish the complete string as one Organization; hold without extracting a replacement institution.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Technical Report, International Pacific Halibut Commission [TECH. REP. IPHC]",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2824",
+          "source_sha256": "e277e932e0fb1fe8e8efb5e1d1d9af4606a4dfe20c40e61884a4e34fa9dd1a6e"
+        }
+      ],
+      "profile": "primary-origin-319",
+      "rationale": "The origin begins Technical Report and includes the series abbreviation TECH. REP. IPHC, followed by the commission. The descriptive section explicitly discusses a report. This mixes a publication-series/venue label with an institution, so the complete string is not a clear organizational entity.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "Thorleifur Einarsson, University Research Institute, Reykjavik and David M. Hopkins and Richard R. Doell, U.S. Geological Survey, Menlo Park, California.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2602",
+          "source_sha256": "897291e735589cf985f08d437f274a1bdbd82860db2c6fb2b5dcc67944aa2d17"
+        }
+      ],
+      "profile": "primary-origin-325",
+      "rationale": "The origin combines Thorleifur Einarsson, David M. Hopkins and Richard R. Doell with University Research Institute and U.S. Geological Survey affiliations. The descriptive reference confirms personal authors. Treating the complete person/institution compound as one Organization is not cleared.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "U.S. Navy, Office of Naval Research and Bob Arnone, U.S. Naval Research Laboratory, Stennis Space Center.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3591",
+          "source_sha256": "0561e77c36daf4800e94c1784c1ef17c5e981a33654d32469aeafb891bfff8eb"
+        }
+      ],
+      "profile": "primary-origin-332",
+      "rationale": "The primary origin combines U.S. Navy / Office of Naval Research with Bob Arnone and his Naval Research Laboratory affiliation. The abstract distinguishes investigator activity and ONR support. One Organization object is not a cleared interpretation of that mixed credit.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "U.S. Navy, Office of Naval Research and Charles N. Flagg, Brookhaven National Laboratory, New York.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3597",
+          "source_sha256": "c74e90c08f6662d509ce235e4ddc7844dda1b9a2b87f2a0bd898ad1f9c7ae7cd"
+        }
+      ],
+      "profile": "primary-origin-333",
+      "rationale": "The origin combines U.S. Navy / Office of Naval Research with Charles N. Flagg and Brookhaven National Laboratory. The abstract identifies ONR-supported research. Preserve the source compound for separate role/person review.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "U.S. Navy, Office of Naval Research and Charlie Eriksen, University of Washington (UW), School of Oceanography",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3596",
+          "source_sha256": "66d268cd793d1fcac1f9388b92d182502437ec09471fdb4d15731fec262e86d7"
+        }
+      ],
+      "profile": "primary-origin-334",
+      "rationale": "The origin combines U.S. Navy / Office of Naval Research with Charlie Eriksen and University of Washington affiliation. The abstract identifies investigator and ONR support roles. The whole phrase cannot be approved as a single organizational creator.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-3599",
+          "source_sha256": "e68427690dad4285c3cdf893e0cee5b254a9064c4a00331c23e7875d4881c267"
+        }
+      ],
+      "profile": "primary-origin-335",
+      "rationale": "The origin combines ONR with named people Harley Hurlburt, Pat Hogan and Gregg Jacobs and the Naval Research Laboratory. The abstract distinguishes investigator work and support. Hold the person/institution compound unchanged for separate adjudication.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "USDA Forest Service, Chugach National Forest, Cordova Ranger District contract with Ducks Unlimited Inc.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-770",
+          "source_sha256": "51729916302421ebdc9029022e940e3928381eb1fa37ddecda92577afb095398"
+        }
+      ],
+      "profile": "primary-origin-338",
+      "rationale": "The origin joins USDA Forest Service / Chugach National Forest / Cordova Ranger District to Ducks Unlimited Inc. through the explicit phrase contract with. The context does not resolve contractual versus creator roles into a single organizational credit.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "University of Alaska Anchorage for Chugach National Forest, Alaska Natural Heritage Program",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-768",
+          "source_sha256": "27caffd54ff7b9f00df06dc31c4785ec1e1ea68c40e402c94dbdff406ceb0abf"
+        }
+      ],
+      "profile": "primary-origin-342",
+      "rationale": "The primary origin states University of Alaska Anchorage for Chugach National Forest, Alaska Natural Heritage Program, while the abstract describes a cooperative agreement and Forest Service use. The for relationship leaves creator/beneficiary/contract roles unresolved; hold the complete compound.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "V. V. Sapozhnikov of the All-Russian Research Institute of Marine Fisheries and Oceanography, Moscow",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2673",
+          "source_sha256": "5f67922bd29b8f32201c4e440d475176b7e6349e642db95556aae57d1d80ef0f"
+        }
+      ],
+      "profile": "primary-origin-359",
+      "rationale": "The origin explicitly names V. V. Sapozhnikov of the All-Russian Research Institute. The reference repeats the personal author. A person with institution and city cannot be cleared as one Organization object.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "W. Bruce McAlister, Gaia Northwest Inc. Seattle, WA 98125",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2619",
+          "source_sha256": "320760ab3789d36a88e5b0075000db741a62b6e65e2f2b3060c784d19ce03783"
+        }
+      ],
+      "profile": "primary-origin-360",
+      "rationale": "The origin combines W. Bruce McAlister with Gaia Northwest Inc. and an address. The descriptive citation identifies McAlister as the author. Hold this person/company compound rather than approving the whole phrase as an organization.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "William Dupre of the Dept. of Geology, University of Houston, Houston, Texas 77004, U.S.A.",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-2679",
+          "source_sha256": "a508f6348c9e7589bf18af6d7895bc6bd7d5637b21b8a1543463ab93b27f9ba3"
+        }
+      ],
+      "profile": "primary-origin-366",
+      "rationale": "The origin names William Dupre of the University of Houston geology department with address; the reference identifies Dupre as author. The full personal/affiliation compound is not a single institutional credit.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "William J. Williams, Institute of Marine Science, University of Alaska, Fairbanks, AK 99775",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-1941",
+          "source_sha256": "50f59b3f73656d8836cecd136d76a11119abcbcbfa1a562ae6ec15b9b1a43b04"
+        }
+      ],
+      "profile": "primary-origin-367",
+      "rationale": "The origin names William J. Williams followed by Institute of Marine Science / University of Alaska and address. The description identifies a student PhD thesis. Hold the person/institution compound for separate interpretation.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "WorldFish Center: FishBase",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-4050",
+          "source_sha256": "9144689b229d288aab1ec77febd676b401ec106682438e6473abe0a23c08a45e"
+        }
+      ],
+      "profile": "primary-origin-368",
+      "rationale": "The primary origin WorldFish Center: FishBase combines an institution with FishBase, which the description identifies as an information system and database developed at WorldFish Center. That context establishes a center/product relationship rather than an institutional unit; hold the full compound without deleting the product name or inferring additional creators.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    },
+    {
+      "changes_source_status": false,
+      "creators": [
+        {
+          "name": "WorldFish Center: LarvalBase",
+          "type": "Organization"
+        }
+      ],
+      "current_source_semantic_status": "supported",
+      "disposition": "KEEP_OUTSIDE_MODERN_MAPPING_INCREMENT",
+      "members": [
+        {
+          "source_id": "FGDC-4051",
+          "source_sha256": "e01ce435721009ee1429852b86a007c29f8d469cf12b4d006bd72eaeee22ae58"
+        }
+      ],
+      "profile": "primary-origin-369",
+      "rationale": "The primary origin WorldFish Center: LarvalBase combines an institution with LarvalBase, described as an information system and project. The retained context does not establish LarvalBase as an organizational unit; hold the center/product compound and preserve its full text without inferring editors or institutional hierarchy.",
+      "review_receipt": "docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "source_count": 1
+    }
+  ],
+  "preserved_conditions": [
+    "No citation-origin/name/type/date/affiliation inference or modern institutional renaming.",
+    "Literal source rights/access/use conditions, attribution, original XML bytes, restricted XML attachments and blank license remain governed by existing policy.",
+    "Existing prepared creator objects are retained; Organization keyword recognition nominated but did not approve this finite selection.",
+    "Held mappings require separate creator-role/type review; their current source-supported status remains unchanged."
+  ],
+  "review_provenance": "Independent final A/B verdicts approve/hold are preserved unchanged. The compiler verifies source/object/membership/schema bindings and does not replace the semantic reviews.",
+  "review_sha256": {
+    "docs/readiness/2026-10-06/modern_direct_primary_review_a.json": "e7a1b1f1e1df9ddc282504aedf6074abdb9a2a0b2e4e2230270ec29a54c2e38b",
+    "docs/readiness/2026-10-06/modern_direct_primary_review_b.json": "b31f0b7fd194afb9be121ce08cd5c7e4a7ef76a3c554902b9a462e8743b38ff1"
+  },
+  "schema_version": 1,
+  "scope": "Exact independent creator-role review selection only. Mapping holds do not revoke existing source-supported status. Actual modern preparation, tests, transport, provider identity, grants and release remain separate.",
+  "selected_group_ids": [
+    "primary-origin-001",
+    "primary-origin-002",
+    "primary-origin-003",
+    "primary-origin-004",
+    "primary-origin-005",
+    "primary-origin-007",
+    "primary-origin-008",
+    "primary-origin-009",
+    "primary-origin-011",
+    "primary-origin-012",
+    "primary-origin-013",
+    "primary-origin-015",
+    "primary-origin-016",
+    "primary-origin-017",
+    "primary-origin-018",
+    "primary-origin-019",
+    "primary-origin-020",
+    "primary-origin-021",
+    "primary-origin-022",
+    "primary-origin-023",
+    "primary-origin-024",
+    "primary-origin-025",
+    "primary-origin-026",
+    "primary-origin-027",
+    "primary-origin-028",
+    "primary-origin-029",
+    "primary-origin-030",
+    "primary-origin-031",
+    "primary-origin-032",
+    "primary-origin-033",
+    "primary-origin-034",
+    "primary-origin-035",
+    "primary-origin-036",
+    "primary-origin-037",
+    "primary-origin-038",
+    "primary-origin-039",
+    "primary-origin-040",
+    "primary-origin-041",
+    "primary-origin-043",
+    "primary-origin-044",
+    "primary-origin-045",
+    "primary-origin-046",
+    "primary-origin-047",
+    "primary-origin-048",
+    "primary-origin-049",
+    "primary-origin-050",
+    "primary-origin-051",
+    "primary-origin-052",
+    "primary-origin-053",
+    "primary-origin-054",
+    "primary-origin-055",
+    "primary-origin-056",
+    "primary-origin-057",
+    "primary-origin-058",
+    "primary-origin-059",
+    "primary-origin-061",
+    "primary-origin-062",
+    "primary-origin-063",
+    "primary-origin-064",
+    "primary-origin-065",
+    "primary-origin-066",
+    "primary-origin-067",
+    "primary-origin-068",
+    "primary-origin-069",
+    "primary-origin-070",
+    "primary-origin-071",
+    "primary-origin-072",
+    "primary-origin-073",
+    "primary-origin-074",
+    "primary-origin-076",
+    "primary-origin-077",
+    "primary-origin-078",
+    "primary-origin-079",
+    "primary-origin-080",
+    "primary-origin-081",
+    "primary-origin-082",
+    "primary-origin-083",
+    "primary-origin-084",
+    "primary-origin-085",
+    "primary-origin-086",
+    "primary-origin-087",
+    "primary-origin-088",
+    "primary-origin-089",
+    "primary-origin-090",
+    "primary-origin-091",
+    "primary-origin-092",
+    "primary-origin-093",
+    "primary-origin-094",
+    "primary-origin-095",
+    "primary-origin-096",
+    "primary-origin-099",
+    "primary-origin-100",
+    "primary-origin-101",
+    "primary-origin-102",
+    "primary-origin-104",
+    "primary-origin-105",
+    "primary-origin-106",
+    "primary-origin-107",
+    "primary-origin-108",
+    "primary-origin-109",
+    "primary-origin-111",
+    "primary-origin-112",
+    "primary-origin-113",
+    "primary-origin-114",
+    "primary-origin-115",
+    "primary-origin-116",
+    "primary-origin-117",
+    "primary-origin-118",
+    "primary-origin-119",
+    "primary-origin-120",
+    "primary-origin-121",
+    "primary-origin-122",
+    "primary-origin-123",
+    "primary-origin-124",
+    "primary-origin-125",
+    "primary-origin-126",
+    "primary-origin-127",
+    "primary-origin-128",
+    "primary-origin-129",
+    "primary-origin-130",
+    "primary-origin-131",
+    "primary-origin-132",
+    "primary-origin-133",
+    "primary-origin-134",
+    "primary-origin-135",
+    "primary-origin-136",
+    "primary-origin-137",
+    "primary-origin-138",
+    "primary-origin-139",
+    "primary-origin-140",
+    "primary-origin-143",
+    "primary-origin-144",
+    "primary-origin-145",
+    "primary-origin-146",
+    "primary-origin-147",
+    "primary-origin-148",
+    "primary-origin-149",
+    "primary-origin-150",
+    "primary-origin-152",
+    "primary-origin-154",
+    "primary-origin-155",
+    "primary-origin-158",
+    "primary-origin-161",
+    "primary-origin-162",
+    "primary-origin-163",
+    "primary-origin-165",
+    "primary-origin-166",
+    "primary-origin-170",
+    "primary-origin-172",
+    "primary-origin-174",
+    "primary-origin-175",
+    "primary-origin-176",
+    "primary-origin-180",
+    "primary-origin-181",
+    "primary-origin-182",
+    "primary-origin-183",
+    "primary-origin-184",
+    "primary-origin-185",
+    "primary-origin-186",
+    "primary-origin-187",
+    "primary-origin-189",
+    "primary-origin-193",
+    "primary-origin-194",
+    "primary-origin-195",
+    "primary-origin-196",
+    "primary-origin-201",
+    "primary-origin-202",
+    "primary-origin-203",
+    "primary-origin-204",
+    "primary-origin-206",
+    "primary-origin-207",
+    "primary-origin-208",
+    "primary-origin-209",
+    "primary-origin-210",
+    "primary-origin-211",
+    "primary-origin-212",
+    "primary-origin-213",
+    "primary-origin-214",
+    "primary-origin-215",
+    "primary-origin-216",
+    "primary-origin-217",
+    "primary-origin-220",
+    "primary-origin-221",
+    "primary-origin-223",
+    "primary-origin-224",
+    "primary-origin-228",
+    "primary-origin-230",
+    "primary-origin-231",
+    "primary-origin-232",
+    "primary-origin-233",
+    "primary-origin-234",
+    "primary-origin-236",
+    "primary-origin-238",
+    "primary-origin-241",
+    "primary-origin-242",
+    "primary-origin-243",
+    "primary-origin-245",
+    "primary-origin-246",
+    "primary-origin-247",
+    "primary-origin-249",
+    "primary-origin-250",
+    "primary-origin-251",
+    "primary-origin-252",
+    "primary-origin-253",
+    "primary-origin-254",
+    "primary-origin-255",
+    "primary-origin-256",
+    "primary-origin-257",
+    "primary-origin-258",
+    "primary-origin-259",
+    "primary-origin-260",
+    "primary-origin-261",
+    "primary-origin-262",
+    "primary-origin-263",
+    "primary-origin-264",
+    "primary-origin-265",
+    "primary-origin-266",
+    "primary-origin-267",
+    "primary-origin-268",
+    "primary-origin-269",
+    "primary-origin-270",
+    "primary-origin-271",
+    "primary-origin-272",
+    "primary-origin-273",
+    "primary-origin-274",
+    "primary-origin-275",
+    "primary-origin-276",
+    "primary-origin-277",
+    "primary-origin-278",
+    "primary-origin-279",
+    "primary-origin-280",
+    "primary-origin-281",
+    "primary-origin-282",
+    "primary-origin-283",
+    "primary-origin-284",
+    "primary-origin-285",
+    "primary-origin-286",
+    "primary-origin-287",
+    "primary-origin-289",
+    "primary-origin-291",
+    "primary-origin-292",
+    "primary-origin-294",
+    "primary-origin-296",
+    "primary-origin-300",
+    "primary-origin-301",
+    "primary-origin-303",
+    "primary-origin-305",
+    "primary-origin-306",
+    "primary-origin-307",
+    "primary-origin-308",
+    "primary-origin-309",
+    "primary-origin-310",
+    "primary-origin-313",
+    "primary-origin-314",
+    "primary-origin-315",
+    "primary-origin-316",
+    "primary-origin-320",
+    "primary-origin-321",
+    "primary-origin-322",
+    "primary-origin-323",
+    "primary-origin-324",
+    "primary-origin-326",
+    "primary-origin-327",
+    "primary-origin-328",
+    "primary-origin-329",
+    "primary-origin-330",
+    "primary-origin-331",
+    "primary-origin-336",
+    "primary-origin-337",
+    "primary-origin-339",
+    "primary-origin-340",
+    "primary-origin-341",
+    "primary-origin-343",
+    "primary-origin-344",
+    "primary-origin-345",
+    "primary-origin-346",
+    "primary-origin-347",
+    "primary-origin-348",
+    "primary-origin-349",
+    "primary-origin-350",
+    "primary-origin-351",
+    "primary-origin-352",
+    "primary-origin-353",
+    "primary-origin-354",
+    "primary-origin-355",
+    "primary-origin-356",
+    "primary-origin-357",
+    "primary-origin-358",
+    "primary-origin-361",
+    "primary-origin-362",
+    "primary-origin-363",
+    "primary-origin-364",
+    "primary-origin-365",
+    "primary-origin-370"
+  ],
+  "source_census_evidence_path": "/tmp/pices-modern-default-organizational-cohort-census.json",
+  "source_census_sha256": "b04e7ec9f942d61677c4f047f3eb7f94d9b98ba906c346b9338fda53aeab4589",
+  "source_plan_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad",
+  "verification": {
+    "actual_new_modern_mapping_measured": false,
+    "all2697_reviewed_original_source_hashes_verified": true,
+    "all_reviewed_source_bindings_sha256": "f8a6ab1c81653f6eb9aec81e05ebc2e4ba6ebda6199ba65f2bfcc125f71f7c28",
+    "all_selected_and_held_members_current_plan_supported_singletons": true,
+    "covered105_creator426_Exxon_DFO_protected_pairs_knownIDs_DOIs_excluded": true,
+    "new_authority_or_rights": false,
+    "primary_origin_variants_canonical_actual_source_element_objects": true,
+    "provider_requests": 0,
+    "review_assignments_disjoint_and_cover_all357Organization_groups": true,
+    "review_files_preserved_byte_for_byte": true,
+    "review_full_creator_objects_equal_census_and_current_primary_contract": true,
+    "runtime_or_classification_executed": false,
+    "selected_and_held_members_disjoint": true,
+    "source_element_definition_sha256": "708ba522d45f098ee1d6acd106cbbec93bdfdbde9570f4ee86450e393b5fb541",
+    "source_element_outer_tail_none": true,
+    "source_or_metadata_edits": 0,
+    "tests_run": 0
+  }
+}
