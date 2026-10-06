@@ -1,6 +1,6 @@
 """Finite source-aware modern mapping; no provider or publication authority.
 
-Only the reviewed 19 NCDC/NESDIS/NOAA singleton XML artifacts are supported.
+Only the original 19 and a pinned extension of 86 organizational singletons are supported.
 Every preparation reruns semantic assessment and preserves assembled legacy
 metadata separately from the explicitly selected repository-host publisher.
 """
@@ -29,6 +29,9 @@ PLAN = ROOT / 'docs/readiness/2026-10-04/publication_plan.json'
 PLAN_SHA = '39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad'
 COHORT = 'ncdc_nesdis_noaa_literal_19'
 POLICY = 'modern-xml-ncdc19-v1'
+EXTENSION = ROOT / 'docs/readiness/2026-10-05/modern_organizational_extension86.json'
+EXTENSION_SHA = 'c78074384f29310e5cdc0c23dddc6b47161e516bc0222ddbbe0a36dfbc9a1dcf'
+EXTENSION_POLICY = 'modern-xml-organizations86-v1'
 PRESERVATION_LABEL = (
     'Legacy assembled metadata, preserved without field loss. Publisher values in this '
     'block are legacy mapping values, not independently source-attested publishers. '
@@ -78,6 +81,42 @@ def cohort():
     return rows[0]
 
 
+def source_policy(source_id):
+    """Select finite reviewed membership, never infer creator type from a name.
+
+    Keep the original 19 evidence fields and independence from the extension.
+    New sources bind both the exact mapping manifest and their creator cohort.
+    """
+    original = cohort()
+    if source_id in {row['source_id'] for row in original['members']}:
+        return original, {'schema_version': 1, 'policy': POLICY}
+    extension = pinned(EXTENSION, EXTENSION_SHA)
+    header = {'schema_version': 1, 'kind': 'modern-organizational-extension-v1',
+              'policy': EXTENSION_POLICY, 'legacy_policy': POLICY,
+              'creator_profile_sha256': PROFILE_SHA, 'source_plan_sha256': PLAN_SHA}
+    require(isinstance(extension, dict) and set(extension) == set(header) | {'members'}
+            and type(extension['schema_version']) is int
+            and all(extension[key] == value for key, value in header.items()))
+    members = extension['members']
+    require(isinstance(members, list) and len(members) == 86
+            and all(isinstance(row, dict) and set(row) == {'source_id', 'source_sha256', 'creator_cohort'}
+                    and isinstance(row['source_id'], str) and re.fullmatch(r'FGDC-[1-9][0-9]*', row['source_id'])
+                    and isinstance(row['source_sha256'], str) and re.fullmatch('[0-9a-f]{64}', row['source_sha256'])
+                    and isinstance(row['creator_cohort'], str) and row['creator_cohort'] != COHORT
+                    for row in members))
+    ids = [row['source_id'] for row in members]
+    require(len(set(ids)) == 86 and ids == sorted(ids, key=lambda sid: int(sid[5:])))
+    matched = [row for row in members if row['source_id'] == source_id]
+    require(len(matched) == 1)
+    member = matched[0]
+    selected = [row for row in pinned(PROFILE, PROFILE_SHA)['cohorts']
+                if row['profile'] == member['creator_cohort']]
+    require(len(selected) == 1 and {'source_id': source_id, 'source_sha256': member['source_sha256']}
+            in selected[0]['members'])
+    return selected[0], {'schema_version': 2, 'policy': EXTENSION_POLICY,
+                         'mapping_manifest_sha256': EXTENSION_SHA, 'creator_cohort': member['creator_cohort']}
+
+
 def runtime_binding():
     # Include indirect transformation, authority, identity and transport helpers.
     return sha(encode({p.name: sha(p.read_bytes()) for p in sorted((ROOT / 'scripts').glob('*.py'))}))
@@ -120,7 +159,7 @@ def prepare(json_file, paths):
     sid = json_file.stem
     require(re.fullmatch(r'FGDC-[1-9][0-9]*', sid) is not None and sid not in PROTECTED)
     require_singleton_operation(source_id=sid, json_file=json_file, paths=paths)
-    selected = cohort()
+    selected, policy_fields = source_policy(sid)
     members = {row['source_id']: row['source_sha256'] for row in selected['members']}
     require(sid in members)
     raw_input = json_file.read_bytes()
@@ -155,7 +194,7 @@ def prepare(json_file, paths):
     }, 'access': {'record': 'public', 'files': 'restricted'}, 'files': {'enabled': True}}
     validate_payload(wire)
     body = encode(wire)
-    evidence = {'schema_version': 1, 'policy': POLICY, 'source_id': sid,
+    evidence = {**policy_fields, 'source_id': sid,
                 'source_sha256': source_sha, 'prepared_input_sha256': sha(raw_input),
                 'legacy_metadata_sha256': sha(legacy), 'wire_sha256': sha(body),
                 'artifact_contract': artifact, 'creator_profile_sha256': PROFILE_SHA,

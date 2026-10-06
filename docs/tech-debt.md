@@ -1,4 +1,27 @@
-# Finite modern publication and evidence boundary — 2026-10-05
+# Finite organizational coverage and compatibility — 2026-10-05
+
+[ADR 0007](adr/0007-finite-organizational-modern-coverage.md) extends 19 to 105
+singletons using 86 explicit already reviewed organizational source/hash/cohort
+bindings. Preserve literal order, full metadata and original bytes; do not turn
+institutional-looking names into a universal Organization heuristic. FGDC-710
+remains held. Remaining modern coverage is 3,828 supported targets: 3,600 other
+singletons and 228 pairs. Protected existing imports need correction/version
+handling rather than fresh creates. New source/licensing decisions stay held.
+
+The old 19 retain v1 evidence and exact nonruntime/wire compatibility, with a
+finite PR35 runtime pin added alongside PR34. New 86 bind v2/manifest/cohort and
+cannot use historical pins. All journals and permanent intents keep their
+names/budgets. Already-started capture/publication stages cannot migrate or
+regrant across runtime changes. No live compatibility or authority is inferred.
+
+The first measurement helper attempted the normal OutputPaths adapter's
+`makedirs(exist_ok=True)` against read-only retained fixtures; the guard rejected
+it before mapping. Its log/output/helper remain preserved. The corrected helper
+resolves the identical existing paths without any write and uses a fresh output.
+The earlier baseline logger-write rejection also remains preserved. These are
+offline harness failures, not provider attempts or reset permission.
+
+# Finite modern publication and evidence boundary — historical PR35 scope
 
 [ADR 0006](adr/0006-finite-modern-singleton-publication.md) adds a narrow bridge
 from verified PR34 drafts, immutable saved-response QA, exact release, bounded

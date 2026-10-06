@@ -1,10 +1,21 @@
-## Active increment: finite modern singleton publication — 2026-10-05
+## Active increment: finite organizational singleton coverage — 2026-10-05
+
+- [x] Reconcile PR35 merge `a618f55`, 702 actual guarded CI tests and current-head independent review; capture the original 19 preparation before changing runtime.
+- [x] Select exactly 86 additional supported singletons from already reviewed explicitly typed organizational profiles; preserve FGDC-710's hold and all original XML.
+- [x] Measure 105 fresh mappings and exact old 19 nonruntime compatibility; preserve all 4,206 originals and pass 115 guarded contracts with zero unexpected I/O. Independent source, implementation and saved-evidence review found no material issue.
+- [ ] Obtain independent current-head review, publish one non-draft PR, pass actual CI and merge under standing repository authority.
+
+The Mac canary remains unexecuted because the token has not been entered. No live
+provider result or production release is inferred. The parent and sole provider
+executor retain live actions. New source or licensing decisions remain held.
+
+## Completed increment: finite modern singleton publication — 2026-10-05
 
 - [x] Reconcile PR34 main `cef1ccf`, its 638 passing guarded CI tests and current-head Codex review; preserve the original19-source scope and all original files.
 - [x] Verify retained publication/PID semantics and identify the explicit PR34 runtime compatibility bridge; keep original creation evidence and budgets intact.
 - [x] Implement modern saved-response QA, independent program review, exact human release, bounded publication and identity/files/DOI readback; resolve the separate PICES submission contract from retained source. This is code coverage, not a live verification result.
 - [x] Pass 112 combined guarded contracts, then 28 publication regressions and 29 after scope clarification; preserve both earlier CI receipts (691 and 692 tests). Resolve the production-duplicate P1 with a fresh owner/source/history gate and pass 64 focused guarded publication/QA tests; zero unexpected I/O and unchanged source bindings. Substantive independent review remains required on the final head.
-- [ ] Publish the coherent non-draft PR, pass actual current-head CI and merge under standing repository authority; preserve the PR timeline as the final receipt.
+- [x] Merge PR35 as `a618f5506d7ac99e4fb6c68f65a2084aa879282c` after independent current-head review and 702 actual guarded CI tests. Preserve two earlier runner-acquisition failures and successful attempt3 in the PR timeline.
 
 The full Mac canary has not run: the prompt expired, the validated checkpoint
 remains revision11 and cumulative207GET/7PUT/1create/1UI counts are unchanged.

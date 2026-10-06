@@ -16,7 +16,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 
 from scripts.matching.evidence import snapshot_inventory
-from scripts.modern_singleton import POLICY, encode, parse, sha, validate_payload
+from scripts.modern_singleton import encode, parse, sha, source_policy, validate_payload
 from scripts.production_mutations import EXCLUDED, PROTECTED
 from scripts.qa_manifest import QA_CHECKS, validate_program_review
 
@@ -196,8 +196,11 @@ approved a record, reviewed the program, or authorized release.
     _require(isinstance(now, datetime) and now.tzinfo is not None and now.utcoffset() is not None,
              'an aware assessment time is required')
     evidence = prepared.evidence
-    _require(isinstance(evidence, dict) and evidence.get('schema_version') == 1
-             and evidence.get('policy') == POLICY and evidence.get('source_id') == prepared.source_id
+    _, policy_fields = source_policy(prepared.source_id)
+    policy_keys = {'schema_version', 'policy', 'mapping_manifest_sha256', 'creator_cohort'}
+    _require(isinstance(evidence, dict) and type(evidence.get('schema_version')) is int
+             and {key: evidence[key] for key in policy_keys if key in evidence} == policy_fields
+             and evidence.get('source_id') == prepared.source_id
              and evidence.get('source_sha256') == sha(prepared.xml)
              and evidence.get('wire_sha256') == sha(prepared.body)
              and prepared.binding == sha(encode(evidence))

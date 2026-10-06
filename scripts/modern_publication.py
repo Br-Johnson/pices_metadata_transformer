@@ -1,6 +1,6 @@
 """Finite modern singleton publication with immutable draft history and bounded I/O.
 
-Only a verified PR34/current-runtime draft can cross the versioned bridge. A fresh
+Only a verified compatible-runtime draft can cross the versioned bridge. A fresh
 read-only capture precedes explicit QA and human release. Publish and community
 submission each spend one durable attempt; recovery never dispatches mutations.
 """
@@ -22,6 +22,7 @@ from pathlib import Path
 from scripts import modern_singleton_executor as draft
 from scripts.mac_sandbox_canary import echoed
 from scripts.modern_singleton import (
+    POLICY,
     Held,
     Prepared,
     compare_metadata,
@@ -37,6 +38,7 @@ from scripts.release_manifest import validate_release
 from scripts.upload_service import atomic_json, ledger_lock, read_json
 
 PR34_RUNTIME = '0f0a537dde0d6970ce6c64aad1169cf9ebb290cbcf7b527ab3917ace1393fff5'
+PR35_RUNTIME = '30092eff4631d7543f24b8ecabf0a85c294da8fcc4c308ecc97224e38b58b270'
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'publish': 1, 'inclusion': 1}
 JSON = 'application/json'
@@ -58,16 +60,19 @@ def request_identifier(value):
 def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_path):
     """Validate old requests at their old times, never revive the old grant.
 
-    Only the named PR34 runtime or this exact runtime is compatible, and every
-    other preparation field is identical. Original files and receipts stay intact.
+    Historical PR34/35 runtimes apply only to the original 19-source policy.
+    Every nonruntime field must match. Original files and receipts stay intact.
     """
     prepared = prepare(json_file, paths)
     packet, packet_sha = draft.read_document(preparation_path)
     require(set(packet) == {'binding', 'evidence', 'provider_requests'}
             and type(packet['provider_requests']) is int and packet['provider_requests'] == 0)
     evidence = packet['evidence']
+    compatible = {prepared.evidence['runtime_sha256']}
+    if prepared.evidence['policy'] == POLICY and prepared.evidence['schema_version'] == 1:
+        compatible.update((PR34_RUNTIME, PR35_RUNTIME))
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
-            and evidence['runtime_sha256'] in (PR34_RUNTIME, prepared.evidence['runtime_sha256'])
+            and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
             and {k: v for k, v in evidence.items() if k != 'runtime_sha256'}
             == {k: v for k, v in prepared.evidence.items() if k != 'runtime_sha256'})

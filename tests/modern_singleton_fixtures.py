@@ -48,11 +48,11 @@ class FakeTransport:
 
     @property
     def file(self):
-        return self.base + '/files/FGDC-141.xml'
+        return self.base + '/files/' + self.fixture.prepared.source_id + '.xml'
 
     def entry(self, completed=None):
         completed = self.complete if completed is None else completed
-        value = {'key': 'FGDC-141.xml', 'status': 'completed' if completed else 'pending',
+        value = {'key': self.fixture.prepared.source_id + '.xml', 'status': 'completed' if completed else 'pending',
                  'transfer': {'type': 'L'}, 'links': {
                      'self': executor.ORIGIN + self.file, 'content': executor.ORIGIN + self.file + '/content',
                      'commit': executor.ORIGIN + self.file + '/commit'}}
@@ -68,7 +68,7 @@ class FakeTransport:
                 'is_published': False, 'status': 'draft', 'pids': {}, 'versions': {'index': 1},
                 'parent': {'id': self.parent, 'access': {'owned_by': {'user': '123'}}},
                 'links': {'self': executor.ORIGIN + self.base, 'files': executor.ORIGIN + self.base + '/files'},
-                'files': {'enabled': True, 'entries': {'FGDC-141.xml': self.entry()} if self.complete else {},
+                'files': {'enabled': True, 'entries': {self.fixture.prepared.source_id + '.xml': self.entry()} if self.complete else {},
                           'count': int(self.complete), 'total_bytes': len(self.fixture.prepared.xml) if self.complete else 0},
                 'errors': [] if self.complete else [{'field': 'files.enabled', 'messages': ['Missing uploaded files.']}]}
 
@@ -110,12 +110,12 @@ class FakeTransport:
 
 
 class Fixture:
-    def __init__(self, directory, prepared_root):
+    def __init__(self, directory, prepared_root, source_id='FGDC-141'):
         self.root = Path(directory)
         prepared_copy = self.root / 'prepared'
         shutil.copytree(prepared_root, prepared_copy)
         self.paths = OutputPaths(str(prepared_copy), 'production')
-        self.json_file = Path(self.paths.zenodo_json_dir) / 'FGDC-141.json'
+        self.json_file = Path(self.paths.zenodo_json_dir) / (source_id + '.json')
         self.prepared = mapping.prepare(self.json_file, self.paths)
         state = str(executor.state_root(self.paths))
         self.proof = {'schema_version': 1, 'origin': executor.ORIGIN, 'owner': '123',
