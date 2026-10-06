@@ -24,6 +24,7 @@ from scripts.mac_sandbox_canary import echoed
 from scripts.modern_singleton import (
     DIRECT_POLICY,
     EXTENSION_POLICY,
+    EXXON_POLICY,
     POLICY,
     Held,
     Prepared,
@@ -43,6 +44,7 @@ PR34_RUNTIME = '0f0a537dde0d6970ce6c64aad1169cf9ebb290cbcf7b527ab3917ace1393fff5
 PR35_RUNTIME = '30092eff4631d7543f24b8ecabf0a85c294da8fcc4c308ecc97224e38b58b270'
 PR36_RUNTIME = '046a7257ed29e6c5b09c8956455ee3dbf0b811fad5ee9e3b36cef493119ea6c4'
 PR37_RUNTIME = '7e93a95ba980918cf687221a56bc4a60eb5b219ac53406a8b2175b0f46e0d90a'
+PR38_RUNTIME = '1ac72000a7697bedef5b6e76ca0a28252a85f36bb0529a7e521c68aa4177d9e2'
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'publish': 1, 'inclusion': 1}
 JSON = 'application/json'
@@ -64,7 +66,7 @@ def request_identifier(value):
 def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_path):
     """Validate old requests at their old times, never revive the old grant.
 
-    PR34/35 cover original19; PR36 also covers86; PR37 also covers direct2628.
+    PR34/35 cover original19; PR36 also covers86; PR37 adds2628; PR38 adds412.
     Every nonruntime field must match. Original files and receipts stay intact.
     """
     prepared = prepare(json_file, paths)
@@ -74,11 +76,13 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     evidence = packet['evidence']
     compatible = {prepared.evidence['runtime_sha256']}
     if prepared.evidence['policy'] == POLICY and prepared.evidence['schema_version'] == 1:
-        compatible.update((PR34_RUNTIME, PR35_RUNTIME, PR36_RUNTIME, PR37_RUNTIME))
+        compatible.update((PR34_RUNTIME, PR35_RUNTIME, PR36_RUNTIME, PR37_RUNTIME, PR38_RUNTIME))
     elif prepared.evidence['policy'] == EXTENSION_POLICY and prepared.evidence['schema_version'] == 2:
-        compatible.update((PR36_RUNTIME, PR37_RUNTIME))
+        compatible.update((PR36_RUNTIME, PR37_RUNTIME, PR38_RUNTIME))
     elif prepared.evidence['policy'] == DIRECT_POLICY and prepared.evidence['schema_version'] == 3:
-        compatible.add(PR37_RUNTIME)
+        compatible.update((PR37_RUNTIME, PR38_RUNTIME))
+    elif prepared.evidence['policy'] == EXXON_POLICY and prepared.evidence['schema_version'] == 4:
+        compatible.add(PR38_RUNTIME)
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
             and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
@@ -100,16 +104,22 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
             and row.get('untrusted_candidate_id') == identity['id'])
     base = '/api/records/' + identity['id'] + '/draft'
     file = base + '/files/' + prepared.source_id + '.xml'
+    completed = draft.completed_on_content(row, prepared)
+    # Historical clients could emit only the marker-free four-write transcript.
+    require(not completed or evidence['runtime_sha256'] == prepared.evidence['runtime_sha256'])
     writes = [('create', 'POST', '/api/records', 201, sha(prepared.body)),
               ('init', 'POST', base + '/files', 201, sha(encode([{'key': prepared.source_id + '.xml'}]))),
               ('content', 'PUT', file + '/content', 200, sha(prepared.xml)),
               ('commit', 'POST', file + '/commit', 200, None)]
+    if completed:
+        writes = writes[:3]
     reads = [('get', 'GET', p, 200, None) for p in (base, base + '/files', file, file + '/content', base)]
     requests = row.get('requests')
-    require(isinstance(requests, list) and len(requests) in (9, 14)
-            and row.get('counts') == dict(get=len(requests) - 4, create=1, init=1, content=1, commit=1)
+    require(isinstance(requests, list) and len(requests) in (len(writes) + 5, len(writes) + 10)
+            and row.get('counts') == dict(get=len(requests) - len(writes), create=1, init=1, content=1,
+                                         commit=int(not completed))
             and all(type(v) is int for v in row['counts'].values()))
-    wanted = writes + reads * ((len(requests) - 4) // 5)
+    wanted = writes + reads * ((len(requests) - len(writes)) // 5)
     grant_sha = None
     prior = None
     for receipt, expectation in zip(requests, wanted, strict=True):
@@ -439,15 +449,18 @@ class Runner:
                        response_sha256=None if suppressed else sha(raw))
         self.save()
         require(not suppressed and isinstance(mime, str))
-        media = mime.split(';', 1)[0].strip().lower()
         # Receipt of identity evidence is not a new provider action. Retain it
         # even when a grant expires or is revoked while the request is in flight.
+        # Preserve the existing reject-only observation boundary before the new
+        # stricter header parser can reject an otherwise parseable response.
+        observed_media = mime.split(';', 1)[0].strip().lower()
         value = raw if binary else parse(raw)
         if (self.action == 'publish' and (kind == 'publish' or path == public[0])
-                and media in (draft.MIME, JSON)):
+                and observed_media in (draft.MIME, JSON)):
             self.retain_doi_claims(value)
+        media = draft.response_media_type(mime, binary=binary)
         require(status == expected)
-        require(media in ({'application/octet-stream', 'application/xml', 'text/xml'} if binary else {accept}))
+        require(media in (draft.BINARY_MEDIA if binary else {accept}))
         self.current()
         if kind == 'get':
             self.raw_responses.append({'method': 'GET', 'path': path, 'http_status': status, 'media_type': media,
