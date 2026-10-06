@@ -1,0 +1,173 @@
+{
+  "aggregate_validation_file": "docs/readiness/2026-10-06/modern_reviewed_creators194_validation.json",
+  "aggregate_validation_sha256": "0e75f1113cdf7e6c328869cf79a0d6c62a36e9a680002cf84110078d0fd652fb",
+  "aquadocs": {
+    "completed": false,
+    "decision": "deferred_by_user_until_after_initial_publication",
+    "decision_file": "docs/readiness/2026-10-06/aquadocs_deferred_followup.json",
+    "exclusions_added": 0,
+    "initial_publication_blocker": false,
+    "links_added": 0,
+    "passed": false
+  },
+  "authority_counts": {
+    "creator426": 82,
+    "dfo70": 70,
+    "direct": 42
+  },
+  "branch": "main",
+  "coverage": {
+    "fresh_new_prepare_calls": 388,
+    "new_class_execution_enabled": false,
+    "new_reviewed_singletons": 194,
+    "prior_retained_class_targets": 203,
+    "prior_retained_singletons": 3391,
+    "retained_class_prepare_comparisons": 203,
+    "retained_input_prepare_comparisons": 3391,
+    "total_class_targets": 203,
+    "total_represented_originals": 3991,
+    "total_singletons": 3585,
+    "total_wire_prepared_targets": 3788
+  },
+  "documentation_followup": {
+    "checks": "JSON, document links, exact source/runtime/schema/policy and original-XML Git-object preservation",
+    "full_ci_evidence_is_for_reviewed_code_head": true,
+    "full_ci_rerun_for_documentation_only": false,
+    "runtime_source_tests_unchanged": true,
+    "skip_mechanism_reference": "https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs"
+  },
+  "evidence_scope": "Wire preparation and reviewed code validation only; no source promotion, identity adoption, provider grant/outcome, PICES membership or publication approval.",
+  "focused_checks_file": "docs/readiness/2026-10-06/modern_reviewed_creators194_focused_checks.json",
+  "focused_checks_sha256": "874ace86b45b130271eccb051fb33763c925b2f81435c20c97be7500df8d9d36",
+  "full_ci": {
+    "conclusion": "success",
+    "job_id": 112401466192,
+    "log_sha256": "02a7a7c3dafa8f88c3be4ff41e9d8bc9caa6ea3c90dc426c284ea6b001766e68",
+    "result": {
+      "commit": "74f58f935a9c0ef81660e68545b88a1755490e53",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 0,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 72,
+      "seconds": 2479.499,
+      "selected_modules": [
+        "all"
+      ],
+      "source_bindings_unchanged": true,
+      "source_tree_sha256": "0c85c0b50742897f13122e5ebc7b5987884356b940e188cd41452386a191f84e",
+      "successful": true,
+      "tests_run": 921,
+      "unexpected_guard_call_sites": []
+    },
+    "run_id": 37502114425,
+    "status": "completed",
+    "url": "https://github.com/Br-Johnson/pices_metadata_transformer/actions/runs/37502114425"
+  },
+  "handoff": "docs/readiness/2026-10-06/modern_reviewed_creators194_handoff.md",
+  "historical_runtime_bridge": {
+    "all_nonruntime_evidence_identical_required": true,
+    "new_policy_backdating": false,
+    "only_seven_then_existing_policies": true,
+    "original_state_modified": false,
+    "pr46_runtime_sha256": "62eeaad6183950bae245937f79a7d4e16df546a6635d9ea4dfbb7c4c2bf5902d"
+  },
+  "independent_aggregate_review_sha256": "433aa5e2ec702ce97753a7198f1d9ebf6b394d08b57d1d86483d275caf0953e4",
+  "independent_code_review": {
+    "file": "docs/readiness/2026-10-06/modern_reviewed_creators194_final_review.json",
+    "receipt_sha256": "b4738ac9a36fac56905d8e2b601b9ab4b5de82bc3024012564fc487757a8df63",
+    "reviewer": "/root/direct_credit_review_b",
+    "status": "APPROVE_NO_MATERIAL_FINDINGS"
+  },
+  "independent_source_review_sha256": "20c585d143cc0a295bdbbce54b2e3fa5bace5846802534b2f7bf40bb3f04b271",
+  "kind": "pices-modern-reviewed-creators194-code-release",
+  "measurement_code_state": {
+    "base_revision": "6deff6bbc9c739dbb09192412c0548863007cdea",
+    "base_revision_is_new194_code_commit": false,
+    "kind": "frozen_staged_working_tree",
+    "runtime_sha256": "6cc86a1740fcd93e65d42e21b1c199c160974c607be54db71f43d3e25466349e",
+    "source_tree_file_count": 187,
+    "source_tree_sha256": "0c85c0b50742897f13122e5ebc7b5987884356b940e188cd41452386a191f84e"
+  },
+  "new_production_publications_verified": 0,
+  "original_create_outcome": "unresolved",
+  "original_create_replay": false,
+  "parent": "6deff6bbc9c739dbb09192412c0548863007cdea",
+  "preserved_gates": [
+    "internal_and_production_identity_dedup",
+    "source_QA",
+    "uncertain_create_hold",
+    "accepted_PICES_membership_and_default_remote_readback",
+    "sole_executor_and_separate_parent_grants",
+    "separate_publication_release"
+  ],
+  "provider_dispatch_authorized": false,
+  "provider_hold": {
+    "assessment_sha256": "3a51888432ea533025a384cfd04cd093ceceb46687f3a46e139872548ae3328c",
+    "checked_at": "2026-10-06T13:18:42Z",
+    "current_public_GET_status": 403,
+    "original_create_cause": "unknown",
+    "source": "parent-relayed evidence; no provider calls in code lane",
+    "status": "support_pending",
+    "ticket": "3327790"
+  },
+  "provider_requests": 0,
+  "recovery_handoff": {
+    "file": "docs/readiness/2026-10-06/modern_unknown_create_release.json",
+    "frozen_runtime_sha256": "d1055bf636fe04299be2b670af1b3aeefcae6c64149996b85cea469b672ea4f2",
+    "sha256": "e0d34c46903066b95e55786dcbc0f9e82089b9ceadb8b9f91199c019b1ac8bbf"
+  },
+  "remaining": {
+    "pairs": 25,
+    "singletons": 120,
+    "supported_targets": 145
+  },
+  "repository": "Br-Johnson/pices_metadata_transformer",
+  "retained_profile_file_count": 26,
+  "retained_public_file_count": 34652,
+  "reviewed_head": "74f58f935a9c0ef81660e68545b88a1755490e53",
+  "reviewed_tree": "0262641b45edc8a7ea532324ed595618784f1a33",
+  "runtime_sha256": "6cc86a1740fcd93e65d42e21b1c199c160974c607be54db71f43d3e25466349e",
+  "schema_version": 1,
+  "sole_provider_executor": "01a0f3ae-ee1c-7046-9b04-36d35803903c",
+  "source_integrity": {
+    "original_FGDC_git_tree": "6c509a3e62252888a6709d1df94bcf109b83241b",
+    "original_xml_aggregate_sha256": "3430315763379ef81c393cca00eb776952df3ad3f66856ef4b15edd48e396013",
+    "original_xml_count": 4206
+  },
+  "source_manifest_file": "docs/readiness/2026-10-06/modern_reviewed_creators194.json",
+  "source_manifest_sha256": "c7d0b522bf7e9a9c990b6cbdf93797280ff1e57979e6bd133186905c4deec6c3",
+  "source_packet_sha256": "1dbb3af3945a0993e705e56a94b307cb02ca444451a98ef8e36ade366eddaad1",
+  "source_status_unchanged": {
+    "malformed_targets": 6,
+    "source_held_targets": 39,
+    "source_promotions": 0,
+    "supported_pair_targets": 228,
+    "supported_singletons": 3705,
+    "supported_targets": 3933
+  },
+  "source_test_file_count": 187,
+  "source_test_sha256": "0c85c0b50742897f13122e5ebc7b5987884356b940e188cd41452386a191f84e",
+  "status": "reviewed_main_code_ready_provider_dispatch_held",
+  "support_ticket_observation": {
+    "observed_at": "2026-10-06T17:33:00Z",
+    "provenance": "parent-reported; root has not independently fetched the support response",
+    "provider_requests_resumed": false,
+    "status": "automated acknowledgement only",
+    "ticket": "3327790"
+  },
+  "workflow": "standing-authorized direct-main implementation after branch reconciliation"
+}

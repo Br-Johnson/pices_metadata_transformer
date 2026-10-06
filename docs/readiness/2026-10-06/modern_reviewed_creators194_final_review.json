@@ -1,0 +1,170 @@
+{
+  "activity": {
+    "network_requests": 0,
+    "preparations_or_measurements": 0,
+    "private_state_reads": 0,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "repository_imports": 0,
+    "test_or_helper_execution": 0,
+    "tmp_review_receipt_only": true
+  },
+  "agent_rules_unchanged": true,
+  "aggregate_membership_and_row_digest_checks": {
+    "all_new_rows_prepare_twice": true,
+    "all_retained_rows_compare_once": true,
+    "exact_new194_membership_matches_reviewed_source_packet": true,
+    "old_comparison_row_digests_match_aggregate": true,
+    "protected5_rows_unchanged": true,
+    "remaining25_pairs_unchanged": true,
+    "remaining_singletons_equal_previous314_minus_exact194": true,
+    "retained_pair_rows": 203,
+    "retained_singleton_rows": 3391
+  },
+  "aggregate_validation": {
+    "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_reviewed_creators194_validation.json",
+    "sha256": "0e75f1113cdf7e6c328869cf79a0d6c62a36e9a680002cf84110078d0fd652fb"
+  },
+  "all26_changed_staged_blobs_match_working_bytes": true,
+  "approved_commit": "74f58f935a9c0ef81660e68545b88a1755490e53",
+  "approved_tree": "0262641b45edc8a7ea532324ed595618784f1a33",
+  "candidate_checkpoint": {
+    "path": "/tmp/pices-reviewed194-candidate-tree.json",
+    "sha256": "b410ea44d76e5fb072cab9dfc548230253dce3f616411a16213c6d2db6879176"
+  },
+  "changed_file_count": 26,
+  "coverage": {
+    "fresh_new_prepare_calls": 388,
+    "new_class_execution_enabled": false,
+    "new_reviewed_singletons": 194,
+    "prior_retained_class_targets": 203,
+    "prior_retained_singletons": 3391,
+    "retained_class_prepare_comparisons": 203,
+    "retained_input_prepare_comparisons": 3391,
+    "total_class_targets": 203,
+    "total_represented_originals": 3991,
+    "total_singletons": 3585,
+    "total_wire_prepared_targets": 3788
+  },
+  "documentation_review": {
+    "conclusion": "Counts and authority limits match actual aggregate; separate1/53/11 test bindings, stagedmeasurement base54a83029 and later docs are distinguished; mainCI/provider/recovery/publication completion are not claimed.",
+    "files": {
+      "README.md": "725014dcb144b914fe8e67922d1aba2f86aed8bd0fb16dc0232e0649adfd0ad4",
+      "docs/readiness/2026-10-06/modern_reviewed_creators194_handoff.md": "9f2794c1210da5a77a6ea647874e046745dc58d34e6f5c14f993a1aa734855a2",
+      "docs/tech-debt.md": "859c90a54439827cbea167cdc6dc05599fc2de2208e943eae0758f5a86cb2d3b",
+      "docs/todo_list.md": "1d9779d8c615a9dc9c61494d6871916b291bd6475cfd7590bda5b01e42fa9c48"
+    },
+    "reviewer": "/root/direct_credit_review_b/review_b_tail",
+    "verdict": "NO_MATERIAL_INCONSISTENCY"
+  },
+  "expected_parent": "6deff6bbc9c739dbb09192412c0548863007cdea",
+  "four_actual_shard_receipts_and_manifests": [
+    {
+      "artifact_manifest": {
+        "path": "/tmp/pices-reviewed194-shard0-v1/wire_artifact_manifest.json",
+        "sha256": "fae722605d7f61d1b39386e6716878a378422620e044aedca2414e3eef09a1ba"
+      },
+      "index": 0,
+      "new_sources": 49,
+      "old_pairs": 51,
+      "old_singletons": 848,
+      "receipt": {
+        "path": "/tmp/pices-reviewed194-shard0-v1/coverage.json",
+        "sha256": "297a65b72561415e4642fef51502f38c3dabe7b90faae51c7a91bb190b04cf04"
+      },
+      "zero_unexpected_io": true
+    },
+    {
+      "artifact_manifest": {
+        "path": "/tmp/pices-reviewed194-shard1-v1/wire_artifact_manifest.json",
+        "sha256": "b4053632ad34956adee2c65fc4565de36f9be66886e509464ede5e1b2bc94ceb"
+      },
+      "index": 1,
+      "new_sources": 49,
+      "old_pairs": 51,
+      "old_singletons": 848,
+      "receipt": {
+        "path": "/tmp/pices-reviewed194-shard1-v1/coverage.json",
+        "sha256": "519141c185a73685452802a618cda1dbca55681cdcf8697ae2cc0a8316676dbf"
+      },
+      "zero_unexpected_io": true
+    },
+    {
+      "artifact_manifest": {
+        "path": "/tmp/pices-reviewed194-shard2-v1/wire_artifact_manifest.json",
+        "sha256": "5ebd5f608804c50135e427857c075848546a4e381275dbd35257805f9289fd28"
+      },
+      "index": 2,
+      "new_sources": 48,
+      "old_pairs": 51,
+      "old_singletons": 848,
+      "receipt": {
+        "path": "/tmp/pices-reviewed194-shard2-v1/coverage.json",
+        "sha256": "019976a50f96f403cccd95d79589e82dc4caf4184f1547bb03b7aa4945306345"
+      },
+      "zero_unexpected_io": true
+    },
+    {
+      "artifact_manifest": {
+        "path": "/tmp/pices-reviewed194-shard3-v1/wire_artifact_manifest.json",
+        "sha256": "62339cefe355baec42e01c391070f2c0a0930506ffb7dc857e6f4859249b29f8"
+      },
+      "index": 3,
+      "new_sources": 48,
+      "old_pairs": 50,
+      "old_singletons": 847,
+      "receipt": {
+        "path": "/tmp/pices-reviewed194-shard3-v1/coverage.json",
+        "sha256": "6200a6be050323e37a63e0f720a07505b7161dd82f55aa5f61eded434b0ccb78"
+      },
+      "zero_unexpected_io": true
+    }
+  ],
+  "git_commit_object_sha1_independently_verified": true,
+  "incremental_delta_from_frozen_tree": "Documentation/receipts and aggregate helper final activation only; reviewed helper logic unchanged. Its four-line semantic delta replaces draft banner/DRAFT_ONLY and unresolved pins with the actual helper and4 completed receipt hashes.",
+  "independent_full_saved_file_review": {
+    "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_reviewed_creators194_validation_review.json",
+    "sha256": "433aa5e2ec702ce97753a7198f1d9ebf6b394d08b57d1d86483d275caf0953e4"
+  },
+  "kind": "reviewed194-final-direct-main-publication-review",
+  "material_findings": [],
+  "original_fgdc_tree_unchanged": "6c509a3e62252888a6709d1df94bcf109b83241b",
+  "prior_frozen_code_test_review": {
+    "path": "/tmp/pices-reviewed194-frozen-focused-review-b.json",
+    "sha256": "5ee75695c7195b0ed39b05ef872a40386111292d57bd5dcca9caeb11213e8fbc"
+  },
+  "provider_limit": "No provider dispatch, create replay, unknown-create hold reset, community acceptance or production metadata publication is approved. Existing soleMac/grants/network-recovery and AquaDocs deferral remain.",
+  "publication_scope": "User-authorized repository publication directly to main by the sole writer. No new featurePR required. Root must verify the actual published main commit/tree equals this approved commit/tree.",
+  "remaining": {
+    "categories": {
+      "DFO_literal_collective": 0,
+      "creator426": 78,
+      "direct_name_only": 7,
+      "direct_typed_mapping_holds": 30,
+      "protected_existing_records": 5
+    },
+    "pairs": 25,
+    "singletons": 120,
+    "supported_targets": 145
+  },
+  "remaining_gate": "Run and verify required full CI on the actual published main head; do not report code release verification complete until that current-head result passes. Any material failure or changed source/test/runtime requires targeted resolution/review.",
+  "resolved_findings": [
+    "Synthetic PR46 diagnostic sidecar consistency T1 resolved before byte-exact amended11-test passing run."
+  ],
+  "reviewer": "/root/direct_credit_review_b",
+  "runtime_sha256": "6cc86a1740fcd93e65d42e21b1c199c160974c607be54db71f43d3e25466349e",
+  "saved_aggregate_byte_identical_to_independently_reviewed_tmp": true,
+  "saved_preservation_evidence": {
+    "evidence_limit": "This final lane reverified actual4 receipt/manifest hashes, summary/row bindings and remaining partitions. The separate aggregate reviewer433aa5e2 independently rehashed all43698 unique saved public paths; that full byte scan was not duplicated.",
+    "exact_profiles": 26,
+    "original_xml_files": 4206,
+    "provider_requests": 0,
+    "retained_public_files": 34652
+  },
+  "schema_version": 1,
+  "source_test_and_runtime_unchanged_from_reviewed_freeze": true,
+  "source_test_file_count": 187,
+  "source_test_sha256": "0c85c0b50742897f13122e5ebc7b5987884356b940e188cd41452386a191f84e",
+  "staged_tree_independently_reconstructed": true,
+  "verdict": "APPROVE_EXACT_COMMIT_AND_TREE_FOR_DIRECT_MAIN_PUBLICATION"
+}

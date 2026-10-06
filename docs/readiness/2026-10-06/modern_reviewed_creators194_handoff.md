@@ -9,9 +9,13 @@ There were no unexpected I/O events or provider requests. **145 supported
 targets remain outside: 120 singletons and25 pairs.** Source eligibility remains
 3,933 supported targets, 39 held targets and six malformed originals.
 
-Independent code and aggregate reviews passed. Publication to main and full
-main CI remain pending; this coverage result grants no provider action or
-publication release.
+Independent code and aggregate reviews passed. Reviewed commit
+`74f58f935a9c0ef81660e68545b88a1755490e53` is on main and passed 921 full
+guarded CI tests. The [release receipt](modern_reviewed_creators194_release.json)
+and [final commit-bound review](modern_reviewed_creators194_final_review.json)
+retain that exact evidence. This result grants no provider action or publication
+release. Documentation-only completion preserves the tested runtime and source
+bindings without repeating the full suite.
 
 The eighth singleton policy binds82 current creator426 sources, 42 direct primary
 citations and 70 literal DFO Staff credits. It uses the complete ordered modern

@@ -22,8 +22,8 @@ historical refs. Subsequent implementation uses the maintained main checkout.
 The [exact reviewed194 increment](docs/readiness/2026-10-06/modern_reviewed_creators194_handoff.md)
 and its [guarded measurements](docs/readiness/2026-10-06/modern_reviewed_creators194_validation.json)
 cover **3,788 prepared targets / 3,991 originals**; **145 supported targets remain
-outside** (120 singletons and 25 pairs). Main CI and final release verification for
-this increment are pending. The [prior PR46 release](docs/readiness/2026-10-06/modern_citationorg129_release.json)
+outside** (120 singletons and 25 pairs). The [current release](docs/readiness/2026-10-06/modern_reviewed_creators194_release.json)
+records independent exact-commit review and 921 passing full CI tests. The [prior PR46 release](docs/readiness/2026-10-06/modern_citationorg129_release.json)
 retains its completed CI/merge evidence. The 203 prepared pairs are metadata-only:
 paired execution remains disabled. All 4,206 original XML files are unchanged.
 
