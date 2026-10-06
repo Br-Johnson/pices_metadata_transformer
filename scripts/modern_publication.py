@@ -54,6 +54,7 @@ PR41_RUNTIME = 'a23fa32cd7312616100a0d34e9b328234a98cd3cd173821d55d494f326ac85d4
 PR42_RUNTIME = 'd09495acd462e7a51c3c1344265758ed8482256e9d901c05b64711734316ef2d'
 PR43_RUNTIME = '31dd71eb8bfe8c87f50d7ff3c4cbc22f045d926c099f81c21db2dc6df70614a2'
 PR44_RUNTIME = 'd89389d398ddc93f2e0e9fe817130c0b5a01592a147b499f975ad52615bc94a1'
+PR45_RUNTIME = 'd1055bf636fe04299be2b670af1b3aeefcae6c64149996b85cea469b672ea4f2'
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'review': 1, 'submit': 1}
 JSON = 'application/json'
@@ -110,7 +111,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
         compatible.add(PR41_RUNTIME)
     if prepared.evidence['policy'] in (POLICY, EXTENSION_POLICY, DIRECT_POLICY, EXXON_POLICY,
                                      PICES_POLICY, INSTITUTION_POLICY):
-        compatible.update((PR42_RUNTIME, PR43_RUNTIME, PR44_RUNTIME))
+        compatible.update((PR42_RUNTIME, PR43_RUNTIME, PR44_RUNTIME, PR45_RUNTIME))
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
             and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
@@ -135,7 +136,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     completed = draft.completed_on_content(row, prepared)
     # Historical clients could emit only the marker-free four-write transcript.
     require(not completed or evidence['runtime_sha256'] in
-            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME, PR41_RUNTIME, PR42_RUNTIME, PR43_RUNTIME, PR44_RUNTIME))
+            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME, PR41_RUNTIME, PR42_RUNTIME, PR43_RUNTIME, PR44_RUNTIME, PR45_RUNTIME))
     writes = [('create', 'POST', '/api/records', 201, sha(prepared.body)),
               ('init', 'POST', base + '/files', 201, sha(encode([{'key': prepared.source_id + '.xml'}]))),
               ('content', 'PUT', file + '/content', 200, sha(prepared.xml)),

@@ -1,0 +1,31 @@
+{
+  "commit": "1455a37642c63fd1481fd6025eefe531643c8346",
+  "environment_cleared_dummy_credentials_only": true,
+  "errors": 0,
+  "failures": 0,
+  "guard_blocks": {
+    "bootstrap": {
+      "network": 4,
+      "private_reads": 1,
+      "processes": 1,
+      "writes": 1
+    },
+    "tests": {
+      "network": 0,
+      "private_reads": 0,
+      "processes": 0,
+      "writes": 0
+    }
+  },
+  "in_process_read_only_git_queries": 0,
+  "seconds": 131.14,
+  "selected_modules": [
+    "tests.test_modern_citation_organizations",
+    "tests.test_modern_unknown_create_history"
+  ],
+  "source_bindings_unchanged": true,
+  "source_tree_sha256": "a9c67ac9ddb677e46d6287f4a984f973e0480d8602112dfe117e29d343665533",
+  "successful": true,
+  "tests_run": 11,
+  "unexpected_guard_call_sites": []
+}

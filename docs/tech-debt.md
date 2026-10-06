@@ -1,3 +1,19 @@
+## 2026-10-06 — Finite citation organizations129
+
+The new singleton policy preserves exact existing complete creator arrays and
+only supplies independently reviewed organizational type objects on the modern
+wire. The prior92 checkpoint is preserved; Ecotrust37 adds its three literal
+credits in order, including the Pacific GIS joint-actor context. Type is not a
+new legal-identity, contribution, date or rights assertion. All other residual
+creator questions remain outside this finite policy. Original XML and complete
+legacy metadata remain preserved; the12 historical creator mismatches require
+fresh classification, never substitution of older prepared payloads.
+
+A new runtime preserves PR45 history only for its six then-existing singleton
+policies and exact nonruntime evidence. The new seventh policy cannot backdate
+itself into old preparation/grant evidence. The spent unknown create and actual
+network restriction remain held under the separate recovery handoff.
+
 ## 2026-10-06: bounded unknown-create observations and deferred AquaDocs follow-up
 
 - PR44 diagnostics are merged and verified. The original production 403 had no retained body/Location and still has unknown outcome/cause; later network-restriction observations cannot explain it retrospectively.
