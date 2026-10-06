@@ -316,7 +316,7 @@ class ModernResponseEvidenceTests(unittest.TestCase):
         runner = helper.runner('capture')
         with self.assertRaises(ValueError):
             runner.run()
-        row = helper.publication_row()
+        row = parse(runner.journal_path.read_bytes())['targets']['FGDC-141']
         self.assertEqual(row['counts'], {'get': 1})
         self.assertEqual(len(helper.transport.calls), 1)
         receipt = row['requests'][0]
