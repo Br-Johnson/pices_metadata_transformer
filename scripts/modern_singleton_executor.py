@@ -22,6 +22,12 @@ from pathlib import Path
 
 from scripts.mac_sandbox_canary import echoed
 from scripts.modern_draft_schema import expected_empty_file_warning
+from scripts.modern_response_evidence import (
+    MAX_RESPONSE_BYTES,
+    Response,
+    diagnostic,
+    normalize_response,
+)
 from scripts.modern_singleton import (
     Held,
     compare_metadata,
@@ -39,7 +45,7 @@ ORIGIN = 'https://zenodo.org'
 EXECUTOR = '01a0f3ae-ee1c-7046-9b04-36d35803903c'
 LIMITS = {'get': 10, 'create': 1, 'init': 1, 'content': 1, 'commit': 1}
 TIMEOUT = 20
-MAX_BYTES = 1024 * 1024
+MAX_BYTES = MAX_RESPONSE_BYTES
 MIME = 'application/vnd.inveniordm.v1+json'
 BINARY_MEDIA = {'application/octet-stream', 'application/xml', 'text/xml'}
 
@@ -194,6 +200,30 @@ def permanent_intent(path, value):
         os.close(fd)
 
 
+def retain_response(journal_path, source_id, grant_sha, request_index, receipt, response, token, save):
+    """Save minimal status first, then an exclusive diagnostic beside the journal.
+
+    Sidecars keep bounded body evidence out of the existing 1 MiB journal. They
+    grant no identity, reset, redirect or replay authority, even when incomplete.
+    """
+    response = normalize_response(response)
+    evidence = diagnostic(response, token)
+    receipt.update(http_status=response.status, bytes=len(response.body),
+                   credential_suppressed=evidence['credential_suppressed'],
+                   response_sha256=evidence['response_sha256'])
+    save()
+    require(re.fullmatch(r'FGDC-[1-9][0-9]*', source_id)
+            and type(request_index) is int and request_index >= 0)
+    digest(grant_sha)
+    name = f'{journal_path.name}.{source_id}.{grant_sha}.{request_index}.response.json'
+    evidence['request'] = dict(receipt)
+    evidence.update(source_id=source_id, grant_sha256=grant_sha, request_index=request_index)
+    permanent_intent(journal_path.parent / name, evidence)
+    receipt['response_evidence'] = {'filename': name, 'sha256': sha(encode(evidence))}
+    save()
+    return evidence
+
+
 class Transport:
     """Explicit Mac token, verified TLS and a whole-request deadline; no discovery."""
 
@@ -215,6 +245,9 @@ class Transport:
         old_handler = signal.signal(signal.SIGALRM, expired)
         old_timer = signal.setitimer(signal.ITIMER_REAL, timeout)
         connection = None
+        response = None
+        chunks, size = [], 0
+        mime, location = '', None
         try:
             context = ssl.create_default_context()
             context.keylog_filename = None
@@ -224,7 +257,8 @@ class Transport:
             connection = http.client.HTTPSConnection('zenodo.org', timeout=remaining, context=context)
             connection.request(method, path, body=body, headers=headers)
             response = connection.getresponse()
-            chunks, size = [], 0
+            mime = response.getheader('Content-Type', '')
+            location = response.getheader('Location')
             while True:
                 left = deadline - time.monotonic()
                 require(left > 0)
@@ -232,11 +266,23 @@ class Transport:
                     connection.sock.settimeout(left)
                 chunk = response.read1(min(8192, MAX_BYTES + 1 - size))
                 if not chunk:
+                    outstanding = response.length
+                    if ((type(outstanding) is int and outstanding > 0)
+                            or (response.chunked is True and response.chunk_left is not None)):
+                        return Response(response.status, mime, b''.join(chunks), location,
+                                        False, 'incomplete_body')
                     break
                 chunks.append(chunk)
                 size += len(chunk)
-                require(size <= MAX_BYTES)
-            return response.status, response.getheader('Content-Type', ''), b''.join(chunks)
+                if size > MAX_BYTES:
+                    return Response(response.status, mime, b''.join(chunks)[:MAX_BYTES], location,
+                                    False, 'body_limit')
+            return Response(response.status, mime, b''.join(chunks), location)
+        except Exception:
+            if response is not None:
+                return Response(response.status, mime, b''.join(chunks)[:MAX_BYTES], location,
+                                False, 'read_interrupted')
+            raise Held('Modern request interrupted before response headers; attempt remains spent') from None
         finally:
             signal.setitimer(signal.ITIMER_REAL, *old_timer)
             signal.signal(signal.SIGALRM, old_handler)
@@ -367,15 +413,15 @@ class Runner:
                         (instant(self.grant['expires_at']) - self.now()).total_seconds())
         require(remaining > 0)
         try:
-            observed, mime, raw = self.transport.request(method, path, body, timeout=remaining)
+            response = self.transport.request(method, path, body, timeout=remaining)
         except Exception:
             raise Held('Modern request interrupted; attempt remains spent') from None
-        require(type(observed) is int and isinstance(raw, bytes) and len(raw) <= MAX_BYTES)
-        suppressed = echoed(raw, self.token)
-        receipt.update(http_status=observed, bytes=len(raw), credential_suppressed=suppressed,
-                       response_sha256=None if suppressed else sha(raw))
-        self.save()
-        require(not suppressed and observed == status and isinstance(mime, str))
+        response = normalize_response(response)
+        evidence = retain_response(self.journal_path, self.prepared.source_id, self.grant_sha,
+                                   len(self.row['requests']) - 1, receipt, response, self.token, self.save)
+        observed, mime, raw = response.status, response.mime, response.body
+        require(response.complete and not evidence['credential_suppressed']
+                and observed == status and isinstance(mime, str))
         media = response_media_type(mime, binary=binary)
         require(media in (BINARY_MEDIA if binary else {MIME}))
         self.current()

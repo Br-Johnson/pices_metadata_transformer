@@ -326,6 +326,15 @@ class ModernUploadCompatibilityTests(unittest.TestCase):
         self.assertTrue(harness.runner(documents=documents).run()['release_complete'])
         self.assertEqual({path: path.read_bytes() for path in retained}, retained)
 
+    def test_historical_pr43_completed_upload_bridges_without_rewriting_receipts(self):
+        harness = organizational_tests.PublicationFixture(self.fixture('FGDC-1839', completed=True))
+        retained = exxon_tests.save_historical_runtime(harness, publication.PR43_RUNTIME)
+        harness.prepared, harness.bound = harness.bridge()
+        self.assertEqual(harness.bound['original_runtime_sha256'], publication.PR43_RUNTIME)
+        documents = harness.ready()
+        self.assertTrue(harness.runner(documents=documents).run()['release_complete'])
+        self.assertEqual({path: path.read_bytes() for path in retained}, retained)
+
     def test_three_write_completed_marker_cannot_be_backdated_to_pr38(self):
         harness = organizational_tests.PublicationFixture(self.fixture('FGDC-1839', completed=True))
         retained = exxon_tests.save_historical_runtime(harness, publication.PR38_RUNTIME)
