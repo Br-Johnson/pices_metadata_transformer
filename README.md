@@ -19,10 +19,12 @@ for all 77 remote heads and the separate local checkpoint audit. PR46 was the on
 remaining current integration; older operational routes remain preserved on their
 historical refs. Subsequent implementation uses the maintained main checkout.
 
-The [current code release](docs/readiness/2026-10-06/modern_citationorg129_release.json)
-records the exact reviewed head, CI result and merged code. Guarded measurements
-cover **3,594 prepared targets / 3,797 originals**; **339 supported targets remain
-outside** (314 singletons and 25 pairs). The 203 prepared pairs are metadata-only:
+The [exact reviewed194 increment](docs/readiness/2026-10-06/modern_reviewed_creators194_handoff.md)
+and its [guarded measurements](docs/readiness/2026-10-06/modern_reviewed_creators194_validation.json)
+cover **3,788 prepared targets / 3,991 originals**; **145 supported targets remain
+outside** (120 singletons and 25 pairs). Main CI and final release verification for
+this increment are pending. The [prior PR46 release](docs/readiness/2026-10-06/modern_citationorg129_release.json)
+retains its completed CI/merge evidence. The 203 prepared pairs are metadata-only:
 paired execution remains disabled. All 4,206 original XML files are unchanged.
 
 The separately frozen [unknown-create recovery release](docs/readiness/2026-10-06/modern_unknown_create_release.json)
@@ -53,7 +55,7 @@ Publication requires saved modern QA evidence, independent program review and a
 separate human release. Paired-class execution remains outside this finite path.
 
 The [offline contracts workflow](.github/workflows/offline-contracts.yml) checks
-the exact PR head on a standard Ubuntu runner with read-only permissions and
+the exact PR or main head on a standard Ubuntu runner with read-only permissions and
 no provider secrets. Run its portable guard locally with
 `python -B ci/run_offline_tests.py`; optional `tests.test_…` module arguments select
 focused contracts. Test imports use a cleared environment and dummy credentials;

@@ -68,7 +68,7 @@ class ModernSingletonMappingTests(unittest.TestCase):
                 mapping.prepare(self.json_file, self.paths)
 
     def test_outside_cohort_and_protected_or_class_member_cannot_prepare(self):
-        for sid in ('FGDC-1', 'FGDC-1238', 'FGDC-2953'):
+        for sid in ('FGDC-885', 'FGDC-1238', 'FGDC-2953'):
             changed = Path(self.paths.zenodo_json_dir) / (sid + '.json')
             changed.write_bytes(self.json_file.read_bytes())
             with self.subTest(source=sid), self.assertRaises(ValueError):

@@ -139,10 +139,17 @@ class ModernCitationOrganizationTests(unittest.TestCase):
                     self.assertEqual(self.fixture(sid).prepared.evidence['schema_version'], version)
             self.assertEqual(fixture.transport.calls, [])
 
-    def test_other160_profiles_dfo_direct_holds_pairs_and_protected_identities_stay_outside(self):
+    def test_historical160_split_into_exact82_reviewed_and78_retained_holds(self):
         outside = self.review['outside_scope_creator426_source_ids']
         self.assertEqual(len(outside), 160)
-        for sid in [*outside, 'FGDC-4078', 'FGDC-710', 'FGDC-2232', 'FGDC-2953', 'FGDC-3181', *mapping.PROTECTED]:
+        reviewed = {r['source_id'] for r in mapping.parse(mapping.REVIEWED_CREATORS_MAPPING.read_bytes())['rows']
+                    if r['creator_authority_kind'] == 'creator426'}
+        self.assertEqual(len(set(outside) & reviewed), 82)
+        held = set(outside) - reviewed
+        self.assertEqual(len(held), 78)
+        for sid in [*sorted(set(outside) & reviewed), 'FGDC-4078']:
+            self.assertEqual(mapping.citation_organization_source_policy(sid)[1]['policy'], mapping.REVIEWED_CREATORS_POLICY)
+        for sid in [*sorted(held), 'FGDC-710', 'FGDC-2232', 'FGDC-2953', 'FGDC-3181', *mapping.PROTECTED]:
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.citation_organization_source_policy(sid)
 

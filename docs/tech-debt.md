@@ -970,3 +970,26 @@ identity. A separately reviewed finite read-only route is still required. The
 AquaDocs comparison also needs actual readable cache evidence and reviewed
 positive-candidate relationships; the current empty-inventory QA branch cannot
 approve those matches. These are active release blockers, not source QA failures.
+
+## Exact reviewed creator vectors194 — 2026-10-06
+
+The eighth modern singleton policy uses finite, independently reviewed arrays
+instead of a general personal-name or affiliation parser. Its82 creator426,
+42 direct-primary and70 DFO Staff sources retain three distinct existing source
+authorities. Full legacy objects, ordered primary origins, source-root and plan
+object hashes bind every projection. Approved cardinality changes and affiliations
+are copied exactly; contacts, titles and organizational operators do not become
+new creators by heuristic. FGDC-10 andFGDC-1314 require fresh classification because
+their retained historical creator vectors differ from current source authority.
+
+A shared source-authority selector keeps preparation and publication QA aligned.
+Only policies1–7 may bridge PR46 history, with every nonruntime evidence field
+identical; schema8 cannot backdate its authority. Documentation-only commits do
+not change the runtime binding. The separately frozen PR45 GET-only recovery
+release remains available without another validation solely for documentation.
+No source eligibility, paired execution or provider authority is added.
+
+The earlier recovery/AquaDocs status above is historical: PR45 completed the
+bounded observation controller. Actual unknown-create recovery still requires
+parent dispatch after supported network recovery, and AquaDocs is user-deferred
+until after initial publication. Neither is reported as completed provider work.

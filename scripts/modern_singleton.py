@@ -55,6 +55,15 @@ CITATION_ORG_REVIEW_SHA = 'dc9033829412054b0aed2a5ec354e9133889736859a39d727aeba
 CITATION_ORG_SOURCE = ROOT / 'docs/readiness/2026-10-06/modern_citationorg129_source_review.json'
 CITATION_ORG_SOURCE_SHA = 'ceeaec8fdd29b3a56dceb700d2b3c47395ec54d0755c4bc3018a01f50d359168'
 CITATION_ORG_POLICY = 'modern-xml-citation-organizations129-v1'
+REVIEWED_CREATORS_MAPPING = ROOT / 'docs/readiness/2026-10-06/modern_reviewed_creators194.json'
+REVIEWED_CREATORS_MAPPING_SHA = 'c7d0b522bf7e9a9c990b6cbdf93797280ff1e57979e6bd133186905c4deec6c3'
+REVIEWED_CREATORS_SOURCE = ROOT / 'docs/readiness/2026-10-06/modern_reviewed_creators194_source.json'
+REVIEWED_CREATORS_SOURCE_SHA = '1dbb3af3945a0993e705e56a94b307cb02ca444451a98ef8e36ade366eddaad1'
+REVIEWED_CREATORS_REVIEW = ROOT / 'docs/readiness/2026-10-06/modern_reviewed_creators194_review.json'
+REVIEWED_CREATORS_REVIEW_SHA = '20c585d143cc0a295bdbbce54b2e3fa5bace5846802534b2f7bf40bb3f04b271'
+REVIEWED_CREATORS_POLICY = 'modern-xml-reviewed-creators194-v1'
+DFO_PROFILE = ROOT / 'docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json'
+DFO_PROFILE_SHA = '6587234a935a8eb893f6890ad3ec01a330c7ff4e8c55dcaeb6c03800bf157b0d'
 PRESERVATION_LABEL = (
     'Legacy assembled metadata, preserved without field loss. Publisher values in this '
     'block are legacy mapping values, not independently source-attested publishers. '
@@ -360,11 +369,103 @@ def citation_organization_source_policy(source_id):
             if sid == source_id:
                 matches.append((group, member['creator_cohort']))
     require(len(members) == len({row['source_id'] for row in members}) == 129
-            and sorted(members, key=lambda row: int(row['source_id'][5:])) == review['approved_members']
-            and len(matches) == 1)
+            and sorted(members, key=lambda row: int(row['source_id'][5:])) == review['approved_members'])
+    if not matches:
+        return reviewed_creator_source_policy(source_id)
+    require(len(matches) == 1)
     selected, cohort_name = matches[0]
     return selected, {'schema_version': 7, 'policy': CITATION_ORG_POLICY,
                       'mapping_manifest_sha256': CITATION_ORG_MAPPING_SHA, 'creator_cohort': cohort_name}
+
+
+def reviewed_creator_source_policy(source_id):
+    """Exact reviewed194 vectors with three separate existing source authorities.
+
+    Historical provenance paths are evidence only. Current authority is resolved
+    from pinned repository objects; no generic name or institution parser runs.
+    """
+    manifest = pinned(REVIEWED_CREATORS_MAPPING, REVIEWED_CREATORS_MAPPING_SHA)
+    source = pinned(REVIEWED_CREATORS_SOURCE, REVIEWED_CREATORS_SOURCE_SHA)
+    review = pinned(REVIEWED_CREATORS_REVIEW, REVIEWED_CREATORS_REVIEW_SHA)
+    require(review['verdict'] == 'APPROVE_EXACT194_COMPOSITION_RETAIN29_HOLDS_SOURCE_ONLY'
+            and review['approved_source_count'] == source['proposed_source_count'] == 194
+            and source['members'] == review['approved_members']
+            and sha(encode(source['members'])) == review['approved_membership_sha256']
+            and sha(encode(source['source_rows'])) == review['approved_source_rows_sha256'])
+    kinds = {'existing_creator426_cohort': 'creator426',
+             'existing_dfo_literal_collective_profile': 'dfo70',
+             'existing_default_primary_citation_legacy_route_no_creator426_or_dfo_profile': 'direct'}
+    expected = []
+    for row in source['source_rows']:
+        authority = row['current_creator_authority']
+        require(authority['kind'] in kinds)
+        expected.append({
+            'source_id': row['source_id'], 'source_sha256': row['source_sha256'],
+            'approval_partition': row['approval_partition'],
+            'creator_authority_kind': kinds[authority['kind']], 'creator_cohort': authority.get('profile'),
+            'creator_authority_object_sha256': authority['reference'].get('object_sha256'),
+            'source_plan_target_sha256': row['current_source_plan_target']['object_sha256'],
+            'creators': row['complete_legacy_creators'], 'modern_creators': row['proposed_modern_creators'],
+            'primary_origins': row['original_primary_origin_elements'],
+            'source_root_sha256': row['source_root_sha256']})
+    header = {'schema_version': 1, 'kind': 'modern-reviewed-creators194-v1',
+              'policy': REVIEWED_CREATORS_POLICY, 'source_packet_sha256': REVIEWED_CREATORS_SOURCE_SHA,
+              'independent_review_sha256': REVIEWED_CREATORS_REVIEW_SHA, 'source_plan_sha256': PLAN_SHA,
+              'creator426_profile_sha256': PROFILE_SHA, 'dfo_profile_sha256': DFO_PROFILE_SHA,
+              'member_count': 194, 'authority_counts': {'creator426': 82, 'direct': 42, 'dfo70': 70}}
+    require(isinstance(manifest, dict) and set(manifest) == set(header) | {'rows'}
+            and all(type(manifest[key]) is type(value) and manifest[key] == value
+                    for key, value in header.items()) and manifest['rows'] == expected)
+    profiles = {row['profile']: row for row in pinned(PROFILE, PROFILE_SHA)['cohorts']}
+    dfo = pinned(DFO_PROFILE, DFO_PROFILE_SHA)
+    targets = {row['record_target_id']: row for row in pinned(PLAN, PLAN_SHA)['targets']}
+    members, matches, counts = [], [], dict.fromkeys(header['authority_counts'], 0)
+    for row in expected:
+        sid, kind = row['source_id'], row['creator_authority_kind']
+        member = {'source_id': sid, 'source_sha256': row['source_sha256']}
+        target = targets[sid]
+        require(sid not in PROTECTED and target['source_ids'] == [sid]
+                and target['source_semantic_status'] == 'supported'
+                and target['source_sha256'] == row['source_sha256']
+                and target['identity_decision']['production_record_id'] is None
+                and target['identity_decision']['production_doi'] is None
+                and sha(encode(target)) == row['source_plan_target_sha256'])
+        if kind in ('creator426', 'dfo70'):
+            profile = profiles[row['creator_cohort']] if kind == 'creator426' else dfo
+            require(profile['profile'] == row['creator_cohort'] and member in profile['members']
+                    and profile['creators'] == row['creators']
+                    and sha(encode(profile)) == row['creator_authority_object_sha256'])
+            if kind == 'dfo70':
+                require(row['creators'] == [{'name': 'DFO Staff'}]
+                        and row['modern_creators'] == [
+                            {'person_or_org': {'name': 'DFO Staff', 'type': 'organizational'}}])
+        else:
+            require(kind == 'direct' and row['creator_cohort'] is None
+                    and row['creator_authority_object_sha256'] is None)
+        counts[kind] += 1
+        members.append(member)
+        if sid == source_id:
+            matches.append(row)
+    require(len(members) == len({row['source_id'] for row in members}) == 194
+            and members == review['approved_members'] and counts == header['authority_counts']
+            and len(matches) == 1)
+    selected = matches[0]
+    return dict(selected, members=[{'source_id': selected['source_id'],
+                                    'source_sha256': selected['source_sha256']}]), {
+        'schema_version': 8, 'policy': REVIEWED_CREATORS_POLICY,
+        'mapping_manifest_sha256': REVIEWED_CREATORS_MAPPING_SHA,
+        'creator_authority_kind': selected['creator_authority_kind'],
+        'creator_cohort': selected['creator_cohort']}
+
+
+def creator_authority_sha(selected, policy_fields):
+    """Use the same source authority in fresh preparation and publication QA."""
+    policy = policy_fields['policy']
+    if policy == REVIEWED_CREATORS_POLICY:
+        return {'creator426': PROFILE_SHA, 'dfo70': DFO_PROFILE_SHA,
+                'direct': REVIEWED_CREATORS_MAPPING_SHA}[selected['creator_authority_kind']]
+    return (INSTITUTION_MAPPING_SHA if policy == INSTITUTION_POLICY else
+            EXXON_SHA if policy == EXXON_POLICY else DIRECT_SHA if policy == DIRECT_POLICY else PROFILE_SHA)
 
 
 def runtime_binding():
@@ -435,9 +536,9 @@ def prepare(json_file, paths):
     pices = policy_fields['policy'] == PICES_POLICY
     institution = policy_fields['policy'] == INSTITUTION_POLICY
     citation_org = policy_fields['policy'] == CITATION_ORG_POLICY
-    authority_sha = (INSTITUTION_MAPPING_SHA if institution else
-                     (EXXON_SHA if exxon else (DIRECT_SHA if direct else PROFILE_SHA)))
-    if direct or institution:
+    reviewed = policy_fields['policy'] == REVIEWED_CREATORS_POLICY
+    authority_sha = creator_authority_sha(selected, policy_fields)
+    if direct or institution or (reviewed and selected['creator_authority_kind'] == 'direct'):
         require('creator_interpretation' not in policy)
     else:
         reference = policy.get('creator_interpretation', {})
@@ -450,6 +551,10 @@ def prepare(json_file, paths):
     if direct or institution:
         origins = ET.fromstring(xml).findall('./idinfo/citation/citeinfo/origin')
         require(origins and [source_element(node) for node in origins] in selected['primary_origin_variants'])
+    if reviewed:
+        root = ET.fromstring(xml)
+        require([source_element(node) for node in root.findall('./idinfo/citation/citeinfo/origin')]
+                == selected['primary_origins'] and sha(encode(source_element(root))) == selected['source_root_sha256'])
     target = next(row for row in pinned(PLAN, PLAN_SHA)['targets'] if row['record_target_id'] == sid)
     require(target['source_ids'] == [sid] and target['source_semantic_status'] == 'supported'
             and target['source_sha256'] == source_sha
@@ -457,7 +562,7 @@ def prepare(json_file, paths):
             and target['identity_decision']['production_doi'] is None)
     validate_restricted_metadata(metadata)
     require(metadata['creators'] == selected['creators'])
-    if exxon or pices or institution or citation_org:
+    if exxon or pices or institution or citation_org or reviewed:
         creators = selected['modern_creators']
     else:
         require(all(set(c) == {'name', 'type'} and c['type'] == 'Organization'

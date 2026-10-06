@@ -132,11 +132,18 @@ class ModernInstitutionCoverageTests(unittest.TestCase):
                     self.assertEqual(self.fixture(sid).prepared.evidence['schema_version'], version)
         self.assertEqual(fixture.transport.calls, [])
 
-    def test_finite_membership_retains_all79_direct_holds_other_name_only_and_pairs(self):
+    def test_historical79_split_into_exact42_reviewed_and37_retained_holds(self):
         review = mapping.parse((mapping.INSTITUTION_MAPPING.parent / 'modern_institution91_source_review.json').read_bytes())
         ids = [r['source_id'] for r in review['held']['members']]
         self.assertEqual(len(ids), 79)
-        for sid in (*ids, 'FGDC-2232', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
+        reviewed = {r['source_id'] for r in mapping.parse(mapping.REVIEWED_CREATORS_MAPPING.read_bytes())['rows']
+                    if r['creator_authority_kind'] == 'direct'}
+        self.assertEqual(len(set(ids) & reviewed), 42)
+        held = set(ids) - reviewed
+        self.assertEqual(len(held), 37)
+        for sid in set(ids) & reviewed:
+            self.assertEqual(mapping.institution_source_policy(sid)[1]['policy'], mapping.REVIEWED_CREATORS_POLICY)
+        for sid in (*sorted(held), 'FGDC-2232', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.institution_source_policy(sid)
 

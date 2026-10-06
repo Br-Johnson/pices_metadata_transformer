@@ -12,13 +12,21 @@ Earlier checklist entries below preserve their historical state. This section an
 the maintained rules supersede their workflow timing and pending-code statements;
 original journals, grants, receipts and frozen historical instructions are unchanged.
 
-## Active increment: finite citation organizations129 — 2026-10-06
+## Active increment: exact reviewed creators194 — 2026-10-06
+
+- [x] Reconcile main `6deff6bbc9c739dbb09192412c0548863007cdea` and verify executor access after the disconnection callback. Continue as sole integration writer directly on main.
+- [x] Independently approve the exact194 composition:82 existing creator426 sources,42 direct primary citations and70 literal DFO Staff credits. Preserve complete approved vectors,15 direct cardinality changes,22 direct affiliation vectors and all29 personal holds; program20 stays separate.
+- [x] Implement finite schema8 projections with distinct current source authority and exact XML/plan/legacy bindings. Preserve oldseven preparation evidence and narrow PR46 history compatibility; keep frozen PR45 recovery unchanged.
+- [x] Pass53 affected existing tests,11 final frozen new tests and one preliminary history test, preserving distinct bindings. Four guarded shards and saved-file aggregation pass:194 new sources twice,3391 prior singletons and203 pairs once; all4206 originals and34652 retained files match. Actual coverage is3788 targets/3991 originals;145 supported targets remain (120 singletons +25 pairs). Independent code/helper/aggregate reviews passed. Actual main CI remains required.
+- [ ] Publish reviewed implementation and frozen instructions directly on main. Provider requests, spent-create recovery and publication remain solely under parent/Mac grants; no provider actions occur here.
+
+## Completed increment: finite citation organizations129 — 2026-10-06
 
 - [x] Verify merged PR45 recovery and publish its exact release receipt; preserve all provider holds and standing rules.
 - [x] Independently review129 exact complete creator arrays across53 groups, preserving frozen92 plus the additive Ecotrust37 joint-actor context. Preserve original dates, all legacy creators, rights and raw XML.
 - [x] Freeze the finite mapper and historical-runtime compatibility; pass independent code/helper review and 11 focused guarded tests at unchanged185-file binding.
 - [x] Measure all129 new preparations twice and all3262 retained singleton plus203 paired preparations once. All four guarded shards and the independently checked saved-file aggregate pass; all4206 originals and retained evidence match. Coverage is3594 targets /3797 originals, with339 remaining (314 singletons +25 pairs). See the [frozen handoff](readiness/2026-10-06/modern_citationorg129_handoff.md).
-- [ ] Pass independent current-head code review and full CI, then merge under standing authorization. Keep all160 other residual creator426 sources, DFO Staff70, other direct holds and25 unmapped pairs outside this increment.
+- [x] Pass independent current-head code review and909 full CI tests, then merge PR46 under standing authorization. All160 other residual creator426 sources, DFO Staff70, other direct holds and25 unmapped pairs remained outside that increment.
 
 ## Completed code increment: bounded unknown-create observations — 2026-10-06
 

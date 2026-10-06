@@ -79,7 +79,7 @@ def failed_context(json_file, paths, documents):
                          publication.PR35_RUNTIME, publication.PR36_RUNTIME, publication.PR37_RUNTIME,
                          publication.PR38_RUNTIME, publication.PR39_RUNTIME, publication.PR40_RUNTIME,
                          publication.PR41_RUNTIME, publication.PR42_RUNTIME, publication.PR43_RUNTIME,
-                         publication.PR44_RUNTIME, publication.PR45_RUNTIME)
+                         publication.PR44_RUNTIME, publication.PR45_RUNTIME, publication.PR46_RUNTIME)
     evidence = packet['evidence']
     require(isinstance(evidence, dict) and evidence.get('runtime_sha256') in approved_runtimes
             and evidence == dict(prepared.evidence, runtime_sha256=evidence['runtime_sha256'])

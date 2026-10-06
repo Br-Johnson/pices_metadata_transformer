@@ -1,0 +1,131 @@
+{
+  "base_revision": "6deff6bbc9c739dbb09192412c0548863007cdea",
+  "base_revision_is_new194_code_commit": false,
+  "final_source_tree_file_count": 187,
+  "final_source_tree_sha256": "0c85c0b50742897f13122e5ebc7b5987884356b940e188cd41452386a191f84e",
+  "kind": "modern-reviewed-creators194-focused-checks",
+  "runs": [
+    {
+      "kind": "reviewed194-preliminary-schema8-history-smoke",
+      "log_path": "/tmp/pices-reviewed194-schema8-smoke-v1.log",
+      "log_sha256": "e671a7139ff3fb2401273845987e844e8911f2484a15527d0fef764038430a33",
+      "receipt_sha256": "134ec750406c32371745c3c0a7b0e90a59c6500e6af669620bdcc937be65d559",
+      "result": {
+        "commit": "6deff6bbc9c739dbb09192412c0548863007cdea",
+        "environment_cleared_dummy_credentials_only": true,
+        "errors": 0,
+        "failures": 0,
+        "guard_blocks": {
+          "bootstrap": {
+            "network": 4,
+            "private_reads": 1,
+            "processes": 1,
+            "writes": 1
+          },
+          "tests": {
+            "network": 0,
+            "private_reads": 0,
+            "processes": 0,
+            "writes": 0
+          }
+        },
+        "in_process_read_only_git_queries": 0,
+        "seconds": 10.276,
+        "selected_modules": [
+          "tests.test_modern_schema8_history_boundary"
+        ],
+        "source_bindings_unchanged": true,
+        "source_tree_sha256": "3e3103913a10812495c36982ac163499ed67734f56b6961038446aef7322f4de",
+        "successful": true,
+        "tests_run": 1,
+        "unexpected_guard_call_sites": []
+      },
+      "scope": "Uncommitted working main based on6deff6; not final source/test freeze or full CI"
+    },
+    {
+      "kind": "reviewed194-affected-existing-contracts",
+      "log_path": "/tmp/pices-reviewed194-affected-v1.log",
+      "log_sha256": "5782acf016c02ffd22c96569ce51c279e9401556c8be541bda880399231a4d3b",
+      "receipt_sha256": "9ca1da3ad885a4792e3133a0568bd98aa9cb09eecf1d02f07ca51c7b63720f89",
+      "result": {
+        "commit": "6deff6bbc9c739dbb09192412c0548863007cdea",
+        "environment_cleared_dummy_credentials_only": true,
+        "errors": 0,
+        "failures": 0,
+        "guard_blocks": {
+          "bootstrap": {
+            "network": 4,
+            "private_reads": 1,
+            "processes": 1,
+            "writes": 1
+          },
+          "tests": {
+            "network": 0,
+            "private_reads": 0,
+            "processes": 0,
+            "writes": 0
+          }
+        },
+        "in_process_read_only_git_queries": 0,
+        "seconds": 303.91,
+        "selected_modules": [
+          "tests.test_modern_singleton",
+          "tests.test_modern_organizational_coverage",
+          "tests.test_modern_primary_organizations",
+          "tests.test_modern_institution_coverage",
+          "tests.test_modern_citation_organizations",
+          "tests.test_modern_unknown_create_history"
+        ],
+        "source_bindings_unchanged": true,
+        "source_tree_sha256": "0dee231ca2f06bda4f536816d611319329f7c529f0bb4a8a8f17eef2da58f32f",
+        "successful": true,
+        "tests_run": 53,
+        "unexpected_guard_call_sites": []
+      },
+      "scope": "Working main based on6deff6 before new comprehensive tests; runtime unchanged by subsequent test integration"
+    },
+    {
+      "freeze_sha256": "9d272b545373905600f0cb44b2dd3cfb219dfaf7e7f1a1bdcafea47fbbb98ab8",
+      "kind": "reviewed194-frozen-focused-contracts",
+      "log_path": "/tmp/pices-reviewed194-focused-v1.log",
+      "log_sha256": "00bf55e53079447003d1d82c48e17a1060c205dffd6ce652022156a1fbcbdabb",
+      "receipt_sha256": "54ccf6d7920bf6ff7e32553874d539a967801525354fc413a83630d463953d50",
+      "result": {
+        "commit": "6deff6bbc9c739dbb09192412c0548863007cdea",
+        "environment_cleared_dummy_credentials_only": true,
+        "errors": 0,
+        "failures": 0,
+        "guard_blocks": {
+          "bootstrap": {
+            "network": 4,
+            "private_reads": 1,
+            "processes": 1,
+            "writes": 1
+          },
+          "tests": {
+            "network": 0,
+            "private_reads": 0,
+            "processes": 0,
+            "writes": 0
+          }
+        },
+        "in_process_read_only_git_queries": 0,
+        "seconds": 143.554,
+        "selected_modules": [
+          "tests.test_modern_reviewed_creators"
+        ],
+        "source_bindings_unchanged": true,
+        "source_tree_sha256": "0c85c0b50742897f13122e5ebc7b5987884356b940e188cd41452386a191f84e",
+        "successful": true,
+        "tests_run": 11,
+        "unexpected_guard_call_sites": []
+      },
+      "scope": "Frozen staged working tree based on6deff6; actual code bindings in result and freeze"
+    }
+  ],
+  "runtime_sha256": "6cc86a1740fcd93e65d42e21b1c199c160974c607be54db71f43d3e25466349e",
+  "schema_version": 1,
+  "scope": "One preliminary schema8 history test,53 affected existing tests,11 final frozen new tests. Earlier runs retain their own source/test bindings. Runtime unchanged across these checks. Main full CI remains required; no provider requests or release authority.",
+  "status": "PASS",
+  "tests_executed_across_three_distinct_source_test_bindings": 65
+}
