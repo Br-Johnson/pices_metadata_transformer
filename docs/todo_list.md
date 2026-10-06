@@ -1,3 +1,17 @@
+## Current workflow and consolidated code — 2026-10-06
+
+- [x] Reconcile all 77 remote branches, 46 pull requests and 64 local branch heads across 67 clean historical worktrees. Preserve every branch and frozen checkpoint. PR46 was the only current merge; no additional material current work was missing from main.
+- [x] Apply Brett's current workflow: merge reviewed PRs after current-head CI without renewed approval; continue authorized implementation directly on main after consolidation. Rules/documentation updates also go directly to main. See [maintained rules](../AGENTS.md) and [reconciliation](readiness/2026-10-06/branch_reconciliation.json).
+- [x] Complete PR45's bounded GET-only unknown-create controller, 900 passing CI tests and independent review. Preserve its separate [frozen recovery release](readiness/2026-10-06/modern_unknown_create_release.json).
+- [x] Complete PR46's finite 129 organizational citations, fresh guarded measurements and independent exact-head review. Its [release receipt](readiness/2026-10-06/modern_citationorg129_release.json) records the actual full CI and merge. Coverage is 3,594 prepared targets / 3,797 originals; 339 supported targets remain outside (314 singletons + 25 pairs). No source eligibility changed; all 4,206 original XML files are intact, and paired execution remains disabled.
+- [ ] Continue coherent source-reviewed corrections directly on main with appropriate tests and independent review. Additional source-only proposals remain separate from implemented or measured coverage.
+- [ ] Parent verifies the retained original-create evidence, owner and supported network recovery before separately granting any observation to the sole Mac executor. Original create outcome remains unknown and its intent spent; Zenodo support ticket 3327790 remains pending.
+- [ ] Complete actual PICES authority, record QA, human release, accepted membership and default readback under separate provider grants. AquaDocs linkage remains user-deferred until after initial publication, with no completed or passed claim.
+
+Earlier checklist entries below preserve their historical state. This section and
+the maintained rules supersede their workflow timing and pending-code statements;
+original journals, grants, receipts and frozen historical instructions are unchanged.
+
 ## Active increment: finite citation organizations129 — 2026-10-06
 
 - [x] Verify merged PR45 recovery and publish its exact release receipt; preserve all provider holds and standing rules.

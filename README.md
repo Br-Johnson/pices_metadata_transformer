@@ -5,25 +5,36 @@ This project transforms 4,206 FGDC XML metadata records to Zenodo JSON format an
 ## Agent repository workflow
 
 Brett's current authorization permits merging pull requests without another
-approval after CI passes and Codex review covers the current head. After
-reconciling current relevant branch work, authorized implementation continues
-directly on `main`, with appropriate checks and independent review before
-publication. Rules and documentation updates may also be committed directly to
-`main`. The current [agent rules](AGENTS.md) supersede older approval and routine
-feature-branch instructions retained in historical checkouts, plans and handoffs.
-Preserve those checkpoints and branches as evidence. Existing provider action
-grants, source integrity and production release requirements remain effective.
+approval after CI passes and Codex review covers the current head. After the
+October 6 branch reconciliation, authorized implementation continues directly on
+`main`, with appropriate checks and independent review before publication. Rules
+and documentation updates may also be committed directly to `main`. The current
+[agent rules](AGENTS.md) supersede older approval and routine feature-branch
+instructions retained in historical checkouts, plans and handoffs. Preserve those
+checkpoints and branches as evidence; repository authority does not grant provider
+actions or waive production release requirements.
 
-The current [community-first release handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md)
-holds the first production draft for actual Mac-reviewed PICES authority, record
-QA and human release before a separately granted review/submission route. Its
-implementation tests, independent review and CI are pending. PR38 merged at
-`4a3703df949a952bb7b9b00544a3132cea771bfc` with 748 passing CI tests and measured
-modern coverage of **3,145 targets; 788 remain outside**. PR39 merged at
-`8c0f77210b24859c89dcb5ecae2aba3331f34c29` with 767 passing CI tests, adding
-completed-on-PUT handling and identical duplicate bare binary Content-Type
-compatibility. These are code checkpoints; provider execution requires its own
-evidence and grant. Earlier checkpoints below remain historical evidence.
+See the [branch reconciliation](docs/readiness/2026-10-06/branch_reconciliation.json)
+for all 77 remote heads and the separate local checkpoint audit. PR46 was the only
+remaining current integration; older operational routes remain preserved on their
+historical refs. Subsequent implementation uses the maintained main checkout.
+
+The [current code release](docs/readiness/2026-10-06/modern_citationorg129_release.json)
+records the exact reviewed head, CI result and merged code. Guarded measurements
+cover **3,594 prepared targets / 3,797 originals**; **339 supported targets remain
+outside** (314 singletons and 25 pairs). The 203 prepared pairs are metadata-only:
+paired execution remains disabled. All 4,206 original XML files are unchanged.
+
+The separately frozen [unknown-create recovery release](docs/readiness/2026-10-06/modern_unknown_create_release.json)
+provides a bounded GET-only observation controller. The original production create
+outcome remains unresolved, its intent is spent, and provider requests remain
+paused pending supported network recovery and a separate parent grant to the sole
+Mac executor. Zenodo support ticket 3327790 is pending. The
+[community-first release handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md)
+still requires actual PICES authority, source/record QA, a human release and accepted
+membership/default readback. AquaDocs linkage is
+[deferred until after initial publication](docs/readiness/2026-10-06/aquadocs_deferred_followup.json).
+Earlier checkpoints below remain historical evidence.
 
 The [finite direct-primary increment](docs/adr/0008-finite-direct-primary-organizations.md)
 adds 2,628 supported singleton targets in 294 independently reviewed
