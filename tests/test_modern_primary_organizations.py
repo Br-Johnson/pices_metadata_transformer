@@ -337,8 +337,9 @@ class ModernPrimaryOrganizationTests(unittest.TestCase):
         self.assertTrue(result['community_submission_verified'])
         result = harness.runner(documents=documents).run(read_only=True)
         self.assertEqual(result['counts'], publication.PUBLISH_LIMITS)
-        self.assertEqual(sum(call[0] == 'POST' for call in harness.transport.calls), 2)
-        self.assertFalse(result['community_membership_verified'])
+        self.assertEqual([call[0] for call in harness.transport.calls if call[0] != 'GET'], ['PUT', 'POST'])
+        self.assertTrue(result['community_membership_verified'])
+        self.assertTrue(result['release_complete'])
         self.assertFalse(result['doi_registration_verified'])
 
     def test_direct_source_uncertain_create_intent_survives_journal_loss_and_fresh_grant(self):
@@ -437,7 +438,7 @@ class ModernPrimaryOrganizationTests(unittest.TestCase):
         self.assertTrue(result['community_submission_verified'])
         retry = harness.runner(documents=documents).run(read_only=True)
         self.assertEqual(retry['counts'], publication.PUBLISH_LIMITS)
-        self.assertEqual(sum(call[0] == 'POST' for call in harness.transport.calls), 2)
+        self.assertEqual([call[0] for call in harness.transport.calls if call[0] != 'GET'], ['PUT', 'POST'])
         # Publication's fake delegates read response synthesis to the draft fake;
         # its appended reads must not be mistaken for renewed creation actions.
         self.assertEqual(fixture.transport.calls[:len(initial_calls)], initial_calls)

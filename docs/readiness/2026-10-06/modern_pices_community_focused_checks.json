@@ -1,0 +1,99 @@
+{
+  "actual_ci_result_included": false,
+  "final_authority": {
+    "log_sha256": "2c2e20d59297cf80f92fd1a6ddec8afe85b5d5bae4c5336f37436764dae39548",
+    "receipt": {
+      "commit": "86a82812a0d96c896015a4cf2ecf9e8545ffbbe4",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 0,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 0,
+      "seconds": 0.183,
+      "selected_modules": [
+        "tests.test_modern_community_authority"
+      ],
+      "source_bindings_unchanged": true,
+      "source_tree_sha256": "ca632f061a554e43a7d7f3f77015145612b6f47c7cc689ca8de985fc2c5fd6f3",
+      "successful": true,
+      "tests_run": 8,
+      "unexpected_guard_call_sites": []
+    }
+  },
+  "final_delta": "Source-verified members review policy, coherent synthetic permission fixture, focused allowlist regression. Full final-tree CI remains separate.",
+  "final_runtime_sha256": "999c23a83d9fbcb800f612c150708c474069f9baf0e9ef192e39107cd3633ec9",
+  "final_source_tree_sha256": "ca632f061a554e43a7d7f3f77015145612b6f47c7cc689ca8de985fc2c5fd6f3",
+  "focused_core": {
+    "log_sha256": "da4768f5d63967776b090b15949b126879a5cdd27883df4d1955dd28349b2000",
+    "receipt": {
+      "commit": "86a82812a0d96c896015a4cf2ecf9e8545ffbbe4",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 0,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 0,
+      "seconds": 874.493,
+      "selected_modules": [
+        "tests.test_modern_publication",
+        "tests.test_modern_publication_qa",
+        "tests.test_modern_community_authority",
+        "tests.test_modern_upload_compatibility",
+        "tests.test_modern_organizational_coverage",
+        "tests.test_modern_primary_organizations",
+        "tests.test_modern_exxon_coverage"
+      ],
+      "source_bindings_unchanged": true,
+      "source_tree_sha256": "8019554672831031f9fea6d16912e50a3021a6be6cf5ecf972c905b1a22e5c2e",
+      "successful": true,
+      "tests_run": 159,
+      "unexpected_guard_call_sites": []
+    },
+    "runtime_sha256": "4e606ddb4928057f6f868bba4d72e1a9064553f0512968eba3b2adc39d552490"
+  },
+  "kind": "modern-pices-community-local-validation-v1",
+  "original_hashes_sha256": "3430315763379ef81c393cca00eb776952df3ad3f66856ef4b15edd48e396013",
+  "original_xml_count": 4206,
+  "preserved_prior_runs": [
+    {
+      "log_sha256": "e2f40813679b2ef7a4511f9d82f3963e90c9d7e2c34b8e444e959c9c0c930f29",
+      "status": "selector_rejected_before_tests"
+    },
+    {
+      "exit_code": 130,
+      "log_sha256": "4e700c82bc6331cd74fd5083de206deb2559ce1b2e2834750828ddf4098a328c",
+      "status": "interrupted_for_material_review_fixes"
+    }
+  ],
+  "provider_requests": 0,
+  "resolved_review_findings": [
+    "Require source-defined draft_with_review after review attachment without broadening ordinary draft validation.",
+    "Reject preexisting or unexpected top-level and parent review state."
+  ],
+  "schema_version": 1
+}

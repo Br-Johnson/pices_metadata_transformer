@@ -97,7 +97,7 @@ action grants, source evidence, and production release requirements in force.
 - **Review transformation results** in `output/zenodo_json/`
 - **Check validation reports** in `output/validation_report.json`
 - **Consult the active checklist** in `docs/todo_list.md` and update it before and after each significant action
-- **Decide publishing mode** – production uploads should pass `--publish-on-upload` to `scripts/batch_upload.py` so Zenodo drafts are auto-submitted to the PICES community. Use `scripts/publish_records.py` only for remediation or backfill.
+- **Decide publishing mode** – hold production drafts for record QA, independent review and a separate human release. The reviewed [community-first handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md) supersedes the legacy `--publish-on-upload` instruction: bind actual PICES identity/permission evidence before the separately granted draft-review and submit-review route. Repository merge authority does not grant provider actions; retain the sole executor, original journals and spent budgets.
 
 ## Code Modification Rules
 

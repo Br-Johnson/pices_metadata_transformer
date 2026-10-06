@@ -218,9 +218,10 @@ class ModernOrganizationalCoverageTests(unittest.TestCase):
         self.assertTrue(result['community_submission_verified'])
         result = harness.runner(documents=documents).run(read_only=True)
         self.assertEqual(result['counts'], publication.PUBLISH_LIMITS)
-        self.assertEqual([call[0] for call in harness.transport.calls].count('POST'), 2)
+        self.assertEqual([call[0] for call in harness.transport.calls if call[0] != 'GET'], ['PUT', 'POST'])
         self.assertFalse(result['doi_registration_verified'])
-        self.assertFalse(result['community_membership_verified'])
+        self.assertTrue(result['community_membership_verified'])
+        self.assertTrue(result['release_complete'])
 
     def test_new_source_uncertain_create_is_spent_and_never_replayed_after_journal_loss(self):
         for effect in (False, True):
