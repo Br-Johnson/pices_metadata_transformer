@@ -1,9 +1,22 @@
-## Active increment: first-record community-first release — 2026-10-06
+## Active increment: finite PICES26 wire representation — 2026-10-06
+
+- [x] Reconcile PR40 and standing merge/documentation authorization; preserve frozen checkouts, source profiles and provider journals.
+- [x] Independently review the exact 26 PICES institutional citations. Approve only their modern organizational representation; preserve name-only legacy credits. DFO Staff70 and all other residual cohorts remain outside.
+- [x] Measure all 26 fresh mappings twice and all 3,145 prior wire/nonruntime comparisons once. Coverage is 3,171; 762 targets remain (534 singletons + 228 pairs). All 4,206 original hashes and 18,488 retained evidence files/11 referenced profiles match; all four guarded shards pass.
+- [x] Pass 104 affected guarded tests with unchanged bindings and zero unexpected I/O; resolve the independent aggregate-membership hash finding and preserve earlier failed receipts.
+- [ ] Freeze independent current-head review and actual CI, then merge the exact reviewed tree and retain the PR receipt.
+- [x] Verify the raw source-bound FGDC-141 comparison: no supported candidate in the October 4 capture of 20 owned records/24 descriptors. Preserve unknown history and evidenced production attempts separately; no grant or provider action follows.
+
+The PICES destination answer remains with Brett and parent. Source citation typing
+establishes neither community identity nor publication authority. No provider
+requests, credential access, production grants or state resets occur in this lane.
+
+## Completed code increment: first-record community-first release — 2026-10-06
 
 - [x] Reconcile the actual PR38 and PR39 merges and preserve their measured coverage, compatibility repairs and historical journals.
 - [x] Document the finite community-first v2 plan: at most 22 GETs, one draft-review PUT and one submit-review POST within 600 seconds, using the original canonical state paths.
 - [x] Freeze the community-first implementation, resolve independent review findings, pass 159 core and eight final authority contracts, and preserve all 4,206 original XML hashes. Retain separate staged bindings and interrupted receipts.
-- [ ] Complete independent current-head review and actual final-tree CI, then record the merge in the PR handoff.
+- [x] Merge PR40 at `a48c64256afd2b614684811276d4e9abbacb9cac` after independent current-head Codex review and 798 passing guarded CI tests; preserve the tested tree and frozen receipts.
 - [ ] Obtain and independently review the actual Mac PICES UUID, hierarchy, policies and effective owner/draft/submission permissions. Bind that exact authority projection to QA, human release and the separate v2 grant before either write.
 - [ ] Reconcile the first record's current preparation, original identity/attempt history, duplicate evidence and saved draft fence. Parent alone dispatches any separately approved live actions to the sole Mac executor.
 

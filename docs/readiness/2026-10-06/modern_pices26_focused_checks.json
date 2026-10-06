@@ -1,0 +1,91 @@
+{
+  "actual_local_changes_measured": true,
+  "earlier_attempts": [
+    {
+      "exit_code": 130,
+      "path": "/tmp/pices-pices26-focused-v1.log",
+      "sha256": "8c3bfe9b850534f6838d56d1a5c1f0bfad945bd586f47c88de1db0a59e83b626",
+      "status": "Interrupted after new full-flow test assertion failure; not a passing result."
+    },
+    {
+      "cause": "Test final write-list assertion unpacked publication transport four-tuples as three-tuples. Release/read-only retry assertions had passed. Corrected call[0]; no runtime change for this fix.",
+      "path": "/tmp/pices-pices26-smoke-v1.log",
+      "result": {
+        "commit": "5efc0893dc5f99ceef8aec845e59440443a3969b",
+        "environment_cleared_dummy_credentials_only": true,
+        "errors": 1,
+        "failures": 0,
+        "guard_blocks": {
+          "bootstrap": {
+            "network": 4,
+            "private_reads": 1,
+            "processes": 1,
+            "writes": 1
+          },
+          "tests": {
+            "network": 0,
+            "private_reads": 0,
+            "processes": 0,
+            "writes": 0
+          }
+        },
+        "in_process_read_only_git_queries": 0,
+        "seconds": 40.036,
+        "selected_modules": [
+          "tests.test_modern_pices_coverage"
+        ],
+        "source_bindings_unchanged": true,
+        "source_tree_sha256": "17702aabba470a8a634150f2e923dc363d258bce8cf22112f55b94a84c1748f5",
+        "successful": false,
+        "tests_run": 8,
+        "unexpected_guard_call_sites": []
+      },
+      "sha256": "5c525c66d15ecd04f7cc67dd8c0c9d6b3cdfa665b8aad96c30a69c1021c2d161"
+    }
+  ],
+  "kind": "modern-pices26-focused-checks",
+  "log": "/tmp/pices-pices26-focused-v2.log",
+  "log_sha256": "1feb7cfa54777bd72aadd118b1fb99e3b525acf63f75b33f94d4cd993aea0f8e",
+  "provider_requests": 0,
+  "result": {
+    "commit": "5efc0893dc5f99ceef8aec845e59440443a3969b",
+    "environment_cleared_dummy_credentials_only": true,
+    "errors": 0,
+    "failures": 0,
+    "guard_blocks": {
+      "bootstrap": {
+        "network": 4,
+        "private_reads": 1,
+        "processes": 1,
+        "writes": 1
+      },
+      "tests": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      }
+    },
+    "in_process_read_only_git_queries": 0,
+    "seconds": 627.188,
+    "selected_modules": [
+      "tests.test_modern_pices_coverage",
+      "tests.test_modern_singleton",
+      "tests.test_modern_publication",
+      "tests.test_modern_publication_qa"
+    ],
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "866f2324c3280b5d512a186bd763c792a6e15dd0440f09c605fd46239d8bb632",
+    "successful": true,
+    "tests_run": 104,
+    "unexpected_guard_call_sites": []
+  },
+  "runtime_sha256": "a23fa32cd7312616100a0d34e9b328234a98cd3cd173821d55d494f326ac85d4",
+  "schema_version": 1,
+  "scope": "Guarded local changed-tree tests; current-head GitHub CI and independent review remain separate.",
+  "static_checks": {
+    "git_diff_check": "PASS",
+    "new_handoff_local_links_verified": 8,
+    "ruff_scoped": "PASS"
+  }
+}

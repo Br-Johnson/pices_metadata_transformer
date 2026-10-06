@@ -47,6 +47,7 @@ PR36_RUNTIME = '046a7257ed29e6c5b09c8956455ee3dbf0b811fad5ee9e3b36cef493119ea6c4
 PR37_RUNTIME = '7e93a95ba980918cf687221a56bc4a60eb5b219ac53406a8b2175b0f46e0d90a'
 PR38_RUNTIME = '1ac72000a7697bedef5b6e76ca0a28252a85f36bb0529a7e521c68aa4177d9e2'
 PR39_RUNTIME = '7c3e7184f490cc4e43743f12fa831d58e6b79d8e36f93bd7e9c92a2a637f57be'
+PR40_RUNTIME = '999c23a83d9fbcb800f612c150708c474069f9baf0e9ef192e39107cd3633ec9'
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'review': 1, 'submit': 1}
 JSON = 'application/json'
@@ -98,7 +99,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     elif prepared.evidence['policy'] == EXXON_POLICY and prepared.evidence['schema_version'] == 4:
         compatible.add(PR38_RUNTIME)
     if prepared.evidence['policy'] in (POLICY, EXTENSION_POLICY, DIRECT_POLICY, EXXON_POLICY):
-        compatible.add(PR39_RUNTIME)
+        compatible.update((PR39_RUNTIME, PR40_RUNTIME))
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
             and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
@@ -122,7 +123,8 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     file = base + '/files/' + prepared.source_id + '.xml'
     completed = draft.completed_on_content(row, prepared)
     # Historical clients could emit only the marker-free four-write transcript.
-    require(not completed or evidence['runtime_sha256'] in (prepared.evidence['runtime_sha256'], PR39_RUNTIME))
+    require(not completed or evidence['runtime_sha256'] in
+            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME))
     writes = [('create', 'POST', '/api/records', 201, sha(prepared.body)),
               ('init', 'POST', base + '/files', 201, sha(encode([{'key': prepared.source_id + '.xml'}]))),
               ('content', 'PUT', file + '/content', 200, sha(prepared.xml)),

@@ -1,3 +1,12 @@
+# Finite PICES institutional wire representation — 2026-10-06
+
+The exact 26 PICES citations need an explicit modern organizational representation
+while their old complete creator objects remain name-only. A pinned finite policy
+and new source review supply that distinction; no general type inference or
+historical profile rewrite is introduced. Other name-only cohorts remain held
+for their own evidence. Old PR40 verified drafts remain compatible only when all
+nonruntime fields and original attempts validate. See the [handoff](readiness/2026-10-06/modern_pices26_handoff.md).
+
 # Finite direct primary organizational coverage — 2026-10-06
 
 [ADR 0008](adr/0008-finite-direct-primary-organizations.md) selects 2,628 new
