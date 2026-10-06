@@ -15,7 +15,14 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 from scripts.modern_singleton import encode, parse
-from scripts.modern_singleton_executor import LIMITS, MAX_BYTES, MIME, Runner, Transport
+from scripts.modern_singleton_executor import (
+    LIMITS,
+    MAX_BYTES,
+    MIME,
+    USER_AGENT,
+    Runner,
+    Transport,
+)
 from scripts.production_mutations import MutationJournal
 from scripts.upload_service import atomic_json, ledger_lock, read_json
 from tests import modern_singleton_fixtures as fixtures
@@ -535,15 +542,26 @@ class ModernSingletonExecutorTests(unittest.TestCase):
 
 
 class ModernSingletonTransportTests(unittest.TestCase):
+    def test_user_agent_identifies_the_client_with_a_valid_header_value(self):
+        # zenodo.org's edge rejects requests without a User-Agent; the value must
+        # name the project and a reachable URL and be a legal header value.
+        self.assertRegex(USER_AGENT, r'\Apices-metadata-transformer/\d+\.\d+ \(\+https://[^\s()]+\)\Z')
+        self.assertTrue(USER_AGENT.isascii() and USER_AGENT.isprintable() and USER_AGENT == USER_AGENT.strip())
+
     def test_mac_wire_uses_fixed_host_exact_body_and_modern_headers_without_redirects(self):
-        scenarios = (('POST', '/api/records', b'{"metadata":{}}', 'application/json', 301),
+        # Every request shape carries the identifying User-Agent: body-bearing
+        # writes and the body-less GETs used by capture, readback and recovery.
+        scenarios = (('POST', '/api/records', b'{"metadata":{}}', 'application/json', 301, MIME),
                      ('PUT', '/api/records/19000001/draft/files/FGDC-141.xml/content',
-                      b'<metadata/>', 'application/octet-stream', 200))
-        for method, path, body, content_type, status in scenarios:
-            with self.subTest(method=method, status=status):
+                      b'<metadata/>', 'application/octet-stream', 200, MIME),
+                     ('GET', '/api/records/19000001/draft', None, None, 200, MIME),
+                     ('GET', '/api/requests/0f2e5c1a-5d2e-4a5b-9c7d-1234567890ab', None, None, 200,
+                      'application/json'))
+        for method, path, body, content_type, status, accept in scenarios:
+            with self.subTest(method=method, status=status, accept=accept):
                 response = Mock(status=status)
                 response.read1.side_effect = [b'{"fixture":true}', b'']
-                response.getheader.return_value = MIME
+                response.getheader.return_value = accept
                 connection = Mock()
                 connection.getresponse.return_value = response
                 context = Mock(keylog_filename='dummy-must-be-disabled')
@@ -554,16 +572,16 @@ class ModernSingletonTransportTests(unittest.TestCase):
                       patch('scripts.modern_singleton_executor.signal.signal'),
                       patch('scripts.modern_singleton_executor.signal.setitimer', return_value=(0, 0)),
                       patch('scripts.modern_singleton_executor.time.monotonic', return_value=10)):
-                    result = Transport(fixtures.TOKEN).request(method, path, body, timeout=5)
-                self.assertEqual((result.status, result.mime, result.body), (status, MIME, b'{"fixture":true}'))
+                    result = Transport(fixtures.TOKEN).request(method, path, body, timeout=5, accept=accept)
+                self.assertEqual((result.status, result.mime, result.body), (status, accept, b'{"fixture":true}'))
                 self.assertTrue(result.complete)
                 constructor.assert_called_once_with('zenodo.org', timeout=5, context=context)
                 self.assertIsNone(context.keylog_filename)
-                connection.request.assert_called_once_with(method, path, body=body, headers={
-                    'Authorization': 'Bearer ' + fixtures.TOKEN, 'Accept': MIME,
-                    'Accept-Encoding': 'identity', 'Connection': 'close',
-                    'User-Agent': 'pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)',
-                    'Content-Type': content_type, 'Content-Length': str(len(body))})
+                expected = {'Authorization': 'Bearer ' + fixtures.TOKEN, 'Accept': accept,
+                            'Accept-Encoding': 'identity', 'Connection': 'close', 'User-Agent': USER_AGENT}
+                if body is not None:
+                    expected.update({'Content-Type': content_type, 'Content-Length': str(len(body))})
+                connection.request.assert_called_once_with(method, path, body=body, headers=expected)
                 self.assertEqual([call.args for call in response.getheader.call_args_list], [('Content-Type', ''), ('Location',)])
                 connection.close.assert_called_once()
                 self.assertTrue(all(0 < call.args[0] <= 5 for call in connection.sock.settimeout.call_args_list))

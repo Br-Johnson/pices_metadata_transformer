@@ -49,8 +49,11 @@ MAX_BYTES = MAX_RESPONSE_BYTES
 MIME = 'application/vnd.inveniordm.v1+json'
 # zenodo.org's edge firewall answers requests that carry no User-Agent with an
 # HTML 403 ("unusual traffic from your network") before they reach the API;
-# the sandbox does not enforce this. Identify the client as Zenodo asks.
+# the sandbox does not enforce this. Zenodo asks clients to identify themselves:
+# https://blog.zenodo.org/2026/09/15/2026-09-15-stability-and-performance-updates/
 USER_AGENT = 'pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)'
+# An invalid header value must fail at import, never after an attempt is spent.
+require(USER_AGENT.isascii() and USER_AGENT.isprintable() and USER_AGENT == USER_AGENT.strip())
 BINARY_MEDIA = {'application/octet-stream', 'application/xml', 'text/xml'}
 
 

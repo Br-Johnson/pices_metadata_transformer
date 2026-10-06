@@ -1,10 +1,11 @@
 ## Active increment: identify the production client to Zenodo's edge — 2026-10-06
 
-- [x] Diagnose both 2026-10-06 production 403s: zenodo.org's edge firewall rejects any request without a `User-Agent` with an HTML 403 ("unusual traffic"), per request; the Mac transport sent none; the IP was not blocked. Evidence: [probe receipts](readiness/2026-10-06/zenodo_edge_user_agent_evidence.json), [handoff](readiness/2026-10-06/zenodo_user_agent_handoff.md).
-- [x] Send `User-Agent: pices-metadata-transformer/1.0 (+repository URL)` from the shared production transport; update the pinned header expectation; 173 local tests across seven transport and mapping modules pass on the branch merged with main; scoped Ruff clean.
+- [x] Reproduce the production 403 from the Mac at 21:12 UTC: zenodo.org's edge firewall rejects a request without a `User-Agent` with an HTML 403 ("unusual traffic"), per request, and the Mac transport sent none. The 12:05 UTC create body was discarded and the 13:18:42 UTC GET's client was not recorded, so neither earlier 403 is formally attributed. Evidence: [probe receipts](readiness/2026-10-06/zenodo_edge_user_agent_evidence.json), [handoff](readiness/2026-10-06/zenodo_user_agent_handoff.md).
+- [x] Send `User-Agent: pices-metadata-transformer/1.0 (+repository URL)` from the shared production transport; validate the value at import and pin the header on body-less GETs too; 174 local tests across seven transport and mapping modules pass on the branch merged with main; scoped Ruff clean. Operator sequence: [first-record runbook](readiness/2026-10-06/first_pices_record_runbook.md).
 - [ ] Pass full current-head CI and Codex review, then merge under standing authorization.
-- [ ] Brett corrects Zenodo support ticket 3327790 (filed as an IP block) and mentions the planned PICES bulk deposit.
-- [ ] Parent re-runs the FGDC-141 GET-only observation from the merged runtime with the retained original packets; the route and its holds are unchanged.
+- [ ] The parent (Brett or his Codex session) updates Zenodo support ticket 3327790 with this finding.
+- [ ] Before any one-shot provider action, send one credential-free GET carrying the exact shipped `User-Agent` through the transport's header set and retain it as probe D; this lane could not.
+- [ ] Parent verifies the retained original packets, owner and this network evidence, then separately grants and dispatches the single FGDC-141 GET-only observation from the merged runtime; it has not run, and the route and its holds are unchanged.
 - [ ] First new production record through the community-first chain, starting with a PICES-authored singleton from `modern_pices_singletons26.json`.
 
 ## Current workflow and consolidated code — 2026-10-06

@@ -10,6 +10,9 @@ supersedes the earlier publish-then-inclusion sequence retained in the
 [publication ADR](../../adr/0006-finite-modern-singleton-publication.md); historical
 receipts and spent attempts remain intact.
 
+> 2026-10-06 update: use the merged runtime recorded in the [User-Agent handoff](zenodo_user_agent_handoff.md)
+> rather than the frozen PR40 runtime pinned below; the sequence, limits and gates are unchanged.
+
 PR38 merged at `4a3703df949a952bb7b9b00544a3132cea771bfc` after 748 passing actual
 CI tests. Its measured modern coverage is 3,145 supported targets, with 788
 outside that finite path. PR39 merged at

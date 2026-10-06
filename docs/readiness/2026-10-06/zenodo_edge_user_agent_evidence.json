@@ -4,11 +4,17 @@
   "origin": "https://zenodo.org",
   "request": "GET /api/communities/pices",
   "authentication": "none; no production token was read or sent",
-  "captured_by": "Claude Fable 5.1 (Claude Code session on Brett Johnson's MacBook Air)",
-  "captured_at": "2026-10-06T21:11:11Z/2026-10-06T21:12:09Z",
+  "captured_by": "Claude Fable 5.1 (Claude Code session on Brett Johnson's Mac)",
+  "captured_at": "2026-10-06T21:12:09Z",
+  "probe_window_utc": {
+    "first_request": "2026-10-06T21:11:18Z",
+    "last_request": "2026-10-06T21:12:09Z"
+  },
+  "authorization": "Brett Johnson asked in chat on 2026-10-06 to find a safe way to upload the prepared records to the PICES community; these were unauthenticated diagnostic reads made under that request, outside the executor's grant system, with no production token and no mutation.",
+  "request_shape": "All probes were credential-free, body-less GETs. Probe B carried the production transport's header set minus Authorization; it does not show how an authenticated POST with a body is treated.",
   "provider_requests": 3,
   "provider_mutations": 0,
-  "finding": "zenodo.org answers a request that carries no User-Agent header with an HTML 403 (\"Access to this resource has been restricted due to unusual traffic from your network\") before the request reaches the InvenioRDM application. The identical request with a User-Agent header is served normally. The client IP was not blocked: a normal request three seconds earlier and three seconds later both returned 200.",
+  "finding": "zenodo.org answered a request that carried no User-Agent header with an HTML 403 (\"Access to this resource has been restricted due to unusual traffic from your network\") before the request reached the InvenioRDM application. The identical request with a User-Agent header was served normally. The client IP was not blocked at capture time: a curl request 48 seconds earlier (probe A) and the same Python request with a User-Agent three seconds later (probe C) both returned 200.",
   "executor_transport_headers_before_fix": [
     "Authorization",
     "Accept",
@@ -74,8 +80,8 @@
     },
     {
       "role": "provider_guidance",
-      "reference": "https://blog.zenodo.org",
-      "note": "2026-09-15 \"Zenodo performance: an update on the current situation\": use a clear and identifiable User-Agent, AppName/1.0 (+https://example.com; contact@example.com)"
+      "reference": "https://blog.zenodo.org/2026/09/15/2026-09-15-stability-and-performance-updates/",
+      "note": "2026-09-15 \"Zenodo performance: an update on the current situation\": applications making large numbers of requests should respect the published rate limits and use a clear and identifiable User-Agent, recommended form AppName/1.0 (+https://example.com; contact@example.com); large-scale metadata access should use OAI-PMH or metadata dumps rather than the interactive Search API"
     },
     {
       "role": "ip_block_policy",
@@ -83,8 +89,9 @@
     },
     {
       "role": "rate_limits",
-      "reference": "https://developers.zenodo.org/#rate-limiting"
+      "reference": "https://developers.zenodo.org/#rate-limiting",
+      "note": "published limits: guest 60 per minute and 2,000 per hour; authenticated 100 per minute and 5,000 per hour; 429 with X-RateLimit headers beyond them"
     }
   ],
-  "limits": "This evidence shows the per-request edge rule and that this Mac was not IP-blocked at capture time. It does not reconstruct the body of the 2026-10-06 12:05 UTC FGDC-141 create response."
+  "limits": "This evidence shows the per-request edge rule and that this Mac was not IP-blocked at 21:11 to 21:12 UTC. Probe C sent the short token 'pices-metadata-transformer/1.0'; the exact shipped constant with the '(+https://...)' comment was not probed from this session, so verify it with one credential-free GET through the shipped header set before any one-shot provider action. It does not reconstruct the 12:05 UTC FGDC-141 create response body, and the client and headers of the 13:18:42 UTC credential-free GET were not recorded, so neither earlier 403 is formally attributed."
 }
