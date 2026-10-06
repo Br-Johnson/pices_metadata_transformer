@@ -562,6 +562,7 @@ class ModernSingletonTransportTests(unittest.TestCase):
                 connection.request.assert_called_once_with(method, path, body=body, headers={
                     'Authorization': 'Bearer ' + fixtures.TOKEN, 'Accept': MIME,
                     'Accept-Encoding': 'identity', 'Connection': 'close',
+                    'User-Agent': 'pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)',
                     'Content-Type': content_type, 'Content-Length': str(len(body))})
                 self.assertEqual([call.args for call in response.getheader.call_args_list], [('Content-Type', ''), ('Location',)])
                 connection.close.assert_called_once()

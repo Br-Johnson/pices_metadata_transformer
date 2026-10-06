@@ -47,6 +47,10 @@ LIMITS = {'get': 10, 'create': 1, 'init': 1, 'content': 1, 'commit': 1}
 TIMEOUT = 20
 MAX_BYTES = MAX_RESPONSE_BYTES
 MIME = 'application/vnd.inveniordm.v1+json'
+# zenodo.org's edge firewall answers requests that carry no User-Agent with an
+# HTML 403 ("unusual traffic from your network") before they reach the API;
+# the sandbox does not enforce this. Identify the client as Zenodo asks.
+USER_AGENT = 'pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)'
 BINARY_MEDIA = {'application/octet-stream', 'application/xml', 'text/xml'}
 
 
@@ -235,7 +239,8 @@ class Transport:
         require(0 < timeout <= TIMEOUT)
         require(accept in (MIME, 'application/json'))
         headers = {'Authorization': 'Bearer ' + self.token, 'Accept': accept,
-                   'Accept-Encoding': 'identity', 'Connection': 'close'}
+                   'Accept-Encoding': 'identity', 'Connection': 'close',
+                   'User-Agent': USER_AGENT}
         if body is not None:
             headers['Content-Type'] = 'application/octet-stream' if path.endswith('/content') else 'application/json'
             headers['Content-Length'] = str(len(body))

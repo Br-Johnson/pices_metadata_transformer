@@ -1,3 +1,10 @@
+## 2026-10-06: the production client must identify itself to Zenodo's edge
+
+- Both 2026-10-06 production 403s came from zenodo.org's edge firewall rejecting requests that carry no `User-Agent`, per request; the shared Mac transport sent none, and sandbox.zenodo.org does not enforce the rule, so sandbox canaries cannot catch edge problems. The transport now sends `pices-metadata-transformer/1.0 (+repository URL)`. See the [handoff](readiness/2026-10-06/zenodo_user_agent_handoff.md).
+- The original FGDC-141 create outcome stays unresolved: the edge finding explains the mechanism but does not reconstruct the discarded body. The GET-only recovery route and its holds are unchanged.
+- `ci/run_offline_tests.py` resolves descriptors through `/proc/self/fd`, so the guarded harness runs only on Linux. On macOS the affected modules were run with plain `unittest` and a symlink-free `tempfile.tempdir`, because `state_root` requires fully resolved paths and `/var/folders` is a symlink. Remediation: resolve descriptors with `fcntl.F_GETPATH` on Darwin, or document the Linux-only gate.
+- Each production record still costs about 22 provider requests under the v2 grant plus a separate human release. A batch path for the 3,465 wire-prepared targets is not designed yet.
+
 ## 2026-10-06: bounded unknown-create observations and deferred AquaDocs follow-up
 
 - PR44 diagnostics are merged and verified. The original production 403 had no retained body/Location and still has unknown outcome/cause; later network-restriction observations cannot explain it retrospectively.

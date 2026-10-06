@@ -1,3 +1,12 @@
+## Active increment: identify the production client to Zenodo's edge — 2026-10-06
+
+- [x] Diagnose both 2026-10-06 production 403s: zenodo.org's edge firewall rejects any request without a `User-Agent` with an HTML 403 ("unusual traffic"), per request; the Mac transport sent none; the IP was not blocked. Evidence: [probe receipts](readiness/2026-10-06/zenodo_edge_user_agent_evidence.json), [handoff](readiness/2026-10-06/zenodo_user_agent_handoff.md).
+- [x] Send `User-Agent: pices-metadata-transformer/1.0 (+repository URL)` from the shared production transport; update the pinned header expectation; 164 local tests across the five transport modules pass; scoped Ruff clean.
+- [ ] Pass full current-head CI and Codex review, then merge under standing authorization.
+- [ ] Brett corrects Zenodo support ticket 3327790 (filed as an IP block) and mentions the planned PICES bulk deposit.
+- [ ] Parent re-runs the FGDC-141 GET-only observation from the merged runtime with the retained original packets; the route and its holds are unchanged.
+- [ ] First new production record through the community-first chain, starting with a PICES-authored singleton from `modern_pices_singletons26.json`.
+
 ## Active increment: bounded unknown-create observations — 2026-10-06
 
 - [x] Verify PR44 merged at `ff6f56a65e6adafdb5957652dae925ce7142b0a7`, with 863 passing full CI tests and exact-head independent Codex review. Original FGDC and maintained rules Git objects match.
