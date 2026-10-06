@@ -12,6 +12,13 @@ Earlier checklist entries below preserve their historical state. This section an
 the maintained rules supersede their workflow timing and pending-code statements;
 original journals, grants, receipts and frozen historical instructions are unchanged.
 
+## Active increment: reviewed citations31 — 2026-10-06
+
+- [x] Reconcile clean local/remote main `c612e0e8e522fcf9ecc993b4b3c64ce12ae1fc53`, sole root integration ownership, actual3,808/4,011 coverage and929 full CI tests. Reuse frozen independent source reviews; no source research rerun.
+- [x] Implement exact BASIS3+contract8+office10+direct10 schema10, preserving complete source/legacy context and distinct current authority. Correct the inherited policy194 fall-through test expectation for BASIS3; keep frozen29 evidence unchanged.
+- [x] Independently review code, context and helpers; pass 74 affected tests and 10 corrected focused tests with zero unexpected I/O. Preserve the failed v1 assertion receipt and exact test-only correction. Four guarded batches and saved-file aggregation pass: 3,839 prepared targets / 4,042 originals, with 94 remaining (69 singletons + 25 pairs). Independent actual-result review passed; full main CI remains the final closure gate.
+- [ ] Publish the coherent reviewed singleton increment, verify actual full CI, then start the separate25-pair preparation implementation. Provider execution remains paused and AquaDocs deferred.
+
 ## Completed increment: exact program organizations20 — 2026-10-06
 
 - [x] Reconcile sole root ownership and clean local/remote main `8b84f9db5ea2d536de3ed01a60f147fc6cbc6246`; verify actual executor availability after the 18:03 UTC callback. The reviewed194 code head retains its 921-test CI pass.

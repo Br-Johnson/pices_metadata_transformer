@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "kind": "citations31-independent-saved-results-reconciliation",
+  "verdict": "APPROVE_SAVED_RESULTS_AND_HELPER_ACTIVATION",
+  "aggregate": {
+    "path": "/tmp/pices-citations31-aggregate-v1.json",
+    "sha256": "256134bc9240c3a36472d853eb04af1dde94d33f5e6a38167e99d96a8289f993"
+  },
+  "runtime_sha256": "108fe0804b7e625d431d5510698fdb7a7aa63292cecd10dbcbc853dbe848d713",
+  "source_tree_sha256": "5f784b892c7bb6183d9d46145cde712d37b093ed4607090e21c773fdedf24562",
+  "base_revision": "c612e0e8e522fcf9ecc993b4b3c64ce12ae1fc53",
+  "coverage": {
+    "fresh_new_classifications": 31,
+    "fresh_new_prepare_calls": 62,
+    "new_citations31_singletons": 31,
+    "new_class_execution_enabled": false,
+    "prior_retained_class_targets": 203,
+    "prior_retained_singletons": 3605,
+    "retained_class_prepare_comparisons": 203,
+    "retained_input_prepare_comparisons": 3605,
+    "total_class_targets": 203,
+    "total_represented_originals": 4042,
+    "total_singletons": 3636,
+    "total_wire_prepared_targets": 3839
+  },
+  "shards": [
+    {
+      "index": 0,
+      "receipt_sha256": "568c486be74f1901b18e032377d8fb3c1505794c3944900b1e5d66c30b3f6cdb",
+      "artifact_manifest_sha256": "bb74b6bdc23f77fb8a097b336d132ff47d7dc541c856e6c8390e143d7a2e41a1",
+      "new_count": 8,
+      "retained_count": 902,
+      "classes": 51
+    },
+    {
+      "index": 1,
+      "receipt_sha256": "21bce3e3427e279130fcba9e22d5e86a579df05612e86ef41deaf5dea17ebe60",
+      "artifact_manifest_sha256": "5ed8fe6f95a2c913ffa759e46b8c441ac3ceea279879cc9664272914e7e14dbf",
+      "new_count": 8,
+      "retained_count": 901,
+      "classes": 51
+    },
+    {
+      "index": 2,
+      "receipt_sha256": "064af9613f78bc318e3d155307b0bc28a61afe0942bf7360e5f5e6e1f02b86ea",
+      "artifact_manifest_sha256": "dbebc0cb21d13c084a806edb0f75f692ed372341c7a0991d236743e1a0fc2df4",
+      "new_count": 8,
+      "retained_count": 901,
+      "classes": 51
+    },
+    {
+      "index": 3,
+      "receipt_sha256": "595ab244a4ce9e25d0409b852d8a844ae00a86ca5da1e56560a7add2f82795dc",
+      "artifact_manifest_sha256": "db79bbe3f84ea2c778db7f97777cc5c0d2ce100bcb5d9890b29ef10bf3e2c14e",
+      "new_count": 7,
+      "retained_count": 901,
+      "classes": 50
+    }
+  ],
+  "independently_verified": {
+    "exact_new_rows": 31,
+    "new_source_files_and_saved_packets_verified": 31,
+    "all_retained_comparison_rows_bound_to_latest_prior_receipts": 3808,
+    "retained_singleton_comparison_rows_sha256": "86b1e09ebc57b3634cfda153811399cf0f7d68a4b741c9c7e6db439ba6f7b811",
+    "retained_class_comparison_rows_sha256": "7320cace9cd281900e96323f6f4aa766ce765223b054a6a338ddc7bddda70c88",
+    "individual_nonruntime_packet_spot_checks": {
+      "singleton_ids": [
+        "FGDC-141",
+        "FGDC-696",
+        "FGDC-95",
+        "FGDC-1839",
+        "FGDC-1319",
+        "FGDC-59",
+        "FGDC-3875",
+        "FGDC-1",
+        "FGDC-355"
+      ],
+      "schema_versions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "class_ids": [
+        "sha256:0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025",
+        "sha256:0057974985f73e3d541a7247f14adec03cb30d2b00fcadf8095cca415fb94258",
+        "sha256:00685901ab0f4706298e64239b1280fa70e0eb3ece713f977f87e294509429a0",
+        "sha256:00f90ad76b561b0266a3650c8c8e05e5b5087b48ac7e12a05550c7e0f494d799"
+      ]
+    },
+    "original_hash_map_saved_receipts": 4206,
+    "baseline_manifest_entries": 43136,
+    "profile_manifest_entries": 32,
+    "remaining_singletons": 69,
+    "remaining_pairs": 25,
+    "protected_entries": 5,
+    "source_supported_targets_unchanged": 3933,
+    "prior_personal_holds_retained": 26,
+    "program_unaami_holds_retained": 29,
+    "unexpected_guard_events": 0
+  },
+  "test_results": [
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_reviewed_citations31_focused_tests.json",
+      "sha256": "9cd3ae3d06e6a2241220d312d70d18da220872d0523710226e35c3e5284047ac",
+      "log_sha256": "995b6c3eb292a6c5a5d684080ec9b50babfa56ad324c2a5bc9e718578869470b",
+      "tests": 10,
+      "source_tree_sha256": "5f784b892c7bb6183d9d46145cde712d37b093ed4607090e21c773fdedf24562",
+      "seconds": 238.145
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_reviewed_citations31_affected_tests.json",
+      "sha256": "702109dc041655ecc86b469630690fb267806e852057d177c3abb5a7bc439da2",
+      "log_sha256": "798ea66424b754d39e3a3253424ecce824603a080f50c0d696a5317ad608fe09",
+      "tests": 74,
+      "source_tree_sha256": "dce38c1b4d442f707e60cf39733943a0a256cd230926416d84ac21cc25768b3f",
+      "seconds": 703.194
+    }
+  ],
+  "helper_activation": {
+    "measurement_sha256": "92ad83deb2d4ea71d62819e70b61ee3a5985275e9014d3af69b2e4a76f1e6982",
+    "aggregator_sha256": "70cc3cb1e27a7639757699a386fe70ecc1f694b7035d4a70576e3195828c832f",
+    "independent_reviewer": "/root/mac_transfer_review/community_contract_audit",
+    "verdict": "APPROVE_EXACT_ACTIVATION_DELTA"
+  },
+  "material_findings": [],
+  "limits": [
+    "No helper rerun, classification, preparation, tests, repository imports or provider actions.",
+    "The full43136 baseline files and all4206 current originals were not rehashed again; saved complete-map proofs and targeted originals/preparations were checked, as requested.",
+    "Coverage describes offline wire preparation only; paired execution, remote duplicate absence, unknown-create recovery, PICES acceptance, action grants and release are not established.",
+    "Final documentation/staged-tree review and resulting main checks remain pending."
+  ]
+}

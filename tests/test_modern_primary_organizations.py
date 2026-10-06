@@ -290,8 +290,11 @@ class ModernPrimaryOrganizationTests(unittest.TestCase):
             with self.subTest(source=sid):
                 path = fixture.json_file.with_name(sid + '.json')
                 path.write_bytes(fixture.json_file.read_bytes())
-                with self.assertRaises(ValueError):
-                    mapping.source_policy(sid)
+                if sid in {'FGDC-184', 'FGDC-197', 'FGDC-4068'}:
+                    self.assertEqual(mapping.source_policy(sid)[1]['policy'], mapping.CITATIONS31_POLICY)
+                else:
+                    with self.assertRaises(ValueError):
+                        mapping.source_policy(sid)
                 with self.assertRaises(ValueError):
                     mapping.prepare(path, fixture.paths)
 

@@ -1,0 +1,43 @@
+{
+  "kind": "citations31-affected-v1-actual-result",
+  "log_path": "/tmp/pices-next31-affected-v1.log",
+  "log_sha256": "798ea66424b754d39e3a3253424ecce824603a080f50c0d696a5317ad608fe09",
+  "result": {
+    "commit": "c612e0e8e522fcf9ecc993b4b3c64ce12ae1fc53",
+    "environment_cleared_dummy_credentials_only": true,
+    "errors": 0,
+    "failures": 0,
+    "guard_blocks": {
+      "bootstrap": {
+        "network": 4,
+        "private_reads": 1,
+        "processes": 1,
+        "writes": 1
+      },
+      "tests": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      }
+    },
+    "in_process_read_only_git_queries": 0,
+    "seconds": 703.194,
+    "selected_modules": [
+      "tests.test_modern_citation_organizations",
+      "tests.test_modern_institution_coverage",
+      "tests.test_modern_primary_organizations",
+      "tests.test_modern_organizational_coverage",
+      "tests.test_modern_pices_coverage",
+      "tests.test_modern_reviewed_creators",
+      "tests.test_modern_unknown_create_history",
+      "tests.test_modern_schema8_history_boundary",
+      "tests.test_modern_program_organizations"
+    ],
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "dce38c1b4d442f707e60cf39733943a0a256cd230926416d84ac21cc25768b3f",
+    "successful": true,
+    "tests_run": 74,
+    "unexpected_guard_call_sites": []
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "kind": "next31-independent-test-coverage-review",
+  "verdict": "APPROVE_STATIC_TEST_CONTRACT_COVERAGE",
+  "reviewer": "/root/mac_transfer_review",
+  "base_revision": "c612e0e8e522fcf9ecc993b4b3c64ce12ae1fc53",
+  "runtime_sha256": "108fe0804b7e625d431d5510698fdb7a7aa63292cecd10dbcbc853dbe848d713",
+  "source_test_freeze": {
+    "path": "/tmp/pices-next31-code-freeze-v1.json",
+    "sha256": "6e03988676de97478749f03f2a94b78c028cab578c36c9bff16fbe1ebd5ea21f",
+    "source_tree_sha256": "dce38c1b4d442f707e60cf39733943a0a256cd230926416d84ac21cc25768b3f",
+    "source_tree_file_count": 189
+  },
+  "reviewed_files": {
+    "tests/test_modern_reviewed_citations31.py": "a6f62713f86943e67f76bff30302b5483b357d3b37d4b9875dba0e35c4bd3278",
+    "tests/test_modern_citation_organizations.py": "007c1e8a0622d428aaa9dc2010c47027b3fbe3b51a5ec771dde617a96887d869",
+    "tests/test_modern_institution_coverage.py": "c842c711c1ff8d7e9ffe2ad021ecdad6ac15d979bb87721c829a0013bc2ada56",
+    "tests/test_modern_primary_organizations.py": "1ef944ae42374ba78cc8f4acbef8f99e44b82b4ee83ec630e29232ef0c14cc05",
+    "tests/test_modern_reviewed_creators.py": "dd68de3ed750b7750ec6e64c5316847465c613fe40cb6575ebc02e2b1d8c6f5a",
+    "tests/test_modern_unknown_create_history.py": "36fb33344844f12430de2c9b1a816533e032e1b45e0eb0b0b49f3c5a7e86ce0d",
+    ".github/workflows/offline-contracts.yml": "b89c6083ccad0c3945cc7458418e2d797e517f1050ce216e4e798b20d8635d18",
+    "ci/run_offline_tests.py": "1b1f9823488dda1d66dc6bd12bd8e841f84c3e2add727ac254961b3a9e322d05"
+  },
+  "new_test_methods": [
+    "test_exact31_complete_vectors_roots_authorities_and_context_match_independent_source_documents",
+    "test_ten_fresh_preparations_repeat_and_preserve_complete_legacy_xml_restrictions_and_context",
+    "test_missing_or_changed_new_evidence_holds_new_sources_without_changing_nine_prior_routes",
+    "test_held_whole_arrays_protected_sources_and_pair_members_cannot_enter_citations31",
+    "test_self_rehashed_manifest_cannot_change_scope_source_authority_context_or_ordered_array",
+    "test_original_payload_and_artifact_reference_changes_prevent_any_dispatch",
+    "test_missing_changed_or_reordered_readback_context_holds_before_next_mutation",
+    "test_qa_enforces_both_authorities_and_community_flow_retries_without_new_writes",
+    "test_schema10_rejects_all_prior_runtimes_including_program20_before_historical_state_reads",
+    "test_program20_historical_graph_bridges_preserving_all_receipts_sidecars_and_nonruntime_evidence"
+  ],
+  "material_findings": [],
+  "coverage_assessment": [
+    "Exact31 approved membership, full original roots and origins, source authority/plan hashes, whole legacy/modern vectors, 19 vectors and65 creator objects.",
+    "Ten diverse fresh preparations exercise all four partitions and both authority forms, exact context/legacy preservation, repeated preparation, XML, dates and restricted rights.",
+    "Twelve new evidence inputs withdrawn or corrupted fail before transport; all prior nine route results remain identical.",
+    "Held complete arrays, protected IDs and paired sources remain excluded. Self-rehashed manifest mutations check independent authority/context/vector reconstruction.",
+    "Payload, copied XML, authority reference, dates and rights mutations hold before dispatch. Removed/changed/moved/wrong-source context readback consumes one create and disallows replay.",
+    "Both creator426 and direct QA authority variants reject rebound evidence forgeries. One new direct source completes accepted PICES community flow and unchanged GET-only retry with original draft journal unchanged.",
+    "All fifteen prior runtime identifiers including PROGRAM20 are rejected for schema10 before journal reads. Positive PROGRAM20 schema9 bridge covers completed-content evidence, consumed counts and immutable beforeimages.",
+    "Historical test partitions preserve exact residual holds; newly admitted source-policy cases still reject wrong-source input payloads. FGDC141 compatibility assertions retain all historical receipt and sidecar invariants.",
+    "Unchanged guarded CI runner discovers test_*.py; new module and upcoming finite measurement helpers are registered for scoped lint."
+  ],
+  "fixture_boundary": "Synthetic historical graph rebinding is fixture construction before preservation beforeimages. Original response sidecars are retained, new synthetic sidecars carry exact request/grant identity, and no runtime migration path is added.",
+  "remaining_gates": [
+    "Actual guarded10 and affected74 results",
+    "Measurement helpers must be integrated at their declared lint paths before main publication",
+    "Measurement/old baseline equality receipt review and final exact tree/main checks"
+  ],
+  "limits": {
+    "no_runtime_rereview": true,
+    "no_source_research_or_census": true,
+    "tests_run": 0,
+    "repository_imports": 0,
+    "preparations_run": 0,
+    "repository_edits": 0,
+    "provider_or_network_calls": 0,
+    "current_coverage_claim_unchanged": true
+  }
+}

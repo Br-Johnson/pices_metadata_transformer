@@ -1015,3 +1015,17 @@ defines that required scope without generalizing the singleton controller.
 The source-reviewed24 preparation increment remains separate from execution;
 the final personal pair and protected existing-record identities remain held.
 Provider access is paused, and AquaDocs remains deferred.
+
+
+## Finite citations31 and remaining pair lane — 2026-10-06
+
+The [active31 integration](readiness/2026-10-06/modern_reviewed_citations31_handoff.md)
+keeps reviewed personal, contract and office credit interpretations finite. Its
+service-key spelling adaptation and visible context do not modify source or
+legacy metadata. Independent code and result reviews and guarded measurements
+passed: 3,839 prepared targets / 4,042 originals. Full main CI and release closure
+remain pending.
+The earlier personal-pair source hold is now resolved by a separate frozen
+supplement; all25 remaining pairs still need preparation implementation and the
+class-specific state, two-file readback, QA/release and community publication lane.
+Provider recovery and separate action grants remain prerequisites for live work.

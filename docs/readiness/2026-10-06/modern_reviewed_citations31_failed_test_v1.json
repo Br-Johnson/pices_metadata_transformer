@@ -1,0 +1,37 @@
+{
+  "failure": "Test compared all draft transport calls; allowed read-only retry added five GETs. Runtime did not issue new mutation; precise test-only correction pending independent review.",
+  "kind": "citations31-focused-v1-actual-failed-result",
+  "log_path": "/tmp/pices-next31-focused-v1.log",
+  "log_sha256": "cc5b207f30ab140d6cbcc866c05c7ead054ae2fbf7bae39f474e67f549dfe1ce",
+  "preservation": "Original log and v1 freeze remain unchanged.",
+  "result": {
+    "commit": "c612e0e8e522fcf9ecc993b4b3c64ce12ae1fc53",
+    "environment_cleared_dummy_credentials_only": true,
+    "errors": 0,
+    "failures": 1,
+    "guard_blocks": {
+      "bootstrap": {
+        "network": 4,
+        "private_reads": 1,
+        "processes": 1,
+        "writes": 1
+      },
+      "tests": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      }
+    },
+    "in_process_read_only_git_queries": 0,
+    "seconds": 261.613,
+    "selected_modules": [
+      "tests.test_modern_reviewed_citations31"
+    ],
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "dce38c1b4d442f707e60cf39733943a0a256cd230926416d84ac21cc25768b3f",
+    "successful": false,
+    "tests_run": 10,
+    "unexpected_guard_call_sites": []
+  }
+}

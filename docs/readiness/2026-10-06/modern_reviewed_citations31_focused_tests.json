@@ -1,0 +1,38 @@
+{
+  "kind": "citations31-focused-v2-actual-passing-result",
+  "log_path": "/tmp/pices-next31-focused-v2.log",
+  "log_sha256": "995b6c3eb292a6c5a5d684080ec9b50babfa56ad324c2a5bc9e718578869470b",
+  "prior_failed_receipt": "modern_reviewed_citations31_failed_test_v1.json",
+  "result": {
+    "commit": "c612e0e8e522fcf9ecc993b4b3c64ce12ae1fc53",
+    "environment_cleared_dummy_credentials_only": true,
+    "errors": 0,
+    "failures": 0,
+    "guard_blocks": {
+      "bootstrap": {
+        "network": 4,
+        "private_reads": 1,
+        "processes": 1,
+        "writes": 1
+      },
+      "tests": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      }
+    },
+    "in_process_read_only_git_queries": 0,
+    "seconds": 238.145,
+    "selected_modules": [
+      "tests.test_modern_reviewed_citations31"
+    ],
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "5f784b892c7bb6183d9d46145cde712d37b093ed4607090e21c773fdedf24562",
+    "successful": true,
+    "tests_run": 10,
+    "unexpected_guard_call_sites": []
+  },
+  "scope": "Only corrected new module rerun; 74 passing affected tests retain v1 binding with identical runtime. Original failed receipt and log unchanged.",
+  "v2_review": "modern_reviewed_citations31_v2_review.json"
+}

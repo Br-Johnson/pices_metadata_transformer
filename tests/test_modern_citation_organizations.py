@@ -139,7 +139,7 @@ class ModernCitationOrganizationTests(unittest.TestCase):
                     self.assertEqual(self.fixture(sid).prepared.evidence['schema_version'], version)
             self.assertEqual(fixture.transport.calls, [])
 
-    def test_historical160_split_into_reviewed82_program20_and58_retained_holds(self):
+    def test_historical160_split_into_reviewed82_program20_basis3_and55_retained_holds(self):
         outside = self.review['outside_scope_creator426_source_ids']
         self.assertEqual(len(outside), 160)
         reviewed = {r['source_id'] for r in mapping.parse(mapping.REVIEWED_CREATORS_MAPPING.read_bytes())['rows']
@@ -148,12 +148,17 @@ class ModernCitationOrganizationTests(unittest.TestCase):
         program = {r['source_id'] for r in mapping.parse(mapping.PROGRAM20.read_bytes())['rows']}
         self.assertEqual(len(set(outside) & program), 20)
         self.assertFalse(reviewed & program)
-        held = set(outside) - reviewed - program
-        self.assertEqual(len(held), 58)
+        basis = {'FGDC-3809', 'FGDC-3810', 'FGDC-3812'}
+        self.assertEqual(set(outside) & basis, basis)
+        self.assertFalse((reviewed | program) & basis)
+        held = set(outside) - reviewed - program - basis
+        self.assertEqual(len(held), 55)
         for sid in [*sorted(set(outside) & reviewed), 'FGDC-4078']:
             self.assertEqual(mapping.citation_organization_source_policy(sid)[1]['policy'], mapping.REVIEWED_CREATORS_POLICY)
         for sid in sorted(program):
             self.assertEqual(mapping.citation_organization_source_policy(sid)[1]['policy'], mapping.PROGRAM_POLICY)
+        for sid in sorted(basis):
+            self.assertEqual(mapping.citation_organization_source_policy(sid)[1]['policy'], mapping.CITATIONS31_POLICY)
         for sid in [*sorted(held), 'FGDC-710', 'FGDC-859', 'FGDC-2953', 'FGDC-3181', *mapping.PROTECTED]:
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.citation_organization_source_policy(sid)

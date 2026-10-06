@@ -240,7 +240,13 @@ class ModernReviewedCreatorTests(unittest.TestCase):
         self.assertEqual(mapping.sha(mapping.encode(held)), self.review['preserved_held_membership_sha256'])
         held_ids = {row['source_id'] for row in held}
         self.assertTrue(held_ids.isdisjoint(self.rows))
-        excluded = held_ids | {'FGDC-2953', 'FGDC-3181', *OLD_SOURCES, *mapping.PROTECTED}
+        basis = {'FGDC-3809', 'FGDC-3810', 'FGDC-3812'}
+        self.assertTrue(basis <= held_ids)
+        # This selector forwards to later finite policies; the frozen194 scope is unchanged.
+        for sid in basis:
+            self.assertEqual(mapping.reviewed_creator_source_policy(sid)[1]['policy'], mapping.CITATIONS31_POLICY)
+        self.assertEqual(len(held_ids - basis), 26)
+        excluded = (held_ids - basis) | {'FGDC-2953', 'FGDC-3181', *OLD_SOURCES, *mapping.PROTECTED}
         for sid in sorted(excluded):
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.reviewed_creator_source_policy(sid)

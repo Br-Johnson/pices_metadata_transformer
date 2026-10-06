@@ -19,6 +19,13 @@ for all 77 remote heads and the separate local checkpoint audit. PR46 was the on
 remaining current integration; older operational routes remain preserved on their
 historical refs. Subsequent implementation uses the maintained main checkout.
 
+The [reviewed citations31 increment](docs/readiness/2026-10-06/modern_reviewed_citations31_handoff.md)
+and its [guarded measurements](docs/readiness/2026-10-06/modern_reviewed_citations31_validation.json)
+cover **3,839 prepared targets / 4,042 originals**; **94 supported targets remain**
+(69 singletons and 25 pairs). All 84 focused/affected checks pass. Full main CI
+and release closure are pending. Source eligibility and provider holds are unchanged.
+The completed program20 milestone below remains the prior full-CI release.
+
 The [exact program20 increment](docs/readiness/2026-10-06/modern_program20_handoff.md)
 and its [guarded measurements](docs/readiness/2026-10-06/modern_program20_validation.json)
 cover **3,808 prepared targets / 4,011 originals**; **125 supported targets remain**

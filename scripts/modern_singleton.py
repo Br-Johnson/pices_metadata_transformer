@@ -1,6 +1,6 @@
 """Finite source-aware modern mapping; no provider or publication authority.
 
-Only explicitly pinned organizational singleton groups are supported.
+Only explicitly pinned singleton citation arrays are supported.
 Every preparation reruns semantic assessment and preserves assembled legacy
 metadata separately from the explicitly selected repository-host publisher.
 """
@@ -69,6 +69,32 @@ PROGRAM20_SOURCE_SHA = '56f6e99cefe31bcba6802781e2746771947d448cd2c9ad4cde4c66d5
 PROGRAM20_REVIEW = ROOT / 'docs/readiness/2026-10-06/modern_program20_independent_review.json'
 PROGRAM20_REVIEW_SHA = 'f0cfcd9a0fe12cdac1d52cd399355c2da09033c0e42a2279140c555bb2bd983b'
 PROGRAM_POLICY = 'modern-xml-program-organizations20-v1'
+CITATIONS31 = ROOT / 'docs/readiness/2026-10-06/modern_reviewed_citations31.json'
+CITATIONS31_SHA = '62f32e602ac1389ecdbffb07ed5627b2aadb047d777fd8469295680bb93729cc'
+CITATIONS31_POLICY = 'modern-xml-reviewed-citations31-v1'
+CITATIONS31_CONTEXT_SHA = '0f4282bf079c301a2c1d4d5d18a3740bb501845179d465cc4b8a1691b9121929'
+CITATIONS31_DIRECT_BINDINGS = ROOT / 'docs/readiness/2026-10-06/modern_institution91_source_bindings.json'
+CITATIONS31_DIRECT_BINDINGS_SHA = '0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633'
+CITATIONS31_DOCUMENTS = {'basis_proposal': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-basis19-modern-personal-source-proposals.json',
+                    'sha256': '3dffa1313c1b31a9950277658df01b334b0632ac204c982054abe1cf54672faf'},
+ 'basis_review': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-basis19-independent-complete-array-review.json',
+                  'sha256': '0f791b51da0294d494053393ba48a40170dbd4f26c049007486d5568e658b7da'},
+ 'contract_proposal': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-contract-chain9-modern-source-proposals.json',
+                       'sha256': '1ee3bc21bb5d02a201a311fe794f503ad4fbb2c89d850c5be75b0aba5e26e9a1'},
+ 'contract_review': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-contract-chain9-independent-source-review.json',
+                     'sha256': '2ce5c267e37168aaa8c8c1202c756a167459c9c031b96e16dc34aa760ff58d83'},
+ 'direct_primary_evidence': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-direct14-primary-evidence.json',
+                             'sha256': '17f91192d3b7d8770134ef587a111bed7821b38ebf50798b288aeba9d23a97e7'},
+ 'direct_proposal': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-direct14-modern-source-proposals.json',
+                     'sha256': '5ce44b703e5b7881e0fb3067cf74ed1ecd90e46d4ff869ead8df4e5cb202d1a0'},
+ 'direct_review': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-direct14-independent-source-review.json',
+                   'sha256': '8caff527a8752db3975470806d88623b3fdc4bd9100ba40a393471c1c4c09597'},
+ 'office_primary_evidence': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-role-office11-primary-evidence.json',
+                             'sha256': '168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66'},
+ 'office_proposal': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-role-office11-modern-source-proposals.json',
+                     'sha256': '971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd'},
+ 'office_review': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-role-office11-independent-source-review.json',
+                   'sha256': 'dbde3f4c6a36b9368b75683e21ab9dff1098968285eef0abd9eba896a37fc673'}}
 DFO_PROFILE = ROOT / 'docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json'
 DFO_PROFILE_SHA = '6587234a935a8eb893f6890ad3ec01a330c7ff4e8c55dcaeb6c03800bf157b0d'
 PRESERVATION_LABEL = (
@@ -550,7 +576,9 @@ def program_organization_source_policy(source_id):
             and len({encode(row['modern_creators']) for row in expected}) == 17
             and sum(len(row['modern_creators']) for row in expected) == 29
             and not ({row['source_id'] for row in expected} & {row['source_id'] for row in review['held_members']})
-            and len(matches) == 1)
+            and len(matches) <= 1)
+    if not matches:
+        return reviewed_citation_source_policy(source_id)
     selected = matches[0]
     return dict(selected, members=[{'source_id': selected['source_id'],
                                     'source_sha256': selected['source_sha256']}]), {
@@ -558,9 +586,164 @@ def program_organization_source_policy(source_id):
         'creator_authority_kind': 'creator426', 'creator_cohort': selected['creator_cohort']}
 
 
+def reviewed_citation_source_policy(source_id):
+    """Reconstruct exact31 from frozen independent decisions, never parse names.
+
+    Historical receipt paths are provenance only. Ten pinned repository files
+    supply the source reviews; current plan and creator authority are separate.
+    Context rendering is finite and bound independently from the mapper document.
+    """
+    manifest = pinned(CITATIONS31, CITATIONS31_SHA)
+    documents = {key: pinned(ROOT / value['path'], value['sha256'])
+                 for key, value in CITATIONS31_DOCUMENTS.items()}
+    targets = {row['record_target_id']: row for row in pinned(PLAN, PLAN_SHA)['targets']}
+    profiles = {row['profile']: row for row in pinned(PROFILE, PROFILE_SHA)['cohorts']}
+    profiled_ids = {member['source_id'] for row in profiles.values() for member in row['members']}
+    direct_bindings = {row['source_id']: row for row in
+                       pinned(CITATIONS31_DIRECT_BINDINGS, CITATIONS31_DIRECT_BINDINGS_SHA)['members']}
+    partitions = {'basis3': ('basis', 3), 'contract8': ('contract', 8),
+                  'office10': ('office', 10), 'direct10': ('direct', 10)}
+    approved = {}
+    for partition, (prefix, count) in partitions.items():
+        review = documents[prefix + '_review']
+        members = review.get('approved_members')
+        if prefix == 'direct':
+            members = [{'source_id': sid, 'source_sha256': targets[sid]['source_sha256']}
+                       for sid in review['approved_source_ids']]
+        require(isinstance(members, list) and len(members) == count)
+        for member in members:
+            sid = member['source_id']
+            require(sid not in approved)
+            approved[sid] = (partition, member)
+    members = [approved[sid][1] for sid in sorted(approved, key=lambda sid: int(sid[5:]))]
+    header = {'schema_version': 1, 'kind': 'modern-reviewed-citations31-v1',
+              'policy': CITATIONS31_POLICY, 'source_plan_sha256': PLAN_SHA,
+              'creator426_profile_sha256': PROFILE_SHA,
+              'direct_binding_sha256': CITATIONS31_DIRECT_BINDINGS_SHA,
+              'source_documents': CITATIONS31_DOCUMENTS, 'member_count': 31,
+              'partition_counts': {key: value[1] for key, value in partitions.items()},
+              'authority_counts': {'creator426': 3, 'direct': 28},
+              'members': members, 'membership_sha256': sha(encode(members)),
+              'complete_vector_count': 19, 'modern_creator_object_count': 65,
+              'context_sha256': CITATIONS31_CONTEXT_SHA}
+    require(isinstance(manifest, dict) and set(manifest) == set(header) | {'rows'}
+            and all(type(manifest[key]) is type(value) and manifest[key] == value
+                    for key, value in header.items()) and len(members) == 31)
+    rows = manifest['rows']
+    require(isinstance(rows, list) and len(rows) == 31
+            and [row['source_id'] for row in rows] == [member['source_id'] for member in members]
+            and sha(encode({row['source_id']: row['additional_preservation_paragraphs'] for row in rows}))
+            == CITATIONS31_CONTEXT_SHA)
+
+    def pointed(document, pointer):
+        require(isinstance(pointer, str) and re.fullmatch(
+            r'/(source_rows|rows|complete_array_decisions|source_decisions)/[0-9]+', pointer))
+        collection, index = pointer[1:].split('/')
+        return document[collection][int(index)]
+
+    expected, matches = [], []
+    for row in rows:
+        sid = row['source_id']
+        partition, member = approved[sid]
+        prefix = partitions[partition][0]
+        proposal_key, review_key = prefix + '_proposal', prefix + '_review'
+        proposal = pointed(documents[proposal_key], row['proposal_row_pointer'])
+        decision = pointed(documents[review_key], row['independent_decision_pointer'])
+        require(proposal['source_id'] == sid)
+        if prefix in ('basis', 'contract'):
+            require(member in decision['members'])
+            original_root = proposal['source_root']
+            origins = proposal['primary_origin_elements']
+            creators = proposal['complete_legacy_creators']
+            modern = decision['approved_complete_modern_creators']
+            require(modern == proposal['proposed_complete_modern_creators'])
+            require(creators == decision['complete_current_legacy_creators' if prefix == 'basis'
+                                         else 'complete_legacy_creators'])
+            source_hash, source_bytes = proposal['source_sha256'], proposal['source_bytes']
+        elif prefix == 'office':
+            require(decision['source_id'] == sid
+                    and decision['decision'] == 'APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT')
+            xml = proposal['complete_original_xml'].encode()
+            original_root = source_element(ET.fromstring(xml))
+            origins = [source_element(node) for node in ET.fromstring(xml).findall('./idinfo/citation/citeinfo/origin')]
+            creators = proposal['complete_legacy_creators']
+            modern = decision['complete_approved_modern_creators']
+            require(creators == decision['complete_legacy_creators']
+                    and modern == proposal['proposed_complete_modern_creators']
+                    and row['additional_preservation_paragraphs'] == [decision['required_preservation_note']])
+            source_hash, source_bytes = sha(xml), len(xml)
+            require(source_hash == proposal['source_sha256'] == decision['source_sha256'])
+        else:
+            require(prefix == 'direct' and decision['source_id'] == sid
+                    and decision['decision'] == 'APPROVE_EXACT_COMPLETE_SOURCE_PROJECTION')
+            original_root = proposal['complete_source_root']
+            origins = proposal['primary_origin_elements']
+            creators = proposal['retained_legacy']['full_payload']['metadata']['creators']
+            modern = decision['approved_modern_creators']
+            require(creators == decision['complete_legacy_creators']
+                    and modern == proposal['proposed_modern_creators'])
+            source_hash, source_bytes = (proposal['source_binding']['source_sha256'],
+                                         proposal['source_binding']['source_bytes'])
+        require(isinstance(modern, list) and modern and member['source_sha256'] == source_hash)
+        service = parse(encode(modern))
+        if prefix == 'direct':
+            # Finite service spelling adaptation; values and every other field stay exact.
+            for creator in service:
+                person = creator['person_or_org']
+                require(set(person) == {'type', 'family_name', 'given_names'} and person['type'] == 'personal')
+                person['given_name'] = person.pop('given_names')
+        if prefix == 'contract':
+            require(decision['verdict'] == 'APPROVE_FINITE_COMPLETE_ARRAY_SOURCE_ONLY'
+                    and row['additional_preservation_paragraphs'] == [
+                        proposal['required_full_citation_and_role_preservation_text']])
+        if prefix == 'basis':
+            require(decision['verdict'] ==
+                    'APPROVE_FINITE_COMPLETE_ARRAY_SOURCE_PROJECTION_WITH_EXPLICIT_BOUNDARY_INFERENCE')
+            profile = proposal['complete_current_creator426_cohort']
+            cohort_name = profile['profile']
+            require(profiles[cohort_name] == profile and member in profile['members']
+                    and profile['creators'] == creators)
+            kind, authority_sha = 'creator426', sha(encode(profile))
+        else:
+            kind, cohort_name = 'direct', None
+            binding = direct_bindings[sid]
+            require(sid not in profiled_ids and binding['source_sha256'] == source_hash
+                    and binding['complete_creator_objects'] == creators)
+            authority_sha = sha(encode(binding))
+        target = targets[sid]
+        require(sid not in PROTECTED and target['source_ids'] == [sid]
+                and target['source_semantic_status'] == 'supported' and target['source_sha256'] == source_hash
+                and target['identity_decision']['production_record_id'] is None
+                and target['identity_decision']['production_doi'] is None)
+        selected = {
+            'source_id': sid, 'source_sha256': source_hash, 'source_path': 'FGDC/' + sid + '.xml',
+            'source_bytes': source_bytes, 'source_root_sha256': sha(encode(original_root)),
+            'source_plan_target_sha256': sha(encode(target)), 'projection_partition': partition,
+            'creator_authority_kind': kind, 'creator_cohort': cohort_name,
+            'creator_authority_object_sha256': authority_sha, 'creators': creators,
+            'modern_creators': service, 'reviewed_source_creators': modern, 'primary_origins': origins,
+            'source_proposal_document': proposal_key, 'source_review_document': review_key,
+            'proposal_row_pointer': row['proposal_row_pointer'], 'proposal_row_sha256': sha(encode(proposal)),
+            'independent_decision_pointer': row['independent_decision_pointer'],
+            'independent_decision_sha256': sha(encode(decision)),
+            'additional_preservation_paragraphs': row['additional_preservation_paragraphs']}
+        expected.append(selected)
+        if sid == source_id:
+            matches.append(selected)
+    require(rows == expected and len({encode(row['modern_creators']) for row in rows}) == 19
+            and sum(len(row['modern_creators']) for row in rows) == 65 and len(matches) == 1)
+    selected = matches[0]
+    return dict(selected, members=[{'source_id': selected['source_id'],
+                                    'source_sha256': selected['source_sha256']}]), {
+        'schema_version': 10, 'policy': CITATIONS31_POLICY, 'mapping_manifest_sha256': CITATIONS31_SHA,
+        'creator_authority_kind': selected['creator_authority_kind'], 'creator_cohort': selected['creator_cohort']}
+
+
 def creator_authority_sha(selected, policy_fields):
     """Use the same source authority in fresh preparation and publication QA."""
     policy = policy_fields['policy']
+    if policy == CITATIONS31_POLICY:
+        return PROFILE_SHA if selected['creator_authority_kind'] == 'creator426' else CITATIONS31_SHA
     if policy == REVIEWED_CREATORS_POLICY:
         return {'creator426': PROFILE_SHA, 'dfo70': DFO_PROFILE_SHA,
                 'direct': REVIEWED_CREATORS_MAPPING_SHA}[selected['creator_authority_kind']]
@@ -638,8 +821,9 @@ def prepare(json_file, paths):
     citation_org = policy_fields['policy'] == CITATION_ORG_POLICY
     reviewed = policy_fields['policy'] == REVIEWED_CREATORS_POLICY
     program = policy_fields['policy'] == PROGRAM_POLICY
+    citations = policy_fields['policy'] == CITATIONS31_POLICY
     authority_sha = creator_authority_sha(selected, policy_fields)
-    if direct or institution or (reviewed and selected['creator_authority_kind'] == 'direct'):
+    if direct or institution or ((reviewed or citations) and selected['creator_authority_kind'] == 'direct'):
         require('creator_interpretation' not in policy)
     else:
         reference = policy.get('creator_interpretation', {})
@@ -652,7 +836,7 @@ def prepare(json_file, paths):
     if direct or institution:
         origins = ET.fromstring(xml).findall('./idinfo/citation/citeinfo/origin')
         require(origins and [source_element(node) for node in origins] in selected['primary_origin_variants'])
-    if reviewed or program:
+    if reviewed or program or citations:
         root = ET.fromstring(xml)
         require([source_element(node) for node in root.findall('./idinfo/citation/citeinfo/origin')]
                 == selected['primary_origins'] and sha(encode(source_element(root))) == selected['source_root_sha256'])
@@ -663,7 +847,7 @@ def prepare(json_file, paths):
             and target['identity_decision']['production_doi'] is None)
     validate_restricted_metadata(metadata)
     require(metadata['creators'] == selected['creators'])
-    if exxon or pices or institution or citation_org or reviewed or program:
+    if exxon or pices or institution or citation_org or reviewed or program or citations:
         creators = selected['modern_creators']
     else:
         require(all(set(c) == {'name', 'type'} and c['type'] == 'Organization'
@@ -673,7 +857,9 @@ def prepare(json_file, paths):
     keywords = metadata.get('keywords', [])
     require(isinstance(keywords, list) and all(isinstance(k, str) and k.strip() for k in keywords))
     legacy = encode(metadata)
-    preservation = '<p>' + PRESERVATION_LABEL + '</p><pre>' + html.escape(legacy.decode()) + '</pre>'
+    context = ''.join('<p>' + html.escape(text) + '</p>'
+                      for text in selected['additional_preservation_paragraphs']) if citations else ''
+    preservation = '<p>' + PRESERVATION_LABEL + '</p>' + context + '<pre>' + html.escape(legacy.decode()) + '</pre>'
     wire = {'metadata': {
         'resource_type': {'id': 'other'}, 'title': metadata['title'],
         'creators': creators,
