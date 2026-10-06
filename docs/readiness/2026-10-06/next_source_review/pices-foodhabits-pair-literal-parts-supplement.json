@@ -1,0 +1,2376 @@
+{
+  "schema_version": 1,
+  "kind": "independent_source_only_literal_personal_parts_supplement",
+  "review_date": "2026-10-06",
+  "verdict": "APPROVE_EXACT_COMPLETE_TWO_PERSON_VECTOR_AS_FINITE_CONTEXTUAL_NAME_PARTS_INFERENCE",
+  "scope": "Only the complete ordered creator array for byte-identical original FGDC-2837 and FGDC-3065; two retained source files and one existing content-class target. No new source selection, normalization rule, canonical-person linkage or execution authority.",
+  "supersession": {
+    "earlier_receipt_path": "/tmp/pices-foodhabits-pair-personal-source-reassessment.json",
+    "earlier_receipt_sha256": "239304eee51b620b4ed606ec845358d68587c6281fb811cae6d7f34d29abc839",
+    "earlier_markdown_path": "/tmp/pices-foodhabits-pair-personal-source-reassessment.md",
+    "earlier_markdown_sha256": "70f7c17131d5dfebc8bce4d71dc4da93bd71c8d44c4b820b20635ca4d2961419",
+    "earlier_files_modified": false,
+    "conclusion_superseded": "The earlier complete-pair hold on Douglas's literal family/given boundary is withdrawn for this exact vector. Its current-source bindings, raw source facts, negative external identity-link finding and preservation conditions remain valid.",
+    "reason": "The earlier assessment required an external identity bridge to an explicitly inverted Douglas name before accepting the literal fields. That conflated a source-local name-parts representation with a claim that this compiler equals an external canonical person. This vector asserts only the former. The unchanged primary citation and independently established Pat ordering provide a defensible finite contextual boundary; no new primary fact or person-identity link has been discovered."
+  },
+  "approved_complete_modern_creators": [
+    {
+      "person_or_org": {
+        "type": "personal",
+        "given_name": "Pat",
+        "family_name": "Livingston"
+      }
+    },
+    {
+      "person_or_org": {
+        "type": "personal",
+        "given_name": "Douglas",
+        "family_name": "Smith"
+      }
+    }
+  ],
+  "complete_modern_projection_approved_for_source_review": true,
+  "source_specific_reasoning": [
+    {
+      "status": "source_fact",
+      "finding": "The primary citation explicitly reads 'Pat Livingston , Ed. and Douglas Smith, Compiler', followed on the next line by the NMFS/NOAA hierarchy. Both individual credits and their distinct editor/compiler qualifications are explicit, and the current reviewed legacy array already preserves Pat Livingston followed by Douglas Smith."
+    },
+    {
+      "status": "independently_retrieved_primary_parts_evidence_from_prior_review",
+      "finding": "The exact NOAA forms 'Livingston, Pat' and 'Pat Livingston' independently establish natural given/family order for the first name in this very citation construction. Relevant AFSC institutional history provides database context, without expanding Pat or broadening the source's editor limitation.",
+      "evidence_ids": [
+        "noaa_exact_pat_directory",
+        "noaa_exact_pat_catalogue",
+        "noaa_pat_database_context"
+      ]
+    },
+    {
+      "status": "finite_contextual_inference",
+      "finding": "The shared English citation coordinates two personal-name phrases with 'and', with each complete name followed by a comma and role. Neither name contains a surname-inversion comma. Reading Douglas as the given part and Smith as the family part follows the parallel natural-name construction anchored by Pat Livingston; the source supplies no competing boundary or inversion indicator for Douglas Smith. The role comma follows the whole name, so Compiler is not part of either name field. This is not an expressly labeled family/given field in the XML and is not represented as one."
+    },
+    {
+      "status": "limited_source_style_corroboration",
+      "finding": "The same original explicitly writes the separate contact as 'Bailey, Michael', showing a comma inside that inverted personal name. This punctuation contrast is limited contextual support for the citation reading, not permission to promote the contact or a universal name-order rule."
+    },
+    {
+      "status": "boundary_of_claim",
+      "finding": "The modern fields retain exactly the already credited literal Pat Livingston and Douglas Smith in the same order. They add no middle initial, alias, expanded given name, ORCID, authority identifier, affiliation or relationship to another work. No equality with Douglas M. Smith, Doug Smith or D. M. Smith is asserted or needed."
+    }
+  ],
+  "per_credit_assessment": [
+    {
+      "literal": "Pat Livingston",
+      "source_role_literal": "Ed.",
+      "given_name": "Pat",
+      "family_name": "Livingston",
+      "parts_basis": "Exact inverted and natural-order primary NOAA evidence, together with this source's explicit editor credit.",
+      "identity_scope": "Literal source credit only; no name expansion or authority link."
+    },
+    {
+      "literal": "Douglas Smith",
+      "source_role_literal": "Compiler",
+      "given_name": "Douglas",
+      "family_name": "Smith",
+      "parts_basis": "Finite parallel-citation and source-person context; not an explicitly labeled source field or independently proven external-person identity.",
+      "identity_scope": "Literal source compiler only; no Doug, middle initial, canonical person or other-work equivalence."
+    }
+  ],
+  "contrary_readings_considered": [
+    "Treating Douglas as the surname and Smith as the given name would require an unmarked reversal only for the second coordinated credit, despite the independently established first credit's order. No source feature or competing evidence supports that reading.",
+    "Treating the whole phrase Douglas Smith as an unresolved compound family name would likewise have no supporting source marker and would disregard the two-part personal-credit construction. This is not a claim that every two-token name can be split generally.",
+    "The source's absence of formal name-part labels limits the finding to a documented contextual inference; it does not itself establish a competing source ambiguity. The unresolved external-person identity question is retained but does not block these literal fields."
+  ],
+  "narrow_challenge": {
+    "reviewer": "/root/ecotrust37_identity_qc/pacific_gis_primary",
+    "method": "Independent reconsideration of the supplied citation, established Pat ordering and exact proposed vector; no new research requested or conducted for this challenge.",
+    "conclusion": "Supports the complete vector. Parallel personal-name/role construction supports the finite reading; no supplied inversion, compound-surname or competing segmentation evidence. Douglas's boundary is contextual, while the missing external identity bridge does not substantively block this decomposition."
+  },
+  "mandatory_preservation": [
+    "Preserve the original complete legacy array unchanged and in order: Pat Livingston, then Douglas Smith. This supplemental wire projection does not rewrite the frozen creator426 cohort or substitute an Organization credit.",
+    "Retain both 4153-byte original XML files under their separate exact source filenames. Their equal bytes do not authorize selecting one canonical source or dropping either attachment.",
+    "Keep the full primary origin and the reviewed editor/compiler limitations with the record's retained source context. Personal typing does not assert equal authorship, original observation/data authorship or authorship of the FGDC XML.",
+    "Do not expand Pat to Patricia, insert a Douglas middle initial, use Doug, change spellings, add identifiers, affiliation objects or creator roles, promote Michael Bailey or Kimberly Bahl, or replace the two credits with the NMFS/NOAA hierarchy.",
+    "Preserve all original source fields and complete legacy metadata, including the hierarchy, liability, citation date 19940601, sample interval 19850501-19970802, metadata date 19970802, and all four literal Read only / None constraints. No new license or access permission follows.",
+    "Historical raw prepared payloads remain evidence of an earlier combined Organization credit, not evidence that they already equal the current two-name legacy array. Current fresh preparation and exact metadata/attachment preservation remain unperformed in this review.",
+    "Keep the plan's closed execution flags, null provider identities and action grant, restart hold, owner identity/readback gates, spent unknown-create hold and supported-network-recovery requirement. Source approval is not preparation, publication approval or provider authorization."
+  ],
+  "remaining_limits": {
+    "source_boundary_hold_for_this_exact_vector": false,
+    "external_person_identity_unresolved_and_unasserted": true,
+    "name_parts_inference_may_generalize_to_other_records": false,
+    "new_user_permission_needed_for_this_source_semantic_decision": false,
+    "implementation_or_preparation_completed": false,
+    "coverage_or_publication_claim": false,
+    "prior_24_pair_packet_mutated": false,
+    "provider_execution_authorized": false,
+    "followup": "Root may use this separately reviewed finite source projection in a later independently reviewed implementation. Current program20 scope and reported source/preparation totals are unchanged. The earlier 24-pair design and review remain frozen historical inputs; this supplement does not silently amend or execute them."
+  },
+  "method_limits": {
+    "repository_changes": false,
+    "repository_imports_helpers_tests_or_mapper_execution": false,
+    "classification_preparation_measurement_or_coverage_change": false,
+    "provider_zenodo_aquadocs_credential_requests": false,
+    "new_public_network_requests": false,
+    "original_source_raw_bytes_rehashed": true,
+    "full_first_original_reread": true,
+    "second_original_same_raw_sha256_as_first": true,
+    "all_nine_prior_input_pin_raw_hashes_rechecked": true,
+    "full_root_canonical_hashes_recomputed_in_this_supplement": false,
+    "root_and_source_context_binding_basis": "Reuse the frozen independently generated full-root/current-profile/plan receipt b353004c with source bytes and input pins unchanged; do not claim a new XML canonicalization run.",
+    "external_evidence_basis": "No new web retrieval. Previously independently parsed primary NOAA text is retained through the frozen earlier receipt. Its raw-download CONNECT failures and absence of raw primary HTML/PDF byte hashes or visual verification remain disclosed. Douglas-related external leads are not affirmative evidence for this supplemental boundary finding."
+  },
+  "input_pins": [
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/publication_plan.json",
+      "sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/approved_alias_representation_228.json",
+      "sha256": "9e45fc869b0fe03220b44734cf429129f78dc93eb9fd20bf9b802398b684dda6"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/alias456_source_to_content.json",
+      "sha256": "9c110638bd161483727aed1b42e516fdc7a3c9d8134c97a9a70abff690750bbb"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/alias_pair_approach_authority.json",
+      "sha256": "ea3c0dba61ba03a330c80fc204f70ae3b88669f5ede5f22e60015b4bdb828130"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-02/rehosting_authority.json",
+      "sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/residual_pair4_editorial_creator_proposals.json",
+      "sha256": "ba294addf4521bd4d656b2c2d0dc1d3b66e954194169ffffb1c3bb7088a27a73"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/residual_pair4_editorial_creator_review.json",
+      "sha256": "df9cb1170c25f335ecb828102e250d65843b0d4af2cd275f257a268bec1d6600"
+    },
+    {
+      "path": "/workspace/pices-main/scripts/citation_creator_interpretation.py",
+      "sha256": "ddc66396d31c4b0c7f17a11e5054e4d1222459c1d392ce70b1663b5e1ea4c7e3"
+    }
+  ],
+  "source_binding_receipt": {
+    "path": "/tmp/pices-foodhabits-pair-current-source-bindings.json",
+    "sha256": "b353004cd8c4328d51db32cec4dbbfed092d6f97d715b1f1cb65460d21bea9db",
+    "hash_recipe": "SHA256 raw bytes; object hash is UTF-8 JSON ensure_ascii=False sort_keys=True separators comma/colon; no terminal newline"
+  },
+  "record_target_id": "sha256:8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+  "source_membership_sha256": "7cb2af2b6c6938bbd3634422fb1e2f2498837cecd1b8e8c3e0e40baaed179842",
+  "source_rows": [
+    {
+      "bytes": 4153,
+      "full_root": {
+        "attributes": {},
+        "children": [
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "br",
+                            "tail": "\n          National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        ",
+                            "text": null
+                          }
+                        ],
+                        "tag": "origin",
+                        "tail": "\n        ",
+                        "text": "\n          Pat Livingston , Ed. and Douglas Smith, Compiler\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "pubdate",
+                        "tail": "\n        ",
+                        "text": "19940601"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "title",
+                        "tail": "\n      ",
+                        "text": "Food Habits Database"
+                      }
+                    ],
+                    "tag": "citeinfo",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "citation",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "abstract",
+                    "tail": "\n      ",
+                    "text": "Contains stomach content information of selected commercial Bering Sea species. Data included location parameters, stomach content descriptions, intestinal content information, and length of prey items."
+                  },
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "purpose",
+                    "tail": "\n    ",
+                    "text": "Determine feeding habits and consumption rates of commercially important species."
+                  }
+                ],
+                "tag": "descript",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "begdate",
+                            "tail": "\n          ",
+                            "text": "19850501"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "enddate",
+                            "tail": "\n        ",
+                            "text": "19970802"
+                          }
+                        ],
+                        "tag": "rngdates",
+                        "tail": "\n      ",
+                        "text": "\n          "
+                      }
+                    ],
+                    "tag": "timeinfo",
+                    "tail": "\n      ",
+                    "text": "\n        "
+                  },
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "current",
+                    "tail": "\n    ",
+                    "text": "Sample Date"
+                  }
+                ],
+                "tag": "timeperd",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "progress",
+                    "tail": "\n      ",
+                    "text": "In Progress"
+                  },
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "update",
+                    "tail": "\n    ",
+                    "text": "Annually"
+                  }
+                ],
+                "tag": "status",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "westbc",
+                        "tail": "\n        ",
+                        "text": "-180"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "eastbc",
+                        "tail": "\n        ",
+                        "text": "-158"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "northbc",
+                        "tail": "\n        ",
+                        "text": "64"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "southbc",
+                        "tail": "\n      ",
+                        "text": "54"
+                      }
+                    ],
+                    "tag": "bounding",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "spdom",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekt",
+                        "tail": "\n        ",
+                        "text": "North Pacific Ecosystem Metadatabase"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekey",
+                        "tail": "\n        ",
+                        "text": "Biology"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekey",
+                        "tail": "\n      ",
+                        "text": "Fish"
+                      }
+                    ],
+                    "tag": "theme",
+                    "tail": "\n      ",
+                    "text": "\n        "
+                  },
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekt",
+                        "tail": "\n        ",
+                        "text": "Other"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekey",
+                        "tail": "\n        ",
+                        "text": "Biogeographic"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekey",
+                        "tail": "\n      ",
+                        "text": "North Pacific Ocean"
+                      }
+                    ],
+                    "tag": "theme",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "keywords",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "accconst",
+                "tail": "\n    ",
+                "text": "Read only"
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "useconst",
+                "tail": "\n    ",
+                "text": "None"
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "cntper",
+                            "tail": "\n        ",
+                            "text": "Bailey, Michael"
+                          }
+                        ],
+                        "tag": "cntperp",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "addrtype",
+                            "tail": "\n          ",
+                            "text": "Mailing and Physical Address"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "address",
+                            "tail": "\n          ",
+                            "text": "7600 Sand Point Way N.E."
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "city",
+                            "tail": "\n          ",
+                            "text": "Seattle"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "state",
+                            "tail": "\n          ",
+                            "text": "WA"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "postal",
+                            "tail": "\n          ",
+                            "text": "98115"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "country",
+                            "tail": "\n        ",
+                            "text": "USA"
+                          }
+                        ],
+                        "tag": "cntaddr",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntvoice",
+                        "tail": "\n        ",
+                        "text": "206-526-4201"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntfax",
+                        "tail": "\n        ",
+                        "text": "206-526-6723"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntemail",
+                        "tail": "\n      ",
+                        "text": "mike.bailey@noaa.gov"
+                      }
+                    ],
+                    "tag": "cntinfo",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "ptcontac",
+                "tail": "\n  ",
+                "text": "\n      "
+              }
+            ],
+            "tag": "idinfo",
+            "tail": "\n  ",
+            "text": "\n    "
+          },
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "cntper",
+                            "tail": "\n        ",
+                            "text": "Bailey, Michael"
+                          }
+                        ],
+                        "tag": "cntperp",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "addrtype",
+                            "tail": "\n          ",
+                            "text": "Mailing and Physical Address"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "address",
+                            "tail": "\n          ",
+                            "text": "7600 Sand Point Way N.E."
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "city",
+                            "tail": "\n          ",
+                            "text": "Seattle"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "state",
+                            "tail": "\n          ",
+                            "text": "WA"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "postal",
+                            "tail": "\n          ",
+                            "text": "98115"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "country",
+                            "tail": "\n        ",
+                            "text": "USA"
+                          }
+                        ],
+                        "tag": "cntaddr",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntvoice",
+                        "tail": "\n        ",
+                        "text": "206-526-4201"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntfax",
+                        "tail": "\n        ",
+                        "text": "206-526-6723"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntemail",
+                        "tail": "\n      ",
+                        "text": "mike.bailey@noaa.gov"
+                      }
+                    ],
+                    "tag": "cntinfo",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "distrib",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "distliab",
+                "tail": "\n  ",
+                "text": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty."
+              }
+            ],
+            "tag": "distinfo",
+            "tail": "\n  ",
+            "text": "\n    "
+          },
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metd",
+                "tail": "\n    ",
+                "text": "19970802"
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "cntper",
+                            "tail": "\n        ",
+                            "text": "Kimberly Bahl"
+                          }
+                        ],
+                        "tag": "cntperp",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "addrtype",
+                            "tail": "\n          ",
+                            "text": "Mailing and Physical Address"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "address",
+                            "tail": "\n          ",
+                            "text": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "city",
+                            "tail": "\n          ",
+                            "text": "Seattle"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "state",
+                            "tail": "\n          ",
+                            "text": "WA"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "postal",
+                            "tail": "\n          ",
+                            "text": "98115"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "country",
+                            "tail": "\n        ",
+                            "text": "USA"
+                          }
+                        ],
+                        "tag": "cntaddr",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntvoice",
+                        "tail": "\n        ",
+                        "text": "206-526-4314"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntfax",
+                        "tail": "\n        ",
+                        "text": "206-526-6485"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntemail",
+                        "tail": "\n      ",
+                        "text": "kimberly.bahl@noaa.gov"
+                      }
+                    ],
+                    "tag": "cntinfo",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "metc",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metstdn",
+                "tail": "\n    ",
+                "text": "Content Standards for Digital Geospatial Metadata"
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metstdv",
+                "tail": "\n    ",
+                "text": "FGDC-STD-001-1998"
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metac",
+                "tail": "\n    ",
+                "text": "Read only"
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metuc",
+                "tail": "\n  ",
+                "text": "None"
+              }
+            ],
+            "tag": "metainfo",
+            "tail": "\n",
+            "text": "\n    "
+          }
+        ],
+        "tag": "metadata",
+        "tail": null,
+        "text": "\n  "
+      },
+      "full_root_sha256": "282d7036537d313d2d59a6dfb6cc9cec559bf83ccd641a0a9714afbb8a88d871",
+      "path": "/workspace/pices-main/FGDC/FGDC-2837.xml",
+      "primary_origin": {
+        "attributes": {},
+        "children": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "br",
+            "tail": "\n          National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        ",
+            "text": null
+          }
+        ],
+        "tag": "origin",
+        "tail": "\n        ",
+        "text": "\n          Pat Livingston , Ed. and Douglas Smith, Compiler\n          "
+      },
+      "raw_fields": {
+        "./idinfo/accconst": "Read only",
+        "./idinfo/citation/citeinfo/pubdate": "19940601",
+        "./idinfo/citation/citeinfo/title": "Food Habits Database",
+        "./idinfo/descript/abstract": "Contains stomach content information of selected commercial Bering Sea species. Data included location parameters, stomach content descriptions, intestinal content information, and length of prey items.",
+        "./idinfo/descript/purpose": "Determine feeding habits and consumption rates of commercially important species.",
+        "./idinfo/timeperd/timeinfo/rngdates/begdate": "19850501",
+        "./idinfo/timeperd/timeinfo/rngdates/enddate": "19970802",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Read only",
+        "./metainfo/metd": "19970802",
+        "./metainfo/metuc": "None"
+      },
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "source_id": "FGDC-2837"
+    },
+    {
+      "bytes": 4153,
+      "full_root": {
+        "attributes": {},
+        "children": [
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "br",
+                            "tail": "\n          National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        ",
+                            "text": null
+                          }
+                        ],
+                        "tag": "origin",
+                        "tail": "\n        ",
+                        "text": "\n          Pat Livingston , Ed. and Douglas Smith, Compiler\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "pubdate",
+                        "tail": "\n        ",
+                        "text": "19940601"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "title",
+                        "tail": "\n      ",
+                        "text": "Food Habits Database"
+                      }
+                    ],
+                    "tag": "citeinfo",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "citation",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "abstract",
+                    "tail": "\n      ",
+                    "text": "Contains stomach content information of selected commercial Bering Sea species. Data included location parameters, stomach content descriptions, intestinal content information, and length of prey items."
+                  },
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "purpose",
+                    "tail": "\n    ",
+                    "text": "Determine feeding habits and consumption rates of commercially important species."
+                  }
+                ],
+                "tag": "descript",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "begdate",
+                            "tail": "\n          ",
+                            "text": "19850501"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "enddate",
+                            "tail": "\n        ",
+                            "text": "19970802"
+                          }
+                        ],
+                        "tag": "rngdates",
+                        "tail": "\n      ",
+                        "text": "\n          "
+                      }
+                    ],
+                    "tag": "timeinfo",
+                    "tail": "\n      ",
+                    "text": "\n        "
+                  },
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "current",
+                    "tail": "\n    ",
+                    "text": "Sample Date"
+                  }
+                ],
+                "tag": "timeperd",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "progress",
+                    "tail": "\n      ",
+                    "text": "In Progress"
+                  },
+                  {
+                    "attributes": {},
+                    "children": [],
+                    "tag": "update",
+                    "tail": "\n    ",
+                    "text": "Annually"
+                  }
+                ],
+                "tag": "status",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "westbc",
+                        "tail": "\n        ",
+                        "text": "-180"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "eastbc",
+                        "tail": "\n        ",
+                        "text": "-158"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "northbc",
+                        "tail": "\n        ",
+                        "text": "64"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "southbc",
+                        "tail": "\n      ",
+                        "text": "54"
+                      }
+                    ],
+                    "tag": "bounding",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "spdom",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekt",
+                        "tail": "\n        ",
+                        "text": "North Pacific Ecosystem Metadatabase"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekey",
+                        "tail": "\n        ",
+                        "text": "Biology"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekey",
+                        "tail": "\n      ",
+                        "text": "Fish"
+                      }
+                    ],
+                    "tag": "theme",
+                    "tail": "\n      ",
+                    "text": "\n        "
+                  },
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekt",
+                        "tail": "\n        ",
+                        "text": "Other"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekey",
+                        "tail": "\n        ",
+                        "text": "Biogeographic"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "themekey",
+                        "tail": "\n      ",
+                        "text": "North Pacific Ocean"
+                      }
+                    ],
+                    "tag": "theme",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "keywords",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "accconst",
+                "tail": "\n    ",
+                "text": "Read only"
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "useconst",
+                "tail": "\n    ",
+                "text": "None"
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "cntper",
+                            "tail": "\n        ",
+                            "text": "Bailey, Michael"
+                          }
+                        ],
+                        "tag": "cntperp",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "addrtype",
+                            "tail": "\n          ",
+                            "text": "Mailing and Physical Address"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "address",
+                            "tail": "\n          ",
+                            "text": "7600 Sand Point Way N.E."
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "city",
+                            "tail": "\n          ",
+                            "text": "Seattle"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "state",
+                            "tail": "\n          ",
+                            "text": "WA"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "postal",
+                            "tail": "\n          ",
+                            "text": "98115"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "country",
+                            "tail": "\n        ",
+                            "text": "USA"
+                          }
+                        ],
+                        "tag": "cntaddr",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntvoice",
+                        "tail": "\n        ",
+                        "text": "206-526-4201"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntfax",
+                        "tail": "\n        ",
+                        "text": "206-526-6723"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntemail",
+                        "tail": "\n      ",
+                        "text": "mike.bailey@noaa.gov"
+                      }
+                    ],
+                    "tag": "cntinfo",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "ptcontac",
+                "tail": "\n  ",
+                "text": "\n      "
+              }
+            ],
+            "tag": "idinfo",
+            "tail": "\n  ",
+            "text": "\n    "
+          },
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "cntper",
+                            "tail": "\n        ",
+                            "text": "Bailey, Michael"
+                          }
+                        ],
+                        "tag": "cntperp",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "addrtype",
+                            "tail": "\n          ",
+                            "text": "Mailing and Physical Address"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "address",
+                            "tail": "\n          ",
+                            "text": "7600 Sand Point Way N.E."
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "city",
+                            "tail": "\n          ",
+                            "text": "Seattle"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "state",
+                            "tail": "\n          ",
+                            "text": "WA"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "postal",
+                            "tail": "\n          ",
+                            "text": "98115"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "country",
+                            "tail": "\n        ",
+                            "text": "USA"
+                          }
+                        ],
+                        "tag": "cntaddr",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntvoice",
+                        "tail": "\n        ",
+                        "text": "206-526-4201"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntfax",
+                        "tail": "\n        ",
+                        "text": "206-526-6723"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntemail",
+                        "tail": "\n      ",
+                        "text": "mike.bailey@noaa.gov"
+                      }
+                    ],
+                    "tag": "cntinfo",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "distrib",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "distliab",
+                "tail": "\n  ",
+                "text": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty."
+              }
+            ],
+            "tag": "distinfo",
+            "tail": "\n  ",
+            "text": "\n    "
+          },
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metd",
+                "tail": "\n    ",
+                "text": "19970802"
+              },
+              {
+                "attributes": {},
+                "children": [
+                  {
+                    "attributes": {},
+                    "children": [
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "cntper",
+                            "tail": "\n        ",
+                            "text": "Kimberly Bahl"
+                          }
+                        ],
+                        "tag": "cntperp",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "addrtype",
+                            "tail": "\n          ",
+                            "text": "Mailing and Physical Address"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "address",
+                            "tail": "\n          ",
+                            "text": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "city",
+                            "tail": "\n          ",
+                            "text": "Seattle"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "state",
+                            "tail": "\n          ",
+                            "text": "WA"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "postal",
+                            "tail": "\n          ",
+                            "text": "98115"
+                          },
+                          {
+                            "attributes": {},
+                            "children": [],
+                            "tag": "country",
+                            "tail": "\n        ",
+                            "text": "USA"
+                          }
+                        ],
+                        "tag": "cntaddr",
+                        "tail": "\n        ",
+                        "text": "\n          "
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntvoice",
+                        "tail": "\n        ",
+                        "text": "206-526-4314"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntfax",
+                        "tail": "\n        ",
+                        "text": "206-526-6485"
+                      },
+                      {
+                        "attributes": {},
+                        "children": [],
+                        "tag": "cntemail",
+                        "tail": "\n      ",
+                        "text": "kimberly.bahl@noaa.gov"
+                      }
+                    ],
+                    "tag": "cntinfo",
+                    "tail": "\n    ",
+                    "text": "\n        "
+                  }
+                ],
+                "tag": "metc",
+                "tail": "\n    ",
+                "text": "\n      "
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metstdn",
+                "tail": "\n    ",
+                "text": "Content Standards for Digital Geospatial Metadata"
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metstdv",
+                "tail": "\n    ",
+                "text": "FGDC-STD-001-1998"
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metac",
+                "tail": "\n    ",
+                "text": "Read only"
+              },
+              {
+                "attributes": {},
+                "children": [],
+                "tag": "metuc",
+                "tail": "\n  ",
+                "text": "None"
+              }
+            ],
+            "tag": "metainfo",
+            "tail": "\n",
+            "text": "\n    "
+          }
+        ],
+        "tag": "metadata",
+        "tail": null,
+        "text": "\n  "
+      },
+      "full_root_sha256": "282d7036537d313d2d59a6dfb6cc9cec559bf83ccd641a0a9714afbb8a88d871",
+      "path": "/workspace/pices-main/FGDC/FGDC-3065.xml",
+      "primary_origin": {
+        "attributes": {},
+        "children": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "br",
+            "tail": "\n          National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        ",
+            "text": null
+          }
+        ],
+        "tag": "origin",
+        "tail": "\n        ",
+        "text": "\n          Pat Livingston , Ed. and Douglas Smith, Compiler\n          "
+      },
+      "raw_fields": {
+        "./idinfo/accconst": "Read only",
+        "./idinfo/citation/citeinfo/pubdate": "19940601",
+        "./idinfo/citation/citeinfo/title": "Food Habits Database",
+        "./idinfo/descript/abstract": "Contains stomach content information of selected commercial Bering Sea species. Data included location parameters, stomach content descriptions, intestinal content information, and length of prey items.",
+        "./idinfo/descript/purpose": "Determine feeding habits and consumption rates of commercially important species.",
+        "./idinfo/timeperd/timeinfo/rngdates/begdate": "19850501",
+        "./idinfo/timeperd/timeinfo/rngdates/enddate": "19970802",
+        "./idinfo/useconst": "None",
+        "./metainfo/metac": "Read only",
+        "./metainfo/metd": "19970802",
+        "./metainfo/metuc": "None"
+      },
+      "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "source_id": "FGDC-3065"
+    }
+  ],
+  "current_profile": {
+    "cohort_sha256": "ad09064418a521841839c7d3e83acf72a7b385def9f98e137f21476f0e586ec2",
+    "context_note": "Reviewed citation context: The complete primary citation of Food Habits Database explicitly names Pat Livingston, Ed., followed by Douglas Smith, Compiler. Preserve the literal ordered name credits Pat Livingston and Douglas Smith as untyped source-resource citation credits, limited respectively to the stated editing and compilation roles. Do not expand Pat to Patricia, infer personal identity links, affiliation objects, original observation/data authorship, or authorship of the FGDC XML. The National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA) hierarchy remains preserved in the original origin below; it is not an additional named creator or a legal-entity inference. Michael Bailey remains the source contact/distributor, and Kimberly Bahl remains the metadata contact. Bering Sea commercial-species scope, original19940601 citation date,19850501–19970802 sampling interval,19970802 metadata date, and literal Read only / None constraints remain unchanged. No new access permission, license or provider identity follows.",
+    "full_current_legacy_creators": [
+      {
+        "name": "Pat Livingston"
+      },
+      {
+        "name": "Douglas Smith"
+      }
+    ],
+    "full_current_legacy_creators_sha256": "e9916110f009b376d2644fd00bdadeb776927550f0841a8598c9dc7920c029b7",
+    "name": "exact_food_habits_primary_editor_compiler_pair"
+  },
+  "complete_current_legacy_creators": [
+    {
+      "name": "Pat Livingston"
+    },
+    {
+      "name": "Douglas Smith"
+    }
+  ],
+  "complete_current_legacy_creators_sha256": "e9916110f009b376d2644fd00bdadeb776927550f0841a8598c9dc7920c029b7",
+  "full_current_creator426_cohort": {
+    "context_note": "Reviewed citation context: The complete primary citation of Food Habits Database explicitly names Pat Livingston, Ed., followed by Douglas Smith, Compiler. Preserve the literal ordered name credits Pat Livingston and Douglas Smith as untyped source-resource citation credits, limited respectively to the stated editing and compilation roles. Do not expand Pat to Patricia, infer personal identity links, affiliation objects, original observation/data authorship, or authorship of the FGDC XML. The National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA) hierarchy remains preserved in the original origin below; it is not an additional named creator or a legal-entity inference. Michael Bailey remains the source contact/distributor, and Kimberly Bahl remains the metadata contact. Bering Sea commercial-species scope, original19940601 citation date,19850501–19970802 sampling interval,19970802 metadata date, and literal Read only / None constraints remain unchanged. No new access permission, license or provider identity follows.",
+    "creators": [
+      {
+        "name": "Pat Livingston"
+      },
+      {
+        "name": "Douglas Smith"
+      }
+    ],
+    "evidence_type": "EXACT_PRIMARY_CITATION_ROLE_CREDITS",
+    "external_evidence_references": [
+      {
+        "manifest_path": "docs/readiness/2026-10-04/residual_pair4_editorial_creator_proposals.json",
+        "manifest_sha256": "ba294addf4521bd4d656b2c2d0dc1d3b66e954194169ffffb1c3bb7088a27a73"
+      },
+      {
+        "manifest_path": "docs/readiness/2026-10-04/residual_pair4_editorial_creator_review.json",
+        "manifest_sha256": "df9cb1170c25f335ecb828102e250d65843b0d4af2cd275f257a268bec1d6600"
+      }
+    ],
+    "members": [
+      {
+        "source_id": "FGDC-2837",
+        "source_sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237"
+      },
+      {
+        "source_id": "FGDC-3065",
+        "source_sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237"
+      }
+    ],
+    "preservation_required": true,
+    "primary_origin_element": {
+      "attributes": {},
+      "children": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "br",
+          "tail": "\n          National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        ",
+          "text": null
+        }
+      ],
+      "tag": "origin",
+      "tail": null,
+      "text": "\n          Pat Livingston , Ed. and Douglas Smith, Compiler\n          "
+    },
+    "profile": "exact_food_habits_primary_editor_compiler_pair",
+    "raw_origin": "\n          Pat Livingston , Ed. and Douglas Smith, Compiler\n          ",
+    "supplemental_source_elements": [
+      {
+        "element": {
+          "attributes": {},
+          "children": [
+            {
+              "attributes": {},
+              "children": [
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "br",
+                              "tail": "\n          National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        ",
+                              "text": null
+                            }
+                          ],
+                          "tag": "origin",
+                          "tail": "\n        ",
+                          "text": "\n          Pat Livingston , Ed. and Douglas Smith, Compiler\n          "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "pubdate",
+                          "tail": "\n        ",
+                          "text": "19940601"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "title",
+                          "tail": "\n      ",
+                          "text": "Food Habits Database"
+                        }
+                      ],
+                      "tag": "citeinfo",
+                      "tail": "\n    ",
+                      "text": "\n        "
+                    }
+                  ],
+                  "tag": "citation",
+                  "tail": "\n    ",
+                  "text": "\n      "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "abstract",
+                      "tail": "\n      ",
+                      "text": "Contains stomach content information of selected commercial Bering Sea species. Data included location parameters, stomach content descriptions, intestinal content information, and length of prey items."
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "purpose",
+                      "tail": "\n    ",
+                      "text": "Determine feeding habits and consumption rates of commercially important species."
+                    }
+                  ],
+                  "tag": "descript",
+                  "tail": "\n    ",
+                  "text": "\n      "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "begdate",
+                              "tail": "\n          ",
+                              "text": "19850501"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "enddate",
+                              "tail": "\n        ",
+                              "text": "19970802"
+                            }
+                          ],
+                          "tag": "rngdates",
+                          "tail": "\n      ",
+                          "text": "\n          "
+                        }
+                      ],
+                      "tag": "timeinfo",
+                      "tail": "\n      ",
+                      "text": "\n        "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "current",
+                      "tail": "\n    ",
+                      "text": "Sample Date"
+                    }
+                  ],
+                  "tag": "timeperd",
+                  "tail": "\n    ",
+                  "text": "\n      "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "progress",
+                      "tail": "\n      ",
+                      "text": "In Progress"
+                    },
+                    {
+                      "attributes": {},
+                      "children": [],
+                      "tag": "update",
+                      "tail": "\n    ",
+                      "text": "Annually"
+                    }
+                  ],
+                  "tag": "status",
+                  "tail": "\n    ",
+                  "text": "\n      "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "westbc",
+                          "tail": "\n        ",
+                          "text": "-180"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "eastbc",
+                          "tail": "\n        ",
+                          "text": "-158"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "northbc",
+                          "tail": "\n        ",
+                          "text": "64"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "southbc",
+                          "tail": "\n      ",
+                          "text": "54"
+                        }
+                      ],
+                      "tag": "bounding",
+                      "tail": "\n    ",
+                      "text": "\n        "
+                    }
+                  ],
+                  "tag": "spdom",
+                  "tail": "\n    ",
+                  "text": "\n      "
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "themekt",
+                          "tail": "\n        ",
+                          "text": "North Pacific Ecosystem Metadatabase"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "themekey",
+                          "tail": "\n        ",
+                          "text": "Biology"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "themekey",
+                          "tail": "\n      ",
+                          "text": "Fish"
+                        }
+                      ],
+                      "tag": "theme",
+                      "tail": "\n      ",
+                      "text": "\n        "
+                    },
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "themekt",
+                          "tail": "\n        ",
+                          "text": "Other"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "themekey",
+                          "tail": "\n        ",
+                          "text": "Biogeographic"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "themekey",
+                          "tail": "\n      ",
+                          "text": "North Pacific Ocean"
+                        }
+                      ],
+                      "tag": "theme",
+                      "tail": "\n    ",
+                      "text": "\n        "
+                    }
+                  ],
+                  "tag": "keywords",
+                  "tail": "\n    ",
+                  "text": "\n      "
+                },
+                {
+                  "attributes": {},
+                  "children": [],
+                  "tag": "accconst",
+                  "tail": "\n    ",
+                  "text": "Read only"
+                },
+                {
+                  "attributes": {},
+                  "children": [],
+                  "tag": "useconst",
+                  "tail": "\n    ",
+                  "text": "None"
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntper",
+                              "tail": "\n        ",
+                              "text": "Bailey, Michael"
+                            }
+                          ],
+                          "tag": "cntperp",
+                          "tail": "\n        ",
+                          "text": "\n          "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "addrtype",
+                              "tail": "\n          ",
+                              "text": "Mailing and Physical Address"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "address",
+                              "tail": "\n          ",
+                              "text": "7600 Sand Point Way N.E."
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "city",
+                              "tail": "\n          ",
+                              "text": "Seattle"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "state",
+                              "tail": "\n          ",
+                              "text": "WA"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "postal",
+                              "tail": "\n          ",
+                              "text": "98115"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "country",
+                              "tail": "\n        ",
+                              "text": "USA"
+                            }
+                          ],
+                          "tag": "cntaddr",
+                          "tail": "\n        ",
+                          "text": "\n          "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "cntvoice",
+                          "tail": "\n        ",
+                          "text": "206-526-4201"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "cntfax",
+                          "tail": "\n        ",
+                          "text": "206-526-6723"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "cntemail",
+                          "tail": "\n      ",
+                          "text": "mike.bailey@noaa.gov"
+                        }
+                      ],
+                      "tag": "cntinfo",
+                      "tail": "\n    ",
+                      "text": "\n        "
+                    }
+                  ],
+                  "tag": "ptcontac",
+                  "tail": "\n  ",
+                  "text": "\n      "
+                }
+              ],
+              "tag": "idinfo",
+              "tail": "\n  ",
+              "text": "\n    "
+            },
+            {
+              "attributes": {},
+              "children": [
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntper",
+                              "tail": "\n        ",
+                              "text": "Bailey, Michael"
+                            }
+                          ],
+                          "tag": "cntperp",
+                          "tail": "\n        ",
+                          "text": "\n          "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "addrtype",
+                              "tail": "\n          ",
+                              "text": "Mailing and Physical Address"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "address",
+                              "tail": "\n          ",
+                              "text": "7600 Sand Point Way N.E."
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "city",
+                              "tail": "\n          ",
+                              "text": "Seattle"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "state",
+                              "tail": "\n          ",
+                              "text": "WA"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "postal",
+                              "tail": "\n          ",
+                              "text": "98115"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "country",
+                              "tail": "\n        ",
+                              "text": "USA"
+                            }
+                          ],
+                          "tag": "cntaddr",
+                          "tail": "\n        ",
+                          "text": "\n          "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "cntvoice",
+                          "tail": "\n        ",
+                          "text": "206-526-4201"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "cntfax",
+                          "tail": "\n        ",
+                          "text": "206-526-6723"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "cntemail",
+                          "tail": "\n      ",
+                          "text": "mike.bailey@noaa.gov"
+                        }
+                      ],
+                      "tag": "cntinfo",
+                      "tail": "\n    ",
+                      "text": "\n        "
+                    }
+                  ],
+                  "tag": "distrib",
+                  "tail": "\n    ",
+                  "text": "\n      "
+                },
+                {
+                  "attributes": {},
+                  "children": [],
+                  "tag": "distliab",
+                  "tail": "\n  ",
+                  "text": "While every effort has been made to ensure that these data are accurate and reliable within the limits of the current state of the art, NOAA cannot assume liability for any damages caused by any errors or omissions in the data, nor as a result of the failure of the data to function on a particular system. NOAA makes no warranty, expressed or implied, nor does the fact of distribution constitute such a warranty."
+                }
+              ],
+              "tag": "distinfo",
+              "tail": "\n  ",
+              "text": "\n    "
+            },
+            {
+              "attributes": {},
+              "children": [
+                {
+                  "attributes": {},
+                  "children": [],
+                  "tag": "metd",
+                  "tail": "\n    ",
+                  "text": "19970802"
+                },
+                {
+                  "attributes": {},
+                  "children": [
+                    {
+                      "attributes": {},
+                      "children": [
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "cntper",
+                              "tail": "\n        ",
+                              "text": "Kimberly Bahl"
+                            }
+                          ],
+                          "tag": "cntperp",
+                          "tail": "\n        ",
+                          "text": "\n          "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "addrtype",
+                              "tail": "\n          ",
+                              "text": "Mailing and Physical Address"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "address",
+                              "tail": "\n          ",
+                              "text": "NOAA / AFSC / PMEL, 7600 Sand Point Way N.E."
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "city",
+                              "tail": "\n          ",
+                              "text": "Seattle"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "state",
+                              "tail": "\n          ",
+                              "text": "WA"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "postal",
+                              "tail": "\n          ",
+                              "text": "98115"
+                            },
+                            {
+                              "attributes": {},
+                              "children": [],
+                              "tag": "country",
+                              "tail": "\n        ",
+                              "text": "USA"
+                            }
+                          ],
+                          "tag": "cntaddr",
+                          "tail": "\n        ",
+                          "text": "\n          "
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "cntvoice",
+                          "tail": "\n        ",
+                          "text": "206-526-4314"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "cntfax",
+                          "tail": "\n        ",
+                          "text": "206-526-6485"
+                        },
+                        {
+                          "attributes": {},
+                          "children": [],
+                          "tag": "cntemail",
+                          "tail": "\n      ",
+                          "text": "kimberly.bahl@noaa.gov"
+                        }
+                      ],
+                      "tag": "cntinfo",
+                      "tail": "\n    ",
+                      "text": "\n        "
+                    }
+                  ],
+                  "tag": "metc",
+                  "tail": "\n    ",
+                  "text": "\n      "
+                },
+                {
+                  "attributes": {},
+                  "children": [],
+                  "tag": "metstdn",
+                  "tail": "\n    ",
+                  "text": "Content Standards for Digital Geospatial Metadata"
+                },
+                {
+                  "attributes": {},
+                  "children": [],
+                  "tag": "metstdv",
+                  "tail": "\n    ",
+                  "text": "FGDC-STD-001-1998"
+                },
+                {
+                  "attributes": {},
+                  "children": [],
+                  "tag": "metac",
+                  "tail": "\n    ",
+                  "text": "Read only"
+                },
+                {
+                  "attributes": {},
+                  "children": [],
+                  "tag": "metuc",
+                  "tail": "\n  ",
+                  "text": "None"
+                }
+              ],
+              "tag": "metainfo",
+              "tail": "\n",
+              "text": "\n    "
+            }
+          ],
+          "tag": "metadata",
+          "tail": null,
+          "text": "\n  "
+        },
+        "xpath": "."
+      }
+    ]
+  },
+  "current_creator426_cohort_sha256": "ad09064418a521841839c7d3e83acf72a7b385def9f98e137f21476f0e586ec2",
+  "publication_plan_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad",
+  "plan_target": {
+    "artifact_binding": {
+      "assessment_scope": "fresh_selected",
+      "reference": {
+        "artifact_contract_sha256": "d27519266efa0c69759f054d8c379041d23d4d2553a16cf1bf619e3c53b0528e",
+        "payload_path": "class_payloads/XMLCLASS-8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237.json",
+        "payload_sha256": "0944acfc5e20fac8ed86d2a54c36b74b6509ca5d52cc8896ad9c169d60822490"
+      },
+      "status": "saved_class_reference_requires_artifact_resolution_and_validation"
+    },
+    "executable": false,
+    "execution_holds": [
+      "raw_owner_capture_not_supplied_to_code_lane",
+      "class_execution_not_implemented"
+    ],
+    "expected_original_files": [
+      {
+        "md5": "8f751145730378952525a4c26d5d4d78",
+        "name": "FGDC-2837.xml",
+        "path": "FGDC/FGDC-2837.xml",
+        "role": "descriptive_metadata",
+        "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+        "size": 4153,
+        "source_id": "FGDC-2837"
+      },
+      {
+        "md5": "8f751145730378952525a4c26d5d4d78",
+        "name": "FGDC-3065.xml",
+        "path": "FGDC/FGDC-3065.xml",
+        "role": "descriptive_metadata",
+        "sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+        "size": 4153,
+        "source_id": "FGDC-3065"
+      }
+    ],
+    "identity_decision": {
+      "canonical_source_id": null,
+      "current_owner_absence_independently_verified_here": false,
+      "decision": "reported_zero_exact_current_owner_candidates_capture_review_pending",
+      "historical_deleted_or_tombstone_absence_established": false,
+      "owner_summary_evidence": {
+        "path": "docs/readiness/2026-10-04/production_owner_inventory_parent_summary.json",
+        "sha256": "cdb0f98655130a3bb025fa2a5c92b6c8d518602e5589027d30fdbdcab15706d8"
+      },
+      "production_doi": null,
+      "production_record_id": null,
+      "title_hints_not_identity": []
+    },
+    "provider_action_grant": null,
+    "provider_actions": [],
+    "publication_approved": false,
+    "record_target_id": "sha256:8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+    "remote_verified": false,
+    "restart": {
+      "disposition": "hold_missing_state_not_permission_to_create",
+      "reported_entry": null,
+      "safe_to_retry": false
+    },
+    "shared_execution_holds_apply": true,
+    "source_ids": [
+      "FGDC-2837",
+      "FGDC-3065"
+    ],
+    "source_question_reference": null,
+    "source_semantic_status": "supported",
+    "source_sha256": "8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+    "upload_eligible": false
+  },
+  "plan_target_sha256": "adc2dbcd382da19ded0fcf6792b70679721672567396a1cb644a4136bf78c0ba",
+  "existing_pair_review": {
+    "path": "/tmp/pices-nonexxon25-pair-source-review.json",
+    "sha256": "455b5e015eca7f93e96b1a75ecd0a1998adaaa6ee37a38a512c18f2f913c7d94",
+    "status": "Frozen: approved24 and one held pair reflect its historical source decision; no bytes changed",
+    "effect_of_supplement": "Separate source-only approval for the previously held pair, not an amendment to the approved24 packet or a preparation result"
+  },
+  "retained_affirmative_primary_evidence": [
+    {
+      "exact_relevant_literal": "Livingston, Pat",
+      "finding": "Explicit inverted personal-name listing at NMFS/AKFSC/REFMD, same institutional and Seattle-campus context as the original source. Supports family Livingston, literal given Pat, without expansion or a new identifier.",
+      "id": "noaa_exact_pat_directory",
+      "retrieval": "Web tool successfully opened and parsed HTML, lines114–118; direct curl CONNECT rejected403, no raw HTML byte hash",
+      "role_limit": "The directory supplies parts evidence only; source XML supplies the editor credit.",
+      "title": "EcoFOCI Phone List",
+      "url": "https://www.pmel.noaa.gov/foci/foci-tel.shtml"
+    },
+    {
+      "exact_relevant_literal": "Livingston, Pat",
+      "finding": "NOAA personal-author catalogue and RIS use the exact inverted literal; the same record also uses natural-order Pat Livingston and surname-plus-initial citation. The work concerns eastern/western Bering Sea food webs. This independently corroborates the name boundary, not a credit on the 1994 database.",
+      "id": "noaa_exact_pat_catalogue",
+      "retrieval": "Web tool successfully opened and parsed HTML, lines33,42–48,54–66; direct curl CONNECT rejected403, no raw HTML byte hash",
+      "title": "Alaska Fisheries Science Center Quarterly Report: April, May, June, 2003",
+      "url": "https://repository.library.noaa.gov/view/noaa/19964"
+    },
+    {
+      "finding": "AFSC institutional history describes Pat Livingston developing the groundfish feeding-ecology program and the associated food-habits database, including eastern Bering Sea diet information. This makes the directory/catalogue contextual match substantive. It does not replace the exact source editor limitation with scientific-data authorship.",
+      "id": "noaa_pat_database_context",
+      "retrieval": "Web tool successfully opened and parsed HTML, lines27–38,47–50; direct curl CONNECT rejected403, no raw HTML byte hash",
+      "title": "Pat Livingston Retires From the Alaska Fisheries Science Center",
+      "url": "https://apps-afsc.fisheries.noaa.gov/Quarterly/OND2014/divrptsREFM15.htm"
+    }
+  ],
+  "retained_negative_external_identity_evidence": {
+    "prior_independent_search": {
+      "path": "/tmp/pices-douglas-smith-primary-research.json",
+      "result": "No exact database-linked inverted name or initials bridge found; independently retains complete-array hold. The receipt separates explicit inverted Smith,Douglas M. from unproved compiler equivalence.",
+      "sha256": "0173cb9dcba95b0d84250a872e44c56a858f6b1264519704cc1bf6a833093e29"
+    },
+    "evidence": [
+      {
+        "exact_relevant_literals": [
+          "D. M. Smith",
+          "P. A. Livingston"
+        ],
+        "finding": "Same NOAA AFSC REFM scientific area and co-credit context, but this is a different work and presents initials. It does not explicitly equate the original Douglas Smith compiler with that author. Not sufficient to add M., convert Douglas to Doug, or supply the missing exact parts evidence.",
+        "id": "related_afsc_initials_not_identity_bridge",
+        "retrieval": "Web tool successfully parsed184-page PDF; byline/citation on PDF pages0–2. No raw PDF download/hash or screenshot verification claimed.",
+        "title": "Food Habits of Some Commercially Important Groundfish off the Coasts of California, Oregon, Washington, and British Columbia",
+        "url": "https://apps-afsc.fisheries.noaa.gov/Publications/AFSC-TM/NOAA-TM-AFSC-102.pdf"
+      },
+      {
+        "finding": "Natural-order Douglas Smith in a relevant institution alone does not establish explicit parts or a compiler-identity link.",
+        "id": "afsc_douglas_byline_lead_not_proof",
+        "retrieval": "Search result reports Jimmie Traynor and Douglas Smith at AFSC; direct web PDF open failed. Lead only, not full-document or raw-byte evidence.",
+        "title": "NOAA Technical Report NMFS126, Summer Distribution and Abundance of Age-0 Walleye Pollock in the Bering Sea",
+        "url": "https://repository.library.noaa.gov/view/noaa/2996/noaa_2996_DS1.pdf"
+      },
+      {
+        "exact_relevant_literal": "Smith, Douglas M.",
+        "finding": "Relevant institution/time/region but an additional middle initial and a different work; no explicit link to this source compiler. No identity-equivalence claim or added initial is approved.",
+        "id": "afsc_douglas_m_catalogue_lead_not_proof",
+        "retrieval": "NOAA catalogue text available in web search result; not independently opened/downloaded in this review. Lead only.",
+        "title": "Distribution, abundance, and biological characteristics of groundfish in the eastern Bering Sea, May–September1985 surveys",
+        "url": "https://repository.library.noaa.gov/view/noaa/26574"
+      }
+    ],
+    "effect": "No external compiler-person link established; no such link is asserted or required by this finite literal-parts projection"
+  },
+  "historical_complete_legacy_payloads": {
+    "path": "/tmp/pices-foodhabits-pair-current-source-bindings.json",
+    "sha256": "b353004cd8c4328d51db32cec4dbbfed092d6f97d715b1f1cb65460d21bea9db",
+    "json_key": "historical_binding_rows",
+    "preservation": "Complete earlier raw metadata remains frozen here, explicitly distinguished from the current426 array; no fresh preparation in this review"
+  }
+}

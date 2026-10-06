@@ -284,14 +284,17 @@ class ModernPrimaryOrganizationTests(unittest.TestCase):
 
     def test_unselected_person_reference_paired_protected_and_held_sources_stay_blocked(self):
         fixture = self.fixture()
-        # SOA remains outside every finite policy; PICES26 now has its own policy.
-        for sid in ('FGDC-1', 'FGDC-3875', 'FGDC-710', 'FGDC-2953', 'FGDC-3181',
-                    'FGDC-729', 'FGDC-768', 'FGDC-4050', 'FGDC-4051', *PROTECTED):
+        # MSO remains outside every finite policy; PICES26 and citation organizations have their own.
+        for sid in ('FGDC-885', 'FGDC-859', 'FGDC-710', 'FGDC-2953', 'FGDC-3181',
+                    'FGDC-184', 'FGDC-197', 'FGDC-3786', 'FGDC-4068', *PROTECTED):
             with self.subTest(source=sid):
                 path = fixture.json_file.with_name(sid + '.json')
                 path.write_bytes(fixture.json_file.read_bytes())
-                with self.assertRaises(ValueError):
-                    mapping.source_policy(sid)
+                if sid in {'FGDC-184', 'FGDC-197', 'FGDC-4068'}:
+                    self.assertEqual(mapping.source_policy(sid)[1]['policy'], mapping.CITATIONS31_POLICY)
+                else:
+                    with self.assertRaises(ValueError):
+                        mapping.source_policy(sid)
                 with self.assertRaises(ValueError):
                     mapping.prepare(path, fixture.paths)
 

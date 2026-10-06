@@ -7,21 +7,29 @@
 - Maintain reproducibility, determinism, and traceability.
 - Avoid technical debt and unbounded complexity.
 - Prefer simplicity, composability, and transparency over cleverness.
-- Keep this ruleset current when the user changes repository workflow rules; rules and documentation updates may be committed directly to `main`.
+- Keep this ruleset current when the user changes repository workflow rules; authorized implementation continues directly on `main` after branch reconciliation; rules and documentation updates may also be committed there.
 
-## Standing Repository Authorization — 2026-10-04
+## Standing Repository Authorization — updated 2026-10-06
 
-Brett explicitly authorized the following repository workflow. It supersedes older
-instructions requiring separate approval to merge or prohibiting agents from
-editing this ruleset, including those retained in historical plans and handoffs.
+Brett explicitly authorized this repository workflow. It supersedes older
+instructions requiring separate merge approval, prohibiting rules edits, or
+requiring a feature branch or PR as a routine preference, including instructions
+retained in historical checkouts, plans and handoffs.
 
-- Merge pull requests without another approval when CI passes and the PR has had a Codex review. Verify the checks and review apply to the current PR head, and resolve material review findings before merging.
-- Commit rules changes and other documentation updates directly to `main` without another approval. Keep those commits limited to rules/documentation and run the appropriate documentation checks.
-- Carry forward this authorization across tasks; do not ask the user to approve the same repository workflow again.
-- Preserve frozen historical receipts and instructions as evidence. Apply this current authorization when an older repository approval instruction conflicts with it.
+- Reconcile every current relevant branch, PR and interrupted checkpoint. Integrate ready work with its required tests and independent Codex review; distinguish already integrated, genuinely incomplete, obsolete and unrelated work instead of merging blindly.
+- Merge existing pull requests without another approval when CI passes and Codex review covers the current head. Resolve material review findings before merging.
+- After consolidation, continue authorized implementation directly on `main`. Run appropriate local checks and obtain independent review before publishing changes, then verify the resulting main head and required checks. Do not create another feature branch or PR merely to follow an older workflow preference.
+- If a real protected-main or repository prerequisite requires a different integration route, report the exact gate and honor it without bypassing it.
+- Commit rules changes and other documentation updates directly to `main` without another approval, with appropriate documentation checks.
+- Keep one code integration writer and coordinate with the sole Mac provider executor. Repository changes do not grant provider actions.
+- Preserve unfinished branches, frozen historical checkouts, journals and receipts. No branch deletion is authorized by the consolidation request.
+- Carry this authorization across tasks; do not ask the user to approve the same workflow again.
 
-This repository authorization leaves the existing provider executor, bounded
-action grants, source evidence, and production release requirements in force.
+The provider executor, bounded action grants, immutable original XML, source
+evidence, identity/DOI preservation and production release requirements remain in
+force. The spent unknown-create hold and supported-network-recovery requirement
+remain unchanged. AquaDocs linkage is deferred until after initial publication;
+it is not completed or passed and is not an initial publication blocker.
 
 ## Agent Protocol
 

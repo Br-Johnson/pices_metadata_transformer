@@ -1,0 +1,345 @@
+{
+  "actual_coverage": {
+    "full_ci_conclusion": "Not assessed by this design task; parent owns CI reconciliation.",
+    "new_admissions_from_this_design": 0,
+    "new_coverage": 0,
+    "new_preparations": 0,
+    "original_xml_files_represented": 4011,
+    "prepared_classes": 203,
+    "remaining_pairs": 25,
+    "remaining_singletons": 100,
+    "remaining_supported_targets": 125,
+    "singletons": 3605,
+    "validation_pin": {
+      "bytes": 75489,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20_validation.json",
+      "sha256": "23efeba9c464769f8050af26224679aabbe3995c3b725c9ae436b56498a00a8e"
+    },
+    "wire_prepared_targets": 3808
+  },
+  "base_head": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+  "base_runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+  "base_tree": "8a483aef1629d26123812afe1c8a8ee48b95954d",
+  "bounded_service_key_adaptation": "direct10 only given_names\u2192given_name; exact reviewed vectors retained; every value/order/affiliation unchanged",
+  "complete_service_vector_groups": 19,
+  "frozen_mixed11_preserved": [
+    {
+      "bytes": 55836,
+      "path": "/tmp/pices-mixed11-next-increment.manifest.json",
+      "sha256": "34f20e836b8a70aba5b36659dbe07b8199202b8a76eb5896264b29934dadcad1"
+    },
+    {
+      "bytes": 76962,
+      "path": "/tmp/pices-mixed11-next-increment.contract.json",
+      "sha256": "d4c8eea9da6da32986a6e95a4ee5fd514b957b65a62cdd0e1f09b9030bd2f792"
+    },
+    {
+      "bytes": 4546,
+      "path": "/tmp/pices-mixed11-next-increment.md",
+      "sha256": "268bfa157b94b2490aacab7dec75131767570ffa1f1c08f5aaf01b1290cbdb62"
+    },
+    {
+      "bytes": 6931,
+      "path": "/tmp/pices-mixed11-next-increment.receipt.json",
+      "sha256": "d97764bd895a86a127d3446c364b3d5d9260d0afb87be44a1911b392770ebaf1"
+    }
+  ],
+  "future_independent_code_and_context_rendering_review_required": true,
+  "held_sets": {
+    "basis16": [
+      {
+        "source_id": "FGDC-3680",
+        "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+      },
+      {
+        "source_id": "FGDC-3681",
+        "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+      },
+      {
+        "source_id": "FGDC-3800",
+        "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+      },
+      {
+        "source_id": "FGDC-3802",
+        "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+      },
+      {
+        "source_id": "FGDC-3803",
+        "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+      },
+      {
+        "source_id": "FGDC-3804",
+        "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+      },
+      {
+        "source_id": "FGDC-3805",
+        "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+      },
+      {
+        "source_id": "FGDC-3806",
+        "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+      },
+      {
+        "source_id": "FGDC-3807",
+        "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+      },
+      {
+        "source_id": "FGDC-3808",
+        "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+      },
+      {
+        "source_id": "FGDC-3814",
+        "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+      },
+      {
+        "source_id": "FGDC-3816",
+        "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+      },
+      {
+        "source_id": "FGDC-3817",
+        "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+      },
+      {
+        "source_id": "FGDC-3825",
+        "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+      },
+      {
+        "source_id": "FGDC-3831",
+        "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+      },
+      {
+        "source_id": "FGDC-3838",
+        "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+      }
+    ],
+    "contract771": [
+      {
+        "source_id": "FGDC-771",
+        "source_sha256": "afdab5a682082fc944ee7ab3a004c626a20468e5784f828adf1e63fc55a43af5"
+      }
+    ],
+    "direct4": [
+      {
+        "source_id": "FGDC-287",
+        "source_sha256": "c1fbb8aa99f3e48d2d29a3c2ed46158a07703de90be7974bab3831452981d0e2"
+      },
+      {
+        "source_id": "FGDC-2235",
+        "source_sha256": "87987d08962dd27c2a63a3ef9290dceddecd9ae4a108ae5256bec28a3cf2378d"
+      },
+      {
+        "source_id": "FGDC-2668",
+        "source_sha256": "554c38ba3ad5c3bdbdc17aeed63361e30783aca26770d32fe3e46980af58785c"
+      },
+      {
+        "source_id": "FGDC-3599",
+        "source_sha256": "e68427690dad4285c3cdf893e0cee5b254a9064c4a00331c23e7875d4881c267"
+      }
+    ],
+    "office411": [
+      {
+        "source_id": "FGDC-411",
+        "source_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b"
+      }
+    ]
+  },
+  "held_sets_sha256": "c7a4696ce911a1b1ff7ea634cd3480754a525e03f44efb65d49742faf72caaaa",
+  "limits": {
+    "coverage_change": 0,
+    "measurements": 0,
+    "network_requests": 0,
+    "pairs_execution_enabled": false,
+    "preparations": 0,
+    "project_imports": 0,
+    "provider_action_grant": null,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "source_judgments_added": 0,
+    "source_review_receipts_rewritten": 0,
+    "tests": 0
+  },
+  "member_count": 31,
+  "members": [
+    {
+      "source_id": "FGDC-184",
+      "source_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953"
+    },
+    {
+      "source_id": "FGDC-197",
+      "source_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac"
+    },
+    {
+      "source_id": "FGDC-248",
+      "source_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d"
+    },
+    {
+      "source_id": "FGDC-249",
+      "source_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de"
+    },
+    {
+      "source_id": "FGDC-250",
+      "source_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8"
+    },
+    {
+      "source_id": "FGDC-251",
+      "source_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae"
+    },
+    {
+      "source_id": "FGDC-254",
+      "source_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2"
+    },
+    {
+      "source_id": "FGDC-261",
+      "source_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379"
+    },
+    {
+      "source_id": "FGDC-262",
+      "source_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23"
+    },
+    {
+      "source_id": "FGDC-296",
+      "source_sha256": "95b389f34c706a9e5cda9876c81f0cbc40b12080c2f4cec42f322c7383e3bd43"
+    },
+    {
+      "source_id": "FGDC-723",
+      "source_sha256": "f652edb80b7f49d3f70d71ef27b5097e34af886fa41dcfbda4f4a0907b0ffd3a"
+    },
+    {
+      "source_id": "FGDC-725",
+      "source_sha256": "5e77b53da45cbfd7dcb7e68e9da66574e0a1ee876fe8afeff1527dfce61b23f1"
+    },
+    {
+      "source_id": "FGDC-755",
+      "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+    },
+    {
+      "source_id": "FGDC-757",
+      "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+    },
+    {
+      "source_id": "FGDC-760",
+      "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+    },
+    {
+      "source_id": "FGDC-770",
+      "source_sha256": "51729916302421ebdc9029022e940e3928381eb1fa37ddecda92577afb095398"
+    },
+    {
+      "source_id": "FGDC-785",
+      "source_sha256": "eadafc1d01732e0b32924d9a5acb3dae62d0a1aac4cde510d2eac9430337def0"
+    },
+    {
+      "source_id": "FGDC-817",
+      "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f"
+    },
+    {
+      "source_id": "FGDC-1905",
+      "source_sha256": "cd945a4a80ecfd606bbc08b620144eed3c97c57b5b6b8d8c83aabf037409754c"
+    },
+    {
+      "source_id": "FGDC-1941",
+      "source_sha256": "50f59b3f73656d8836cecd136d76a11119abcbcbfa1a562ae6ec15b9b1a43b04"
+    },
+    {
+      "source_id": "FGDC-2559",
+      "source_sha256": "47f605b4a5334b2e375afe0792779ef2cba5f5c67d3a2d79d3c2745d826e42b4"
+    },
+    {
+      "source_id": "FGDC-2597",
+      "source_sha256": "ebbc654aa567e4fee5cad30847de107b65839f2f7c648fc5dd041f58e8bfa88d"
+    },
+    {
+      "source_id": "FGDC-2709",
+      "source_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7"
+    },
+    {
+      "source_id": "FGDC-3600",
+      "source_sha256": "e6bc7f2cac8751e369ce68622631cbab97f9c887988fef2336194d615c113aa0"
+    },
+    {
+      "source_id": "FGDC-3789",
+      "source_sha256": "0400063e073bd04d3b75fc03e916dc84c478389c871ebcb153e686a7f3d1f88a"
+    },
+    {
+      "source_id": "FGDC-3793",
+      "source_sha256": "dd2c4faf965c1d12699a3cc26667102437191ecbb05a12586931144fbe4e2c82"
+    },
+    {
+      "source_id": "FGDC-3794",
+      "source_sha256": "2708f0ca3f0f1fa17c0d50be2de3b014f01c38fb0b52b8666e7fd3925d75dbf8"
+    },
+    {
+      "source_id": "FGDC-3809",
+      "source_sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9"
+    },
+    {
+      "source_id": "FGDC-3810",
+      "source_sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e"
+    },
+    {
+      "source_id": "FGDC-3812",
+      "source_sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640"
+    },
+    {
+      "source_id": "FGDC-4068",
+      "source_sha256": "8ab7e260eb2827aeadee6effcbbbd1bc10a2e09a3c6098dcca0d153a230d762b"
+    }
+  ],
+  "membership_sha256": "1602de63f4dafe4c0eabdf7ab366a955c4e479ed57f1b75680d620f89160bc4b",
+  "modern_creator_objects": 65,
+  "organizational_objects": 29,
+  "outputs": {
+    "contract": {
+      "bytes": 71522,
+      "path": "/tmp/pices-next31-finite.contract.json",
+      "sha256": "6916298096424861de40628dde67e32512bfa8d1281894868b8ea6b79b675c8b"
+    },
+    "manifest": {
+      "bytes": 274632,
+      "path": "/tmp/pices-next31-finite.manifest.json",
+      "sha256": "e4780cab4644dc795d92be898386853f35254efcbb4c555288f957e735a6d25d"
+    },
+    "summary": {
+      "bytes": 3336,
+      "path": "/tmp/pices-next31-finite.md",
+      "sha256": "9c756a8ab40fa5b6940d48055c67bfdad842c54f4189cc58fd4c0b826767255a"
+    }
+  },
+  "partition_counts": {
+    "basis3": 3,
+    "contract8": 8,
+    "direct10": 10,
+    "office10": 10
+  },
+  "personal_objects": 36,
+  "schema_version": 1,
+  "source_authorities": {
+    "creator426": 3,
+    "direct": 28
+  },
+  "source_review_authority_pins": {
+    "basis_review": {
+      "bytes": 30599,
+      "path": "/tmp/pices-basis19-independent-complete-array-review.json",
+      "sha256": "0f791b51da0294d494053393ba48a40170dbd4f26c049007486d5568e658b7da"
+    },
+    "contract_review": {
+      "bytes": 110107,
+      "path": "/tmp/pices-contract-chain9-independent-source-review.json",
+      "sha256": "2ce5c267e37168aaa8c8c1202c756a167459c9c031b96e16dc34aa760ff58d83"
+    },
+    "direct_review": {
+      "bytes": 51745,
+      "path": "/tmp/pices-direct14-independent-source-review.json",
+      "sha256": "8caff527a8752db3975470806d88623b3fdc4bd9100ba40a393471c1c4c09597"
+    },
+    "office_review": {
+      "bytes": 48777,
+      "path": "/tmp/pices-role-office11-independent-source-review.json",
+      "sha256": "dbde3f4c6a36b9368b75683e21ab9dff1098968285eef0abd9eba896a37fc673"
+    }
+  },
+  "static_binding_rows_checked": 31,
+  "static_binding_rows_sha256": "eb43ad26884fb29c45fe029b8d64d9cca45b24883cce379032a91c83bc7de50d",
+  "status": "FROZEN_UNIMPLEMENTED_DESIGN_ONLY"
+}

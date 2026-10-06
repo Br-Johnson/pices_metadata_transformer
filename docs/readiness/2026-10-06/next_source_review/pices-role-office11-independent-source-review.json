@@ -1,0 +1,904 @@
+{
+  "schema_version": 1,
+  "kind": "role-office11-independent-source-review-v1",
+  "reviewer": "Codex /root/mutation_contract_tests",
+  "review_date": "2026-10-06",
+  "scope": "Independent source-semantic review of the exact eleven-member role/office proposal only. The reviewer did not author that proposal. This is not runtime, QA, grant or release approval.",
+  "source_checkout_head": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+  "reviewed_proposal_sha256": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd",
+  "reviewed_primary_evidence_sha256": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66",
+  "reviewed_delivery_receipt_sha256": "8488d300494ba9d1aafb33ff7138e355df7fec7a8acebb0725f128f81c521a71",
+  "decision": "APPROVE_TEN_EXACT_SOURCE_PROJECTIONS_RETAIN_ONE_COMPLETE_ARRAY_HOLD",
+  "approved_source_ids": [
+    "FGDC-184",
+    "FGDC-197",
+    "FGDC-248",
+    "FGDC-249",
+    "FGDC-250",
+    "FGDC-251",
+    "FGDC-254",
+    "FGDC-261",
+    "FGDC-262",
+    "FGDC-2709"
+  ],
+  "held_source_ids": [
+    "FGDC-411"
+  ],
+  "material_findings": [],
+  "overall_reasoning": "The approved vectors retain each entire source-primary literal, including its role qualifier, as one organizational citation credit. They do not manufacture an institution by stripping a personal role, split out unnamed persons, or claim an incumbent. For this finite cohort the original institution/office context supports the qualified institutional reference; this is not a rule that all job titles are organizations. The source-primary credits remain distinct from observed contacts, custodians and bibliography authors.",
+  "group_decisions": [
+    {
+      "group_id": "ios_oceanographic_data_manager1",
+      "source_ids": [
+        "FGDC-184"
+      ],
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "reasoning": "The full original credit first specifies DFO/Pacific Region/IOS and then the Oceanographic Data Manager capacity. The source describes the IOS lighthouse observation service, not an identified person's byline. I independently verified the historical DFO report's establishment of that data-management position. Keeping the full hierarchy and position label is a defensible institutional-capacity citation; replacing it with Perkin or silently dropping the manager qualifier would not be approved.",
+      "distinction": "The matching catalogue names Ron Perkin as custodian. That is contextual support for the service, not authorization to identify the primary creator with him. Retain singular Science exactly as supplied."
+    },
+    {
+      "group_id": "meds_institutional_custodian1",
+      "source_ids": [
+        "FGDC-197"
+      ],
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "reasoning": "The original's department/institute/MEDS compound is entirely institutional apart from its custodial qualifier. The matching historical sea-level catalogue explicitly assigns custody to MEDS and separately identifies Robin Brown as contributor. This directly supports institutional custody without a person inference. One unchanged object avoids asserting a new formal hierarchy or splitting associated institutions into multiple creators.",
+      "distinction": "The catalogue's broader geographic coverage and approximate1900 start do not replace the XML's1905 start,21-station context or any geographic field."
+    },
+    {
+      "group_id": "dfo_science_branch_data_analyst7",
+      "source_ids": [
+        "FGDC-248",
+        "FGDC-249",
+        "FGDC-250",
+        "FGDC-251",
+        "FGDC-254",
+        "FGDC-261",
+        "FGDC-262"
+      ],
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "reasoning": "I read all seven full originals. Every primary origin is the identical department/Science Branch label qualified by Data Analyst, while the database contexts and separate contacts differ. These records identify groundfish catch/effort, biological, recreational catch, Aboriginal catch, enhancement, EPIC and JED institutional data services. The finite source convention supports one unchanged institution-qualified functional citation. No personal name occurs in that primary string, and no evidence requires substituting the contact. Current staff-directory identities are unnecessary and are not relied upon.",
+      "distinction": "Data Analyst alone is not approved as an organization, nor is this an assertion of a distinct formal office or a common incumbent. All seven legacy arrays lack a type key; their legacy shape remains untouched while the separate modern projection types the whole literal. Preserve all database caveats, sample ranges, restrictions and source anomalies."
+    },
+    {
+      "group_id": "usfws_director_office1",
+      "source_ids": [
+        "FGDC-2709"
+      ],
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "reasoning": "The primary credit names the Director with the complete USFWS institution and acronym, not an identified person. I independently verified official DOI classification of the Director's office as an organizational component and NARA's historical use of the office. The full literal can therefore remain one qualified office citation. No words are added, including Office of the, and Director is not stripped.",
+      "distinction": "The exact same-work Turner/O'Connor/Izrael/Tsyban bibliography and the separate Turner contact remain intact. The office citation is not equated to Turner, an incumbent, or the four-person byline, and it is not promoted to equal scientific authorship. Preserve both source1990 and bibliography1990? without resolving them."
+    },
+    {
+      "group_id": "uaf_professor_emeritus1",
+      "source_ids": [
+        "FGDC-411"
+      ],
+      "decision": "HOLD_COMPLETE_ARRAY_PERSONAL_STATUS_NOT_SUPPORTED_ORGANIZATIONAL_OFFICE",
+      "reasoning": "Professor Emeritus is an individual academic status, unlike the supported administrative/service capacities above. The source supplies affiliation hierarchy but neither a personal name in primary origin nor an established collective office. The earlier Hood/Kelley/Takenouti references and Hood contact do not establish that the primary credit refers to that named person. The legacy Organization type is a heuristic, not evidence. No full modern vector is supportable from this record alone.",
+      "distinction": "Preserve the whole Professor Emeritus/UAF/SFOS/IMS string. Do not strip the status to yield UAF, promote Hood, or split the suffix institutions. The full array stays null/held."
+    }
+  ],
+  "independent_primary_checks": [
+    {
+      "url": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/170963-89.pdf",
+      "retrieval": "Independently opened and searched the official112-page PDF through the web tool on2026-10-06. No raw remote-byte hash or screenshot verification claimed.",
+      "locator": "Parsed page markerP73, printed69, position-creation passage; Science Branch context at parsed pageP5.",
+      "short_quote": "position of Oceanographic Data Manager was established",
+      "finding": "The passage places the position in IOS scientific-computing support and associates it with data formats, processing and archiving. The report separately identifies Science Branch administration. It corroborates institutional capacity, not any later dataset's author identity."
+    },
+    {
+      "url": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/4061881x.pdf",
+      "retrieval": "Independently opened and searched the official74-page PDF. No raw remote-byte hash or screenshot verification claimed.",
+      "locator": "Parsed page markersP61-P62, sea-level and lighthouse entries.",
+      "short_quote": "Custodian: Marine Environmental Data Service",
+      "finding": "The sea-level entry names MEDS as custodian, IOS distribution and a separate Robin Brown contributor. The lighthouse entry matches the source's observation method and automation context while separately naming Ron Perkin as custodian. These distinctions agree with preserving original credits rather than promoting contacts."
+    },
+    {
+      "url": "https://www.doi.gov/document-library/departmental-manual/142-dm-2-office-director",
+      "retrieval": "Independently opened the official departmental-manual HTML. The linked PDF was not needed or requested in this review.",
+      "locator": "Title and classification list,2022-05-16.",
+      "finding": "The agency's Office of the Director is explicitly catalogued in the organizational series for USFWS. This is organizational-category evidence only, not a claim that the1990 report had the same organizational chart or a known incumbent."
+    },
+    {
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/022.html",
+      "retrieval": "Independently opened the official archival guide and inspected section22.8.6.",
+      "locator": "History paragraph of Office of Foreign Activities.",
+      "finding": "The guide places that function under the immediate Director's office in1945. This independently confirms historical institutional-office usage; it does not establish the BERPAC report's authorship."
+    }
+  ],
+  "binding_and_preservation_requirements": [
+    "Approval applies only to the exact source hashes, full ordered vectors, complete legacy arrays and five explicit group decisions bound in this receipt. It is not a reusable role-label heuristic.",
+    "The full exact citation string must remain visible in the modern name and complete retained source/legacy context. Keep all role qualifiers, singular/plural spelling, acronym punctuation, ordering and object counts.",
+    "Carry each required_preservation_note from the reviewed proposal into later reviewed source evidence; do not replace the complete legacy metadata or raw XML with the modern vector.",
+    "Contacts, metadata contacts, historical/current staff, contributors and bibliography authors remain in their original separate contexts. No affiliations, identifiers, new creators, personal parts or formal roles are added.",
+    "All raw dates, rights, access constraints, liability and anomalies remain. Existing artifact publication_date retains source_metadata_date semantics; no unknown underlying-dataset publication date is inferred from metadata dates or external references.",
+    "Source mapping approval does not establish new source eligibility, complete inventory, ownership, no-match history, runtime preparation coverage, provider permission, release approval or community membership. All existing gates and spent holds remain."
+  ],
+  "runtime_or_provider_approval": false,
+  "new_preparation_or_coverage_count": 0,
+  "operations": {
+    "complete_original_xml_reads": 11,
+    "project_imports": 0,
+    "tests": 0,
+    "runtime_preparation_or_measurement": 0,
+    "repository_edits": 0,
+    "provider_zenodo_aquadocs_requests": 0,
+    "credential_or_private_executor_state_reads": 0
+  },
+  "mechanical_binding_receipt": {
+    "path": "/tmp/pices-role-office11-independent-binding-check.json",
+    "sha256": "cb1808718f0b815a2a09633c5e92269039b1018d0a755a863611f5b5d49fd1dd",
+    "bytes": 81636,
+    "scope": "Delegated mechanical support only; semantic decisions are those of /root/mutation_contract_tests.",
+    "summary": {
+      "originals_checked": 11,
+      "unique_local_inputs_checked": 58,
+      "file_hash_checks": 60,
+      "global_checks": 24,
+      "source_checks": 319,
+      "findings": 0
+    }
+  },
+  "input_files": [
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json",
+      "sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/publication_plan.json",
+      "sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-02/rehosting_authority.json",
+      "sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_institution91_source_bindings.json",
+      "sha256": "0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_review_a.json",
+      "sha256": "e7a1b1f1e1df9ddc282504aedf6074abdb9a2a0b2e4e2230270ec29a54c2e38b"
+    },
+    {
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_review_b.json",
+      "sha256": "b31f0b7fd194afb9be121ce08cd5c7e4a7ef76a3c554902b9a462e8743b38ff1"
+    },
+    {
+      "path": "/tmp/pices-pr37-remaining-census.json",
+      "sha256": "64a19fe425a9e998fdce0afa8f47b6d38ff4cf58bb6f326573ea8dd2b1bb5043"
+    }
+  ],
+  "reviewed_artifacts": [
+    {
+      "path": "/tmp/pices-role-office11-modern-source-proposals.json",
+      "bytes": 268285,
+      "sha256": "971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd"
+    },
+    {
+      "path": "/tmp/pices-role-office11-primary-evidence.json",
+      "bytes": 7245,
+      "sha256": "168e1e1aec48c12b0c3210c6b0716edca3a35ea5e3a6452c13b8b4a1af45fb66"
+    },
+    {
+      "path": "/tmp/pices-role-office11-source-delivery-receipt.json",
+      "bytes": 3504,
+      "sha256": "8488d300494ba9d1aafb33ff7138e355df7fec7a8acebb0725f128f81c521a71"
+    }
+  ],
+  "members": [
+    {
+      "source_id": "FGDC-184",
+      "source_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953"
+    },
+    {
+      "source_id": "FGDC-197",
+      "source_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac"
+    },
+    {
+      "source_id": "FGDC-248",
+      "source_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d"
+    },
+    {
+      "source_id": "FGDC-249",
+      "source_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de"
+    },
+    {
+      "source_id": "FGDC-250",
+      "source_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8"
+    },
+    {
+      "source_id": "FGDC-251",
+      "source_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae"
+    },
+    {
+      "source_id": "FGDC-254",
+      "source_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2"
+    },
+    {
+      "source_id": "FGDC-261",
+      "source_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379"
+    },
+    {
+      "source_id": "FGDC-262",
+      "source_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23"
+    },
+    {
+      "source_id": "FGDC-411",
+      "source_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b"
+    },
+    {
+      "source_id": "FGDC-2709",
+      "source_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7"
+    }
+  ],
+  "membership_sha256": "442c8cedd8784e785e55af2573ba02afd70dc6b37dd83eb014ef8f9aac97136e",
+  "approved_members": [
+    {
+      "source_id": "FGDC-184",
+      "source_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953"
+    },
+    {
+      "source_id": "FGDC-197",
+      "source_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac"
+    },
+    {
+      "source_id": "FGDC-248",
+      "source_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d"
+    },
+    {
+      "source_id": "FGDC-249",
+      "source_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de"
+    },
+    {
+      "source_id": "FGDC-250",
+      "source_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8"
+    },
+    {
+      "source_id": "FGDC-251",
+      "source_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae"
+    },
+    {
+      "source_id": "FGDC-254",
+      "source_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2"
+    },
+    {
+      "source_id": "FGDC-261",
+      "source_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379"
+    },
+    {
+      "source_id": "FGDC-262",
+      "source_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23"
+    },
+    {
+      "source_id": "FGDC-2709",
+      "source_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7"
+    }
+  ],
+  "approved_membership_sha256": "958517de5e91e13f77bb6c93297fea4eeb0c02f5bbc18be43828447465b0f8f4",
+  "held_members": [
+    {
+      "source_id": "FGDC-411",
+      "source_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b"
+    }
+  ],
+  "held_membership_sha256": "b459b0ea158ca24e9ccb342d35d459551d68e13268f87abe40b8631af100839b",
+  "reviewed_source_rows_sha256": "bdd29e1da7c7a44e6e61e18d7b1bdfaa3d650efb4ca7827e4e795b4f8046c3fa",
+  "source_decisions": [
+    {
+      "source_id": "FGDC-184",
+      "source_sha256": "7157c164c06b2ec3e1e824ff74a6907166ed50b38a629d6f6c3e70985ee6d953",
+      "source_bytes": 4491,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-184.xml",
+      "group_id": "ios_oceanographic_data_manager1",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Fisheries and Oceans Canada - Pacific Region, Institute of Ocean Science, Oceanographic Data Manager"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Fisheries and Oceans Canada - Pacific Region, Institute of Ocean Science, Oceanographic Data Manager",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256": "a337d4e85b47eac7fefefa3f7a6a93ddd7b690b0273ff1839371afa884651f09",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Fisheries and Oceans Canada - Pacific Region, Institute of Ocean Science, Oceanographic Data Manager",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "997972220fc40524ff89c76aea3a70ad071e8a853c9625a3a0e4fdf4b20b3045",
+      "historical_payload_sha256": "3c7c75efb2777bfedd47d3e8a63deb6ad5ca49f0618d1e40c7372fd4af4387d2",
+      "full_legacy_metadata_sha256": "d4e52cb5d40df847839271a1637f155bf6ec0287a9a318ccc19209fd1e4820be",
+      "full_artifact_policy_sha256": "2955ea47cfbb33bd5a4fcd3f9f08bb5caf1555493b87a9649f82d8db18a29d85",
+      "frozen_plan_target_sha256_ascii": "c6bc2f91749536afabe7b378c762c290a71f49285cb2aff5722184c2a97d865d",
+      "required_preservation_note": "Primary citation credits Fisheries and Oceans Canada - Pacific Region, Institute of Ocean Science, Oceanographic Data Manager as a complete institutional reference qualified by its data-management position. This does not identify an individual manager or assert original observation/XML authorship. Ron Perkin remains the separate contact/distributor; the full source origin, lighthouse-service context and all original metadata remain unchanged.",
+      "source_field_notes": {
+        "source_id": "FGDC-184",
+        "title": "Lighthouse SST and SSS - (Canada-West Coast)",
+        "citation_dates": [
+          "Unknown"
+        ],
+        "begin_dates": [
+          "19140101"
+        ],
+        "end_dates": [
+          ""
+        ],
+        "metadata_dates": [
+          "19990714"
+        ],
+        "four_constraints": {
+          "accconst": "None",
+          "useconst": "None",
+          "metac": "None",
+          "metuc": "None"
+        },
+        "source_specific_preservation": "Preserve unknown citation date, open interval, IOS singular Science credit spelling, lighthouse automation and quality caveats. Do not infer a publication date from the1914 start,1990 institutional report or1999 metadata date."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-197",
+      "source_sha256": "4632437d172267ff5d6b96f838b791ea6479645d9cfe7359ee62e51eaa681aac",
+      "source_bytes": 4223,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-197.xml",
+      "group_id": "meds_institutional_custodian1",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Department of Fisheries and Oceans, Institute of Ocean Sciences, Custodian Marine Environmental Data Service"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Department of Fisheries and Oceans, Institute of Ocean Sciences, Custodian Marine Environmental Data Service",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256": "b69164a79398526e6abef84dc7b93836d6f09e6e11bd9f3c2fec9ec813ac3551",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Department of Fisheries and Oceans, Institute of Ocean Sciences, Custodian Marine Environmental Data Service",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "7cc22f584ba4888463ecb64438ba392bb164ba79faa321d484267df53a31a4e7",
+      "historical_payload_sha256": "b29e75e5895e361305d7900183c7689d1a060a0e9534f7e74ef9dd29f98f1811",
+      "full_legacy_metadata_sha256": "86c6d40de9f6e4aa4092ffe002b36131917c98428b28e2df36b61f69592b62da",
+      "full_artifact_policy_sha256": "535a53002d182bd5cedf8590d46eca8c4abe3d44f6c22afe3a88b8d1ed0d1ff9",
+      "frozen_plan_target_sha256_ascii": "418b238e1735cd41e88007ebabc4d1f5c5e4471e730bb8ebbf0bc2d29e770fd1",
+      "required_preservation_note": "The complete primary credit retains Department of Fisheries and Oceans, Institute of Ocean Sciences, Custodian Marine Environmental Data Service as a qualified organizational citation. Custodial capacity is preserved, not converted to original-data/XML authorship. Robin Brown remains a separate contact/distributor, and no organization is split, renamed or added.",
+      "source_field_notes": {
+        "source_id": "FGDC-197",
+        "title": "Sea Level Heights (Canada -West Coast)",
+        "citation_dates": [
+          "Unknown"
+        ],
+        "begin_dates": [
+          "19050101"
+        ],
+        "end_dates": [
+          ""
+        ],
+        "metadata_dates": [
+          "19990719"
+        ],
+        "four_constraints": {
+          "accconst": "None",
+          "useconst": "None",
+          "metac": "None",
+          "metuc": "None"
+        },
+        "source_specific_preservation": "Keep original1905 start,21 stations, tectonic caveat, MEDS URL and original geographic bounds. Do not substitute the external catalogue's approximate1900 or resolve its broader Canada coverage into this record."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-248",
+      "source_sha256": "ff3222607f3a73aae664d7cf47d9ef81c656445dc6e355214b9fdb680070e26d",
+      "source_bytes": 4740,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-248.xml",
+      "group_id": "dfo_science_branch_data_analyst7",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+        }
+      ],
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "2d0ee744878d0da439d17148c42ce174384409f40a55627e0cb143ee20bb3955",
+      "historical_payload_sha256": "3b1f52ebe935d15fa7989647f2ca357b4b3d52a120025874477d0358944b9d37",
+      "full_legacy_metadata_sha256": "981954dab1738f04e9ebfaa32fc5870529a89a105459451f7ba823e388a56775",
+      "full_artifact_policy_sha256": "0a2c75982d979187339bff71a94987fbc000bf5df8f0dcb8c274f331fb23fba1",
+      "frozen_plan_target_sha256_ascii": "99bc111c963775dfbfef6b193e7fe42f056ba3cb97a3da77a172f4d9c0443518",
+      "required_preservation_note": "The primary citation credits Fisheries and Oceans Canada, Science Branch - Data Analyst as one complete institutional reference qualified by the source's data-analysis function. It does not name an individual analyst or establish a distinct legal body. Preserve this full label and all source-specific database and custodial context; contacts/distributors remain separate and are not promoted. No authorship of original observations or the XML is inferred.",
+      "source_field_notes": {
+        "source_id": "FGDC-248",
+        "title": "Groundfish Catch and Effort Database (Canada)",
+        "citation_dates": [
+          "Unknown"
+        ],
+        "begin_dates": [
+          "19500101"
+        ],
+        "end_dates": [
+          "19991231"
+        ],
+        "metadata_dates": [
+          "19990811"
+        ],
+        "four_constraints": {
+          "accconst": "Contact custodian in writing",
+          "useconst": "None",
+          "metac": "Contact custodian in writing",
+          "metuc": "None"
+        },
+        "source_specific_preservation": "Preserve all distinct abstract fishery date ranges and transition to a new database, even where they differ from the broader source interval. Preserve original Russia keyword and geographic bounds; this task does not correct them."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-249",
+      "source_sha256": "5b666a9a05c5e84530f7ba5bb60995aeec51099e648f1999d8cdd683d86727de",
+      "source_bytes": 4326,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-249.xml",
+      "group_id": "dfo_science_branch_data_analyst7",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+        }
+      ],
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "2d0ee744878d0da439d17148c42ce174384409f40a55627e0cb143ee20bb3955",
+      "historical_payload_sha256": "6e8ae69eae3104990016644efc5e751d507b94b50d072246be9a237f067339ec",
+      "full_legacy_metadata_sha256": "5838ac89209374f48a01e93badc0385549f1be037002b772f7ac9b3c1d61b8f5",
+      "full_artifact_policy_sha256": "41180687d9a5aa15b5c3ad4cc786e825592f7ca6a1950efd71e83632e6b5d890",
+      "frozen_plan_target_sha256_ascii": "d787481f46345df111d2ee4882f914e22b45bc844d8d236dee9988ac41bc2b88",
+      "required_preservation_note": "The primary citation credits Fisheries and Oceans Canada, Science Branch - Data Analyst as one complete institutional reference qualified by the source's data-analysis function. It does not name an individual analyst or establish a distinct legal body. Preserve this full label and all source-specific database and custodial context; contacts/distributors remain separate and are not promoted. No authorship of original observations or the XML is inferred.",
+      "source_field_notes": {
+        "source_id": "FGDC-249",
+        "title": "Groundfish Biological Database (Canada)",
+        "citation_dates": [
+          "Unknown"
+        ],
+        "begin_dates": [
+          "19500101"
+        ],
+        "end_dates": [
+          "19991231"
+        ],
+        "metadata_dates": [
+          "19990811"
+        ],
+        "four_constraints": {
+          "accconst": "Contact custodian in writing",
+          "useconst": "None",
+          "metac": "Contact custodian in writing",
+          "metuc": "None"
+        },
+        "source_specific_preservation": "Retain the abstract's database-incomplete statement alongside the source status Complete without repair. Individual specimen and sampling-method context stays exact."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-250",
+      "source_sha256": "6fd0c1f458a7c2b0cf0663992fae2b670bf8b1e54585c514460a1a120b068ae8",
+      "source_bytes": 4873,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-250.xml",
+      "group_id": "dfo_science_branch_data_analyst7",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+        }
+      ],
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "2d0ee744878d0da439d17148c42ce174384409f40a55627e0cb143ee20bb3955",
+      "historical_payload_sha256": "6a425ec0bebace930781462554940f8d33c22e02eebf163916501e82e6f7b229",
+      "full_legacy_metadata_sha256": "bd3c97e8df60a535b8706f85324a780ff88dbc0eeec38bef394f83e1402f5c1b",
+      "full_artifact_policy_sha256": "c712ae55e0f2f1bc917ffe20e7fca392ecfb6eb7aaeb5493148567857198946d",
+      "frozen_plan_target_sha256_ascii": "1d84f041fdd669b8e9d81e523dcf080c423af577033645a8f2573a9403634ab7",
+      "required_preservation_note": "The primary citation credits Fisheries and Oceans Canada, Science Branch - Data Analyst as one complete institutional reference qualified by the source's data-analysis function. It does not name an individual analyst or establish a distinct legal body. Preserve this full label and all source-specific database and custodial context; contacts/distributors remain separate and are not promoted. No authorship of original observations or the XML is inferred.",
+      "source_field_notes": {
+        "source_id": "FGDC-250",
+        "title": "Recreational Catch Database (Canada)",
+        "citation_dates": [
+          "Unknown"
+        ],
+        "begin_dates": [
+          "19800101"
+        ],
+        "end_dates": [
+          ""
+        ],
+        "metadata_dates": [
+          "19990811"
+        ],
+        "four_constraints": {
+          "accconst": "None.",
+          "useconst": "Contact Source.",
+          "metac": "None.",
+          "metuc": "Contact Source."
+        },
+        "source_specific_preservation": "Preserve punctuation in all four constraints and the original recreational sampling/link HTML. Existing underlying-dataset access interpretation remains; no new metadata/XML license."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-251",
+      "source_sha256": "6850b89900abd937cbf1a9dd2dad4789e886c7c12d6b762e8db67e1f59b11cae",
+      "source_bytes": 4318,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-251.xml",
+      "group_id": "dfo_science_branch_data_analyst7",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+        }
+      ],
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "2d0ee744878d0da439d17148c42ce174384409f40a55627e0cb143ee20bb3955",
+      "historical_payload_sha256": "4662084648d609a839fcd98d0c6bac41ea5a2051bf5f35bd15a669d4713c9987",
+      "full_legacy_metadata_sha256": "f278a0e6cb0461d973f0a8903b0dac99d93cfb06011a04dcc582ec1314141236",
+      "full_artifact_policy_sha256": "21e2a4ccdaa97ab258809cba3ac1a26ee810bac4d7dae8f0a712ba42b9da5da5",
+      "frozen_plan_target_sha256_ascii": "420ad8cde578bd2f17aedcec3486040f4d6155ddb2e90e70e9344c320c0b54b2",
+      "required_preservation_note": "The primary citation credits Fisheries and Oceans Canada, Science Branch - Data Analyst as one complete institutional reference qualified by the source's data-analysis function. It does not name an individual analyst or establish a distinct legal body. Preserve this full label and all source-specific database and custodial context; contacts/distributors remain separate and are not promoted. No authorship of original observations or the XML is inferred.",
+      "source_field_notes": {
+        "source_id": "FGDC-251",
+        "title": "Aboriginal Catch Database (Canada)",
+        "citation_dates": [
+          "Unknown"
+        ],
+        "begin_dates": [
+          "19530101"
+        ],
+        "end_dates": [
+          "19991231"
+        ],
+        "metadata_dates": [
+          "19990811"
+        ],
+        "four_constraints": {
+          "accconst": "Contact custodian",
+          "useconst": "None",
+          "metac": "Contact custodian",
+          "metuc": "None"
+        },
+        "source_specific_preservation": "Preserve Indigenous groups and band-administered catch monitoring context, its inconsistent-collection caveat, source terminology, keyword spellings and dates without correction or creator addition."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-254",
+      "source_sha256": "dd405ad101bc61ae21440624a9605d05d5ccfeffc23bdd995cb41a36a8bfcdb2",
+      "source_bytes": 4022,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-254.xml",
+      "group_id": "dfo_science_branch_data_analyst7",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+        }
+      ],
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "2d0ee744878d0da439d17148c42ce174384409f40a55627e0cb143ee20bb3955",
+      "historical_payload_sha256": "d339d1384641a94a8673562fba73540cac1787e7175135ae72c1e6619157e2ea",
+      "full_legacy_metadata_sha256": "617b77ebe81bb96cfe8027cb5862c5a5095f5883857a9ff39bcef77e2eb72bf0",
+      "full_artifact_policy_sha256": "b5ddbe0e78bb6ae69c23fb63ae63f9cf812953eb62420e956d29ca6a1b69d155",
+      "frozen_plan_target_sha256_ascii": "645b85eac3d1a8f16655ad14f7a56c70e72e4aad6f26d626a1fafb2026d01848",
+      "required_preservation_note": "The primary citation credits Fisheries and Oceans Canada, Science Branch - Data Analyst as one complete institutional reference qualified by the source's data-analysis function. It does not name an individual analyst or establish a distinct legal body. Preserve this full label and all source-specific database and custodial context; contacts/distributors remain separate and are not promoted. No authorship of original observations or the XML is inferred.",
+      "source_field_notes": {
+        "source_id": "FGDC-254",
+        "title": "Salmonid Enhancement Program (Canada)",
+        "citation_dates": [
+          "Unknown"
+        ],
+        "begin_dates": [
+          "19760101"
+        ],
+        "end_dates": [
+          "19991231"
+        ],
+        "metadata_dates": [
+          "19990811"
+        ],
+        "four_constraints": {
+          "accconst": "Contact custodian",
+          "useconst": "None",
+          "metac": "Contact custodian",
+          "metuc": "None"
+        },
+        "source_specific_preservation": "Preserve literal spelling, site/species-dependent sampling description, original ADCP keyword and all source dates. Title is not an additional creator."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-261",
+      "source_sha256": "56ce71a2046c53034ef82fb948d36c1b0c03ec71356da9e60b08b3190cb40379",
+      "source_bytes": 4057,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-261.xml",
+      "group_id": "dfo_science_branch_data_analyst7",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+        }
+      ],
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "2d0ee744878d0da439d17148c42ce174384409f40a55627e0cb143ee20bb3955",
+      "historical_payload_sha256": "7e549d6d9f6922f758f94f0bc39bc2251893f82086a6238b772f01b3b38f5e6c",
+      "full_legacy_metadata_sha256": "4824244658f2245d785583188ef6fbabb93899ce1a97afa663477e1a2beea1c4",
+      "full_artifact_policy_sha256": "4a022b6df627da6eacca17fc4b2e720f4ff1c02524d1134fd0c55efda91d23fd",
+      "frozen_plan_target_sha256_ascii": "aae78f91dc9a8b8815ab8230bf54ccec413253ff1a4eb531bcc719d321903fd5",
+      "required_preservation_note": "The primary citation credits Fisheries and Oceans Canada, Science Branch - Data Analyst as one complete institutional reference qualified by the source's data-analysis function. It does not name an individual analyst or establish a distinct legal body. Preserve this full label and all source-specific database and custodial context; contacts/distributors remain separate and are not promoted. No authorship of original observations or the XML is inferred.",
+      "source_field_notes": {
+        "source_id": "FGDC-261",
+        "title": "EPIC - Enhancement Planning and Information Control system (Canada)",
+        "citation_dates": [
+          "Unknown"
+        ],
+        "begin_dates": [
+          "19650101"
+        ],
+        "end_dates": [
+          "19991231"
+        ],
+        "metadata_dates": [
+          "19990812"
+        ],
+        "four_constraints": {
+          "accconst": "Contact custodian",
+          "useconst": "None",
+          "metac": "Contact custodian",
+          "metuc": "None"
+        },
+        "source_specific_preservation": "Retain EPIC's planned/actual egg, release, recovery and survival data context, quotation punctuation and source keywords without treating the software/database title as a creator."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-262",
+      "source_sha256": "a844cb6598fb84be40607ca3dcaac7161e7177493da2e41c3237f41a67ed8a23",
+      "source_bytes": 4144,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-262.xml",
+      "group_id": "dfo_science_branch_data_analyst7",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst"
+        }
+      ],
+      "complete_legacy_creators_sha256": "573cf49533d9c0de01719e2e76e6ce15441cd51cdb38ae59617cc3c441e35876",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Fisheries and Oceans Canada, Science Branch - Data Analyst",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "2d0ee744878d0da439d17148c42ce174384409f40a55627e0cb143ee20bb3955",
+      "historical_payload_sha256": "7c4f2f35fa1b35aa404d53b630cf1a2c506559af31818b16d07775d715c65642",
+      "full_legacy_metadata_sha256": "2301c325daca0de42811b174401ec9d1cf1dfd4b0d5a7c993afa6fd08185c630",
+      "full_artifact_policy_sha256": "5f52aae33c2d2765e88565b0cb883ab43c515ce743e11843d7c7cb2009b9957b",
+      "frozen_plan_target_sha256_ascii": "cf71e592d6da45447aedad282bf65d0180e5679c5f0a6f58d6e3585a8b38acd8",
+      "required_preservation_note": "The primary citation credits Fisheries and Oceans Canada, Science Branch - Data Analyst as one complete institutional reference qualified by the source's data-analysis function. It does not name an individual analyst or establish a distinct legal body. Preserve this full label and all source-specific database and custodial context; contacts/distributors remain separate and are not promoted. No authorship of original observations or the XML is inferred.",
+      "source_field_notes": {
+        "source_id": "FGDC-262",
+        "title": "JED - Juvenile and Escapement Data",
+        "citation_dates": [
+          "Unknown"
+        ],
+        "begin_dates": [
+          "19550101"
+        ],
+        "end_dates": [
+          "19991231"
+        ],
+        "metadata_dates": [
+          "19990812"
+        ],
+        "four_constraints": {
+          "accconst": "Contact custodian",
+          "useconst": "None",
+          "metac": "Contact custodian",
+          "metuc": "None"
+        },
+        "source_specific_preservation": "Preserve the five-year escapement-entry caveat as written; do not calculate a date from it or add a new title/creator."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-411",
+      "source_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "source_bytes": 4424,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-411.xml",
+      "group_id": "uaf_professor_emeritus1",
+      "decision": "HOLD_COMPLETE_ARRAY_PERSONAL_STATUS_NOT_SUPPORTED_ORGANIZATIONAL_OFFICE",
+      "complete_primary_origin": [
+        "Professor Emeritus of the University of Alaska Fairbanks (UAF), School of Fisheries and Ocean Sciences (SFOS), Institute of Marine Science (IMS)"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Professor Emeritus of the University of Alaska Fairbanks (UAF), School of Fisheries and Ocean Sciences (SFOS), Institute of Marine Science (IMS)",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256": "0fba8adb957e167e5e7d7290f4f1c7ee1d7bf2b7b084dd1c85fcdcd5ce12c2ab",
+      "complete_approved_modern_creators": null,
+      "complete_approved_modern_creators_sha256": null,
+      "historical_payload_sha256": "cc17546c7178bf80790e6029dff52e4a4ab6236d067939f820ccd432c95ce4b0",
+      "full_legacy_metadata_sha256": "754e842488715718feaa1021ae7b21e35af7e720eff5c2b3815a7bfe852d8ec8",
+      "full_artifact_policy_sha256": "7751e04166565e8a505ded26194922553de65449da2b0233f14c1daed6759c55",
+      "frozen_plan_target_sha256_ascii": "57e6c35bfb5e2dac9ae1a15d989ba508915f0e6f61bc983549b844ce21de44b3",
+      "required_preservation_note": "Keep the entire original Professor Emeritus/UAF/SFOS/IMS primary credit and full source context unchanged. Do not replace it with UAF, PROBES, Hood or any cited author, split the institutions, or infer a named emeritus office. Preserve primary 1999, separate publication-interval 20000601 and all original dates/rights without correction.",
+      "source_field_notes": {
+        "source_id": "FGDC-411",
+        "title": "PROBES: Processes and Resources Of the eastern Bering Sea shelf",
+        "citation_dates": [
+          "1999"
+        ],
+        "begin_dates": [
+          "20000601"
+        ],
+        "end_dates": [
+          ""
+        ],
+        "metadata_dates": [
+          "20000302"
+        ],
+        "four_constraints": {
+          "accconst": "None",
+          "useconst": "None",
+          "metac": "None",
+          "metuc": "None"
+        },
+        "source_specific_preservation": "Whole array held. Keep differing primary1999 and interval20000601, original abstract wording and earlier-work references. No Hood/contact promotion or UAF-only replacement."
+      },
+      "runtime_admission_or_publication_authority": false
+    },
+    {
+      "source_id": "FGDC-2709",
+      "source_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "source_bytes": 4863,
+      "source_path": "/workspace/pices-main/FGDC/FGDC-2709.xml",
+      "group_id": "usfws_director_office1",
+      "decision": "APPROVE_EXACT_QUALIFIED_ORGANIZATIONAL_CREDIT",
+      "complete_primary_origin": [
+        "Director, U.S. Fish and Wildlife Service (USF&WS)"
+      ],
+      "complete_legacy_creators": [
+        {
+          "name": "Director, U.S. Fish and Wildlife Service (USF&WS)",
+          "type": "Organization"
+        }
+      ],
+      "complete_legacy_creators_sha256": "15ff66ebd54fd7511e4b5e2ce0d2576523ceb8f1b6ba891e5c5480a99e9b1abc",
+      "complete_approved_modern_creators": [
+        {
+          "person_or_org": {
+            "name": "Director, U.S. Fish and Wildlife Service (USF&WS)",
+            "type": "organizational"
+          }
+        }
+      ],
+      "complete_approved_modern_creators_sha256": "f31f72aaf481cf4bfb82965d0abf942e9e0bd526c4b43e1a0c57c30e71691f08",
+      "historical_payload_sha256": "4c875c4fb321bde1f6ba5a0f9a957366c895bc6e194c247393a65b6a9d1d16f5",
+      "full_legacy_metadata_sha256": "3eb4eed22fd77e4982b961d3da8bb55ecdd39868ff287fcbcc843f603ce33dc7",
+      "full_artifact_policy_sha256": "e6f6db56e515061d3baa237ed2383770a307c7f18242589488593957bb40e444",
+      "frozen_plan_target_sha256_ascii": "8624b7a02016ae90731c87202566d59c07536bdcc9a928d2a4a518155009bd76",
+      "required_preservation_note": "Retain Director, U.S. Fish and Wildlife Service (USF&WS) as the complete institutional-office citation credit. This does not identify an incumbent, equate the office with Turner, or assign equal/scientific authorship. Preserve the abstract's complete Turner/O'Connor/Izrael/Tsyban reference, its 1990? qualifier, the separate primary 1990 date, the Turner contact and all Check with Source constraints without correction or promotion.",
+      "source_field_notes": {
+        "source_id": "FGDC-2709",
+        "title": "BERPAC; A program for long-term ecological research of ecosystems of the Bering and Chukchi Seas and the Pacific Ocean",
+        "citation_dates": [
+          "1990"
+        ],
+        "begin_dates": [],
+        "end_dates": [],
+        "metadata_dates": [
+          "19990202"
+        ],
+        "four_constraints": {
+          "accconst": "None",
+          "useconst": "Check with Source",
+          "metac": "None",
+          "metuc": "Check with Source"
+        },
+        "source_specific_preservation": "Keep empty timeinfo as absent date children, the embedded complete four-person bibliography and its1990? qualifier separately from primary1990. No incumbent, contact or bibliography-person replacement, added creator or date correction."
+      },
+      "runtime_admission_or_publication_authority": false
+    }
+  ],
+  "source_decisions_sha256": "7843d82561027e71f1ba2508ed5a5e81c3e6d0fba4f42bd6811bdf1c34960f6e",
+  "summary": {
+    "reviewed_source_count": 11,
+    "approved_complete_source_vectors": 10,
+    "approved_distinct_vectors": 4,
+    "approved_modern_organizational_objects": 10,
+    "held_complete_arrays": 1,
+    "material_findings": 0,
+    "mechanical_findings": 0,
+    "new_runtime_admission_or_coverage": 0
+  },
+  "hash_recipe": "Unqualified object hashes use sorted-key compact UTF-8 JSON with ensure_ascii=False and no trailing newline, matching the reviewed jq recipe. The explicit frozen_plan_target_sha256_ascii pins retain the prior ASCII recipe. File hashes bind literal bytes."
+}

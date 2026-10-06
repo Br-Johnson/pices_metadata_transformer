@@ -1,0 +1,1429 @@
+{
+  "kind": "direct14-upper-source-extraction-not-approval-v1",
+  "schema_version": 1,
+  "scope": "SOURCE-ONLY extraction of seven explicitly assigned original XML files and their retained legacy/source-policy reconciliation rows. This is not an approval, proposed name-parts mapping, eligibility measurement, runtime/preparation result, or provider authority.",
+  "operations": {
+    "full_original_xml_reads": 7,
+    "project_or_runtime_imports": 0,
+    "tests_executed": 0,
+    "project_helpers_executed": 0,
+    "preparations": 0,
+    "network_or_provider_calls": 0,
+    "repository_edits": 0,
+    "credential_reads": 0
+  },
+  "input_reconciliation": {
+    "path": "/tmp/pices-program20-remaining100-reconciliation.json",
+    "bytes": 384179,
+    "sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a",
+    "scope": "Frozen measured remaining120 minus exact independently approved20. This is set reconciliation, not current preparation, eligibility measurement, source promotion, or provider authority.",
+    "base_main_head": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+    "base_main_tree": "7345a712b668ec77d52314ca77e20f5c462e7482"
+  },
+  "location_note": "XPath and inclusive source line numbers identify the exact structural evidence. XML entity decoding and XML newline normalization apply to value strings; raw bytes remain pinned by source_sha256.",
+  "rows": [
+    {
+      "source_id": "FGDC-2668",
+      "source_absolute_path": "/workspace/pices-main/FGDC/FGDC-2668.xml",
+      "source_bytes": 4825,
+      "source_sha256": "554c38ba3ad5c3bdbdc17aeed63361e30783aca26770d32fe3e46980af58785c",
+      "complete_original_xml_read": true,
+      "retained_reconciliation_pointer": "/rows/64",
+      "retained_reconciliation_row_exact": {
+        "complete_legacy_creators": [
+          {
+            "name": "C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey",
+            "type": "Organization"
+          }
+        ],
+        "current_execution_authority_claim": false,
+        "current_wire_mapping_admission_claim": false,
+        "earlier_review_rationale": "The origin explicitly combines named people, a parenthetical museum and USGS. Keep outside the organizational increment without splitting or assigning affiliations.",
+        "existing_heuristic_type_is_source_authority": false,
+        "frozen_plan_target_sha256_ascii": "46077c2e62562b9a185b0b7d23ee080a49615ec855669188d0a0bdd14d05dc86",
+        "hold_reason": "The origin explicitly combines named people, a parenthetical museum and USGS. Keep outside the organizational increment without splitting or assigning affiliations.",
+        "independent_decision": "PRESERVED_DIRECT_CREDIT_MAPPING_HOLD",
+        "lane": "direct_credit37",
+        "primary_origin_quotes": [
+          "C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey"
+        ],
+        "source_context_binding_reference": "f44c4e05da8de5c7fe333b076c32b106810171e27d07a846a430bc84a899b5bc",
+        "source_evidence_pointer": "institution91_bindings.members[FGDC-2668]",
+        "source_id": "FGDC-2668",
+        "source_path": "FGDC/FGDC-2668.xml",
+        "source_quotes": [
+          "C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey"
+        ],
+        "source_sha256": "554c38ba3ad5c3bdbdc17aeed63361e30783aca26770d32fe3e46980af58785c",
+        "source_supported_in_frozen_plan": true
+      },
+      "xml_evidence": {
+        "primary_origins": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/origin",
+            "value": "C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey",
+            "start_line": 5,
+            "end_line": 5
+          }
+        ],
+        "title": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/title",
+            "value": "Gray Whale and Walrus Feeding Excavation on the Bering Shelf, Alaska",
+            "start_line": 7,
+            "end_line": 7
+          }
+        ],
+        "publication_date": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/pubdate",
+            "value": "1987",
+            "start_line": 6,
+            "end_line": 6
+          }
+        ],
+        "abstract_paragraphs": [
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[1]",
+            "value": "Our study of side scan sonographs from the northeastern Bering Sea shows that extensive bottom disturbance is caused by benthis feeding of California gray whales and Pacific walrus.  In this study, we identify the features on sonographs that result from gray whale and walrus feeding disturbance and relate their distribution to bottom-sediment types and faunal assemblages.",
+            "start_line": 12,
+            "end_line": 12
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[2]",
+            "value": "[Reference: Nelson, C. Hans, Kirk R. Johnson, and John H. Barber, Jr., 1987. Gray whale and walrus feeding excavation on the Bering Shelf, Alaska. Journal of Sedimentary Petrology, 57(3): 419-430.]",
+            "start_line": 13,
+            "end_line": 13
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[3]",
+            "value": "This journal article can be found at the University of Washington Natural Sciences Library Stacks under the Call # QE420 .J69 v,57 no,1-3 or at other university libraries.",
+            "start_line": 14,
+            "end_line": 14
+          }
+        ],
+        "purpose": [
+          {
+            "xpath": "/metadata/idinfo/descript/purpose",
+            "value": "A report on gray whale and walrus feeding excavation on the Bering shelf, Alaska.",
+            "start_line": 16,
+            "end_line": 16
+          }
+        ],
+        "sample_date_values": [],
+        "time_reference": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/current",
+            "value": "Publication Date",
+            "start_line": 20,
+            "end_line": 20
+          }
+        ],
+        "progress": [
+          {
+            "xpath": "/metadata/idinfo/status/progress",
+            "value": "Complete",
+            "start_line": 23,
+            "end_line": 23
+          }
+        ],
+        "update": [
+          {
+            "xpath": "/metadata/idinfo/status/update",
+            "value": "Unknown",
+            "start_line": 24,
+            "end_line": 24
+          }
+        ],
+        "access_constraints": [
+          {
+            "xpath": "/metadata/idinfo/accconst",
+            "value": "None",
+            "start_line": 49,
+            "end_line": 49
+          }
+        ],
+        "use_constraints": [
+          {
+            "xpath": "/metadata/idinfo/useconst",
+            "value": "None",
+            "start_line": 50,
+            "end_line": 50
+          }
+        ],
+        "point_of_contact_names": [
+          {
+            "xpath": "/metadata/idinfo/ptcontac/cntinfo/cntperp/cntper",
+            "value": "UW Natural Sciences Library",
+            "start_line": 54,
+            "end_line": 54
+          }
+        ],
+        "distributor_names": [
+          {
+            "xpath": "/metadata/distinfo/distrib/cntinfo/cntperp/cntper",
+            "value": "UW Natural Sciences Library",
+            "start_line": 75,
+            "end_line": 75
+          }
+        ],
+        "metadata_contact_names": [
+          {
+            "xpath": "/metadata/metainfo/metc/cntinfo/cntperp/cntper",
+            "value": "Kimberly Bahl",
+            "start_line": 98,
+            "end_line": 98
+          }
+        ],
+        "metadata_date": [
+          {
+            "xpath": "/metadata/metainfo/metd",
+            "value": "19990128",
+            "start_line": 94,
+            "end_line": 94
+          }
+        ],
+        "metadata_use_constraints": [
+          {
+            "xpath": "/metadata/metainfo/metuc",
+            "value": "None",
+            "start_line": 116,
+            "end_line": 116
+          }
+        ]
+      },
+      "source_only_observations": {
+        "primary_person_strings": [
+          "C. Hans Nelson",
+          "Kirk R. Johnson",
+          "John H. Barber, Jr.",
+          "Robert L. Phillips"
+        ],
+        "primary_nonperson_strings": [
+          "Denver Museum of Natural History",
+          "U.S. Geological Survey"
+        ],
+        "primary_credit_interpretation": "The primary origin explicitly names four persons. Denver Museum of Natural History immediately qualifies Kirk R. Johnson in parentheses. The trailing colon introduces U.S. Geological Survey, but its scope over the preceding people is not explicit. The source does not justify converting the entire mixed string to an Organization.",
+        "other_credit_context": [
+          "The abstract gives a reference to a same-title 1987 Journal of Sedimentary Petrology article with three authors: Nelson, C. Hans; Kirk R. Johnson; John H. Barber, Jr. Robert L. Phillips is not present in that reference.",
+          "UW Natural Sciences Library is the point of contact/distributor and library location; Kimberly Bahl is the metadata contact. These roles do not add primary creators."
+        ],
+        "concrete_ambiguities": [
+          "Four-person origin versus three-person same-title article citation requires an explicit source policy choice; do not silently remove Phillips or treat both lists as identical.",
+          "The exact scope of the trailing U.S. Geological Survey affiliation is ambiguous. Preserve the explicit Johnson museum qualifier without distributing other affiliations by guess.",
+          "C. Hans and Jr. are literal source name components; no initial expansion or suffix loss."
+        ],
+        "context_summary": "Report/article about benthic feeding disturbance by gray whales and walrus on the northeastern Bering Sea shelf. Explicit publication date 1987; no sample date supplied."
+      }
+    },
+    {
+      "source_id": "FGDC-3599",
+      "source_absolute_path": "/workspace/pices-main/FGDC/FGDC-3599.xml",
+      "source_bytes": 4945,
+      "source_sha256": "e68427690dad4285c3cdf893e0cee5b254a9064c4a00331c23e7875d4881c267",
+      "complete_original_xml_read": true,
+      "retained_reconciliation_pointer": "/rows/71",
+      "retained_reconciliation_row_exact": {
+        "complete_legacy_creators": [
+          {
+            "name": "U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS.",
+            "type": "Organization"
+          }
+        ],
+        "current_execution_authority_claim": false,
+        "current_wire_mapping_admission_claim": false,
+        "earlier_review_rationale": "The origin combines ONR with named people Harley Hurlburt, Pat Hogan and Gregg Jacobs and the Naval Research Laboratory. The abstract distinguishes investigator work and support. Hold the person/institution compound unchanged for separate adjudication.",
+        "existing_heuristic_type_is_source_authority": false,
+        "frozen_plan_target_sha256_ascii": "be8f16a0a10eaffc6c8a17c287557af698cc657b1e3e2d67ae1ce824094ac639",
+        "hold_reason": "The origin combines ONR with named people Harley Hurlburt, Pat Hogan and Gregg Jacobs and the Naval Research Laboratory. The abstract distinguishes investigator work and support. Hold the person/institution compound unchanged for separate adjudication.",
+        "independent_decision": "PRESERVED_DIRECT_CREDIT_MAPPING_HOLD",
+        "lane": "direct_credit37",
+        "primary_origin_quotes": [
+          "U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS."
+        ],
+        "source_context_binding_reference": "3a120bf81ca95d064da70f5a8642de008ca9f2dda8b4e33342418d3c25628288",
+        "source_evidence_pointer": "institution91_bindings.members[FGDC-3599]",
+        "source_id": "FGDC-3599",
+        "source_path": "FGDC/FGDC-3599.xml",
+        "source_quotes": [
+          "U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS."
+        ],
+        "source_sha256": "e68427690dad4285c3cdf893e0cee5b254a9064c4a00331c23e7875d4881c267",
+        "source_supported_in_frozen_plan": true
+      },
+      "xml_evidence": {
+        "primary_origins": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/origin",
+            "value": "U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS.",
+            "start_line": 5,
+            "end_line": 5
+          }
+        ],
+        "title": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/title",
+            "value": "Japan/East Sea Dynamics using Numerical Models with 1/8 to 1/64 Degree Resolution",
+            "start_line": 7,
+            "end_line": 7
+          }
+        ],
+        "publication_date": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/pubdate",
+            "value": "Unknown",
+            "start_line": 6,
+            "end_line": 6
+          }
+        ],
+        "abstract_paragraphs": [
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[1]",
+            "value": "The investigator will use numerical models of increasing sophistication to study the Japan/East Sea dynamics, and will compare the results with the intensive field program. \nShort Work Statement: The investigator will 1) Write up results from the basic Navy Layered Ocean Model (NLOM) runs; 2) Add investigations using the Miami Isopycnal Coordinate Ocean Model (MICOM); and 3) Begin joint development (with Prof. Rainer Bleck, University of Miami) of a new hybrid isopycnal/sigma (generalized) coordinate ocean model for marginal seas to maintain high vertical resolution over the shelf and in the mixed layer.",
+            "start_line": 12,
+            "end_line": 13
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[2]",
+            "value": "International Collaborator: Dr. Dong-Kyu Lee (Pusan National University, Korea). Model/drifter comparisons.",
+            "start_line": 14,
+            "end_line": 14
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[3]",
+            "value": "U.S. Office of Naval Research (ONR) supported research in the Japan/East Sea (JES) during 1998-2000. JES website URL: http://sam.ucsd.edu/onr_jes/onr_jes.html",
+            "start_line": 15,
+            "end_line": 15
+          }
+        ],
+        "purpose": [
+          {
+            "xpath": "/metadata/idinfo/descript/purpose",
+            "value": "To investigate Japan/East Sea dynamics in a systematic and progressive fashion using a sequence of increasingly complex ocean models and model-data comparisons.",
+            "start_line": 17,
+            "end_line": 17
+          }
+        ],
+        "sample_date_values": [],
+        "time_reference": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/current",
+            "value": "Sample Date",
+            "start_line": 21,
+            "end_line": 21
+          }
+        ],
+        "progress": [
+          {
+            "xpath": "/metadata/idinfo/status/progress",
+            "value": "Complete",
+            "start_line": 24,
+            "end_line": 24
+          }
+        ],
+        "update": [
+          {
+            "xpath": "/metadata/idinfo/status/update",
+            "value": "Unknown",
+            "start_line": 25,
+            "end_line": 25
+          }
+        ],
+        "access_constraints": [
+          {
+            "xpath": "/metadata/idinfo/accconst",
+            "value": "None",
+            "start_line": 47,
+            "end_line": 47
+          }
+        ],
+        "use_constraints": [
+          {
+            "xpath": "/metadata/idinfo/useconst",
+            "value": "Check with Source.",
+            "start_line": 48,
+            "end_line": 48
+          }
+        ],
+        "point_of_contact_names": [
+          {
+            "xpath": "/metadata/idinfo/ptcontac/cntinfo/cntperp/cntper",
+            "value": "Jacobs, Gregg",
+            "start_line": 52,
+            "end_line": 52
+          }
+        ],
+        "distributor_names": [
+          {
+            "xpath": "/metadata/distinfo/distrib/cntinfo/cntperp/cntper",
+            "value": "Jacobs, Gregg",
+            "start_line": 72,
+            "end_line": 72
+          }
+        ],
+        "metadata_contact_names": [
+          {
+            "xpath": "/metadata/metainfo/metc/cntinfo/cntperp/cntper",
+            "value": "Kimberly Bahl",
+            "start_line": 94,
+            "end_line": 94
+          }
+        ],
+        "metadata_date": [
+          {
+            "xpath": "/metadata/metainfo/metd",
+            "value": "20041025",
+            "start_line": 90,
+            "end_line": 90
+          }
+        ],
+        "metadata_use_constraints": [
+          {
+            "xpath": "/metadata/metainfo/metuc",
+            "value": "Check with Source.",
+            "start_line": 112,
+            "end_line": 112
+          }
+        ]
+      },
+      "source_only_observations": {
+        "primary_person_strings": [
+          "Harley Hurlburt",
+          "Pat Hogan",
+          "Gregg Jacobs"
+        ],
+        "primary_nonperson_strings": [
+          "U.S. Navy, Office of Naval Research",
+          "Naval Research Laboratory",
+          "Stennis Space Center, MS."
+        ],
+        "primary_credit_interpretation": "Primary origin coordinates U.S. Navy, Office of Naval Research with three named people, followed by of Naval Research Laboratory and its location. It is a mixed institutional/personal credit, not one organizational name. The abstract explicitly describes ONR as supporting the work; that does not erase ONR from the literal primary origin.",
+        "other_credit_context": [
+          "Abstract names Prof. Rainer Bleck (University of Miami) for joint model development and Dr. Dong-Kyu Lee (Pusan National University, Korea) as international collaborator. Neither appears in primary origin.",
+          "Jacobs, Gregg is point of contact and distributor, corroborating the primary-origin person without creating a second creator. Kimberly Bahl is metadata contact.",
+          "Navy Layered Ocean Model (NLOM) and Miami Isopycnal Coordinate Ocean Model (MICOM) are model names in the abstract; ONR-supported Japan/East Sea work is dated 1998-2000."
+        ],
+        "concrete_ambiguities": [
+          "Exact creator-role treatment of ONR versus funder/support role must be explicit; a person-only array would omit a literal origin entity, while adding abstract collaborators would broaden primary credit.",
+          "Do not promote abstract support-period 1998-2000 to a publication date: pubdate is Unknown and timeinfo is empty."
+        ],
+        "context_summary": "Numerical modeling of Japan/East Sea dynamics using increasingly complex models and comparison with a field program. Purpose and abstract identify investigator work and separate institutional support."
+      }
+    },
+    {
+      "source_id": "FGDC-3600",
+      "source_absolute_path": "/workspace/pices-main/FGDC/FGDC-3600.xml",
+      "source_bytes": 6117,
+      "source_sha256": "e6bc7f2cac8751e369ce68622631cbab97f9c887988fef2336194d615c113aa0",
+      "complete_original_xml_read": true,
+      "retained_reconciliation_pointer": "/rows/72",
+      "retained_reconciliation_row_exact": {
+        "complete_legacy_creators": [
+          {
+            "name": "Lee Cooper and Jacqueline Grebmeier, University of Tennessee",
+            "type": "Organization"
+          }
+        ],
+        "current_execution_authority_claim": false,
+        "current_wire_mapping_admission_claim": false,
+        "earlier_review_rationale": "Origin explicitly credits Lee Cooper and Jacqueline Grebmeier followed by the University of Tennessee. The personal data citation reinforces that this is not an institutional-only name.",
+        "existing_heuristic_type_is_source_authority": false,
+        "frozen_plan_target_sha256_ascii": "7e1107845f636a0bf623800f1f83cea1c30cdac87e3640f1ec69c18fcbb22473",
+        "hold_reason": "Origin explicitly credits Lee Cooper and Jacqueline Grebmeier followed by the University of Tennessee. The personal data citation reinforces that this is not an institutional-only name.",
+        "independent_decision": "PRESERVED_DIRECT_CREDIT_MAPPING_HOLD",
+        "lane": "direct_credit37",
+        "primary_origin_quotes": [
+          "Lee Cooper and Jacqueline Grebmeier, University of Tennessee"
+        ],
+        "source_context_binding_reference": "cb56ab1e878593bbf5abe63d8a4a8dcbd996029151f7e7597683cf9f3264ef43",
+        "source_evidence_pointer": "institution91_bindings.members[FGDC-3600]",
+        "source_id": "FGDC-3600",
+        "source_path": "FGDC/FGDC-3600.xml",
+        "source_quotes": [
+          "Lee Cooper and Jacqueline Grebmeier, University of Tennessee"
+        ],
+        "source_sha256": "e6bc7f2cac8751e369ce68622631cbab97f9c887988fef2336194d615c113aa0",
+        "source_supported_in_frozen_plan": true
+      },
+      "xml_evidence": {
+        "primary_origins": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/origin",
+            "value": "Lee Cooper and Jacqueline Grebmeier, University of Tennessee",
+            "start_line": 5,
+            "end_line": 5
+          }
+        ],
+        "title": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/title",
+            "value": "Chemical and Isotopic Tracers from the Arctic Ocean",
+            "start_line": 7,
+            "end_line": 7
+          }
+        ],
+        "publication_date": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/pubdate",
+            "value": "Unknown",
+            "start_line": 6,
+            "end_line": 6
+          }
+        ],
+        "abstract_paragraphs": [
+          {
+            "xpath": "/metadata/idinfo/descript/abstract",
+            "value": "These data are water column and sediment data tabulated in Microsoft Excel spreadsheets. They were largely collected in the Bering and Chukchi Seas, with some coverage for the Beaufort and East Siberian Seas, and with limited coverage for other portions of the Arctic Ocean. Data include that collected on Alpha Helix cruises 139, 165, 166, 174, 189, 190, 214, and 224 between 1990 and 1999. Other data were obtained from cruises of the RV OKEAN (1993), USCGC Polar Star (1993), Mendeleev (1993), USCGC Polar Sea (2000), U.S. Canada Arctic Ocean Section (1994), and Polarstern (1993).\n\n  Water column data include coverage from some to most stations on these cruises, and include bottle salinity, temperature, sigma-t, oxygen-18/16 ratios, phosphate, ammonia, silicate, nitrate, dissolved oxygen, iodine-129 concentrations, and chlorophyll a. Sediment data include plutonium and neptunium concentrations, including isotope data.\n\n  Biological data include radionuclide burdens in marine mammal tissues donated by subsistence hunters on the North Slope of Alaska and in the Resolute region of Canada.\n\n  The readme files include reference to published use of these data, as well as additional information on interpreting data columns and spreadsheet construction. Additional biological and chemical data are being prepared for distribution at this site, and will be available in the near future.\n\n\n  Data Citation: Cooper, L.W. 2001. Chemical and isotopic tracers from the Arctic Ocean. Boulder, CO: National Snow and Ice Data Center. Digital media.",
+            "start_line": 11,
+            "end_line": 20
+          }
+        ],
+        "purpose": [
+          {
+            "xpath": "/metadata/idinfo/descript/purpose",
+            "value": "To collect chemical and isotopic tracers in the subpolar region.",
+            "start_line": 21,
+            "end_line": 21
+          }
+        ],
+        "sample_date_values": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/timeinfo/mdattim/sngdate/caldate",
+            "value": "1990 - 2000",
+            "start_line": 27,
+            "end_line": 27
+          }
+        ],
+        "time_reference": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/current",
+            "value": "Sample Date",
+            "start_line": 31,
+            "end_line": 31
+          }
+        ],
+        "progress": [
+          {
+            "xpath": "/metadata/idinfo/status/progress",
+            "value": "Complete",
+            "start_line": 34,
+            "end_line": 34
+          }
+        ],
+        "update": [
+          {
+            "xpath": "/metadata/idinfo/status/update",
+            "value": "Unknown",
+            "start_line": 35,
+            "end_line": 35
+          }
+        ],
+        "access_constraints": [
+          {
+            "xpath": "/metadata/idinfo/accconst",
+            "value": "None",
+            "start_line": 75,
+            "end_line": 75
+          }
+        ],
+        "use_constraints": [
+          {
+            "xpath": "/metadata/idinfo/useconst",
+            "value": "None",
+            "start_line": 76,
+            "end_line": 76
+          }
+        ],
+        "point_of_contact_names": [
+          {
+            "xpath": "/metadata/idinfo/ptcontac/cntinfo/cntperp/cntper",
+            "value": "Cooper, Lee W.",
+            "start_line": 80,
+            "end_line": 80
+          }
+        ],
+        "distributor_names": [
+          {
+            "xpath": "/metadata/distinfo/distrib/cntinfo/cntperp/cntper",
+            "value": "Cooper, Lee W.",
+            "start_line": 100,
+            "end_line": 100
+          }
+        ],
+        "metadata_contact_names": [
+          {
+            "xpath": "/metadata/metainfo/metc/cntinfo/cntperp/cntper",
+            "value": "Kimberly Bahl",
+            "start_line": 122,
+            "end_line": 122
+          }
+        ],
+        "metadata_date": [
+          {
+            "xpath": "/metadata/metainfo/metd",
+            "value": "20041025",
+            "start_line": 118,
+            "end_line": 118
+          }
+        ],
+        "metadata_use_constraints": [
+          {
+            "xpath": "/metadata/metainfo/metuc",
+            "value": "None",
+            "start_line": 140,
+            "end_line": 140
+          }
+        ]
+      },
+      "source_only_observations": {
+        "primary_person_strings": [
+          "Lee Cooper",
+          "Jacqueline Grebmeier"
+        ],
+        "primary_nonperson_strings": [
+          "University of Tennessee"
+        ],
+        "primary_credit_interpretation": "The origin credits two named people followed by University of Tennessee. The institutional suffix is contextual/affiliation wording, not evidence that the whole string is an organization.",
+        "other_credit_context": [
+          "Abstract ends with a data citation: Cooper, L.W. 2001. Chemical and isotopic tracers from the Arctic Ocean. Boulder, CO: National Snow and Ice Data Center. Digital media. It names only Cooper, while origin explicitly includes Grebmeier.",
+          "Cooper, Lee W. is the point of contact/distributor; primary origin itself gives Lee Cooper without W. Kimberly Bahl is metadata contact.",
+          "National Snow and Ice Data Center appears as the cited distributor/publication place entity, not as an additional primary-origin creator."
+        ],
+        "concrete_ambiguities": [
+          "Do not silently narrow the two-person primary origin to the single-person abstract data citation.",
+          "Contact/citation middle initial W. is additional role-specific source evidence; it must not be silently imposed on the shorter primary-origin spelling.",
+          "The abstract citation gives 2001 but primary pubdate is Unknown; sample date text is 1990 - 2000. Any date resolution is distinct from creator extraction."
+        ],
+        "context_summary": "Chemical and isotopic water-column, sediment and biological data from Arctic/subarctic cruises, with spreadsheets and readme files. Sample-date range explicitly 1990 - 2000."
+      }
+    },
+    {
+      "source_id": "FGDC-3789",
+      "source_absolute_path": "/workspace/pices-main/FGDC/FGDC-3789.xml",
+      "source_bytes": 4783,
+      "source_sha256": "0400063e073bd04d3b75fc03e916dc84c478389c871ebcb153e686a7f3d1f88a",
+      "complete_original_xml_read": true,
+      "retained_reconciliation_pointer": "/rows/76",
+      "retained_reconciliation_row_exact": {
+        "complete_legacy_creators": [
+          {
+            "name": "R. Tsuda of University of Hawaii, Honolulu",
+            "type": "Organization"
+          }
+        ],
+        "current_execution_authority_claim": false,
+        "current_wire_mapping_admission_claim": false,
+        "earlier_review_rationale": "The origin names R. Tsuda of University of Hawaii, Honolulu. The cruise-data context also calls for original-PI citation when available. The complete literal origin is a person/institution compound and cannot be approved as one Organization.",
+        "existing_heuristic_type_is_source_authority": false,
+        "frozen_plan_target_sha256_ascii": "629d4bb0f815898366415fe428ba81228da75e2bf8478963d8527893030c6d85",
+        "hold_reason": "The origin names R. Tsuda of University of Hawaii, Honolulu. The cruise-data context also calls for original-PI citation when available. The complete literal origin is a person/institution compound and cannot be approved as one Organization.",
+        "independent_decision": "PRESERVED_DIRECT_CREDIT_MAPPING_HOLD",
+        "lane": "direct_credit37",
+        "primary_origin_quotes": [
+          "R. Tsuda of University of Hawaii, Honolulu"
+        ],
+        "source_context_binding_reference": "97683e663a6e1103e66e0539624f94546815a5c47fdb79455c2ae40a63881272",
+        "source_evidence_pointer": "institution91_bindings.members[FGDC-3789]",
+        "source_id": "FGDC-3789",
+        "source_path": "FGDC/FGDC-3789.xml",
+        "source_quotes": [
+          "R. Tsuda of University of Hawaii, Honolulu"
+        ],
+        "source_sha256": "0400063e073bd04d3b75fc03e916dc84c478389c871ebcb153e686a7f3d1f88a",
+        "source_supported_in_frozen_plan": true
+      },
+      "xml_evidence": {
+        "primary_origins": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/origin",
+            "value": "R. Tsuda of University of Hawaii, Honolulu",
+            "start_line": 5,
+            "end_line": 5
+          }
+        ],
+        "title": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/title",
+            "value": "R/V Pioneer Cruise 66 Zooplankton Biomass Data",
+            "start_line": 7,
+            "end_line": 7
+          }
+        ],
+        "publication_date": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/pubdate",
+            "value": "Unknown",
+            "start_line": 6,
+            "end_line": 6
+          }
+        ],
+        "abstract_paragraphs": [
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[1]",
+            "value": "Zooplankton biomass data collected during R/V Pioneer Cruise 66 available through COPEPOD.",
+            "start_line": 12,
+            "end_line": 12
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[2]",
+            "value": "See the cruise summary web page for a detailed list of cruise dates, number of tows and sampled data.   Data can be directly downloaded from the COPEPOD website.  Coastal & Oceanic Plankton Ecology, Production & Observation Database (COPEPOD) is an on-line global plankton database by NOAA - National Marine Fisheries Service (NMFS).",
+            "start_line": 13,
+            "end_line": 13
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[3]",
+            "value": "Data were digitized from manuscript in collaboration with the Intergovernmental Oceanographic Commission - Global Oceanographic Data Archaeology & Rescue Project (IOC-GODAR), with funding from NOAA ESDIM and Global Climate Change programs.",
+            "start_line": 14,
+            "end_line": 14
+          }
+        ],
+        "purpose": [
+          {
+            "xpath": "/metadata/idinfo/descript/purpose",
+            "value": "To provide investigators with an integrated data set of quality-controlled, globally distributed plankton abundance, biomass and composition data, along with co-sampled environmental data.",
+            "start_line": 16,
+            "end_line": 16
+          }
+        ],
+        "sample_date_values": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/timeinfo/rngdates/begdate",
+            "value": "19610909",
+            "start_line": 21,
+            "end_line": 21
+          },
+          {
+            "xpath": "/metadata/idinfo/timeperd/timeinfo/rngdates/enddate",
+            "value": "19611012",
+            "start_line": 22,
+            "end_line": 22
+          }
+        ],
+        "time_reference": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/current",
+            "value": "Sample Date",
+            "start_line": 25,
+            "end_line": 25
+          }
+        ],
+        "progress": [
+          {
+            "xpath": "/metadata/idinfo/status/progress",
+            "value": "Complete",
+            "start_line": 28,
+            "end_line": 28
+          }
+        ],
+        "update": [
+          {
+            "xpath": "/metadata/idinfo/status/update",
+            "value": "None Planned",
+            "start_line": 29,
+            "end_line": 29
+          }
+        ],
+        "access_constraints": [
+          {
+            "xpath": "/metadata/idinfo/accconst",
+            "value": "None",
+            "start_line": 51,
+            "end_line": 51
+          }
+        ],
+        "use_constraints": [
+          {
+            "xpath": "/metadata/idinfo/useconst",
+            "value": "Cite the COPEPOD Database and the original PI when available.",
+            "start_line": 52,
+            "end_line": 52
+          }
+        ],
+        "point_of_contact_names": [
+          {
+            "xpath": "/metadata/idinfo/ptcontac/cntinfo/cntperp/cntper",
+            "value": "OBrien, Todd",
+            "start_line": 56,
+            "end_line": 56
+          }
+        ],
+        "distributor_names": [
+          {
+            "xpath": "/metadata/distinfo/distrib/cntinfo/cntperp/cntper",
+            "value": "OBrien, Todd",
+            "start_line": 76,
+            "end_line": 76
+          }
+        ],
+        "metadata_contact_names": [
+          {
+            "xpath": "/metadata/metainfo/metc/cntinfo/cntperp/cntper",
+            "value": "Kimberly Bahl",
+            "start_line": 98,
+            "end_line": 98
+          }
+        ],
+        "metadata_date": [
+          {
+            "xpath": "/metadata/metainfo/metd",
+            "value": "20041208",
+            "start_line": 94,
+            "end_line": 94
+          }
+        ],
+        "metadata_use_constraints": [
+          {
+            "xpath": "/metadata/metainfo/metuc",
+            "value": "Cite the COPEPOD Database and the original PI when available.",
+            "start_line": 116,
+            "end_line": 116
+          }
+        ]
+      },
+      "source_only_observations": {
+        "primary_person_strings": [
+          "R. Tsuda"
+        ],
+        "primary_nonperson_strings": [
+          "University of Hawaii, Honolulu"
+        ],
+        "primary_credit_interpretation": "The origin names one person, R. Tsuda, explicitly of University of Hawaii, Honolulu. Keep the initial as supplied; no given-name expansion exists in this XML.",
+        "other_credit_context": [
+          "COPEPOD is the database/distribution context. The abstract names NOAA-NMFS, IOC-GODAR, NOAA ESDIM and Global Climate Change programs for database, digitization or funding roles. They are not primary-origin creators.",
+          "Use constraint requests citation of the COPEPOD Database and original PI when available. It does not identify a new personal creator.",
+          "OBrien, Todd is point of contact/distributor; Kimberly Bahl is metadata contact. Neither replaces the primary origin."
+        ],
+        "concrete_ambiguities": [
+          "R. is an initial only; no verified expansion is supplied.",
+          "Citation duty to COPEPOD is separate from whether COPEPOD is a creator; do not infer a new organizational creator from use-constraint wording."
+        ],
+        "context_summary": "R/V Pioneer Cruise 66 zooplankton biomass data, digitized from manuscript and distributed through COPEPOD. Sample dates 19610909-19611012; pubdate Unknown."
+      }
+    },
+    {
+      "source_id": "FGDC-3793",
+      "source_absolute_path": "/workspace/pices-main/FGDC/FGDC-3793.xml",
+      "source_bytes": 5026,
+      "source_sha256": "dd2c4faf965c1d12699a3cc26667102437191ecbb05a12586931144fbe4e2c82",
+      "complete_original_xml_read": true,
+      "retained_reconciliation_pointer": "/rows/77",
+      "retained_reconciliation_row_exact": {
+        "complete_legacy_creators": [
+          {
+            "name": "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences",
+            "type": "Organization"
+          }
+        ],
+        "current_execution_authority_claim": false,
+        "current_wire_mapping_admission_claim": false,
+        "earlier_review_rationale": "The origin explicitly names Mark Halverson, Rich Pawlowicz and Randall Lee of a university department. It is a people/institution compound, not an organizational entity despite the existing heuristic type.",
+        "existing_heuristic_type_is_source_authority": false,
+        "frozen_plan_target_sha256_ascii": "935665c1d0b369dba90ad3f99216d0bc7d7f4202b4f82baf4601894d1decfaa8",
+        "hold_reason": "The origin explicitly names Mark Halverson, Rich Pawlowicz and Randall Lee of a university department. It is a people/institution compound, not an organizational entity despite the existing heuristic type.",
+        "independent_decision": "PRESERVED_DIRECT_CREDIT_MAPPING_HOLD",
+        "lane": "direct_credit37",
+        "primary_origin_quotes": [
+          "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences"
+        ],
+        "source_context_binding_reference": "958c9d00d0f2dfdd32a01cbe40ceb843d16f1e2ef3645b2c9532c19ebb23c758",
+        "source_evidence_pointer": "institution91_bindings.members[FGDC-3793]",
+        "source_id": "FGDC-3793",
+        "source_path": "FGDC/FGDC-3793.xml",
+        "source_quotes": [
+          "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences"
+        ],
+        "source_sha256": "dd2c4faf965c1d12699a3cc26667102437191ecbb05a12586931144fbe4e2c82",
+        "source_supported_in_frozen_plan": true
+      },
+      "xml_evidence": {
+        "primary_origins": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/origin",
+            "value": "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences",
+            "start_line": 5,
+            "end_line": 5
+          }
+        ],
+        "title": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/title",
+            "value": "Strait of Georgia Ferry Data by STRATOGEM: Horseshoe Bay/Departure Bay, Canada",
+            "start_line": 7,
+            "end_line": 7
+          }
+        ],
+        "publication_date": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/pubdate",
+            "value": "",
+            "start_line": 6,
+            "end_line": 6
+          }
+        ],
+        "abstract_paragraphs": [
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[1]",
+            "value": "The STRATOGEM program instrumented a BC Ferry traveling regularly between Tsawwassen/Duke Point. The ferry track runs across the large Fraser river and into the clearer water of the north, allowing an assessment of the influence that plume dynamics have within this ecosystem. The ferry, equipped with a thermosalinograph, chlorophyll fluorometer, data logger, and, intermittently, an ultra-violet spectrophotometric nitrate sensor, may sample up to eight times per day, record position and water property data at 2 - 10 second intervals. This ferry route has been in operation since 11 March 2003.",
+            "start_line": 12,
+            "end_line": 12
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[2]",
+            "value": "Data sets are provided online at http://www.stratogem.ubc.ca/BCFerry/North/",
+            "start_line": 13,
+            "end_line": 13
+          }
+        ],
+        "purpose": [
+          {
+            "xpath": "/metadata/idinfo/descript/purpose",
+            "value": "To define the effects of tidal, diurnal, weatherband, seasonal, and climatic influences in the production surface layer of Strait of Georgia.",
+            "start_line": 15,
+            "end_line": 15
+          }
+        ],
+        "sample_date_values": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/timeinfo/rngdates/begdate",
+            "value": "20030311",
+            "start_line": 20,
+            "end_line": 20
+          },
+          {
+            "xpath": "/metadata/idinfo/timeperd/timeinfo/rngdates/enddate",
+            "value": "",
+            "start_line": 21,
+            "end_line": 21
+          }
+        ],
+        "time_reference": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/current",
+            "value": "Sample Date",
+            "start_line": 24,
+            "end_line": 24
+          }
+        ],
+        "progress": [
+          {
+            "xpath": "/metadata/idinfo/status/progress",
+            "value": "In Progress",
+            "start_line": 27,
+            "end_line": 27
+          }
+        ],
+        "update": [
+          {
+            "xpath": "/metadata/idinfo/status/update",
+            "value": "Other",
+            "start_line": 28,
+            "end_line": 28
+          }
+        ],
+        "access_constraints": [
+          {
+            "xpath": "/metadata/idinfo/accconst",
+            "value": "None",
+            "start_line": 57,
+            "end_line": 57
+          }
+        ],
+        "use_constraints": [
+          {
+            "xpath": "/metadata/idinfo/useconst",
+            "value": "Contact Source.",
+            "start_line": 58,
+            "end_line": 58
+          }
+        ],
+        "point_of_contact_names": [
+          {
+            "xpath": "/metadata/idinfo/ptcontac/cntinfo/cntperp/cntper",
+            "value": "Pawlowicz, Rich",
+            "start_line": 62,
+            "end_line": 62
+          }
+        ],
+        "distributor_names": [
+          {
+            "xpath": "/metadata/distinfo/distrib/cntinfo/cntperp/cntper",
+            "value": "Pawlowicz, Rich",
+            "start_line": 82,
+            "end_line": 82
+          }
+        ],
+        "metadata_contact_names": [
+          {
+            "xpath": "/metadata/metainfo/metc/cntinfo/cntperp/cntper",
+            "value": "Kimberly Bahl",
+            "start_line": 104,
+            "end_line": 104
+          }
+        ],
+        "metadata_date": [
+          {
+            "xpath": "/metadata/metainfo/metd",
+            "value": "20050110",
+            "start_line": 100,
+            "end_line": 100
+          }
+        ],
+        "metadata_use_constraints": [
+          {
+            "xpath": "/metadata/metainfo/metuc",
+            "value": "Contact Source.",
+            "start_line": 122,
+            "end_line": 122
+          }
+        ]
+      },
+      "source_only_observations": {
+        "primary_person_strings": [
+          "Mark Halverson",
+          "Rich Pawlowicz",
+          "Randall Lee"
+        ],
+        "primary_nonperson_strings": [
+          "University of British Columbia, Department of Earth and Ocean Sciences"
+        ],
+        "primary_credit_interpretation": "The primary origin explicitly lists three people followed by of University of British Columbia, Department of Earth and Ocean Sciences. STRATOGEM is a program in title/description rather than a fourth primary-origin creator.",
+        "other_credit_context": [
+          "Pawlowicz, Rich is point of contact/distributor, corroborating one origin person without adding another entry. Kimberly Bahl is metadata contact.",
+          "Abstract credits the STRATOGEM program with instrumenting a BC Ferry. The institution/department is in origin and is distinct from program and ferry operator names."
+        ],
+        "concrete_ambiguities": [
+          "Title names Horseshoe Bay/Departure Bay, but abstract says Tsawwassen/Duke Point; the source contains a route inconsistency. Preserve it as source context rather than silently rewriting title or description.",
+          "Publication date is empty; 20030311 is sample start and end date is empty, not a publication date."
+        ],
+        "context_summary": "Strait of Georgia ferry thermosalinograph/chlorophyll/nitrate observations. North data URL and title identify Horseshoe Bay/Departure Bay; source abstract names a different route. In Progress."
+      }
+    },
+    {
+      "source_id": "FGDC-3794",
+      "source_absolute_path": "/workspace/pices-main/FGDC/FGDC-3794.xml",
+      "source_bytes": 5019,
+      "source_sha256": "2708f0ca3f0f1fa17c0d50be2de3b014f01c38fb0b52b8666e7fd3925d75dbf8",
+      "complete_original_xml_read": true,
+      "retained_reconciliation_pointer": "/rows/78",
+      "retained_reconciliation_row_exact": {
+        "complete_legacy_creators": [
+          {
+            "name": "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences",
+            "type": "Organization"
+          }
+        ],
+        "current_execution_authority_claim": false,
+        "current_wire_mapping_admission_claim": false,
+        "earlier_review_rationale": "The origin explicitly names Mark Halverson, Rich Pawlowicz and Randall Lee of a university department. It is a people/institution compound, not an organizational entity despite the existing heuristic type.",
+        "existing_heuristic_type_is_source_authority": false,
+        "frozen_plan_target_sha256_ascii": "9c89bcd48724d33f1505fef5269063b3aa5bdd320d11a0920bc5b6cdb6db4ace",
+        "hold_reason": "The origin explicitly names Mark Halverson, Rich Pawlowicz and Randall Lee of a university department. It is a people/institution compound, not an organizational entity despite the existing heuristic type.",
+        "independent_decision": "PRESERVED_DIRECT_CREDIT_MAPPING_HOLD",
+        "lane": "direct_credit37",
+        "primary_origin_quotes": [
+          "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences"
+        ],
+        "source_context_binding_reference": "958c9d00d0f2dfdd32a01cbe40ceb843d16f1e2ef3645b2c9532c19ebb23c758",
+        "source_evidence_pointer": "institution91_bindings.members[FGDC-3794]",
+        "source_id": "FGDC-3794",
+        "source_path": "FGDC/FGDC-3794.xml",
+        "source_quotes": [
+          "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences"
+        ],
+        "source_sha256": "2708f0ca3f0f1fa17c0d50be2de3b014f01c38fb0b52b8666e7fd3925d75dbf8",
+        "source_supported_in_frozen_plan": true
+      },
+      "xml_evidence": {
+        "primary_origins": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/origin",
+            "value": "Mark Halverson, Rich Pawlowicz, and Randall Lee of University of British Columbia, Department of Earth and Ocean Sciences",
+            "start_line": 5,
+            "end_line": 5
+          }
+        ],
+        "title": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/title",
+            "value": "Strait of Georgia Ferry Data by STRATOGEM: Tsawwassen/Duke Point, Canada",
+            "start_line": 7,
+            "end_line": 7
+          }
+        ],
+        "publication_date": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/pubdate",
+            "value": "",
+            "start_line": 6,
+            "end_line": 6
+          }
+        ],
+        "abstract_paragraphs": [
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[1]",
+            "value": "The STRATOGEM program instrumented a BC Ferry traveling regularly between Tsawwassen/Duke Point. The ferry track runs across the large Fraser river and into the clearer water of the north, allowing an assessment of the influence that plume dynamics have within this ecosystem. The ferry, equipped with a thermosalinograph, chlorophyll fluorometer, data logger, and, intermittently, an ultra-violet spectrophotometric nitrate sensor, may sample up to eight times per day, record position and water property data at 2 - 10 second intervals. This ferry route has been in operation since 13 January 2003.",
+            "start_line": 12,
+            "end_line": 12
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[2]",
+            "value": "Data sets are provided online at http://www.stratogem.ubc.ca/BCFerry/Central/.",
+            "start_line": 13,
+            "end_line": 13
+          }
+        ],
+        "purpose": [
+          {
+            "xpath": "/metadata/idinfo/descript/purpose",
+            "value": "To define the effects of tidal, diurnal, weatherband, seasonal, and climatic influences in the production surface layer of Strait of Georgia.",
+            "start_line": 15,
+            "end_line": 15
+          }
+        ],
+        "sample_date_values": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/timeinfo/rngdates/begdate",
+            "value": "20030113",
+            "start_line": 20,
+            "end_line": 20
+          },
+          {
+            "xpath": "/metadata/idinfo/timeperd/timeinfo/rngdates/enddate",
+            "value": "",
+            "start_line": 21,
+            "end_line": 21
+          }
+        ],
+        "time_reference": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/current",
+            "value": "Sample Date",
+            "start_line": 24,
+            "end_line": 24
+          }
+        ],
+        "progress": [
+          {
+            "xpath": "/metadata/idinfo/status/progress",
+            "value": "In Progress",
+            "start_line": 27,
+            "end_line": 27
+          }
+        ],
+        "update": [
+          {
+            "xpath": "/metadata/idinfo/status/update",
+            "value": "Other",
+            "start_line": 28,
+            "end_line": 28
+          }
+        ],
+        "access_constraints": [
+          {
+            "xpath": "/metadata/idinfo/accconst",
+            "value": "None",
+            "start_line": 57,
+            "end_line": 57
+          }
+        ],
+        "use_constraints": [
+          {
+            "xpath": "/metadata/idinfo/useconst",
+            "value": "Contact Source.",
+            "start_line": 58,
+            "end_line": 58
+          }
+        ],
+        "point_of_contact_names": [
+          {
+            "xpath": "/metadata/idinfo/ptcontac/cntinfo/cntperp/cntper",
+            "value": "Pawlowicz, Rich",
+            "start_line": 62,
+            "end_line": 62
+          }
+        ],
+        "distributor_names": [
+          {
+            "xpath": "/metadata/distinfo/distrib/cntinfo/cntperp/cntper",
+            "value": "Pawlowicz, Rich",
+            "start_line": 82,
+            "end_line": 82
+          }
+        ],
+        "metadata_contact_names": [
+          {
+            "xpath": "/metadata/metainfo/metc/cntinfo/cntperp/cntper",
+            "value": "Kimberly Bahl",
+            "start_line": 104,
+            "end_line": 104
+          }
+        ],
+        "metadata_date": [
+          {
+            "xpath": "/metadata/metainfo/metd",
+            "value": "20050110",
+            "start_line": 100,
+            "end_line": 100
+          }
+        ],
+        "metadata_use_constraints": [
+          {
+            "xpath": "/metadata/metainfo/metuc",
+            "value": "Contact Source.",
+            "start_line": 122,
+            "end_line": 122
+          }
+        ]
+      },
+      "source_only_observations": {
+        "primary_person_strings": [
+          "Mark Halverson",
+          "Rich Pawlowicz",
+          "Randall Lee"
+        ],
+        "primary_nonperson_strings": [
+          "University of British Columbia, Department of Earth and Ocean Sciences"
+        ],
+        "primary_credit_interpretation": "The primary origin explicitly lists three people followed by of University of British Columbia, Department of Earth and Ocean Sciences. STRATOGEM is a program in title/description rather than a fourth primary-origin creator.",
+        "other_credit_context": [
+          "Pawlowicz, Rich is point of contact/distributor, corroborating one origin person without adding another entry. Kimberly Bahl is metadata contact.",
+          "Abstract credits the STRATOGEM program with instrumenting a BC Ferry; the Central data URL and title refer to Tsawwassen/Duke Point."
+        ],
+        "concrete_ambiguities": [
+          "Publication date is empty; 20030113 is sample start and end date is empty, not a publication date.",
+          "Do not conflate this source with FGDC-3793 solely because they have identical primary-origin strings."
+        ],
+        "context_summary": "Strait of Georgia ferry thermosalinograph/chlorophyll/nitrate observations for Tsawwassen/Duke Point. Source says in operation since 13 January 2003 and In Progress."
+      }
+    },
+    {
+      "source_id": "FGDC-4068",
+      "source_absolute_path": "/workspace/pices-main/FGDC/FGDC-4068.xml",
+      "source_bytes": 7826,
+      "source_sha256": "8ab7e260eb2827aeadee6effcbbbd1bc10a2e09a3c6098dcca0d153a230d762b",
+      "complete_original_xml_read": true,
+      "retained_reconciliation_pointer": "/rows/99",
+      "retained_reconciliation_row_exact": {
+        "complete_legacy_creators": [
+          {
+            "name": "James B. Wood and Catriona Day, National Resource Center for Cephalopods, University of Texas Medical Branch",
+            "type": "Organization"
+          }
+        ],
+        "current_execution_authority_claim": false,
+        "current_wire_mapping_admission_claim": false,
+        "earlier_review_rationale": "Origin explicitly credits James B. Wood and Catriona Day followed by a resource center and university branch. The persons cannot remain hidden inside an organizational creator.",
+        "existing_heuristic_type_is_source_authority": false,
+        "frozen_plan_target_sha256_ascii": "26ba8f36690d3ded984638aaa626d342155b7ab1ca9d4cb5f209393669dadc50",
+        "hold_reason": "Origin explicitly credits James B. Wood and Catriona Day followed by a resource center and university branch. The persons cannot remain hidden inside an organizational creator.",
+        "independent_decision": "PRESERVED_DIRECT_CREDIT_MAPPING_HOLD",
+        "lane": "direct_credit37",
+        "primary_origin_quotes": [
+          "James B. Wood and Catriona Day, National Resource Center for Cephalopods, University of Texas Medical Branch"
+        ],
+        "source_context_binding_reference": "c576447ada5ed70f335662508e7005b9ab20f37ffee2c20a7028e6436a419598",
+        "source_evidence_pointer": "institution91_bindings.members[FGDC-4068]",
+        "source_id": "FGDC-4068",
+        "source_path": "FGDC/FGDC-4068.xml",
+        "source_quotes": [
+          "James B. Wood and Catriona Day, National Resource Center for Cephalopods, University of Texas Medical Branch"
+        ],
+        "source_sha256": "8ab7e260eb2827aeadee6effcbbbd1bc10a2e09a3c6098dcca0d153a230d762b",
+        "source_supported_in_frozen_plan": true
+      },
+      "xml_evidence": {
+        "primary_origins": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/origin",
+            "value": "James B. Wood and Catriona Day, National Resource Center for Cephalopods, University of Texas Medical Branch",
+            "start_line": 5,
+            "end_line": 5
+          }
+        ],
+        "title": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/title",
+            "value": "CephBase",
+            "start_line": 7,
+            "end_line": 7
+          }
+        ],
+        "publication_date": [
+          {
+            "xpath": "/metadata/idinfo/citation/citeinfo/pubdate",
+            "value": "1998",
+            "start_line": 6,
+            "end_line": 6
+          }
+        ],
+        "abstract_paragraphs": [
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[1]",
+            "value": "CephBase is a dynamic relational database-driven web site that has been online since 1998. It provides information about cephalopods, the class of mollusks that contains octopuses, squids, cuttlefish and nautiluses. It is designed to be used as a tool for researchers or anyone interested in this amazing class of invertebrates.  CephBase contains the following major sub pages: Species Search, Image Database, Video Database, Reference Database, Researcher Directory, Predators Database, Prey Database.",
+            "start_line": 12,
+            "end_line": 12
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[2]",
+            "value": "Species Database - Following Sweeney and Roper 1998, CephBase lists all \nknown species of cephalopods.  We will be updating the taxonomy as soon as \nMike Sweeney makes his latest revision available.  The site is fully \nsearchable and species can be located by scientific name, common name or \nsynonym.  After locating a species of interest, distribution, predators, \nprey, images, references and many other types of information about that \nspecies are available at the click of a mouse.",
+            "start_line": 13,
+            "end_line": 19
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[3]",
+            "value": "Image Database - Cephalopods display specific body patterns through their \nunique abilities to change coloration, skin texture and body shape; this \nspecies-specific taxonomic and ecologically important information is lost \nupon preservation.  We are scanning our extensive collection of cephalopod \nimages and currently have 300 images online.  We will place thousands of the highest quality images from the National Resource Center for Cephalopods \n(NRCC) online.  Although the site has not been announced until now, we are \nalready receiving images from collaborators.",
+            "start_line": 20,
+            "end_line": 26
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[4]",
+            "value": "Images can be searched by species, keyword, photographer, location or a combination of any of the above.  All images have a description written by a leading cephalopod expert as well as where the image was taken and other relevant data.",
+            "start_line": 27,
+            "end_line": 27
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[5]",
+            "value": "Video Database - This sub page is scheduled for year two of our grant but we\nexpect to start developing it ahead of schedule.  The video database will be very similar to the image database.  Our Smithsonian collaborators have a large amount of rare video footage of deep-sea cephalopods so this sub page will be quite a resource.",
+            "start_line": 28,
+            "end_line": 29
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[6]",
+            "value": "Reference Database - The reference database contains over 3,000 references \nabout cephalopods.  We will continue to add to it as we receive reprints or copies of new papers.  The database can be searched by species, keyword, author or a combination of all three.",
+            "start_line": 30,
+            "end_line": 31
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[7]",
+            "value": "Researcher Directory - This sub page also facilitates communication and \ncollaboration with the world's leading cephalopod authorities.  CephBase has greatly expanded the International Directory of Cephalopod Workers. This list used to contain email address and names only.  Now, mailing address, phone numbers and areas of interest are listed.  The directory can be searched by name, country or keyword.  This tool has been very popular with potential graduate students who are interested in knowing who is studying in their area of interest.",
+            "start_line": 32,
+            "end_line": 33
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[8]",
+            "value": "Predators and Prey Database - These two sub pages list hundreds of predators and prey of cephalopods.  Cephalopods grow very rapidly, exponentially when young and they typically have short lifespans.  Thus they move rapidly through the trophic levels.  All cephalopods are predators but they are never top predators.  In turn, cephalopods are consumed by ecologically and economically important species of birds, fish, mollusks and marine mammals.",
+            "start_line": 34,
+            "end_line": 34
+          },
+          {
+            "xpath": "/metadata/idinfo/descript/abstract/p[9]",
+            "value": "CephBase also contains a collaborators sub page.",
+            "start_line": 35,
+            "end_line": 35
+          }
+        ],
+        "purpose": [
+          {
+            "xpath": "/metadata/idinfo/descript/purpose",
+            "value": "To provide taxonomic data, life history, distribution, images, videos, references and scientific contact information on all living species of cephalopods (octopus, squid, cuttlefish and nautilus) in an easy to access, user-friendly manner.",
+            "start_line": 37,
+            "end_line": 37
+          }
+        ],
+        "sample_date_values": [],
+        "time_reference": [
+          {
+            "xpath": "/metadata/idinfo/timeperd/current",
+            "value": "Publication Date",
+            "start_line": 41,
+            "end_line": 41
+          }
+        ],
+        "progress": [
+          {
+            "xpath": "/metadata/idinfo/status/progress",
+            "value": "In Progress",
+            "start_line": 44,
+            "end_line": 44
+          }
+        ],
+        "update": [
+          {
+            "xpath": "/metadata/idinfo/status/update",
+            "value": "Unknown",
+            "start_line": 45,
+            "end_line": 45
+          }
+        ],
+        "access_constraints": [
+          {
+            "xpath": "/metadata/idinfo/accconst",
+            "value": "None",
+            "start_line": 76,
+            "end_line": 76
+          }
+        ],
+        "use_constraints": [
+          {
+            "xpath": "/metadata/idinfo/useconst",
+            "value": "Contact Source",
+            "start_line": 77,
+            "end_line": 77
+          }
+        ],
+        "point_of_contact_names": [
+          {
+            "xpath": "/metadata/idinfo/ptcontac/cntinfo/cntperp/cntper",
+            "value": "Day, Catriona",
+            "start_line": 81,
+            "end_line": 81
+          }
+        ],
+        "distributor_names": [
+          {
+            "xpath": "/metadata/distinfo/distrib/cntinfo/cntperp/cntper",
+            "value": "Day, Catriona",
+            "start_line": 101,
+            "end_line": 101
+          }
+        ],
+        "metadata_contact_names": [
+          {
+            "xpath": "/metadata/metainfo/metc/cntinfo/cntperp/cntper",
+            "value": "Kimberly Bahl",
+            "start_line": 123,
+            "end_line": 123
+          }
+        ],
+        "metadata_date": [
+          {
+            "xpath": "/metadata/metainfo/metd",
+            "value": "20060330",
+            "start_line": 119,
+            "end_line": 119
+          }
+        ],
+        "metadata_use_constraints": [
+          {
+            "xpath": "/metadata/metainfo/metuc",
+            "value": "Contact Source",
+            "start_line": 141,
+            "end_line": 141
+          }
+        ]
+      },
+      "source_only_observations": {
+        "primary_person_strings": [
+          "James B. Wood",
+          "Catriona Day"
+        ],
+        "primary_nonperson_strings": [
+          "National Resource Center for Cephalopods",
+          "University of Texas Medical Branch"
+        ],
+        "primary_credit_interpretation": "The origin explicitly credits two people followed by a resource center and university branch. It is not a single organizational creator. The suffix identifies institutional context but does not individually restate affiliation for each person.",
+        "other_credit_context": [
+          "Abstract refers to Sweeney and Roper 1998 for taxonomy, Mike Sweeney for a future revision, Smithsonian collaborators for video, and NRCC image collections. These are component references/collaborators rather than additions to the primary-origin pair.",
+          "Day, Catriona is point of contact/distributor; Kimberly Bahl is metadata contact. A contact address must not replace the primary-origin institutional context.",
+          "CephBase is the database/title and a collaborators page exists; neither implies named additional primary creators."
+        ],
+        "concrete_ambiguities": [
+          "Preserve James B. Wood exactly, including B.; no expansion is supplied.",
+          "The origin institutional suffix should not be split into extra creator organizations automatically. Its per-person affiliation scope must be stated if a mapping uses affiliations.",
+          "A Vancouver contact address and a Texas institution in primary origin are different roles, not evidence sufficient to overwrite either."
+        ],
+        "context_summary": "CephBase relational database site, online since 1998, with species, images, videos, references, researchers, predators and prey. Publication date 1998; no sample date supplied; In Progress."
+      }
+    }
+  ]
+}

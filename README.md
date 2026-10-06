@@ -4,23 +4,54 @@ This project transforms 4,206 FGDC XML metadata records to Zenodo JSON format an
 
 ## Agent repository workflow
 
-Brett's standing authorization of 2026-10-04 permits agents to merge pull requests
-without another approval after passing CI and a Codex review of the current PR
-head. Agents may also commit rules changes and other documentation updates
-directly to `main`. The current [agent rules](AGENTS.md) supersede older repository
-approval instructions retained in historical plans and handoffs. Provider action
-grants and production release requirements continue to apply independently.
+Brett's current authorization permits merging pull requests without another
+approval after CI passes and Codex review covers the current head. After the
+October 6 branch reconciliation, authorized implementation continues directly on
+`main`, with appropriate checks and independent review before publication. Rules
+and documentation updates may also be committed directly to `main`. The current
+[agent rules](AGENTS.md) supersede older approval and routine feature-branch
+instructions retained in historical checkouts, plans and handoffs. Preserve those
+checkpoints and branches as evidence; repository authority does not grant provider
+actions or waive production release requirements.
 
-The current [community-first release handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md)
-holds the first production draft for actual Mac-reviewed PICES authority, record
-QA and human release before a separately granted review/submission route. Its
-implementation tests, independent review and CI are pending. PR38 merged at
-`4a3703df949a952bb7b9b00544a3132cea771bfc` with 748 passing CI tests and measured
-modern coverage of **3,145 targets; 788 remain outside**. PR39 merged at
-`8c0f77210b24859c89dcb5ecae2aba3331f34c29` with 767 passing CI tests, adding
-completed-on-PUT handling and identical duplicate bare binary Content-Type
-compatibility. These are code checkpoints; provider execution requires its own
-evidence and grant. Earlier checkpoints below remain historical evidence.
+See the [branch reconciliation](docs/readiness/2026-10-06/branch_reconciliation.json)
+for all 77 remote heads and the separate local checkpoint audit. PR46 was the only
+remaining current integration; older operational routes remain preserved on their
+historical refs. Subsequent implementation uses the maintained main checkout.
+
+The [reviewed citations31 increment](docs/readiness/2026-10-06/modern_reviewed_citations31_handoff.md)
+and its [guarded measurements](docs/readiness/2026-10-06/modern_reviewed_citations31_validation.json)
+cover **3,839 prepared targets / 4,042 originals**; **94 supported targets remain**
+(69 singletons and 25 pairs). The [release receipt](docs/readiness/2026-10-06/modern_reviewed_citations31_release.json)
+records independent review, 84 focused/affected checks and **939 passing full CI tests**.
+Work is paused at the user's request before the 25-pair preparation increment.
+Source eligibility and provider holds are unchanged. The earlier program20 milestone follows.
+
+The [exact program20 increment](docs/readiness/2026-10-06/modern_program20_handoff.md)
+and its [guarded measurements](docs/readiness/2026-10-06/modern_program20_validation.json)
+cover **3,808 prepared targets / 4,011 originals**; **125 supported targets remain**
+(100 singletons and 25 pairs). The [release receipt](docs/readiness/2026-10-06/modern_program20_release.json) records
+independent commit review, 74 focused/affected checks and 929 passing full CI tests. Source eligibility is unchanged, and
+paired execution remains disabled. The earlier completed milestone follows.
+
+The [exact reviewed194 increment](docs/readiness/2026-10-06/modern_reviewed_creators194_handoff.md)
+and its [guarded measurements](docs/readiness/2026-10-06/modern_reviewed_creators194_validation.json)
+cover **3,788 prepared targets / 3,991 originals**; **145 supported targets remain
+outside** (120 singletons and 25 pairs). The [current release](docs/readiness/2026-10-06/modern_reviewed_creators194_release.json)
+records independent exact-commit review and 921 passing full CI tests. The [prior PR46 release](docs/readiness/2026-10-06/modern_citationorg129_release.json)
+retains its completed CI/merge evidence. The 203 prepared pairs are metadata-only:
+paired execution remains disabled. All 4,206 original XML files are unchanged.
+
+The separately frozen [unknown-create recovery release](docs/readiness/2026-10-06/modern_unknown_create_release.json)
+provides a bounded GET-only observation controller. The original production create
+outcome remains unresolved, its intent is spent, and provider requests remain
+paused pending supported network recovery and a separate parent grant to the sole
+Mac executor. Zenodo support ticket 3327790 is pending. The
+[community-first release handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md)
+still requires actual PICES authority, source/record QA, a human release and accepted
+membership/default readback. AquaDocs linkage is
+[deferred until after initial publication](docs/readiness/2026-10-06/aquadocs_deferred_followup.json).
+Earlier checkpoints below remain historical evidence.
 
 The [finite direct-primary increment](docs/adr/0008-finite-direct-primary-organizations.md)
 adds 2,628 supported singleton targets in 294 independently reviewed
@@ -39,7 +70,7 @@ Publication requires saved modern QA evidence, independent program review and a
 separate human release. Paired-class execution remains outside this finite path.
 
 The [offline contracts workflow](.github/workflows/offline-contracts.yml) checks
-the exact PR head on a standard Ubuntu runner with read-only permissions and
+the exact PR or main head on a standard Ubuntu runner with read-only permissions and
 no provider secrets. Run its portable guard locally with
 `python -B ci/run_offline_tests.py`; optional `tests.test_…` module arguments select
 focused contracts. Test imports use a cleared environment and dummy credentials;

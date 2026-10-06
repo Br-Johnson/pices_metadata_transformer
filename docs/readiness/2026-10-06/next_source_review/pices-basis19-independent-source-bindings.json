@@ -1,0 +1,2763 @@
+{
+  "all_bindings_match": true,
+  "candidate_hash_convention": "A held null candidate has null digest; nonnull arrays use the packet ASCII canonical recipe.",
+  "group_bindings": [
+    {
+      "complete_arrays_match_all_rows": true,
+      "group": "personal_array_FGDC-3680",
+      "members": [
+        {
+          "source_id": "FGDC-3680",
+          "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+        },
+        {
+          "source_id": "FGDC-3681",
+          "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+        },
+        {
+          "source_id": "FGDC-3800",
+          "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+        },
+        {
+          "source_id": "FGDC-3802",
+          "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+        },
+        {
+          "source_id": "FGDC-3803",
+          "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+        },
+        {
+          "source_id": "FGDC-3804",
+          "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+        },
+        {
+          "source_id": "FGDC-3805",
+          "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+        },
+        {
+          "source_id": "FGDC-3806",
+          "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+        },
+        {
+          "source_id": "FGDC-3807",
+          "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+        },
+        {
+          "source_id": "FGDC-3808",
+          "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+        }
+      ],
+      "membership_matches": true
+    },
+    {
+      "complete_arrays_match_all_rows": true,
+      "group": "personal_array_FGDC-3814",
+      "members": [
+        {
+          "source_id": "FGDC-3814",
+          "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+        },
+        {
+          "source_id": "FGDC-3816",
+          "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+        },
+        {
+          "source_id": "FGDC-3817",
+          "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+        }
+      ],
+      "membership_matches": true
+    },
+    {
+      "complete_arrays_match_all_rows": true,
+      "group": "personal_array_FGDC-3809",
+      "members": [
+        {
+          "source_id": "FGDC-3809",
+          "source_sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9"
+        },
+        {
+          "source_id": "FGDC-3810",
+          "source_sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e"
+        },
+        {
+          "source_id": "FGDC-3812",
+          "source_sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640"
+        }
+      ],
+      "membership_matches": true
+    },
+    {
+      "complete_arrays_match_all_rows": true,
+      "group": "personal_array_FGDC-3825",
+      "members": [
+        {
+          "source_id": "FGDC-3825",
+          "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+        }
+      ],
+      "membership_matches": true
+    },
+    {
+      "complete_arrays_match_all_rows": true,
+      "group": "personal_array_FGDC-3831",
+      "members": [
+        {
+          "source_id": "FGDC-3831",
+          "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+        }
+      ],
+      "membership_matches": true
+    },
+    {
+      "complete_arrays_match_all_rows": true,
+      "group": "personal_array_FGDC-3838",
+      "members": [
+        {
+          "source_id": "FGDC-3838",
+          "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+        }
+      ],
+      "membership_matches": true
+    }
+  ],
+  "hash_recipe": "sha256(json.dumps(value,ensure_ascii=True,sort_keys=True,separators=(comma,colon)).encode(UTF8)); original file digests are exact bytes. ET source_element excludes only outer tail and preserves all recursive text/tails/attributes/order.",
+  "input_pins": [
+    {
+      "actual_sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a",
+      "bytes": 384179,
+      "matches": true,
+      "path": "/tmp/pices-program20-remaining100-reconciliation.json",
+      "sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a"
+    },
+    {
+      "actual_sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2",
+      "bytes": 877461,
+      "matches": true,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2"
+    },
+    {
+      "actual_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad",
+      "bytes": 6312934,
+      "matches": true,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/publication_plan.json",
+      "sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+    },
+    {
+      "actual_sha256": "08f3713405e56a1fb594efadc5f32705bd9d60de8b5d4fb28dab3a6022fe94db",
+      "bytes": 3077973,
+      "matches": true,
+      "path": "/tmp/pices-creator426-residual289-representation-review.json",
+      "sha256": "08f3713405e56a1fb594efadc5f32705bd9d60de8b5d4fb28dab3a6022fe94db"
+    },
+    {
+      "actual_sha256": "afd5d99f05e28bb1906625b6b4fb42a215d7f255d182c6c3dd481603f72aea1c",
+      "bytes": 7824,
+      "matches": true,
+      "path": "/tmp/pices-basis19-primary-evidence.json",
+      "sha256": "afd5d99f05e28bb1906625b6b4fb42a215d7f255d182c6c3dd481603f72aea1c"
+    }
+  ],
+  "kind": "basis19_independent_static_source_binding_receipt",
+  "limits": {
+    "coverage_claim": false,
+    "project_imports": false,
+    "provider_requests": false,
+    "repository_edits": false,
+    "tests_classifications_preparations_or_measurements": false
+  },
+  "members": [
+    {
+      "source_id": "FGDC-3680",
+      "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+    },
+    {
+      "source_id": "FGDC-3681",
+      "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+    },
+    {
+      "source_id": "FGDC-3800",
+      "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+    },
+    {
+      "source_id": "FGDC-3802",
+      "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+    },
+    {
+      "source_id": "FGDC-3803",
+      "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+    },
+    {
+      "source_id": "FGDC-3804",
+      "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+    },
+    {
+      "source_id": "FGDC-3805",
+      "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+    },
+    {
+      "source_id": "FGDC-3806",
+      "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+    },
+    {
+      "source_id": "FGDC-3807",
+      "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+    },
+    {
+      "source_id": "FGDC-3808",
+      "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+    },
+    {
+      "source_id": "FGDC-3809",
+      "source_sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9"
+    },
+    {
+      "source_id": "FGDC-3810",
+      "source_sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e"
+    },
+    {
+      "source_id": "FGDC-3812",
+      "source_sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640"
+    },
+    {
+      "source_id": "FGDC-3814",
+      "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+    },
+    {
+      "source_id": "FGDC-3816",
+      "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+    },
+    {
+      "source_id": "FGDC-3817",
+      "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+    },
+    {
+      "source_id": "FGDC-3825",
+      "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+    },
+    {
+      "source_id": "FGDC-3831",
+      "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+    },
+    {
+      "source_id": "FGDC-3838",
+      "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+    }
+  ],
+  "membership_digest_matches": true,
+  "membership_sha256_ascii": "058bcd35c8dd22eb36398a096fcc82ebef4204cc6eddae7d8410216429bf27a4",
+  "no_mapping_approval": true,
+  "packet": {
+    "path": "/tmp/pices-basis19-modern-personal-source-proposals.json",
+    "sha256": "3dffa1313c1b31a9950277658df01b334b0632ac204c982054abe1cf54672faf"
+  },
+  "schema_version": 1,
+  "source_rows": [
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "814071274d1f5c6be3dd418be6ba23f386497f9e9505189c4de79fea40d33c3a",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "None"
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "None"
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "1871485e2640c6e4b4c1bf670fca0fca7b155d51e10e32431e21bdd875daa745",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 7447,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "20021001"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3680",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3680",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3680"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "f163af98f1b285788712818e7968895174e856c3c5d9208b2a0e45d2bd2ef749",
+      "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "7906b8e982dc9f184f153f0d5cd3ee38ced8922ba368dce6e210924f4bf261ce",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]  This report is available at http://www.npafc.org/BASIS/622(Japan).pdf\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "46a22efab28d189e62268b5aa8a442796ecc4bca28c35d75468911565d3b1234",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 6474,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3681",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3681",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3681"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "bf065bd358691cb67f9b9deda87676bbf6b3f9e784ba939691598b448491d9bc",
+      "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "86afb841a36694479346363491a24c4c4bc2655d9c668267bf7fc9567d72aeff",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]  This report is available at http://www.npafc.org/BASIS/622(Japan).pdf\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "f7b7b313a806341668ce907104d5d775629e9dfc0d7a0eeb465a3d6bc8f9ab43",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 5818,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3800",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3800",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3800"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "ed66839d8ee4c7ead377d7578c4dbe87129999c32bb49ed2956f14a0136159dc",
+      "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "7868b303a2e0e9e92ebe14b9f21c258f0ab857b1193079f8824e306197c95b93",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]  This report is available at http://www.npafc.org/BASIS/622(Japan).pdf\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "bd50d4330de3415edeffb1bfd7d84db6435a532c19de37ca1c8f20e03bd799b8",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 6275,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3802",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3802",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3802"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "e9a9765dc950f2152c77ce5a06d54dcb484b55db24be3687294dc04708261697",
+      "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "67937b8eb3ef4f6f93351280025fd09ebb7ef676bacaf78606cb2130e4523094",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]  This report is available at http://www.npafc.org/BASIS/622(Japan).pdf\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "43e45cf0e735641c03cbaa1c3523c53572460aee9668108320fced3cf6b1b7c5",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 7860,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3803",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3803",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3803"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "2bf35957e3de9666106270c24df8e6c93cff0f0dbd3fdb4443eda373ecc016a2",
+      "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "1ab6a8b864b9c7650dd589a46682e0a6864b4d6ba29b3842f37df9e242b5dee5",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]  This report is available at http://www.npafc.org/BASIS/622(Japan).pdf\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "f8987f9906222071e346399c3f23640ea7db943b8a13c3ab9c8a8b8e46c93c95",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 7586,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3804",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3804",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3804"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "50679d54272dd92ba34832485ef68f28149c87233b40413424841f07125ba7af",
+      "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "421b1a7deae4d0d364ccd831f91b7f05ba76b35eccf7cbdcfa1d36b44ee87897",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]  This report is available at http://www.npafc.org/BASIS/622(Japan).pdf\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "9bc472792813e80a3b750877555031b8b224476708170938727fd60410d9fd28",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 5971,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3805",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3805",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3805"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "864b7f9eb787e11e3ac6ac9eb5f4c3bce11d07dd841c4619cbc55d5196808909",
+      "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "39b022eced3d943afac94ab02671ee5b7798bfc3c81e3d557f3d591cd0a37132",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]  This report is available at http://www.npafc.org/BASIS/622(Japan).pdf\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "8b5a2310d332b0b176a3800de57093b5f3819b432aa30a88f1f84c7ea9b130d2",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 6172,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3806",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3806",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3806"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "dea416b5350634a3b63b44e0e8d01671940b879b913f1733d997dbca2e1144e5",
+      "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "165725ed51719062a22b4166093339f4edea646c0a8e619a5fb8393630aa92d1",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]  This report is available at http://www.npafc.org/BASIS/622(Japan).pdf\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "90c77139aad162202b66713d702bfb58dae93d4559cc98be6dc21007f7519f53",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 8127,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3807",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3807",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3807"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "862cc17c27111a08b968e7e56e06756507c416c2349605f197164a47310e6cd1",
+      "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "1302d65b348ce2afcdfaa98c12fd9f215ec7389c2a46394a2acf40bfba6eb05d",
+      "complete_embedded_reference_recursive_text": "[Reference: Tanaka, H, N. Davis, T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. International salmon research aboard the R/V\n          Wakatake maru\n          in the central North Pacific Ocean and Bering Sea during the summer of 2002. (NPAFC Doc. 622). 21 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.]  This report is available at http://www.npafc.org/BASIS/622(Japan).pdf\n        \n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Hideji Tanaka"
+        },
+        {
+          "name": "Nancy Navis"
+        },
+        {
+          "name": "Takeshi Onuma"
+        },
+        {
+          "name": "Makoto Yamada"
+        },
+        {
+          "name": "Yuzo Yamamoto"
+        },
+        {
+          "name": "Sadamasa Tsuchiya"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission (NPAFC)"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "6c5bd1e0ddd4bb0692ed55d85cd7aadbd275724cbe59b048c53183411809c78c",
+      "plan_target_sha256_ascii": "724f7dc97b65949bf0bb16bbc3f223658fd5dfbab386d6131d2408a7419f0ba5",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 8416,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3808",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3808",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3808"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "ca8081422c5787b07f00c594b0174725afbcec43f6331590a809f2b457c0ab91",
+      "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "fe85bf582a67ea5b7e979ce5cbffcc3c3fc2581664fe51f16b928d7828182746",
+      "complete_embedded_reference_recursive_text": "[Reference: Murphy, J., N. Davis, O. Ivanov, M. Rohr, S. Elmajjati, and W. Barber. 2003. Cruise report of the 2002 F/V Northwest Explorer BASIS survey in the Bering Sea, September- October. (NPAFC Doc. 676 Rev. 1) 23 p. NMFS, Auke Bay Laboratory, Juneau, AK; School of Aquatic& Fishery Sciences, University of  Washington; Pacific Fisheries Research Centre (TINRO-Centre), Vladivostok; Alaska Quaternary Center, University of Alaska Fairbanks; Institute of Marine Science, University of Alaska Fairbanks.]\n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "James Murphy"
+        },
+        {
+          "name": "Nancy Davis"
+        },
+        {
+          "name": "Oleg Ivanov"
+        },
+        {
+          "name": "Melanie Rohr"
+        },
+        {
+          "name": "Sonya Elmajatii"
+        },
+        {
+          "name": "William Barber"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "None"
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "None"
+        ]
+      },
+      "full_legacy_sha256_ascii": "fdfa2e1a1f3b8df672efb086b7bc02ce6a7cc94781776ded3a31f2137c815de6",
+      "plan_target_sha256_ascii": "19ad0e9996dcf5d89d1d3570e06ee03a4d506423cd37226108211e68b1942a36",
+      "proposed_complete_modern_creators_NOT_APPROVED": [
+        {
+          "person_or_org": {
+            "family_name": "Murphy",
+            "given_name": "James",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Davis",
+            "given_name": "Nancy",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Ivanov",
+            "given_name": "Oleg",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Rohr",
+            "given_name": "Melanie",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Elmajatii",
+            "given_name": "Sonya",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Barber",
+            "given_name": "William",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "name": "North Pacific Anadromous Fish Commission",
+            "type": "organizational"
+          }
+        }
+      ],
+      "source_bytes": 8835,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "200309"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3809",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3809",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3809"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "7c9421284200426b68523e5e4e840dc8aaa64946b350eefe6f59a32ea7ba8c87",
+      "source_sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "227d07d14761aeb689703a49b02d29fe95afe9a07206a245051414bf397a7cf8",
+      "complete_embedded_reference_recursive_text": "[Reference: Murphy, J., N. Davis, O. Ivanov, M. Rohr, S. Elmajjati, and W. Barber. 2003. Cruise report of the 2002 F/V Northwest Explorer BASIS survey in the Bering Sea, September- October. (NPAFC Doc. 676 Rev. 1) 23 p. NMFS, Auke Bay Laboratory, Juneau, AK; School of Aquatic& Fishery Sciences, University of  Washington; Pacific Fisheries Research Centre (TINRO-Centre), Vladivostok; Alaska Quaternary Center, University of Alaska Fairbanks; Institute of Marine Science, University of Alaska Fairbanks.]  This report is available at http://www.npafc.org/restricted_doc/2003%20Documents_PDF/676(Rev1)(USA).pdf\n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "James Murphy"
+        },
+        {
+          "name": "Nancy Davis"
+        },
+        {
+          "name": "Oleg Ivanov"
+        },
+        {
+          "name": "Melanie Rohr"
+        },
+        {
+          "name": "Sonya Elmajatii"
+        },
+        {
+          "name": "William Barber"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "fdfa2e1a1f3b8df672efb086b7bc02ce6a7cc94781776ded3a31f2137c815de6",
+      "plan_target_sha256_ascii": "ba58305b179738a860aa10e69fbb9f7107d9f16ef94b40aeacf5bdbdba7721ea",
+      "proposed_complete_modern_creators_NOT_APPROVED": [
+        {
+          "person_or_org": {
+            "family_name": "Murphy",
+            "given_name": "James",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Davis",
+            "given_name": "Nancy",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Ivanov",
+            "given_name": "Oleg",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Rohr",
+            "given_name": "Melanie",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Elmajatii",
+            "given_name": "Sonya",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Barber",
+            "given_name": "William",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "name": "North Pacific Anadromous Fish Commission",
+            "type": "organizational"
+          }
+        }
+      ],
+      "source_bytes": 6875,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3810",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3810",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3810"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "2fc425d7725ad54ac17e357cb857306aaaab6fea60554921f1d4381fea710203",
+      "source_sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "95ed8d35db318d3a5da9ae9e1829477707db194f86a5be5d5f548db8843f5bc6",
+      "complete_embedded_reference_recursive_text": "[Reference: Murphy, J., N. Davis, O. Ivanov, M. Rohr, S. Elmajjati, and W. Barber. 2003. Cruise report of the 2002 F/V Northwest Explorer BASIS survey in the Bering Sea, September- October. (NPAFC Doc. 676 Rev. 1) 23 p. NMFS, Auke Bay Laboratory, Juneau, AK; School of Aquatic& Fishery Sciences, University of  Washington; Pacific Fisheries Research Centre (TINRO-Centre), Vladivostok; Alaska Quaternary Center, University of Alaska Fairbanks; Institute of Marine Science, University of Alaska Fairbanks.]  This report is available at http://www.npafc.org/restricted_doc/2003%20Documents_PDF/676(Rev1)(USA).pdf\n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "James Murphy"
+        },
+        {
+          "name": "Nancy Davis"
+        },
+        {
+          "name": "Oleg Ivanov"
+        },
+        {
+          "name": "Melanie Rohr"
+        },
+        {
+          "name": "Sonya Elmajatii"
+        },
+        {
+          "name": "William Barber"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Check with Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Check with Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "fdfa2e1a1f3b8df672efb086b7bc02ce6a7cc94781776ded3a31f2137c815de6",
+      "plan_target_sha256_ascii": "a2c00d63900bea53406608dd5d0fbd0d8c36a9ca519de07a690ce24a9e4c57b7",
+      "proposed_complete_modern_creators_NOT_APPROVED": [
+        {
+          "person_or_org": {
+            "family_name": "Murphy",
+            "given_name": "James",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Davis",
+            "given_name": "Nancy",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Ivanov",
+            "given_name": "Oleg",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Rohr",
+            "given_name": "Melanie",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Elmajatii",
+            "given_name": "Sonya",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Barber",
+            "given_name": "William",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "name": "North Pacific Anadromous Fish Commission",
+            "type": "organizational"
+          }
+        }
+      ],
+      "source_bytes": 7174,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3812",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3812",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3812"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "e67a7bb8618945c8282d6e94eb2899d329d47183de03590e3cab232d569ef8fc",
+      "source_sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "77de6a76cc424db2d9aca3d55d43855f737f75fc8d8688bf30c88575e5677cc7",
+      "complete_embedded_reference_recursive_text": "[Reference: Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl, L. Hulbert, J. Moss, M. Trudel, E. Parks, T. Hamilton, C. Lagoudakis, and D. McCallum. 2003. Eastern Bering Sea (BASIS) coastal research (August - October 2002) on juvenile salmon. (NPAFC Doc. 678.) 25p. Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, NOAA, 11305 Glacier Highway, Juneau, AK 99801-8626.]\n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Edward V. Farley, Jr."
+        },
+        {
+          "name": "Bruce Wing"
+        },
+        {
+          "name": "Angela Middleton"
+        },
+        {
+          "name": "John Pohl"
+        },
+        {
+          "name": "Lee Hulbert"
+        },
+        {
+          "name": "Jamal Moss"
+        },
+        {
+          "name": "Marc Trudel"
+        },
+        {
+          "name": "Edward Parks"
+        },
+        {
+          "name": "Ted Hamilton"
+        },
+        {
+          "name": "Cynthia Lagoudakis"
+        },
+        {
+          "name": "Danielle McCallum"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "None"
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "None"
+        ]
+      },
+      "full_legacy_sha256_ascii": "b107f434f063b84a5c2d0c1961972375cf40588b06d6096d5b5ddaefcb217078",
+      "plan_target_sha256_ascii": "7fcfedb6b8105ba6d0288d6ca20a92408222a7646eee9ffe105d08382aeab74a",
+      "proposed_complete_modern_creators_NOT_APPROVED": [
+        {
+          "person_or_org": {
+            "family_name": "Farley, Jr.",
+            "given_name": "Edward V.",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Wing",
+            "given_name": "Bruce",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Middleton",
+            "given_name": "Angela",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Pohl",
+            "given_name": "John",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Hulbert",
+            "given_name": "Lee",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Moss",
+            "given_name": "Jamal",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Trudel",
+            "given_name": "Marc",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Parks",
+            "given_name": "Edward",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Hamilton",
+            "given_name": "Ted",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Lagoudakis",
+            "given_name": "Cynthia",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "McCallum",
+            "given_name": "Danielle",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "name": "North Pacific Anadromous Fish Commission",
+            "type": "organizational"
+          }
+        }
+      ],
+      "source_bytes": 7243,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "20030501"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3814",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3814",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3814"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "4b44d56c4d1888b608967e8faa8ec7c04bdddbc6f5922934d92f2592a377232d",
+      "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "5aea82af49beede5945f3292efbb5bf5eae8da75b7be78b5943a0335acfd4cb9",
+      "complete_embedded_reference_recursive_text": "[Reference: Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl, L. Hulbert, J. Moss, M. Trudel, E. Parks, T. Hamilton, C. Lagoudakis, and D. McCallum. 2003. Eastern Bering Sea (BASIS) coastal research (August - October 2002) on juvenile salmon. (NPAFC Doc. 678.) 25p. Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, NOAA, 11305 Glacier Highway, Juneau, AK 99801-8626.]\n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Edward V. Farley, Jr."
+        },
+        {
+          "name": "Bruce Wing"
+        },
+        {
+          "name": "Angela Middleton"
+        },
+        {
+          "name": "John Pohl"
+        },
+        {
+          "name": "Lee Hulbert"
+        },
+        {
+          "name": "Jamal Moss"
+        },
+        {
+          "name": "Marc Trudel"
+        },
+        {
+          "name": "Edward Parks"
+        },
+        {
+          "name": "Ted Hamilton"
+        },
+        {
+          "name": "Cynthia Lagoudakis"
+        },
+        {
+          "name": "Danielle McCallum"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Contact Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Contact Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "b107f434f063b84a5c2d0c1961972375cf40588b06d6096d5b5ddaefcb217078",
+      "plan_target_sha256_ascii": "1d2ac824977813a9188060f849425c07b37d2086dc71f9ccbbcec4dae7908949",
+      "proposed_complete_modern_creators_NOT_APPROVED": [
+        {
+          "person_or_org": {
+            "family_name": "Farley, Jr.",
+            "given_name": "Edward V.",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Wing",
+            "given_name": "Bruce",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Middleton",
+            "given_name": "Angela",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Pohl",
+            "given_name": "John",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Hulbert",
+            "given_name": "Lee",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Moss",
+            "given_name": "Jamal",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Trudel",
+            "given_name": "Marc",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Parks",
+            "given_name": "Edward",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Hamilton",
+            "given_name": "Ted",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Lagoudakis",
+            "given_name": "Cynthia",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "McCallum",
+            "given_name": "Danielle",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "name": "North Pacific Anadromous Fish Commission",
+            "type": "organizational"
+          }
+        }
+      ],
+      "source_bytes": 8011,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "20030501"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3816",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3816",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3816"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "8aa3d64c532ed22e04471dd9f7eeb966c96b8b6519bbc11ef52c6c3fac2359cf",
+      "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "125f021da596695260ca4051d7c328895576e6f35519ef2cd19392b986273299",
+      "complete_embedded_reference_recursive_text": "[Reference: Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl, L. Hulbert, J. Moss, M. Trudel, E. Parks, T. Hamilton, C. Lagoudakis, and D. McCallum. 2003. Eastern Bering Sea (BASIS) coastal research (August - October 2002) on juvenile salmon. (NPAFC Doc. 678.) 25p. Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, NOAA, 11305 Glacier Highway, Juneau, AK 99801-8626.]  This cruise report is available for download at http://www.npafc.org/restricted_doc/2003%20Documents_PDF/678(usa).pdf.\n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Edward V. Farley, Jr."
+        },
+        {
+          "name": "Bruce Wing"
+        },
+        {
+          "name": "Angela Middleton"
+        },
+        {
+          "name": "John Pohl"
+        },
+        {
+          "name": "Lee Hulbert"
+        },
+        {
+          "name": "Jamal Moss"
+        },
+        {
+          "name": "Marc Trudel"
+        },
+        {
+          "name": "Edward Parks"
+        },
+        {
+          "name": "Ted Hamilton"
+        },
+        {
+          "name": "Cynthia Lagoudakis"
+        },
+        {
+          "name": "Danielle McCallum"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Contact Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Contact Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "b107f434f063b84a5c2d0c1961972375cf40588b06d6096d5b5ddaefcb217078",
+      "plan_target_sha256_ascii": "d66e832b45c8173fcebf5a5227f69b95c550d14c911263a6b7cd1afe364ec859",
+      "proposed_complete_modern_creators_NOT_APPROVED": [
+        {
+          "person_or_org": {
+            "family_name": "Farley, Jr.",
+            "given_name": "Edward V.",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Wing",
+            "given_name": "Bruce",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Middleton",
+            "given_name": "Angela",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Pohl",
+            "given_name": "John",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Hulbert",
+            "given_name": "Lee",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Moss",
+            "given_name": "Jamal",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Trudel",
+            "given_name": "Marc",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Parks",
+            "given_name": "Edward",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Hamilton",
+            "given_name": "Ted",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Lagoudakis",
+            "given_name": "Cynthia",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "McCallum",
+            "given_name": "Danielle",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "name": "North Pacific Anadromous Fish Commission",
+            "type": "organizational"
+          }
+        }
+      ],
+      "source_bytes": 6532,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "20030501"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3817",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3817",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3817"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "7ee696488e7898cfb6cfb2a5c2557219ff00bc9879e7a384d680b7d3a0ea3891",
+      "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "bb983171b565f4794f81fc74bd93ff0c6ed6f21d1e8047b611d2c88c63528567",
+      "complete_embedded_reference_recursive_text": "[Reference: Tomonori Azumaya, S. Urawa , O. Yamamura, M. Fukuwaka, A. Kusaka, T. Nagasawa, T. Nomura, S. Moriya, and A. Urano. 2003. Result of the survey by Kaiyo maru in the Bering Sea, 2002. (NPAFC Doc. 717). 12 p. Hokkaido National Fisheries Research Institute, Fisheries Research Agency, 116 Katsurakoi, Kushiro 085-0802, Japan.] This report is available for download at http://www.npafc.org/restricted_doc/2003%20Documents_PDF/717(Japan).pdf\n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Tomonori Azumaya"
+        },
+        {
+          "name": "Orio Yamamura"
+        },
+        {
+          "name": "Masa-aki Fukuwaka"
+        },
+        {
+          "name": "Akira Kusaka"
+        },
+        {
+          "name": "Toru Nagasawa"
+        },
+        {
+          "name": "Shigehiko Urawa"
+        },
+        {
+          "name": "Tetsuichi Nomura"
+        },
+        {
+          "name": "Shogo Moriya"
+        },
+        {
+          "name": "Akihisa Uran"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Contact Source."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Contact Source."
+        ]
+      },
+      "full_legacy_sha256_ascii": "f3acbd3cf7e8895a446b1e39566c24b43c648b1ec77cb36ec0f8a884d155e861",
+      "plan_target_sha256_ascii": "c8038ea05f162eca8b934deb34a5eaf70e8f1ae52aed60ab6875214969310950",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 5712,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "Unknown"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3825",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3825",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3825"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "29602bbe54267b42d1f44f5fb1a20710e26e3d8f67dba6abc0c34e3077342813",
+      "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "f8b3d13c68d66907c392c0b18013ad275fd7b9ab929f3e0518c77fbb3230543d",
+      "complete_embedded_reference_recursive_text": "[Reference: Bugaev A.V. 2004. Scale pattern analysis estimates of the age and stock composition of sockeye salmon Oncorhynchus nerka in R/V TINRO trawl catches in the western Bering Sea and northwestern Pacific Ocean in September-October 2002 (NPAFC Doc. 763) 26 p. KamchatNIRO, Kamchatka Fisheries& Oceanography Inst., Fisheries State Commit. of Russia, Naberezhnaja Street 18, Petropavlovsk-Kamchatski, Russia.]\n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Alexander V. Bugae"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "None"
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "None"
+        ]
+      },
+      "full_legacy_sha256_ascii": "52486123381d6b6433ef3d0db355dbfc0f1f4e2cd16b4b322f3273aacec761bd",
+      "plan_target_sha256_ascii": "516c96f9181e420a10fe2fe8f8a991bb0f8eba390c35b58cc7d5a967714dccd7",
+      "proposed_complete_modern_creators_NOT_APPROVED": null,
+      "source_bytes": 6879,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "20041001"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3831",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3831",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3831"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "e0005d0231040db658a9274b470a58687f7b412f2e406dc1974aa6b167c865e0",
+      "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+    },
+    {
+      "all_bindings_match": true,
+      "checks": {
+        "candidate_object_digest": true,
+        "current_cohort": true,
+        "current_full_legacy": true,
+        "current_full_plan_target_hash": true,
+        "current_plan_projection": true,
+        "embedded_reference": true,
+        "exact_member_of_current_cohort": true,
+        "full_contexts": true,
+        "full_original_root": true,
+        "historical_full_metadata": true,
+        "historical_not_current": true,
+        "historical_payload_bytes": true,
+        "historical_xml": true,
+        "original_bytes": true,
+        "primary_origins": true,
+        "primary_recursive_text": true,
+        "primary_titles": true,
+        "raw_constraints": true,
+        "source_dates": true
+      },
+      "cohort_sha256_ascii": "4e073d8799ad2ea2709c05c29a31bd3790c56bef06fe07070d1a3a9678667b16",
+      "complete_embedded_reference_recursive_text": "[Reference: Farley, E.V., Jr., J. Murphy, A. Middleton, L. Eisner, J. Moss, J. Pohl, O. Ivanov, N. Kuznetsova, M. Trudel, M. Drew, C. Lagoudakis, and G. Yaska. 2004. Eastern Bering Sea (BASIS) coastal research (August - October 2003) on juvenile salmon. (NPAFC Doc. 816) Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, NOAA, 11305 Glacier Highway, Juneau, AK 99801-8626. 29 p.]\n      ",
+      "complete_legacy_creators": [
+        {
+          "name": "Edward V. Farley, Jr."
+        },
+        {
+          "name": "James M. Murphy"
+        },
+        {
+          "name": "Angela Middleton"
+        },
+        {
+          "name": "Lisa Eisner"
+        },
+        {
+          "name": "Jamal Moss"
+        },
+        {
+          "name": "John Pohl"
+        },
+        {
+          "name": "Oleg Ivanov"
+        },
+        {
+          "name": "Natalia Kuznetsova"
+        },
+        {
+          "name": "Marc Trudel"
+        },
+        {
+          "name": "Mary Drew"
+        },
+        {
+          "name": "Cynthia Lagoudakis"
+        },
+        {
+          "name": "George Yaska"
+        },
+        {
+          "name": "North Pacific Anadromous Fish Commission"
+        }
+      ],
+      "four_raw_plain_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "None"
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "None"
+        ]
+      },
+      "full_legacy_sha256_ascii": "8930ecabea2665f7666cee0994d9f0ff51691dcec6c32a229d079263c9b13bff",
+      "plan_target_sha256_ascii": "23f2f6ce0c6c7c90a4b3a9c61924f8b162bfc4695fcc01c4376df89bfb223927",
+      "proposed_complete_modern_creators_NOT_APPROVED": [
+        {
+          "person_or_org": {
+            "family_name": "Farley, Jr.",
+            "given_name": "Edward V.",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Murphy",
+            "given_name": "James M.",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Middleton",
+            "given_name": "Angela",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Eisner",
+            "given_name": "Lisa",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Moss",
+            "given_name": "Jamal",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Pohl",
+            "given_name": "John",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Ivanov",
+            "given_name": "Oleg",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Kuznetsova",
+            "given_name": "Natalia",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Trudel",
+            "given_name": "Marc",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Drew",
+            "given_name": "Mary",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Lagoudakis",
+            "given_name": "Cynthia",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "family_name": "Yaska",
+            "given_name": "George",
+            "type": "personal"
+          }
+        },
+        {
+          "person_or_org": {
+            "name": "North Pacific Anadromous Fish Commission",
+            "type": "organizational"
+          }
+        }
+      ],
+      "source_bytes": 7608,
+      "source_dates": {
+        "./idinfo/citation/citeinfo/pubdate": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "pubdate",
+            "tail": null,
+            "text": "20041101"
+          }
+        ],
+        "./metainfo/metd": [
+          {
+            "attributes": {},
+            "children": [],
+            "tag": "metd",
+            "tail": null,
+            "text": "20050225"
+          }
+        ],
+        "./metainfo/metrd": []
+      },
+      "source_id": "FGDC-3838",
+      "source_plan_source_only_projection": {
+        "executable": false,
+        "publication_approved": false,
+        "record_target_id": "FGDC-3838",
+        "remote_verified": false,
+        "source_ids": [
+          "FGDC-3838"
+        ],
+        "source_semantic_status": "supported",
+        "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c",
+        "upload_eligible": false
+      },
+      "source_root_sha256_ascii": "40c2e2ca5efff191bb287fc6943d8a821eb4403fd6147569521df03961dda138",
+      "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+    }
+  ],
+  "source_rows_packet_digest_matches": true
+}

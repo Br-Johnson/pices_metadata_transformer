@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "kind": "pices-modern-citationorg129-code-release",
+  "status": "merged_code_ready_provider_dispatch_held",
+  "repository": "Br-Johnson/pices_metadata_transformer",
+  "pr": 46,
+  "branch": "handoff/modern-citationorg129-20261006",
+  "reviewed_head": "631c492a9b21ddebd7acf1ebb66d0adc6851c1e5",
+  "reviewed_tree": "d5f5e7724968b07b058b10f361feab79f8b200f5",
+  "merge_sha": "8aeffa0e0e89c9bdd40fb1082217a2be569ce27d",
+  "runtime_sha256": "62eeaad6183950bae245937f79a7d4e16df546a6635d9ea4dfbb7c4c2bf5902d",
+  "source_test_sha256": "6b99b242af9d0b028ca71872f185769b63f4bc5e3caa1f93ec431dfbed44869f",
+  "source_test_file_count": 185,
+  "aggregate_validation_file": "docs/readiness/2026-10-06/modern_citationorg129_validation.json",
+  "aggregate_validation_sha256": "07965171ce10dee00d7645f9567e01e10d620e8697696dbaac6e93629244c4bb",
+  "source_manifest_file": "docs/readiness/2026-10-06/modern_citation_organizations129.json",
+  "source_manifest_sha256": "8ac4f141433dbbc58513ee968942ec23d2f484949b751fa01cba6bbcc393aee3",
+  "independent_source_review_sha256": "dc9033829412054b0aed2a5ec354e9133889736859a39d727aeba98e59ae88c3",
+  "source_packet_sha256": "ceeaec8fdd29b3a56dceb700d2b3c47395ec54d0755c4bc3018a01f50d359168",
+  "coverage": {
+    "fresh_new_prepare_calls": 258,
+    "new_citation_organization_singletons": 129,
+    "new_class_execution_enabled": false,
+    "prior_retained_class_targets": 203,
+    "prior_retained_singletons": 3262,
+    "retained_class_prepare_comparisons": 203,
+    "retained_input_prepare_comparisons": 3262,
+    "total_class_targets": 203,
+    "total_represented_originals": 3797,
+    "total_singletons": 3391,
+    "total_wire_prepared_targets": 3594
+  },
+  "remaining": {
+    "supported_targets": 339,
+    "singletons": 314,
+    "pairs": 25
+  },
+  "source_status_unchanged": {
+    "malformed_targets": 6,
+    "source_held_targets": 39,
+    "source_promotions": 0,
+    "supported_pair_targets": 228,
+    "supported_singletons": 3705,
+    "supported_targets": 3933
+  },
+  "source_integrity": {
+    "original_xml_count": 4206,
+    "original_xml_aggregate_sha256": "3430315763379ef81c393cca00eb776952df3ad3f66856ef4b15edd48e396013",
+    "original_FGDC_git_tree": "6c509a3e62252888a6709d1df94bcf109b83241b"
+  },
+  "retained_public_file_count": 30526,
+  "retained_profile_file_count": 21,
+  "focused_tests": {
+    "passed": 11,
+    "modules": [
+      "tests.test_modern_citation_organizations",
+      "tests.test_modern_unknown_create_history"
+    ],
+    "binding_unchanged": true,
+    "unexpected_io": 0,
+    "source_test_sha256": "a9c67ac9ddb677e46d6287f4a984f973e0480d8602112dfe117e29d343665533"
+  },
+  "independent_code_review": {
+    "status": "APPROVE_NO_MATERIAL_FINDINGS",
+    "reviewer": "/root/direct_credit_review_b",
+    "review_id": 5430977902,
+    "url": "https://github.com/Br-Johnson/pices_metadata_transformer/pull/46#pullrequestreview-5430977902",
+    "receipt_sha256": "748cfd81ce271faff987cb56ae1e851c4987949b61ae26a34741e1dc68eb1f57"
+  },
+  "full_ci": {
+    "run_id": 37489268343,
+    "job_id": 112357374935,
+    "result": {
+      "commit": "631c492a9b21ddebd7acf1ebb66d0adc6851c1e5",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 0,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 72,
+      "seconds": 2139.334,
+      "selected_modules": [
+        "all"
+      ],
+      "source_bindings_unchanged": true,
+      "source_tree_sha256": "6b99b242af9d0b028ca71872f185769b63f4bc5e3caa1f93ec431dfbed44869f",
+      "successful": true,
+      "tests_run": 909,
+      "unexpected_guard_call_sites": []
+    },
+    "status": "completed",
+    "url": "https://github.com/Br-Johnson/pices_metadata_transformer/actions/runs/37489268343",
+    "conclusion": "success"
+  },
+  "historical_runtime_bridge": {
+    "pr45_runtime_sha256": "d1055bf636fe04299be2b670af1b3aeefcae6c64149996b85cea469b672ea4f2",
+    "only_six_then_existing_policies": true,
+    "all_nonruntime_evidence_identical_required": true,
+    "new_policy_backdating": false,
+    "original_state_modified": false
+  },
+  "provider_dispatch_authorized": false,
+  "provider_requests": 0,
+  "provider_hold": {
+    "status": "support_pending",
+    "ticket": "3327790",
+    "source": "parent-relayed evidence; no provider calls in code lane",
+    "current_public_GET_status": 403,
+    "checked_at": "2026-10-06T13:18:42Z",
+    "assessment_sha256": "3a51888432ea533025a384cfd04cd093ceceb46687f3a46e139872548ae3328c",
+    "original_create_cause": "unknown"
+  },
+  "original_create_outcome": "unresolved",
+  "original_create_replay": false,
+  "new_production_publications_verified": 0,
+  "sole_provider_executor": "01a0f3ae-ee1c-7046-9b04-36d35803903c",
+  "recovery_handoff": {
+    "file": "docs/readiness/2026-10-06/modern_unknown_create_release.json",
+    "sha256": "e0d34c46903066b95e55786dcbc0f9e82089b9ceadb8b9f91199c019b1ac8bbf",
+    "frozen_runtime_sha256": "d1055bf636fe04299be2b670af1b3aeefcae6c64149996b85cea469b672ea4f2"
+  },
+  "aquadocs": {
+    "decision": "deferred_by_user_until_after_initial_publication",
+    "completed": false,
+    "passed": false,
+    "initial_publication_blocker": false,
+    "links_added": 0,
+    "exclusions_added": 0,
+    "decision_file": "docs/readiness/2026-10-06/aquadocs_deferred_followup.json"
+  },
+  "preserved_gates": [
+    "internal_and_production_identity_dedup",
+    "source_QA",
+    "uncertain_create_hold",
+    "accepted_PICES_membership_and_default_remote_readback",
+    "sole_executor_and_separate_parent_grants",
+    "separate_publication_release"
+  ],
+  "handoff": "docs/readiness/2026-10-06/modern_citationorg129_handoff.md",
+  "evidence_scope": "Wire preparation and code validation only. No source eligibility, identity adoption, grant, provider outcome, PICES membership or publication approval is established.",
+  "independent_aggregate_review_sha256": "e01afd943524558c70e8da044a509c8dc02c9ee292214caf6746cdfa7d9ff1d9",
+  "measurement_source_test_sha256": "a9c67ac9ddb677e46d6287f4a984f973e0480d8602112dfe117e29d343665533",
+  "corrected_fixture_checks": {
+    "commit": "6b76c173871515fb69c6f4eaf764537d476a1c6d",
+    "environment_cleared_dummy_credentials_only": true,
+    "errors": 0,
+    "failures": 0,
+    "guard_blocks": {
+      "bootstrap": {
+        "network": 4,
+        "private_reads": 1,
+        "processes": 1,
+        "writes": 1
+      },
+      "tests": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      }
+    },
+    "in_process_read_only_git_queries": 0,
+    "seconds": 47.788,
+    "selected_modules": [
+      "tests.test_modern_pices_coverage"
+    ],
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "6b99b242af9d0b028ca71872f185769b63f4bc5e3caa1f93ec431dfbed44869f",
+    "successful": true,
+    "tests_run": 8,
+    "unexpected_guard_call_sites": []
+  },
+  "preserved_first_full_ci_failure": {
+    "run_id": 37482362518,
+    "job_id": 112333510867,
+    "url": "https://github.com/Br-Johnson/pices_metadata_transformer/actions/runs/37482362518",
+    "result": {
+      "commit": "363efd761d5a643537eb3ce3029ccf87666e757f",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 1,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 72,
+      "seconds": 2425.414,
+      "selected_modules": [
+        "all"
+      ],
+      "source_bindings_unchanged": true,
+      "source_tree_sha256": "a9c67ac9ddb677e46d6287f4a984f973e0480d8602112dfe117e29d343665533",
+      "successful": false,
+      "tests_run": 909,
+      "unexpected_guard_call_sites": []
+    },
+    "failure": "tests.test_modern_pices_coverage.ModernPicesCoverageTests.test_withdrawal_and_untyped_other_sources_hold_without_changing_prior_policies subtest FGDC-3875: expected ValueError but finite129 now admits this exact source",
+    "unmerged": true
+  },
+  "corrected_fixture_receipt": "docs/readiness/2026-10-06/modern_citationorg129_fixture_correction.json",
+  "merged_tree": "f2284bd8115107bde6cd36c20af0acfc272bf68a",
+  "main_rules_commit": "b91911a8a9c454032cf238b5cdf9edc0ea0a4342",
+  "merge_verification": {
+    "head_and_parents_verified": true,
+    "expected_merged_tree_verified": true,
+    "difference_from_tested_head": [
+      "AGENTS.md",
+      "README.md"
+    ],
+    "runtime_source_tests_unchanged": true
+  }
+}

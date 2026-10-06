@@ -1,0 +1,84 @@
+{
+  "accessed_date": "2026-10-06",
+  "evidence": [
+    {
+      "accessed_date": "2026-10-06",
+      "key": "stan_sears_firm_category",
+      "locator": "Embedded survey plat: survey date June 1994, date drawn August 15, 1994; firm title block",
+      "quoted_excerpts": [
+        "STAN SEARS AND ASSOCIATES",
+        "REGISTERED LAND SURVEYORS"
+      ],
+      "retrieval_status": "SEARCH_INDEX_PARSED_VISUAL_DESCRIPTION; direct open failed",
+      "selected_excerpt_object_sha256_ascii": "3c9cf47086d861782cada7fa2b27d7a7421811834bd32d0348e1df0bd5e3cedc",
+      "snapshot_kind": "selected_search_index_primary_document_excerpts_not_original_pdf_bytes",
+      "source_members": [
+        "FGDC-723",
+        "FGDC-725"
+      ],
+      "supports": "Category corroboration for the literal firm/associates credit only. The survey is not claimed to be either database; its individual surveyor is not promoted to creator.",
+      "url": "https://www.commerce.alaska.gov/web/Portals/9/pub/ABC/Minutes/2023/9.29/Tab11.pdf"
+    },
+    {
+      "accessed_date": "2026-10-06",
+      "key": "crna_iser_related_project_context",
+      "locator": "PDF page 37 (printed page 34), review of the 1993 Project Management Plan",
+      "quoted_excerpts": [
+        "signed an agreement to assist the Copper River Native Association with its work"
+      ],
+      "retrieval_status": "SUCCESS_PARSED_PDF_TEXT",
+      "selected_excerpt_object_sha256_ascii": "2d1b97db495866badba58e62ebca34d7673535ff84f75fac038c37237c592e9b",
+      "snapshot_kind": "selected_web_parsed_primary_document_excerpt_not_original_pdf_bytes",
+      "source_members": [
+        "FGDC-755",
+        "FGDC-757",
+        "FGDC-760"
+      ],
+      "supports": "A contemporary primary project research report corroborates CRNA/ISER assistance and data-processing context. It does not settle a legal AHTNA identity or supply same-layer author names.",
+      "url": "https://www.arlis.org/docs/vol1/ADFG/1994/33366852.pdf"
+    },
+    {
+      "accessed_date": "2026-10-06",
+      "alternative_public_faq_url": "https://cmgds.marine.usgs.gov/catalog/pcmsc/AlaskaScienceCtr/nosbath_metadata.faq.html",
+      "key": "usgs_resource_data_matching_nos_bathymetry",
+      "locator": "Identification/Citation originator and Data Quality/Lineage/1997 process description; indexed search result text",
+      "quoted_excerpts": [
+        "Originator: U.S. Geological Survey",
+        "work performed by Resource Data, Inc., Anchorage, Alaska"
+      ],
+      "retrieval_status": "SUCCESS_SEARCH_INDEX_PARSED_EXCERPTS; both direct public catalogue opens failed (403/failed fetch)",
+      "selected_excerpt_object_sha256_ascii": "8cd226391997b526d7b7a11972e69061313230a4226dedf6b0aeaac8ebcf36d9",
+      "snapshot_kind": "selected_search_index_primary_catalogue_excerpts_not_catalogue_bytes",
+      "source_members": [
+        "FGDC-785"
+      ],
+      "supports": "The matching historical product explicitly credits Resource Data digitization and USGS originator. No new creator is imported and no external rights language replaces original constraints.",
+      "title_match_limit": "Current catalogue spells Chuckhi; original FGDC spells Chukchi. Both describe the historical approximately 100-map NOS contour/GIS product, scale 1:250,000 and circa 1900-1971 soundings. Original spelling and dates remain unchanged.",
+      "url": "https://cmgds.marine.usgs.gov/catalog/pcmsc/AlaskaScienceCtr/nosbath_metadata.html"
+    },
+    {
+      "accessed_date": "2026-10-06",
+      "key": "cnf_related_map_family_not_exact_771_contract_boundary",
+      "locator": "PDF page 4, Literature Cited; report by R. L. DeVelice dated February 16, 2012",
+      "quoted_excerpts": [
+        "Ducks Unlimited, Inc. 1994. Copper River Delta mapping. Pacific Meridian Resources, Sacramento, California. 33 pp."
+      ],
+      "retrieval_status": "SUCCESS_PARSED_PDF_TEXT",
+      "selected_excerpt_object_sha256_ascii": "481815181b4ba02d022d8ea305954bc041989a176a435cf54864609ddb8ea5f7",
+      "snapshot_kind": "selected_web_parsed_primary_document_excerpt_not_original_pdf_bytes",
+      "source_members": [
+        "FGDC-771"
+      ],
+      "supports": "This later Forest Service map evaluation confirms a related Ducks Unlimited/Pacific Meridian map reference, but it does not prove the exact final5 phases 1-and-2 work identity, the BLM attachment, or the terminal primary citation group boundary. It cannot clear the held whole vector.",
+      "url": "https://landfire.gov/sites/default/files/documents/accuracy_of_cnf_landcover_maps_021612_rld.pdf"
+    }
+  ],
+  "kind": "CONTRACT_CHAIN9_SELECTED_PUBLIC_PRIMARY_RESEARCH_EXCERPTS",
+  "limits": [
+    "Selected parsed public source excerpts only; no original PDF or catalogue-byte snapshot is claimed.",
+    "Public primary documents corroborate a stated category or production context only as explicitly specified; unrelated reports and contacts do not supply creators.",
+    "No license, release, conditional-event completion or original-XML authorship conclusion is drawn from public availability or external rights language.",
+    "No Zenodo, AquaDocs, authenticated provider, credential or private-stage request was made."
+  ],
+  "schema_version": 1
+}

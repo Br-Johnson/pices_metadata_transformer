@@ -1,0 +1,132 @@
+{
+  "activity_limits": {
+    "classification": 0,
+    "helper_execution": 0,
+    "network_requests": 0,
+    "preparation": 0,
+    "project_imports": 0,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "tests_executed": 0
+  },
+  "actual_guarded_checks": [
+    {
+      "log": {
+        "bytes": 2836,
+        "path": "/tmp/pices-program20-focused-v1.log",
+        "sha256": "59da4485534c863c778e186772e9f1d6b9ee548292369d1632767202ca3a438f"
+      },
+      "receipt": {
+        "bytes": 1278,
+        "path": "/tmp/pices-program20-focused-v1.json",
+        "sha256": "c880e3352cedecc4b85216d5bbdb06355b4ec730353c722b303ad38afd31850b"
+      },
+      "seconds": 129.987,
+      "source_tree_sha256": "5a27d59f2cea5e229429110f366c045a052d7b519b9fe952ee9773082c6ce5da",
+      "successful": true,
+      "tests_run": 8,
+      "unexpected_guard_events": 0
+    },
+    {
+      "log": {
+        "bytes": 16603,
+        "path": "/tmp/pices-program20-affected-v1.log",
+        "sha256": "e23ef44be6dd5a7056a5f0d22f1993976bfd705a9b7e191a417f6dde239b9f84"
+      },
+      "receipt": {
+        "bytes": 1618,
+        "path": "/tmp/pices-program20-affected-v1.json",
+        "sha256": "dc4c40c22927d33842b2c14594d5d9b2d3f54489596b7f9faf9012c1a0319a96"
+      },
+      "seconds": 511.042,
+      "source_tree_sha256": "5a27d59f2cea5e229429110f366c045a052d7b519b9fe952ee9773082c6ce5da",
+      "successful": true,
+      "tests_run": 66,
+      "unexpected_guard_events": 0
+    }
+  ],
+  "base_revision": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+  "decision": "APPROVE_EXACT_FINAL_MEASUREMENT_HELPER_FOR_GUARDED_FOUR_SHARD_RUN",
+  "final_source_tree_file_count": 188,
+  "final_source_tree_sha256": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7",
+  "freeze_v1": {
+    "bytes": 21196,
+    "path": "/tmp/pices-program20-code-freeze-v1.json",
+    "sha256": "93c52789bd02e6fbb015f13990aef31d09f231e3337328ff1b12f398b0aad592"
+  },
+  "freeze_v2": {
+    "bytes": 21309,
+    "path": "/tmp/pices-program20-code-freeze-v2.json",
+    "sha256": "87a458782185a2c45c7073794f15ccead02031d2ca8e4e36bbb35c8643007b74"
+  },
+  "helpers": [
+    {
+      "constants": {
+        "DRAFT_ONLY": false,
+        "EXPECTED_REVISION": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+        "EXPECTED_RUNTIME_SHA": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+        "EXPECTED_SOURCE_TEST_COUNT": 188,
+        "EXPECTED_SOURCE_TEST_SHA": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7"
+      },
+      "enabled_for_measurement": true,
+      "installed": {
+        "bytes": 56446,
+        "path": "/workspace/pices-main/docs/readiness/2026-10-06/measure_modern_program20_coverage.py",
+        "sha256": "f18b89e2d66b78f91b811431bf43484f14cc542974121cd344462fb874da92b8"
+      },
+      "logic_AST_unchanged": true,
+      "reviewed_draft": {
+        "bytes": 56365,
+        "path": "/tmp/measure_modern_program20_coverage.py",
+        "sha256": "ccee11fdeef18170a55df85927db179f00cc8ffa43fdd4c8bf385246274b8e74"
+      }
+    },
+    {
+      "constants": {
+        "DRAFT_ONLY": true,
+        "EXPECTED_REVISION": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+        "EXPECTED_RUNTIME_SHA": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+        "EXPECTED_SOURCE_TEST_COUNT": 188,
+        "EXPECTED_SOURCE_TEST_SHA": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7"
+      },
+      "enabled_for_measurement": false,
+      "installed": {
+        "bytes": 53136,
+        "path": "/workspace/pices-main/docs/readiness/2026-10-06/aggregate_modern_program20_coverage.py",
+        "sha256": "70f1a6baca94c667e8a14f9e9a460bbe3483f5b68d93853afcbd8ac77b122381"
+      },
+      "logic_AST_unchanged": true,
+      "reviewed_draft": {
+        "bytes": 53040,
+        "path": "/tmp/aggregate_modern_program20_coverage.py",
+        "sha256": "3254b60b2d7cf5e3c6532a509e7049545b0bb823e708c20ae741abf51e945114"
+      }
+    }
+  ],
+  "kind": "program20_incremental_final_measurement_pin_review",
+  "material_findings": [],
+  "prior_helper_authorial_review": {
+    "bytes": 2900,
+    "path": "/tmp/program20-helper-review-b-initial.json",
+    "sha256": "142ff3cf5cec6905e1b4ba617a25e33b802b8e9d0a7c95783ddaa362b88f9c4b"
+  },
+  "prior_static_review": {
+    "bytes": 4230,
+    "path": "/tmp/program20-review-b-initial.json",
+    "sha256": "72feab050012cb789ab6eac61a65c413d87df4fbe33816551219356fea0ba110"
+  },
+  "remaining_gates": [
+    "Four actual successful shard receipts before coverage claim.",
+    "Aggregate must remain disabled until actual receipt/helper pins are integrated and checked.",
+    "Exact final candidate commit/tree, documentation and measurement evidence review before direct-main publication; required mainCI afterward."
+  ],
+  "resolved_comment_finding": {
+    "AST_identical": true,
+    "actual_tests_remain_bound_to_v1": true,
+    "path": "tests/test_modern_organizational_coverage.py",
+    "sole_v1_v2_source_delta": true
+  },
+  "reviewer": "direct_credit_review_b",
+  "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+  "scope": "Incremental constant/comment/actual saved test-receipt check only; source inventory review not repeated. This approval authorizes offline measurement within existing task scope, not provider operations or final publication."
+}

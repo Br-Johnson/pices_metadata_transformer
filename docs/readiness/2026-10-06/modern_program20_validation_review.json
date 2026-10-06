@@ -1,0 +1,170 @@
+{
+  "activity_limits": {
+    "helper_execution": 0,
+    "network_or_provider_requests": 0,
+    "project_or_helper_imports": 0,
+    "repository_edits": 0,
+    "tests_or_preparations": 0
+  },
+  "actual_aggregate_log": {
+    "bytes": 546,
+    "path": "/tmp/pices-program20-aggregate-v1.log",
+    "sha256": "4f9c49d88844d1b9f6adad4413cff68c95f72f08bccb011603934f966d0374b5"
+  },
+  "aggregate": {
+    "bytes": 75489,
+    "path": "/tmp/modern_program20_validation.json",
+    "sha256": "23efeba9c464769f8050af26224679aabbe3995c3b725c9ae436b56498a00a8e"
+  },
+  "approved_measurement_and_aggregate_pins": {
+    "bytes": 5183,
+    "path": "/tmp/program20-review-b-final-aggregate-pins.json",
+    "sha256": "d0e46829886ed5cba2736e99f4a73dfccaea050898a0a89c4d7d1dd3a86623b0"
+  },
+  "checks": [
+    "Actual aggregate exact hash and terminal log agree; current helpers/freeze/source/evidence pins unchanged.",
+    "All20 new raw inputs, wire files, preparation packets, original/source-copy bytes and complete creator vectors independently checked; full evidence rebuilt with correct UTF8 artifact hashes and ASCII runtime bindings.",
+    "All3585 current singleton and203 current class preparation packets rehashed and compared fieldwise with previously pinned evidence excluding runtime only; exact saved wire pins retained.",
+    "Four saved shard artifact/classification manifests and receipts agree with aggregate rows, assignments, guarded zero-unexpected events and source bindings.",
+    "Remaining partition independently recomputed from prior baseline removing only exact20; pair records, protected identity preservation and all source status distinctions unchanged.",
+    "Prior39,232 public file/32 profile audit reused alongside actual guarded before/after preservation; no duplicate full baseline re-audit."
+  ],
+  "coverage": {
+    "fresh_new_prepare_calls": 40,
+    "new_class_execution_enabled": false,
+    "new_program_singletons": 20,
+    "prior_retained_class_targets": 203,
+    "prior_retained_singletons": 3585,
+    "retained_class_prepare_comparisons": 203,
+    "retained_input_prepare_comparisons": 3585,
+    "total_class_targets": 203,
+    "total_represented_originals": 4011,
+    "total_singletons": 3605,
+    "total_wire_prepared_targets": 3808
+  },
+  "decision": "APPROVE_ACTUAL_AGGREGATE_RESULTS_PENDING_FINAL_CANDIDATE_TREE_REVIEW",
+  "kind": "program20_actual_aggregate_independent_result_review",
+  "material_findings": [],
+  "new_preparation_packet_pins": [
+    {
+      "bytes": 16575,
+      "path": "/tmp/pices-program20-shard0-v1/program20/FGDC-355.preparation.json",
+      "sha256": "5f603f77c0590694345f6bca476367f04a08b73a79000bbf2f13e71a0be1f686"
+    },
+    {
+      "bytes": 14283,
+      "path": "/tmp/pices-program20-shard0-v1/program20/FGDC-1765.preparation.json",
+      "sha256": "12ef3408d60911a2ddb4af245f54c22293379e08b19dcafb84487bcbbe79ca3c"
+    },
+    {
+      "bytes": 15945,
+      "path": "/tmp/pices-program20-shard0-v1/program20/FGDC-2197.preparation.json",
+      "sha256": "bfeacffdfc40ba7519b560fc6e1d48c1a316b94f8c55578cb115fb6a508eede2"
+    },
+    {
+      "bytes": 18261,
+      "path": "/tmp/pices-program20-shard0-v1/program20/FGDC-3777.preparation.json",
+      "sha256": "f0a83d95c039acc7bf61bd3c1d5d581d73701d70b39f36572029758758ca46c0"
+    },
+    {
+      "bytes": 24147,
+      "path": "/tmp/pices-program20-shard0-v1/program20/FGDC-4017.preparation.json",
+      "sha256": "d63b9f2d469817982cb94abc798831fb4acb7c8056867075a9eae3f3076694cd"
+    },
+    {
+      "bytes": 19287,
+      "path": "/tmp/pices-program20-shard1-v1/program20/FGDC-360.preparation.json",
+      "sha256": "0a9e0bda0e9c6940ca55dcd559a97a0e190e8a15176d88f94f7ea4aa0b9146a6"
+    },
+    {
+      "bytes": 15957,
+      "path": "/tmp/pices-program20-shard1-v1/program20/FGDC-1767.preparation.json",
+      "sha256": "3e40db6dfbf058da4abd04a61bc486e06721a26387b0f67102f73c9df75abd53"
+    },
+    {
+      "bytes": 17321,
+      "path": "/tmp/pices-program20-shard1-v1/program20/FGDC-2232.preparation.json",
+      "sha256": "d2b49ec1bab2079ce1bd05c721787bbd6d59c6c84025ade04bc822b816cfac6e"
+    },
+    {
+      "bytes": 22386,
+      "path": "/tmp/pices-program20-shard1-v1/program20/FGDC-3788.preparation.json",
+      "sha256": "9ae8500bb000cd895d04d771e90d309cee05ce1cbf80600278d879797459b834"
+    },
+    {
+      "bytes": 18046,
+      "path": "/tmp/pices-program20-shard1-v1/program20/FGDC-4028.preparation.json",
+      "sha256": "994903c488108a848c1f12f8eabc56fdd04877086ca713cf0fbc819e3eb4b45e"
+    },
+    {
+      "bytes": 16740,
+      "path": "/tmp/pices-program20-shard2-v1/program20/FGDC-669.preparation.json",
+      "sha256": "6baaf80be84499c4db68adbe2a56f2d9e79ecdb38fccad48da74d8a2b874e17d"
+    },
+    {
+      "bytes": 20362,
+      "path": "/tmp/pices-program20-shard2-v1/program20/FGDC-1791.preparation.json",
+      "sha256": "ff3a4a1cca5c1e560a3e8038a516e19ea80861a4a8ca6c00fdeab51fbbb8f0fa"
+    },
+    {
+      "bytes": 15899,
+      "path": "/tmp/pices-program20-shard2-v1/program20/FGDC-2302.preparation.json",
+      "sha256": "80d081b11cb86c5a1f8f505d1213a1d22cdebf3223547eb5cadc32f54998b06a"
+    },
+    {
+      "bytes": 16856,
+      "path": "/tmp/pices-program20-shard2-v1/program20/FGDC-3926.preparation.json",
+      "sha256": "8a69ac24f346e1c946422bbfc6b36ef46acb0022f774435bf83f7076c1b317a3"
+    },
+    {
+      "bytes": 22846,
+      "path": "/tmp/pices-program20-shard2-v1/program20/FGDC-4061.preparation.json",
+      "sha256": "6a77a5c718b75bfa3801e37699e7269f6e4380ff8f6b8f84957f2a5f9c4302d7"
+    },
+    {
+      "bytes": 18418,
+      "path": "/tmp/pices-program20-shard3-v1/program20/FGDC-1291.preparation.json",
+      "sha256": "2652bacb4fcf34d11286efd4294f88db06f022f59ad3bfa26e8aab40f65846fd"
+    },
+    {
+      "bytes": 15819,
+      "path": "/tmp/pices-program20-shard3-v1/program20/FGDC-1946.preparation.json",
+      "sha256": "7b8de7d6b03e4d9baf21eb614ddf229fd3bddfcce6d3d5d3272c344402bc8eaa"
+    },
+    {
+      "bytes": 17151,
+      "path": "/tmp/pices-program20-shard3-v1/program20/FGDC-3776.preparation.json",
+      "sha256": "c87e04ec1de14262d7f986af42420ba2571d6aee1ba739b9d87a0a291a1516b5"
+    },
+    {
+      "bytes": 16919,
+      "path": "/tmp/pices-program20-shard3-v1/program20/FGDC-3928.preparation.json",
+      "sha256": "6ef614e1477bfc2c0094ee456cc9cbe5181bd9247164eb2979464d11aba568a5"
+    },
+    {
+      "bytes": 21720,
+      "path": "/tmp/pices-program20-shard3-v1/program20/FGDC-4064.preparation.json",
+      "sha256": "59b55150f1824e85e60836fb19c71d8501002824f5894a70891bf2b6100c73bc"
+    }
+  ],
+  "remaining": {
+    "pairs": 25,
+    "preserved_explicit_personal_and_program_holds": 58,
+    "singletons": 100,
+    "targets": 125
+  },
+  "remaining_gates": [
+    "Review final immutable candidate commit/tree and documentation delta before direct-main publication.",
+    "Required CI must pass at actual published main head."
+  ],
+  "reused_baseline_verification": {
+    "bytes": 1136,
+    "path": "/tmp/program20-helper-review-b-baseline.json",
+    "sha256": "184d28236c6744f562c71898a11b2ac22616baefd2aa363859584728d2a331e7"
+  },
+  "reviewer": "direct_credit_review_b",
+  "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+  "scope": "Offline wire preparation coverage only; no provider access, draft identity, grant, production acceptance or publication release established.",
+  "source_tree_file_count": 188,
+  "source_tree_sha256": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7"
+}

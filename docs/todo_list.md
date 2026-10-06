@@ -7,13 +7,60 @@
 - [ ] Parent re-runs the FGDC-141 GET-only observation from the merged runtime with the retained original packets; the route and its holds are unchanged.
 - [ ] First new production record through the community-first chain, starting with a PICES-authored singleton from `modern_pices_singletons26.json`.
 
-## Active increment: bounded unknown-create observations — 2026-10-06
+## Current workflow and consolidated code — 2026-10-06
+
+- [x] Reconcile all 77 remote branches, 46 pull requests and 64 local branch heads across 67 clean historical worktrees. Preserve every branch and frozen checkpoint. PR46 was the only current merge; no additional material current work was missing from main.
+- [x] Apply Brett's current workflow: merge reviewed PRs after current-head CI without renewed approval; continue authorized implementation directly on main after consolidation. Rules/documentation updates also go directly to main. See [maintained rules](../AGENTS.md) and [reconciliation](readiness/2026-10-06/branch_reconciliation.json).
+- [x] Complete PR45's bounded GET-only unknown-create controller, 900 passing CI tests and independent review. Preserve its separate [frozen recovery release](readiness/2026-10-06/modern_unknown_create_release.json).
+- [x] Complete PR46's finite 129 organizational citations, fresh guarded measurements and independent exact-head review. Its [release receipt](readiness/2026-10-06/modern_citationorg129_release.json) records the actual full CI and merge. Coverage is 3,594 prepared targets / 3,797 originals; 339 supported targets remain outside (314 singletons + 25 pairs). No source eligibility changed; all 4,206 original XML files are intact, and paired execution remains disabled.
+- [ ] Continue coherent source-reviewed corrections directly on main with appropriate tests and independent review. Additional source-only proposals remain separate from implemented or measured coverage.
+- [ ] Parent verifies the retained original-create evidence, owner and supported network recovery before separately granting any observation to the sole Mac executor. Original create outcome remains unknown and its intent spent; Zenodo support ticket 3327790 remains pending.
+- [ ] Complete actual PICES authority, record QA, human release, accepted membership and default readback under separate provider grants. AquaDocs linkage remains user-deferred until after initial publication, with no completed or passed claim.
+
+Earlier checklist entries below preserve their historical state. This section and
+the maintained rules supersede their workflow timing and pending-code statements;
+original journals, grants, receipts and frozen historical instructions are unchanged.
+
+## Completed increment: reviewed citations31; work paused — 2026-10-06
+
+- [x] Reconcile clean local/remote main `c612e0e8e522fcf9ecc993b4b3c64ce12ae1fc53`, sole root integration ownership, actual3,808/4,011 coverage and929 full CI tests. Reuse frozen independent source reviews; no source research rerun.
+- [x] Implement exact BASIS3+contract8+office10+direct10 schema10, preserving complete source/legacy context and distinct current authority. Correct the inherited policy194 fall-through test expectation for BASIS3; keep frozen29 evidence unchanged.
+- [x] Independently review code, context and helpers; pass 74 affected tests and 10 corrected focused tests with zero unexpected I/O. Preserve the failed v1 assertion receipt and exact test-only correction. Four guarded batches and saved-file aggregation pass: 3,839 prepared targets / 4,042 originals, with 94 remaining (69 singletons + 25 pairs). Independent actual-result review and 939 full main CI tests passed.
+- [x] Publish reviewed main commit `4921401da7a9d8caedb32b48b3d03c51887b489e`, verify 939 passing full CI tests and preserve the exact release. Pause at the user's requested natural stopping point.
+- [ ] Resume the separately reviewed 25-pair preparation increment only after the user resumes work. It has not started; paired publication blockers remain explicit. Provider execution stays paused and AquaDocs deferred.
+- [x] Complete the separately requested static legacy-adapter compatibility assessment. Preserve the [findings](readiness/2026-10-06/pices-legacy-adapter-offline-assessment-20261006.md): different payload/attachment/state contracts and missing accepted-PICES completion; no legacy test run or provider probe.
+
+## Completed increment: exact program organizations20 — 2026-10-06
+
+- [x] Reconcile sole root ownership and clean local/remote main `8b84f9db5ea2d536de3ed01a60f147fc6cbc6246`; verify actual executor availability after the 18:03 UTC callback. The reviewed194 code head retains its 921-test CI pass.
+- [x] Install the exact independent source review for 20 complete organizational arrays. Preserve all 29 program/Unaami holds, all 29 personal holds and the five protected identities; no source eligibility or license changes.
+- [x] Complete finite schema9 mapping, exact creator426 authority and narrow historical compatibility. All 74 guarded focused/affected checks pass, with zero unexpected I/O; preserve the distinct pre/post-comment source bindings and unchanged runtime. Frozen schema1–8 vectors and recovery evidence remain intact.
+- [x] Measure all new20 twice and all prior3,788 once across four guarded parts, then verify the saved-file aggregate: actual3,808 targets /4,011 originals;125 remain (100 singletons +25 pairs). All4,206 originals,39,232 retained public files and32 profiles match. Independent actual-result and exact commit reviews passed, followed by 929 passing full main CI tests.
+- [x] Publish independently reviewed commit `7ea7a6476f3307b368cff1980a3c9fa45b40af88` directly to main, verify 929 passing full CI tests and save the release. Preserve the separate minimal paired-execution design; provider access stays paused and AquaDocs deferred.
+
+## Completed increment: exact reviewed creators194 — 2026-10-06
+
+- [x] Reconcile main `6deff6bbc9c739dbb09192412c0548863007cdea` and verify executor access after the disconnection callback. Continue as sole integration writer directly on main.
+- [x] Independently approve the exact194 composition:82 existing creator426 sources,42 direct primary citations and70 literal DFO Staff credits. Preserve complete approved vectors,15 direct cardinality changes,22 direct affiliation vectors and all29 personal holds; program20 stays separate.
+- [x] Implement finite schema8 projections with distinct current source authority and exact XML/plan/legacy bindings. Preserve oldseven preparation evidence and narrow PR46 history compatibility; keep frozen PR45 recovery unchanged.
+- [x] Pass53 affected existing tests,11 final frozen new tests and one preliminary history test, preserving distinct bindings. Four guarded shards and saved-file aggregation pass:194 new sources twice,3391 prior singletons and203 pairs once; all4206 originals and34652 retained files match. Actual coverage is3788 targets/3991 originals;145 supported targets remain (120 singletons +25 pairs). Independent code/helper/aggregate reviews and 921 full main CI tests passed.
+- [x] Publish reviewed commit `74f58f935a9c0ef81660e68545b88a1755490e53` directly on main and verify 921 passing full CI tests. Preserve the exact release, source/test bindings and frozen recovery instructions. Provider requests, spent-create recovery and publication remain solely under parent/Mac grants; no provider actions occurred here.
+
+## Completed increment: finite citation organizations129 — 2026-10-06
+
+- [x] Verify merged PR45 recovery and publish its exact release receipt; preserve all provider holds and standing rules.
+- [x] Independently review129 exact complete creator arrays across53 groups, preserving frozen92 plus the additive Ecotrust37 joint-actor context. Preserve original dates, all legacy creators, rights and raw XML.
+- [x] Freeze the finite mapper and historical-runtime compatibility; pass independent code/helper review and 11 focused guarded tests at unchanged185-file binding.
+- [x] Measure all129 new preparations twice and all3262 retained singleton plus203 paired preparations once. All four guarded shards and the independently checked saved-file aggregate pass; all4206 originals and retained evidence match. Coverage is3594 targets /3797 originals, with339 remaining (314 singletons +25 pairs). See the [frozen handoff](readiness/2026-10-06/modern_citationorg129_handoff.md).
+- [x] Pass independent current-head code review and909 full CI tests, then merge PR46 under standing authorization. All160 other residual creator426 sources, DFO Staff70, other direct holds and25 unmapped pairs remained outside that increment.
+
+## Completed code increment: bounded unknown-create observations — 2026-10-06
 
 - [x] Verify PR44 merged at `ff6f56a65e6adafdb5957652dae925ce7142b0a7`, with 863 passing full CI tests and exact-head independent Codex review. Original FGDC and maintained rules Git objects match.
 - [x] Integrate the independently reviewed finite GET-only FGDC-141 observation controller and 37 adversarial test cases. Bind the actual original 403, submitted wire, full preparation, owner and canonical spent state; keep all original evidence immutable.
-- [ ] Pass focused guarded tests, final independent review and full current-head CI; publish the frozen [recovery handoff](readiness/2026-10-06/modern_unknown_create_handoff.md).
+- [x] Pass 58 affected focused tests and 900 full current-head guarded CI tests; merge independently reviewed PR45 at `4fea3934bf7445700e7d8d18ecf3c517f07ce5f7`. Publish the [exact machine-readable release](readiness/2026-10-06/modern_unknown_create_release.json) and [recovery instructions](readiness/2026-10-06/modern_unknown_create_handoff.md).
 - [ ] Parent verifies actual retained packets, owner and supported network recovery before separately granting and dispatching one bounded read-only observation. A match, empty listing or 404 authorizes no adoption or create replay.
-- [ ] Resume the frozen finite92 mapper only after the urgent recovery code gates; no additional mapping coverage has been claimed.
+- [x] Preserve frozen92 checkpoint and source/test receipts. Its reviewed arrays plus independently reviewed Ecotrust37 form the next finite129 projection; no new measured coverage is yet claimed.
 
 AquaDocs comparison/linkage is explicitly deferred by Brett until after initial
 production publication: [decision](readiness/2026-10-06/aquadocs_deferred_followup.json).
@@ -814,3 +861,6 @@ This local cohort has not been pushed or used for a provider operation.
 - [ ] Require actual final-head CI and frozen reviewed publication before provider dispatch.
 - [ ] Mac executor locally verifies transferred checkpoint/bundle, ownership and historical accounting, runtime/private-path preflight; parent binds the fresh600-second action grant, then Brett enters a fresh memory-only Sandbox token.
 - [ ] Managed DOI criterion, production transport/artifact/recovery/QA/release gates remain held. This narrower metadata/XML continuation does not complete the original DOI canary.
+
+
+- [ ] Implement and independently review the [31-source finite design](readiness/2026-10-06/next_source_review/README.md), then measure actual preparation before changing coverage. Separately implement the reviewed 25 remaining pair preparations and required pair execution guards. Source review alone grants no provider action.

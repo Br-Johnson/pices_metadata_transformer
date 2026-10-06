@@ -1,0 +1,86 @@
+{
+  "activity": {
+    "new_classification_or_preparation_measurements": 0,
+    "project_or_helper_imports": 0,
+    "provider_or_network_calls": 0,
+    "repository_edits": 0,
+    "tests": 0,
+    "tmp_checker_and_review_receipt_written": true
+  },
+  "aggregate": {
+    "path": "/tmp/modern_reviewed_creators194_validation.json",
+    "sha256": "0e75f1113cdf7e6c328869cf79a0d6c62a36e9a680002cf84110078d0fd652fb"
+  },
+  "aggregation_script_sha256": "953e1b7e903d0f4ea4072f88a76e9ed713f001eddf7fccef77d2967862733e69",
+  "code_state": {
+    "base_revision": "6deff6bbc9c739dbb09192412c0548863007cdea",
+    "base_revision_is_new194_code_commit": false,
+    "kind": "frozen_staged_working_tree",
+    "runtime_sha256": "6cc86a1740fcd93e65d42e21b1c199c160974c607be54db71f43d3e25466349e",
+    "source_tree_file_count": 187,
+    "source_tree_sha256": "0c85c0b50742897f13122e5ebc7b5987884356b940e188cd41452386a191f84e"
+  },
+  "coverage": {
+    "fresh_new_prepare_calls": 388,
+    "new_class_execution_enabled": false,
+    "new_reviewed_singletons": 194,
+    "prior_retained_class_targets": 203,
+    "prior_retained_singletons": 3391,
+    "retained_class_prepare_comparisons": 203,
+    "retained_input_prepare_comparisons": 3391,
+    "total_class_targets": 203,
+    "total_represented_originals": 3991,
+    "total_singletons": 3585,
+    "total_wire_prepared_targets": 3788
+  },
+  "four_actual_shard_receipts": [
+    {
+      "path": "/tmp/pices-reviewed194-shard0-v1/coverage.json",
+      "sha256": "297a65b72561415e4642fef51502f38c3dabe7b90faae51c7a91bb190b04cf04"
+    },
+    {
+      "path": "/tmp/pices-reviewed194-shard1-v1/coverage.json",
+      "sha256": "519141c185a73685452802a618cda1dbca55681cdcf8697ae2cc0a8316676dbf"
+    },
+    {
+      "path": "/tmp/pices-reviewed194-shard2-v1/coverage.json",
+      "sha256": "019976a50f96f403cccd95d79589e82dc4caf4184f1547bb03b7aa4945306345"
+    },
+    {
+      "path": "/tmp/pices-reviewed194-shard3-v1/coverage.json",
+      "sha256": "6200a6be050323e37a63e0f720a07505b7161dd82f55aa5f61eded434b0ccb78"
+    }
+  ],
+  "independently_verified": {
+    "all187_current_source_bindings_match": true,
+    "all_actual_shards_zero_unexpected_io": true,
+    "all_current_artifact_and_comparison_row_digests_match": true,
+    "all_saved_exact_profile_paths_byte_hashed": 26,
+    "all_saved_retained_public_files_byte_hashed": 34652,
+    "exact_saved_new_rows": 194,
+    "new_creators_equal_exact_approved_full_ordered_vectors": true,
+    "new_original_root_and_full_legacy_preservation": true,
+    "old_class_complete_wire_legacy_and_nonruntime_comparisons": 203,
+    "old_singleton_complete_wire_and_nonruntime_comparisons": 3391,
+    "original_xml_aggregate_sha256": "3430315763379ef81c393cca00eb776952df3ad3f66856ef4b15edd48e396013",
+    "paired_originals": 406,
+    "personal_holds_retained": 29,
+    "protected_identity_rows_unchanged": 5,
+    "remaining_membership_hashes_recomputed": true,
+    "remaining_pairs": 25,
+    "remaining_singletons": 120,
+    "remaining_targets": 145,
+    "unchanged_original_xml_files_byte_hashed": 4206,
+    "unique_public_paths_byte_hashed": 43698
+  },
+  "limits": [
+    "Evidence verifies saved offline preparations; no provider grant, publication or community acceptance is established.",
+    "203 paired targets remain preparation-only with all execution flags closed.",
+    "Base revision identifies the staged working tree base, not a commit containing these new194 changes.",
+    "Main publication still requires independent implementation review, appropriate passing tests and current-head verification."
+  ],
+  "material_findings": [],
+  "measurement_helper_sha256": "25cb9b2b51d4163963f1f5c4ab71ad0fb7da356afd313ef69d6d35f4a629be9a",
+  "schema_version": 1,
+  "verdict": "APPROVE_SAVED_REVIEWED194_AGGREGATE_EVIDENCE"
+}

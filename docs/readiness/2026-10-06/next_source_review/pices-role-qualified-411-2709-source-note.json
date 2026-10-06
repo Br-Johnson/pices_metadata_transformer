@@ -1,0 +1,221 @@
+{
+  "kind": "finite_role_qualified_credit_source_semantic_authoring_note",
+  "date": "2026-10-06",
+  "author": "/root/ecotrust37_identity_qc/pacific_gis_primary",
+  "scope": [
+    "FGDC-411",
+    "FGDC-2709"
+  ],
+  "purpose": "Authoring support for parent composition; not final independent approval, implementation, or coverage evidence.",
+  "input_packet": {
+    "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json",
+    "sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a",
+    "group": "direct_role_qualified_offices11",
+    "base_main_head_as_recorded": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+    "base_main_tree_as_recorded": "7345a712b668ec77d52314ca77e20f5c462e7482",
+    "binding_limit": "Only the two named actual XMLs and the specified group entries were assessed; no runtime/current-plan or whole-repository verification is asserted."
+  },
+  "array_hash_encoding": "SHA-256 of UTF-8 JSON, ensure_ascii=False, sort_keys=True, separators=(comma,colon).",
+  "retained_vs_new_evidence": {
+    "retained": "Full local original XMLs and the named current reconciliation packet were read directly. Exact source hashes, citation fields, descriptive context, restrictions, and full legacy arrays are recorded below.",
+    "new_retrieval": "Targeted public web search for the exact BERPAC work and PROBES credit context was attempted. No retrieved external item was adopted as exact-work attribution/capacity evidence. No external primary page or PDF was opened for this task. Search snippets are not used to resolve either credit.",
+    "global_identity_limit": "No incumbent was identified or linked to either literal credit, and no contact was promoted."
+  },
+  "sources": [
+    {
+      "source_id": "FGDC-411",
+      "source_path": "/workspace/pices-main/FGDC/FGDC-411.xml",
+      "source_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "source_sha256_matches_packet_member": true,
+      "xml_root": "metadata",
+      "full_actual_xml_read": true,
+      "complete_current_legacy_creators": [
+        {
+          "name": "Professor Emeritus of the University of Alaska Fairbanks (UAF), School of Fisheries and Ocean Sciences (SFOS), Institute of Marine Science (IMS)",
+          "type": "Organization"
+        }
+      ],
+      "complete_current_legacy_creators_sha256_canonical_json": "0fba8adb957e167e5e7d7290f4f1c7ee1d7bf2b7b084dd1c85fcdcd5ce12c2ab",
+      "preserved_role_evidence_in_packet": null,
+      "retained_source_evidence": [
+        {
+          "xpath": "./idinfo/citation/citeinfo/origin",
+          "text": "Professor Emeritus of the University of Alaska Fairbanks (UAF), School of Fisheries and Ocean Sciences (SFOS), Institute of Marine Science (IMS)",
+          "element_start_line_candidates": [
+            5
+          ]
+        },
+        {
+          "xpath": "./idinfo/citation/citeinfo/pubdate",
+          "text": "1999",
+          "element_start_line_candidates": [
+            6
+          ]
+        },
+        {
+          "xpath": "./idinfo/citation/citeinfo/title",
+          "text": "PROBES: Processes and Resources Of the eastern Bering Sea shelf",
+          "element_start_line_candidates": [
+            7
+          ]
+        },
+        {
+          "xpath": "./idinfo/descript/abstract",
+          "text": "The stimulus for Processes and Resources of the Eastern Bering Sea Shelf (PROBES) was a mutual US - Japan scientific concern about the ability of the Bering Sea to support the huge annual catch, on a sustained basis, of groundfish, pelagic fish, crab and other marine resources.  The question was large enough to demand the attention of oceanographic disciplines from both countries as well as from others.  After several conferences, it was decided to emphasize the \"Golden Triangle\" (the are encompassed southeastern Bering Sea shelf in an attempt to understand the bioproductivity of this region (Hood and Kelley 1974, Hood and Takenouti 1975).  In the beginning, it appeared most expedient, for logistic and funding reasons, to have each country pursue its part of the program independently.",
+          "element_start_line_candidates": [
+            11
+          ]
+        },
+        {
+          "xpath": "./idinfo/descript/purpose",
+          "text": "A report on PROBES: Processes and Resources Of the eastern Bering Sea shelf",
+          "element_start_line_candidates": [
+            12
+          ]
+        },
+        {
+          "xpath": "./idinfo/accconst",
+          "text": "None",
+          "element_start_line_candidates": [
+            43
+          ]
+        },
+        {
+          "xpath": "./idinfo/useconst",
+          "text": "None",
+          "element_start_line_candidates": [
+            44
+          ]
+        },
+        {
+          "xpath": "./metainfo/metac",
+          "text": "None",
+          "element_start_line_candidates": [
+            107
+          ]
+        },
+        {
+          "xpath": "./metainfo/metuc",
+          "text": "None",
+          "element_start_line_candidates": [
+            108
+          ]
+        }
+      ],
+      "new_external_attribution_evidence": [],
+      "modern_creator_proposal": null,
+      "source_semantic_recommendation": "HOLD_COMPLETE_ARRAY_PENDING_CREDIT_CAPACITY_EVIDENCE",
+      "capacity_assessment": {
+        "strongest_literal_reading": "An unnamed individual identified by academic emeritus status and institutional affiliation.",
+        "organizational_office_reading": "Not adequately supported: the singular Professor Emeritus expression is an individual status, while the university, school and institute qualify that status. The source names no office or collective corresponding to the entire credited literal.",
+        "actual_ambiguity_or_gap": "The original origin omits a personal name and does not designate the university or institute alone as creator. Source citation of a report and PROBES program description do not convert this individual-status phrase into an organizational body.",
+        "contact_boundary": "Point-of-contact and distribution contact person fields were read as separate metadata roles. They are not evidence authorizing promotion into the creator array or identification of the unnamed credit.",
+        "role_preservation": "Keep the complete Professor Emeritus title and all UAF/SFOS/IMS wording in the literal legacy credit and original context; do not strip the status or infer affiliation fields."
+      }
+    },
+    {
+      "source_id": "FGDC-2709",
+      "source_path": "/workspace/pices-main/FGDC/FGDC-2709.xml",
+      "source_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "source_sha256_matches_packet_member": true,
+      "xml_root": "metadata",
+      "full_actual_xml_read": true,
+      "complete_current_legacy_creators": [
+        {
+          "name": "Director, U.S. Fish and Wildlife Service (USF&WS)",
+          "type": "Organization"
+        }
+      ],
+      "complete_current_legacy_creators_sha256_canonical_json": "15ff66ebd54fd7511e4b5e2ce0d2576523ceb8f1b6ba891e5c5480a99e9b1abc",
+      "preserved_role_evidence_in_packet": null,
+      "retained_source_evidence": [
+        {
+          "xpath": "./idinfo/citation/citeinfo/origin",
+          "text": "Director, U.S. Fish and Wildlife Service (USF&WS)",
+          "element_start_line_candidates": [
+            5
+          ]
+        },
+        {
+          "xpath": "./idinfo/citation/citeinfo/pubdate",
+          "text": "1990",
+          "element_start_line_candidates": [
+            6
+          ]
+        },
+        {
+          "xpath": "./idinfo/citation/citeinfo/title",
+          "text": "BERPAC; A program for long-term ecological research of ecosystems of the Bering and Chukchi Seas and the Pacific Ocean",
+          "element_start_line_candidates": [
+            7
+          ]
+        },
+        {
+          "xpath": "./idinfo/descript/abstract",
+          "text": "Deterioration of ecosystems on a large scale threatens many functional equilibria in the biosphere.  This problem is particularly urgent for the World Ocean, which is the sink for many different pollutants that can produce significant ecological impacts.  This report is a planning document for BERPAC that discusses marine ecosystems, including biological, physical and biogeochemical cycles.\n        [Reference: Turner, J.F., H.J. O'Connor, Y.A. Izrael, and A.V. Tsyban. 1990?. BERPAC : a program for long-term ecological research of ecosystems of the Bering and Chukchi Seas and the Pacific Ocean. National Fund for the Patuxent Wildlife Research Center, 13022 8th Street, Bowie, Maryland 20720. 12 p.]\n        This volume may be found at many university libraries.",
+          "element_start_line_candidates": [
+            11
+          ]
+        },
+        {
+          "xpath": "./idinfo/descript/purpose",
+          "text": "Planning BERPAC: A program for long-term ecological research of ecosystems of the Bering and Chukchi Seas and the Pacific Ocean.",
+          "element_start_line_candidates": [
+            16
+          ]
+        },
+        {
+          "xpath": "./idinfo/accconst",
+          "text": "None",
+          "element_start_line_candidates": [
+            51
+          ]
+        },
+        {
+          "xpath": "./idinfo/useconst",
+          "text": "Check with Source",
+          "element_start_line_candidates": [
+            52
+          ]
+        },
+        {
+          "xpath": "./metainfo/metac",
+          "text": "None",
+          "element_start_line_candidates": [
+            115
+          ]
+        },
+        {
+          "xpath": "./metainfo/metuc",
+          "text": "Check with Source",
+          "element_start_line_candidates": [
+            116
+          ]
+        }
+      ],
+      "new_external_attribution_evidence": [],
+      "modern_creator_proposal": null,
+      "source_semantic_recommendation": "HOLD_COMPLETE_ARRAY_PENDING_CREDIT_CAPACITY_EVIDENCE",
+      "capacity_assessment": {
+        "strongest_literal_reading": "An agency leadership title whose literal wording can denote either the organizational office or an unnamed person serving in that capacity.",
+        "organizational_office_reading": "Plausible, but not established by the institution-qualified title alone. The XML does not explicitly say Office of the Director or otherwise distinguish corporate issuance from personal authorship.",
+        "actual_ambiguity_or_gap": "The abstract contains a reference for the same BERPAC work naming Turner, J.F.; O'Connor, H.J.; Izrael, Y.A.; and Tsyban, A.V. This is a substantive personal-authorship context. It does not connect any person to the origin or explicitly define the origin as an organizational office.",
+        "contact_boundary": "The separate Turner contact/distribution fields do not establish the origin capacity. No incumbent is identified, no author is substituted, and none of the four bibliographic names is added as a creator.",
+        "role_preservation": "Keep Director and the full U.S. Fish and Wildlife Service (USF&WS) literal; do not convert Director into an inferred structured role or affiliation, and retain Check with Source use restrictions."
+      }
+    }
+  ],
+  "crosscheck": {
+    "agent": "/root/ecotrust37_identity_qc/pacific_gis_primary/dfo_type_challenge",
+    "scope": "FGDC-2709 only, actual XML, no network",
+    "result": "Organizational-office interpretation plausible but unresolved against same-work personal-authorship context; retain type hold.",
+    "role": "Parallel source-semantic authoring challenge, not final independent review."
+  },
+  "limits": [
+    "Existing legacy type Organization is a retained generated assertion, not independent evidence establishing source capacity.",
+    "No modern creator proposal or identity substitution is made.",
+    "No repository changes, repository code imports, tests, transformations, preparation, measurement, provider, Zenodo, AquaDocs, or credential access occurred.",
+    "No legal incorporation requirement is imposed; the holds concern person-versus-office capacity of the literal credit.",
+    "Parent may independently resolve these holds with work-specific primary attribution evidence."
+  ]
+}

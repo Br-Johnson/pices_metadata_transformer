@@ -1,0 +1,111 @@
+{
+  "kind": "finite_role_qualified_credit_source_semantic_authoring_addendum",
+  "date": "2026-10-06",
+  "author": "/root/ecotrust37_identity_qc/pacific_gis_primary",
+  "scope": [
+    "FGDC-411",
+    "FGDC-2709"
+  ],
+  "purpose": "Authoring support for parent composition; no final independent approval, implementation, schema validation, or coverage claim.",
+  "prior_frozen_note": {
+    "path": "/tmp/pices-role-qualified-411-2709-source-note.json",
+    "sha256": "d8f2456022638c75d4dbd9b09a78ab97be177596596a7df018bbda931ba33bcd",
+    "preservation": "Unchanged. This addendum supersedes only its FGDC-2709 source-semantic hold and records newly retrieved primary evidence."
+  },
+  "retained_input_bindings": {
+    "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json",
+    "sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a",
+    "group": "direct_role_qualified_offices11",
+    "base_main_head_as_recorded": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+    "base_main_tree_as_recorded": "7345a712b668ec77d52314ca77e20f5c462e7482",
+    "binding_limit": "Only the two named actual XMLs and the specified group entries were assessed; no runtime/current-plan or whole-repository verification is asserted."
+  },
+  "retained_sources": [
+    {
+      "source_id": "FGDC-411",
+      "source_path": "/workspace/pices-main/FGDC/FGDC-411.xml",
+      "source_sha256": "a3e073cf881080da906c39e265c7c18bebe20fe520c55d5efb4e4f983e2cd37b",
+      "xml_root": "metadata",
+      "complete_current_legacy_creators": [
+        {
+          "name": "Professor Emeritus of the University of Alaska Fairbanks (UAF), School of Fisheries and Ocean Sciences (SFOS), Institute of Marine Science (IMS)",
+          "type": "Organization"
+        }
+      ],
+      "complete_current_legacy_creators_sha256_canonical_json": "0fba8adb957e167e5e7d7290f4f1c7ee1d7bf2b7b084dd1c85fcdcd5ce12c2ab"
+    },
+    {
+      "source_id": "FGDC-2709",
+      "source_path": "/workspace/pices-main/FGDC/FGDC-2709.xml",
+      "source_sha256": "1855980ec42bc86cab3dabb8fbb3dfced82dfb9c5c94dd754ab7557e97b8afe7",
+      "xml_root": "metadata",
+      "complete_current_legacy_creators": [
+        {
+          "name": "Director, U.S. Fish and Wildlife Service (USF&WS)",
+          "type": "Organization"
+        }
+      ],
+      "complete_current_legacy_creators_sha256_canonical_json": "15ff66ebd54fd7511e4b5e2ce0d2576523ceb8f1b6ba891e5c5480a99e9b1abc"
+    }
+  ],
+  "new_public_primary_evidence": [
+    {
+      "url": "https://www.doi.gov/document-library/departmental-manual/142-dm-2-office-director",
+      "title": "142 DM 2 - Office of the Director",
+      "publisher": "U.S. Department of the Interior",
+      "document_date": "2022-05-16",
+      "locator": "HTML lines 16-24, especially organization-series / USFWS part / Director-office chapter at lines 20-22.",
+      "short_excerpt": "Chapter 2: OFFICE OF THE DIRECTOR",
+      "supports": "The agency parent identifies Office of the Director as a USFWS organizational component. This supports the institutional-office sense of the source literal Director, U.S. Fish and Wildlife Service.",
+      "limitations": "This is current institutional capacity evidence, not the original 1990 report or proof of its personal authorship, exact historical office structure, or incumbent identity. The linked PDF open failed with an internal tool error, so only the opened HTML catalog is adopted."
+    },
+    {
+      "url": "https://www.archives.gov/research/guide-fed-records/groups/022.html",
+      "title": "Records of the U.S. Fish and Wildlife Service [USFWS]",
+      "publisher": "U.S. National Archives and Records Administration",
+      "locator": "Record Group 22, section 22.8.6, History paragraph; rendered line 396.",
+      "short_excerpt": "Established, 1945, under the immediate Office of the Director, FWS",
+      "supports": "NARA documents historical institutional usage of Office of the Director in the FWS lineage, independent of naming an individual.",
+      "limitations": "This passage concerns the older FWS organizational history. It does not prove unchanged structure in 1990 or the credit capacity of any specific BERPAC author."
+    }
+  ],
+  "retrieval_status": {
+    "retained": "Complete actual XML and current packet arrays from the frozen note are retained with their original hashes.",
+    "new": "The two public primary HTML pages above were newly opened and read. Browser parsed text is the evidence; original remote bytes were not downloaded or independently hashed.",
+    "excluded": "No incumbent identity was sought or adopted. Search-result biographical snippets and the failed PDF retrieval are not used as identity evidence."
+  },
+  "findings": [
+    {
+      "source_id": "FGDC-411",
+      "recommendation": "HOLD_COMPLETE_ARRAY_PENDING_CREDIT_CAPACITY_EVIDENCE",
+      "reason": "Professor Emeritus remains an individual academic status qualified by institutional affiliation. Neither the actual citation nor complete report context identifies a corresponding organizational office or collective. The new USFWS evidence does not apply to UAF/SFOS/IMS.",
+      "proposal": null,
+      "preservation": "Keep the entire existing literal and source context. No contact promotion, incumbent identification, title stripping, or affiliation substitution."
+    },
+    {
+      "source_id": "FGDC-2709",
+      "recommendation": "LITERAL_ORGANIZATIONAL_OFFICE_REPRESENTATION_DEFENSIBLE_FOR_PARENT_REVIEW",
+      "proposed_interpretation": {
+        "literal_name": "Director, U.S. Fish and Wildlife Service (USF&WS)",
+        "name_type": "organizational",
+        "scope": "Represent the directly credited institutional office under the existing exact title. This is an interpretation note, not a prepared modern-schema payload.",
+        "name_replacement": false,
+        "creator_addition": false,
+        "role_addition": false,
+        "incumbent_identification": false
+      },
+      "reason": "The origin directly credits an institution-qualified leadership title. Newly read primary agency documentation establishes the corresponding Director office as an organizational component. Treating the unchanged literal as an institutional-office reference is a defensible finite interpretation without naming the individual officeholder.",
+      "bibliography_challenge": "The same-work four-person reference does not assert that the primary origin must be personal, that a listed person equals the Director credit, or that no institutional office may be credited. It can coexist with the existing office-reference credit; it limits personal identity/equal-authorship claims rather than contradicting office-capacity representation.",
+      "actual_source_assertion_conflicting_with_finite_office_reading": null,
+      "remaining_inference": "The XML does not explicitly say Office of the Director. Mapping its Director, agency literal to the institutional-office sense is a documented contextual inference supported by agency organizational evidence; it is not a recovered original byline or proof of authorial intent.",
+      "preservation": "Retain the exact full Director, U.S. Fish and Wildlife Service (USF&WS) literal, the complete embedded four-person bibliography, source dates, and Check with Source use/metadata-use restrictions. Add no affiliation, office-name expansion, contributor role, or global person linkage."
+    }
+  ],
+  "limits": [
+    "The previous existence-of-personal-authors rationale does not by itself justify excluding an institutional-office interpretation.",
+    "The proposal does not assert that the agency or office wrote every word, nor assign authorship shares or link an incumbent.",
+    "The institutional office need not be independently incorporated.",
+    "No repository changes, code imports, tests, transformations, preparation, measurement, provider, Zenodo, AquaDocs, or credential access occurred.",
+    "Final source acceptance and implementation remain with parent and independent reviewer."
+  ]
+}

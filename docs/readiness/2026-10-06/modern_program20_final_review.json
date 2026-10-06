@@ -1,0 +1,110 @@
+{
+  "activity_limits": {
+    "helper_execution": 0,
+    "network_or_provider_requests": 0,
+    "project_or_helper_imports": 0,
+    "repository_edits": 0,
+    "tests_or_preparations": 0
+  },
+  "actual_guarded_coverage": {
+    "new_prepare_calls": 40,
+    "new_sources_prepared_twice": 20,
+    "originals_preserved": 4206,
+    "prior_pairs_compared_once": 203,
+    "prior_singletons_compared_once": 3585,
+    "remaining_pairs": 25,
+    "remaining_singletons": 100,
+    "remaining_supported_targets": 125,
+    "represented_originals": 4011,
+    "retained_profiles": 32,
+    "retained_public_files": 39232,
+    "total_prepared_targets": 3808
+  },
+  "actual_local_tests": {
+    "affected": 66,
+    "comment_only_bridge_to_final_source": true,
+    "errors": 0,
+    "failures": 0,
+    "new": 8,
+    "total": 74,
+    "unexpected_guard_events": 0
+  },
+  "aggregate_sha256": "23efeba9c464769f8050af26224679aabbe3995c3b725c9ae436b56498a00a8e",
+  "candidate_commit": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+  "candidate_tree": "8a483aef1629d26123812afe1c8a8ee48b95954d",
+  "changed_files": 30,
+  "commit_object_sha1_independently_recomputed": true,
+  "decision": "APPROVE_EXACT_COMMIT_FOR_AUTHORIZED_DIRECT_MAIN_PUBLICATION",
+  "final_documentation_review": {
+    "coverage_and_test_claims_match_actual_saved_evidence": true,
+    "full_main_CI_honestly_pending": true,
+    "paired_execution_design_explicitly_not_implemented_or_granted": true,
+    "remaining100_dependency_analysis_explicitly_not_new_preparation": true,
+    "review_and_result_copies_byte_exact": true,
+    "v1_test_and_v2_comment_only_measurement_bindings_distinguished": true
+  },
+  "final_source_tree_file_count": 188,
+  "final_source_tree_sha256": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7",
+  "kind": "program20_final_exact_commit_independent_publication_review",
+  "material_findings": [],
+  "preservation": {
+    "AGENTS_rules_unchanged": true,
+    "AquaDocs_deferred": true,
+    "five_protected_identities_preserved": true,
+    "frozen_PR45_recovery_release_unchanged": true,
+    "old_eight_policy_vectors_unchanged": true,
+    "original_FGDC_tree_unchanged": true,
+    "personal29_and_program_unaami29_holds_preserved": true,
+    "reviewed194_runtime_closed_to_eight_prior_policy_schemas": true,
+    "schema9_no_backdating": true,
+    "source_eligibility_and_original_creator_authority_unchanged": true,
+    "unknown_create_spent_intent_and_network_recovery_requirement_unchanged": true
+  },
+  "prior_review_receipts": [
+    {
+      "bytes": 4230,
+      "path": "/tmp/program20-review-b-initial.json",
+      "sha256": "72feab050012cb789ab6eac61a65c413d87df4fbe33816551219356fea0ba110"
+    },
+    {
+      "bytes": 2900,
+      "path": "/tmp/program20-helper-review-b-initial.json",
+      "sha256": "142ff3cf5cec6905e1b4ba617a25e33b802b8e9d0a7c95783ddaa362b88f9c4b"
+    },
+    {
+      "bytes": 5344,
+      "path": "/tmp/program20-review-b-final-measurement-pins.json",
+      "sha256": "2aeef21e38d7295162c412ecf597f96f87df05b8d3999ca6f6bc02e3cf9fa174"
+    },
+    {
+      "bytes": 5183,
+      "path": "/tmp/program20-review-b-final-aggregate-pins.json",
+      "sha256": "d0e46829886ed5cba2736e99f4a73dfccaea050898a0a89c4d7d1dd3a86623b0"
+    },
+    {
+      "bytes": 7481,
+      "path": "/tmp/program20-review-b-actual-aggregate.json",
+      "sha256": "90666e22ac3139bb0683edfd3ba3f7c1deb06a8ac2c32e56feeb4654ec98d431"
+    },
+    {
+      "bytes": 1979,
+      "path": "/tmp/program20-review-b-final-tree-check.json",
+      "sha256": "5534c7b554802f0c0db723eec853cf71963e370ae3533cb4657f597aa8f2e894"
+    }
+  ],
+  "remaining_release_gates": [
+    "Publish only this exact commit/tree with expected-parent main compare-and-swap under standing user authority.",
+    "Independently verify resulting main head and required full CI at that exact head; resolve material failures before claiming completion.",
+    "Repository publication is not a provider action grant, class execution enablement, production acceptance or human release."
+  ],
+  "remote_verification_scope": "Read saved actual GitHub response and independently verified imported immutable Git object; no reviewer network call. Actual main head verification remains sole integrator responsibility after compare-and-swap.",
+  "reviewer": "direct_credit_review_b",
+  "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+  "saved_github_commit_receipt": {
+    "bytes": 1245,
+    "path": "/tmp/pices-remote-commit-7ea7a6476f3307b368cff1980a3c9fa45b40af88.json",
+    "sha256": "c63b3ad77d3b5a41d1dfb010bd4617d3a01939d483529950fdfaddecb0b71ffd"
+  },
+  "sole_parent": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+  "tested_source_tree_sha256": "5a27d59f2cea5e229429110f366c045a052d7b519b9fe952ee9773082c6ce5da"
+}

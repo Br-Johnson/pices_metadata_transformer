@@ -70,7 +70,17 @@ jobs:
           scripts/production_mutations.py tests/test_production_mutations.py
           scripts/modern_response_evidence.py tests/test_modern_response_evidence.py
           scripts/modern_unknown_create.py tests/test_modern_unknown_create.py
-          tests/test_modern_unknown_create_history.py
+          tests/test_modern_unknown_create_history.py tests/test_modern_citation_organizations.py
+          tests/test_modern_reviewed_creators.py tests/test_modern_schema8_history_boundary.py
+          tests/test_modern_program_organizations.py
+          tests/test_modern_reviewed_citations31.py
+          docs/readiness/2026-10-06/measure_modern_reviewed_citations31_coverage.py
+          docs/readiness/2026-10-06/aggregate_modern_reviewed_citations31_coverage.py
+          docs/readiness/2026-10-06/measure_modern_program20_coverage.py
+          docs/readiness/2026-10-06/aggregate_modern_program20_coverage.py
+          docs/readiness/2026-10-06/measure_modern_reviewed_creators194_coverage.py
+          docs/readiness/2026-10-06/aggregate_modern_reviewed_creators194_coverage.py
+          docs/readiness/2026-10-06/measure_modern_citationorg129_coverage.py
           scripts/modern_publication.py scripts/modern_publication_qa.py
           tests/test_modern_publication.py tests/test_modern_publication_qa.py
           tests/test_modern_community_authority.py

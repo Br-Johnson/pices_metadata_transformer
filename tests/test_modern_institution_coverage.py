@@ -132,11 +132,25 @@ class ModernInstitutionCoverageTests(unittest.TestCase):
                     self.assertEqual(self.fixture(sid).prepared.evidence['schema_version'], version)
         self.assertEqual(fixture.transport.calls, [])
 
-    def test_finite_membership_retains_all79_direct_holds_other_name_only_and_pairs(self):
+    def test_historical79_split_into_exact42_reviewed28_citations_and9_retained_holds(self):
         review = mapping.parse((mapping.INSTITUTION_MAPPING.parent / 'modern_institution91_source_review.json').read_bytes())
         ids = [r['source_id'] for r in review['held']['members']]
         self.assertEqual(len(ids), 79)
-        for sid in (*ids, 'FGDC-3875', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
+        reviewed = {r['source_id'] for r in mapping.parse(mapping.REVIEWED_CREATORS_MAPPING.read_bytes())['rows']
+                    if r['creator_authority_kind'] == 'direct'}
+        self.assertEqual(len(set(ids) & reviewed), 42)
+        citations = {r['source_id'] for r in mapping.parse(mapping.CITATIONS31.read_bytes())['rows']
+                     if r['creator_authority_kind'] == 'direct'}
+        self.assertEqual(len(set(ids) & citations), 28)
+        self.assertFalse(reviewed & citations)
+        held = set(ids) - reviewed - citations
+        self.assertEqual(held, {'FGDC-287', 'FGDC-411', 'FGDC-771', 'FGDC-2229', 'FGDC-2235',
+                                'FGDC-2668', 'FGDC-2824', 'FGDC-3599', 'FGDC-3786'})
+        for sid in set(ids) & reviewed:
+            self.assertEqual(mapping.institution_source_policy(sid)[1]['policy'], mapping.REVIEWED_CREATORS_POLICY)
+        for sid in citations:
+            self.assertEqual(mapping.institution_source_policy(sid)[1]['policy'], mapping.CITATIONS31_POLICY)
+        for sid in (*sorted(held), 'FGDC-859', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.institution_source_policy(sid)
 

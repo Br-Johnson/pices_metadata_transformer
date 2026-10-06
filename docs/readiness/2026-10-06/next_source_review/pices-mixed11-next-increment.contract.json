@@ -1,0 +1,1587 @@
+{
+  "activity": {
+    "network_provider_requests": 0,
+    "project_imports": 0,
+    "repository_edits": 0,
+    "runtime_classification_preparation_measurements": 0,
+    "tests": 0,
+    "tmp_design_data_only": true
+  },
+  "baseline_measured_targets": 3808,
+  "baseline_validation": {
+    "bytes": 75489,
+    "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20_validation.json",
+    "sha256": "23efeba9c464769f8050af26224679aabbe3995c3b725c9ae436b56498a00a8e"
+  },
+  "composition_checks_note": "The data-only composition initially stopped before writing outputs on two incorrect assumptions about retained JSON shape (rehosting sources is a dict; contract contexts is a list). The inspection script was corrected to each actual pinned schema. All28 bindings subsequently passed; no source packet, repository file or historical receipt changed.",
+  "current_live_input_pins": [
+    {
+      "bytes": 877461,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/source_citation_credits_426.json",
+      "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2"
+    },
+    {
+      "bytes": 6312934,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-04/publication_plan.json",
+      "sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+    },
+    {
+      "bytes": 357011,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-02/rehosting_authority.json",
+      "sha256": "3dc416817bf33ab4669ec70c8d3d19e646baf15893563eaf2e0f7f87435ea2e8"
+    },
+    {
+      "bytes": 460626,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_institution91_source_bindings.json",
+      "sha256": "0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633"
+    }
+  ],
+  "current_runtime_source_pins": [
+    {
+      "bytes": 45725,
+      "path": "/workspace/pices-main/scripts/modern_singleton.py",
+      "sha256": "b2b5a607ae338e00d15e097bb0f53e2f4d8c1de6c45fb244e90ab87ac8106365"
+    },
+    {
+      "bytes": 45927,
+      "path": "/workspace/pices-main/scripts/modern_publication.py",
+      "sha256": "09ea0a16a0978566c736a28a4c22b64cc10e165c21af7222b8ac4d6da7e94b72"
+    },
+    {
+      "bytes": 24427,
+      "path": "/workspace/pices-main/scripts/modern_publication_qa.py",
+      "sha256": "eec120db4a1ea7e6969a73a9a3db3a1ded23a3e4756457777961fc12f9eaca84"
+    },
+    {
+      "bytes": 32177,
+      "path": "/workspace/pices-main/scripts/modern_singleton_executor.py",
+      "sha256": "d1afaf95ad7118678f3c5fa0e428650ddb74a0ee12fd4c3ee723350115ec3cbe"
+    }
+  ],
+  "exact_inputs": {
+    "basis_proposal": {
+      "bytes": 1349008,
+      "path": "/tmp/pices-basis19-modern-personal-source-proposals.json",
+      "sha256": "3dffa1313c1b31a9950277658df01b334b0632ac204c982054abe1cf54672faf"
+    },
+    "basis_review": {
+      "bytes": 30599,
+      "path": "/tmp/pices-basis19-independent-complete-array-review.json",
+      "sha256": "0f791b51da0294d494053393ba48a40170dbd4f26c049007486d5568e658b7da"
+    },
+    "contract_proposal": {
+      "bytes": 596657,
+      "path": "/tmp/pices-contract-chain9-modern-source-proposals.json",
+      "sha256": "1ee3bc21bb5d02a201a311fe794f503ad4fbb2c89d850c5be75b0aba5e26e9a1"
+    },
+    "contract_review": {
+      "bytes": 110107,
+      "path": "/tmp/pices-contract-chain9-independent-source-review.json",
+      "sha256": "2ce5c267e37168aaa8c8c1202c756a167459c9c031b96e16dc34aa760ff58d83"
+    }
+  },
+  "focused_tests_required_before_integration": [
+    "Static all11 exact membership equals independent3+8 approval, disjoint17holds/prior policies/protected5/pairs; three BASIS names keep Sonya Elmajatii and citation Elmajjati variant without a correction/identity claim.",
+    "Use first10 fresh preparations as smoke then all11; full7-object BASIS vectors and full2-object contract vectors exact, including all8 cardinality changes, trailing NPAFC and compound organizational groups.",
+    "All11 preparation twice deterministic; complete raw and normalized legacy metadata, original source bytes, all source dates/constraints, restricted XML/blank license preserved.",
+    "For all8 contract rows, visible additional_description contains exact escaped approved paragraph and the untouched full legacy JSON. Check817 exact source double spacing, intact slash/comma hierarchies, future access wording and no extra roles. Missing/truncated/swapped note fails exact readback.",
+    "Withdraw/tamper each finite input and rehash manifest; reject changed membership, root/cohort/plan, whole creator/name/type/order/count, component offsets, extra role/identifier/affiliation, exact preservation text or partition authority.",
+    "BASIS16 and771 remain globally unmapped; prior194 selector-specific historical29 exclusions remain unchanged, while the global residual subset drops only BASIS3.",
+    "Prove all nine prior policy wire and every nonruntime evidence field unchanged using exact retained inputs/time. Exercise narrow PROGRAM20 runtime bridge across all9 with both accepted upload transcript branches.",
+    "Add schema10 historical-runtime rejection before any file/state lookup, source/direct authority QA equality and completed-upload/community pipeline using existing guards. Preserve uncertain-create and cross-source identity/DOI holds."
+  ],
+  "full_head_ci_status": "Parent reports running; this task does not claim completion.",
+  "future_evidence_installation": [
+    {
+      "copy_exact_bytes_only": true,
+      "from": "/tmp/pices-basis19-modern-personal-source-proposals.json",
+      "sha256": "3dffa1313c1b31a9950277658df01b334b0632ac204c982054abe1cf54672faf",
+      "to": "docs/readiness/2026-10-06/modern_mixed11_basis_source_review.json"
+    },
+    {
+      "copy_exact_bytes_only": true,
+      "from": "/tmp/pices-basis19-independent-complete-array-review.json",
+      "sha256": "0f791b51da0294d494053393ba48a40170dbd4f26c049007486d5568e658b7da",
+      "to": "docs/readiness/2026-10-06/modern_mixed11_basis_independent_review.json"
+    },
+    {
+      "copy_exact_bytes_only": true,
+      "from": "/tmp/pices-contract-chain9-modern-source-proposals.json",
+      "sha256": "1ee3bc21bb5d02a201a311fe794f503ad4fbb2c89d850c5be75b0aba5e26e9a1",
+      "to": "docs/readiness/2026-10-06/modern_mixed11_contract_source_review.json"
+    },
+    {
+      "copy_exact_bytes_only": true,
+      "from": "/tmp/pices-contract-chain9-independent-source-review.json",
+      "sha256": "2ce5c267e37168aaa8c8c1202c756a167459c9c031b96e16dc34aa760ff58d83",
+      "to": "docs/readiness/2026-10-06/modern_mixed11_contract_independent_review.json"
+    }
+  ],
+  "future_measurement_scope": "Only after code review/tests: new11 prepared twice and all prior3808 exact beforeimages preserved. No coverage is claimed by this design.",
+  "historical_examples_are_not_current_preparation": true,
+  "historical_policy_inputs_unchanged": [
+    {
+      "bytes": 17463,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-05/modern_organizational_extension86.json",
+      "sha256": "c78074384f29310e5cdc0c23dddc6b47161e516bc0222ddbbe0a36dfbc9a1dcf"
+    },
+    {
+      "bytes": 559239,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_direct_primary_organizations.json",
+      "sha256": "35512b48636ae563acfc26a77c547699bba2dfe767e414e995e83079e3f3eb13"
+    },
+    {
+      "bytes": 57207,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_exxon_singletons412.json",
+      "sha256": "5dbfeb098ee8b3bbad0e06d020c1c14c88e32363d45fab4e69a5cc961482a94f"
+    },
+    {
+      "bytes": 4283,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_pices_singletons26.json",
+      "sha256": "15d5f40fe829919a0ff9d9b81bcfc6205b2cd4042a3891e4dc9e4b3595204670"
+    },
+    {
+      "bytes": 20587,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_institution_singletons91.json",
+      "sha256": "19dd282e701bb115e256c90cac0ebaba0cfa1b49baf748dc4bf55106cc22dfd1"
+    },
+    {
+      "bytes": 47131,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_citation_organizations129.json",
+      "sha256": "8ac4f141433dbbc58513ee968942ec23d2f484949b751fa01cba6bbcc393aee3"
+    },
+    {
+      "bytes": 186759,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_reviewed_creators194.json",
+      "sha256": "c7d0b522bf7e9a9c990b6cbdf93797280ff1e57979e6bd133186905c4deec6c3"
+    },
+    {
+      "bytes": 50756,
+      "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_program20.json",
+      "sha256": "0485e9c5e24566df94ad59397b8bdf2ebde375e88504d9f419bc61b71a0b20e1"
+    }
+  ],
+  "historical_public_preservation_examples": [
+    {
+      "bytes": 9774,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3680.json",
+      "sha256": "7ba677c3b9f94e127b4313b7bcef529f0b5c21324c896e5704100ed9708943b4"
+    },
+    {
+      "bytes": 7447,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3680.xml",
+      "sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+    },
+    {
+      "bytes": 8356,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3681.json",
+      "sha256": "a148d52c9a17d76c80c55fdbf63528269e7d95d6631087e18fcf4b3ff7c467da"
+    },
+    {
+      "bytes": 6474,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3681.xml",
+      "sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+    },
+    {
+      "bytes": 7392,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3800.json",
+      "sha256": "1ee8054f0a5c086cb7f49b0e68a7ebd07a78e8127ee04a268a49639976112430"
+    },
+    {
+      "bytes": 5818,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3800.xml",
+      "sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+    },
+    {
+      "bytes": 7688,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3802.json",
+      "sha256": "9bec03e435c74b6534cdbbd12aa852ea5b71dc4ac5b3a63bf96f996c92db8ea0"
+    },
+    {
+      "bytes": 6275,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3802.xml",
+      "sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+    },
+    {
+      "bytes": 9558,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3803.json",
+      "sha256": "628e8726dcae2b15f705aa00b796d3ecbcaa0842cb7bd9a5dfed5a51f97edf83"
+    },
+    {
+      "bytes": 7860,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3803.xml",
+      "sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+    },
+    {
+      "bytes": 9159,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3804.json",
+      "sha256": "fd52b51e2f3200afed1d2ad076baf7d0953bae2e5d70b61c7c9f2c4519897f9d"
+    },
+    {
+      "bytes": 7586,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3804.xml",
+      "sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+    },
+    {
+      "bytes": 7400,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3805.json",
+      "sha256": "6275c9edcd9a0c636a333cd79dc7c8d82abbe39b515f42550deeabbc5540cdfa"
+    },
+    {
+      "bytes": 5971,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3805.xml",
+      "sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+    },
+    {
+      "bytes": 7700,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3806.json",
+      "sha256": "bf93d4d7107755759ce0375c685aff745a0c0d4b9b853d56f41d77eb50935a42"
+    },
+    {
+      "bytes": 6172,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3806.xml",
+      "sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+    },
+    {
+      "bytes": 9647,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3807.json",
+      "sha256": "fa1155a5da28be871bfc9424c621d5f466a430ef0678f32dd1ccaabb776709d5"
+    },
+    {
+      "bytes": 8127,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3807.xml",
+      "sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+    },
+    {
+      "bytes": 10664,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3808.json",
+      "sha256": "2c668d5d6c4117f50bcf90a3f0ce7f9e079a37a385ea76c3f166fa2083e86704"
+    },
+    {
+      "bytes": 8416,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3808.xml",
+      "sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+    },
+    {
+      "bytes": 11425,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3809.json",
+      "sha256": "2b6dca1d7f97b3630031ebcb16668fe6181ee05dd31b38bb25159a81a99d85e2"
+    },
+    {
+      "bytes": 8835,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3809.xml",
+      "sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9"
+    },
+    {
+      "bytes": 8585,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3810.json",
+      "sha256": "aed7bf5e3a5e35da9b475f684111102b2277b0c015b587bf9ce798b75b1d8d76"
+    },
+    {
+      "bytes": 6875,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3810.xml",
+      "sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e"
+    },
+    {
+      "bytes": 8783,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3812.json",
+      "sha256": "6a1faf6e3bcd1c51efd2e24d44471034cb04d9dabe0cbd0c311ed5329a59e735"
+    },
+    {
+      "bytes": 7174,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3812.xml",
+      "sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640"
+    },
+    {
+      "bytes": 8825,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3814.json",
+      "sha256": "ec4bed8ebb6debf0970b73b68140761ab6d53942a7e6829e97b97d594734085f"
+    },
+    {
+      "bytes": 7243,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3814.xml",
+      "sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+    },
+    {
+      "bytes": 10158,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3816.json",
+      "sha256": "55ed0b3545c87084da3f3cab3a055b0c2a886cc9d775bb6f36d0b1831dc767f3"
+    },
+    {
+      "bytes": 8011,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3816.xml",
+      "sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+    },
+    {
+      "bytes": 8697,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3817.json",
+      "sha256": "fb0d9176b3d93c1c16763c1f70ad968ea69b03da5f80d109f0618102e19469d5"
+    },
+    {
+      "bytes": 6532,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3817.xml",
+      "sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+    },
+    {
+      "bytes": 7376,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3825.json",
+      "sha256": "d42356ff05ff2bcd1a4bd675e4df1aa8da188b6886f931a169418d058993f4db"
+    },
+    {
+      "bytes": 5712,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3825.xml",
+      "sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+    },
+    {
+      "bytes": 8542,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3831.json",
+      "sha256": "7d283602b4af096b4d6b0b3441be7bf12dd65ec038178ed18bd8a713ae5af623"
+    },
+    {
+      "bytes": 6879,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3831.xml",
+      "sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+    },
+    {
+      "bytes": 10037,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-3838.json",
+      "sha256": "f3aa974944f84e45ce78b3296f10b0f378b5f1d88c9ebc63cb9c5c29c7a69796"
+    },
+    {
+      "bytes": 7608,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-3838.xml",
+      "sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+    },
+    {
+      "bytes": 4368,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-723.json",
+      "sha256": "d321e5852dfbfcf742dd3919c84856d1ec268cfa78ffeb6c94e66402f8903c21"
+    },
+    {
+      "bytes": 4125,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-723.xml",
+      "sha256": "f652edb80b7f49d3f70d71ef27b5097e34af886fa41dcfbda4f4a0907b0ffd3a"
+    },
+    {
+      "bytes": 5676,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-725.json",
+      "sha256": "71b67af104c076d242386b7eccb361d050b8c3977e985aa1b429ac90ff7bedd4"
+    },
+    {
+      "bytes": 4492,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-725.xml",
+      "sha256": "5e77b53da45cbfd7dcb7e68e9da66574e0a1ee876fe8afeff1527dfce61b23f1"
+    },
+    {
+      "bytes": 5423,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-755.json",
+      "sha256": "4dcf770b60eb88f5fecdfeb31d3cc279d04e75e44fd8fdc879ab2fe1e4d6216f"
+    },
+    {
+      "bytes": 4464,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-755.xml",
+      "sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+    },
+    {
+      "bytes": 6846,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-757.json",
+      "sha256": "70be0aa9279c73e2774247bf6c377299a5dd146bf8c543705f6c2ee37940e0df"
+    },
+    {
+      "bytes": 5868,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-757.xml",
+      "sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+    },
+    {
+      "bytes": 5316,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-760.json",
+      "sha256": "2086dc81a22250c357972788edbb850ffa818b4840f08607f1e85cbb59335149"
+    },
+    {
+      "bytes": 4477,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-760.xml",
+      "sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+    },
+    {
+      "bytes": 5490,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-770.json",
+      "sha256": "feac1a708dd721ec940f9eb40ce40f14e58f5a6d6f6594add39172730340f69d"
+    },
+    {
+      "bytes": 4218,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-770.xml",
+      "sha256": "51729916302421ebdc9029022e940e3928381eb1fa37ddecda92577afb095398"
+    },
+    {
+      "bytes": 5212,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-771.json",
+      "sha256": "1780931760045fd7cbe2967d4dfaf545ba5e023072b57eceff6facdd4e9b5b35"
+    },
+    {
+      "bytes": 4084,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-771.xml",
+      "sha256": "afdab5a682082fc944ee7ab3a004c626a20468e5784f828adf1e63fc55a43af5"
+    },
+    {
+      "bytes": 4792,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-785.json",
+      "sha256": "bd5500618412e2bec147e9c497a04bc54ce8d9eeae4e40f6ab2d521be3ef1e18"
+    },
+    {
+      "bytes": 4537,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-785.xml",
+      "sha256": "eadafc1d01732e0b32924d9a5acb3dae62d0a1aac4cde510d2eac9430337def0"
+    },
+    {
+      "bytes": 6137,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-817.json",
+      "sha256": "58ab25311c4f5e208d86d182d16143cb548adec7c2e3e5e335b583f789d37180"
+    },
+    {
+      "bytes": 5220,
+      "path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-817.xml",
+      "sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f"
+    }
+  ],
+  "historical_runtime_boundary": {
+    "PROGRAM20_RUNTIME": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+    "exact_pairs_required": true,
+    "mandatory_negative": "Backdate genuine new BASIS and contract10 preparations to each old runtime including PROGRAM20_RUNTIME and recompute only binding; bridge must reject before old grants/journals/proofs are read and with zero transport calls.",
+    "no_attempt_migration_or_grant_renewal": true,
+    "policy_schema_covered_by_new_compatibility": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "rule": "If needed, add this one actual runtime to bridge compatibility only for the nine explicit preexisting policy/schema pairs and completed-upload-marker evidence. Every nonruntime evidence field must remain equal. Never add schema10 to any historical runtime allowlist."
+  },
+  "implemented_new_members": 0,
+  "integration_writer": "/root",
+  "kind": "unimplemented_mixed11_finite_projection_design",
+  "limits": [
+    "This author statically verified already reviewed28 source originals/contexts and current source bindings, not new source-category decisions.",
+    "BASIS exact name boundary inference and auxiliary external evidence remain attributed to frozen reviewers; no public-source retrieval or raw remote verification repeated.",
+    "No library/provider/credentials/network, repository imports, runtime classification, preparation, helper execution, tests or repository edits."
+  ],
+  "manifest_draft": {
+    "bytes": 55836,
+    "path": "/tmp/pices-mixed11-next-increment.manifest.json",
+    "sha256": "34f20e836b8a70aba5b36659dbe07b8199202b8a76eb5896264b29934dadcad1"
+  },
+  "minimal_preservation_delta": {
+    "applies_only": "schema10 contract8; BASIS3 and every prior policy keep existing construction",
+    "bound_context_includes": [
+      "literal contract direction/order",
+      "complete citation including817 original double spacing",
+      "no equal-authorship assertion or invented roles",
+      "source-specific earlier-work and access-condition caveats"
+    ],
+    "existing_legacy_block": "Preserve complete assembled legacy metadata unchanged in the current escaped JSON <pre> block; its contract-name relationship remains present.",
+    "pseudocode": "'<p>' + PRESERVATION_LABEL + '</p>' + ('<p>' + html.escape(selected['additional_preservation_text']) + '</p>' if the finite contract8 row else '') + '<pre>' + html.escape(encode(metadata).decode()) + '</pre>'",
+    "raw_legacy_metadata_mutated": false,
+    "required_additional_context": "The exact already approved required_full_citation_and_role_preservation_text is absent from all8 historical legacy metadata objects. Bind it to source/review row bytes and add one escaped <p> before the unchanged <pre> inside the existing single additional_description.",
+    "same_one_description_and_type": "other",
+    "separate_notes_append_not_required": true,
+    "source_or_profile_mutated": false
+  },
+  "minimal_runtime_integration_contract": [
+    "Install a separate schema10 finite selector and exact manifest/four evidence files; preserve source bytes and earlier nine policy evidence unchanged.",
+    "Dispatch only after existing program20 validation finds zero matches; change its final cardinality requirement to <=1 with one-match return unchanged, then call the new selector. Never suppress a malformed or missing policy exception.",
+    "BASIS3 authority is the exact current426 cohort/full legacy vector; direct8 require absence from all426 cohorts and literal absence of artifact_policy.creator_interpretation, with exact primary origin/root and prior direct binding object. Do not install a creator426 profile for direct8.",
+    "creator_authority_sha returns PROFILE_SHA for basis3 and new mixed11 mapping SHA for direct8; preparation and publication QA use the same finite selection fields.",
+    "Reconstruct every selected row and full modern vector from the appropriate independent review decision; source proposal7 is not the BASIS approval. Exact field types, complete header and row equality reject self-rehashed additions or substitutions.",
+    "Validate current source singleton plan/no protectedID/no DOI, originals/full root, exact complete legacy metadata creators, existing artifact authority/access/date rules and rehosting. No date, rights, creator or source-status changes.",
+    "Apply the exact schema10-only contract paragraph above. Keep all current schema-readback checks and full-preservation byte comparison; do not add another description object or modify old label text.",
+    "No generic name parser or contract splitter. Finite component offsets prove approved direct names but cannot authorize unseen strings. Do not add roles, affiliations, identifiers, client/contractor roles or equal-authorship semantics.",
+    "No journal, intent, state path, budget, transport, duplicate, QA, community or grant changes. Pair execution remains disabled; protected records must be corrected in place later."
+  ],
+  "new_evidence_fields": {
+    "creator_authority_kind": "creator426 for BASIS3; direct for contract8",
+    "creator_cohort": "exact426 cohort for BASIS3; null for contract8",
+    "mapping_manifest_sha256": "EXACT_FINAL_MIXED11_MANIFEST_SHA",
+    "policy": "modern-xml-reviewed-mixed11-v1",
+    "schema_version": 10,
+    "unchanged_prepared_fields": "source/XML/artifact/prepared-input/full legacy metadata/wire/runtime/source-plan/schema pins use existing Prepared shape; the manifest hash binds partition and exact context paragraph."
+  },
+  "new_measurement_or_coverage_claim": null,
+  "preservation_analysis": [
+    {
+      "basis_original_origin_fragment_in_notes": null,
+      "bounded_additional_paragraph_required": true,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": false,
+      "required_text_sha256": "0d500205bda486d17322335593131ede3c38964573092d4fde942a8277e93884",
+      "source_id": "FGDC-723"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": null,
+      "bounded_additional_paragraph_required": true,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": false,
+      "required_text_sha256": "0d500205bda486d17322335593131ede3c38964573092d4fde942a8277e93884",
+      "source_id": "FGDC-725"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": null,
+      "bounded_additional_paragraph_required": true,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": false,
+      "required_text_sha256": "2ebb2d0915d04ec1d68882e89fd04f08e35bf8f24515ab86776c6aaf2cb48a35",
+      "source_id": "FGDC-755"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": null,
+      "bounded_additional_paragraph_required": true,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": false,
+      "required_text_sha256": "88e7908c805241522b7f6f837a1b1bcb697231e145f672efca38ceefbda41810",
+      "source_id": "FGDC-757"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": null,
+      "bounded_additional_paragraph_required": true,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": false,
+      "required_text_sha256": "2ebb2d0915d04ec1d68882e89fd04f08e35bf8f24515ab86776c6aaf2cb48a35",
+      "source_id": "FGDC-760"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": null,
+      "bounded_additional_paragraph_required": true,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": false,
+      "required_text_sha256": "f0a2bd0d6e3f5d1eb329ff52ec46b92e8836a8b84d50b91456feb9d76a658e20",
+      "source_id": "FGDC-770"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": null,
+      "bounded_additional_paragraph_required": true,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": false,
+      "required_text_sha256": "92decf546fa1c69bbc63d51a38085e7182b9d586c3c5a7bc1979dbc3f443970e",
+      "source_id": "FGDC-785"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": null,
+      "bounded_additional_paragraph_required": true,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": false,
+      "required_text_sha256": "f489a59b959ad1b400be88f7d0db6f82e18d0bdea768a02e0e7150e60885b9da",
+      "source_id": "FGDC-817"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": true,
+      "bounded_additional_paragraph_required": false,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": null,
+      "required_text_sha256": null,
+      "source_id": "FGDC-3809"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": true,
+      "bounded_additional_paragraph_required": false,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": null,
+      "required_text_sha256": null,
+      "source_id": "FGDC-3810"
+    },
+    {
+      "basis_original_origin_fragment_in_notes": true,
+      "bounded_additional_paragraph_required": false,
+      "existing_legacy_metadata_stays_unchanged": true,
+      "historical_full_legacy_creator_equal": true,
+      "historical_required_role_paragraph_present": null,
+      "required_text_sha256": null,
+      "source_id": "FGDC-3812"
+    }
+  ],
+  "provider_action_grant": null,
+  "remaining_missing_source_decisions": [],
+  "reviewed_design_head": "7ea7a6476f3307b368cff1980a3c9fa45b40af88",
+  "reviewed_design_runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+  "reviewed_design_tree": "8a483aef1629d26123812afe1c8a8ee48b95954d",
+  "schema_version": 1,
+  "selection_authority": {
+    "active_prior_personal_hold_delta": {
+      "newly_admitted_elsewhere": [
+        "FGDC-3809",
+        "FGDC-3810",
+        "FGDC-3812"
+      ],
+      "still_held26": [
+        {
+          "source_id": "FGDC-542",
+          "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c"
+        },
+        {
+          "source_id": "FGDC-885",
+          "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+        },
+        {
+          "source_id": "FGDC-887",
+          "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+        },
+        {
+          "source_id": "FGDC-893",
+          "source_sha256": "696bb0f03106622c6ad0585cb36209b56bcc65fd94b82278607becbb36725b5c"
+        },
+        {
+          "source_id": "FGDC-2234",
+          "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+        },
+        {
+          "source_id": "FGDC-2413",
+          "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728"
+        },
+        {
+          "source_id": "FGDC-2587",
+          "source_sha256": "e0524fa518c066a4d2b40886bd53c3fcea4073c7b02e12ce5a331aad2a957f65"
+        },
+        {
+          "source_id": "FGDC-2674",
+          "source_sha256": "b38af5b7f620dc0051fcdd79354dd4fc23efde7b6837a4c410d6ec02a07426f0"
+        },
+        {
+          "source_id": "FGDC-2683",
+          "source_sha256": "190e3cff17272e516358f6cf106a491e19ba98d5f8de4d7f32f11c360b9b832f"
+        },
+        {
+          "source_id": "FGDC-3680",
+          "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+        },
+        {
+          "source_id": "FGDC-3681",
+          "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+        },
+        {
+          "source_id": "FGDC-3800",
+          "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+        },
+        {
+          "source_id": "FGDC-3802",
+          "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+        },
+        {
+          "source_id": "FGDC-3803",
+          "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+        },
+        {
+          "source_id": "FGDC-3804",
+          "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+        },
+        {
+          "source_id": "FGDC-3805",
+          "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+        },
+        {
+          "source_id": "FGDC-3806",
+          "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+        },
+        {
+          "source_id": "FGDC-3807",
+          "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+        },
+        {
+          "source_id": "FGDC-3808",
+          "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+        },
+        {
+          "source_id": "FGDC-3814",
+          "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+        },
+        {
+          "source_id": "FGDC-3816",
+          "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+        },
+        {
+          "source_id": "FGDC-3817",
+          "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+        },
+        {
+          "source_id": "FGDC-3825",
+          "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+        },
+        {
+          "source_id": "FGDC-3831",
+          "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+        },
+        {
+          "source_id": "FGDC-3838",
+          "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+        },
+        {
+          "source_id": "FGDC-3851",
+          "source_sha256": "c84125a527d9746840b85c1abc78c580e49648c0cbe54a93a69fb544663d672e"
+        }
+      ]
+    },
+    "basis16_remaining_whole_array_holds": [
+      {
+        "source_id": "FGDC-3680",
+        "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+      },
+      {
+        "source_id": "FGDC-3681",
+        "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+      },
+      {
+        "source_id": "FGDC-3800",
+        "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+      },
+      {
+        "source_id": "FGDC-3802",
+        "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+      },
+      {
+        "source_id": "FGDC-3803",
+        "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+      },
+      {
+        "source_id": "FGDC-3804",
+        "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+      },
+      {
+        "source_id": "FGDC-3805",
+        "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+      },
+      {
+        "source_id": "FGDC-3806",
+        "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+      },
+      {
+        "source_id": "FGDC-3807",
+        "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+      },
+      {
+        "source_id": "FGDC-3808",
+        "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+      },
+      {
+        "source_id": "FGDC-3814",
+        "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+      },
+      {
+        "source_id": "FGDC-3816",
+        "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+      },
+      {
+        "source_id": "FGDC-3817",
+        "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+      },
+      {
+        "source_id": "FGDC-3825",
+        "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+      },
+      {
+        "source_id": "FGDC-3831",
+        "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+      },
+      {
+        "source_id": "FGDC-3838",
+        "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+      }
+    ],
+    "basis_12_other_source_literal_holds": [
+      {
+        "source_id": "FGDC-3680",
+        "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+      },
+      {
+        "source_id": "FGDC-3681",
+        "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+      },
+      {
+        "source_id": "FGDC-3800",
+        "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+      },
+      {
+        "source_id": "FGDC-3802",
+        "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+      },
+      {
+        "source_id": "FGDC-3803",
+        "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+      },
+      {
+        "source_id": "FGDC-3804",
+        "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+      },
+      {
+        "source_id": "FGDC-3805",
+        "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+      },
+      {
+        "source_id": "FGDC-3806",
+        "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+      },
+      {
+        "source_id": "FGDC-3807",
+        "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+      },
+      {
+        "source_id": "FGDC-3808",
+        "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+      },
+      {
+        "source_id": "FGDC-3825",
+        "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+      },
+      {
+        "source_id": "FGDC-3831",
+        "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+      }
+    ],
+    "basis_farley4_remain_held": [
+      "FGDC-3814",
+      "FGDC-3816",
+      "FGDC-3817",
+      "FGDC-3838"
+    ],
+    "basis_inference_limit": "The Sonya/Elmajatii boundary is an explicitly acknowledged contextual inference from the complete aligned credit/citation and exact full-name byline evidence, not an exact inverted Elmajatii quotation, universal two-token splitter, ORCID/person-identity equivalence, or correction of spelling. Exact Sonya Elmajatii byline retrieval was reported and excerpted by the proposal author; this reviewer could not independently reopen the remote PDF. Actual source XML and its complete citation context were independently verified.",
+    "basis_only_independently_approved3": [
+      "FGDC-3809",
+      "FGDC-3810",
+      "FGDC-3812"
+    ],
+    "basis_proposal_seven_not_approval": true,
+    "contract771_hold": [
+      {
+        "source_id": "FGDC-771",
+        "source_sha256": "afdab5a682082fc944ee7ab3a004c626a20468e5784f828adf1e63fc55a43af5"
+      }
+    ],
+    "contract8_approval": [
+      {
+        "source_id": "FGDC-723",
+        "source_sha256": "f652edb80b7f49d3f70d71ef27b5097e34af886fa41dcfbda4f4a0907b0ffd3a"
+      },
+      {
+        "source_id": "FGDC-725",
+        "source_sha256": "5e77b53da45cbfd7dcb7e68e9da66574e0a1ee876fe8afeff1527dfce61b23f1"
+      },
+      {
+        "source_id": "FGDC-755",
+        "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+      },
+      {
+        "source_id": "FGDC-757",
+        "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+      },
+      {
+        "source_id": "FGDC-760",
+        "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+      },
+      {
+        "source_id": "FGDC-770",
+        "source_sha256": "51729916302421ebdc9029022e940e3928381eb1fa37ddecda92577afb095398"
+      },
+      {
+        "source_id": "FGDC-785",
+        "source_sha256": "eadafc1d01732e0b32924d9a5acb3dae62d0a1aac4cde510d2eac9430337def0"
+      },
+      {
+        "source_id": "FGDC-817",
+        "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f"
+      }
+    ],
+    "direct_contract_cardinality_changes": [
+      {
+        "legacy_count": 1,
+        "modern_count": 2,
+        "source_id": "FGDC-723"
+      },
+      {
+        "legacy_count": 1,
+        "modern_count": 2,
+        "source_id": "FGDC-725"
+      },
+      {
+        "legacy_count": 1,
+        "modern_count": 2,
+        "source_id": "FGDC-755"
+      },
+      {
+        "legacy_count": 1,
+        "modern_count": 2,
+        "source_id": "FGDC-757"
+      },
+      {
+        "legacy_count": 1,
+        "modern_count": 2,
+        "source_id": "FGDC-760"
+      },
+      {
+        "legacy_count": 1,
+        "modern_count": 2,
+        "source_id": "FGDC-770"
+      },
+      {
+        "legacy_count": 1,
+        "modern_count": 2,
+        "source_id": "FGDC-785"
+      },
+      {
+        "legacy_count": 1,
+        "modern_count": 2,
+        "source_id": "FGDC-817"
+      }
+    ],
+    "historical_personal29_receipt_unchanged": true,
+    "preserve_prior29_program_unaami": [
+      {
+        "source_id": "FGDC-419",
+        "source_sha256": "71853896a5ae9232d45166d89d06ceceda9f533e1fac5d0ea67c4dba899c18dc"
+      },
+      {
+        "source_id": "FGDC-545",
+        "source_sha256": "82ac680b3d26bb8f80b4642d21e314813247a8ba74c3faddd7d73bfffbd89e23"
+      },
+      {
+        "source_id": "FGDC-546",
+        "source_sha256": "8f6d9e0d603255b0156a6c6b356e6973f2429c782672406a5b50827400483662"
+      },
+      {
+        "source_id": "FGDC-547",
+        "source_sha256": "777f31dd1bd7686f8a94a6559efc27bd11255d1c3ee7feeebdd1b180ae3b8724"
+      },
+      {
+        "source_id": "FGDC-548",
+        "source_sha256": "e48070eb5a688b732bce467796b932f80ecbe600e7e3297e68d5709538629c7c"
+      },
+      {
+        "source_id": "FGDC-549",
+        "source_sha256": "b27410843d7a077362d7348cfa5da3c0889dde6850ce97fe23515c2094ac06d3"
+      },
+      {
+        "source_id": "FGDC-550",
+        "source_sha256": "703288a7c4460de563e91b6cab47ab41fcf62b6fc41f30c92910dedf8426d14b"
+      },
+      {
+        "source_id": "FGDC-551",
+        "source_sha256": "26031acb0be2cd0ccf8b63623fbe5d4453d3415f748dcd083c5a55acc259a16a"
+      },
+      {
+        "source_id": "FGDC-552",
+        "source_sha256": "342928f5a48294371b35eca91d0303065d5dfdb1eb151195bfe20621ec9c7bd8"
+      },
+      {
+        "source_id": "FGDC-553",
+        "source_sha256": "ad5907dd4660cb821b828e980a023a08c7b65d4a2f59a0fcb4f484049a7191a8"
+      },
+      {
+        "source_id": "FGDC-554",
+        "source_sha256": "3189d71b2848856a1bdba644c05fbfeb33e09f7c1fe7bdef1c366f6ce00d7c21"
+      },
+      {
+        "source_id": "FGDC-556",
+        "source_sha256": "006d4437d0049c3762958209ffe02ed4f0df5f1b1ef54acdd30276375ad0008f"
+      },
+      {
+        "source_id": "FGDC-557",
+        "source_sha256": "b61781d15506505c3cec592f53250e0429944f5da578c5ac79a54959fff2a7c7"
+      },
+      {
+        "source_id": "FGDC-558",
+        "source_sha256": "07ff9e68edab62873e6db271c43f2908462478009d2ca861bafbd5f918dc60b9"
+      },
+      {
+        "source_id": "FGDC-559",
+        "source_sha256": "facb54511675fc9c0403c9616998575af910b3e5b4cd948fe77fe5bab2042700"
+      },
+      {
+        "source_id": "FGDC-560",
+        "source_sha256": "e1701f70ad40d3b4f50c57239bc15c71de793d55e89e821b6ad9b66917c067cf"
+      },
+      {
+        "source_id": "FGDC-573",
+        "source_sha256": "8f169b58da27c345ed4f4111d6419d89749fb6be11cfb042326d6f5563d8bbe9"
+      },
+      {
+        "source_id": "FGDC-574",
+        "source_sha256": "f76cfeb5103c7ebc9ba1108d9cbfd22b94a889a8aea800521b047bf8c02747ac"
+      },
+      {
+        "source_id": "FGDC-575",
+        "source_sha256": "12f2a7bd8cf3c4587424b343414e61cbf7fcfe8cbd5378f13b219e746376d214"
+      },
+      {
+        "source_id": "FGDC-576",
+        "source_sha256": "5ee0491be59e811aae0a1eda9508a22c6fa837bc893ac9f818d2147e38cbdaa9"
+      },
+      {
+        "source_id": "FGDC-578",
+        "source_sha256": "734e45aec7e8eef957cacf29a479b54c16f21130260a97724016e2a75d17df09"
+      },
+      {
+        "source_id": "FGDC-579",
+        "source_sha256": "8bb135ccc245a35398d8279d887e6c2c5911b6d1029060bb3fea0f2584d8da1b"
+      },
+      {
+        "source_id": "FGDC-580",
+        "source_sha256": "139a5568a7bbf46daacd63128812124fd9a0033c48532d8313d1735d4fdf95a4"
+      },
+      {
+        "source_id": "FGDC-581",
+        "source_sha256": "b384c383a8621f38a6b734b4f88690efb33add6f1123178dd7670385e021e23c"
+      },
+      {
+        "source_id": "FGDC-715",
+        "source_sha256": "e1b36e7702814f7fa4fe104076d422df26252506785d4a61755e0a2f35ae5278"
+      },
+      {
+        "source_id": "FGDC-859",
+        "source_sha256": "4b4443d54954b80fb196f3d41ae0eb7cda0e3c35942c1fea42a3af8efbd944a4"
+      },
+      {
+        "source_id": "FGDC-2296",
+        "source_sha256": "8f1bc867c1ad8bdd8d842dbc294360def39bbc57d145c90113f3877f084e079a"
+      },
+      {
+        "source_id": "FGDC-3873",
+        "source_sha256": "a69efb77584a9d7f7a57f027061db3fc7cab02e99af265682b83e10fa49464bb"
+      },
+      {
+        "source_id": "FGDC-3970",
+        "source_sha256": "0e6fe45c03f5d1ab78a70fef4ccd36c395a0090c02be4b6c93e8fb21c4a3d8b2"
+      }
+    ],
+    "protected_five_unchanged": [
+      {
+        "current_provider_state_verified": false,
+        "doi": "10.5281/zenodo.17317855",
+        "record_id": 17317855,
+        "source_id": "FGDC-1238",
+        "source_sha256": "c559cd8b956683c71c2fd240e583bc5817b2cf7f5bcc390955578c1e1e15aa2f"
+      },
+      {
+        "current_provider_state_verified": false,
+        "doi": "10.5281/zenodo.17317851",
+        "record_id": 17317851,
+        "source_id": "FGDC-2043",
+        "source_sha256": "9fc45ede1eff08d39e06618ae4b081ba5a6244a886a1a817fb2b4640b145790d"
+      },
+      {
+        "current_provider_state_verified": false,
+        "doi": "10.5281/zenodo.17317859",
+        "record_id": 17317859,
+        "source_id": "FGDC-2057",
+        "source_sha256": "e0b48017a563544dedb618f5106e84dbeaf18ca7af1cbda83d93371cdd73736b"
+      },
+      {
+        "current_provider_state_verified": false,
+        "doi": "10.5281/zenodo.17317857",
+        "record_id": 17317857,
+        "source_id": "FGDC-2725",
+        "source_sha256": "f8c85ff810507722578d0ccf592d8dc1b1518529f7574745ff900ff5347dccdc"
+      },
+      {
+        "current_provider_state_verified": false,
+        "doi": "10.5281/zenodo.17317853",
+        "record_id": 17317853,
+        "source_id": "FGDC-2731",
+        "source_sha256": "2f08555afe0c393d0c9e826d8fa3f78ddf5f5068a1575cf04218912265ec3a6c"
+      }
+    ]
+  },
+  "static_source_binding_reconciliation28": [
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "3b3197d3414ad30495438577fd57e18e9ef79f88a6b90dcf2bc017d243ce8ba6",
+      "creator_authority_kind": "direct",
+      "current_cohort_or_direct_row_sha256": "63bd32e738b697cd52577fda0ed6a855c2d48784f4778806eadf1ff8c3afeeb7",
+      "current_plan_sha256": "37209b4a8e195d3cb43485b25c5c8ed7ea297f02beba5c23ec7eff879025b813",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "642ae4834d41af6d6849b615da969cf4f44decc3492061434987c6878f92b8d4",
+      "historical_payload_sha256": "d321e5852dfbfcf742dd3919c84856d1ec268cfa78ffeb6c94e66402f8903c21",
+      "original_root_sha256": "2b91700adf83cdcff501ff3113eb5e2602d3ac21fd5c0ea3ae77ae6f750a52c0",
+      "source_id": "FGDC-723",
+      "source_sha256": "f652edb80b7f49d3f70d71ef27b5097e34af886fa41dcfbda4f4a0907b0ffd3a"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "4ca3508a4b946da2dffbed4288ebabbaddb9465dcf03cb606b1313622cfe4751",
+      "creator_authority_kind": "direct",
+      "current_cohort_or_direct_row_sha256": "d86b4e16adc92200cc4b2a2d70a5ec1f0d003d1a3a094425c801971785cd5649",
+      "current_plan_sha256": "dfbb042767ff14d23c58107970cc0fce0e8780c2a7ed55ff74749dd70ce2d639",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "ff478242f421e386cd9e275494bbaa0bde86cbc5d2ffc8ddd52f665f6c885b03",
+      "historical_payload_sha256": "71b67af104c076d242386b7eccb361d050b8c3977e985aa1b429ac90ff7bedd4",
+      "original_root_sha256": "d63a5f1e32c165c9d95c3613895a43b6baf09d311803a6f502df61de0d78ad33",
+      "source_id": "FGDC-725",
+      "source_sha256": "5e77b53da45cbfd7dcb7e68e9da66574e0a1ee876fe8afeff1527dfce61b23f1"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "e994c9d9b11b046da6629cc62020b191a4eccb04fc2be2d314a96c5d21bb9920",
+      "creator_authority_kind": "direct",
+      "current_cohort_or_direct_row_sha256": "b712e65a6cb88544fd4a382fb8d46cc8dd6024598023c0d8f6e97eed183aba2e",
+      "current_plan_sha256": "d7273a14cf6be87c179a99f9f6fa7600a4b3726c3905b19c59b86d83d995f0cc",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "8d63146cb03ed0a90cab42a13abd01f8a301c5dd67dc4e2f3d4b467ea4dd24b5",
+      "historical_payload_sha256": "4dcf770b60eb88f5fecdfeb31d3cc279d04e75e44fd8fdc879ab2fe1e4d6216f",
+      "original_root_sha256": "9ac16d82d53c2f6debfd52144536b7519aec5dd92dd646f8b9769606e72e4794",
+      "source_id": "FGDC-755",
+      "source_sha256": "da5cfadfd954251d1cb1856589813ba74b51ff260db7f1d44f4d7a20ca29f83f"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "1ea5b5dcd246548c93c67a2633b48bda23e0a88f8a5407abd082ac8b3f9299b9",
+      "creator_authority_kind": "direct",
+      "current_cohort_or_direct_row_sha256": "f275868f01f65b340fba869d1ed1096175cfe4362360a124625169ae99e5bc4d",
+      "current_plan_sha256": "ba53955785a582e7e607693edebd3406947cc58d89862a8eaf23f2a6bab428b4",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "038ed8cf35e9cec5436a50077a7f209188b09dac11af5dfc635feddda3541958",
+      "historical_payload_sha256": "70be0aa9279c73e2774247bf6c377299a5dd146bf8c543705f6c2ee37940e0df",
+      "original_root_sha256": "81937d9f2ee2ddb51b3ed3ffbb9a65743e64b6c70d33e7171ced5a1a73243f00",
+      "source_id": "FGDC-757",
+      "source_sha256": "273a0ae6dc574e453bc0cbcf1a167f933d8c5c30cf0b70d5edcb47661fdb7392"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "4a9392750a85214a01c186443851b2cf092ac35786dc4e760cd0a81d75c1a0a5",
+      "creator_authority_kind": "direct",
+      "current_cohort_or_direct_row_sha256": "802e0b33e5e62445f4235442a66dc1b1877b9722575dcd3f3a2cdc82622559ce",
+      "current_plan_sha256": "250ac81e1eb142bc7d7379ba92f73fc0a96c836ebb7e57cb1f6b683a826f84ea",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "d4cebb6dafe608b8078d401af270ff29925aa0882d0e73e23d29343aeea592ec",
+      "historical_payload_sha256": "2086dc81a22250c357972788edbb850ffa818b4840f08607f1e85cbb59335149",
+      "original_root_sha256": "56681b74a355a6ee3bf9a9e82f921dc8674f8ecbeb5c6d30194c6298d1f5a303",
+      "source_id": "FGDC-760",
+      "source_sha256": "3c1d081e06ef2808cd0b1d4159264c4dbb19fa0cd31847266041696ccaed54c4"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "1d07326b373ab8873b69c5b4434b0339366a327eea72f8f188954f75c076246e",
+      "creator_authority_kind": "direct",
+      "current_cohort_or_direct_row_sha256": "ac22feee63793ecc016bdd92c14e7dd754ca7008981392f9940e8d2c8ed54c0d",
+      "current_plan_sha256": "6233ca9cfd18068e086e1181948f37dccdd446a91f9d4c94c5420e8c59626863",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "a9eec6d52c56aae67648c3fa6e2e59ab69b0be9be35e99bbc1308372b28ef9b6",
+      "historical_payload_sha256": "feac1a708dd721ec940f9eb40ce40f14e58f5a6d6f6594add39172730340f69d",
+      "original_root_sha256": "80e5a72757568849492c1fd2818c47d12d004584c0c8f1dce7bee7003b596afb",
+      "source_id": "FGDC-770",
+      "source_sha256": "51729916302421ebdc9029022e940e3928381eb1fa37ddecda92577afb095398"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "0086555acc52b04a6f5cbca703239ea47357713920fc20f52ccc86eb8c4e4976",
+      "creator_authority_kind": "direct",
+      "current_cohort_or_direct_row_sha256": "96e4f7c47ea0667a18e330b70b601e0607a021c8e62d8e2ad081bff9339bac99",
+      "current_plan_sha256": "80860150245fa7538b6e87e397ab4f88bba78485452644b6044048a69cccbed5",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "f4a56d326d822c7233d6e6ab9d9f150afeae740d3aef41a96d1570c69ab15673",
+      "historical_payload_sha256": "1780931760045fd7cbe2967d4dfaf545ba5e023072b57eceff6facdd4e9b5b35",
+      "original_root_sha256": "7ef56c03868eb35e3e79463194b2c1fc41027094622b1f8df0152409f8bd0970",
+      "source_id": "FGDC-771",
+      "source_sha256": "afdab5a682082fc944ee7ab3a004c626a20468e5784f828adf1e63fc55a43af5"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "c2253afb00954093207da88afeb31b800a6189e7326cead4f5417dd510c31e6d",
+      "creator_authority_kind": "direct",
+      "current_cohort_or_direct_row_sha256": "d665e15116045b74baa5ce142cc38402ee39fcf7bb1ec866dce167e67ec89802",
+      "current_plan_sha256": "d9fb1c260c08f756c404fb7b3ea2bb8fdae101dd199efc682a3df9f31bab899c",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "2284d54056849bc931a93affa447706a4ae3583b56a4da06a5c7fc569d14da59",
+      "historical_payload_sha256": "bd5500618412e2bec147e9c497a04bc54ce8d9eeae4e40f6ab2d521be3ef1e18",
+      "original_root_sha256": "c497356f822dac233145b88c008cf0921294effddc8114f3e59b0a45a1975166",
+      "source_id": "FGDC-785",
+      "source_sha256": "eadafc1d01732e0b32924d9a5acb3dae62d0a1aac4cde510d2eac9430337def0"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "e75363ed08bd2b7c544cc0285837e6a19039b571e8b9e5f5737766f0ddc7b645",
+      "creator_authority_kind": "direct",
+      "current_cohort_or_direct_row_sha256": "2a0ea9c8185e83de788aa19cef146b0b5610c5f5142630728c2eb9ecd20fa7fc",
+      "current_plan_sha256": "10b33f1ac25fb10250433b253fa059c72eaaafa1101f607fe4c4b8f65cfe29c4",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "8e1ee46fb3f867a3803d05eac7fc6409d4353fbfde72d7fb0d69c3d20fa89a43",
+      "historical_payload_sha256": "58ab25311c4f5e208d86d182d16143cb548adec7c2e3e5e335b583f789d37180",
+      "original_root_sha256": "85dd8c9fa18b1cbfc5c4dd72ccae77349c8300999c39a5c59b9a47ffe353d623",
+      "source_id": "FGDC-817",
+      "source_sha256": "d1d634ef74af405a70ddab0aa0f9a9394a0c42bbc70e42641ce34caab28cb29f"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "3ed4b6695720ff6a9a6b32e33284e33cb40b1157eca1fc506bcaa2886ff31517",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "814071274d1f5c6be3dd418be6ba23f386497f9e9505189c4de79fea40d33c3a",
+      "current_plan_sha256": "1871485e2640c6e4b4c1bf670fca0fca7b155d51e10e32431e21bdd875daa745",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "81de3a2c6211ddcedd33a25366d2ccbc59e99a766192807ed59a60a67508f211",
+      "historical_payload_sha256": "7ba677c3b9f94e127b4313b7bcef529f0b5c21324c896e5704100ed9708943b4",
+      "original_root_sha256": "f163af98f1b285788712818e7968895174e856c3c5d9208b2a0e45d2bd2ef749",
+      "source_id": "FGDC-3680",
+      "source_sha256": "fdd1e0cab9b12a788d65eeb1d590424a13320996b7a56aac90b0592ea41b6522"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "97e07b6d2512831386bb8896586cedf80258240bf9da9b6f5ee2c5a51b5dab50",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "7906b8e982dc9f184f153f0d5cd3ee38ced8922ba368dce6e210924f4bf261ce",
+      "current_plan_sha256": "46a22efab28d189e62268b5aa8a442796ecc4bca28c35d75468911565d3b1234",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "e0af5bf2e9e478d1640c3fc5c9e7215b476821d951e6a5e802d51d0ff1ab3f7f",
+      "historical_payload_sha256": "a148d52c9a17d76c80c55fdbf63528269e7d95d6631087e18fcf4b3ff7c467da",
+      "original_root_sha256": "bf065bd358691cb67f9b9deda87676bbf6b3f9e784ba939691598b448491d9bc",
+      "source_id": "FGDC-3681",
+      "source_sha256": "ab98292dce1dc81c38d0d6b0562bd7bfc924d931ef3381529c35a2e8df8b5afa"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "02e0c059bc0d8b244ceeb03398bc05f9ec77bcc3d13916aa92c16d1f79540593",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "86afb841a36694479346363491a24c4c4bc2655d9c668267bf7fc9567d72aeff",
+      "current_plan_sha256": "f7b7b313a806341668ce907104d5d775629e9dfc0d7a0eeb465a3d6bc8f9ab43",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "8241667250912af234a275a08df586bfa99c719a281da27738f992feb6cce8d6",
+      "historical_payload_sha256": "1ee8054f0a5c086cb7f49b0e68a7ebd07a78e8127ee04a268a49639976112430",
+      "original_root_sha256": "ed66839d8ee4c7ead377d7578c4dbe87129999c32bb49ed2956f14a0136159dc",
+      "source_id": "FGDC-3800",
+      "source_sha256": "b0af820ec0e14f1f9445da37c6603bebf296b4d32074c022236853e6cf2a82f0"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "4c55f3a1d03fd584659fa5e8199d6768ab8874a716951c7b2845151e9fc1d199",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "7868b303a2e0e9e92ebe14b9f21c258f0ab857b1193079f8824e306197c95b93",
+      "current_plan_sha256": "bd50d4330de3415edeffb1bfd7d84db6435a532c19de37ca1c8f20e03bd799b8",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "bd4998b6d5ce0a8fc651083609f18746fdc6113d2b857e53d3cbdeebac5fcc85",
+      "historical_payload_sha256": "9bec03e435c74b6534cdbbd12aa852ea5b71dc4ac5b3a63bf96f996c92db8ea0",
+      "original_root_sha256": "e9a9765dc950f2152c77ce5a06d54dcb484b55db24be3687294dc04708261697",
+      "source_id": "FGDC-3802",
+      "source_sha256": "1a01b769b672f7855502468e648e786b62d12e7395e9d24c7464553f057da81b"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "1d41d678ca4edec022a123b89cbc6197585425aeaa56472001212a01f73fe6e7",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "67937b8eb3ef4f6f93351280025fd09ebb7ef676bacaf78606cb2130e4523094",
+      "current_plan_sha256": "43e45cf0e735641c03cbaa1c3523c53572460aee9668108320fced3cf6b1b7c5",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "837587f03ff3d0d828cc91192c3ced28de67630f715ab4f04bf51550707c30c7",
+      "historical_payload_sha256": "628e8726dcae2b15f705aa00b796d3ecbcaa0842cb7bd9a5dfed5a51f97edf83",
+      "original_root_sha256": "2bf35957e3de9666106270c24df8e6c93cff0f0dbd3fdb4443eda373ecc016a2",
+      "source_id": "FGDC-3803",
+      "source_sha256": "cce2ff4a43452d9aa89b8974a23f89cdc873e97a29c936d584c47881eb97edf8"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "4e332975d8189fd70256b92b1720c366054a12e24f0fe85818f934d16e7c1883",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "1ab6a8b864b9c7650dd589a46682e0a6864b4d6ba29b3842f37df9e242b5dee5",
+      "current_plan_sha256": "f8987f9906222071e346399c3f23640ea7db943b8a13c3ab9c8a8b8e46c93c95",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "efef2a34a19d639a1032ae1926dbbf18410e4bdc7bf26bc720b7463e91658ee8",
+      "historical_payload_sha256": "fd52b51e2f3200afed1d2ad076baf7d0953bae2e5d70b61c7c9f2c4519897f9d",
+      "original_root_sha256": "50679d54272dd92ba34832485ef68f28149c87233b40413424841f07125ba7af",
+      "source_id": "FGDC-3804",
+      "source_sha256": "2bbc9994c0077609ed641967a587b3ed528d148a19c2d41a6e93c0989636009e"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "4bf2be8b814fec83c0635859172132551e34643564e69fbf428f10bda85f4252",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "421b1a7deae4d0d364ccd831f91b7f05ba76b35eccf7cbdcfa1d36b44ee87897",
+      "current_plan_sha256": "9bc472792813e80a3b750877555031b8b224476708170938727fd60410d9fd28",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "42d5eeec26eace393b011da09fbc75eafe19ffbb8ad8c66ff4f2fd821ca62443",
+      "historical_payload_sha256": "6275c9edcd9a0c636a333cd79dc7c8d82abbe39b515f42550deeabbc5540cdfa",
+      "original_root_sha256": "864b7f9eb787e11e3ac6ac9eb5f4c3bce11d07dd841c4619cbc55d5196808909",
+      "source_id": "FGDC-3805",
+      "source_sha256": "068c62fb6fa417a599fa632684ede39add21477aa6e1189dfbecd95c264e48ce"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "c54ee68b14e954a71642ab05dd2fe286b1b3600f0146bdfcb4975913058e3467",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "39b022eced3d943afac94ab02671ee5b7798bfc3c81e3d557f3d591cd0a37132",
+      "current_plan_sha256": "8b5a2310d332b0b176a3800de57093b5f3819b432aa30a88f1f84c7ea9b130d2",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "2286f288fe4162e6b58eb108c324a054d5643ab2c82b131e89b9a28dd729d6c2",
+      "historical_payload_sha256": "bf93d4d7107755759ce0375c685aff745a0c0d4b9b853d56f41d77eb50935a42",
+      "original_root_sha256": "dea416b5350634a3b63b44e0e8d01671940b879b913f1733d997dbca2e1144e5",
+      "source_id": "FGDC-3806",
+      "source_sha256": "5ceb34b0b602c5d78e0670a2a76188bcc9f09e7830e38ac52f9dbc6e4e070420"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "79ac190c573c6554f1406c06fed047d11195b9520169c5edbca07cb5c4e27941",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "165725ed51719062a22b4166093339f4edea646c0a8e619a5fb8393630aa92d1",
+      "current_plan_sha256": "90c77139aad162202b66713d702bfb58dae93d4559cc98be6dc21007f7519f53",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "707d92b0e5fafe3c570289a5644041b2619823995f5f7fd75dc963ca386ea07f",
+      "historical_payload_sha256": "fa1155a5da28be871bfc9424c621d5f466a430ef0678f32dd1ccaabb776709d5",
+      "original_root_sha256": "862cc17c27111a08b968e7e56e06756507c416c2349605f197164a47310e6cd1",
+      "source_id": "FGDC-3807",
+      "source_sha256": "cd2789f73195e9862038633023cb0791e97560dadc566a814b9243c6774025af"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "1e8855af99c69ef35fb98dab284a91bb0ade481bb393c2e8f24923b3dffe7e3f",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "1302d65b348ce2afcdfaa98c12fd9f215ec7389c2a46394a2acf40bfba6eb05d",
+      "current_plan_sha256": "724f7dc97b65949bf0bb16bbc3f223658fd5dfbab386d6131d2408a7419f0ba5",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "7fb24dfd4af8937558419bf21106c6065b059e0ca41bdec1ab4b3aca3cc088b7",
+      "historical_payload_sha256": "2c668d5d6c4117f50bcf90a3f0ce7f9e079a37a385ea76c3f166fa2083e86704",
+      "original_root_sha256": "ca8081422c5787b07f00c594b0174725afbcec43f6331590a809f2b457c0ab91",
+      "source_id": "FGDC-3808",
+      "source_sha256": "b7d9378858acd8c08963883f84b874a5f09c91257b3529fda617d9d29196f1e9"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "698ee8cfdb1a45a1f7f90c13894087506c6ecdabe91ae851e62c6b77e0ae5b2e",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "fe85bf582a67ea5b7e979ce5cbffcc3c3fc2581664fe51f16b928d7828182746",
+      "current_plan_sha256": "19ad0e9996dcf5d89d1d3570e06ee03a4d506423cd37226108211e68b1942a36",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "e1b2ff1008c5655e3f561f474360235b3371e46875b1abf3c4f59f6ff6a0055b",
+      "historical_payload_sha256": "2b6dca1d7f97b3630031ebcb16668fe6181ee05dd31b38bb25159a81a99d85e2",
+      "original_root_sha256": "7c9421284200426b68523e5e4e840dc8aaa64946b350eefe6f59a32ea7ba8c87",
+      "source_id": "FGDC-3809",
+      "source_sha256": "b99a7281230b6ce6820c317d7d185bb141de08779441553ebd3b886000883ae9"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "c52040c7c2ee7560dbbe97e227ca67fa85983d63c84f5b90b6df5bfeedeef5d2",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "227d07d14761aeb689703a49b02d29fe95afe9a07206a245051414bf397a7cf8",
+      "current_plan_sha256": "ba58305b179738a860aa10e69fbb9f7107d9f16ef94b40aeacf5bdbdba7721ea",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "e82d808139c64f1a9d5bd04648923fa4f3d79b48d51b36c239c0e01f2508a126",
+      "historical_payload_sha256": "aed7bf5e3a5e35da9b475f684111102b2277b0c015b587bf9ce798b75b1d8d76",
+      "original_root_sha256": "2fc425d7725ad54ac17e357cb857306aaaab6fea60554921f1d4381fea710203",
+      "source_id": "FGDC-3810",
+      "source_sha256": "fbfcf833722ac07ce7ade03181704cd15c0fd509d791e687cf7f1415de92535e"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": true,
+      "complete_contexts_sha256": "cceb9465f075add9458916cc0b01c88097ed5acdc80bd3851f666a58ae67b1f0",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "95ed8d35db318d3a5da9ae9e1829477707db194f86a5be5d5f548db8843f5bc6",
+      "current_plan_sha256": "a2c00d63900bea53406608dd5d0fbd0d8c36a9ca519de07a690ce24a9e4c57b7",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "44e0eafc299e2c97182b301c4da156f81b568234b2d7eb48f9837b3bd60f76ee",
+      "historical_payload_sha256": "6a1faf6e3bcd1c51efd2e24d44471034cb04d9dabe0cbd0c311ed5329a59e735",
+      "original_root_sha256": "e67a7bb8618945c8282d6e94eb2899d329d47183de03590e3cab232d569ef8fc",
+      "source_id": "FGDC-3812",
+      "source_sha256": "97f5b0495c811f0c52acdc6bb4e63aa7f67e3701e0c2f5980734853a40a4c640"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "d4fc85bf2009bd492d7e010aaa66f896cbe7c694a86c27cc2ccba54a7f70749d",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "77de6a76cc424db2d9aca3d55d43855f737f75fc8d8688bf30c88575e5677cc7",
+      "current_plan_sha256": "7fcfedb6b8105ba6d0288d6ca20a92408222a7646eee9ffe105d08382aeab74a",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "ca8a945e109182043f313c462fa8a39991b54df1a4f99caf2ea39fcd05d2f87d",
+      "historical_payload_sha256": "ec4bed8ebb6debf0970b73b68140761ab6d53942a7e6829e97b97d594734085f",
+      "original_root_sha256": "4b44d56c4d1888b608967e8faa8ec7c04bdddbc6f5922934d92f2592a377232d",
+      "source_id": "FGDC-3814",
+      "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "ce8a543d39dccc0e04122db90db708ec33d82357ff21cdc3747dba14c75853e1",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "5aea82af49beede5945f3292efbb5bf5eae8da75b7be78b5943a0335acfd4cb9",
+      "current_plan_sha256": "1d2ac824977813a9188060f849425c07b37d2086dc71f9ccbbcec4dae7908949",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "5f668144d68aee8201c983edcfedc576513baf511c749962b1ea4aaf2a18ddca",
+      "historical_payload_sha256": "55ed0b3545c87084da3f3cab3a055b0c2a886cc9d775bb6f36d0b1831dc767f3",
+      "original_root_sha256": "8aa3d64c532ed22e04471dd9f7eeb966c96b8b6519bbc11ef52c6c3fac2359cf",
+      "source_id": "FGDC-3816",
+      "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "f2e7880993481de993f47504a033f3b9cdae78b1230b35bef89cf06e32271ed6",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "125f021da596695260ca4051d7c328895576e6f35519ef2cd19392b986273299",
+      "current_plan_sha256": "d66e832b45c8173fcebf5a5227f69b95c550d14c911263a6b7cd1afe364ec859",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "ecfe762b3e637b66382625d63d1a2b562ddbe071e62966a9cc873b9efd96792b",
+      "historical_payload_sha256": "fb0d9176b3d93c1c16763c1f70ad968ea69b03da5f80d109f0618102e19469d5",
+      "original_root_sha256": "7ee696488e7898cfb6cfb2a5c2557219ff00bc9879e7a384d680b7d3a0ea3891",
+      "source_id": "FGDC-3817",
+      "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "58aca8c1aa12f8820a98e41ef6abb4d94511e07b79a10dfeda7359874a9a1494",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "bb983171b565f4794f81fc74bd93ff0c6ed6f21d1e8047b611d2c88c63528567",
+      "current_plan_sha256": "c8038ea05f162eca8b934deb34a5eaf70e8f1ae52aed60ab6875214969310950",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "a1258707790e63145001767547fd5e76ff3097446d1e6e80d54db8695ea48e35",
+      "historical_payload_sha256": "d42356ff05ff2bcd1a4bd675e4df1aa8da188b6886f931a169418d058993f4db",
+      "original_root_sha256": "29602bbe54267b42d1f44f5fb1a20710e26e3d8f67dba6abc0c34e3077342813",
+      "source_id": "FGDC-3825",
+      "source_sha256": "ddfff9043c774a5ba52d868ccab92465171408944feea74270d208f5243db6af"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "5c22a8b0ef990887bb7ee188f477aecf94b260327aab70155d879b28173f6839",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "f8b3d13c68d66907c392c0b18013ad275fd7b9ab929f3e0518c77fbb3230543d",
+      "current_plan_sha256": "516c96f9181e420a10fe2fe8f8a991bb0f8eba390c35b58cc7d5a967714dccd7",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "86483571e09663fa669274db64871234c53d22eb273fb8bd85f86ef90f7ce0db",
+      "historical_payload_sha256": "7d283602b4af096b4d6b0b3441be7bf12dd65ec038178ed18bd8a713ae5af623",
+      "original_root_sha256": "e0005d0231040db658a9274b470a58687f7b412f2e406dc1974aa6b167c865e0",
+      "source_id": "FGDC-3831",
+      "source_sha256": "ea0e8f8d8d962481eafdf738b3cff4211323b8fa18b739f9c3f0e5ab0bf8c0cc"
+    },
+    {
+      "all_static_bindings_match": true,
+      "approved": false,
+      "complete_contexts_sha256": "715b44da6354bb58c42d9a28db0495db993509afff07e67c16ac64cdf2125b04",
+      "creator_authority_kind": "creator426",
+      "current_cohort_or_direct_row_sha256": "4e073d8799ad2ea2709c05c29a31bd3790c56bef06fe07070d1a3a9678667b16",
+      "current_plan_sha256": "23f2f6ce0c6c7c90a4b3a9c61924f8b162bfc4695fcc01c4376df89bfb223927",
+      "historical_is_current_preparation": false,
+      "historical_metadata_sha256": "7d80d9b93f5ac24db08a1ceb04d60d7b3326a2dc892c9b92cab0435490aa7f92",
+      "historical_payload_sha256": "f3aa974944f84e45ce78b3296f10b0f378b5f1d88c9ebc63cb9c5c29c7a69796",
+      "original_root_sha256": "40c2e2ca5efff191bb287fc6943d8a821eb4403fd6147569521df03961dda138",
+      "source_id": "FGDC-3838",
+      "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+    }
+  ],
+  "static_source_binding_reconciliation28_sha256": "1c9d716a378ed5236da4121b8f2e3cf62e3fad87e1e4ce76e4167fcfde25f1c1",
+  "status": "DESIGN_ONLY_NO_REPOSITORY_IMPLEMENTATION_OR_PREPARATION",
+  "test_impact_receipt": {
+    "active_global_negative_functions_requiring_future_update": [
+      {
+        "action": "Assert exact three new schema10 selections separately; retain all55 negative checks and original membership/source SHA pins.",
+        "file": "tests/test_modern_citation_organizations.py",
+        "file_sha256": "c4623527bce4e8cfe356cae668c9ea020c6820bf48dd98b388ce80e4949c9dd7",
+        "function": "test_historical160_split_into_reviewed82_program20_and58_retained_holds",
+        "new_exact_ids": [
+          "FGDC-3809",
+          "FGDC-3810",
+          "FGDC-3812"
+        ],
+        "required_partition": {
+          "historical": 160,
+          "new_basis3": 3,
+          "program20_existing": 20,
+          "retained_holds": 55,
+          "reviewed194_existing": 82
+        },
+        "scope": "global source_policy negative partition",
+        "start_line": 142
+      },
+      {
+        "action": "Assert exact eight new schema10 selections separately; retain29 negative checks including771 and original membership/source SHA pins.",
+        "file": "tests/test_modern_institution_coverage.py",
+        "file_sha256": "74ae23a2259c786310e5e44d3a508784566fad65ced90814a4dbce1364ebfe6d",
+        "function": "test_historical79_split_into_exact42_reviewed_and37_retained_holds",
+        "new_exact_ids": [
+          "FGDC-723",
+          "FGDC-725",
+          "FGDC-755",
+          "FGDC-757",
+          "FGDC-760",
+          "FGDC-770",
+          "FGDC-785",
+          "FGDC-817"
+        ],
+        "required_partition": {
+          "historical": 79,
+          "new_contract8": 8,
+          "retained_holds": 29,
+          "reviewed194_existing": 42
+        },
+        "scope": "global source_policy negative partition",
+        "start_line": 135
+      }
+    ],
+    "existing_tamper_tests_to_preserve_and_mirror": [
+      {
+        "file": "tests/test_modern_reviewed_creators.py",
+        "lines": [
+          248,
+          297,
+          350
+        ]
+      },
+      {
+        "file": "tests/test_modern_program_organizations.py",
+        "lines": [
+          234,
+          270
+        ]
+      },
+      {
+        "file": "tests/test_modern_institution_coverage.py",
+        "lines": [
+          150,
+          174
+        ]
+      }
+    ],
+    "method": "Independent read-only AST/text/JSON review of frozen main7ea7a6476f3307b368cff1980a3c9fa45b40af88; no runtime execution.",
+    "no_direct_modern_literal_negative_fixture_names_these11": true,
+    "reviewer": "/root/mac_transfer_review/community_contract_audit",
+    "scoped_historical_tests_to_preserve": [
+      {
+        "file": "tests/test_modern_reviewed_creators.py",
+        "line": 237,
+        "reason": "Tests reviewed_creator_source_policy only. Keep all29 historical personal exclusions from policy194; global mixed11 admission does not change that scope."
+      },
+      {
+        "file": "tests/test_modern_program_organizations.py",
+        "line": 219,
+        "reason": "All29 program/Unaami holds are disjoint from mixed11."
+      }
+    ],
+    "unrelated_source_policy_mentions_unchanged": "Sensitive-resource tests755/757/760 and resource29 test817 assert source-policy membership, not modern creator mapping rejection; no change indicated."
+  },
+  "unrelated_future_pairs": "The separately approved FoodHabits2837/3065 source-parts supplement is outside mixed11; leave all paired implementation, source approvals, earlier held receipts and measured class coverage unchanged."
+}

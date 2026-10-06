@@ -1,0 +1,60 @@
+{
+  "activity_limits": {
+    "helper_execution": 0,
+    "network_requests": 0,
+    "preparations": 0,
+    "project_execution": 0,
+    "project_imports": 0,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "tests_executed": 0
+  },
+  "base_revision": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+  "binding_checks": {
+    "bytes": 1854,
+    "path": "/tmp/program20-review-b-bindings.json",
+    "sha256": "a539e21a7d1ce55d9a6b73b1b9155f87913042a830dd9648e11febb46280f89c"
+  },
+  "decision": "APPROVE_STATIC_IMPLEMENTATION_FOR_GUARDED_VALIDATION_NOT_FINAL_PUBLICATION",
+  "freeze_receipt": {
+    "bytes": 21196,
+    "path": "/tmp/pices-program20-code-freeze-v1.json",
+    "sha256": "93c52789bd02e6fbb015f13990aef31d09f231e3337328ff1b12f398b0aad592"
+  },
+  "kind": "program20_independent_initial_static_runtime_evidence_test_review",
+  "material_findings": [],
+  "nonblocking_findings": [
+    {
+      "issue": "Comment still says MSO remains held although MSO2232 is now approved and fixture uses held SPOT859. Assertions and code are correct.",
+      "line": 161,
+      "parent_resolution": "Parent acknowledged; defer comment-only correction until active runs terminate and preserve distinct source/test bindings.",
+      "path": "tests/test_modern_organizational_coverage.py"
+    }
+  ],
+  "pending_gates": [
+    "Actual guarded new8 and affected-module results at declared stage binding.",
+    "Final helper constants and actual four-shard/aggregate evidence before any coverage claim.",
+    "Final documentation and exact candidate commit/tree review before direct-main publication; required exact-head mainCI after publication."
+  ],
+  "reviewed_contracts": [
+    "Installed source/review/manifest are byte-exact frozen originals; all49 complete original roots/origins/date/constraint/context objects, currentcreator426 cohorts and full plan targets independently match.",
+    "Entire20-row mapping independently reconstructed;20 complete arrays/17 distinct arrays/29 unchanged-name organizational objects, exact29 retained program/Unaami holds; no creator, source status, rights, dates or identity change.",
+    "Frozen source proposal UTF8 and review/manifest ASCII hashing are distinct and correct, including actual non-ASCII FGDC-1791 case.",
+    "Existing seven extension manifests are exact HEAD bytes. Existing selectors are AST-identical except reviewed194 fallback after validating its entire unchanged194 membership. Old selected output and schema1\u20138 evidence shapes unchanged apart from runtime.",
+    "Program schema9 uses shared creator426 QA authority and exact original root/origin checks; no DFO/direct authority substitution.",
+    "REVIEWED194_RUNTIME bridge admission is restricted to exact policies/schemas1\u20138, completed-on-content remains behind nonruntime evidence equality, schema9 rejects all prior runtimes before old history reads.",
+    "Unknown-create remains fixedFGDC141, exact actual submitted bytes and complete nonruntime Prepared equality; only new explicitly pinned historical runtime added; original state and spent intent remain immutable.",
+    "New8 tests statically reviewed at9cae380e; self-rehashed manifest cases explicitly require prepare rejection, positive QA flow controls negative substitutions, synthetic history preserves original sidecars and new grant-bound diagnostics before beforeimages.",
+    "Old negative fixtures now choose independently retained SPOT859; dynamic historical160 now exact82reviewed+20program+58held. Historical129 tamper using2232 correctly remains a mapping-manifest rejection, not a global held claim."
+  ],
+  "reviewer": "direct_credit_review_b",
+  "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+  "scope_limits": "Binding/static implementation review; original semantic source approval retained without new source-type decisions. No publication or provider grant.",
+  "source_design_receipt": {
+    "bytes": 104191,
+    "path": "/tmp/pices-program20-next-increment.contract.json",
+    "sha256": "6c8d9e21cee1958c666d13355db5a46d5bab1608ee296a687bc7bca4cd4c2ea3"
+  },
+  "source_tree_file_count": 188,
+  "source_tree_sha256": "5a27d59f2cea5e229429110f366c045a052d7b519b9fe952ee9773082c6ce5da"
+}

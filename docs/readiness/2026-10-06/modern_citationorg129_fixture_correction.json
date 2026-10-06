@@ -1,0 +1,92 @@
+{
+  "kind": "pices-pr46-stale-fixture-fix-binding",
+  "old_remote_head": "363efd761d5a643537eb3ce3029ccf87666e757f",
+  "prior_local_head": "6b76c173871515fb69c6f4eaf764537d476a1c6d",
+  "runtime_sha256": "62eeaad6183950bae245937f79a7d4e16df546a6635d9ea4dfbb7c4c2bf5902d",
+  "source_test_sha256": "6b99b242af9d0b028ca71872f185769b63f4bc5e3caa1f93ec431dfbed44869f",
+  "source_test_file_count": 185,
+  "test_file_sha256": "9d62749c8141f63dcaf0a36be26770e788b2f52378b6904e28529d585bb16256",
+  "test_file_previous_sha256": "75f0ef99c0f9627bb59f4a4287cb42cb5cc654cda5c9d6c53b9703d3cb4a6109",
+  "runtime_change": false,
+  "source_change": false,
+  "measurements_repeated": false,
+  "failed_ci_receipt_sha256": "d276a108f27ee8b173fbe5c3f0488d559bd8b77fa6e6c568a2fb35058acdb56d",
+  "failed_ci_log_sha256": "b4e7df7c2adce6b9d7a3238d97e2e8970cd30eba1ca5a846c3e49fdeb3c6a7a2",
+  "schema_version": 1,
+  "failed_full_ci": {
+    "run_id": 37482362518,
+    "job_id": 112333510867,
+    "url": "https://github.com/Br-Johnson/pices_metadata_transformer/actions/runs/37482362518",
+    "result": {
+      "commit": "363efd761d5a643537eb3ce3029ccf87666e757f",
+      "environment_cleared_dummy_credentials_only": true,
+      "errors": 0,
+      "failures": 1,
+      "guard_blocks": {
+        "bootstrap": {
+          "network": 4,
+          "private_reads": 1,
+          "processes": 1,
+          "writes": 1
+        },
+        "tests": {
+          "network": 0,
+          "private_reads": 0,
+          "processes": 0,
+          "writes": 0
+        }
+      },
+      "in_process_read_only_git_queries": 72,
+      "seconds": 2425.414,
+      "selected_modules": [
+        "all"
+      ],
+      "source_bindings_unchanged": true,
+      "source_tree_sha256": "a9c67ac9ddb677e46d6287f4a984f973e0480d8602112dfe117e29d343665533",
+      "successful": false,
+      "tests_run": 909,
+      "unexpected_guard_call_sites": []
+    },
+    "failure": "tests.test_modern_pices_coverage.ModernPicesCoverageTests.test_withdrawal_and_untyped_other_sources_hold_without_changing_prior_policies subtest FGDC-3875: expected ValueError but finite129 now admits this exact source",
+    "unmerged": true
+  },
+  "focused_corrected_module": {
+    "commit": "6b76c173871515fb69c6f4eaf764537d476a1c6d",
+    "environment_cleared_dummy_credentials_only": true,
+    "errors": 0,
+    "failures": 0,
+    "guard_blocks": {
+      "bootstrap": {
+        "network": 4,
+        "private_reads": 1,
+        "processes": 1,
+        "writes": 1
+      },
+      "tests": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      }
+    },
+    "in_process_read_only_git_queries": 0,
+    "seconds": 47.788,
+    "selected_modules": [
+      "tests.test_modern_pices_coverage"
+    ],
+    "source_bindings_unchanged": true,
+    "source_tree_sha256": "6b99b242af9d0b028ca71872f185769b63f4bc5e3caa1f93ec431dfbed44869f",
+    "successful": true,
+    "tests_run": 8,
+    "unexpected_guard_call_sites": []
+  },
+  "focused_log_sha256": "298514a25893f2764a313603cc6b76fdf2e0afe49038ac3c58ee8615941aab57",
+  "prior_measured_source_test_sha256": "a9c67ac9ddb677e46d6287f4a984f973e0480d8602112dfe117e29d343665533",
+  "source_test_binding_changes": [
+    "tests/test_modern_pices_coverage.py"
+  ],
+  "reason": "The previous negative fixture dynamically selected FGDC-3875 from SOA, now supported by the reviewed finite129 map. It now selects still-held MSO Anchorage FGDC-2232; all ValueError/protected/withdrawal/old-policy assertions remain and the selected ID is explicitly checked.",
+  "original_evidence_preserved": true,
+  "full_corrected_head_ci_required": true,
+  "provider_requests": 0
+}

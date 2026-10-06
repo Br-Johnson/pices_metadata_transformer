@@ -5,6 +5,22 @@
 - `ci/run_offline_tests.py` resolves descriptors through `/proc/self/fd`, so the guarded harness runs only on Linux. On macOS the affected modules were run with plain `unittest` and a symlink-free `tempfile.tempdir`, because `state_root` requires fully resolved paths and `/var/folders` is a symlink. Remediation: resolve descriptors with `fcntl.F_GETPATH` on Darwin, or document the Linux-only gate.
 - Each production record still costs about 22 provider requests under the v2 grant plus a separate human release. A batch path for the 3,465 wire-prepared targets is not designed yet.
 
+## 2026-10-06 — Finite citation organizations129
+
+The new singleton policy preserves exact existing complete creator arrays and
+only supplies independently reviewed organizational type objects on the modern
+wire. The prior92 checkpoint is preserved; Ecotrust37 adds its three literal
+credits in order, including the Pacific GIS joint-actor context. Type is not a
+new legal-identity, contribution, date or rights assertion. All other residual
+creator questions remain outside this finite policy. Original XML and complete
+legacy metadata remain preserved; the12 historical creator mismatches require
+fresh classification, never substitution of older prepared payloads.
+
+A new runtime preserves PR45 history only for its six then-existing singleton
+policies and exact nonruntime evidence. The new seventh policy cannot backdate
+itself into old preparation/grant evidence. The spent unknown create and actual
+network restriction remain held under the separate recovery handoff.
+
 ## 2026-10-06: bounded unknown-create observations and deferred AquaDocs follow-up
 
 - PR44 diagnostics are merged and verified. The original production 403 had no retained body/Location and still has unknown outcome/cause; later network-restriction observations cannot explain it retrospectively.
@@ -961,3 +977,63 @@ identity. A separately reviewed finite read-only route is still required. The
 AquaDocs comparison also needs actual readable cache evidence and reviewed
 positive-candidate relationships; the current empty-inventory QA branch cannot
 approve those matches. These are active release blockers, not source QA failures.
+
+## Exact reviewed creator vectors194 — 2026-10-06
+
+The eighth modern singleton policy uses finite, independently reviewed arrays
+instead of a general personal-name or affiliation parser. Its82 creator426,
+42 direct-primary and70 DFO Staff sources retain three distinct existing source
+authorities. Full legacy objects, ordered primary origins, source-root and plan
+object hashes bind every projection. Approved cardinality changes and affiliations
+are copied exactly; contacts, titles and organizational operators do not become
+new creators by heuristic. FGDC-10 andFGDC-1314 require fresh classification because
+their retained historical creator vectors differ from current source authority.
+
+A shared source-authority selector keeps preparation and publication QA aligned.
+Only policies1–7 may bridge PR46 history, with every nonruntime evidence field
+identical; schema8 cannot backdate its authority. Documentation-only commits do
+not change the runtime binding. The separately frozen PR45 GET-only recovery
+release remains available without another validation solely for documentation.
+No source eligibility, paired execution or provider authority is added.
+
+The earlier recovery/AquaDocs status above is historical: PR45 completed the
+bounded observation controller. Actual unknown-create recovery still requires
+parent dispatch after supported network recovery, and AquaDocs is user-deferred
+until after initial publication. Neither is reported as completed provider work.
+
+### Exact program organizations20 and the remaining class boundary — 2026-10-06
+
+The finite schema9 policy adds only 20 independently reviewed complete creator
+arrays. Reconstructing the mapper from both frozen source and review receipts
+keeps the original names and authority separate from the modern organizational
+category. The two receipts use different canonical JSON recipes; both are bound
+explicitly, including the non-ASCII source that exercises the difference.
+Earlier policy vectors and the two separate 29-member hold sets stay unchanged.
+
+Reviewed194 historical compatibility is restricted to eight explicit existing
+policy/schema pairs and equal nonruntime evidence. Schema9 cannot backdate its
+authority. The fixed FGDC-141 observation path retains its spent-state rules;
+adding a recognized historical runtime never permits create replay or migration.
+
+The remaining paired execution gap spans durable identity, two file-specific
+mutation/readback states, QA and release. The separate
+[minimal class assessment](readiness/2026-10-06/modern_paired_execution_design.md)
+defines that required scope without generalizing the singleton controller.
+The source-reviewed24 preparation increment remains separate from execution;
+the final personal pair and protected existing-record identities remain held.
+Provider access is paused, and AquaDocs remains deferred.
+
+
+## Finite citations31 and remaining pair lane — 2026-10-06
+
+The [active31 integration](readiness/2026-10-06/modern_reviewed_citations31_handoff.md)
+keeps reviewed personal, contract and office credit interpretations finite. Its
+service-key spelling adaptation and visible context do not modify source or
+legacy metadata. Independent code and result reviews and guarded measurements
+passed: 3,839 prepared targets / 4,042 originals. Full main CI passed 939 tests
+in 3,127.121 seconds; the release is recorded. Work is paused by the user before
+the separate 25-pair preparation increment.
+The earlier personal-pair source hold is now resolved by a separate frozen
+supplement; all25 remaining pairs still need preparation implementation and the
+class-specific state, two-file readback, QA/release and community publication lane.
+Provider recovery and separate action grants remain prerequisites for live work.

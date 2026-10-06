@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "verdict": "TEST_ASSERTION_FIX_REQUIRED_RUNTIME_CHANGE_NOT_INDICATED",
+  "test_sha256": "a6f62713f86943e67f76bff30302b5483b357d3b37d4b9875dba0e35c4bd3278",
+  "log_path": "/tmp/pices-next31-focused-v1.log",
+  "log_sha256": "cc5b207f30ab140d6cbcc866c05c7ead054ae2fbf7bae39f474e67f549dfe1ce",
+  "actual_result": {
+    "tests_run": 10,
+    "failures": 1,
+    "errors": 0,
+    "source_tree_sha256": "dce38c1b4d442f707e60cf39733943a0a256cd230926416d84ac21cc25768b3f",
+    "source_bindings_unchanged": true,
+    "unexpected_guard_call_sites": []
+  },
+  "finding": "The assertion requires the inner FakeTransport entire call log to remain unchanged; the publication test transport translates the five authorized published-readback GETs onto inner draft-shaped fixture routes. It therefore appends five GETs, without mutation or changes to the draft journal. The separate known-request GET is handled by the outer publication transport.",
+  "evidence": [
+    "tests/test_modern_publication.py:100-106 translates published paths into inner.base",
+    "scripts/modern_publication.py:616-625 implements five published readback GETs",
+    "scripts/modern_publication.py:638-643 reserves six GETs for request acceptance plus full record/file fence",
+    "tests/test_modern_program_organizations.py:338-349 preserves non-GET draft calls rather than the full GET-inclusive log"
+  ],
+  "minimal_replacement_for_line493": "base, file = fixture.transport.base, fixture.transport.file\nexpected_inner_gets = [('GET', base, None), ('GET', base + '/files', None),\n                       ('GET', file, None), ('GET', file + '/content', None),\n                       ('GET', base, None)]\nself.assertEqual(fixture.transport.calls, draft_calls + expected_inner_gets)",
+  "preserve_existing_assertions": [
+    "release_complete remains true",
+    "publication counts equal PUBLISH_LIMITS: get22/review1/submit1",
+    "publication mutation log unchanged",
+    "draft journal bytes unchanged"
+  ],
+  "limits": "Static read-only diagnosis. No code edits, test execution, project imports, provider calls, or blanket approval of a failed test result."
+}

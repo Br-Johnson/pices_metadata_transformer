@@ -1,0 +1,168 @@
+{
+  "activity": {
+    "network_requests": 0,
+    "preparations_or_measurements": 0,
+    "private_state_reads": 0,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "repository_imports": 0,
+    "tests_rerun": 0,
+    "tmp_receipt_only": true
+  },
+  "actual_saved_test_runs": [
+    {
+      "actual_log_marker_equals_receipt": true,
+      "errors": 0,
+      "failures": 0,
+      "log": {
+        "path": "/tmp/pices-reviewed194-schema8-smoke-v1.log",
+        "sha256": "e671a7139ff3fb2401273845987e844e8911f2484a15527d0fef764038430a33"
+      },
+      "receipt": {
+        "path": "/tmp/pices-reviewed194-schema8-smoke-v1.json",
+        "sha256": "134ec750406c32371745c3c0a7b0e90a59c6500e6af669620bdcc937be65d559"
+      },
+      "seconds": 10.276,
+      "selected_modules": [
+        "tests.test_modern_schema8_history_boundary"
+      ],
+      "source_tree_sha256": "3e3103913a10812495c36982ac163499ed67734f56b6961038446aef7322f4de",
+      "successful": true,
+      "tests_guard_counts": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      },
+      "tests_run": 1,
+      "unexpected_guard_call_sites": []
+    },
+    {
+      "actual_log_marker_equals_receipt": true,
+      "errors": 0,
+      "failures": 0,
+      "log": {
+        "path": "/tmp/pices-reviewed194-affected-v1.log",
+        "sha256": "5782acf016c02ffd22c96569ce51c279e9401556c8be541bda880399231a4d3b"
+      },
+      "receipt": {
+        "path": "/tmp/pices-reviewed194-affected-v1.json",
+        "sha256": "9ca1da3ad885a4792e3133a0568bd98aa9cb09eecf1d02f07ca51c7b63720f89"
+      },
+      "seconds": 303.91,
+      "selected_modules": [
+        "tests.test_modern_singleton",
+        "tests.test_modern_organizational_coverage",
+        "tests.test_modern_primary_organizations",
+        "tests.test_modern_institution_coverage",
+        "tests.test_modern_citation_organizations",
+        "tests.test_modern_unknown_create_history"
+      ],
+      "source_tree_sha256": "0dee231ca2f06bda4f536816d611319329f7c529f0bb4a8a8f17eef2da58f32f",
+      "successful": true,
+      "tests_guard_counts": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      },
+      "tests_run": 53,
+      "unexpected_guard_call_sites": []
+    },
+    {
+      "actual_log_marker_equals_receipt": true,
+      "errors": 0,
+      "failures": 0,
+      "log": {
+        "path": "/tmp/pices-reviewed194-focused-v1.log",
+        "sha256": "00bf55e53079447003d1d82c48e17a1060c205dffd6ce652022156a1fbcbdabb"
+      },
+      "receipt": {
+        "path": "/tmp/pices-reviewed194-focused-v1.json",
+        "sha256": "54ccf6d7920bf6ff7e32553874d539a967801525354fc413a83630d463953d50"
+      },
+      "seconds": 143.554,
+      "selected_modules": [
+        "tests.test_modern_reviewed_creators"
+      ],
+      "source_tree_sha256": "0c85c0b50742897f13122e5ebc7b5987884356b940e188cd41452386a191f84e",
+      "successful": true,
+      "tests_guard_counts": {
+        "network": 0,
+        "private_reads": 0,
+        "processes": 0,
+        "writes": 0
+      },
+      "tests_run": 11,
+      "unexpected_guard_call_sites": []
+    }
+  ],
+  "all187_current_hashes_and_exact_file_set_equal_freeze": true,
+  "base_revision": "6deff6bbc9c739dbb09192412c0548863007cdea",
+  "base_revision_is_new194_code_commit": false,
+  "checkout": "/workspace/pices-main",
+  "distinct_stage_test_bindings_preserved": true,
+  "focused_aggregate": {
+    "path": "/workspace/pices-main/docs/readiness/2026-10-06/modern_reviewed_creators194_focused_checks.json",
+    "sha256": "874ace86b45b130271eccb051fb33763c925b2f81435c20c97be7500df8d9d36"
+  },
+  "freeze_receipt": {
+    "path": "/tmp/pices-reviewed194-code-freeze-v1.json",
+    "sha256": "9d272b545373905600f0cb44b2dd3cfb219dfaf7e7f1a1bdcafea47fbbb98ab8"
+  },
+  "frozen_staged_tree": "54a83029f14f3e8a9985133de156ed950dd0af29",
+  "incremental_checks": [
+    "All4 runtime files and previously reviewed fixture/history files match exact provisional review hashes; no repeated semantic source review needed.",
+    "Frozen comprehensive11 tests equal the amended independently reviewed draft1ce907, including sidecar history correction.",
+    "Current187 file paths and SHA256 values match freeze exactly; standard-library recomputation of CI sorted-JSON binding yields0c85c0b5.",
+    "Git index tree independently reconstructed in memory yields54a83029f14f3e8a9985133de156ed950dd0af29. No repository tree objects were written.",
+    "Three saved receipt hashes, full log hashes and sole PICES_OFFLINE_CI_RESULT markers equal focused aggregate data. Each stage has0 failures/errors/unexpected I/O and unchanged stage bindings.",
+    "Final11 PASS143.554 seconds is bound to final0c85. Preliminary1 and affected53 remain identified with3e31 and0dee respectively; base6deff6 is not represented as a committed194 implementation.",
+    "CI workflow adds the two new test files and measurement/aggregation helpers to the lint selector only. Handoff/todo/debt accurately keep increased coverage and main CI pending and preserve provider/recovery/AquaDocs boundaries."
+  ],
+  "kind": "reviewed194-frozen-code-tests-focused-evidence-independent-review",
+  "material_findings": [],
+  "new_test_byte_equal_approved_draft": true,
+  "new_test_sha256": "1ce9078715cbf2a97ac97da002a6965ada53ae464a07aa550eb23dd6a1074199",
+  "original_fgdc_staged_tree": "6c509a3e62252888a6709d1df94bcf109b83241b",
+  "prior_runtime_and_fixture_hashes_unchanged": true,
+  "prior_substantive_reviews": [
+    {
+      "path": "/tmp/pices-combined194-runtime-provisional-review-b.json",
+      "sha256": "297620e1637a85eda42e181c3fe9ba59a0eb26db45313d44680c7dd1c0077db7"
+    },
+    {
+      "path": "/tmp/pices-combined194-tests-draft-review-b.json",
+      "sha256": "bf0c6b1176cb8f9daadad7cffe66d009c5ac985f7a72e6e6286377e6cde976d3"
+    },
+    {
+      "path": "/tmp/pices-combined194-tests-amended-review-b.json",
+      "sha256": "ba39f00fe1ee9b26b7f9ef152049ce1fb26510ae261c43706af565c67d2ab2e6"
+    }
+  ],
+  "remaining_gates": [
+    "Actual completed measurement aggregate with retained old3391 singleton/203 pair preservation and194 twice, independently checked saved receipts.",
+    "Final main-bound implementation/docs head and appropriate actual main CI; any later runtime/source/test delta requires targeted re-review."
+  ],
+  "resolved_findings": [
+    {
+      "description": "Synthetic PR46 successful-response sidecars are consistently rebound before preservation snapshots; amended1ce907 test is byte-exact in frozen tree and its11-test module passes.",
+      "id": "T1",
+      "status": "resolved before final11 run"
+    }
+  ],
+  "reviewer": "/root/direct_credit_review_b",
+  "runtime_sha256": "6cc86a1740fcd93e65d42e21b1c199c160974c607be54db71f43d3e25466349e",
+  "schema_version": 1,
+  "scope_exclusions": [
+    "No final measurement aggregate or current-main CI result reviewed yet.",
+    "Measurement helper substantive review is a separate assigned lane; no helper execution duplicated.",
+    "No repository publication, merge, production release or provider action authorization supplied by this code review."
+  ],
+  "source_test_file_count": 187,
+  "source_test_sha256": "0c85c0b50742897f13122e5ebc7b5987884356b940e188cd41452386a191f84e",
+  "source_xml_verification_limit": "Staged FGDC tree is unchanged. This incremental review does not claim another all4206 filesystem preservation measurement; actual measurement remains pending. Prior substantive review already checked all194 current originals/root/origin structures.",
+  "staged_tree_independently_reconstructed_from_git_index": true,
+  "total_tests_across_distinct_stages": 65,
+  "verdict": "APPROVE_FROZEN_CODE_TESTS_AND_FOCUSED_EVIDENCE_ONLY; PUBLICATION_PENDING_MEASUREMENT_AGGREGATE"
+}
