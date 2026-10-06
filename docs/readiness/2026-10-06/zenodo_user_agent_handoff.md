@@ -49,10 +49,11 @@ of it.
 The sandbox canary transport in `scripts/mac_sandbox_canary.py` is unchanged:
 sandbox.zenodo.org does not apply the rule and its receipts are pinned.
 
-Runtime SHA256 after the change:
-`4159b8e29fee2f00bb524713bfee01c68783326179113081aaaad6fd24b02be3`.
-Source/test binding (184 files):
-`eaf3e66e5bb9f251d20217ceb3f69b153b72431d3f24c5487ed83b718ae30787`.
+Runtime SHA256 after the change, on the branch merged with main at
+`14c4109` (reviewed citations31):
+`9aa2667e8fc29a2159bf2781034fe7fe7cfbac3c928b77c5d8967f19fed32d08`.
+Source/test binding (189 files):
+`74938028f7e6d5df7072b9a119e61fdb5b556f2aa4208c91b57f0c7101853280`.
 Historical preparation packets keep their recorded runtime hashes. The bridge
 and recovery compatibility constants PR34 to PR44 are untouched, and the live
 runtime is always accepted, so the FGDC-141 original packet (PR42 runtime) still
@@ -63,9 +64,9 @@ untouched.
 
 The guarded harness `ci/run_offline_tests.py` resolves descriptors through
 `/proc/self/fd` and is Linux-only; the exact-head run happens in GitHub CI on the
-PR. On the Mac, the five transport-related modules were run with plain
-`unittest` on a symlink-free temporary directory under Python 3.12.12 with the
-pinned requirements:
+PR. On the Mac, the transport-related and mapping modules below were run with
+plain `unittest` on a symlink-free temporary directory under Python 3.12.12
+with the pinned requirements, after merging main:
 
 | Module | Tests | Result |
 |---|---|---|
@@ -74,6 +75,8 @@ pinned requirements:
 | tests.test_modern_unknown_create | 35 | pass |
 | tests.test_modern_response_evidence | 33 | pass |
 | tests.test_modern_publication | 56 | pass |
+| tests.test_modern_unknown_create_history | 2 | pass |
+| tests.test_modern_singleton | 7 | pass |
 
 `ruff check --isolated --select E4,E7,E9,F,I,B` passes on both changed files.
 No provider mutation, token read or production-state write occurred in this
