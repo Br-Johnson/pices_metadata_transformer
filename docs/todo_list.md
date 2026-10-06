@@ -1,8 +1,25 @@
-## Active increment: retain bounded modern response evidence — 2026-10-06
+## Active increment: bounded unknown-create observations — 2026-10-06
+
+- [x] Verify PR44 merged at `ff6f56a65e6adafdb5957652dae925ce7142b0a7`, with 863 passing full CI tests and exact-head independent Codex review. Original FGDC and maintained rules Git objects match.
+- [x] Integrate the independently reviewed finite GET-only FGDC-141 observation controller and 37 adversarial test cases. Bind the actual original 403, submitted wire, full preparation, owner and canonical spent state; keep all original evidence immutable.
+- [ ] Pass focused guarded tests, final independent review and full current-head CI; publish the frozen [recovery handoff](readiness/2026-10-06/modern_unknown_create_handoff.md).
+- [ ] Parent verifies actual retained packets, owner and supported network recovery before separately granting and dispatching one bounded read-only observation. A match, empty listing or 404 authorizes no adoption or create replay.
+- [ ] Resume the frozen finite92 mapper only after the urgent recovery code gates; no additional mapping coverage has been claimed.
+
+AquaDocs comparison/linkage is explicitly deferred by Brett until after initial
+production publication: [decision](readiness/2026-10-06/aquadocs_deferred_followup.json).
+It is not completed or passed, and is not an initial publication blocker. This
+supersedes earlier timing in frozen handoffs. Preserve internal/production dedup,
+source QA, the uncertain-create hold, accepted PICES membership/default readback,
+and separate sole-executor grants and release. No links or exclusions were added.
+The approved Mac route remains network-restricted according to the parent's
+13:18:42 UTC credential-free observation; no root provider actions occurred.
+
+## Completed increment: retain bounded modern response evidence — 2026-10-06
 
 - [x] Reconcile PR43 and the parent-reported first production create HTTP403 at12:05UTC. Its body and Location were not retained; cause remains unknown. A later publicGET reported unusual network traffic, which does not establish the create failure's cause.
 - [x] Preserve status and bounded credential-screened MIME/Location/body diagnostics before protocol rejection, in exclusive sidecars bound to the spent request. Handle truncated/interrupted bodies without accepting them.
-- [ ] Pass affected offline contracts, substantive current-head Codex review and full CI, then merge under standing authorization.
+- [x] Pass 863 full guarded CI tests and substantive current-head Codex review; merge PR44 under standing authorization.
 - [ ] Complete the separate finite read-only unknown-create reconciliation route. Existing readback requires a known identity and completed upload; no create retry or state reset follows from this repair.
 
 The PR42 Mac create remains spent; no verified production identity or publication
