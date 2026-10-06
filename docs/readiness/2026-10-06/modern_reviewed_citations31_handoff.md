@@ -14,8 +14,11 @@ once and prepared twice; the prior 3,605 singletons and 203 pairs were compared
 once against saved preparations. All 4,206 original XML files, 43,136 retained
 public evidence files and 32 profiles match. Source status remains 3,933 supported,
 39 held and 6 malformed targets.
-Full main CI and release closure are pending; [program20](modern_program20_release.json)
-remains the prior completed full-CI release.
+Full main CI passed **939 tests** at reviewed commit
+`4921401da7a9d8caedb32b48b3d03c51887b489e`, with zero unexpected guard activity.
+The [release receipt](modern_reviewed_citations31_release.json) binds the actual
+run, final independent review and preservation evidence. Work is paused at the
+user's request before the separate 25-pair preparation increment.
 
 ## Source and representation boundaries
 
@@ -69,9 +72,10 @@ See the [focused result](modern_reviewed_citations31_focused_tests.json),
 [exact correction review](modern_reviewed_citations31_v2_review.json).
 All four guarded batches and saved-file aggregation passed, with zero unexpected
 I/O or provider actions. Independent [saved-result review](modern_reviewed_citations31_result_review.json)
-confirmed the exact membership, preservation and measured arithmetic. Full current-head CI must finish before this increment
-closes. Coverage is derived only from the saved guarded receipts. The next 25 pair
-preparers remain separate until this singleton increment is complete.
+confirmed the exact membership, preservation and measured arithmetic. The actual [full CI run](https://github.com/Br-Johnson/pices_metadata_transformer/actions/runs/37525761311)
+passed 939 tests in 3,127.121 seconds. Coverage is derived only from the saved
+guarded receipts. This singleton increment is complete; the user requested a
+pause before the next 25 pair preparers.
 
 ## Provider and pair publication boundaries
 
@@ -91,3 +95,9 @@ a separately granted two-file canary and actual production reconciliation. The
 [minimal execution design](modern_paired_execution_design.md) remains applicable;
 its earlier personal-name source hold is superseded only by the archived
 supplement, with no change in execution authority.
+
+The separate [legacy-adapter assessment](pices-legacy-adapter-offline-assessment-20261006.md)
+is static and offline. Legacy support does not make the prepared modern payload
+interchangeable or clear the network/unknown-create hold. Its existing publisher
+does not establish accepted PICES membership; the assessment records the smallest
+useful future mocked regression without implementing or testing another live route.

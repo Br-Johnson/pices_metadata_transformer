@@ -1023,8 +1023,9 @@ The [active31 integration](readiness/2026-10-06/modern_reviewed_citations31_hand
 keeps reviewed personal, contract and office credit interpretations finite. Its
 service-key spelling adaptation and visible context do not modify source or
 legacy metadata. Independent code and result reviews and guarded measurements
-passed: 3,839 prepared targets / 4,042 originals. Full main CI and release closure
-remain pending.
+passed: 3,839 prepared targets / 4,042 originals. Full main CI passed 939 tests
+in 3,127.121 seconds; the release is recorded. Work is paused by the user before
+the separate 25-pair preparation increment.
 The earlier personal-pair source hold is now resolved by a separate frozen
 supplement; all25 remaining pairs still need preparation implementation and the
 class-specific state, two-file readback, QA/release and community publication lane.

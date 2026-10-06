@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "kind": "pices-legacy-adapter-offline-assessment",
+  "date": "2026-10-06",
+  "checkout": "/workspace/pices-main",
+  "observed_head": "c612e0e8e522fcf9ecc993b4b3c64ce12ae1fc53",
+  "assessment": {
+    "path": "/tmp/pices-legacy-adapter-offline-assessment-20261006.md",
+    "sha256": "53c4a0997a19866aee592cae2d69bef1ea3d47f76646be3937a5afcc67a70622"
+  },
+  "method": "Static maintained-code/docs/test-source review only; FAQ support supplied by parent, not fetched",
+  "operations": {
+    "provider_requests": 0,
+    "network_probes": 0,
+    "credential_reads": 0,
+    "repository_edits": 0,
+    "project_imports": 0,
+    "test_executions": 0,
+    "preparations": 0
+  },
+  "input_sha256_lines": [
+    "964b0b1fa37e8fe39dd775a9c94a40fdab8651a9e33982cc3d93b1dd6bdf2181  AGENTS.md",
+    "4a4f8e3ccba99844674f42ac358b13ea4331c0dbfa858446c759903fdd66e009  scripts/zenodo_api.py",
+    "dddb43fcbac3a0ef26e77981b85106087c89374636eeac45b333594b3351fd1f  scripts/upload_service.py",
+    "0a19514c0af12221224053e76a8f7b32a738ee0de9098c57a757ba4e11faf98d  scripts/validate_zenodo.py",
+    "dadbc40a4aa818a1d85a321e03183f7692c6a00aa1f2e46a6804d3b5d1188f95  scripts/artifact_contract.py",
+    "9fbf99827408d5c021551e9ca8e5abfbcc085e7a570615f61bb9aa0d8fb6782a  scripts/production_mutations.py",
+    "d05b4dd41b2043a1ae275792b7d8d37bd97b0d681986c64017e9ae8417476701  scripts/reconcile_draft.py",
+    "e26f995f83945c05c4adf2421178056a3e507e9fc2ec6f8d314abd38a97fb4d4  scripts/publish_records.py",
+    "93229a1eee2115e4a31ec9a8ae636f4637c97856e84c81e1f606dd05408f3a41  scripts/modern_singleton.py",
+    "9c52408cd2ed4e02160e682a72c0e458a0e92ff8ecca7e841f26231b0f76d1c5  scripts/modern_publication.py",
+    "dc264b0dff8d966bf35f68668421d56266f599bba8da122598c26de96f8bef0f  scripts/modern_unknown_create.py",
+    "ae821962f80589d96e1dfb7a0839603e9ffcc04b226daa44b9d04c3b70f7c1fe  tests/test_artifact_contract.py",
+    "e6dbb079189e17df152cdeaea9a5888ffcd4d937e87fd2c75c7554c409b6c9b7  tests/test_production_mutations.py",
+    "39fd460ee93f606db9501cb30c4fb6ba00522f43569c0e7397e6f414b9f03b28  tests/test_metadata_contracts.py",
+    "411baacd0ea7a1bbbf3fa3c5e02df8e3a549475bd8fafa19328759a13d5c50bf  tests/test_modern_singleton_executor.py",
+    "73d384d94cefda1abb6bd234e69c626cbc8fc46d0e20e3406deaf715211b40f7  tests/test_modern_publication.py",
+    "4ee045b227c70e634cc3d33eebe50db5d2333e09ac72433675c47a482c13321c  docs/adr/0004-durable-production-mutation-attempts.md",
+    "6e848b91087e5fcd18e0be3c7f296f4c6672eb152154bc168d8496aa3057cf88  docs/adr/0005-finite-modern-singleton-drafts.md",
+    "4ae7886ddae4f8cc1adb23f2a02690ceac6e698cfc743a8aa4535423b8606b70  docs/adr/0009-community-first-modern-publication.md",
+    "484b2580ff84e3313d4576446d2bbb6af4bd90870f34f5e7d1da10cc08c39b9d  docs/readiness/2026-10-03/modern_zenodo_api_contract.json",
+    "3e1f130aa721d1d001fbe4a8eed123e3475c48d4a5eb0d8ef15525293eb5691a  docs/readiness/2026-10-06/modern_unknown_create_handoff.md"
+  ],
+  "findings": [
+    "Legacy support does not make modern wire interchangeable",
+    "Existing XML/identity/mutation protections retained",
+    "Modern spent unknown-create evidence blocks legacy fallback",
+    "Legacy reported community and done state do not establish accepted PICES membership",
+    "Smallest useful future regression is no first publish without community-first authority plus honest existing-publication readback reporting"
+  ],
+  "independent_narrow_review": {
+    "agent": "/root/mutation_contract_tests/direct14_source_extract",
+    "scope": "Legacy community outcome versus modern completion and existing tests",
+    "result": "Confirmed legacy accepted-membership/reporting gap; static only"
+  },
+  "limitations": [
+    "No current live compatibility, authentication, network recovery, absence, adoption or publication authority established",
+    "No unchanged test suites rerun",
+    "Worktree inputs pinned individually; no claim of current-head CI"
+  ]
+}

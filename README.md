@@ -22,9 +22,10 @@ historical refs. Subsequent implementation uses the maintained main checkout.
 The [reviewed citations31 increment](docs/readiness/2026-10-06/modern_reviewed_citations31_handoff.md)
 and its [guarded measurements](docs/readiness/2026-10-06/modern_reviewed_citations31_validation.json)
 cover **3,839 prepared targets / 4,042 originals**; **94 supported targets remain**
-(69 singletons and 25 pairs). All 84 focused/affected checks pass. Full main CI
-and release closure are pending. Source eligibility and provider holds are unchanged.
-The completed program20 milestone below remains the prior full-CI release.
+(69 singletons and 25 pairs). The [release receipt](docs/readiness/2026-10-06/modern_reviewed_citations31_release.json)
+records independent review, 84 focused/affected checks and **939 passing full CI tests**.
+Work is paused at the user's request before the 25-pair preparation increment.
+Source eligibility and provider holds are unchanged. The earlier program20 milestone follows.
 
 The [exact program20 increment](docs/readiness/2026-10-06/modern_program20_handoff.md)
 and its [guarded measurements](docs/readiness/2026-10-06/modern_program20_validation.json)
