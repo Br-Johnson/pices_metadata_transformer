@@ -284,8 +284,8 @@ class ModernPrimaryOrganizationTests(unittest.TestCase):
 
     def test_unselected_person_reference_paired_protected_and_held_sources_stay_blocked(self):
         fixture = self.fixture()
-        # These identities remain outside both prior organizational policies and direct primary credits.
-        for sid in ('FGDC-1', 'FGDC-1319', 'FGDC-710', 'FGDC-2953', 'FGDC-3181',
+        # SOA remains outside every finite policy; PICES26 now has its own policy.
+        for sid in ('FGDC-1', 'FGDC-3875', 'FGDC-710', 'FGDC-2953', 'FGDC-3181',
                     'FGDC-729', 'FGDC-768', 'FGDC-4050', 'FGDC-4051', *PROTECTED):
             with self.subTest(source=sid):
                 path = fixture.json_file.with_name(sid + '.json')

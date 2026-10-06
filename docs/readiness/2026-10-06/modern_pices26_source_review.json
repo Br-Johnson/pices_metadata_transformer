@@ -1,0 +1,2797 @@
+{
+  "activity": {
+    "mapper_calls": 0,
+    "preparation_calls": 0,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "source_classification_calls": 0,
+    "tests_run": 0,
+    "xml_original_edits": 0
+  },
+  "all26_origins_single_plain_attribute_free_exact_text": true,
+  "alternative_check": {
+    "already_typed_remaining_candidates": 0,
+    "blanket315_type_projection_approved": false,
+    "complete_creator_clusters": 161,
+    "creator426_remaining_count": 315,
+    "larger_Ecotrust37_not_chosen": "Existing role review says add no types and warns the three credits are not three independent legal organizations. Larger count alone does not justify organizational projection."
+  },
+  "canonical_hash_rule": "SHA256 over json.dumps(value, sort_keys=True, ensure_ascii=True, separators=(comma,colon)).encode(); raw file SHA256 over bytes. source_element preserves parsed tag/attributes/text/children/inner tails and excludes only outer sibling tail.",
+  "checkout_revision": "5efc0893dc5f99ceef8aec845e59440443a3969b",
+  "checkout_tree": "217bb65eab30457748bbf895ad0ad64c225f7623",
+  "conditional_accounting": {
+    "actual_current_counts_unchanged": true,
+    "after_if_actual_fresh_measurement_passes": 3171,
+    "before_modern_coverage": 3145,
+    "candidate_increment": 26,
+    "remaining_pairs": 228,
+    "remaining_singletons_if_pass": 534,
+    "remaining_targets_if_pass": 762
+  },
+  "context_membership_sha256": "cbb641aa34d06c5d0a9c8fd84ad12b11bd8b71a88d994c28da38855155aa7785",
+  "contexts": [
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "29770c4d6e9a492346762c821134793b4437959db5df060c682fe04df48ca09d",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "75a6d4b25a40b19def22e9ec652a8d82fe29fab030abec950ad90dd0ef3e2c43",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "42c7087765d876c51def8b7e05a008d736f1a94b18030f6fda9b03c4f72ae891",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "967bf435f9997e5c38144a91f1409ceed23fb53b85bde22d39b3c351f1c49329",
+      "full_primary_title": [
+        "PICES Scientific Report No. 18 (2001) - Proceedings of the PICES/CoML/IPRC Workshop on \"Impact of Climate Variability on Observation and Prediction of Ecosystem and Biodiversity Changes in the North Pacific\" / edited by Vera Alexander ... [et al.]"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "47cea3d51b81ec5832710f31c26e50218874df88e1389f8af2cb147d445fd274",
+      "historical_metadata_date": "2003-06-16",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "265dcc8e1c0045e92df504442a3030fd8f9e3f1738532687c49843f616f88dbf",
+        "keywords": "bc6af90035622e81d9d31dc9cc799df08c0280226e6fc2ce264acb88bfb5a490",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "81924e9537f67a56f429571b12ce59858c0794fa976426b82f54d5eb64e6ff2b",
+        "publication_date": "affe02c60a15cd58e44e547ea1ce0cb5c1e2e5a69961660df18202750ac0dccf",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "5b390fb31ce393d9775b8511db40e2786b709c349f699577d166e05dfa878ffc",
+        "title": "5f2a98cfe4956fd68b7461717244784ea57a8846a96b8f9dfce122cf17dc9f69",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "1d24d788bbe413beda36d9728b5117eaa002c1ca7ef05721c8196cd7f4245acf",
+      "historical_notes_sha256": "81924e9537f67a56f429571b12ce59858c0794fa976426b82f54d5eb64e6ff2b",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1319.xml",
+      "historical_original_copy_sha256": "6c572b24fce34938671d7adfc0fa2e043a696b6c46759a9cb6eefb55445c7e5f",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1319.json",
+      "historical_prepared_payload_sha256": "9f0c090889d1f31feb12a20e9e159a71ee48fa79298fe89303ff429fd57119af",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "29770c4d6e9a492346762c821134793b4437959db5df060c682fe04df48ca09d",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20030616",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "200109"
+        }
+      ],
+      "source_bytes": 4992,
+      "source_id": "FGDC-1319",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1319.xml",
+      "source_sha256": "6c572b24fce34938671d7adfc0fa2e043a696b6c46759a9cb6eefb55445c7e5f",
+      "whole_source_root_sha256": "cc1c754c7230303bc79011e412fb9451ead6e475004ca36be4786bddabda8b05"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "d4e59fc7e6a1e889e9f548910759abac9518b11fa81649736c0007938e8873bb",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "5ee7cf5792ca72b8ef6f6cd265faf95088b818dafebcc15df5bbfcbd47ab57af",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "47fe97267e50c1559ff079cdcb9bdc34c6e24efcd6e24cf2d9486cc9cd01d1da",
+      "full_primary_title": [
+        "PICES Scientific Report No. 1 (1993) - Coastal Pelagic Fishes : Report of Working Group 3 / edited by John R. Hunter and Tokio Wada. Subarctic Gyre : Report of Working Group 6 / edited by Brent Hargreaves and Takashige Sugimoto"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "5f83b8fd4561ba8c84e315d0e4b3f40acf3c1564269dffe518434cf52c46b772",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "9f7edaa296e54df04115530ff226f57dfc92a6e717725bf16a96c49bb7fa033d",
+        "keywords": "92941a75bfdf8b8f9884b0907e3aa2da5091014bc64ad31b9932d22c8088109c",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "cbe3b60a6ee565b2882f8b99d6344e3c7c531ca7847a070ba175f4105f34eda4",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "ea7bf3f8f896be44c8f7f460cdf5b7783badecd455de4c72d045dd330d6b623b",
+        "title": "83d62c001e7c24d4bd4a9b73340e04cb4fa126516b0fa044704a80a3e5180235",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "be6c728c47064ac5b0c9815524f1d354d2b6928407c76e8e2f1e390b83c75298",
+      "historical_notes_sha256": "cbe3b60a6ee565b2882f8b99d6344e3c7c531ca7847a070ba175f4105f34eda4",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1915.xml",
+      "historical_original_copy_sha256": "f8a00a2d0c3bc8f1b8e3b947005ec905b344be76357b88219126529147f07014",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1915.json",
+      "historical_prepared_payload_sha256": "cb42e9c918b6d711dda9c7ba2ed17c5c890b12d290b57aa3114d32d4478c5d44",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "d4e59fc7e6a1e889e9f548910759abac9518b11fa81649736c0007938e8873bb",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1993"
+        }
+      ],
+      "source_bytes": 4801,
+      "source_id": "FGDC-1915",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1915.xml",
+      "source_sha256": "f8a00a2d0c3bc8f1b8e3b947005ec905b344be76357b88219126529147f07014",
+      "whole_source_root_sha256": "ef1d18de622bf42b12b087c38f688f9ec662e2da966237ac7943c16da7e284e1"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "4a1245a889117bf683d6699d560d40d92d94fd3e2b1704acb93809cf6757f62d",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "0e84cc0d093b13b0ff5541a594cde12340553520addf835a8d6865c97ad6b00e",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "c015fff2b8728780574779f1cbc7faa87c86dde401b581e94e03dca35c1ef7a4",
+      "full_primary_title": [
+        "PICES Scientific Report No. 2 (1995) - The Okhotsk Sea and Oyashio Region (Report of Working Group I) / edited by Lynne D. Talley and Yutaka Nagata"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "db8247031a9d09a0e7f9e8f4e6ad7150e6bfd316a70329b2869f437420ae913d",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "6f30ec299b267354d5bf84557da44a26a3684dbc68d551834492fbbee4098ba5",
+        "keywords": "6f449f38fe638923f4cb63fd10fbb18e6ce2155e91b60ea5b3d50e94410f67a0",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "dd7935c4186b7c827557284201a913f4d8ff10b88def2713de6fd645b59b2b9a",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "827255db6031dfe9e625d1bc945c6c46c28085b4e26690142d861d1937d5478e",
+        "title": "26aaf0c9c7e4cfb7289161b3fe7d58447ae98838718db94a4a3d4a8752966900",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "ad3b717001f81cf1847d4ba3eb7e39bc964899853ec7bdb4bd0af997a2472a3f",
+      "historical_notes_sha256": "dd7935c4186b7c827557284201a913f4d8ff10b88def2713de6fd645b59b2b9a",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1916.xml",
+      "historical_original_copy_sha256": "9d1a5beb161902d15cb64c1a037ed9c5711a1b0ea38e16384a73e94ea96a609b",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1916.json",
+      "historical_prepared_payload_sha256": "1229debf5bb2643cf42b00703841e88266a7df225015279747806452e11c2136",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "4a1245a889117bf683d6699d560d40d92d94fd3e2b1704acb93809cf6757f62d",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1995"
+        }
+      ],
+      "source_bytes": 4675,
+      "source_id": "FGDC-1916",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1916.xml",
+      "source_sha256": "9d1a5beb161902d15cb64c1a037ed9c5711a1b0ea38e16384a73e94ea96a609b",
+      "whole_source_root_sha256": "0bd8cf1284560e7f7aeba9af488091bf6a2d93c4ea51ffcbcb3f3bb34558fbf8"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "c08a3c81c5633dfe323e7509b713a5aa04014bae75291e35b89e64698ad5a689",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "4227b60a7ccfaf6b7838566dfcc72605d11e0885f40a64ad7dc52ad873683cfb",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "b80f236e6445e20029b633221d8a5c04f422f905587894d7c910ef8f92649e6b",
+      "full_primary_title": [
+        "PICES Scientific Report No. 3 (1995) - Report of the PICES-STA Workshop on Monitoring Subarctic North Pacific Variability / Jointly Sponsored by PICES and the Science and Technology of Japan ; Convenor, Yukihide Hayashi ; co-chairmen, Yasuhiro Sugimori, Melbourne G. Briscoe"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "cade6c4147604b01752bf540fbc3ecaae1c2eda0f522a59612f2ef436fc2454a",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "58b0a04980adc216f0feae5f715d18afc579dcba729d16693db824f494581beb",
+        "keywords": "84b04cf1f3e374d33f42a361f82e0f9fcd6217fafbae37ad55b3d34222d88435",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "d959920d76e070813de351a2cfef64719e12fef027cc14759ac9c86ded512d72",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "995396ee205defcf91b742ecc9afcb16f2fa344e50506aed21c7679477c26d14",
+        "title": "99cc64d7ff0492dd887e613a1de637e4ec11c8fac0fd3cc4ff363cc00c2c9d5b",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "a7e295fb67b7432d0cdfb355cd77db8397fbd939176e3e4e2e45be420aaa19d7",
+      "historical_notes_sha256": "d959920d76e070813de351a2cfef64719e12fef027cc14759ac9c86ded512d72",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1917.xml",
+      "historical_original_copy_sha256": "e0f0e9156bb9491e7ffdc1725758c5e29f595f522d3457be511c2bb0326bca4f",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1917.json",
+      "historical_prepared_payload_sha256": "aca7bcb8cf9c076a9eeb0a3ee73a1f7b359e0fde694e31018fd1416b2732b847",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "c08a3c81c5633dfe323e7509b713a5aa04014bae75291e35b89e64698ad5a689",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1995"
+        }
+      ],
+      "source_bytes": 4974,
+      "source_id": "FGDC-1917",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1917.xml",
+      "source_sha256": "e0f0e9156bb9491e7ffdc1725758c5e29f595f522d3457be511c2bb0326bca4f",
+      "whole_source_root_sha256": "b74b2d4677cd34fdd3097bca6d66f7d185e0bc2dee73da62c00a1d4cda67466b"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "2fddf23a04249fe0af26bdc9e81a399cbdbd4b7d90647106de26279f786c7eb1",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "054cce5e76c8b1e109925663fa9fcaed3f414b4329e9fee8c6133dadb3469899",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "7586b8280509b12d5497e279a5c7f3564ce0ea3c04de15a38b20989fa3654d04",
+      "full_primary_title": [
+        "PICES Scientific Report No. 4 (1996) - Science Plan, Implementation Plan : Report of the PICES-GLOBEC International Program on Climate Change and Carrying Capacity / PICES-GLOBEC '94 Workshop Steering Committee Chairman, N.B. Hargreaves"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "e40ff2d93100eeb1a9a2b89e7ffe8ff88ca7421694f57542803bb2d4ba554840",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "89d23210d49060097cdd827df77fd96cd08514f0563b75881837f969b2bdf29a",
+        "keywords": "f779dd6f81c70a6fc471070c39a59399152a89dffdae2df02941ae9d847a63aa",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "e438ef8764da42c9b3a5da043fd88a8b1bae56237b5a258ecba3c729234af6da",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "dc46b00cfe1876d13c36cd09d058001fda186fb76b1fb0bf884b39e689c7f83c",
+        "title": "d4389761ff767b8eeb6a02007dbcf420f9b59b56794f5fa06d2d5897ddfdce07",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "c492f9faa47da04e46a6238a204ba2ec27ef604746e0b54c1a7c8dc022556dd4",
+      "historical_notes_sha256": "e438ef8764da42c9b3a5da043fd88a8b1bae56237b5a258ecba3c729234af6da",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1918.xml",
+      "historical_original_copy_sha256": "aacea482808cebe49006f801d5410d5c4e07dbd013cbf27862f941754b57fdd0",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1918.json",
+      "historical_prepared_payload_sha256": "49db555d515d36b75b139b63fe96eff418990510c1aef421ff092023b562cdd1",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "2fddf23a04249fe0af26bdc9e81a399cbdbd4b7d90647106de26279f786c7eb1",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1996"
+        }
+      ],
+      "source_bytes": 4584,
+      "source_id": "FGDC-1918",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1918.xml",
+      "source_sha256": "aacea482808cebe49006f801d5410d5c4e07dbd013cbf27862f941754b57fdd0",
+      "whole_source_root_sha256": "147390d8246097b8267db9235bb3c7a6d946db369327a60142fec4514acbb947"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "0c43355e9ac153577a339d8793c3daa6a23c6766fe41e30a9f7b3f7055682b20",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "0d1ca9df715746513dff7851ffdb0bcb5af2c176a7481ff28bd81ac3fbfd91af",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "5c1f947fe1f1e5ca1b6c393c3be2469f95c99cab07982d28f8fedad33347fb11",
+      "full_primary_title": [
+        "PICES Scientific Report No. 5 (1995) - Modelling of the Subarctic North Pacific Circulation (Report of Working Group 7) / edited by Paul H. Leblond and Masahiro Endoh"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "9c99aaa0c63d06205b3401020449b6081ca27e277f05da51c9a4404ce938d5a0",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "8a6a8bb7739c695cdf87db25ad3f1d217f016b558a0062973296893ac1e2edcc",
+        "keywords": "55306c9106b9452cc52e25736cab9d0b71bc9d18d01ff425e365fad4eefb569d",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "87221622fe5851c4472665dda78c5183968f3a55e544c8f7d6154528f0c2bb5e",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "abcb57f2910fc68810b227b66f7dde7dceb4d28959abfd42033392beb2116979",
+        "title": "df70c154af4aa298f5affcdcbddea51261c7502a6d19a0faed0657e3b9c3b448",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "5134a651d0e7f48f2278ae51e24a0a73eb9a73d04bc555d3801e3a0731d5cf3e",
+      "historical_notes_sha256": "87221622fe5851c4472665dda78c5183968f3a55e544c8f7d6154528f0c2bb5e",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1919.xml",
+      "historical_original_copy_sha256": "ee912537041cce24f6b6c82dff95aa33f963c84e65fb4f72778a26c344719243",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1919.json",
+      "historical_prepared_payload_sha256": "f0fdbbc42b481f788d08313882756645987d1519329a6ed382422cd637debf82",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "0c43355e9ac153577a339d8793c3daa6a23c6766fe41e30a9f7b3f7055682b20",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1995"
+        }
+      ],
+      "source_bytes": 4450,
+      "source_id": "FGDC-1919",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1919.xml",
+      "source_sha256": "ee912537041cce24f6b6c82dff95aa33f963c84e65fb4f72778a26c344719243",
+      "whole_source_root_sha256": "dddf3567c1956d70d3447062afdba7b38912e003b0a782dfc449de50ead1a9d6"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "f063cbc0363f256f9aec93ab8b04c70e08e8cbea7bdf8ac9a7dcd11fa8704b4f",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "ade4ad4c6da0768c9930d3bfa87e9db65dad0bbc170aca7a4d92dbd34557098e",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "dd1e9f8952cca89ec296c0a1af8441f1f24e83e56c8f7d4fa06f88dd5091307b",
+      "full_primary_title": [
+        "PICES Scientific Report No. 6 (1996) - Proceedings of the Workshop on the Okhotsk Sea and Adjacent Areas / Workshop Co-convenors, Yutaka Nagata, Vyacheslav B. Lobanov, Lynne D. Talley"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "4ae18e3af58164717033528a8a9a5c552f8e330955d6c6a59fec0c7d6da6dae9",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "347c03a178efdac5e4b52a5d217f4f3a1422c8dd0684e4c13ce05fe0c826515d",
+        "keywords": "3e75dde52f31621c49adf2e26e423a9cee69f5e6c6b2bec2735d81b5b215d911",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "b6b6beef652a6555b4dd4c58a596aa28d7655cdc199bbb56912c6ca77718728d",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "da3085091adef8eed5d77366a028f2611259e65190072b75e2109205bfd02633",
+        "title": "69af10f2a6bb02308d2c1203ef31b27ad094d1a53a192c55f996480bc0b3f925",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "3cac639082b0768b194d43ceba72478e3ba3406bbfe5ed731da6be98de26cca5",
+      "historical_notes_sha256": "b6b6beef652a6555b4dd4c58a596aa28d7655cdc199bbb56912c6ca77718728d",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1921.xml",
+      "historical_original_copy_sha256": "64b383b780bcd4e781d8d8e7dd4253c2d5f77d8f86f04d43108f51f66fe1196e",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1921.json",
+      "historical_prepared_payload_sha256": "3b3408d4cd9fbcb1e1f648a3d9b00835d4d6deefae39d6d0d6e1211a4c831d5b",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "f063cbc0363f256f9aec93ab8b04c70e08e8cbea7bdf8ac9a7dcd11fa8704b4f",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1996"
+        }
+      ],
+      "source_bytes": 5019,
+      "source_id": "FGDC-1921",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1921.xml",
+      "source_sha256": "64b383b780bcd4e781d8d8e7dd4253c2d5f77d8f86f04d43108f51f66fe1196e",
+      "whole_source_root_sha256": "7c7372603ce83062cdca2aafd8c0280220ca51e3f893dad8d2e914349bd1d7ed"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "0ad1d8b8ed3789a8aa25660ae29ca486ffd96c8bf4bed8948eb8a422b320d0a8",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "de33d4473c0871437f699c9cc89191955e0f090b8dd49fd38e2ceeb10a066cc7",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "bc048cda44955392ea810040ffa8bfcd04996aff396510c7745eaf15deef565b",
+      "full_primary_title": [
+        "PICES Scientific Report No. 7 (1997) - Workshop on Conceptual/Theoretical Studies and Model Development including the MODEL Task Team report / edited by R. Ian Perry, Sinjae Yoo and Makoto Terazaki. BASS Task Team report / edited by Richard J. Beamish and Makoto Terazaki. REX Task Team Report / edited by Anne B. Hollowed, Vladimir I. Radchenko and Tokio Wada. PICES-GLOBEC International Program on Climate Change and Carrying Capacity"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "7bc04f8f8844c4f255951bbc7847f527ffad53bdbe1c1863f3999a062fdbcd7e",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "d9071a5908efa27a9abe92755354efa20223a11fb5c98c99ebeedce0debc0d07",
+        "keywords": "a7f6630e26a90c063a7e33b92a49e8b3098933b406564c6a48eea1e6005bac3e",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "68b3a6122886bd26482a2725e6a1c954bbb19f5e2f6c4204f5c423a336c6cde9",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "8229663f03fdd5552b06a1557d1f3c7c970a73368c1ddb8ec865e9ecca1d7638",
+        "title": "6a93ed3666c42c1119b8baf1013ec2b3d1b365787218c2dee2d86a2f410606e2",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "44bcb1375eae012363973fe23fe3d37173fa730d834588fa914d8320f17d2bcd",
+      "historical_notes_sha256": "68b3a6122886bd26482a2725e6a1c954bbb19f5e2f6c4204f5c423a336c6cde9",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1922.xml",
+      "historical_original_copy_sha256": "2d7004942ec9920a0203b24440e5ece5219dcabc4a8fbada2505f3a128aaad2d",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1922.json",
+      "historical_prepared_payload_sha256": "78bc27d4be4caf7c28670ee14ec6ee4ef9924d588705b317b3c69f28bc4d98d5",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "0ad1d8b8ed3789a8aa25660ae29ca486ffd96c8bf4bed8948eb8a422b320d0a8",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1997"
+        }
+      ],
+      "source_bytes": 5106,
+      "source_id": "FGDC-1922",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1922.xml",
+      "source_sha256": "2d7004942ec9920a0203b24440e5ece5219dcabc4a8fbada2505f3a128aaad2d",
+      "whole_source_root_sha256": "438d954b543a3d6a3d53bace7fa607b6e9840d9a877ddcc8834755add6479a3d"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "72a69eedb4169eeec9aa87ac43027376834c395e198a4fac354f69e044dcb4bf",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "94329ca74e36a6a20d3d15cd5286252f0ab3540d29194bd5068ae1580eed85d3",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "ae726d9ae066d649fb54bdcd5ba840c1d955850a05d077356588d1dd8eb4f2bf",
+      "full_primary_title": [
+        "PICES Scientific Report No. 8 (1998) - Multilingual Nomenclature of Place and Oceanographic Names in the Region of the Okhotsk Sea : Report of the Physical Oceanography and Climate Committee : Reprint from a MIRC Science Report / edited by Yutaka Nagata and Vyacheslav B. Lobanov"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "8271f245a61adc78e3a67c7973e2bede1e32d90fb6ad33626bcb4b4ad42cf9d0",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "335cfce9b78797b36a3b2f39d25c991dd3cdf879379075b3d12279f25de9e750",
+        "keywords": "9d25e24d5751f4a0e99365c0a2d52971f13395808cbf743af57bd1591cd75d99",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "31c1093614441ce750f25afa63802a40e0bd30d5056bc3f5183bb108371486af",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "title": "a5ac401deeed90018c96beac767db1032db390c6ee85689e53bfd064e114a481",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "c9d97adcc28b7811167dd5d259855c006e6c30b0d2c3478378e6b9c19d7e7d7f",
+      "historical_notes_sha256": "31c1093614441ce750f25afa63802a40e0bd30d5056bc3f5183bb108371486af",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1923.xml",
+      "historical_original_copy_sha256": "f7405449ddab5b2318a4e1c6d6be3a41f944174e6595aee19906051a7072a3e9",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1923.json",
+      "historical_prepared_payload_sha256": "244616ff30d40faebea46b6084971032ca2c68f778e5fe409f81fe558113fbbc",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "72a69eedb4169eeec9aa87ac43027376834c395e198a4fac354f69e044dcb4bf",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1998"
+        }
+      ],
+      "source_bytes": 4398,
+      "source_id": "FGDC-1923",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1923.xml",
+      "source_sha256": "f7405449ddab5b2318a4e1c6d6be3a41f944174e6595aee19906051a7072a3e9",
+      "whole_source_root_sha256": "0e18f1a000196ddf8eeecbebcd5a996f275c07dcc561f479088fb7d122b1f422"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "419fae63777b7b3d1e0e9d4b96a9046990f8670f1d679cd5a739f01ed38d2b59",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "aa67a0ae8cee0a0140930b11c65089f24983ddbf5745519af0ab9ac306ee51a9",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "e49698c0fb261e7f2fedfd886710ae6ef6296b6b9a6e1ab1a5c2bcb811f4256d",
+      "full_primary_title": [
+        "PICES Scientific Report No. 9 (1998) - PICES Climate Change and Carrying Capacity Workshop on the Development of Cooperative Research in Coastal Regions of the North Pacific : October 17-18, Pusan, Republic of Korea / Sponsored by PICES-GLOBEC, CCCC REX Task Team ; Organizing Committee, Anne B. Hollowed ... [et al.]"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "0f32e910323616a9036bc8e802de43b6bb655a760cfc818579935812526c5b38",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "2b00c66bd98e7dc3533d6f36326a5cc24e25d6da28c94cf3dbbc1c2d3f06081c",
+        "keywords": "c2c13966e2fa88054fd6608346b792c91e8537c67a03c23049f4636017339b0c",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "1612244c97685fdd7a214e76e8fdaefe9fb67425daecda69116536e2e1d3dfdd",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "633135493658050d36f311f3692a4dbbaa8c6cf379295b1123ee675662e4e158",
+        "title": "846e2605a9defce841c3a70bf2bae8fc0e263ca3a4ac72d247f28863efebc0eb",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "54e9daf6752a1c3d9822ee357bfe1627fce2ae4dc08db233ac3f2ce3f2a39452",
+      "historical_notes_sha256": "1612244c97685fdd7a214e76e8fdaefe9fb67425daecda69116536e2e1d3dfdd",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1924.xml",
+      "historical_original_copy_sha256": "34e749d18bbeb0e60c966e609905d6a94b2ece57a217c7c624ab5fdde4ec4a96",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1924.json",
+      "historical_prepared_payload_sha256": "82793aa780408873ed3465205ac42a5fab0495bbe089adafea925d6d9a066201",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "419fae63777b7b3d1e0e9d4b96a9046990f8670f1d679cd5a739f01ed38d2b59",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1998"
+        }
+      ],
+      "source_bytes": 4480,
+      "source_id": "FGDC-1924",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1924.xml",
+      "source_sha256": "34e749d18bbeb0e60c966e609905d6a94b2ece57a217c7c624ab5fdde4ec4a96",
+      "whole_source_root_sha256": "e75cc7d3c1afa45a501a6a2fde08eb8f9c97262bf707d5aab167c0be389b9548"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "7e03042a6cdb020f074c448e95f415d60119c690311a7a5e24334ea03ca3d063",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "577e10f3b66db76504d7dc65a83b51b7d1d077abdf55e54b4bbf4212d013dcd6",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "4a852b9796c7ca9d043b98f5871033c3ea16fd5eabc14fb77a2ba19e122cdcb1",
+      "full_primary_title": [
+        "PICES Scientific Report No. 10 (1999) - Proceedings of the 1998 Science Board Symposium on the Impacts of the 1997/98 El Ni\ufff1o Event on the North Pacific Ocean and its Marginal Seas / Symposium Co-convenors: Howard J. Freeland, William T. Peterson and Al Tyler"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "a6f4871986c718188f6520594dbda5e9809bd96d8297bc78033b4455fceef651",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "5166a67445b05d759bdc51763b2663df8d2bc1990417d9101b72597600a5d316",
+        "keywords": "5c6e97ee402bbe8b818cefa5de9c635fcf8745f5f2f1815deb3dd35f9ed59790",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "77ff63dd4fd8adcf71980fb4656c8deba9edc39e8822d336a3e9369bb82dd31d",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "8ba5962d35e1796cc413c9eee334128a662d2f57de3d08c6841a0266e01297b0",
+        "title": "82ae8b4c72517e2ebc03e78ca55e8751bde33de9e7c26bf384274bd70414e05a",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "680ca138e979e23aaa875c1f6493e6d1dc5644bd136fe243f3d1c61d5981364c",
+      "historical_notes_sha256": "77ff63dd4fd8adcf71980fb4656c8deba9edc39e8822d336a3e9369bb82dd31d",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1925.xml",
+      "historical_original_copy_sha256": "e8a52b4770bbbc78a3369db85e40a751d49e5820f63e4b4841e87848980a46de",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1925.json",
+      "historical_prepared_payload_sha256": "70b457dd90bfe9b5f6bff629640daa8722161137849639b38265a35e665e78ba",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "7e03042a6cdb020f074c448e95f415d60119c690311a7a5e24334ea03ca3d063",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1999"
+        }
+      ],
+      "source_bytes": 4901,
+      "source_id": "FGDC-1925",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1925.xml",
+      "source_sha256": "e8a52b4770bbbc78a3369db85e40a751d49e5820f63e4b4841e87848980a46de",
+      "whole_source_root_sha256": "d19f9adce93cfae2fcf346f771ab6989ac92b30ff3bf92c1edb08d0a06e67939"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "393674c1c784fa58d7562698807d96fa19caa7a9ee2e6593ad1db45014e12964",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "ee9ed280ded0070f1d2e887f86a40864363901709d0f552cc52809e12e84d66a",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "dc22349a51428659b6a9c785b0354822f33205d573b81cfcb6dc3abb4be256da",
+      "full_primary_title": [
+        "PICES Scientific Report No. 11 (1999) - Summary of the 1998 MODEL, MONITOR and REX Workshops, and Task Team Reports / PICES-GLOBEC International Program on Climate Change and Carrying Capacity ; edited by R.C. Dugdale ... [et al.]"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "9fe51fb9ed0e785118186ee58f59a21faa6b4ba4d4b015984285e5d1109a94d5",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "2259e302ebba1161417561b12a9ac7485dbcde9f42c9872a276a97f973cce3b7",
+        "keywords": "6f15e8739768e236bc4288692e9808cf03bf3d0f9d158673177c3f7cde59446d",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "c7e08e1412de8d92b75995a21bb5129a8159f92374ff5c68307c622c6958aad2",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "0b5d684fbddfa10ec893339c7e37a94bf08873a8004ff636690a5b76be46b444",
+        "title": "1829d842079ca74eca221b88e0ea7ba2902d731e9f40c9b90d9aec5020cd989c",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "522e97d5c65e1f57d5ee2eecd686b23ae14857e1e061c9456096d54fb514ba96",
+      "historical_notes_sha256": "c7e08e1412de8d92b75995a21bb5129a8159f92374ff5c68307c622c6958aad2",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1926.xml",
+      "historical_original_copy_sha256": "1edf8579ddbef2113e447c38e156c7dda86237f8e9de12d5801952cf8f4ff6be",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1926.json",
+      "historical_prepared_payload_sha256": "dd04d3bc7e34aefca338b2ada7f805aaae8558d022b08bd7f5e0e02cd2748922",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "393674c1c784fa58d7562698807d96fa19caa7a9ee2e6593ad1db45014e12964",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1999"
+        }
+      ],
+      "source_bytes": 5155,
+      "source_id": "FGDC-1926",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1926.xml",
+      "source_sha256": "1edf8579ddbef2113e447c38e156c7dda86237f8e9de12d5801952cf8f4ff6be",
+      "whole_source_root_sha256": "d8b1bbe033545320c4f881bbc717f70e5ffc1fbcdf661ca3f5b2822b3f359702"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "e2c6d43f83c08fa0805b6d470c2f1e7912667f5398231e76a592d25cbe7754bc",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "214693e258da1f0533654d7b2e5d220f72b3983b7fa216742622e6cc44dd5af9",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "e90ec74f6d7eb1cf71815c5f8f00d24d8715022acd3990f3bd42e518f4fe50f1",
+      "full_primary_title": [
+        "PICES Scientific Report No. 12 (1999) - Proceedings of the Second PICES Workshop on the Okhotsk Sea and Adjacent Areas / edited by Vyacheslav B. Lobanov, Yutaka Nagata and Stephen C. Riser"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "9be5883955cef800eefc607ca7f56855b1356acbb99f6243460959df107d22c4",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "a18ef20ccd6fc3ba5ae1111dabb023be78d04eb9e58785ff49f3e551ec167136",
+        "keywords": "7e723fd333978fe45a7eb488bd122aac3690f61109b1dad7489c2447902d0ee9",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "f5dd329b23013bb655834b278a919e4390dda73b36372a1a9329c633bdd44c6f",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "7e99906ae8fb26ae36e6a9e4dec3c8a8ad94b0f720651eec27e1d973f701ba4c",
+        "title": "2ea83800fb1e1efe7ff1d62087a0023c543cdeb844a92641ea7a3b141fbf21ef",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "8b35606bf24655fd068e79c73678837c701ac59cd93c9f3bbe9c84406d9e4628",
+      "historical_notes_sha256": "f5dd329b23013bb655834b278a919e4390dda73b36372a1a9329c633bdd44c6f",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1927.xml",
+      "historical_original_copy_sha256": "e6169154a89f584946af50f27ec8d61fa26bc104d295530a2cd0c320d4a6ee1e",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1927.json",
+      "historical_prepared_payload_sha256": "8ab76d3f24e241890ce582692f64d71ef7516693430327d60dafeb2b9fd8369d",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "e2c6d43f83c08fa0805b6d470c2f1e7912667f5398231e76a592d25cbe7754bc",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "1999"
+        }
+      ],
+      "source_bytes": 5149,
+      "source_id": "FGDC-1927",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1927.xml",
+      "source_sha256": "e6169154a89f584946af50f27ec8d61fa26bc104d295530a2cd0c320d4a6ee1e",
+      "whole_source_root_sha256": "7782b3e4b0534819c7ac8f0a3190a29cbf0fc96b44e530b5f6b4a33093f70483"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "650a71db8757c17b26e4102bb2649a0b3cf557d2dfe824b66d665ccf719585b4",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "356f7727856674ad2d6db4f344a7000289501f1793db52fc62561c8d1ab8f254",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "22a140dd8139da887e6b985d89cf538a4d1f8afec6667b768578c247ecec511f",
+      "full_primary_title": [
+        "PICES Scientific Report No. 13 (2000) - Bibliography of the Oceanography of the Japan/East Sea / compiled by Mikhail A. Danchenkov, David G. Aubrey, Gi Hoon Hong"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "94dd270afd662261ab68295460b0c6d0931e98194697dcd8156ff07b5911c8d7",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "9957aedb1ff5aeac46378c40fba53d0b88a504cc3097fe798bdbac2920f6937e",
+        "keywords": "b2c751a5fec64f0542ad75c71f343f4070e1b6c2dcf928af3438c9e767644ea0",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "f17515b1a55dae777eb17677c6f6b7627882662feb02d5f8daeac84c3489cca5",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "632706d6bfa304b674d8c07481251aaf3e71a38ad5604f0eedffcb695ddf72bd",
+        "title": "517cf57828f4e3519890302bd9a6fbfddd7b7d48522bde1bad084a970a668b2d",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "81977d6a2caeb2840b990d4486ba741b63d5353c8f71be0763b1c98490d3b95b",
+      "historical_notes_sha256": "f17515b1a55dae777eb17677c6f6b7627882662feb02d5f8daeac84c3489cca5",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1928.xml",
+      "historical_original_copy_sha256": "18e8d477bc2879aed38d0d9666190001492b26fb3f500c0c92fef0b8b66aad35",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1928.json",
+      "historical_prepared_payload_sha256": "f270718390a7bf65a44051e69d504e607de6c608fbb85c9701ac3faeb351cae8",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "650a71db8757c17b26e4102bb2649a0b3cf557d2dfe824b66d665ccf719585b4",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2000"
+        }
+      ],
+      "source_bytes": 4269,
+      "source_id": "FGDC-1928",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1928.xml",
+      "source_sha256": "18e8d477bc2879aed38d0d9666190001492b26fb3f500c0c92fef0b8b66aad35",
+      "whole_source_root_sha256": "7569fcb588f009d03c27d8d9079307e0a1e02b5c8870957078c0584942262a4b"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "c712df71b175848284eafcff53936a62cb4c568f867f0b86e2e466dbc182eb1b",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "c1ebaf82c67b2b892ec9571984832bf70951d5fcdd72974488e1dbd0f15d1db8",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "2715d4403cfcb7ec1985e485c5821a0965c741ec2bd829310f2f72c20b1e8c9e",
+      "full_primary_title": [
+        "PICES Scientific Report No. 14 (2000) - Predation by Marine Birds and Mammals in the Subarctic North Pacific Ocean / edited by George L. Hunt, Jr., Hidehiro Kato and Stewart M. McKinnell"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "05c0cb202811cae96887a56fd5b3ac1066defc2cc67166dffe22b6c0deb9cae0",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "33fac5d83c364c037dd0ae808f0980e33ccdbf580b7375347ec9a2231736b64d",
+        "keywords": "389672d8e37aa73b73d68dc2e6eaa12a6d46f03151e017a0791b51f740402eba",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "2b76a2748962bffb4b69e6789e813c48fac0e8a648c579688e95bea9f8b2431d",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "1ca3b47cfc6a9a3baa90677ae14187aa507ab6e9136f3903e0761844ad8fccd2",
+        "title": "9ba5b5b899f98e8685e8a6f79661be4fb449445b067bcbbe592ac165cd7fb165",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "4d91c70540d972d1f954fd6a4cf44a460760d92f75ad475fe0481d99c6d988da",
+      "historical_notes_sha256": "2b76a2748962bffb4b69e6789e813c48fac0e8a648c579688e95bea9f8b2431d",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1929.xml",
+      "historical_original_copy_sha256": "ae2483c8c251a52b78c17c85449a11fc85fb6355074a76a25d391a1c7a79f6e1",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1929.json",
+      "historical_prepared_payload_sha256": "4d8750c05f1eda7c20a8fcac4de1703508e968f78920d01432800bcd7995b174",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "c712df71b175848284eafcff53936a62cb4c568f867f0b86e2e466dbc182eb1b",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2000"
+        }
+      ],
+      "source_bytes": 4774,
+      "source_id": "FGDC-1929",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1929.xml",
+      "source_sha256": "ae2483c8c251a52b78c17c85449a11fc85fb6355074a76a25d391a1c7a79f6e1",
+      "whole_source_root_sha256": "02fc7a34911378f717090957693a5c401ba7dabb3394e3e2ed798499aee31b61"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "2edf0bdd5bb5789700c5eb59204328da4811f9ab8ce521933ad9341c4e1a2750",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "0ddbb889dda036d9987778b061c0c2926e654f3422fe0c3b51af24fd8a34c553",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "33fd9550fdf811debceb930014e97ae4e9f66b9993821782c64acca8ffd53b66",
+      "full_primary_title": [
+        "PICES Scientific Report No. 15 (2000) - PICES-GLOBEC International Program on Climate Change and Carrying Capacity : Report of the 1999 MONITOR, and REX Workshops, and the 2000 MODEL Workshop on Lower Trophic Level Modelling / edited by Bernard A. Megrey, Bruce A. Taft, and William T. Peterson"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "323d73005ef0315d63dfe3b5359e7ef76f4ce295daa409dae8cf4d9269729888",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "de97ff9f487ae23fa4fcb211e8f1d801732d58d5e17c99c78494c2f51ea20ded",
+        "keywords": "0b9a6a283688d96a966d81d31287a65f0a0e7663e359974f3c95892204ec9d14",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "357786c7978b59bd40b5c3d51ed33bc4b6d361a51ac6a541f509320c2ec92fb5",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "c1985bece3ece3b292413219ca1eadcbb2ef4a6ab899ce7599c24e9adc1a9edf",
+        "title": "617228c12c3e4decfb862b5167d6c6d05bc2a35f049b6471ad5ffc14f4dc255c",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "038f2234562772d59e7f749128a4cf0cae0a5255abfcc6174c66e8c9862ab83a",
+      "historical_notes_sha256": "357786c7978b59bd40b5c3d51ed33bc4b6d361a51ac6a541f509320c2ec92fb5",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1930.xml",
+      "historical_original_copy_sha256": "e082b5412f09c630b00582ef0c1c3c51eb79387b1a766b2c7652bf4f147b3d0c",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1930.json",
+      "historical_prepared_payload_sha256": "0a83aca7dee05c33f559d007f8e820e2719715c80d57a795c42458d78c3fca7d",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "2edf0bdd5bb5789700c5eb59204328da4811f9ab8ce521933ad9341c4e1a2750",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2000"
+        }
+      ],
+      "source_bytes": 6223,
+      "source_id": "FGDC-1930",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1930.xml",
+      "source_sha256": "e082b5412f09c630b00582ef0c1c3c51eb79387b1a766b2c7652bf4f147b3d0c",
+      "whole_source_root_sha256": "fba276f399206ba6bd07feafdd81fe43a7b9969a3df01139224f796a005cda9d"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "612126897155fe71e235c98df5f4630fa3281d7e09077fb33dc415bce4b1e241",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "b8d9d458a974d9e1d3439cfc1e15ad739acf7f449be5343ff97ac69396b7b40b",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "98199611508809f6d46fd7a98093bb4d18160322d2d879b034234e7e7b4a0244",
+      "full_primary_title": [
+        "PICES Scientific Report No. 16 (2001) - Environmental Assessment of Vancouver Harbour Data Report for the PICES Practical Workshop / edited by Carla M. Stehr and Toshihiro Horiguchi"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "17b71e4f0c10bf3b2f1ed9f5491e8a1844843b7c7753fee8de638cafd7f3bc24",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "88f9ca4e53d395fa28683ba0ff6e3f7550605dad50a909c3096262f581991ea0",
+        "keywords": "74eb9725e1993196eca473b74b5c90355f5f07b60739829ae417912104f501e5",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "177ecea76eda704e450f4930f77cf501d75ffeb9a4ab2c61a1781fe760d502dc",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "31962308abeeb58c5ce5dc20e8f50e61b227d5d6f774bd66f61353659f78ee07",
+        "title": "66920670092d79642e90d087d06557cf7c6a2c7232ae0cd392a120206f4b8432",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "f3c14d9efcc5c237526a9a822fbfa583b5c0e0dc84fb0da4e4efe1f6b35ec068",
+      "historical_notes_sha256": "177ecea76eda704e450f4930f77cf501d75ffeb9a4ab2c61a1781fe760d502dc",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1932.xml",
+      "historical_original_copy_sha256": "ead2d693838afaeb22f1e05d431fe48fa9941aedbb5df966056dffeed6b36a46",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1932.json",
+      "historical_prepared_payload_sha256": "e807e79a0c87986ddabd29256b2cd150c59823ab108db51f5137553d3aa8578c",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "612126897155fe71e235c98df5f4630fa3281d7e09077fb33dc415bce4b1e241",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2001"
+        }
+      ],
+      "source_bytes": 5132,
+      "source_id": "FGDC-1932",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1932.xml",
+      "source_sha256": "ead2d693838afaeb22f1e05d431fe48fa9941aedbb5df966056dffeed6b36a46",
+      "whole_source_root_sha256": "6b9080060cd72ec7127ffbe5607861a3f0f8041f9e2c783716f38826bfdc6103"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "52afe6a095d5df982b8d262c1088964c5fd0d71a5e689fd19325f0c163142290",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "16455e6b7d96a4a58b350579ca55dd6dc52bfc66bb4cc4d67b145cb6229e6168",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "b06d1282215557ed77f43383b5707179f7dd68d81cfa8c9a796b2e9cc6f64f66",
+      "full_primary_title": [
+        "PICES Scientific Report No. 17 (2001) - PICES-GLOBEC International Program on Climate Change and Carrying Capacity : Report of the 2000 BASS, MODEL, MONITOR and REX Workshops and the 2001 BASS/MODEL Workshop / edited by Gordon A. McFarlane ... [et al.]"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "b3bb61f5bd33edd29f117ec9a6b852b05a537b65f2424015f21590d26c71f7b7",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "cb5d7c814ddffd34eacd1c59ffeb22c4150dacd5903e7773438e1ee8238ba2e0",
+        "keywords": "eb7e774283fbe5500b2aa4b66ff7e35027a66d369b084dbb9fb6092059135ee7",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "66367b3849f7afc049a70c0286a3c0a456d1fac1b99ea147bb9467e74365c455",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "title": "636be4513bf0e192a882071ad7be872bb94daa484949d636c2c3d109ac8b64e2",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "dd8994496bec626dca60fac9249b7349ae7f5ac1bb77ac1bebd04824cec64421",
+      "historical_notes_sha256": "66367b3849f7afc049a70c0286a3c0a456d1fac1b99ea147bb9467e74365c455",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1933.xml",
+      "historical_original_copy_sha256": "197f50d7d26bad5d3233104f387b9ec28a5ceec79691c858ba9494b03308e05f",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1933.json",
+      "historical_prepared_payload_sha256": "c3fad706af16e9efa2e816b1f180b4aeb645ce099c5a7ef22998edcd4ccedb90",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "52afe6a095d5df982b8d262c1088964c5fd0d71a5e689fd19325f0c163142290",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2001"
+        }
+      ],
+      "source_bytes": 5583,
+      "source_id": "FGDC-1933",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1933.xml",
+      "source_sha256": "197f50d7d26bad5d3233104f387b9ec28a5ceec79691c858ba9494b03308e05f",
+      "whole_source_root_sha256": "bfa545c30b6c30d88ccbfdfb455bf4d0e9decc505735d5ccac89b63aaf7381c9"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "fc0abb0f95e5154cd9adf7ac1448c150100cfb5d1198c760c276f61de839c9ef",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "4fe333666693b8062d4d9f9a671c53fbacb7d353a96737fc3a85982fb57bf285",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "a19e65cc044e314ee3dc347f1a23c333ee8ac652b5b1cc8368ba6e63cfd9425f",
+      "full_primary_title": [
+        "PICES Scientific Report No. 19 (2001) - Commercially Important Crabs, Shrimps and Lobsters of the North Pacific Ocean / edited by Robert S. Otto and Glen S. Jamieson"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "b3709b3f06afcdeec8f98d58d9a7cfd44e5f6c4b4d0b7f8af56abcbb15126307",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "0a0aced948ac08ce1a4da5719b4f90fb9d23f76c0f8c07ffc5fa9189730af7cc",
+        "keywords": "e3880c96eba541d1bd8b48f08bbf29df5e69729fe528e794eabdba49a210b987",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "79daf8dc515acb2a224afcb3e8e98d3bdc091ef0504f87e73fc40f32c211341d",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "56ba995832541883a0a84258f01e6b862b7338f35fa7772d84d8f3560a3164be",
+        "title": "955c907fcdea1a1e85fb0d65fcb7a9aa59ec55f74a61bc3340b35b9ec4ec1682",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "a29bb01ab5f3a69059339bae7ecd02829084a602d810ff2d650eee6d243b54cb",
+      "historical_notes_sha256": "79daf8dc515acb2a224afcb3e8e98d3bdc091ef0504f87e73fc40f32c211341d",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1934.xml",
+      "historical_original_copy_sha256": "3fbf86e73931137bd739acf70cb82e6a4b8002c28c3e4dd24a9e0bb78c3d62c8",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1934.json",
+      "historical_prepared_payload_sha256": "5418785d0faa457da01898ec64e0ee62ccf4193e23b53966c4e3c067178cdf24",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "fc0abb0f95e5154cd9adf7ac1448c150100cfb5d1198c760c276f61de839c9ef",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2001"
+        }
+      ],
+      "source_bytes": 4389,
+      "source_id": "FGDC-1934",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1934.xml",
+      "source_sha256": "3fbf86e73931137bd739acf70cb82e6a4b8002c28c3e4dd24a9e0bb78c3d62c8",
+      "whole_source_root_sha256": "d036ed48e7acc10241391456fa5ab5bdb87edc0d25a8082d9ecd902081680515"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "fc8a4ba211cd71c26f6ba28087cb3e50d0cee19fa9f20c3df7d549fcf8e8f18d",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "caddf58a0908b531c85e29f0c4dcf403ae1020735694bd5937452bdc151db848",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "f97c17d243907c3021969c98dd3c9773a2452f0c8808205ee96783896d979d2e",
+      "full_primary_title": [
+        "PICES Scientific Report No. 20 (2002) - PICES-GLOBEC International Program on Climate Change and Carrying Capacity : Report of the 2001 BASS/MODEL, MONITOR and REX Workshops and the 2002 MODEL/REX Workshop / edited by Harold P. Batchelder ... [et al.]"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "edb4c8875f5c3f332f79160be28b08c3a678a68e91b064186da15c3e55ed9159",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "13406319b059b71ed3a88edc6828892066a7d55d32ec415b6d18eb8161824c28",
+        "keywords": "68a4f55a40defcdf94be0a626e94da1c590a438dde3e3e5698010f45c2ef6c3f",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "a5cbc720e94701b6eae92cd59bd135d1348c6598ba5625e76f41969dd37e08d8",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "b7587e0d30e224e36a74e9574221a02fbbfbccaca13b169ab9c0f7b0d77d39a3",
+        "title": "3b00601d11f2059dbc5be9229b992797ec8c057255753911980d36329dce4146",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "811f03622b7e92253bafaa01d964f82683ad6b30a54007ac58edb9fce2f63b09",
+      "historical_notes_sha256": "a5cbc720e94701b6eae92cd59bd135d1348c6598ba5625e76f41969dd37e08d8",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1935.xml",
+      "historical_original_copy_sha256": "aa0a893382df13ba1ea18b6af73057d753b51781a2483ed861fbce43a6491111",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1935.json",
+      "historical_prepared_payload_sha256": "57de2c07ec89e1487064f22242fe86b3789f1e1800722670725ad5a76a0b4eff",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "fc8a4ba211cd71c26f6ba28087cb3e50d0cee19fa9f20c3df7d549fcf8e8f18d",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2002"
+        }
+      ],
+      "source_bytes": 5579,
+      "source_id": "FGDC-1935",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1935.xml",
+      "source_sha256": "aa0a893382df13ba1ea18b6af73057d753b51781a2483ed861fbce43a6491111",
+      "whole_source_root_sha256": "bd94e0a31facd33203e0f60993185e8fb356699effe91c8234ce543f44f9918d"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "55c606179492adb6bc4adc919577ed85174a3705e7642fefc41b87c0ec1d4582",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "37d423327c65a8a8514e5de25e0a1103337111bb606e858afe19a214154627c7",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "52602e42c53819e08997ce70841492c3c5cc323b8bc5bd33c105cd9adea035f3",
+      "full_primary_title": [
+        "PICES Scientific Report No. 21 (2002) - PICES-GLOBEC International Program on Climate Change and Carrying Capacity : Report of the PICES Volunteer Observing Ship Workshop / edited by Charles B. Miller"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "c9f084625ede3444acb8746185ac064013c0c91cd717dd6bcc784f46377a7196",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "adbdd75f4b2d2dbb1de596c1ce329db7b33afc1db56b07152ab9d91932a38386",
+        "keywords": "2e4b19d339628582a555a2d34acfdf973dca45277dab6a6b9cdab7d3dc13c47f",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "4e2de8a48105805c66475433ec0b9c934b0b8e3bb8def3974e23ae9330350ae7",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "929f3f16485765786efdac8078ca2324547c3d5f768b45d084aaf15c62fe651d",
+        "title": "9a36f33219699e06097486b99b2dbb3ef38a0fea0d9e42374fd302d73e376b3c",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "4c3fcf5843861d44d5e2a5146a3d228062291c74d3ea104a7ddacb77e5a24aac",
+      "historical_notes_sha256": "4e2de8a48105805c66475433ec0b9c934b0b8e3bb8def3974e23ae9330350ae7",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1936.xml",
+      "historical_original_copy_sha256": "a3248b60f7d49b243ac86e6bf9037bd1a02f0f49f876e041ac982f35e674ca26",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1936.json",
+      "historical_prepared_payload_sha256": "315f0c745eaf60248b1c51830d4b0af2a889c544c4f0f7f5f40754fe5284cd53",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "55c606179492adb6bc4adc919577ed85174a3705e7642fefc41b87c0ec1d4582",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2002"
+        }
+      ],
+      "source_bytes": 4533,
+      "source_id": "FGDC-1936",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1936.xml",
+      "source_sha256": "a3248b60f7d49b243ac86e6bf9037bd1a02f0f49f876e041ac982f35e674ca26",
+      "whole_source_root_sha256": "cabd0d693cd2538ba2b8c705d728d3a77a3b7a9a4268fcca8a3bc296f4ec4f0d"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "d4a691a457c494252df72e65360abbb796053ac589ee74e0ef220ff842c22f8d",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "e3234e3cb64cd0a5ae35214b28fab3886654547b388de8da67e5f957f52a8a34",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "41df332acf494148ae23032a76aefb5696bf48ef89da09382d3b833bfb79924a",
+      "full_primary_title": [
+        "PICES Scientific Report No. 22 (2002) - PICES Science : the First Ten Years and a Look to the Future / edited by R. Ian Perry, Patricia Livingston, and Alexander S. Bychkov"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "e8a592a7629d776810e086a2fd6bc685ed54a00e0fb748db3783e4b204a2f288",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "dbbd712351b0f0451f06dbdfadf2656cdf0abd1d2cc1430bd412ff8ce86416c6",
+        "keywords": "daaac6ee722dae4612f45fc33787160725eae961747c86d880ba3730016b9eec",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "5584c439c6ea99e8f45f7ece29eb83cb0f6a47354681ef60d15557a882fad114",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "f503887a0f1fea680eeb25a1d5e34bd550f47a46558486b316a57fa78631acdd",
+        "title": "0658805fae10e4e6c21a2ef249c4d6630b33fc8699e841e7b84501353674e8a8",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "9152378fce0bb63d061ee2dff4cfe902d2cdc050df7396046f3365f54d19e037",
+      "historical_notes_sha256": "5584c439c6ea99e8f45f7ece29eb83cb0f6a47354681ef60d15557a882fad114",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1937.xml",
+      "historical_original_copy_sha256": "d382385984a96edef93ab48b92e8ff46c3f94f7adbc91c6092643407c1ca2755",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1937.json",
+      "historical_prepared_payload_sha256": "66e9a561715251c5361d20be393507ae57655ffcbccb1738c873ef37ca1e7abb",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "d4a691a457c494252df72e65360abbb796053ac589ee74e0ef220ff842c22f8d",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2002"
+        }
+      ],
+      "source_bytes": 4339,
+      "source_id": "FGDC-1937",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1937.xml",
+      "source_sha256": "d382385984a96edef93ab48b92e8ff46c3f94f7adbc91c6092643407c1ca2755",
+      "whole_source_root_sha256": "feef46306f328b1233dd5d4da82b4ba12eec8a4b57c7e2a738acf883ed55e151"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "74cae3d4dac7bf61eb951c2f049b45057a2c506a53223c84dbe34cd7bf7d3018",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "fb1eb022c5d2420f59f2cf60d99e6c69d17023ad4e502e7c3130dbb74903be77",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "b0d64bb31cd41c511b106d7ef9d59e1329f41c9cdbd36350ac3c85cf6417f0bb",
+      "full_primary_title": [
+        "PICES Scientific Report No. 23 (2002) - Harmful Algal Blooms in the PICES Region of the North Pacific / Edited by F.J.R. \"Max\" Taylor and Vera L. Trainer"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "1c97e25c9d55f1936b5848e6d17ad39c0b1f3581bc91802efa227b5ae77c1a8b",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "d06c84f35cacb195d0939e2fbf519f54a35f88d6702e94da76fef36d548b70ab",
+        "keywords": "0daf636423e0b886b0465bfc536c7a2f1a8a4e0237171b85d3dc06ae3a0abf30",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "9469b280b14bfdb877b1db6bde4639b730a91664abdcb330f043788e42b934a3",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "f739b037ffb79ec06f10cf5ff800a4402a44c125289b948a901146245467f091",
+        "title": "ed49dec579c268010aa4744ce09a44743f3fd5d60262c08562d34f1f22767242",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "ee491830fb87187f2e8008dd1741c34229bee955cbf3ae40ebd3aee382a06a78",
+      "historical_notes_sha256": "9469b280b14bfdb877b1db6bde4639b730a91664abdcb330f043788e42b934a3",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1938.xml",
+      "historical_original_copy_sha256": "4dd12f78fa4e84f2a69615a795c631464454e9fb5b666b681a4228e53729133a",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1938.json",
+      "historical_prepared_payload_sha256": "257e159a03116a1ae9a2c79299a3493af7fb27b9c777c95a3cbbd8f8a959c3a9",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "74cae3d4dac7bf61eb951c2f049b45057a2c506a53223c84dbe34cd7bf7d3018",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2002"
+        }
+      ],
+      "source_bytes": 5171,
+      "source_id": "FGDC-1938",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1938.xml",
+      "source_sha256": "4dd12f78fa4e84f2a69615a795c631464454e9fb5b666b681a4228e53729133a",
+      "whole_source_root_sha256": "38a45aeba3ed979737d8887d00d02bc354d5a787458e73cb1477ad693837a483"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "29aac2cd1d41c5f73772abb416184fee2584e8143db372af3091195c0e5afaf8",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "7684b7af1ec75b01e8db5d04f6172f9ba7a81a1b4ebc2fab383184d962864555",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "d11ef587a608299c592a14248377a1a95bac9f6185e7ca5dc43675dc7cd8a29b",
+      "full_primary_title": [
+        "PICES Scientific Report No. 24 (2003) - CO2 in the North Pacific Ocean : PICES Working Group 13 Final Report / edited by Richard A. Feely"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "d5da0b85b06d95cae241154114434d51a45c10a2fa425aebd77649f3e2ee4296",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "8a52e76d51ed97c51c297f5defb2614ec06c4e1994e647d87b5132dfac0bd9fd",
+        "keywords": "072aba290a317ce4dbb67e83ac4cf7de88f809fd7fed5eb96ff991aa91e42eea",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "c7a0a2114f1361dc04e60d068db9e8bae3289fa1aa5d1b0922af436450d87268",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "9cf6763483a29a1f733048b79d8516c3cdd7c13e6d27dd43d047d2192a1bae29",
+        "title": "c7699eaf1ad26e46fcf047efef32cd383233f4aa722453ac91334eec27497843",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "ff18c8e03032b1c4ba629a1c60461f0480c08c33ad90e705dae79d0eb91b53d5",
+      "historical_notes_sha256": "c7a0a2114f1361dc04e60d068db9e8bae3289fa1aa5d1b0922af436450d87268",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1939.xml",
+      "historical_original_copy_sha256": "d36b56eb42fc5da16ad71be4259e1b51420907c1ca7f87eb36626afbb89fe505",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1939.json",
+      "historical_prepared_payload_sha256": "b4dfc89f5c0e06a1b63d33f83382546c82f451f56eda901cbee267d82d6d7f4d",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "29aac2cd1d41c5f73772abb416184fee2584e8143db372af3091195c0e5afaf8",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2003"
+        }
+      ],
+      "source_bytes": 4230,
+      "source_id": "FGDC-1939",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1939.xml",
+      "source_sha256": "d36b56eb42fc5da16ad71be4259e1b51420907c1ca7f87eb36626afbb89fe505",
+      "whole_source_root_sha256": "a50f50acb46b48fda55b582560326f9bedc5d21c10acbe8871063388691db3af"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "ac493f52bb424a7b478c597ee99df1ed2946b73c5f7e8447622a882e4d825eac",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "b51bc2ba8ee3b864bd7be7ee41860665294d9d5cbbe8a5b7a07bf0e8acccf442",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "c3bc3b5beebb11e572f51b84f95e094f26ee5fabf86c815a75e21ab412b41571",
+        "./idinfo/ptcontac": "f13f860a1fd1afebc2b359168d58d0a377fbaea5020d11cbef7b28f1dd283572",
+        "./idinfo/useconst": "7087e890685e8d3e49f02b66af3e2c35c20f5a680476f8cecd4da3db7c0068a9",
+        "./metainfo": "d0a636009e1bc965e834c07fe3e74386615108117fe930dc2668e3f9ac7c1e28",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "a43dc1db5554dfd879159b95252d4e84d5e3da6b59de8e63e8fb1f59ba2aab74",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "3110f2be61177fb8074dcc9d9a1f872bc1183436acda1ce20442557117a97e84",
+      "full_primary_title": [
+        "PICES Scientific Report No. 25 (2003) - The BASS/MODEL Report on Trophic Models of the Subarctic Pacific Basin Ecosystems / compiled and edited by Kerim Y. Aydin ... [et al.]"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "911879e242bfbb4150a91c5cb50b8b71efaf864eb9db3adff89b809a2b566447",
+      "historical_metadata_date": "2004-06-01",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "e57a450f6a3089c5840b9069a19a851399f4748177a77c2648d6d6559063318a",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "940bab73804bda6f813a51ff1b65d33f0e73adc5fdd6a32d01f8d22516cc5f2b",
+        "keywords": "ee88952ce043a17f66557513b735e9a6d3578a2b82106b73f405daa7b5a0fb87",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "5180ccad10064ab14435f325cfee15ea9a24c8b91343f596f3a34dc0d5a4f6e0",
+        "publication_date": "017b146ab44a4a1f1694d4910cfad492d4148fe673419d999240ffcd3ae3e200",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "06999968f1c9c13e88c2d1deeaceda6c1aceaa360a7d62da906a4ba92663152f",
+        "title": "ea5569777eb41be8a9ffc62adfd79662ebd02221d5dc5a33e81d5d8f68a0591c",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "8dab095a3e49d002ad989ae90422924d04f22b4b19a56e9223dd1a99069d6a23",
+      "historical_notes_sha256": "5180ccad10064ab14435f325cfee15ea9a24c8b91343f596f3a34dc0d5a4f6e0",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-1940.xml",
+      "historical_original_copy_sha256": "c773a50e8b97ea1b8db59fe90bd20bcb707f600b12ce772ffb2af8e8a7d723c1",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-1940.json",
+      "historical_prepared_payload_sha256": "a322f287300aa48fdadf8168b020e8d78899c39f971aa2a824985ec89aceffef",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "Acknowledgement of source publication required."
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "Acknowledgement of source publication required."
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "b51bc2ba8ee3b864bd7be7ee41860665294d9d5cbbe8a5b7a07bf0e8acccf442",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "20040601",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "2003"
+        }
+      ],
+      "source_bytes": 4605,
+      "source_id": "FGDC-1940",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-1940.xml",
+      "source_sha256": "c773a50e8b97ea1b8db59fe90bd20bcb707f600b12ce772ffb2af8e8a7d723c1",
+      "whole_source_root_sha256": "cd76e5c0abd289b66c0c53975d62f7cd4e9db650f6543db7ad5f3e2df748bb19"
+    },
+    {
+      "context_selectors_sha256": {
+        "./dataqual": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./distinfo": "d9319a690c91bc26fb6df67895486a500d7c8d34514ae9d0e9010d758401479b",
+        "./eainfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/accconst": "6d0ca95c084b1480767f4e301159c9260c44d1abbc621a9da9a39bf5f006ce70",
+        "./idinfo/citation": "29fbbb9b394c6c570cb3ced486f648baf43c0b47c59e2e91ab42e0bace71268a",
+        "./idinfo/crossref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./idinfo/descript": "023e18da8760e0a69273029e37da7e55f082889a3a56779d7c37eaa561a01cdf",
+        "./idinfo/ptcontac": "d699c0c835891cb23934e30a68cf9ca40a167d7338a28a4acf149649352ab66d",
+        "./idinfo/useconst": "49ba99aeb020794bf2f5c5dfcf3291790c236b410cc6077b1ee86c3f6ebc0dfb",
+        "./metainfo": "c1d2d54ab5fd759894846400fce3eee408f3e7c52bee971e68cea62347eb230e",
+        "./metainfo/metac": "2bd32e0ac209afb4c04e1b13177e6d0a63f9321026da0e104cd8749ea48aab75",
+        "./metainfo/metuc": "0d6dc238a457213085e69e8ad413d035139942d52f17fccce3abf7b186c5011f",
+        "./spdoinfo": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "./spref": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      },
+      "current_plan_doi": null,
+      "current_plan_record_id": null,
+      "current_plan_singleton": true,
+      "current_plan_source_support": "supported",
+      "current_plan_target_sha256": "8d80a2ad9c9907e86eecd2996d29093a2730f888accf428a099ea6cb7c0b588e",
+      "full_primary_title": [
+        "PICES Climate Change and Carrying Capacity Workshop on the Development of Cooperative Research in Coastal Regions of the North Pacific"
+      ],
+      "historical_complete_creator_objects": [
+        {
+          "name": "North Pacific Marine Science Organization (PICES)"
+        }
+      ],
+      "historical_complete_creator_objects_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+      "historical_complete_legacy_metadata_sha256": "70bfe0d53893b70ba8faf0f0b9eafbe425521bb425bedfccd41cb597352975c4",
+      "historical_metadata_date": "1999-02-02",
+      "historical_metadata_field_hashes": {
+        "access_conditions": "dbb15d5ac851f271b4494a670aec0eb66d086464142da5def899b9750fe906e7",
+        "access_right": "cd28dab5321c1d3031e52e50cf1d8a3f5db1f8b1088046c8025efb84bd02ba03",
+        "communities": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "contributors": "72a53d0500ea32068d63a9a4b1369381e34e80b20c210161ca33f4c9b0a7c5e2",
+        "creators": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+        "description": "2ca5f2a3b00de2fc16eeab8b5a1b0b862f16dd7faa10878e7574a5f41b393fdb",
+        "keywords": "5861b6add37c89ea5b0de0f47984aea61d38f9f89d6ff995014d907ed57b2fa4",
+        "license": "12ae32cb1ec02d01eda3581b127c1fee3b0dc53572ed6baf239721a03d82e126",
+        "notes": "c2161ba08f8d333189aa1ae4bc57c248f16526f7b1ef948c3bb24ee7ca6b97d6",
+        "publication_date": "3ff3ceeaa6c9e6e8dd540a2b64dacc53bb10210311ca111c3c2b6b878c31ce68",
+        "publisher": "76e83002b9a5ab7e9949c9528a2531b36546c3664a38b46881645ffdc23f570b",
+        "references": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "related_identifiers": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "subjects": "9130f2670b9a297f295d917e72e04eef44c939a9850d608501d6a2f9dbc8c47b",
+        "title": "1fe7558fffc2b30766fbbf420ba4ec0efc298deb4bf84854acc527f584ee276f",
+        "upload_type": "d448c0e0f65da7948e3edb7805b5272b54f75f427c33333157324b626f5ca51f"
+      },
+      "historical_noncreator_legacy_metadata_sha256": "488de83aa85df4c5ee3c12a0482fac7fe820040fa34d4c710fcb4f1f63107c06",
+      "historical_notes_sha256": "c2161ba08f8d333189aa1ae4bc57c248f16526f7b1ef948c3bb24ee7ca6b97d6",
+      "historical_original_copy_path": "/workspace/pices-remaining-cohorts-qa/after/data/original_fgdc/FGDC-2708.xml",
+      "historical_original_copy_sha256": "fbc1c07c544f376da869c69a1a1cd9e7eae380b39ee27998935fcceba4fbd58f",
+      "historical_prepared_payload_path": "/workspace/pices-remaining-cohorts-qa/after/data/zenodo_json/FGDC-2708.json",
+      "historical_prepared_payload_sha256": "e266247ab6ffd9d914b9079f9b72b5b344794efcd4e08812dc9f43ae0fdb33d5",
+      "literal_constraints": {
+        "./idinfo/accconst": [
+          "None"
+        ],
+        "./idinfo/useconst": [
+          "None"
+        ],
+        "./metainfo/metac": [
+          "None"
+        ],
+        "./metainfo/metuc": [
+          "None"
+        ]
+      },
+      "original_and_snapshot_copy_match": true,
+      "primary_citation_sha256": "29fbbb9b394c6c570cb3ced486f648baf43c0b47c59e2e91ab42e0bace71268a",
+      "primary_origin_element": {
+        "attributes": {},
+        "children": [],
+        "tag": "origin",
+        "tail": null,
+        "text": "North Pacific Marine Science Organization (PICES)"
+      },
+      "raw_metadata_date": "19990202",
+      "raw_primary_dates": [
+        {
+          "attributes": {},
+          "children": [],
+          "tag": "pubdate",
+          "tail": null,
+          "text": "19980801"
+        }
+      ],
+      "source_bytes": 4726,
+      "source_id": "FGDC-2708",
+      "source_path": "/workspace/pices-modern-residual-20261006/FGDC/FGDC-2708.xml",
+      "source_sha256": "fbc1c07c544f376da869c69a1a1cd9e7eae380b39ee27998935fcceba4fbd58f",
+      "whole_source_root_sha256": "b142c01796497d2a94eb24d28ba4f8573eff61c43c4364c2a312d1eee59a735f"
+    }
+  ],
+  "decision": {
+    "approved_source_specific_wire_projection": [
+      {
+        "person_or_org": {
+          "name": "North Pacific Marine Science Organization (PICES)",
+          "type": "organizational"
+        }
+      }
+    ],
+    "legacy_source_policy_change": false,
+    "new_source_creator_type": false,
+    "not_inferred": [
+      "No people from title editors/compilers/convenors or Kimberly Bahl/source contacts",
+      "No affiliation, identifier, ROR, ORCID, split institutional hierarchy, role field or acronym expansion",
+      "No XML author, legal rights owner, source-data permission, reuse license or production record/community identity"
+    ],
+    "rationale": "The full literal primary citation itself identifies a Marine Science Organization, and the independently reviewed institution profile treats exactly this full name as one institutional attribution. Represent that one existing attribution as organizational only in the modern person_or_org structure. Preserve all26 complete legacy creator arrays as name-only and every original source byte. This uses an explicit institutional citation, not the default name detector or acronym/contact inference.",
+    "unchanged_complete_legacy_creators": [
+      {
+        "name": "North Pacific Marine Science Organization (PICES)"
+      }
+    ],
+    "unchanged_complete_legacy_creators_sha256": "ccaa665a30c8205f24db88ba102b84642d5bb6a72d16125b7ae0ec56e8b1bd76",
+    "wire_type_source_specific": "organizational"
+  },
+  "evidence_scope": "Only exact26 already reviewed PICES primary-citation singleton sources. No new creator identity, name, affiliation, scientific role, XML authorship, dates, access interpretation, license, remote identity or release authority.",
+  "existing_reviewed_semantic_rationale": {
+    "historical_scope": "The prior source review established institutional primary attribution and explicitly retained name-only legacy creators. It did not approve or execute a modern-wire projection. This finite assessment derives that wire representation from the explicit source Organization and already reviewed institutional attribution; it does not retrofit a type into the source profile.",
+    "profile_interpretation_verbatim": "Each exact primary-citation institutional name is one literal attribution, including the hierarchical clauses separated by commas. Preserve the existing full creator object without expansion, splitting, contact promotion, inferred identifiers or affiliations. This does not establish XML authorship, rights, remote identity or publication approval.",
+    "reviewed_markdown_path": "docs/readiness/2026-10-03/institution_citation_profile.md",
+    "reviewed_markdown_sha256": "823018a676b95199438a1708ba5b00e5087f1c919348ff971b132403f1a90943",
+    "reviewed_markdown_verbatim": "Each complete literal institutional citation is one attribution. Comma-separated hierarchical clauses are retained within that name; they are not promoted into separate creators, people or inferred affiliations. Existing full creator objects are preserved, including existing Organization types only for the NOAA and First Institute groups. No type is added to PICES or SOA."
+  },
+  "existing_source_profile": {
+    "cohort": "pices_literal_26",
+    "path": "docs/readiness/2026-10-04/source_citation_credits_426.json",
+    "sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2"
+  },
+  "kind": "finite-pices26-modern-organizational-source-review",
+  "member_count": 26,
+  "members": [
+    {
+      "source_id": "FGDC-1319",
+      "source_sha256": "6c572b24fce34938671d7adfc0fa2e043a696b6c46759a9cb6eefb55445c7e5f"
+    },
+    {
+      "source_id": "FGDC-1915",
+      "source_sha256": "f8a00a2d0c3bc8f1b8e3b947005ec905b344be76357b88219126529147f07014"
+    },
+    {
+      "source_id": "FGDC-1916",
+      "source_sha256": "9d1a5beb161902d15cb64c1a037ed9c5711a1b0ea38e16384a73e94ea96a609b"
+    },
+    {
+      "source_id": "FGDC-1917",
+      "source_sha256": "e0f0e9156bb9491e7ffdc1725758c5e29f595f522d3457be511c2bb0326bca4f"
+    },
+    {
+      "source_id": "FGDC-1918",
+      "source_sha256": "aacea482808cebe49006f801d5410d5c4e07dbd013cbf27862f941754b57fdd0"
+    },
+    {
+      "source_id": "FGDC-1919",
+      "source_sha256": "ee912537041cce24f6b6c82dff95aa33f963c84e65fb4f72778a26c344719243"
+    },
+    {
+      "source_id": "FGDC-1921",
+      "source_sha256": "64b383b780bcd4e781d8d8e7dd4253c2d5f77d8f86f04d43108f51f66fe1196e"
+    },
+    {
+      "source_id": "FGDC-1922",
+      "source_sha256": "2d7004942ec9920a0203b24440e5ece5219dcabc4a8fbada2505f3a128aaad2d"
+    },
+    {
+      "source_id": "FGDC-1923",
+      "source_sha256": "f7405449ddab5b2318a4e1c6d6be3a41f944174e6595aee19906051a7072a3e9"
+    },
+    {
+      "source_id": "FGDC-1924",
+      "source_sha256": "34e749d18bbeb0e60c966e609905d6a94b2ece57a217c7c624ab5fdde4ec4a96"
+    },
+    {
+      "source_id": "FGDC-1925",
+      "source_sha256": "e8a52b4770bbbc78a3369db85e40a751d49e5820f63e4b4841e87848980a46de"
+    },
+    {
+      "source_id": "FGDC-1926",
+      "source_sha256": "1edf8579ddbef2113e447c38e156c7dda86237f8e9de12d5801952cf8f4ff6be"
+    },
+    {
+      "source_id": "FGDC-1927",
+      "source_sha256": "e6169154a89f584946af50f27ec8d61fa26bc104d295530a2cd0c320d4a6ee1e"
+    },
+    {
+      "source_id": "FGDC-1928",
+      "source_sha256": "18e8d477bc2879aed38d0d9666190001492b26fb3f500c0c92fef0b8b66aad35"
+    },
+    {
+      "source_id": "FGDC-1929",
+      "source_sha256": "ae2483c8c251a52b78c17c85449a11fc85fb6355074a76a25d391a1c7a79f6e1"
+    },
+    {
+      "source_id": "FGDC-1930",
+      "source_sha256": "e082b5412f09c630b00582ef0c1c3c51eb79387b1a766b2c7652bf4f147b3d0c"
+    },
+    {
+      "source_id": "FGDC-1932",
+      "source_sha256": "ead2d693838afaeb22f1e05d431fe48fa9941aedbb5df966056dffeed6b36a46"
+    },
+    {
+      "source_id": "FGDC-1933",
+      "source_sha256": "197f50d7d26bad5d3233104f387b9ec28a5ceec79691c858ba9494b03308e05f"
+    },
+    {
+      "source_id": "FGDC-1934",
+      "source_sha256": "3fbf86e73931137bd739acf70cb82e6a4b8002c28c3e4dd24a9e0bb78c3d62c8"
+    },
+    {
+      "source_id": "FGDC-1935",
+      "source_sha256": "aa0a893382df13ba1ea18b6af73057d753b51781a2483ed861fbce43a6491111"
+    },
+    {
+      "source_id": "FGDC-1936",
+      "source_sha256": "a3248b60f7d49b243ac86e6bf9037bd1a02f0f49f876e041ac982f35e674ca26"
+    },
+    {
+      "source_id": "FGDC-1937",
+      "source_sha256": "d382385984a96edef93ab48b92e8ff46c3f94f7adbc91c6092643407c1ca2755"
+    },
+    {
+      "source_id": "FGDC-1938",
+      "source_sha256": "4dd12f78fa4e84f2a69615a795c631464454e9fb5b666b681a4228e53729133a"
+    },
+    {
+      "source_id": "FGDC-1939",
+      "source_sha256": "d36b56eb42fc5da16ad71be4259e1b51420907c1ca7f87eb36626afbb89fe505"
+    },
+    {
+      "source_id": "FGDC-1940",
+      "source_sha256": "c773a50e8b97ea1b8db59fe90bd20bcb707f600b12ce772ffb2af8e8a7d723c1"
+    },
+    {
+      "source_id": "FGDC-2708",
+      "source_sha256": "fbc1c07c544f376da869c69a1a1cd9e7eae380b39ee27998935fcceba4fbd58f"
+    }
+  ],
+  "membership_sha256": "f82dcd19d3415965c469ef6d3dfab38a15065cee1f1d91c5056d0fcbe93791c0",
+  "original_institution_profile": {
+    "cohort": "pices_literal_26",
+    "path": "docs/readiness/2026-10-03/institution_citation_interpretation.json",
+    "sha256": "5099ec64f8b12df939f0c4a5816bd04cf44c2554be9768865c8db9aee18325aa"
+  },
+  "pinned_modern_schema": {
+    "path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/metadata.py",
+    "required_organizational_structure": "person_or_org requires type organizational and nonblank exact name; no additional role/identifier/affiliation is proposed.",
+    "sha256": "01c3c04db0bbbc1a381e3b602415c98aabe496387fd47051a661c4d80a7c177d",
+    "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+    "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/schemas/metadata.py#L80"
+  },
+  "preservation_contract": {
+    "actual_new_wire_measurement": "NOT_RUN",
+    "legacy_metadata_fields_bound": [
+      "access_conditions",
+      "access_right",
+      "communities",
+      "contributors",
+      "creators",
+      "description",
+      "keywords",
+      "license",
+      "notes",
+      "publication_date",
+      "publisher",
+      "references",
+      "related_identifiers",
+      "subjects",
+      "title",
+      "upload_type"
+    ],
+    "modern_noncreator_fields": "Keep existing title, approved metadata date, description, subjects, Zenodo host publisher, resource_type other, public record/restricted files/files enabled, and complete exact legacy JSON preservation block. No new dates, research-data rights or license. Notes, access_conditions, underlying constraints and all nonprojected fields stay inside the exact legacy block. Only candidate modern creator structure and finite policy/evidence references may differ.",
+    "noncreator_preservation_status": "Historical full metadata/noncreator field hashes bound for every96 assessed source; unchanged future noncreator wire fields are a requirement, not an executed result.",
+    "retained3145": "Require actual byte-identical wire and nonruntime evidence comparisons in the subsequent bounded measurement; this assessment does not rerun them."
+  },
+  "profile": "pices_literal_26",
+  "raw_primary_origin": "North Pacific Marine Science Organization (PICES)",
+  "rejected_DFO70": {
+    "existing_creators": [
+      {
+        "name": "DFO Staff"
+      }
+    ],
+    "existing_interpretation_verbatim": "Preserve the literal collective name supplied by the primary citation; no individual identities, institutional type, affiliation, acronym expansion or XML authorship is inferred.",
+    "member_count": 70,
+    "membership_sha256": "9ea461d1ab8b2cfed11eb9af3f6a9a35883a8686f4a4960119ac057259fffefe",
+    "no_scientist_or_contact_promotion": true,
+    "path": "docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json",
+    "reason": "The existing explicit source decision preserves only DFO Staff and prohibits inferred institutional type/individual identity. Pinned RDM PersonOrOrganizationSchema requires personal or organizational; personal also requires a family name. Neither projection is established by this source decision. Contacts are not creator substitutes.",
+    "sha256": "6587234a935a8eb893f6890ad3ec01a330c7ff4e8c55dcaeb6c03800bf157b0d"
+  },
+  "reviewer": "/root/ecotrust_role_access",
+  "schema_version": 1,
+  "source_binding_assessment_receipt": {
+    "path": "/tmp/pices-modern-dfo70-next-cohort-assessment.json",
+    "scope": "Earlier read-only exact70 DFO and26 PICES source/copy/full-metadata bindings, no mapper/preparation/classification calls.",
+    "sha256": "508aa46aea2a2099484a149b66bec521432cf2c8b5bc7eaff17fb7d23f1ae843"
+  },
+  "source_constraints_and_dates_preserved": {
+    "metadata_date_counts": {
+      "1999-02-02": 1,
+      "2003-06-16": 1,
+      "2004-06-01": 24
+    },
+    "notes_and_title_role_context": "Titles and notes retain explicit editors, compilers, convenors, workshop sponsors and full bibliographic context. Primary PICES attribution does not establish XML authorship. Do not promote Kimberly Bahl or source contacts to creators.",
+    "restoration_authority": "Existing separate USER_ATTESTED evidence retained; this mapping adds no rights grant.",
+    "reuse_license": "",
+    "strata": [
+      {
+        "count": 25,
+        "literal_constraints": {
+          "./idinfo/accconst": [
+            "None"
+          ],
+          "./idinfo/useconst": [
+            "Acknowledgement of source publication required."
+          ],
+          "./metainfo/metac": [
+            "None"
+          ],
+          "./metainfo/metuc": [
+            "Acknowledgement of source publication required."
+          ]
+        }
+      },
+      {
+        "count": 1,
+        "literal_constraints": {
+          "./idinfo/accconst": [
+            "None"
+          ],
+          "./idinfo/useconst": [
+            "None"
+          ],
+          "./metainfo/metac": [
+            "None"
+          ],
+          "./metainfo/metuc": [
+            "None"
+          ]
+        }
+      }
+    ],
+    "xml_access": "restricted"
+  },
+  "source_plan": {
+    "all26_current_production_doi": null,
+    "all26_current_production_record_id": null,
+    "all26_disjoint3145_current_mapping_sources": true,
+    "all26_disjoint456_pair_members": true,
+    "all26_disjoint_protected_sources": true,
+    "all26_single_source_singleton_targets": true,
+    "all26_source_hashes_match": true,
+    "all26_status": "supported",
+    "no_live_remote_absence_claim": true,
+    "path": "docs/readiness/2026-10-04/publication_plan.json",
+    "sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+  },
+  "status": "SOURCE_CLEAR_FINITE_WIRE_PROJECTION; IMPLEMENTATION_AND_MEASUREMENT_PENDING"
+}

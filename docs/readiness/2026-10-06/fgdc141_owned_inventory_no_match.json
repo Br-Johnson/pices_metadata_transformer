@@ -1,0 +1,955 @@
+{
+  "comparison_method": {
+    "discriminating_phrases": [
+      "monthly maritime fog",
+      "general synopsis of dominant meteorological situations",
+      "china coast to the bering sea",
+      "china coast and bering sea",
+      "monthly tables of fog and precipitation"
+    ],
+    "file_comparison": "Exact filename/source ID alias, declared MD5 and size; declared descriptors are not downloaded content hashes.",
+    "scanned_fields": "All string values in complete returned records, including metadata, title, notes, related identifiers, links and file names; full metadata objects retained only by raw-evidence hash/reference.",
+    "source_id_alias_regex": "(?<![A-Za-z0-9])FGDC[-_\\s]*0*141(?![0-9])",
+    "text_normalization": "Unicode NFKC, case-fold, HTML unescape/tag removal, word-token whitespace normalization; used only to compare this literal source."
+  },
+  "creates_allowed_by_this_audit": 0,
+  "draft_10783360": {
+    "conceptdoi_present": false,
+    "reserved_doi": "10.5281/zenodo.10783360",
+    "reserved_is_published_doi": false,
+    "top_level_doi_present": false
+  },
+  "earlier_projection_manifest": {
+    "bytes": 28134,
+    "capture_finished_at": "2026-10-04T20:29:24.001654+00:00",
+    "capture_started_at": "2026-10-04T20:27:57.670765+00:00",
+    "is_either_later_raw_capture_manifest": false,
+    "path": "/workspace/attachments/c1b89277-ce18-4bb2-971d-fba6c66e3560/PICES-owner-inventory-capture-manifest-20261004.json",
+    "raw_bodies_retained": 0,
+    "request_count": 42,
+    "retained_projection_hash_matches_committed_reference": true,
+    "sha256": "d4ae05a5fe18eec6cfbb4330fbbdec73669429f266a8ca92205fe7e0c0c197dc"
+  },
+  "excluded_restoration_record_ids": [
+    10042430,
+    15046283
+  ],
+  "execution_authorized": false,
+  "file_comparisons": [
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "05c3be5580b084bf5004a94db210df8237f6788db466ef7ba46294bbdb1ed99e",
+      "filename_exact": false,
+      "filename_sha256": "1e7d59e08818c33e746998f9b2f9bb48beeeaeeafd130fae1535dff023dfa357",
+      "filename_source_alias": false,
+      "record_id": 17883973
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "10ec4175e3804b84064088dffbb03479483a6e90e1dc007be7a50ca6bba3dca6",
+      "filename_exact": false,
+      "filename_sha256": "230cbf216bcc66169e02deb0195dfa441595a6860b5c1cbb4250953dc7f7173d",
+      "filename_source_alias": false,
+      "record_id": 17783407
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "e9fa2d4c10bc999636ed62b31b998559b38aba096b4d61d65b11aa91af091cc0",
+      "filename_exact": false,
+      "filename_sha256": "b1585833ac222cb47963e9b149971b827ebcdfe74d296b4767e96edc9c8a5550",
+      "filename_source_alias": false,
+      "record_id": 17317859
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "3fa330992b1a89053882e8371b9ae273e1f5be0098f67eee71de6c5967bf736f",
+      "filename_exact": false,
+      "filename_sha256": "b1585833ac222cb47963e9b149971b827ebcdfe74d296b4767e96edc9c8a5550",
+      "filename_source_alias": false,
+      "record_id": 17317857
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "c9fb2af762b94328c35405a85302d44acfc51ce406fa4cd64caaaed603c1b2ac",
+      "filename_exact": false,
+      "filename_sha256": "b1585833ac222cb47963e9b149971b827ebcdfe74d296b4767e96edc9c8a5550",
+      "filename_source_alias": false,
+      "record_id": 17317855
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "5ce19f12545ef9ee9fa8b25e3fc76bac8ad396815f22ca5ddc22ca928792b7a9",
+      "filename_exact": false,
+      "filename_sha256": "b1585833ac222cb47963e9b149971b827ebcdfe74d296b4767e96edc9c8a5550",
+      "filename_source_alias": false,
+      "record_id": 17317853
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "ba0020d1914bedfc1ff5b5f2b3d3a82cd19eb60e4c769465d8112e642f863c5c",
+      "filename_exact": false,
+      "filename_sha256": "b1585833ac222cb47963e9b149971b827ebcdfe74d296b4767e96edc9c8a5550",
+      "filename_source_alias": false,
+      "record_id": 17317851
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "df02a4ab4da252555916d1c5cbbffa485cedf73d2b5826d5956fffbaeee45c8c",
+      "filename_exact": false,
+      "filename_sha256": "86de3c646fe048517e2962b700268c529004d83a4465a921a635cfafc6e616bd",
+      "filename_source_alias": false,
+      "record_id": 15046283
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 1,
+      "descriptor_sha256": "85519df6c3a2bf8e59f7ff4fbe3aa00fd110c0b350783d13ed9cc5476690b907",
+      "filename_exact": false,
+      "filename_sha256": "4f90dce2f05f423a2577ec3f49b6b17b31ebe05b80061afe6989c68f2ca3c810",
+      "filename_source_alias": false,
+      "record_id": 15046283
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 2,
+      "descriptor_sha256": "58dc8a080a826106234db1068776cfd656c237a607b95f69e22673de994df3ea",
+      "filename_exact": false,
+      "filename_sha256": "4bace5174cbc09825b4b20ac593d5ee59fc3a75fa8c20472bd71bd8dc7174b44",
+      "filename_source_alias": false,
+      "record_id": 15046283
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "e376aab0722f609f673a9a0e2cf09f9a3ba1dd0c74236d049803dc9e047ff6d2",
+      "filename_exact": false,
+      "filename_sha256": "b6c8168ffe20e616817e209a8d27788d033a16714c50c35f627abb90a42d923f",
+      "filename_source_alias": false,
+      "record_id": 10783360
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 1,
+      "descriptor_sha256": "87a4fa7426fccad75cd0dd9d9cb8ecc99c1527f41714f7e1a1781717db2177e6",
+      "filename_exact": false,
+      "filename_sha256": "3e951fbbff97851100496df7f9431fef0f6a14b47afe21ef91dffffbe3de536a",
+      "filename_source_alias": false,
+      "record_id": 10783360
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 2,
+      "descriptor_sha256": "2d3074ca66fca5cf154b3fa3c6ab903fa2cc3c032444ef415137c0d69e905f17",
+      "filename_exact": false,
+      "filename_sha256": "d13a35c1ab85a25f973203de0c569dacc9e4323aefb7a7958905834f108d0bd8",
+      "filename_source_alias": false,
+      "record_id": 10783360
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "23efa36e63b7b5cb0381f1aa3e1d1fc4d22c6f5d1bfc9883a62f22903362d6bd",
+      "filename_exact": false,
+      "filename_sha256": "5c792556c33260029117aeded6fbc735e154abdf583f896750861724f5d6f830",
+      "filename_source_alias": false,
+      "record_id": 10042430
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "c79718e978e4a5121f046cdfd87d238c63f44a393f77e4d9a7a79e1dafa998c5",
+      "filename_exact": false,
+      "filename_sha256": "8d17c20118bde3d64d970e0c04bca8820c6755b1c9f3c01b77f5ed1dc0e57f45",
+      "filename_source_alias": false,
+      "record_id": 7613259
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "f65944033127ca2a41054fc8851f885b88a6e09a53792dac5c94ff2f2413f3e2",
+      "filename_exact": false,
+      "filename_sha256": "d16e5cd75947c5b98ec63123eaba2d21c50235ee8b948bb9b1a1704e7dacc745",
+      "filename_source_alias": false,
+      "record_id": 7613223
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "71d06d98588b4e47e252b6dd4038dc190539931ee3bee241314b393b319bd142",
+      "filename_exact": false,
+      "filename_sha256": "55c6e60c55a6f2f600e4c538debdbef24244a309a689e162e2d2ea6ed8c541ef",
+      "filename_source_alias": false,
+      "record_id": 7613135
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "60e0cb1c988871cbb7baacf775399b9eb61f9730ff005e91b23f2b3440a6d0cf",
+      "filename_exact": false,
+      "filename_sha256": "385b7b751d38087d7fdf13725ba8d9614a13c3b0590530048fda761d371b8063",
+      "filename_source_alias": false,
+      "record_id": 7613081
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "0392c75ca687f96d2c036875bb87eefc3c3ce61a5aeaa4d96ed089e82c6db9e3",
+      "filename_exact": false,
+      "filename_sha256": "2cd6f2e1178b8fcedfd4274b7bf174709d33bc233fc0d8d793470228b145bab3",
+      "filename_source_alias": false,
+      "record_id": 7439571
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "81277d4f7aadc05b30b8ab690b722fb93f1ccd2012124fe0dca0a6d177c44e51",
+      "filename_exact": false,
+      "filename_sha256": "5eb53a7fc7303bfd0a895c0a4474b71b178e74c68dd4ef92889d6420f9caa3e5",
+      "filename_source_alias": false,
+      "record_id": 7439561
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "2ace50dccd64bd9c09dede4c96b51180304116dc7f958501c9c703e08112fa88",
+      "filename_exact": false,
+      "filename_sha256": "ab9bdebe4200d2f5fc46d8959fb3c19d26eb31d140e2c0979ed43bc7b52e3100",
+      "filename_source_alias": false,
+      "record_id": 7439525
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "6a797172ae0bf233f1c6632aeed79fac0a882910eb3e7a9de3cf00b506552a37",
+      "filename_exact": false,
+      "filename_sha256": "ae94d99f8ef2d451546ac4f1ee405d4cb2b54a873abcf03977d2b2d41fb6094d",
+      "filename_source_alias": false,
+      "record_id": 6568203
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "1d63c9f6e1adabbb165e48f3f38f3678022cd4f63b9c5d8d037065b4f30c97c3",
+      "filename_exact": false,
+      "filename_sha256": "a714dcf3318ebd173cc953de5a7820667a44a04ef24cc74bf9e68f3ff2b2404c",
+      "filename_source_alias": false,
+      "record_id": 6485628
+    },
+    {
+      "declared_md5_and_size_match": false,
+      "declared_md5_matches": false,
+      "declared_size_matches": false,
+      "descriptor_index": 0,
+      "descriptor_sha256": "7cf3ee8f198c64cd9335cc4dbf346fb4fe1b9003a31a0fd4bc5f2db82865d809",
+      "filename_exact": false,
+      "filename_sha256": "5f0b70dde8d191c44b4b13dc0821a2dab2c4afc7cc758b1320ffa308111db743",
+      "filename_source_alias": false,
+      "record_id": 5719523
+    }
+  ],
+  "file_coverage_closure": [
+    {
+      "descriptor_hash_verified": true,
+      "detail_file_count": 1,
+      "identity_and_metadata_equal_listing": true,
+      "listing_file_count": 0,
+      "meaning": "Resolved returned file-list/detail representation discrepancy; not proof of deletion.",
+      "record_id": 17317855
+    },
+    {
+      "descriptor_hash_verified": true,
+      "detail_file_count": 3,
+      "identity_and_metadata_equal_listing": true,
+      "listing_file_count": 0,
+      "meaning": "Resolved returned file-list/detail representation discrepancy; not proof of deletion.",
+      "record_id": 10783360
+    }
+  ],
+  "findings": {
+    "broad_nonidentity_overlaps": [
+      {
+        "candidate_on_these_terms_alone": false,
+        "record_id": 17317857,
+        "terms": [
+          "bering sea",
+          "noaa"
+        ]
+      },
+      {
+        "candidate_on_these_terms_alone": false,
+        "record_id": 17317855,
+        "terms": [
+          "noaa"
+        ]
+      },
+      {
+        "candidate_on_these_terms_alone": false,
+        "record_id": 17317851,
+        "terms": [
+          "bering sea",
+          "noaa"
+        ]
+      }
+    ],
+    "broad_overlap_adjudication": "NOAA and Bering Sea occur only in other preserved source associations; no FGDC-141 identifying title, citation, source ID, file name or descriptor match accompanies them.",
+    "conclusion": "No supported FGDC-141 candidate in these twenty historical owned records and twenty-four reported file descriptors.",
+    "declared_md5_plus_size_matches": 0,
+    "distinctive_source_phrase_matches": 0,
+    "exact_file_name_or_source_alias_matches": 0,
+    "exact_or_normalized_full_title_matches": 0,
+    "exact_source_id_alias_matches": 0,
+    "supported_candidate_record_ids": []
+  },
+  "historical_capture_windows": {
+    "atomic_snapshot": false,
+    "details": {
+      "finished_at": "2026-10-04T22:17:14.457274+00:00",
+      "started_at": "2026-10-04T22:17:12.062809+00:00"
+    },
+    "fresh_as_of_review_time": false,
+    "listing": {
+      "finished_at": "2026-10-04T21:53:10.341359+00:00",
+      "started_at": "2026-10-04T21:53:04.660410+00:00"
+    }
+  },
+  "history_reconciled_claim": false,
+  "independent_verification": {
+    "result": "All five bodies and both correct manifests match; 20 records/24 descriptors; no edits or provider calls.",
+    "reviewer": "Codex /root/mutation_contract_tests/retained_capture_hash_review",
+    "scope": "Read-only independent byte/hash, manifest, owner/count, metadata and file-coverage verification."
+  },
+  "input_verification": {
+    "all_five_body_hashes_and_lengths_match_committed_receipts": true,
+    "all_twenty_metadata_hashes_match_committed_review": true,
+    "both_correct_raw_manifest_hashes_and_lengths_match_committed_receipts": true,
+    "detail_closure": {
+      "path": "/workspace/pices-modern-pices-community-20261006/docs/readiness/2026-10-04/production_owner_two_detail_closure.json",
+      "sha256": "81859a684f7548273082bba76a83cfab0b0cd46f5a7f497f7317ff53b1ee0bbb"
+    },
+    "listing_review": {
+      "path": "/workspace/pices-modern-pices-community-20261006/docs/readiness/2026-10-04/production_owner_raw_inventory_review.json",
+      "sha256": "3a0829ec40d56da34e6d055590c18d8228d468c83d39287703796357f8694a2e"
+    },
+    "prior_review_hash_matches_detail_closure": true
+  },
+  "kind": "offline-fgdc141-historical-owned-inventory-review",
+  "limitations": [
+    "Captured on 2026-10-04, not a fresh 2026-10-06 provider verification.",
+    "Listing and detail observations are non-atomic; their exact identities and metadata agree.",
+    "No exact remote XML content was downloaded or verified.",
+    "No global, other-owner, deleted, tombstone or universal historical absence is established.",
+    "Earlier 42 observations and 19 version-history observations remain projections; matching digests do not promote unavailable original bodies.",
+    "No production attempt-history completeness, current PICES authority, preparation binding, release, duplicate proof or action grant is established.",
+    "Missing legacy files alone are not evidence of an uncertain production mutation; this audit does not manufacture or clear any attempt.",
+    "Sandbox IDs 352709,349471,374373 are parent-classified Sandbox history and are not production candidate evidence."
+  ],
+  "new_grant_or_duplicate_proof_created": false,
+  "origin": "https://zenodo.org",
+  "owner": 266679,
+  "protected_associations": [
+    {
+      "doi": "10.5281/zenodo.17317851",
+      "literal_id_doi_preserved_in_capture": true,
+      "record_id": 17317851,
+      "source_id": "FGDC-2043",
+      "source_is_fgdc141": false,
+      "source_sha256": "9fc45ede1eff08d39e06618ae4b081ba5a6244a886a1a817fb2b4640b145790d"
+    },
+    {
+      "doi": "10.5281/zenodo.17317853",
+      "literal_id_doi_preserved_in_capture": true,
+      "record_id": 17317853,
+      "source_id": "FGDC-2731",
+      "source_is_fgdc141": false,
+      "source_sha256": "2f08555afe0c393d0c9e826d8fa3f78ddf5f5068a1575cf04218912265ec3a6c"
+    },
+    {
+      "doi": "10.5281/zenodo.17317855",
+      "literal_id_doi_preserved_in_capture": true,
+      "record_id": 17317855,
+      "source_id": "FGDC-1238",
+      "source_is_fgdc141": false,
+      "source_sha256": "c559cd8b956683c71c2fd240e583bc5817b2cf7f5bcc390955578c1e1e15aa2f"
+    },
+    {
+      "doi": "10.5281/zenodo.17317857",
+      "literal_id_doi_preserved_in_capture": true,
+      "record_id": 17317857,
+      "source_id": "FGDC-2725",
+      "source_is_fgdc141": false,
+      "source_sha256": "f8c85ff810507722578d0ccf592d8dc1b1518529f7574745ff900ff5347dccdc"
+    },
+    {
+      "doi": "10.5281/zenodo.17317859",
+      "literal_id_doi_preserved_in_capture": true,
+      "record_id": 17317859,
+      "source_id": "FGDC-2057",
+      "source_is_fgdc141": false,
+      "source_sha256": "e0b48017a563544dedb618f5106e84dbeaf18ca7af1cbda83d93371cdd73736b"
+    }
+  ],
+  "provider_mutations": 0,
+  "provider_requests": 0,
+  "raw_evidence": [
+    {
+      "bytes": 80271,
+      "captured_at": "2026-10-04T21:53:04.660519+00:00",
+      "finished_at": "2026-10-04T21:53:06.962151+00:00",
+      "matches_committed_receipt": true,
+      "method": "GET",
+      "path": "/workspace/attachments/7a8a3df2-27c8-4f82-89d9-246a6ab3b9e8/PICES-owner-inventory-page1-first.raw.json",
+      "query": {
+        "all_versions": "true",
+        "page": 1,
+        "size": 100,
+        "sort": "mostrecent"
+      },
+      "role": "listing_body",
+      "sha256": "77b4792e26b4f1144b23da197e539e05611a887d0c965a4fe908b7d567c8cc50",
+      "url": "https://zenodo.org/api/deposit/depositions"
+    },
+    {
+      "bytes": 2,
+      "captured_at": "2026-10-04T21:53:06.963286+00:00",
+      "finished_at": "2026-10-04T21:53:07.208806+00:00",
+      "matches_committed_receipt": true,
+      "method": "GET",
+      "path": "/workspace/attachments/63fc5c79-3bb3-4113-9cf3-0370668fe530/PICES-owner-inventory-page2-terminal.raw.json",
+      "query": {
+        "all_versions": "true",
+        "page": 2,
+        "size": 100,
+        "sort": "mostrecent"
+      },
+      "role": "listing_body",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "url": "https://zenodo.org/api/deposit/depositions"
+    },
+    {
+      "bytes": 80271,
+      "captured_at": "2026-10-04T21:53:09.063426+00:00",
+      "finished_at": "2026-10-04T21:53:10.340446+00:00",
+      "matches_committed_receipt": true,
+      "method": "GET",
+      "path": "/workspace/attachments/2c0c1d14-c638-41ed-98f3-00ef70f0d750/PICES-owner-inventory-page1-repeat.raw.json",
+      "query": {
+        "all_versions": "true",
+        "page": 1,
+        "size": 100,
+        "sort": "mostrecent"
+      },
+      "role": "listing_body",
+      "sha256": "77b4792e26b4f1144b23da197e539e05611a887d0c965a4fe908b7d567c8cc50",
+      "url": "https://zenodo.org/api/deposit/depositions"
+    },
+    {
+      "bytes": 3996,
+      "captured_at": "2026-10-04T22:17:12.063326+00:00",
+      "finished_at": "2026-10-04T22:17:13.005356+00:00",
+      "matches_committed_receipt": true,
+      "method": "GET",
+      "path": "/workspace/attachments/31f0ece5-778a-4f0a-8149-53c26b6835a1/PICES-owned-deposition-17317855.raw.json",
+      "query": {},
+      "role": "detail_body",
+      "sha256": "a80bb2e3ecb7295547a7bb484d879d54a34d003a51f479831b8645d4315832f9",
+      "url": "https://zenodo.org/api/deposit/depositions/17317855"
+    },
+    {
+      "bytes": 2829,
+      "captured_at": "2026-10-04T22:17:14.163478+00:00",
+      "finished_at": "2026-10-04T22:17:14.456587+00:00",
+      "matches_committed_receipt": true,
+      "method": "GET",
+      "path": "/workspace/attachments/3e374cd9-5a6d-40d0-93a2-beba7253fd00/PICES-owned-deposition-10783360.raw.json",
+      "query": {},
+      "role": "detail_body",
+      "sha256": "578ac2e6997071111c76c665d8d2cf9e0609bcad2be4908f5e69134360092d23",
+      "url": "https://zenodo.org/api/deposit/depositions/10783360"
+    },
+    {
+      "bytes": 5532,
+      "capture_finished_at": "2026-10-04T21:53:10.341359+00:00",
+      "capture_started_at": "2026-10-04T21:53:04.660410+00:00",
+      "matches_committed_receipt": true,
+      "path": "/workspace/attachments/32eb6309-152b-4286-b749-791eec968983/PICES-owner-raw-capture-manifest.json",
+      "role": "listing_manifest",
+      "sha256": "4223e1d78297889755abb659621fb504a97f5fa566b5c743d1ce94d95ebf57e7"
+    },
+    {
+      "bytes": 7797,
+      "capture_finished_at": "2026-10-04T22:17:14.457274+00:00",
+      "capture_started_at": "2026-10-04T22:17:12.062809+00:00",
+      "matches_committed_receipt": true,
+      "path": "/workspace/attachments/2feebdd4-1018-4833-a572-11f648dbaf10/PICES-two-owned-raw-details-manifest.json",
+      "role": "detail_manifest",
+      "sha256": "f375e5e37a3b5dc7da851666de252ff343000747e64651d2781f64578fe8f914"
+    }
+  ],
+  "record_comparisons": [
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "ac5677114a2589756204c274d182138affde21f75575f740050775f159ee295f",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 17883973,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "e8534010d369aea63c3c78676d1f817a2125670c8fc943ebe2898b98ae3d9254"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "aef95c42b55140ff468f73ca7b04701d509934d371577d0a7620e9ca4a696984",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 17783407,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "dafc5637c22ffc3bdf7178f05ebc56aed1accf82876012d0555a5569e0a528cf"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "9a2338434bc42d06b08899a3661728442c7a97050c010af180de0bc44a784222",
+      "notes_sha256": "66af298f34ebe6b9ae2104a2d0b2be814e05cf4336d3aed8db21885cd98fd8b3",
+      "record_id": 17317859,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "6b1796e2641658ee2e223f496a76882faa6f7112c64dc708b27976c334479d09"
+    },
+    {
+      "broad_terms": [
+        "bering sea",
+        "noaa"
+      ],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "552e3289ce2645ff2c52b4975d09c2c4cc145ce2bd65f85639f83b2801aed290",
+      "notes_sha256": "201cb2bb3c1f1d3370ca0125462a990c706eaab841e46b3bb3fe21f32ef1fff0",
+      "record_id": 17317857,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "40beb70d15f447342d74d293976ce2ecbafff908912c72b837d405e5edcb7054"
+    },
+    {
+      "broad_terms": [
+        "noaa"
+      ],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "502ce81b143d387e95e8275d2480ab791e3448d6e7546a128c5eab6c22620272",
+      "notes_sha256": "6cf725ffe9efd82e7bae031da4bb41cc320fb0890e4d486d483bf01fa0aba614",
+      "record_id": 17317855,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "bdaeb43d23e45615c3208a8fb2a33b6a6f214e559a433659b9553bb840a9f17e"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "a8e7e744a82de2eb5c633e81fbfb771d6901b62e428cbf86dd81aeed5aff64ee",
+      "notes_sha256": "657dcdcdf33d53a28379686cc6cbd4c624c447603e41ec4620bc6dc4bb55dd4a",
+      "record_id": 17317853,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "990cfd30db7ed6fb86684de8ddc3af4f6e4cb22d17596469f88573b8c5938b64"
+    },
+    {
+      "broad_terms": [
+        "bering sea",
+        "noaa"
+      ],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "9b1524624fb3643976779f30aaf60f6bc6d9ff396d17c380f135a44700eb757e",
+      "notes_sha256": "66af298f34ebe6b9ae2104a2d0b2be814e05cf4336d3aed8db21885cd98fd8b3",
+      "record_id": 17317851,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "22897e49a222ab9ab10c6f804d7951c0dc0594f30ea2c807bcc0c37ceaa0ed88"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 3,
+      "metadata_sha256": "f2cda80be5fda7d51ae05a10c4ccf69f9bae1a7f31037eae9622ba53f7dd9193",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 15046283,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "a0d47c6fb54ad4cfb16b79a3ba89929b82686065adabc1faf0a199c5f96a9486"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 3,
+      "metadata_sha256": "aef3e8d1610024c5301578000e276b00fcdb769b8ff688e97750a28e12849bfe",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 10783360,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "73e278b387cb8b5a61bf4afe99768e605f2cf60aa51d19ee75f6c494ba712b8a"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "b9e6c38d34debc1e32d3b73025819ab0f33f7d4ac788182b9b76ca2734f23ebc",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 10042430,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "c01bd70db879ae572c3bb8ee2dcc8836d5dca52d6c326f27726e1f52186d441c"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "7a135d0eecda3c16efa80039658e857a8799f8e4b30b04d79183450c8b259233",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 7613259,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "c01bd70db879ae572c3bb8ee2dcc8836d5dca52d6c326f27726e1f52186d441c"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "4f0e6b2a071ca9b76cc5c935d1c514093fbea88094a6260d0065e67c60a60805",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 7613223,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "e161e4eef86f58cd5f255b44e2ee50ee0c454c1e6a14df4d2be39093b1403fbd"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "e99f5de88cfc00388c89fe698615c97e1be2d08eafdd0102d1f55dde8a04b419",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 7613135,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "b8204f3b6fd9eedd20a767e67dd13357d1624898b1dd291558777a17bff98725"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "3618f13171f87b575ce62880358d8031c45b0b67e91dd217d400cc739c3cf485",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 7613081,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "09aaf39477e36222e531ec9b6cc263558ca9ea89ae81268bb65f0ff51ca5a439"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "f204330329f98e21766efea7653bb433c2d921f8d18e0512a82f44dfff09174b",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 7439571,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "fa3a70e1aa38998270c617c2102bf10a4c89a44bdb960f9334a9a9ba8aa29e56"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "aa16e0e4957c046a8cbcbc92cd3150cdfe9f1e23b0339a1c47466283232bf906",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 7439561,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "27592a493a09ad3608929cb1e921dbdd62462919c1674f197af805f613f927e6"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "e558534ab07a091c18f126d51d0650775365a1380511187a9667ff8259db1a2c",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 7439525,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "8db7b0883e2423cdd73d4e445085e5a4c1cb7495831ecb58b7d3d3b2d837e628"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "375aa696ae94ce770e2d109ad9b78affb26332b76ad14e6ca77c142e642884ea",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 6568203,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "09aaf39477e36222e531ec9b6cc263558ca9ea89ae81268bb65f0ff51ca5a439"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "b1ec5ffca566225aab155c5029716851ded1d252300e876fac6500a2a89de9d4",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 6485628,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "1602991cdba477c720b913bc3b1ed207fc46a69bbc5a16e4951a2de0a32cb6f6"
+    },
+    {
+      "broad_terms": [],
+      "file_descriptor_count": 1,
+      "metadata_sha256": "52dd2b5360f7684bebc84ff5ab05507d20f25573191e83f263fc8d469138ee50",
+      "notes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_id": 5719523,
+      "signals": {
+        "distinctive_source_phrases": [],
+        "literal_creator_paths": [],
+        "normalized_full_abstract_paths": [],
+        "normalized_full_purpose_paths": [],
+        "normalized_full_title_paths": [],
+        "source_id_alias_paths": [],
+        "source_md5_paths": [],
+        "source_sha256_paths": []
+      },
+      "title_sha256": "289f7f6dfcec853211e52c1692a4b84c97900ff2bcafa401a1c5076721f7818c"
+    }
+  ],
+  "repository_tree": "217bb65eab30457748bbf895ad0ad64c225f7623",
+  "reviewed_at": "2026-10-06T05:05:54.762569+00:00",
+  "reviewer": "Codex /root/mutation_contract_tests",
+  "runtime_or_test_changes": false,
+  "schema_version": 1,
+  "scope": {
+    "covered_reported_file_descriptors": 24,
+    "first_page_repeat_byte_identical": true,
+    "pagination_counts": [
+      20,
+      0,
+      20
+    ],
+    "published_count": 19,
+    "raw_listing_file_descriptors": 20,
+    "remote_xml_bytes_downloaded_or_reviewed": false,
+    "scope_query": {
+      "all_versions": "true",
+      "page": 1,
+      "size": 100,
+      "sort": "mostrecent"
+    },
+    "state_or_community_filter_present": false,
+    "supplemental_detail_file_descriptors": 4,
+    "unique_record_count": 20,
+    "unsubmitted_count": 1
+  },
+  "source": {
+    "byte_identical_source_ids_in_pinned_plan": [
+      "FGDC-141"
+    ],
+    "bytes": 4523,
+    "current_prepared_payload_or_runtime_binding_assessed": false,
+    "md5": "422fe9e5205556d5908ab1d4188a90a5",
+    "path": "/workspace/pices-modern-pices-community-20261006/FGDC/FGDC-141.xml",
+    "publication_title_from_abstract": "General synopsis of dominant meteorological situations from the China coast to the Bering Sea (pub.1942)",
+    "sha256": "3f53f9d0d1d49631ccb6c2885312d3282870c32bd392abe57bd035f8cc139b27",
+    "source_id": "FGDC-141",
+    "source_plan_file_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad",
+    "source_plan_path": "/workspace/pices-modern-pices-community-20261006/docs/readiness/2026-10-04/publication_plan.json",
+    "source_plan_row_sha256": "e8e95bd99c514a95ce372ceae748537b2f647f9a9e635885ee07d712afa08843",
+    "title": "Monthly Maritime Fog, Precipitation, Air-Water Temperature, and Mean Currents for the China Coast and Bering Sea (pub.1942)"
+  }
+}

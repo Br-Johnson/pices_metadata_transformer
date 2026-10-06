@@ -42,6 +42,9 @@ EXXON_SHA = 'ee49147aec99d83cf54cb7fa4e59f7e50229967af0f08f5408e97144367e99e5'
 EXXON_MAPPING = ROOT / 'docs/readiness/2026-10-06/modern_exxon_singletons412.json'
 EXXON_MAPPING_SHA = '5dbfeb098ee8b3bbad0e06d020c1c14c88e32363d45fab4e69a5cc961482a94f'
 EXXON_POLICY = 'modern-xml-exxon412-v1'
+PICES_MAPPING = ROOT / 'docs/readiness/2026-10-06/modern_pices_singletons26.json'
+PICES_MAPPING_SHA = '15d5f40fe829919a0ff9d9b81bcfc6205b2cd4042a3891e4dc9e4b3595204670'
+PICES_POLICY = 'modern-xml-pices26-v1'
 PRESERVATION_LABEL = (
     'Legacy assembled metadata, preserved without field loss. Publisher values in this '
     'block are legacy mapping values, not independently source-attested publishers. '
@@ -210,10 +213,42 @@ def exxon_source_policy(source_id):
                 and member['source_sha256'] == original[member['source_id']]
                 and member['source_id'] not in PROTECTED)
         ids.append(member['source_id'])
-    require(len(set(ids)) == 412 and ids == sorted(ids, key=lambda sid: int(sid[5:]))
-            and source_id in ids)
+    require(len(set(ids)) == 412 and ids == sorted(ids, key=lambda sid: int(sid[5:])))
+    if source_id not in ids:
+        return pices_source_policy(source_id)
     return manifest, {'schema_version': 4, 'policy': EXXON_POLICY,
                       'mapping_manifest_sha256': EXXON_MAPPING_SHA, 'creator_cohort': profile['profile']}
+
+
+def pices_source_policy(source_id):
+    """The exact 26 institutional citations receive a reviewed wire-only type.
+
+    Keep the name-only legacy attribution intact. Neither names from titles nor
+    other untyped institutions inherit this finite representation decision.
+    """
+    manifest = pinned(PICES_MAPPING, PICES_MAPPING_SHA)
+    rows = [row for row in pinned(PROFILE, PROFILE_SHA)['cohorts']
+            if row['profile'] == 'pices_literal_26']
+    require(len(rows) == 1)
+    profile = rows[0]
+    name = 'North Pacific Marine Science Organization (PICES)'
+    require(isinstance(manifest, dict) and set(manifest) == {
+        'schema_version', 'kind', 'policy', 'profile', 'source_plan_sha256',
+        'creator_profile_sha256', 'review_sha256', 'raw_origin',
+        'creators', 'modern_creators', 'members'}
+        and type(manifest['schema_version']) is int and manifest['schema_version'] == 1
+        and manifest['kind'] == 'modern-pices-singletons-v1' and manifest['policy'] == PICES_POLICY
+        and manifest['profile'] == profile['profile']
+        and manifest['source_plan_sha256'] == PLAN_SHA
+        and manifest['creator_profile_sha256'] == PROFILE_SHA
+        and manifest['raw_origin'] == profile['raw_origin'] == name
+        and manifest['creators'] == profile['creators'] == [{'name': name}]
+        and manifest['modern_creators'] == [{'person_or_org': {'name': name, 'type': 'organizational'}}]
+        and manifest['members'] == profile['members'] and len(manifest['members']) == 26)
+    ids = [row['source_id'] for row in manifest['members']]
+    require(len(set(ids)) == 26 and source_id in ids and not set(ids) & set(PROTECTED))
+    return manifest, {'schema_version': 5, 'policy': PICES_POLICY,
+                      'mapping_manifest_sha256': PICES_MAPPING_SHA, 'creator_cohort': profile['profile']}
 
 
 def runtime_binding():
@@ -281,6 +316,7 @@ def prepare(json_file, paths):
     require(isinstance(policy, dict))
     direct = policy_fields['policy'] == DIRECT_POLICY
     exxon = policy_fields['policy'] == EXXON_POLICY
+    pices = policy_fields['policy'] == PICES_POLICY
     authority_sha = EXXON_SHA if exxon else (DIRECT_SHA if direct else PROFILE_SHA)
     if direct:
         require('creator_interpretation' not in policy)
@@ -302,7 +338,7 @@ def prepare(json_file, paths):
             and target['identity_decision']['production_doi'] is None)
     validate_restricted_metadata(metadata)
     require(metadata['creators'] == selected['creators'])
-    if exxon:
+    if exxon or pices:
         creators = selected['modern_creators']
     else:
         require(all(set(c) == {'name', 'type'} and c['type'] == 'Organization'
