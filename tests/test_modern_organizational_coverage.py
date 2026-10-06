@@ -158,8 +158,8 @@ class ModernOrganizationalCoverageTests(unittest.TestCase):
 
     def test_held_untyped_personal_paired_and_protected_sources_remain_blocked(self):
         fixture = self.fixture()
-        # PICES26 and the reviewed citation organizations have separate policies; MSO remains held.
-        for sid in ('FGDC-710', 'FGDC-2232', 'FGDC-885', 'FGDC-2953', 'FGDC-3181',
+        # PICES26 and the reviewed citation/program groups have separate policies; SPOT remains held.
+        for sid in ('FGDC-710', 'FGDC-859', 'FGDC-885', 'FGDC-2953', 'FGDC-3181',
                     'FGDC-1238', 'FGDC-2043', 'FGDC-2057', 'FGDC-2725', 'FGDC-2731'):
             with self.subTest(source=sid):
                 changed = fixture.json_file.with_name(sid + '.json')

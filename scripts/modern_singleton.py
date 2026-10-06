@@ -62,6 +62,13 @@ REVIEWED_CREATORS_SOURCE_SHA = '1dbb3af3945a0993e705e56a94b307cb02ca444451a98ef8
 REVIEWED_CREATORS_REVIEW = ROOT / 'docs/readiness/2026-10-06/modern_reviewed_creators194_review.json'
 REVIEWED_CREATORS_REVIEW_SHA = '20c585d143cc0a295bdbbce54b2e3fa5bace5846802534b2f7bf40bb3f04b271'
 REVIEWED_CREATORS_POLICY = 'modern-xml-reviewed-creators194-v1'
+PROGRAM20 = ROOT / 'docs/readiness/2026-10-06/modern_program20.json'
+PROGRAM20_SHA = '0485e9c5e24566df94ad59397b8bdf2ebde375e88504d9f419bc61b71a0b20e1'
+PROGRAM20_SOURCE = ROOT / 'docs/readiness/2026-10-06/modern_program20_source_review.json'
+PROGRAM20_SOURCE_SHA = '56f6e99cefe31bcba6802781e2746771947d448cd2c9ad4cde4c66d58c35653d'
+PROGRAM20_REVIEW = ROOT / 'docs/readiness/2026-10-06/modern_program20_independent_review.json'
+PROGRAM20_REVIEW_SHA = 'f0cfcd9a0fe12cdac1d52cd399355c2da09033c0e42a2279140c555bb2bd983b'
+PROGRAM_POLICY = 'modern-xml-program-organizations20-v1'
 DFO_PROFILE = ROOT / 'docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json'
 DFO_PROFILE_SHA = '6587234a935a8eb893f6890ad3ec01a330c7ff4e8c55dcaeb6c03800bf157b0d'
 PRESERVATION_LABEL = (
@@ -448,7 +455,9 @@ def reviewed_creator_source_policy(source_id):
             matches.append(row)
     require(len(members) == len({row['source_id'] for row in members}) == 194
             and members == review['approved_members'] and counts == header['authority_counts']
-            and len(matches) == 1)
+            and len(matches) <= 1)
+    if not matches:
+        return program_organization_source_policy(source_id)
     selected = matches[0]
     return dict(selected, members=[{'source_id': selected['source_id'],
                                     'source_sha256': selected['source_sha256']}]), {
@@ -456,6 +465,97 @@ def reviewed_creator_source_policy(source_id):
         'mapping_manifest_sha256': REVIEWED_CREATORS_MAPPING_SHA,
         'creator_authority_kind': selected['creator_authority_kind'],
         'creator_cohort': selected['creator_cohort']}
+
+
+def program_organization_source_policy(source_id):
+    """Twenty complete organizational arrays; no program-name inference.
+
+    The frozen proposal and independent review use distinct JSON hash recipes.
+    Reconstruct the entire finite mapper from both, retaining all 29 source holds.
+    Existing creator426 remains the authority for assembled legacy metadata.
+    """
+    manifest = pinned(PROGRAM20, PROGRAM20_SHA)
+    source = pinned(PROGRAM20_SOURCE, PROGRAM20_SOURCE_SHA)
+    review = pinned(PROGRAM20_REVIEW, PROGRAM20_REVIEW_SHA)
+    require(review['decision'] ==
+            'APPROVE_EXACT20_COMPLETE_ORGANIZATIONAL_PROJECTIONS_RETAIN29_COMPLETE_ARRAY_HOLDS'
+            and review['approved_members'] == source['approved_members']
+            and review['held_members'] == source['held_members']
+            and len(review['approved_members']) == 20 and len(review['held_members']) == 29)
+    header = {
+        'schema_version': 1, 'kind': 'modern-program-organizations20-v1', 'policy': PROGRAM_POLICY,
+        'creator426_profile_sha256': PROFILE_SHA, 'source_plan_sha256': PLAN_SHA,
+        'source_packet_path': 'docs/readiness/2026-10-06/modern_program20_source_review.json',
+        'source_packet_sha256': PROGRAM20_SOURCE_SHA,
+        'independent_review_path': 'docs/readiness/2026-10-06/modern_program20_independent_review.json',
+        'independent_review_sha256': PROGRAM20_REVIEW_SHA,
+        'member_count': 20, 'complete_array_group_count': 17, 'modern_creator_object_count': 29,
+        'members': review['approved_members'], 'membership_sha256': sha(encode(review['approved_members'])),
+        'retained_held_member_count': 29, 'retained_held_members': review['held_members'],
+        'retained_held_membership_sha256': sha(encode(review['held_members']))}
+    require(isinstance(manifest, dict) and set(manifest) == set(header) | {'rows'}
+            and all(type(manifest[key]) is type(value) and manifest[key] == value
+                    for key, value in header.items()))
+    proposals = {row['source_id']: row for row in source['source_rows']}
+    reviews = {row['source_id']: row for row in review['source_rows']}
+    profiles = {row['profile']: row for row in pinned(PROFILE, PROFILE_SHA)['cohorts']}
+    targets = {row['record_target_id']: row for row in pinned(PLAN, PLAN_SHA)['targets']}
+    require(len(proposals) == len(reviews) == 49)
+    expected, matches = [], []
+    for member in review['approved_members']:
+        sid = member['source_id']
+        row, proposal, target = reviews[sid], proposals[sid], targets[sid]
+        cohort_name = row['complete_current_creator_cohort']['profile']
+        profile = profiles[cohort_name]
+        creators, modern = row['complete_legacy_creators'], row['approved_complete_modern_creators']
+        proposal_sha = sha(json.dumps(proposal, ensure_ascii=False, sort_keys=True,
+                                      separators=(',', ':')).encode())
+        require(row['decision'] == 'APPROVE_FINITE_COMPLETE_ORGANIZATIONAL_ARRAY'
+                and proposal['decision'] == 'APPROVE_ORGANIZATIONAL_PROJECTION'
+                and row['proposal_row_sha256'] == proposal_sha
+                and row['source_sha256'] == proposal['source_sha256'] == member['source_sha256']
+                and profile == row['complete_current_creator_cohort'] == proposal['complete_current_creator_cohort']
+                and profile['creators'] == creators == proposal['complete_legacy_creators']
+                and member in profile['members']
+                and sha(encode(profile)) == row['complete_current_creator_cohort_sha256']
+                and creators and all(set(c) == {'name'} and isinstance(c['name'], str)
+                                     and c['name'].strip() for c in creators)
+                and modern == proposal['proposed_complete_modern_creators'] == [
+                    {'person_or_org': {'name': c['name'], 'type': 'organizational'}} for c in creators]
+                and target == row['source_plan_target'] and sid not in PROTECTED
+                and target['source_ids'] == [sid] and target['source_semantic_status'] == 'supported'
+                and target['source_sha256'] == member['source_sha256']
+                and target['identity_decision']['production_record_id'] is None
+                and target['identity_decision']['production_doi'] is None)
+        selected = {
+            'source_id': sid, 'source_sha256': member['source_sha256'],
+            'source_path': 'FGDC/' + sid + '.xml', 'source_bytes': row['source_bytes'],
+            'source_root_sha256': row['source_root_sha256'],
+            'source_plan_target_sha256': sha(encode(target)),
+            'creator_authority_kind': 'creator426', 'creator_cohort': cohort_name,
+            'creator_authority_object_sha256': sha(encode(profile)),
+            'creators': creators, 'creators_sha256': sha(encode(creators)),
+            'modern_creators': modern, 'modern_creators_sha256': sha(encode(modern)),
+            'primary_origins': row['exact_primary_origin_elements'],
+            'source_dates_sha256_ascii': sha(encode(row['source_dates'])),
+            'raw_four_constraints_sha256_ascii': sha(encode(row['raw_four_constraints'])),
+            'source_contexts_sha256_ascii': sha(encode(row['source_contexts'])),
+            'source_packet_row_sha256_utf8': proposal_sha,
+            'independent_review_row_sha256_ascii': sha(encode(row))}
+        expected.append(selected)
+        if sid == source_id:
+            matches.append(selected)
+    require(manifest['rows'] == expected
+            and len({row['source_id'] for row in expected}) == 20
+            and len({encode(row['modern_creators']) for row in expected}) == 17
+            and sum(len(row['modern_creators']) for row in expected) == 29
+            and not ({row['source_id'] for row in expected} & {row['source_id'] for row in review['held_members']})
+            and len(matches) == 1)
+    selected = matches[0]
+    return dict(selected, members=[{'source_id': selected['source_id'],
+                                    'source_sha256': selected['source_sha256']}]), {
+        'schema_version': 9, 'policy': PROGRAM_POLICY, 'mapping_manifest_sha256': PROGRAM20_SHA,
+        'creator_authority_kind': 'creator426', 'creator_cohort': selected['creator_cohort']}
 
 
 def creator_authority_sha(selected, policy_fields):
@@ -537,6 +637,7 @@ def prepare(json_file, paths):
     institution = policy_fields['policy'] == INSTITUTION_POLICY
     citation_org = policy_fields['policy'] == CITATION_ORG_POLICY
     reviewed = policy_fields['policy'] == REVIEWED_CREATORS_POLICY
+    program = policy_fields['policy'] == PROGRAM_POLICY
     authority_sha = creator_authority_sha(selected, policy_fields)
     if direct or institution or (reviewed and selected['creator_authority_kind'] == 'direct'):
         require('creator_interpretation' not in policy)
@@ -551,7 +652,7 @@ def prepare(json_file, paths):
     if direct or institution:
         origins = ET.fromstring(xml).findall('./idinfo/citation/citeinfo/origin')
         require(origins and [source_element(node) for node in origins] in selected['primary_origin_variants'])
-    if reviewed:
+    if reviewed or program:
         root = ET.fromstring(xml)
         require([source_element(node) for node in root.findall('./idinfo/citation/citeinfo/origin')]
                 == selected['primary_origins'] and sha(encode(source_element(root))) == selected['source_root_sha256'])
@@ -562,7 +663,7 @@ def prepare(json_file, paths):
             and target['identity_decision']['production_doi'] is None)
     validate_restricted_metadata(metadata)
     require(metadata['creators'] == selected['creators'])
-    if exxon or pices or institution or citation_org or reviewed:
+    if exxon or pices or institution or citation_org or reviewed or program:
         creators = selected['modern_creators']
     else:
         require(all(set(c) == {'name', 'type'} and c['type'] == 'Organization'

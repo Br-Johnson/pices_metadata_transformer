@@ -993,3 +993,25 @@ The earlier recovery/AquaDocs status above is historical: PR45 completed the
 bounded observation controller. Actual unknown-create recovery still requires
 parent dispatch after supported network recovery, and AquaDocs is user-deferred
 until after initial publication. Neither is reported as completed provider work.
+
+### Exact program organizations20 and the remaining class boundary — 2026-10-06
+
+The finite schema9 policy adds only 20 independently reviewed complete creator
+arrays. Reconstructing the mapper from both frozen source and review receipts
+keeps the original names and authority separate from the modern organizational
+category. The two receipts use different canonical JSON recipes; both are bound
+explicitly, including the non-ASCII source that exercises the difference.
+Earlier policy vectors and the two separate 29-member hold sets stay unchanged.
+
+Reviewed194 historical compatibility is restricted to eight explicit existing
+policy/schema pairs and equal nonruntime evidence. Schema9 cannot backdate its
+authority. The fixed FGDC-141 observation path retains its spent-state rules;
+adding a recognized historical runtime never permits create replay or migration.
+
+The remaining paired execution gap spans durable identity, two file-specific
+mutation/readback states, QA and release. The separate
+[minimal class assessment](readiness/2026-10-06/modern_paired_execution_design.md)
+defines that required scope without generalizing the singleton controller.
+The source-reviewed24 preparation increment remains separate from execution;
+the final personal pair and protected existing-record identities remain held.
+Provider access is paused, and AquaDocs remains deferred.

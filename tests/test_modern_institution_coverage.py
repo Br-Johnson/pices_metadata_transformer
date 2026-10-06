@@ -143,7 +143,7 @@ class ModernInstitutionCoverageTests(unittest.TestCase):
         self.assertEqual(len(held), 37)
         for sid in set(ids) & reviewed:
             self.assertEqual(mapping.institution_source_policy(sid)[1]['policy'], mapping.REVIEWED_CREATORS_POLICY)
-        for sid in (*sorted(held), 'FGDC-2232', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
+        for sid in (*sorted(held), 'FGDC-859', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.institution_source_policy(sid)
 

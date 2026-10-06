@@ -376,15 +376,18 @@ class ModernReviewedCreatorTests(unittest.TestCase):
                         qa.assess(prepared, bound, saved, changed, now=PUBLICATION_NOW,
                                   community=harness.community_authority)
 
-    def test_pr46_completed_history_bridges_all_seven_prior_policies_without_state_or_dispatch_changes(self):
-        for sid, version in zip(OLD_SOURCES, range(1, 8), strict=True):
+    def test_historical_runtimes_bridge_then_existing_policies_without_state_or_dispatch_changes(self):
+        cases = [(sid, version, publication.PR46_RUNTIME)
+                 for sid, version in zip(OLD_SOURCES, range(1, 8), strict=True)]
+        cases.append(('FGDC-1', 8, publication.REVIEWED194_RUNTIME))
+        for sid, version, historical_runtime in cases:
             with self.subTest(source=sid):
                 fixture = self.fixture(sid)
                 fixture.transport = CompatibilityTransport(fixture, complete_on_content=True)
                 harness = PublicationFixture(fixture)
                 self.assertEqual(harness.prepared.evidence['schema_version'], version)
                 previous_grant_sha = mapping.sha(fixture.grant_path.read_bytes())
-                exxon_tests.save_historical_runtime(harness, publication.PR46_RUNTIME)
+                exxon_tests.save_historical_runtime(harness, historical_runtime)
                 # Finish generating the synthetic historical graph before any
                 # preservation snapshot. Keep every original diagnostic and
                 # bind a new exclusive sidecar to the rebound historical grant.
@@ -434,15 +437,15 @@ class ModernReviewedCreatorTests(unittest.TestCase):
                     self.assertEqual(diagnostic['request'],
                                      {key: value for key, value in receipt.items() if key != 'response_evidence'})
                 packet = mapping.parse(harness.packet.read_bytes())
-                self.assertEqual(packet['evidence'], dict(harness.prepared.evidence, runtime_sha256=publication.PR46_RUNTIME))
+                self.assertEqual(packet['evidence'], dict(harness.prepared.evidence, runtime_sha256=historical_runtime))
                 retained = {path: path.read_bytes() for path in fixture.root.rglob('*') if path.is_file()}
                 calls = list(fixture.transport.calls)
                 prepared, bound = harness.bridge()
                 self.assertEqual(prepared, harness.prepared)
                 self.assertEqual(bound, harness.bound)
-                self.assertEqual(bound['original_runtime_sha256'], publication.PR46_RUNTIME)
+                self.assertEqual(bound['original_runtime_sha256'], historical_runtime)
                 self.assertEqual(bound['runtime_sha256'], prepared.evidence['runtime_sha256'])
-                self.assertNotEqual(bound['runtime_sha256'], publication.PR46_RUNTIME)
+                self.assertNotEqual(bound['runtime_sha256'], historical_runtime)
                 self.assertEqual(fixture.transport.calls, calls)
                 self.assertEqual({path: path.read_bytes() for path in retained}, retained)
                 row = mapping.parse(Path(fixture.paths.uploads_registry_path + '.modern-v1.json').read_bytes())['targets'][sid]

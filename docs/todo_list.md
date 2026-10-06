@@ -12,7 +12,15 @@ Earlier checklist entries below preserve their historical state. This section an
 the maintained rules supersede their workflow timing and pending-code statements;
 original journals, grants, receipts and frozen historical instructions are unchanged.
 
-## Active increment: exact reviewed creators194 — 2026-10-06
+## Active increment: exact program organizations20 — 2026-10-06
+
+- [x] Reconcile sole root ownership and clean local/remote main `8b84f9db5ea2d536de3ed01a60f147fc6cbc6246`; verify actual executor availability after the 18:03 UTC callback. The reviewed194 code head retains its 921-test CI pass.
+- [x] Install the exact independent source review for 20 complete organizational arrays. Preserve all 29 program/Unaami holds, all 29 personal holds and the five protected identities; no source eligibility or license changes.
+- [x] Complete finite schema9 mapping, exact creator426 authority and narrow historical compatibility. All 74 guarded focused/affected checks pass, with zero unexpected I/O; preserve the distinct pre/post-comment source bindings and unchanged runtime. Frozen schema1–8 vectors and recovery evidence remain intact.
+- [x] Measure all new20 twice and all prior3,788 once across four guarded parts, then verify the saved-file aggregate: actual3,808 targets /4,011 originals;125 remain (100 singletons +25 pairs). All4,206 originals,39,232 retained public files and32 profiles match. Independent actual-result review passed; exact commit review and full main CI remain.
+- [ ] Publish independently reviewed implementation directly to main, verify actual full CI and save the release. Identify the minimum paired-execution work separately; provider access stays paused and AquaDocs deferred.
+
+## Completed increment: exact reviewed creators194 — 2026-10-06
 
 - [x] Reconcile main `6deff6bbc9c739dbb09192412c0548863007cdea` and verify executor access after the disconnection callback. Continue as sole integration writer directly on main.
 - [x] Independently approve the exact194 composition:82 existing creator426 sources,42 direct primary citations and70 literal DFO Staff credits. Preserve complete approved vectors,15 direct cardinality changes,22 direct affiliation vectors and all29 personal holds; program20 stays separate.

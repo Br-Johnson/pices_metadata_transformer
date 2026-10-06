@@ -1,8 +1,8 @@
-"""Synthetic PR42/PR45/PR46 history compatibility; no migration or provider authority.
+"""Synthetic PR42/PR45/PR46/reviewed194 history compatibility; no migration or provider authority.
 
 Only test-fixture generation rebinds the dummy historical graph. Beforeimages are
 captured after generation; recovery must preserve every byte thereafter. The old
-403 receipt retains PR42's minimal shape or PR45/PR46's diagnostic pointer.
+403 receipt retains PR42's minimal shape or later diagnostic pointers.
 Both referenced and unused fixture sidecars stay explicitly synthetic. Neither
 case claims knowledge of an actual production403 response body.
 """
@@ -30,7 +30,7 @@ from tests.test_modern_unknown_create import (
 
 def rebind_synthetic_history(history, historical_runtime, *, evidence_change=None):
     """Generate a coherent old dummy graph, never rewrite real historical state."""
-    assert historical_runtime in (publication.PR42_RUNTIME, publication.PR45_RUNTIME, publication.PR46_RUNTIME)
+    assert historical_runtime in (publication.PR42_RUNTIME, publication.PR45_RUNTIME, publication.PR46_RUNTIME, publication.REVIEWED194_RUNTIME)
     packet_path = history.documents['preparation']
     packet = parse(packet_path.read_bytes())
     evidence = copy.deepcopy(packet['evidence'])
@@ -137,10 +137,10 @@ class ModernUnknownCreateHistoricalTests(unittest.TestCase):
         request = row['requests'][0]
         receipt_keys = {'kind', 'method', 'path', 'body_sha256', 'attempted_at',
                         'status', 'http_status', 'bytes', 'credential_suppressed', 'response_sha256'}
-        if historical_runtime in (publication.PR45_RUNTIME, publication.PR46_RUNTIME):
+        if historical_runtime in (publication.PR45_RUNTIME, publication.PR46_RUNTIME, publication.REVIEWED194_RUNTIME):
             receipt_keys.add('response_evidence')
         self.assertEqual(set(request), receipt_keys)
-        if historical_runtime in (publication.PR45_RUNTIME, publication.PR46_RUNTIME):
+        if historical_runtime in (publication.PR45_RUNTIME, publication.PR46_RUNTIME, publication.REVIEWED194_RUNTIME):
             pointer = request['response_evidence']
             self.assertEqual(set(pointer), {'filename', 'sha256'})
             expected_name = (history.original_runner.journal_path.name
@@ -195,7 +195,8 @@ class ModernUnknownCreateHistoricalTests(unittest.TestCase):
     def test_consistent_historical_failed403_observations_preserve_all_original_bytes(self):
         for label, historical_runtime in (('PR42', publication.PR42_RUNTIME),
                                           ('PR45', publication.PR45_RUNTIME),
-                                          ('PR46', publication.PR46_RUNTIME)):
+                                          ('PR46', publication.PR46_RUNTIME),
+                                          ('reviewed194', publication.REVIEWED194_RUNTIME)):
             with self.subTest(history=label):
                 history = HistoricalFixture(Path(self.temp.name) / label, self.prepared_root)
                 current = history.fixture.prepared
@@ -233,7 +234,8 @@ class ModernUnknownCreateHistoricalTests(unittest.TestCase):
     def test_consistently_rebound_historical_nonruntime_evidence_mismatch_holds_before_get(self):
         for label, historical_runtime in (('PR42', publication.PR42_RUNTIME),
                                           ('PR45', publication.PR45_RUNTIME),
-                                          ('PR46', publication.PR46_RUNTIME)):
+                                          ('PR46', publication.PR46_RUNTIME),
+                                          ('reviewed194', publication.REVIEWED194_RUNTIME)):
             with self.subTest(history=label):
                 history = HistoricalFixture(Path(self.temp.name) / label, self.prepared_root)
                 current = history.fixture.prepared

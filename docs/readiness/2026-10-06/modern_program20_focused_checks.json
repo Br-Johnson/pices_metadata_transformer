@@ -1,0 +1,116 @@
+{
+  "checks": [
+    {
+      "label": "new_program20",
+      "receipt": {
+        "base_revision": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+        "base_revision_contains_new20_implementation": false,
+        "code_state": "frozen_working_tree",
+        "freeze_receipt_sha256": "93c52789bd02e6fbb015f13990aef31d09f231e3337328ff1b12f398b0aad592",
+        "kind": "program20-focused-guarded-checks",
+        "log_sha256": "59da4485534c863c778e186772e9f1d6b9ee548292369d1632767202ca3a438f",
+        "result": {
+          "commit": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+          "environment_cleared_dummy_credentials_only": true,
+          "errors": 0,
+          "failures": 0,
+          "guard_blocks": {
+            "bootstrap": {
+              "network": 4,
+              "private_reads": 1,
+              "processes": 1,
+              "writes": 1
+            },
+            "tests": {
+              "network": 0,
+              "private_reads": 0,
+              "processes": 0,
+              "writes": 0
+            }
+          },
+          "in_process_read_only_git_queries": 0,
+          "seconds": 129.987,
+          "selected_modules": [
+            "tests.test_modern_program_organizations"
+          ],
+          "source_bindings_unchanged": true,
+          "source_tree_sha256": "5a27d59f2cea5e229429110f366c045a052d7b519b9fe952ee9773082c6ce5da",
+          "successful": true,
+          "tests_run": 8,
+          "unexpected_guard_call_sites": []
+        },
+        "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2"
+      },
+      "receipt_sha256": "c880e3352cedecc4b85216d5bbdb06355b4ec730353c722b303ad38afd31850b"
+    },
+    {
+      "label": "affected_existing",
+      "receipt": {
+        "base_revision": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+        "base_revision_contains_new20_implementation": false,
+        "code_state": "frozen_working_tree",
+        "freeze_receipt_sha256": "93c52789bd02e6fbb015f13990aef31d09f231e3337328ff1b12f398b0aad592",
+        "kind": "program20-affected-guarded-checks",
+        "log_sha256": "e23ef44be6dd5a7056a5f0d22f1993976bfd705a9b7e191a417f6dde239b9f84",
+        "result": {
+          "commit": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+          "environment_cleared_dummy_credentials_only": true,
+          "errors": 0,
+          "failures": 0,
+          "guard_blocks": {
+            "bootstrap": {
+              "network": 4,
+              "private_reads": 1,
+              "processes": 1,
+              "writes": 1
+            },
+            "tests": {
+              "network": 0,
+              "private_reads": 0,
+              "processes": 0,
+              "writes": 0
+            }
+          },
+          "in_process_read_only_git_queries": 0,
+          "seconds": 511.042,
+          "selected_modules": [
+            "tests.test_modern_citation_organizations",
+            "tests.test_modern_institution_coverage",
+            "tests.test_modern_primary_organizations",
+            "tests.test_modern_organizational_coverage",
+            "tests.test_modern_pices_coverage",
+            "tests.test_modern_reviewed_creators",
+            "tests.test_modern_unknown_create_history",
+            "tests.test_modern_schema8_history_boundary"
+          ],
+          "source_bindings_unchanged": true,
+          "source_tree_sha256": "5a27d59f2cea5e229429110f366c045a052d7b519b9fe952ee9773082c6ce5da",
+          "successful": true,
+          "tests_run": 66,
+          "unexpected_guard_call_sites": []
+        },
+        "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2"
+      },
+      "receipt_sha256": "dc4c40c22927d33842b2c14594d5d9b2d3f54489596b7f9faf9012c1a0319a96"
+    }
+  ],
+  "final_freeze_sha256": "87a458782185a2c45c7073794f15ccead02031d2ca8e4e36bbb35c8643007b74",
+  "final_source_tree_sha256": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7",
+  "full_main_ci": "pending",
+  "kind": "program20-actual-focused-and-affected-checks",
+  "provider_requests": 0,
+  "runtime_sha256": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+  "schema_version": 1,
+  "source_tree_file_count": 188,
+  "subsequent_change": {
+    "after_sha256": "6c73a025244e849474863a8a238e6c264ce65abe9c8f17d4c5978509be08ee62",
+    "ast_identical": true,
+    "before_sha256": "a44fdadaf97c00386321b6f9f464caddf54505921eacb3873226374ef46eda11",
+    "path": "tests/test_modern_organizational_coverage.py",
+    "runtime_identical": true,
+    "scope": "stale comment correction only"
+  },
+  "tested_freeze_sha256": "93c52789bd02e6fbb015f13990aef31d09f231e3337328ff1b12f398b0aad592",
+  "tested_source_tree_sha256": "5a27d59f2cea5e229429110f366c045a052d7b519b9fe952ee9773082c6ce5da",
+  "tests_total": 74
+}

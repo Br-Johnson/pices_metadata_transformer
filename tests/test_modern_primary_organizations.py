@@ -285,7 +285,7 @@ class ModernPrimaryOrganizationTests(unittest.TestCase):
     def test_unselected_person_reference_paired_protected_and_held_sources_stay_blocked(self):
         fixture = self.fixture()
         # MSO remains outside every finite policy; PICES26 and citation organizations have their own.
-        for sid in ('FGDC-885', 'FGDC-2232', 'FGDC-710', 'FGDC-2953', 'FGDC-3181',
+        for sid in ('FGDC-885', 'FGDC-859', 'FGDC-710', 'FGDC-2953', 'FGDC-3181',
                     'FGDC-184', 'FGDC-197', 'FGDC-3786', 'FGDC-4068', *PROTECTED):
             with self.subTest(source=sid):
                 path = fixture.json_file.with_name(sid + '.json')

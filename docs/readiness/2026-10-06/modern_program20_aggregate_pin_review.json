@@ -1,0 +1,133 @@
+{
+  "activity_limits": {
+    "helper_execution": 0,
+    "network_or_provider_requests": 0,
+    "project_or_helper_imports": 0,
+    "repository_edits": 0,
+    "tests_or_preparations": 0
+  },
+  "actual_saved_shards": [
+    {
+      "classes": 51,
+      "index": 0,
+      "log": {
+        "bytes": 903,
+        "path": "/tmp/pices-program20-shard0-v1.log",
+        "sha256": "7621026ba470324c8cefffd64d6b5da6069b4f7e56181f867dea8004b6c4f302"
+      },
+      "new": 5,
+      "receipt": {
+        "bytes": 434542,
+        "path": "/tmp/pices-program20-shard0-v1/coverage.json",
+        "sha256": "aea074d5820c620f7a26435d138f21eb009cd7e61a1f3c030e329d5388031f48"
+      },
+      "retained": 897,
+      "seconds": 277.69197866896866,
+      "status": "GUARDED_PROGRAM20_SHARD_COVERAGE_PASS",
+      "unexpected_guard_events": 0
+    },
+    {
+      "classes": 51,
+      "index": 1,
+      "log": {
+        "bytes": 903,
+        "path": "/tmp/pices-program20-shard1-v1.log",
+        "sha256": "833297e0df21c9e09a8f10c4a9f3987501ed08f0743014247a3738b320e31d80"
+      },
+      "new": 5,
+      "receipt": {
+        "bytes": 434524,
+        "path": "/tmp/pices-program20-shard1-v1/coverage.json",
+        "sha256": "66bcf5c3ef6f33b1a14efec4cc3103afda980c10a4905cb3eb8f9243729fa3de"
+      },
+      "retained": 896,
+      "seconds": 277.07937050197506,
+      "status": "GUARDED_PROGRAM20_SHARD_COVERAGE_PASS",
+      "unexpected_guard_events": 0
+    },
+    {
+      "classes": 51,
+      "index": 2,
+      "log": {
+        "bytes": 903,
+        "path": "/tmp/pices-program20-shard2-v1.log",
+        "sha256": "9a35dc5716bcb02417439682f9318b4439a4443232abeb7237e42c78aabeb04d"
+      },
+      "new": 5,
+      "receipt": {
+        "bytes": 434525,
+        "path": "/tmp/pices-program20-shard2-v1/coverage.json",
+        "sha256": "a669d237a405931033fc0a2bd6bb0165d887c3604de218bc64e2bd2423c0cc40"
+      },
+      "retained": 896,
+      "seconds": 284.9327663049917,
+      "status": "GUARDED_PROGRAM20_SHARD_COVERAGE_PASS",
+      "unexpected_guard_events": 0
+    },
+    {
+      "classes": 50,
+      "index": 3,
+      "log": {
+        "bytes": 870,
+        "path": "/tmp/pices-program20-shard3-v1.log",
+        "sha256": "3bfa01aa59136862a1470f8eeed7e8f919a3f01806677a01532ec163bb5c25f6"
+      },
+      "new": 5,
+      "receipt": {
+        "bytes": 434446,
+        "path": "/tmp/pices-program20-shard3-v1/coverage.json",
+        "sha256": "a1e7da43f5bb88863c8a864a8ec7b48d2641c91150bbc9f5982046031a883a78"
+      },
+      "retained": 896,
+      "seconds": 275.39527020201785,
+      "status": "GUARDED_PROGRAM20_SHARD_COVERAGE_PASS",
+      "unexpected_guard_events": 0
+    }
+  ],
+  "aggregate": {
+    "bytes": 53367,
+    "path": "/workspace/pices-main/docs/readiness/2026-10-06/aggregate_modern_program20_coverage.py",
+    "sha256": "c0dc12e752f0836077d66ee722347da96b1ec04b99f1ebbf5eb8f497f0d8824a"
+  },
+  "completed_shard_summary": {
+    "bytes": 814,
+    "path": "/tmp/pices-program20-completed-shards-v1.json",
+    "sha256": "0d5ca7ff8dff8ccb624f7a13ff672222c1357c1e0dcee49f7567bd326506ce6a"
+  },
+  "constants": {
+    "DRAFT_ONLY": false,
+    "EXPECTED_REVISION": "8b84f9db5ea2d536de3ed01a60f147fc6cbc6246",
+    "EXPECTED_RUNTIME_SHA": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+    "EXPECTED_SOURCE_TEST_COUNT": 188,
+    "EXPECTED_SOURCE_TEST_SHA": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7",
+    "MEASUREMENT_HELPER_SHA": "f18b89e2d66b78f91b811431bf43484f14cc542974121cd344462fb874da92b8",
+    "RECEIPT_SHAS": [
+      "aea074d5820c620f7a26435d138f21eb009cd7e61a1f3c030e329d5388031f48",
+      "66bcf5c3ef6f33b1a14efec4cc3103afda980c10a4905cb3eb8f9243729fa3de",
+      "a669d237a405931033fc0a2bd6bb0165d887c3604de218bc64e2bd2423c0cc40",
+      "a1e7da43f5bb88863c8a864a8ec7b48d2641c91150bbc9f5982046031a883a78"
+    ]
+  },
+  "decision": "APPROVE_EXACT_ACTIVATED_AGGREGATOR_FOR_SAVED_ONLY_AGGREGATION",
+  "kind": "program20_incremental_saved_only_aggregate_pin_review",
+  "logic_AST_unchanged_outside_approved_constants_and_header": true,
+  "material_findings": [],
+  "previous_measurement_pin_review": {
+    "bytes": 5344,
+    "path": "/tmp/program20-review-b-final-measurement-pins.json",
+    "sha256": "2aeef21e38d7295162c412ecf597f96f87df05b8d3999ca6f6bc02e3cf9fa174"
+  },
+  "prior_reviewed_draft": {
+    "bytes": 53040,
+    "path": "/tmp/aggregate_modern_program20_coverage.py",
+    "sha256": "3254b60b2d7cf5e3c6532a509e7049545b0bb823e708c20ae741abf51e945114"
+  },
+  "remaining_gates": [
+    "Run saved-only aggregation; independently review actual aggregate and final candidate tree before publication.",
+    "Required exact-head mainCI follows authorized direct-main publication."
+  ],
+  "reviewer": "direct_credit_review_b",
+  "scope": "Only activation pins, actual saved shard summaries/logs and manifest hashes reviewed. Prior baseline inventory review reused; no duplicate39k re-audit. This receipt does not yet assert aggregate completion or provider authority.",
+  "unchanged_runtime": "78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2",
+  "unchanged_source_binding": "9d71d97f47992d10d8c331aa60d072dc7bba40e6f1ea8f6e1e6a1a5b6d405dd7"
+}

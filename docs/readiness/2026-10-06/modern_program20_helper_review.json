@@ -1,0 +1,48 @@
+{
+  "activity_limits": {
+    "helper_execution": 0,
+    "network_requests": 0,
+    "preparations": 0,
+    "project_execution": 0,
+    "project_imports": 0,
+    "provider_requests": 0,
+    "repository_edits": 0,
+    "tests_executed": 0
+  },
+  "actual_baseline_independent_hash_check": {
+    "bytes": 1136,
+    "path": "/tmp/program20-helper-review-b-baseline.json",
+    "sha256": "184d28236c6744f562c71898a11b2ac22616baefd2aa363859584728d2a331e7"
+  },
+  "authored_helpers": false,
+  "decision": "APPROVE_DISABLED_DRAFT_LOGIC_FOR_FINAL_CONSTANT_PINNING",
+  "draft_helpers": [
+    {
+      "bytes": 56365,
+      "path": "/tmp/measure_modern_program20_coverage.py",
+      "sha256": "ccee11fdeef18170a55df85927db179f00cc8ffa43fdd4c8bf385246274b8e74"
+    },
+    {
+      "bytes": 53040,
+      "path": "/tmp/aggregate_modern_program20_coverage.py",
+      "sha256": "3254b60b2d7cf5e3c6532a509e7049545b0bb823e708c20ae741abf51e945114"
+    }
+  ],
+  "kind": "program20_disabled_measurement_helpers_independent_authorial_review",
+  "material_findings": [],
+  "pending_gates": [
+    "Only final pin constants/DRAFT_ONLY may change under this draft approval; inspect exact final hashes/delta before execution.",
+    "No measured program20 coverage established by this receipt; await actual guarded measurement and aggregate results."
+  ],
+  "reviewer": "direct_credit_review_b",
+  "verified_contracts": [
+    "DRAFT_ONLY and placeholder SHA/revision/count checks prevent execution pending final frozen pins; aggregation additionally requires four actual receipt hashes.",
+    "Latest3788 baseline reconstructed from exact saved194 receipts;39,232 inherited public files and32 profiles across29 roots independently rehashed,43 prior policy bindings unchanged.",
+    "All3585 old singleton wires/full nonruntime evidence plus203 two-file class outputs and original reviewed time retained; fresh20 twice, old3788 once; shard sizes5/5/5/5,897/896/896/896,51/51/51/50.",
+    "Full20 finite manifest independently reconstructs from distinct UTF8/ASCII source/review recipes and exact source roots,currentcreator426,plan; no broad mapping heuristic.",
+    "Offline guard precedes project imports/preparations; dummy clean environment, exclusive fresh output, exact source/runtime/policy/source-original before-after checks; no provider dispatch or class execution.",
+    "Separate personal29 and program/Unaami29 hold sets disjoint and retained; projected3605single+203pairs=3808targets/4011originals; remaining100single+25pairs=125 only after four actual saved successful receipts.",
+    "Aggregator reads actual raw input/wire/preparation/original files, recomputes full new evidence, independently compares old nonruntime evidence and verifies saved digests; no helper or project imports.",
+    "Shared27 non-main functions AST-identical, prior helpers never imported, prior checkouts/journals/receipts preserved."
+  ]
+}
