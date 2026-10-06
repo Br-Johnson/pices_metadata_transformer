@@ -1,0 +1,43 @@
+{
+  "framework_code_executed": false,
+  "kind": "finite-exxon-modern-creator-source-contract",
+  "provider_requests": 0,
+  "rdm_metadata_schema": {
+    "bytes": 12556,
+    "id": "r_metadata",
+    "local_path": "/tmp/pices-modern-api-evidence-7111dde/rdm/invenio_rdm_records/services/schemas/metadata.py",
+    "sha256": "01c3c04db0bbbc1a381e3b602415c98aabe496387fd47051a661c4d80a7c177d",
+    "source_pin": "d4a4ef21ef5cd99b6d1350b537c82581799296a3",
+    "source_url": "https://github.com/inveniosoftware/invenio-rdm-records/blob/d4a4ef21ef5cd99b6d1350b537c82581799296a3/invenio_rdm_records/services/schemas/metadata.py"
+  },
+  "rules": {
+    "affiliations": "Pinned relation schema accepts a free-text name without an ID. Keep each source affiliation/location as one exact name. No ROR lookup, invented identifier, affiliation splitting or source change.",
+    "personal_readback_name": "Pinned RDM post_load creates name as family_name + comma-space + given_name; request omits name. If present on readback it must equal that exact canonical display. Missing/altered given/family fields hold.",
+    "personal_required": "type personal and nonblank family_name; this finite projection supplies both reviewed given_name and family_name",
+    "prior2733": "Their request wire and all nonruntime evidence remain exact. Old organizational readback restrictions stay effective.",
+    "readback_defaults": "Only known empty identifiers may accompany an exact affiliation name or person. Reject unexpected fields, IDs, roles, extra/reordered affiliations or creators."
+  },
+  "schema_version": 1,
+  "source_profile_sha256": "ee49147aec99d83cf54cb7fa4e59f7e50229967af0f08f5408e97144367e99e5",
+  "source_review_sha256": "ad17c1efcb4014edcfc3e4fb8c08fb884ee4ea4928805fb7929277f1a6d155f3",
+  "status": "SOURCE_VERIFIED_OFFLINE_CONTRACT_ONLY",
+  "vocabularies": {
+    "locked_sdist_sha256": "57aecdbef48dfdbfb654af978e0546dad37f1c9eb7c6b282611d2ddd536b5852",
+    "retained_sdist": "/tmp/pices-exxon-service-contract-20261006/invenio_vocabularies-14.4.0.tar.gz",
+    "sources": [
+      {
+        "bytes": 1926,
+        "path_in_sdist": "invenio_vocabularies/contrib/affiliations/schema.py",
+        "sha256": "b064a97ed36219525dfc0539aa227bf7d0bff7e07c91f4ca399e28471c99bb04",
+        "source_url": "https://github.com/inveniosoftware/invenio-vocabularies/blob/v14.4.0/invenio_vocabularies/contrib/affiliations/schema.py"
+      },
+      {
+        "bytes": 5240,
+        "path_in_sdist": "invenio_vocabularies/services/schema.py",
+        "sha256": "d7c6f255f273a5b61216646e19f7318d1b3b225c25b39ce3cba4382d74762405",
+        "source_url": "https://github.com/inveniosoftware/invenio-vocabularies/blob/v14.4.0/invenio_vocabularies/services/schema.py"
+      }
+    ],
+    "version": "14.4.0"
+  }
+}
