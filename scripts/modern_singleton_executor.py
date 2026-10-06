@@ -41,6 +41,22 @@ LIMITS = {'get': 10, 'create': 1, 'init': 1, 'content': 1, 'commit': 1}
 TIMEOUT = 20
 MAX_BYTES = 1024 * 1024
 MIME = 'application/vnd.inveniordm.v1+json'
+BINARY_MEDIA = {'application/octet-stream', 'application/xml', 'text/xml'}
+
+
+def response_media_type(value, *, binary=False):
+    """Accept only the observed identical, bare binary header duplication."""
+    require(isinstance(value, str) and value
+            and all(32 <= ord(character) < 127 for character in value))
+    if ',' in value:
+        members = [member.strip().lower() for member in value.split(',')]
+        require(binary and members[0] in BINARY_MEDIA
+                and all(member == members[0] for member in members))
+        return members[0]
+    media = value.split(';', 1)[0].strip().lower()
+    if binary:
+        require(media in BINARY_MEDIA)
+    return media
 
 
 def instant(value):
@@ -58,6 +74,53 @@ def identifier(value):
 
 def digest(value):
     require(isinstance(value, str) and re.fullmatch('[0-9a-f]{64}', value))
+
+
+def completed_on_content(row, prepared):
+    """Validate the durable completion decision, never infer it from commit=0.
+
+    This hash-bound marker records prior full validation in our trusted journal;
+    it does not reconstruct the provider response. Fresh full readback is required.
+    """
+    require(isinstance(row, dict))
+    if 'upload_completion' not in row:
+        return False
+    marker = row['upload_completion']
+    require(isinstance(marker, dict) and set(marker) == {
+        'schema_version', 'kind', 'request_index', 'response_sha256'}
+        and type(marker['schema_version']) is int and marker['schema_version'] == 1
+        and marker['kind'] == 'content-completed-v1'
+        and type(marker['request_index']) is int and marker['request_index'] == 2)
+    digest(marker['response_sha256'])
+    counts, requests = row.get('counts'), row.get('requests')
+    require(isinstance(counts, dict) and set(counts) == set(LIMITS)
+            and all(type(counts[key]) is int and 0 <= counts[key] <= limit for key, limit in LIMITS.items())
+            and all(counts[key] == 1 for key in ('create', 'init', 'content')) and counts['commit'] == 0
+            and isinstance(requests, list) and len(requests) == 3 + counts['get'])
+    require(isinstance(row.get('identity'), dict))
+    base = '/api/records/' + identifier(row['identity'].get('id')) + '/draft'
+    file = base + '/files/' + prepared.source_id + '.xml'
+    expected = [
+        ('create', 'POST', '/api/records', 201, sha(prepared.body)),
+        ('init', 'POST', base + '/files', 201, sha(encode([{'key': prepared.source_id + '.xml'}]))),
+        ('content', 'PUT', file + '/content', 200, sha(prepared.xml)),
+    ]
+    prior = None
+    for receipt, wanted in zip(requests[:3], expected, strict=True):
+        require(isinstance(receipt, dict)
+                and tuple(receipt.get(key) for key in ('kind', 'method', 'path', 'http_status', 'body_sha256')) == wanted
+                and receipt.get('credential_suppressed') is False and receipt.get('status') == 'uncertain'
+                and type(receipt.get('bytes')) is int and 0 <= receipt['bytes'] <= MAX_BYTES)
+        digest(receipt.get('response_sha256'))
+        attempted = instant(receipt.get('attempted_at'))
+        require(prior is None or prior <= attempted)
+        prior = attempted
+    require(marker['response_sha256'] == requests[2]['response_sha256'])
+    require(all(isinstance(receipt, dict) and receipt.get('kind') == 'get'
+                and receipt.get('method') == 'GET' and receipt.get('body_sha256') is None
+                and receipt.get('path') in (base, base + '/files', file, file + '/content')
+                for receipt in requests[3:]))
+    return True
 
 
 def read_document(path):
@@ -268,6 +331,7 @@ class Runner:
                         and self.row['identity'] is not None and self.row['counts']['get'] >= 5)
             require(set(self.row['counts']) == set(LIMITS) and all(
                 type(self.row['counts'][k]) is int and 0 <= self.row['counts'][k] <= v for k, v in LIMITS.items()))
+            completed_on_content(self.row, self.prepared)
 
     def routes(self):
         require(self.row is not None and self.row.get('identity') is not None)
@@ -277,6 +341,8 @@ class Runner:
     def call(self, kind, method, path, status, body=None, binary=False):
         self.current()
         require(self.row is not None and kind in LIMITS)
+        if 'upload_completion' in self.row:
+            require(completed_on_content(self.row, self.prepared) and kind == 'get')
         if kind == 'create':
             require((method, path, status, body) == ('POST', '/api/records', 201, self.prepared.body)
                     and self.row['identity'] is None)
@@ -310,8 +376,8 @@ class Runner:
                        response_sha256=None if suppressed else sha(raw))
         self.save()
         require(not suppressed and observed == status and isinstance(mime, str))
-        media = mime.split(';', 1)[0].strip().lower()
-        require(media in ({'application/octet-stream', 'application/xml', 'text/xml'} if binary else {MIME}))
+        media = response_media_type(mime, binary=binary)
+        require(media in (BINARY_MEDIA if binary else {MIME}))
         self.current()
         value = raw if binary else parse(raw)
         if kind == 'create' and isinstance(value, dict):
@@ -403,7 +469,9 @@ class Runner:
             self.load()
             if read_only:
                 require(self.row is not None and self.row['identity'] is not None)
-                require(all(self.row['counts'][kind] == 1 for kind in LIMITS if kind != 'get'))
+                completed = completed_on_content(self.row, self.prepared)
+                require(all(self.row['counts'][kind] == 1 for kind in ('create', 'init', 'content'))
+                        and self.row['counts']['commit'] == int(not completed))
                 require(self.row['counts']['get'] + 5 <= LIMITS['get'])
                 revision = self.readback(self.row.get('verified_revision'))
             else:
@@ -422,8 +490,18 @@ class Runner:
                 require(isinstance(initialized, dict) and isinstance(initialized.get('entries'), list)
                         and len(initialized['entries']) == 1)
                 self.file(initialized['entries'][0], False)
-                self.file(self.call('content', 'PUT', file + '/content', 200, self.prepared.xml), False)
-                self.file(self.call('commit', 'POST', file + '/commit', 200), True)
+                uploaded = self.call('content', 'PUT', file + '/content', 200, self.prepared.xml)
+                require(isinstance(uploaded, dict))
+                completed = uploaded.get('status') == 'completed'
+                self.file(uploaded, completed)
+                if completed:
+                    self.row['upload_completion'] = {
+                        'schema_version': 1, 'kind': 'content-completed-v1', 'request_index': 2,
+                        'response_sha256': self.row['requests'][2]['response_sha256']}
+                    require(completed_on_content(self.row, self.prepared))
+                    self.save()  # Persist the validated branch before any readback.
+                else:
+                    self.file(self.call('commit', 'POST', file + '/commit', 200), True)
                 revision = self.readback()
             self.row.update(phase='verified', verified_revision=revision)
             self.save()

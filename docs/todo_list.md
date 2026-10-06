@@ -1,16 +1,36 @@
-## Active increment: next remaining modern target group — 2026-10-06
+## Active increment: production upload compatibility — 2026-10-06
+
+- [x] Reconcile the parent-reported Mac canary closure and four offline compatibility reproductions; preserve the Mac-local receipt and all spent attempts. No cloud provider action or raw/private fixture access.
+- [x] Draft the bounded completed-on-PUT branch and shared identical-bare-binary Content-Type rule, retaining the same grant maxima, metadata wire, original XML, canonical state and all source/identity/release gates.
+- [x] Freeze the repaired runtime and pass 135 affected guarded tests, including 19 new compatibility regressions, with unchanged source bindings and zero unexpected I/O. Reverify all 4,206 original XML hashes. Resolve the review finding by retaining reject-only DOI observations before strict MIME rejection.
+- [ ] Complete substantive independent current-head review and actual CI, then record the actual merge.
+- [ ] Reconcile the requested exact sanitized Mac responses and current FGDC-141 preparation/runtime/duplicate-history evidence before any separately granted production dispatch by parent to the sole Mac executor.
+
+Parent reports draft612988 closed at revision13 with exact XML/retry/fence and no
+PID; closure SHA256
+`e109ae135006ba5829ff44e8e0da289e6cc985f7c506d7a57e9f89bf565df948`
+remains Mac-local. The repaired current branch uses three writes plus five GETs
+when the fully validated content PUT is already completed; pending content retains
+the four-write branch. Commit stays at maximum one in the same grant and is
+actually zero only with the validated durable completion marker. Historical
+PR34–PR38 transcripts remain marker-free four-write evidence. Full readback,
+GET-only retry, no reset/new state paths and independent publication/release gates
+remain effective. See the [compatibility handoff](readiness/2026-10-06/modern_upload_compatibility_handoff.md).
+
+## Completed increment: finite Exxon singleton mapping — 2026-10-06
 
 - [x] Reconcile PR37 main `ad7ea769`, 730 actual CI tests and reviewed tree `7e0bc655`; preserve its frozen checkout and evidence.
 - [x] Partition all 1,200 remaining supported targets and select exactly 412 unprotected Exxon-profile singletons; retain the two protected profile members, 203 related pairs and all other source/identity boundaries.
 - [x] Measure all 412 fresh mappings and repeats, unchanged wire/nonruntime evidence for all 2,733 prior mappings, and all 4,206 original XML hashes. Pass 148 focused guarded tests. Actual modern coverage is 3,145; 788 supported targets remain outside (560 singletons + 228 pairs).
-- [ ] Complete independent current-head review, actual CI, normal merge and executable handoff.
+- [x] Freeze the source/service contract, executable handoff and measured source/output receipts; retain all actual local evidence.
+- [x] Merge PR38 at `4a3703df949a952bb7b9b00544a3132cea771bfc` after exact-head independent Codex approval and 748 passing actual guarded CI tests. Main/tree/parents and original FGDC tree verified; preserve its frozen checkout and receipts.
 
 Parent reports the sole Mac executor completed the bounded Sandbox draft612988
 upload/readback canary at revision13: exact 439-byte XML downloads and repeat/final
 fence passed, draft unpublished with no PID. Closure SHA256
 `e109ae135006ba5829ff44e8e0da289e6cc985f7c506d7a57e9f89bf565df948` remains Mac-local.
 Reported cumulative counts are 220 GET / 9 PUT / 1 create / 1 UI / 1 file-init /
-0 commits. A separate reviewed production-client repair must support the observed
+0 commits. The active compatibility increment above addresses the reported
 already-completed upload and identical duplicate binary Content-Type before a
 production batch. This code lane performs no provider action or production
 publication. See the [executable handoff](readiness/2026-10-06/modern_exxon_handoff.md).
