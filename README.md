@@ -11,6 +11,15 @@ directly to `main`. The current [agent rules](AGENTS.md) supersede older reposit
 approval instructions retained in historical plans and handoffs. Provider action
 grants and production release requirements continue to apply independently.
 
+The [finite direct-primary increment](docs/adr/0008-finite-direct-primary-organizations.md)
+adds 2,628 supported singleton targets in 294 independently reviewed
+institutional-credit groups. Actual guarded coverage is **2,733 of 3,933 supported
+targets**, with all 105 earlier mappings preserved and 130 focused tests passing.
+No live execution or source-policy promotion is claimed. The parent's corrected
+October 6 Mac report records GET 200 and metadata PUT 200, then a validation stop
+before XML upload or the next GET. The spent PUT must never be replayed; recovery
+and all provider actions remain with the sole assigned executor.
+
 The [finite modern organizational extension](docs/adr/0007-finite-organizational-modern-coverage.md)
 expands source-aware mapping and guarded offline execution coverage from 19 to 105
 reviewed XML artifacts. It requires separate live grants and duplicate/history evidence and

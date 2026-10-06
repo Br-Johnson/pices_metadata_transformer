@@ -1,9 +1,24 @@
-## Active increment: finite organizational singleton coverage — 2026-10-05
+## Active increment: next finite primary-citation mapping cohort — 2026-10-06
+
+- [x] Reconcile PR36 merge `5755a26`, its 715 passing actual guarded CI tests and exact-head independent Codex review; retain its frozen tree and all receipts.
+- [x] Independently review 357 direct-citation groups covering 2,697 typed candidates; select exactly 294 groups / 2,628 sources and retain 69 mapping holds. Review receipts and exact source/hash/origin/creator manifest are frozen.
+- [x] Verify all 2,628 fresh mappings and repeats across four guarded shards, unchanged original 105 wire/nonruntime beforeimages, all 4,206 original XML hashes and 130 passing focused tests. Actual modern coverage is 2,733; 1,200 supported targets remain outside (972 singletons + 228 pairs). All source/state/rights/identity boundaries remain effective.
+- [ ] Obtain independent current-head review, pass actual CI, merge under standing repository authority and provide frozen execution instructions.
+
+Parent's corrected live report: on October 6 around 00:36 UTC the Mac canary
+received baseline GET 200 and metadata PUT 200 (517-byte payload, If-Match 11),
+then stopped during response validation before XML upload or the next GET. The
+PUT response body was not retained, so the cause is unproven. Parent-reported
+cumulative counts are 208 GET / 8 PUT / 1 create / 1 UI. No canary pass is claimed;
+the PUT remains spent and must never be replayed. The sole Mac executor owns the
+separately reviewed one-GET recovery; its result is not available in this code lane.
+
+## Completed increment: finite organizational singleton coverage — 2026-10-05
 
 - [x] Reconcile PR35 merge `a618f55`, 702 actual guarded CI tests and current-head independent review; capture the original 19 preparation before changing runtime.
 - [x] Select exactly 86 additional supported singletons from already reviewed explicitly typed organizational profiles; preserve FGDC-710's hold and all original XML.
 - [x] Measure 105 fresh mappings and exact old 19 nonruntime compatibility; preserve all 4,206 originals and pass 115 guarded contracts with zero unexpected I/O. Independent source, implementation and saved-evidence review found no material issue.
-- [ ] Obtain independent current-head review, publish one non-draft PR, pass actual CI and merge under standing repository authority.
+- [x] Merge PR36 as `5755a26f65b1d60b0e170280a07752822f514d95` after independent current-head review and 715 passing actual guarded CI tests; remote main/tree/parents and original FGDC tree verified.
 
 The Mac canary remains unexecuted because the token has not been entered. No live
 provider result or production release is inferred. The parent and sole provider

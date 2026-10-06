@@ -1,3 +1,23 @@
+# Finite direct primary organizational coverage — 2026-10-06
+
+[ADR 0008](adr/0008-finite-direct-primary-organizations.md) selects 2,628 new
+singletons through 294 independently reviewed primary-citation groups. The
+candidate heuristic never grants eligibility: the direct manifest binds exact
+source hashes, ordered origin elements and complete creator objects, separately
+from citation426. Keep 69 ambiguous typed candidates and 101 name-only candidates
+outside this mapping. Complete guarded measurement verifies 2,628 additions and
+105 unchanged earlier mappings: 2,733 modern targets, with 972 singletons and 228
+pairs still outside this path. All 130 focused tests pass. Source support remains
+3,933 targets, 39 held and six malformed.
+
+Preserve actual PR36 beforeimages for all 105 earlier mappings. The runtime bridge
+admits PR36 only for those old policies; direct-source preparations require the
+current runtime. No source status, grant, state root, spent allowance or release
+boundary changes. Paired execution, protected-ID corrections and remaining source
+role/rights questions are separate dependencies. The parent's corrected October 6
+Mac report is a GET/PUT success followed by a validation stop, not a passed canary;
+the spent PUT must never be replayed.
+
 # Finite organizational coverage and compatibility — 2026-10-05
 
 [ADR 0007](adr/0007-finite-organizational-modern-coverage.md) extends 19 to 105

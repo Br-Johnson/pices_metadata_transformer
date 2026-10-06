@@ -16,7 +16,16 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 
 from scripts.matching.evidence import snapshot_inventory
-from scripts.modern_singleton import encode, parse, sha, source_policy, validate_payload
+from scripts.modern_singleton import (
+    DIRECT_POLICY,
+    DIRECT_SHA,
+    PROFILE_SHA,
+    encode,
+    parse,
+    sha,
+    source_policy,
+    validate_payload,
+)
 from scripts.production_mutations import EXCLUDED, PROTECTED
 from scripts.qa_manifest import QA_CHECKS, validate_program_review
 
@@ -200,6 +209,8 @@ approved a record, reviewed the program, or authorized release.
     policy_keys = {'schema_version', 'policy', 'mapping_manifest_sha256', 'creator_cohort'}
     _require(isinstance(evidence, dict) and type(evidence.get('schema_version')) is int
              and {key: evidence[key] for key in policy_keys if key in evidence} == policy_fields
+             and evidence.get('creator_profile_sha256') ==
+             (DIRECT_SHA if policy_fields['policy'] == DIRECT_POLICY else PROFILE_SHA)
              and evidence.get('source_id') == prepared.source_id
              and evidence.get('source_sha256') == sha(prepared.xml)
              and evidence.get('wire_sha256') == sha(prepared.body)
