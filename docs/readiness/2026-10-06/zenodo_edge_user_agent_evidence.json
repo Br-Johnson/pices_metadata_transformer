@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "kind": "zenodo-edge-user-agent-evidence-v1",
+  "origin": "https://zenodo.org",
+  "request": "GET /api/communities/pices",
+  "authentication": "none; no production token was read or sent",
+  "captured_by": "Claude Fable 5.1 (Claude Code session on Brett Johnson's Mac)",
+  "captured_at": "2026-10-06T21:12:09Z",
+  "probe_window_utc": {
+    "first_request": "2026-10-06T21:11:18Z",
+    "last_request": "2026-10-06T21:12:09Z"
+  },
+  "authorization": "Brett Johnson asked in chat on 2026-10-06 to find a safe way to upload the prepared records to the PICES community; these were unauthenticated diagnostic reads made under that request, outside the executor's grant system, with no production token and no mutation.",
+  "request_shape": "All probes were credential-free, body-less GETs. Probe B carried the production transport's header set minus Authorization; it does not show how an authenticated POST with a body is treated.",
+  "provider_requests": 3,
+  "provider_mutations": 0,
+  "finding": "zenodo.org answered a request that carried no User-Agent header with an HTML 403 (\"Access to this resource has been restricted due to unusual traffic from your network\") before the request reached the InvenioRDM application. The identical request with a User-Agent header was served normally. The client IP was not blocked at capture time: a curl request 48 seconds earlier (probe A) and the same Python request with a User-Agent three seconds later (probe C) both returned 200.",
+  "executor_transport_headers_before_fix": [
+    "Authorization",
+    "Accept",
+    "Accept-Encoding: identity",
+    "Connection: close"
+  ],
+  "executor_transport_user_agent_after_fix": "pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)",
+  "probes": [
+    {
+      "label": "A_curl_default_user_agent",
+      "client": "curl 8 (macOS system), default User-Agent",
+      "request_headers_of_note": {
+        "User-Agent": "curl default"
+      },
+      "http_status": 200,
+      "content_type": "application/json",
+      "response_bytes": 2492,
+      "response_sha256": "a055f6ae09a978a4f5b475c8b6951f7aeb4399398d56c3bd4e388404f66204f4",
+      "x_ratelimit_limit": "133",
+      "observed_at": "2026-10-06T21:11:18Z",
+      "remote_ip": "137.138.153.219"
+    },
+    {
+      "label": "B_no_user_agent",
+      "client": "Python 3.14 http.client.HTTPSConnection, ssl.create_default_context()",
+      "request_headers": {
+        "Accept": "application/vnd.inveniordm.v1+json",
+        "Accept-Encoding": "identity",
+        "Connection": "close"
+      },
+      "http_status": 403,
+      "content_type": "text/html; charset=utf-8",
+      "response_bytes": 763,
+      "response_sha256": "be169ba97cb38cfeb3d940b54f2cedc0c2bdefb13789e885059f7990a7b02aa1",
+      "x_ratelimit_limit": null,
+      "observed_at": "2026-10-06T21:12:06Z",
+      "html_text": "403 Forbidden 403 Forbidden Access to this resource has been restricted due to unusual traffic from your network. If you believe this is a mistake, please contact our support line and we will look into your request. Reference: 22f2b043f258bebc32d54ae692b6a2ac Timestamp: 2026-10-06T23:12:06+02:00",
+      "firewall_reference": "22f2b043f258bebc32d54ae692b6a2ac",
+      "firewall_timestamp": "2026-10-06T23:12:06+02:00"
+    },
+    {
+      "label": "C_with_user_agent",
+      "client": "Python 3.14 http.client.HTTPSConnection, ssl.create_default_context()",
+      "request_headers": {
+        "Accept": "application/vnd.inveniordm.v1+json",
+        "Accept-Encoding": "identity",
+        "Connection": "close",
+        "User-Agent": "pices-metadata-transformer/1.0"
+      },
+      "http_status": 200,
+      "content_type": "application/vnd.inveniordm.v1+json",
+      "response_bytes": 3272,
+      "response_sha256": "26104464cfbf3da8eaa467b51b150075ce046fc91f054fedd02282fb546e6851",
+      "x_ratelimit_limit": "133",
+      "observed_at": "2026-10-06T21:12:09Z"
+    }
+  ],
+  "external_references": [
+    {
+      "role": "identical_symptom_and_fix",
+      "reference": "https://github.com/jspsych/datapipe/pull/271",
+      "note": "2026-09-21: Node bare user agent got the same HTML 403; fixed by sending an explicit User-Agent; sandbox.zenodo.org does not enforce it"
+    },
+    {
+      "role": "provider_guidance",
+      "reference": "https://blog.zenodo.org/2026/09/15/2026-09-15-stability-and-performance-updates/",
+      "note": "2026-09-15 \"Zenodo performance: an update on the current situation\": applications making large numbers of requests should respect the published rate limits and use a clear and identifiable User-Agent, recommended form AppName/1.0 (+https://example.com; contact@example.com); large-scale metadata access should use OAI-PMH or metadata dumps rather than the interactive Search API"
+    },
+    {
+      "role": "ip_block_policy",
+      "reference": "https://support.zenodo.org/help/en-gb/13-policies/29-why-is-my-ip-address-blocked"
+    },
+    {
+      "role": "rate_limits",
+      "reference": "https://developers.zenodo.org/#rate-limiting",
+      "note": "published limits: guest 60 per minute and 2,000 per hour; authenticated 100 per minute and 5,000 per hour; 429 with X-RateLimit headers beyond them"
+    }
+  ],
+  "limits": "This evidence shows the per-request edge rule and that this Mac was not IP-blocked at 21:11 to 21:12 UTC. Probe C sent the short token 'pices-metadata-transformer/1.0'; the exact shipped constant with the '(+https://...)' comment was not probed from this session, so verify it with one credential-free GET through the shipped header set before any one-shot provider action. It does not reconstruct the 12:05 UTC FGDC-141 create response body, and the client and headers of the 13:18:42 UTC credential-free GET were not recorded, so neither earlier 403 is formally attributed."
+}

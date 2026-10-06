@@ -46,7 +46,10 @@ The separately frozen [unknown-create recovery release](docs/readiness/2026-10-0
 provides a bounded GET-only observation controller. The original production create
 outcome remains unresolved, its intent is spent, and provider requests remain
 paused pending supported network recovery and a separate parent grant to the sole
-Mac executor. Zenodo support ticket 3327790 is pending. The
+Mac executor. Zenodo support ticket 3327790 is pending. The 2026-10-06
+[User-Agent handoff](docs/readiness/2026-10-06/zenodo_user_agent_handoff.md) attributes the
+reproduced 403 to zenodo.org's edge rule for requests without a `User-Agent` and requires
+dispatch from a checkout at or after its merged head. The
 [community-first release handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md)
 still requires actual PICES authority, source/record QA, a human release and accepted
 membership/default readback. AquaDocs linkage is
