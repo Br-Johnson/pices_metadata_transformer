@@ -104,14 +104,20 @@ def fetch_json(transport, token, path):
 
 
 def capture_inventory(transport, token, evidence_dir, captured_by, *, max_pages=MAX_PAGES,
-                      max_details=MAX_DETAILS, now=utc_now, pace=PACE_SECONDS):
+                      max_details=MAX_DETAILS, now=utc_now, pace=PACE_SECONDS, known=frozenset()):
     """GET the owner's listing until an empty page, then details for records that list no files.
 
+    The legacy listing shows no files for RDM drafts, so every draft this chain creates
+    would need a detail GET. Records in `known` (protected, excluded, or created by this
+    chain and pinned by the journal) are not fetched: the summary keeps their listing
+    shape, names them under `skipped_details`, and the matcher treats them as known.
     Raw responses are retained as `.partial` files until the capture completes,
     so an interrupted capture never looks like an inventory.
     """
+    known = {str(record_id) for record_id in known}
     require(isinstance(captured_by, str) and captured_by.strip()
-            and 1 <= max_pages <= MAX_PAGES and 0 <= max_details <= MAX_DETAILS)
+            and 1 <= max_pages <= MAX_PAGES and 0 <= max_details <= MAX_DETAILS
+            and all(re.fullmatch('[1-9][0-9]{0,19}', record_id) for record_id in known))
     evidence_dir = Path(evidence_dir)
     evidence_dir.mkdir(parents=True, exist_ok=True)
     started = now()
@@ -144,6 +150,8 @@ def capture_inventory(transport, token, evidence_dir, captured_by, *, max_pages=
         raise Held('Inventory exceeded the page bound; it is not complete')
     require(len({item['id'] for item in items}) == len(items))
     missing = [item for item in items if not (isinstance(item.get('files'), list) and item['files'])]
+    skipped = sorted((str(item['id']) for item in missing if str(item['id']) in known), key=int)
+    missing = [item for item in missing if str(item['id']) not in known]
     require(len(missing) <= max_details)
     details, detail_by_id = [], {}
     for item in missing:
@@ -160,7 +168,7 @@ def capture_inventory(transport, token, evidence_dir, captured_by, *, max_pages=
     document = {'schema_version': 1, 'kind': INVENTORY_KIND, 'origin': draft.ORIGIN,
                 'captured_by': captured_by, 'captured_at': started.isoformat(),
                 'completed_at': now().isoformat(), 'page_size': PAGE_SIZE,
-                'pages': pages, 'details': details, 'complete': True,
+                'pages': pages, 'details': details, 'skipped_details': skipped, 'complete': True,
                 'record_count': len(records), 'records': records}
     if len(encode(document)) > draft.MAX_BYTES:
         raise Held('inventory summary exceeds the 1 MiB document bound; receipts stay partial')
@@ -173,10 +181,13 @@ def capture_inventory(transport, token, evidence_dir, captured_by, *, max_pages=
 
 
 def known_records(paths, extra=()):
-    """Records whose files need no listing evidence: protected, excluded, or created by this chain."""
+    """Records whose files need no listing evidence: protected, excluded, or created by this chain.
+
+    Without `paths` the journal is not consulted.
+    """
     known = {str(value[0]) for value in PROTECTED.values()} | {str(i) for i in EXCLUDED} | {str(i) for i in extra}
-    journal_path = Path(paths.uploads_registry_path + '.modern-v1.json')
-    if journal_path.exists():
+    journal_path = Path(paths.uploads_registry_path + '.modern-v1.json') if paths is not None else None
+    if journal_path is not None and journal_path.exists():
         journal, _ = draft.read_document(journal_path)
         for row in journal.get('targets', {}).values():
             if not isinstance(row, dict):
@@ -292,6 +303,12 @@ def mint_create(json_file, paths, inventory_path, owner, reviewer, canary_receip
             and inventory['pages'][-1].get('count') == 0
             and inventory.get('record_count') == len(inventory['records']))
     require(rebuild_records(inventory_path, inventory) == inventory['records'])
+    # `skipped_details` is informational; it may only name records whose files the listing did not show.
+    skipped = inventory.get('skipped_details', [])
+    require(isinstance(skipped, list) and all(isinstance(record_id, str) for record_id in skipped)
+            and len(set(skipped)) == len(skipped)
+            and set(skipped) <= {r['id'] for r in inventory['records']
+                                 if isinstance(r, dict) and r.get('files_source') == 'none'})
     captured = draft.instant(inventory['captured_at'])
     start = now()
     require(timedelta(0) <= start - captured <= INVENTORY_MAX_AGE and type(window) is int and 0 < window <= 600)
@@ -341,6 +358,10 @@ def main():
     inventory.add_argument('--captured-by', required=True)
     inventory.add_argument('--max-pages', type=int, default=MAX_PAGES)
     inventory.add_argument('--max-details', type=int, default=MAX_DETAILS)
+    inventory.add_argument('--output-dir', help='Production output directory whose journal names the records '
+                                                'this chain created; they need no detail fetch')
+    inventory.add_argument('--known-record', action='append', default=[],
+                           help='Record ID whose files were verified another way; repeatable')
     inventory.add_argument('--token-keychain', metavar='SERVICE', help=draft.KEYCHAIN_HELP)
     mint = sub.add_parser('mint-create', help='Mint the create grant and duplicate proof offline')
     for key in ('json-file', 'output-dir', 'inventory', 'owner', 'reviewer', 'canary-receipt-sha256',
@@ -355,6 +376,11 @@ def main():
     args = parser.parse_args()
     try:
         if args.action == 'inventory':
+            # The known set is settled before the token stage, so a bad flag holds without a Keychain read.
+            paths = OutputPaths(args.output_dir, 'production') if args.output_dir else None
+            if paths is not None:
+                require(Path(paths.uploads_registry_path + '.modern-v1.json').is_file())
+            known = known_records(paths, args.known_record)
             try:
                 token = draft.production_token('Production token (memory only; deposit:write): ',
                                                args.token_keychain, action='inventory')
@@ -362,10 +388,10 @@ def main():
                 print(draft.TOKEN_HELD)
                 return 1
             out, document = capture_inventory(draft.Transport(token), token, args.evidence_dir, args.captured_by,
-                                              max_pages=args.max_pages, max_details=args.max_details)
+                                              max_pages=args.max_pages, max_details=args.max_details, known=known)
             result = {'inventory': str(out), 'inventory_sha256': sha(out.read_bytes()),
                       'record_count': document['record_count'], 'pages': len(document['pages']),
-                      'details': len(document['details']),
+                      'details': len(document['details']), 'skipped_details': len(document['skipped_details']),
                       'provider_requests': len(document['pages']) + len(document['details']),
                       'provider_mutations': 0}
         else:

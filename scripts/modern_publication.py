@@ -58,6 +58,7 @@ PR45_RUNTIME = 'd1055bf636fe04299be2b670af1b3aeefcae6c64149996b85cea469b672ea4f2
 PR46_RUNTIME = '62eeaad6183950bae245937f79a7d4e16df546a6635d9ea4dfbb7c4c2bf5902d'
 REVIEWED194_RUNTIME = '6cc86a1740fcd93e65d42e21b1c199c160974c607be54db71f43d3e25466349e'
 PICES26_RUNTIME = 'e23b81aba71ac50d348f25c60d4ac4c1d60bd88e3dc89f356d5599597d3d023c'
+PICES26_DRAFTS_RUNTIME = '74e3a233de0f2b56ca573a8ea3613a6c37c87a45356ec495e7ae1ded0e2e85a5'
 PROGRAM20_RUNTIME = '78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2'
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'review': 1, 'submit': 1}
@@ -135,7 +136,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
             (POLICY, 1), (EXTENSION_POLICY, 2), (DIRECT_POLICY, 3), (EXXON_POLICY, 4),
             (PICES_POLICY, 5), (INSTITUTION_POLICY, 6), (CITATION_ORG_POLICY, 7),
             (REVIEWED_CREATORS_POLICY, 8), (PROGRAM_POLICY, 9)):
-        compatible.add(PICES26_RUNTIME)
+        compatible.update((PICES26_RUNTIME, PICES26_DRAFTS_RUNTIME))
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
             and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
@@ -160,7 +161,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     completed = draft.completed_on_content(row, prepared)
     # Historical clients could emit only the marker-free four-write transcript.
     require(not completed or evidence['runtime_sha256'] in
-            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME, PR41_RUNTIME, PR42_RUNTIME, PR43_RUNTIME, PR44_RUNTIME, PR45_RUNTIME, PR46_RUNTIME, REVIEWED194_RUNTIME, PROGRAM20_RUNTIME, PICES26_RUNTIME))
+            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME, PR41_RUNTIME, PR42_RUNTIME, PR43_RUNTIME, PR44_RUNTIME, PR45_RUNTIME, PR46_RUNTIME, REVIEWED194_RUNTIME, PROGRAM20_RUNTIME, PICES26_RUNTIME, PICES26_DRAFTS_RUNTIME))
     writes = [('create', 'POST', '/api/records', 201, sha(prepared.body)),
               ('init', 'POST', base + '/files', 201, sha(encode([{'key': prepared.source_id + '.xml'}]))),
               ('content', 'PUT', file + '/content', 200, sha(prepared.xml)),

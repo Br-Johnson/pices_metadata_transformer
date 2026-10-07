@@ -130,6 +130,43 @@ class SameTextTests(unittest.TestCase):
         self.assertFalse(same_text('a "b"', 'a "c"'))
         self.assertFalse(same_text(None, 'a'))
 
+    def test_width_folding_compares_equal_and_other_sanitizer_repairs_do_not(self):
+        """ftfy.fix_text folds half-width and full-width forms and composes to NFC; nothing wider."""
+        from scripts.modern_singleton import WIDTH_FOLD, same_text
+        self.assertEqual((len(WIDTH_FOLD), WIDTH_FOLD[0x3000], WIDTH_FOLD[0xFF92]), (226, ' ', '\u30e1'))
+        self.assertTrue(same_text('People\u30e1s Republic', 'People\uff92s Republic'))  # U+FF92 stored as U+30E1
+        self.assertTrue(same_text('13\u30e824 km', '13\uff9624 km'))
+        self.assertTrue(same_text('4 \u1172 10 m', '4 \uffd7 10 m'))
+        self.assertTrue(same_text('\u30ac', '\uff76\uff9e'))  # half-width KA + voiced mark compose to GA
+        self.assertTrue(same_text('\uac00', '\uffa1\uffc2'))  # half-width jamo compose to a syllable
+        self.assertTrue(same_text('A 1', '\uff21\u3000\uff11'))  # full-width Latin and the ideographic space
+        self.assertTrue(same_text('\u00e9', 'e\u0301'))  # NFC composition on both sides
+        self.assertFalse(same_text('fi', '\ufb01'))  # ligatures are not folded: not observed
+        self.assertFalse(same_text('1', '\u2460'))  # other compatibility characters stay literal
+        self.assertFalse(same_text('\u03bc', '\u00b5'))  # the micro sign is not folded
+        self.assertFalse(same_text('a b', 'a\u00a0b'))  # the no-break space stays literal
+        self.assertFalse(same_text("it's", 'it\u2019s'))  # curly quotes stay literal
+        self.assertFalse(same_text('ab', 'a\u200bb'))  # zero-width space removal is not tolerated
+        self.assertFalse(same_text('ab', 'a\x08b'))  # nor control-character removal
+        self.assertFalse(same_text('ab', ' ab'))  # nor stripped whitespace
+        self.assertFalse(same_text('e\u0301', 'e'))  # a real difference still differs
+
+    def test_compare_metadata_accepts_folded_descriptions_but_not_folded_titles(self):
+        from scripts.modern_singleton import Held, compare_metadata
+        expected = {'resource_type': {'id': 'other'}, 'title': 'T \uff92', 'publisher': 'Zenodo',
+                    'publication_date': '2001-01-01', 'description': 'People\uff92s Republic',
+                    'subjects': [{'subject': 'a'}],
+                    'creators': [{'person_or_org': {'type': 'organizational', 'name': 'Org'}}],
+                    'additional_descriptions': [{'type': {'id': 'other'}, 'description': '<pre>13\uff9624</pre>'}]}
+        stored = {**expected, 'description': 'People\u30e1s Republic',
+                  'additional_descriptions': [{'type': {'id': 'other', 'title': {'en': 'Other'}},
+                                               'description': '<pre>13\u30e824</pre>'}]}
+        compare_metadata(stored, expected)
+        with self.assertRaises(Held):  # the title comparison stays byte-exact
+            compare_metadata({**stored, 'title': 'T \u30e1'}, expected)
+        with self.assertRaises(Held):
+            compare_metadata({**stored, 'description': 'People\u2019s Republic'}, expected)
+
     def test_compare_metadata_accepts_decoded_quotes_in_descriptions_only(self):
         from scripts.modern_singleton import Held, compare_metadata
         expected = {'resource_type': {'id': 'other'}, 'title': 'T &quot;q&quot;', 'publisher': 'Zenodo',

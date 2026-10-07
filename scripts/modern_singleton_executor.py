@@ -65,8 +65,10 @@ TOKEN_HELD = ('{"held":true,"stage":"token","instruction":"No attempt was starte
               'token stage held (missing or malformed Keychain item, no Mac terminal, or a Keychain token '
               'requested for publish); fix that and rerun"}')
 KEYCHAIN_ACTIONS = frozenset({'execute', 'resume', 'readback', 'capture', 'observe', 'inventory'})
-# Runtimes under which a started row may be resumed after the live runtime changed.
-RESUME_RUNTIMES = ('e23b81aba71ac50d348f25c60d4ac4c1d60bd88e3dc89f356d5599597d3d023c',)
+# Runtimes under which a started row may be resumed after the live runtime changed:
+# the first PICES26 create (FGDC-1319) and the PICES26 draft batch (FGDC-1938).
+RESUME_RUNTIMES = ('e23b81aba71ac50d348f25c60d4ac4c1d60bd88e3dc89f356d5599597d3d023c',
+                   '74e3a233de0f2b56ca573a8ea3613a6c37c87a45356ec495e7ae1ded0e2e85a5')
 RESUME_CLOCK_SKEW = timedelta(seconds=60)  # the provider stamps `created` on its own clock
 
 

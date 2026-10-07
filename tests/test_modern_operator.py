@@ -1,6 +1,7 @@
 """Operator toolkit contracts: bounded inventory capture and executor-accepted minting."""
 
 import hashlib
+import io
 import json
 import tempfile
 import unittest
@@ -94,6 +95,58 @@ class OperatorInventoryTests(unittest.TestCase):
         names = [p.name for p in self.evidence.iterdir()]
         self.assertTrue(names and all(name.endswith('.partial') for name in names), names)
 
+    def test_known_records_are_not_detail_fetched_and_are_named_in_the_summary(self):
+        """RDM drafts list no files in the legacy listing; the journal pins the ones this chain made."""
+        transport = ListingTransport([[owned(1, 'Listed', ['x.xml']), owned(2, 'Known draft'), owned(3, 'Unknown')], []],
+                                     details={'3': {'id': 3, 'files': [{'filename': 'late.xml', 'checksum': 'md5:' + 'a' * 32}]}})
+        out, document = operator.capture_inventory(transport, fixtures.TOKEN, self.evidence, 'capture agent',
+                                                   now=lambda: NOW, pace=0, known={2}, max_details=1)
+        self.assertEqual([call[1] for call in transport.calls],
+                         [operator.listing_path(1), operator.listing_path(2), operator.detail_path('3')])
+        self.assertEqual((document['skipped_details'], len(document['details'])), (['2'], 1))
+        by_id = {row['id']: row for row in document['records']}
+        self.assertEqual((by_id['2']['files_source'], by_id['2']['files'], by_id['3']['files_source']), ('none', [], 'detail'))
+        self.assertEqual(operator.rebuild_records(out, document), document['records'])
+        # The matcher still treats the skipped record as known and every other record on its own evidence.
+        self.assertEqual(operator.inventory_matches(document['records'], 'FGDC-141', 'nothing', b'<x/>', known={'2'}), [])
+        self.assertEqual(operator.inventory_matches(document['records'], 'FGDC-141', 'nothing', b'<x/>'),
+                         [{'id': '2', 'reasons': ['files_unverified']}])
+        with self.assertRaises(Held):  # a known id must look like a record id
+            operator.capture_inventory(transport, fixtures.TOKEN, self.evidence / 'bad', 'capture agent',
+                                       now=lambda: NOW, pace=0, known={'x'})
+        self.assertFalse((self.evidence / 'bad').exists())
+        self.assertIn('2', operator.known_records(None, ('2',)))
+
+    def test_cli_inventory_settles_known_ids_before_the_token_stage(self):
+        from scripts.path_config import OutputPaths
+        output = Path(self.temporary.name) / 'out'
+        journal = Path(OutputPaths(str(output), 'production').uploads_registry_path + '.modern-v1.json')
+        journal.parent.mkdir(parents=True, exist_ok=True)
+        journal.write_bytes(encode({'schema_version': 1, 'kind': 'modern-production-draft-attempts', 'targets': {
+            'FGDC-9': {'identity': {'id': '2', 'parent_id': '20', 'owner': '123', 'created': NOW.isoformat()}}}}))
+        transport = ListingTransport([[owned(1, 'Listed', ['x.xml']), owned(2, 'Journal draft'), owned(5, 'Flagged'),
+                                       owned(3, 'Unknown')], []],
+                                     details={'3': {'id': 3, 'files': [{'filename': 'late.xml', 'checksum': 'md5:' + 'a' * 32}]}})
+        argv = ['modern_operator', 'inventory', '--evidence-dir', str(self.evidence), '--captured-by', 'capture agent',
+                '--output-dir', str(output), '--known-record', '5', '--max-details', '1', '--token-keychain', 'pices-test']
+        with patch('sys.argv', argv), patch('scripts.modern_operator.time.sleep'), \
+                patch('scripts.modern_singleton_executor.production_token', return_value=fixtures.TOKEN) as token, \
+                patch('scripts.modern_singleton_executor.Transport', return_value=transport), \
+                patch('sys.stdout', new_callable=io.StringIO) as out:
+            self.assertEqual(operator.main(), 0)
+        result = json.loads(out.getvalue())
+        self.assertEqual((result['record_count'], result['details'], result['skipped_details'], result['provider_requests']),
+                         (4, 1, 2, 3))
+        self.assertEqual([call[1] for call in transport.calls],
+                         [operator.listing_path(1), operator.listing_path(2), operator.detail_path('3')])
+        self.assertEqual(token.call_args.kwargs, {'action': 'inventory'})
+        # An output directory without a journal holds before any token is read.
+        missing = argv[:6] + ['--output-dir', str(output / 'missing'), '--token-keychain', 'pices-test']
+        with patch('sys.argv', missing), patch('scripts.modern_singleton_executor.production_token') as token, \
+                patch('sys.stdout', new_callable=io.StringIO) as out:
+            self.assertEqual(operator.main(), 1)
+        self.assertEqual((token.call_count, json.loads(out.getvalue())['held']), (0, True))
+
 
 class OperatorMintTests(unittest.TestCase):
     @classmethod
@@ -109,7 +162,8 @@ class OperatorMintTests(unittest.TestCase):
         self.root = Path(self.temporary.name)
         self.count = 0
 
-    def inventory(self, raw_records, captured=None, details=None, terminal_count=0, tamper=False, edit=False):
+    def inventory(self, raw_records, captured=None, details=None, terminal_count=0, tamper=False, edit=False,
+                  skipped=()):
         """A complete inventory with raw receipts beside it, exactly as capture writes them."""
         self.count += 1
         stamp = f'{self.count}'
@@ -130,7 +184,8 @@ class OperatorMintTests(unittest.TestCase):
                                'response_sha256': sha(page1), 'raw': f'inventory-{stamp}.page-1.json'},
                               {'page': 2, 'path': operator.listing_path(2), 'http_status': 200, 'count': terminal_count,
                                'response_sha256': sha(page2), 'raw': f'inventory-{stamp}.page-2.json'}],
-                    'details': detail_rows, 'complete': True, 'record_count': len(raw_records),
+                    'details': detail_rows, 'skipped_details': list(skipped), 'complete': True,
+                    'record_count': len(raw_records),
                     'records': [operator.summarize(r, detail_by_id.get(r['id'])) for r in raw_records]}
         if tamper:
             (self.root / f'inventory-{stamp}.page-1.json').write_bytes(page1 + b' ')
@@ -182,6 +237,7 @@ class OperatorMintTests(unittest.TestCase):
             'edited_summary': (self.inventory([owned(23, 'x', ['a']), owned(24, 'y', ['b'])], edit=True), {}),
             'tampered_page': (self.inventory([owned(14, 'x', ['a'])], tamper=True), {}),
             'not_terminal': (self.inventory([owned(15, 'x', ['a'])], terminal_count=1), {}),
+            'skipped_names_a_listed_file': (self.inventory([owned(25, 'x', ['a'])], skipped=['25']), {}),
         }
         for label, (inventory, overrides) in cases.items():
             with self.subTest(label=label):

@@ -76,7 +76,7 @@ the Keychain token, which also verifies that the stored token works, and
 writes raw page receipts plus a summary document:
 
 ```bash
-python -B -m scripts.modern_operator inventory --evidence-dir "$OUTPUT/../evidence/pices26" --captured-by "Claude Fable 5.1 (capture)" --token-keychain pices-zenodo-production
+python -B -m scripts.modern_operator inventory --evidence-dir "$OUTPUT/../evidence/pices26" --captured-by "Claude Fable 5.1 (capture)" --output-dir "$OUTPUT" --token-keychain pices-zenodo-production
 ```
 
 It lists `/api/deposit/depositions` fifty records a page until an empty page,
@@ -171,6 +171,15 @@ may precede the local attempt time by up to sixty seconds.
 Every later record goes through the plain `execute`, whose create response now
 passes the comparison.
 
+The same shape recurred once in the batch of 2026-10-07: FGDC-1938 held after
+its 201 because the provider folded U+FF92 in the description to U+30E1 (its
+`ftfy` sanitiser). `same_text` now folds half-width and full-width forms with
+ftfy's width map and compares NFC forms, the batch runtime
+`74e3a233…` is listed for resume and bridging, and the row is completed by the
+same resume commands with `--resume-candidate 23203062`. The batch itself, its
+record ids and the inventory change are in
+[the batch note](../2026-10-07/pices26_draft_batch.md).
+
 ## 4. From draft to accepted PICES membership
 
 The remaining stages are documented in the
@@ -210,4 +219,8 @@ Plan steps 2 to 4 of this section as one sitting.
 - Per record, the chain costs up to 14 draft-stage, 5 capture and 24
   publication requests and one human release. A batch path for the 3,839
   prepared targets does not exist yet; the QA validator accepts one record per
-  manifest. Design that only after the first record completes end to end.
+  manifest. [ADR 0011](../../adr/0011-batched-modern-publication.md) proposes
+  it; the 26 drafts of 2026-10-07 are its step 1.
+- The legacy listing shows no files for RDM drafts. Capture inventories with
+  `--output-dir "$OUTPUT"` so journal-pinned drafts need no detail GET; the
+  25-detail bound then applies to unknown records only.

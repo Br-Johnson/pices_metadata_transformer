@@ -9,6 +9,7 @@ import hashlib
 import html
 import json
 import re
+import unicodedata
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
@@ -881,16 +882,34 @@ def prepare(json_file, paths):
 QUOTE_ENTITIES = (('&quot;', '"'), ('&#34;', '"'), ('&#x22;', '"'), ('&#39;', "'"), ('&#x27;', "'"))
 
 
-def same_text(actual, expected):
-    """Equal HTML text once quote entities are decoded; the provider stores &quot; as a quote.
+# ftfy's width map, rebuilt: half-width and full-width forms and the ideographic space
+# fold to their standard forms; the provider then composes the result to NFC.
+WIDTH_FOLD = {0x3000: ' '}
+WIDTH_FOLD.update({code: unicodedata.normalize('NFKC', chr(code)) for code in range(0xFF01, 0xFFF0)
+                   if unicodedata.normalize('NFKC', chr(code)) != chr(code)})
 
-    Nothing else is repaired: tags, ampersands and angle-bracket entities stay literal.
+
+def canonical_text(text):
+    """The form the provider stores: quote entities decoded, widths folded, NFC-composed."""
+    for entity, character in QUOTE_ENTITIES:
+        text = text.replace(entity, character)
+    return unicodedata.normalize('NFC', text.translate(WIDTH_FOLD))
+
+
+def same_text(actual, expected):
+    """Equal once both sides take the provider's stored form.
+
+    Zenodo sanitises text fields with ``ftfy.fix_text`` (marshmallow-utils
+    ``sanitize_unicode``). Two of its steps have been observed on production and are
+    reproduced here: HTML quote entities are decoded, and half-width or full-width
+    forms (U+FF01 to U+FFEE and U+3000) fold to their standard forms with NFC
+    composition, so U+FF92 is stored as U+30E1. Nothing else is repaired: tags,
+    ampersands, angle-bracket entities, curly quotes, ligatures, other compatibility
+    characters, control characters and surrounding whitespace stay literal.
     """
     if not isinstance(actual, str) or not isinstance(expected, str):
         return False
-    for entity, character in QUOTE_ENTITIES:
-        actual, expected = actual.replace(entity, character), expected.replace(entity, character)
-    return actual == expected
+    return canonical_text(actual) == canonical_text(expected)
 
 
 def compare_metadata(actual, expected):

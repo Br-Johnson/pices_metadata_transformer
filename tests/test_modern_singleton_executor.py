@@ -895,6 +895,55 @@ class ResumeTests(unittest.TestCase):
         bridge(self.fixture.json_file, self.fixture.paths, self.packet, self.fixture.grant_path,
                self.fixture.proof_path, grant_path, proof_path)
 
+    def test_listed_resume_runtimes_are_the_publication_bridge_constants(self):
+        from scripts import modern_publication as publication
+        from scripts.modern_singleton_executor import RESUME_RUNTIMES
+        self.assertEqual(RESUME_RUNTIMES, (publication.PICES26_RUNTIME, publication.PICES26_DRAFTS_RUNTIME))
+        self.assertTrue(all(len(value) == 64 and set(value) <= set('0123456789abcdef') for value in RESUME_RUNTIMES))
+        self.assertEqual(len(set(RESUME_RUNTIMES)), len(RESUME_RUNTIMES))
+
+    def test_the_batch_runtime_is_accepted_through_resume_and_bridge_without_patching_a_constant(self):
+        """A row and packet made under the PICES26 batch runtime complete under a later live runtime."""
+        from scripts import modern_publication as publication
+        from scripts.modern_publication import bridge
+        batch = publication.PICES26_DRAFTS_RUNTIME
+        receipt = json.loads((Path(__file__).resolve().parents[1]
+                              / 'docs/readiness/2026-10-07/pices26_draft_batch.json').read_text(encoding='utf-8'))
+        runtimes = {row['source_id']: row['runtime_sha256'] for row in receipt['records']}
+        self.assertEqual(runtimes.pop('FGDC-1319'), publication.PICES26_RUNTIME)
+        self.assertEqual((set(runtimes.values()), len(runtimes)), ({batch}, 25))
+        with patch('scripts.modern_singleton.runtime_binding', return_value=batch):
+            fixture = fixtures.Fixture(Path(self.temporary.name) / 'batch', self.prepared_root)
+            self.assertEqual(fixture.prepared.evidence['runtime_sha256'], batch)
+            packet = fixture.root / 'preparation.json'
+            packet.write_bytes(encode({'binding': fixture.prepared.binding, 'evidence': fixture.prepared.evidence,
+                                       'provider_requests': 0}))
+            with patch('scripts.modern_singleton_executor.compare_metadata', side_effect=Held('refused')), \
+                    self.assertRaises(Held):
+                fixture.runner().run()
+        candidate = fixture.transport.identifier
+        proof = dict(fixture.proof, checked_at=NOW.isoformat(), expires_at=(NOW + timedelta(hours=1)).isoformat(),
+                     reviewed_by='Resume reviewer')
+        proof_path = fixture.root / 'resume-proof.json'
+        proof_path.write_bytes(encode(proof))
+        grant = dict(fixture.grant, reviewed_by='Resume reviewer', started_at=(NOW + timedelta(minutes=10)).isoformat(),
+                     expires_at=(NOW + timedelta(minutes=20)).isoformat(),
+                     duplicate_proof_sha256=sha(proof_path.read_bytes()))
+        grant_path = fixture.root / 'resume-grant.json'
+        grant_path.write_bytes(encode(grant))
+        # The live runtime has moved on; no executor or bridge constant is patched.
+        with patch('scripts.modern_singleton.runtime_binding', return_value='b' * 64):
+            def runner():
+                return Runner(fixture.json_file, fixture.paths, grant_path, proof_path, fixtures.TOKEN,
+                              fixture.transport, lambda: NOW + timedelta(minutes=15), preparation=packet)
+            self.assertEqual(runner().rehearse_resume(candidate)['resume_rehearsed'], True)
+            result = runner().run(resume=candidate)
+            self.assertEqual((result['draft_verified'], result['binding']), (True, fixture.prepared.binding))
+            prepared, bound = bridge(fixture.json_file, fixture.paths, packet, fixture.grant_path,
+                                     fixture.proof_path, grant_path, proof_path)
+            self.assertEqual((bound['original_runtime_sha256'], bound['runtime_sha256'], bound['identity']['id']),
+                             (batch, 'b' * 64, candidate))
+
     def test_resume_refuses_every_other_state(self):
         grant_path, proof_path = self.resume_documents()
         with self.assertRaises(Held):  # nothing started yet
