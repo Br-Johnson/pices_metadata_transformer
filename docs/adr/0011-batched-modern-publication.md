@@ -1,12 +1,14 @@
 # Batched modern publication to the PICES community
 
-Date: 2026-10-06. Status: proposed; nothing here grants a provider action.
+Date: 2026-10-06. Status: proposed, refined and carried forward by [ADR 0012](0012-batch-runner-contracts.md); nothing here grants a provider action.
 Step 1 of the implementation order ran on 2026-10-07: 25 drafts under one
 signed inventory at twelve seconds and nine requests per record, 24 verified
 and one resumable hold on the provider's text sanitiser; the legacy listing
 shows no files for RDM drafts, so the capture now skips journal-pinned ids
 (the first piece of point 9). See
 [the batch note](../readiness/2026-10-07/pices26_draft_batch.md).
+[ADR 0012](0012-batch-runner-contracts.md) freezes the batch documents and
+the runner's rules and carries the implementation order from here.
 Scope: moving the 3,636 wire-prepared singletons (and later the 203 pairs)
 from prepared inputs to accepted PICES membership with the same evidence
 guarantees the single-record chain gives today. Supersedes nothing yet; the

@@ -158,9 +158,10 @@ agree on every identity and grant hash.
 - The reviewer's note A: FGDC-1924 (Scientific Report No. 9) and FGDC-2708
   describe the same October 1997 CCCC workshop with different XML, titles,
   descriptions and metadata dates; both drafts exist, as the 26-record scope
-  decided. Brett decides before release whether both are published; the
-  inventory matcher cannot see intra-batch twins and the journal does not
-  compare sources with one another yet.
+  decided. Brett decided on 2026-10-07 that both are published with the 26.
+  The inventory matcher cannot see intra-batch twins; the batch design adds
+  a journal-side twin check with reviewed allowances, this pair being the
+  first.
 - Capture, QA, release and publication for the 26 remain the community-first
   sequence; nothing here grants them.
 - Zenodo support ticket 3327790 still describes an IP block (Brett).

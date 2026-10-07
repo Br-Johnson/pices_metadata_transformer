@@ -1,0 +1,58 @@
+{
+  "batch_id": "drafts-example-001",
+  "counts": {
+    "already-verified": 2,
+    "held-recovery": 0,
+    "held-transport": 1,
+    "held-validation": 0,
+    "pending": 0,
+    "skipped": 0,
+    "verified": 0
+  },
+  "grant_sha256": "f37deadc185b4ae3bfb130621d89f3fa376bcee933892d6735f17ce8c6d6282b",
+  "inventories": [
+    {
+      "captured_at": "2026-10-07T06:20:58+00:00",
+      "members_minted": 1,
+      "records": 46,
+      "reviewed_by": "Independent reviewer agent (Claude, session 3b1f13) 2026-10-07; inventory 51c13edb for the FGDC-1938 resume",
+      "sha256": "51c13edbc20527dd3dcfc645662f1f042ab5b96e00766b1438bd3314d965cda4"
+    }
+  ],
+  "kind": "modern-batch-ledger-v1",
+  "manifest_sha256": "6f1bc8cc2201421814ac2fd37781e1c5e6ab571648f8b07c6b70b9cdb07adc92",
+  "members": {
+    "FGDC-1915": {
+      "record_id": "23202974",
+      "status": "already-verified"
+    },
+    "FGDC-1924": {
+      "record_id": "23203006",
+      "status": "already-verified"
+    },
+    "FGDC-2708": {
+      "attempted_at": "2026-10-08T15:02:10+00:00",
+      "inventory_sha256": "51c13edbc20527dd3dcfc645662f1f042ab5b96e00766b1438bd3314d965cda4",
+      "proof_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "reason": "create answered 429; no row written",
+      "requests": 1,
+      "status": "held-transport"
+    }
+  },
+  "requests": {
+    "last_hour": 1,
+    "last_minute": 1,
+    "total": 1
+  },
+  "schema_version": 1,
+  "started_at": "2026-10-08T15:01:00+00:00",
+  "status": "stopped",
+  "stops": [
+    {
+      "after": "FGDC-1924",
+      "at": "2026-10-08T15:02:30+00:00",
+      "reason": "transport:429"
+    }
+  ],
+  "updated_at": "2026-10-08T15:02:30+00:00"
+}

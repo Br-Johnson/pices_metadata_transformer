@@ -1,0 +1,77 @@
+{
+  "allowances": [
+    {
+      "allowed_by": "Brett Johnson (chat, 2026-10-07)",
+      "note": "Scientific Report No. 9 and the workshop record describe the October 1997 CCCC workshop from two source records; both are published.",
+      "origin": "registry:cccc-workshop-1997.json",
+      "sources": [
+        "FGDC-1924",
+        "FGDC-2708"
+      ]
+    }
+  ],
+  "attempted_count": 0,
+  "attempted_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "batch_id": "drafts-example-001",
+  "built_at": "2026-10-05T18:00:00+00:00",
+  "built_by": "example built offline from fixture-classified inputs",
+  "exclusions": [
+    {
+      "reason": "the sanitiser removes U+FFFC from its description; deferred until the comparison tolerates that step",
+      "source_id": "FGDC-2733"
+    }
+  ],
+  "kind": "modern-batch-v1",
+  "member_count": 3,
+  "members": [
+    {
+      "binding": "417af7706e1b09b5f61f5c24a814815598848a4e5c99c4a7f8e31abeb4164d02",
+      "index": 0,
+      "journal_phase": null,
+      "policy": "modern-xml-pices26-v1",
+      "schema_version": 5,
+      "source_id": "FGDC-1915",
+      "source_sha256": "f8a00a2d0c3bc8f1b8e3b947005ec905b344be76357b88219126529147f07014",
+      "title_key": "pices scientific report no. 1 (1993) - coastal pelagic fishes : report of working group 3 / edited by john r. hunter and tokio wada. subarctic gyre : report of working group 6 / edited by brent hargreaves and takashige sugimoto",
+      "wire_sha256": "61badfc2775f3d7b0284ae976cd2de7495a077a4897c86ca0b82483cd2f88561"
+    },
+    {
+      "binding": "139b630899f5ca2c5f1c266451780b09ed10a4cbeb58bcc97a0ebc7d95761fd4",
+      "index": 1,
+      "journal_phase": null,
+      "policy": "modern-xml-pices26-v1",
+      "schema_version": 5,
+      "source_id": "FGDC-1924",
+      "source_sha256": "34e749d18bbeb0e60c966e609905d6a94b2ece57a217c7c624ab5fdde4ec4a96",
+      "title_key": "pices scientific report no. 9 (1998) - pices climate change and carrying capacity workshop on the development of cooperative research in coastal regions of the north pacific : october 17-18, pusan, republic of korea",
+      "wire_sha256": "a509259fac11067de3fcb7fc91c8d14805bfcf4f42cec663d0db7715746e6d3e"
+    },
+    {
+      "binding": "bb790d94380da159702544942b0a7e3457970cb0f3987bfb9767b05ae290037f",
+      "index": 2,
+      "journal_phase": null,
+      "policy": "modern-xml-pices26-v1",
+      "schema_version": 5,
+      "source_id": "FGDC-2708",
+      "source_sha256": "fbc1c07c544f376da869c69a1a1cd9e7eae380b39ee27998935fcceba4fbd58f",
+      "title_key": "pices climate change and carrying capacity workshop on the development of cooperative research in coastal regions of the north pacific",
+      "wire_sha256": "47960e9672c370cbd5e0d565d63a97f2514907f4c5011ae1140ead41834b3839"
+    }
+  ],
+  "membership_sha256": "fd892d3fbbcc1437c3583f9f9411b2c502d1c44e5cc3518d679ccdccc6fee879",
+  "origin": "https://zenodo.org",
+  "owner": "266679",
+  "runtime_sha256": "d9f387230753e43c03244f4e3b218e5d3d2a89862e33e418ce1503fdeb56caca",
+  "schema_version": 1,
+  "stage": "drafts",
+  "state_root": "/Users/brettjohnson/Documents/Codex/2026-09-30/task-4/pices-production-operations/output/state/uploads/production",
+  "twins": [
+    {
+      "kind": "title_contained",
+      "pair": [
+        "FGDC-1924",
+        "FGDC-2708"
+      ]
+    }
+  ]
+}

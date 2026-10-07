@@ -1,0 +1,31 @@
+{
+  "approved": true,
+  "batch_id": "drafts-example-001",
+  "canary_receipt_sha256": "f2141c916b38a53168edca63f0af79b47df3e9913653f3538aba040ca9a20f7c",
+  "draft_only": true,
+  "evidence_policy": {
+    "inventory_max_age_seconds": 2700,
+    "inventory_max_records": 100,
+    "proof_lifetime_seconds": 3600
+  },
+  "executor": "01a0f3ae-ee1c-7046-9b04-36d35803903c",
+  "expires_at": "2026-10-08T23:00:00+00:00",
+  "kind": "modern-batch-grant-v1",
+  "limits": {
+    "commit": 1,
+    "content": 1,
+    "create": 1,
+    "get": 10,
+    "init": 1
+  },
+  "manifest_sha256": "6f1bc8cc2201421814ac2fd37781e1c5e6ab571648f8b07c6b70b9cdb07adc92",
+  "membership_sha256": "fd892d3fbbcc1437c3583f9f9411b2c502d1c44e5cc3518d679ccdccc6fee879",
+  "origin": "https://zenodo.org",
+  "owner": "266679",
+  "reviewed_by": "Independent reviewer agent (Claude, session X) 2026-10-08; manifest 6f1bc8cc",
+  "schema_version": 1,
+  "stage": "drafts",
+  "started_at": "2026-10-08T15:00:00+00:00",
+  "state_root": "/Users/brettjohnson/Documents/Codex/2026-09-30/task-4/pices-production-operations/output/state/uploads/production",
+  "token_scope": "deposit:write"
+}

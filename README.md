@@ -52,7 +52,8 @@ reproduced 403 to zenodo.org's edge rule for requests without a `User-Agent` and
 dispatch from a checkout at or after its merged head. On 2026-10-07 the 26 PICES-authored
 singletons became production drafts under the sole Mac executor
 ([batch note](docs/readiness/2026-10-07/pices26_draft_batch.md)): all 26 verified
-after one sanitiser hold was resumed; none published. The
+after one sanitiser hold was resumed; none published. [ADR 0012](docs/adr/0012-batch-runner-contracts.md)
+freezes the batch runner's documents for the remaining 3,636 singletons. The
 [community-first release handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md)
 still requires actual PICES authority, source/record QA, a human release and accepted
 membership/default readback. AquaDocs linkage is
