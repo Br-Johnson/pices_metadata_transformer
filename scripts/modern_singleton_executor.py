@@ -6,6 +6,8 @@ must separately obtain a reviewed source-bound grant and duplicate/history proof
 """
 
 import argparse
+import base64
+import copy
 import getpass
 import hashlib
 import http.client
@@ -18,7 +20,7 @@ import subprocess
 import sys
 import time
 import warnings
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from scripts.mac_sandbox_canary import echoed
@@ -31,6 +33,7 @@ from scripts.modern_response_evidence import (
 )
 from scripts.modern_singleton import (
     Held,
+    Prepared,
     compare_metadata,
     encode,
     parse,
@@ -61,7 +64,10 @@ KEYCHAIN_HELP = ('Read the production token from the macOS login Keychain item w
 TOKEN_HELD = ('{"held":true,"stage":"token","instruction":"No attempt was started and nothing is spent: the '
               'token stage held (missing or malformed Keychain item, no Mac terminal, or a Keychain token '
               'requested for publish); fix that and rerun"}')
-KEYCHAIN_ACTIONS = frozenset({'execute', 'readback', 'capture', 'observe', 'inventory'})
+KEYCHAIN_ACTIONS = frozenset({'execute', 'resume', 'readback', 'capture', 'observe', 'inventory'})
+# Runtimes under which a started row may be resumed after the live runtime changed.
+RESUME_RUNTIMES = ('e23b81aba71ac50d348f25c60d4ac4c1d60bd88e3dc89f356d5599597d3d023c',)
+RESUME_CLOCK_SKEW = timedelta(seconds=60)  # the provider stamps `created` on its own clock
 
 
 def production_token(prompt, keychain=None, *, action):
@@ -229,6 +235,25 @@ def authorize(prepared, paths, grant_path, duplicate_path, now):
     return grant, grant_sha
 
 
+def bridged_preparation(json_file, paths, preparation_path):
+    """The original preparation of a started row, when only the runtime has changed since.
+
+    Every non-runtime evidence field must still match the live preparation; the
+    wire and XML bytes are the live ones, which the evidence hashes pin.
+    """
+    prepared = prepare(json_file, paths)
+    packet, _ = read_document(preparation_path)
+    require(set(packet) == {'binding', 'evidence', 'provider_requests'}
+            and type(packet['provider_requests']) is int and packet['provider_requests'] == 0)
+    evidence = packet['evidence']
+    require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
+            and evidence['runtime_sha256'] in (prepared.evidence['runtime_sha256'], *RESUME_RUNTIMES)
+            and packet['binding'] == sha(encode(evidence))
+            and {k: v for k, v in evidence.items() if k != 'runtime_sha256'}
+            == {k: v for k, v in prepared.evidence.items() if k != 'runtime_sha256'})
+    return Prepared(prepared.source_id, prepared.body, prepared.xml, evidence, packet['binding'])
+
+
 def permanent_intent(path, value):
     fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
     with os.fdopen(fd, 'wb') as handle:
@@ -334,11 +359,15 @@ class Transport:
 
 
 class Runner:
-    def __init__(self, json_file, paths, grant_path, duplicate_path, token, transport=None, now=None):
+    def __init__(self, json_file, paths, grant_path, duplicate_path, token, transport=None, now=None,
+                 *, preparation=None):
         self.json_file, self.paths = Path(json_file), paths
         self.grant_path, self.duplicate_path = Path(grant_path), Path(duplicate_path)
         self.now = now or (lambda: datetime.now(timezone.utc))
-        self.prepared = prepare(json_file, paths)
+        self.preparation = Path(preparation) if preparation is not None else None
+        self.prepared = self.preparation_now()
+        self.resume_from = None
+        self.resume_pending = False
         self.grant, self.grant_sha = authorize(self.prepared, paths, grant_path, duplicate_path, self.now())
         require(isinstance(token, str) and 16 <= len(token) <= 4096
                 and all(33 <= ord(c) <= 126 for c in token))
@@ -357,8 +386,13 @@ class Runner:
     def save(self):
         atomic_json(self.journal_path, self.journal)
 
+    def preparation_now(self):
+        if self.preparation is None:
+            return prepare(self.json_file, self.paths)
+        return bridged_preparation(self.json_file, self.paths, self.preparation)
+
     def current(self):
-        require(prepare(self.json_file, self.paths) == self.prepared)
+        require(self.preparation_now() == self.prepared)
         require(authorize(self.prepared, self.paths, self.grant_path, self.duplicate_path, self.now())
                 == (self.grant, self.grant_sha))
         require(time.monotonic() < self.deadline)
@@ -412,9 +446,17 @@ class Runner:
                 require(claims.get(record_id, sid) == sid)
                 claims[record_id] = sid
         if self.row is not None:
-            require(self.row['binding'] == self.prepared.binding and self.row['grant_sha256'] == self.grant_sha
+            require(self.row['binding'] == self.prepared.binding
                     and self.row['intent_sha256'] == sha(self.intent_path.read_bytes())
                     and self.row['phase'] in ('started', 'verified'))
+            if self.resume_pending:
+                # The second grant is persisted only when the retained create body binds the identity.
+                require(self.row['phase'] == 'started' and self.row['identity'] is None
+                        and self.row.get('resume_grant_sha256') is None and self.grant_sha != self.row['grant_sha256'])
+            elif self.row.get('resume_grant_sha256') is not None:
+                require(self.grant_sha == self.row['resume_grant_sha256'])  # the create grant is retired
+            else:
+                require(self.grant_sha == self.row['grant_sha256'])
             if self.row['phase'] == 'verified':
                 require(type(self.row.get('verified_revision')) is int and self.row['verified_revision'] >= 1
                         and self.row['identity'] is not None and self.row['counts']['get'] >= 5)
@@ -477,7 +519,7 @@ class Runner:
                 self.save()
         return value
 
-    def record(self, data, completed, revision=None):
+    def record(self, data, completed, revision=None, *, bind=True):
         require(isinstance(data, dict) and data.get('is_published') is False
                 and data.get('status') == 'draft' and data.get('pids') == {}
                 and data.get('doi') in (None, '') and data.get('parent', {}).get('pids', {}) == {}
@@ -490,7 +532,8 @@ class Runner:
         require(identity['id'] != identity['parent_id'])
         created = instant(identity['created'])
         if self.row['identity'] is None:
-            require(not completed and instant(self.grant['started_at']) <= created <= self.now())
+            since = self.resume_from or instant(self.grant['started_at'])
+            require(not completed and since <= created <= self.now())
             require(identity['id'] not in self.legacy_ids and identity['parent_id'] not in self.legacy_ids)
             require(all(other.get('untrusted_candidate_id') not in (identity['id'], identity['parent_id'])
                         for sid, other in self.journal['targets'].items() if sid != self.prepared.source_id))
@@ -522,6 +565,8 @@ class Runner:
         else:
             expected_empty_file_warning(data)
         if self.row['identity'] is None:
+            if not bind:
+                return observed  # rehearsal: every check passed, nothing recorded
             self.row['identity'] = identity
             self.row['create_revision'] = observed
             self.save()  # Only a fully validated create response can bind identity.
@@ -553,10 +598,87 @@ class Runner:
         self.record(self.call('get', 'GET', base, 200), True, observed)
         return observed
 
-    def run(self, read_only=False):
+    def saved_create(self):
+        """The retained, hash-bound 201 body of the single create request of a started row."""
+        receipt = self.row['requests'][0]
+        name = f"{self.journal_path.name}.{self.prepared.source_id}.{self.row['grant_sha256']}.0.response.json"
+        evidence, evidence_sha = read_document(self.journal_path.parent / name)
+        require(receipt.get('response_evidence', {}).get('sha256') == evidence_sha)
+        require(receipt.get('kind') == 'create' and receipt.get('http_status') == 201
+                and receipt.get('status') == 'uncertain' and receipt.get('body_sha256') == sha(self.prepared.body)
+                and receipt.get('response_evidence', {}).get('filename') == name
+                and evidence.get('kind') == 'modern-response-diagnostic-v1'
+                and evidence.get('source_id') == self.prepared.source_id
+                and evidence.get('grant_sha256') == self.row['grant_sha256'] and evidence.get('request_index') == 0
+                and evidence.get('http_status') == 201 and evidence.get('response_complete') is True
+                and evidence.get('body_status') == 'complete' and evidence.get('credential_suppressed') is False
+                and evidence.get('retained_bytes') == evidence.get('received_bytes')
+                and evidence.get('response_sha256') == receipt.get('response_sha256'))
+        body = base64.b64decode(evidence['body_base64'], validate=True)
+        require(len(body) == evidence['retained_bytes'] and sha(body) == evidence['retained_sha256']
+                == receipt['response_sha256'])
+        return parse(body)
+
+    def complete_upload(self):
+        base, file = self.routes()
+        initialized = self.call('init', 'POST', base + '/files', 201, encode([{'key': self.key}]))
+        require(isinstance(initialized, dict) and isinstance(initialized.get('entries'), list)
+                and len(initialized['entries']) == 1)
+        self.file(initialized['entries'][0], False)
+        uploaded = self.call('content', 'PUT', file + '/content', 200, self.prepared.xml)
+        require(isinstance(uploaded, dict))
+        completed = uploaded.get('status') == 'completed'
+        self.file(uploaded, completed)
+        if completed:
+            self.row['upload_completion'] = {
+                'schema_version': 1, 'kind': 'content-completed-v1', 'request_index': 2,
+                'response_sha256': self.row['requests'][2]['response_sha256']}
+            require(completed_on_content(self.row, self.prepared))
+            self.save()  # Persist the validated branch before any readback.
+        else:
+            self.file(self.call('commit', 'POST', file + '/commit', 200), True)
+        return self.readback()
+
+    def resumable(self, candidate):
+        """The retained 201 body of a started row that may be completed under this grant."""
+        require(self.row is not None and self.row['phase'] == 'started'
+                and self.row['identity'] is None and self.row.get('untrusted_candidate_id') is not None
+                and self.row.get('resume_grant_sha256') is None and self.row['grant_sha256'] != self.grant_sha
+                and self.row['counts'] == {'get': 0, 'create': 1, 'init': 0, 'content': 0, 'commit': 0}
+                and len(self.row['requests']) == 1 and self.intent_path.exists())
+        require(isinstance(candidate, str) and candidate == self.row['untrusted_candidate_id'])
+        saved = self.saved_create()
+        require(identifier(saved.get('id')) == candidate)
+        self.resume_from = instant(self.row['requests'][0]['attempted_at']) - RESUME_CLOCK_SKEW
+        return saved
+
+    def rehearse_resume(self, candidate):
+        """Every resume validation against the retained body, with no request and no write."""
+        self.resume_pending = True
         with ledger_lock(self.paths):
             self.load()
-            if read_only:
+            saved = self.resumable(candidate)
+            row, journal = copy.deepcopy(self.row), copy.deepcopy(self.journal)
+            self.record(saved, False, bind=False)
+            require(self.row == row and self.journal == journal)
+        return {'resume_rehearsed': True, 'candidate': candidate, 'provider_requests': 0}
+
+    def run(self, read_only=False, resume=None):
+        self.resume_pending = resume is not None
+        with ledger_lock(self.paths):
+            self.load()
+            if resume is not None:
+                # A started row whose create returned 201 but whose response validation
+                # held: bind the identity from the retained body under a fresh grant. The
+                # second grant is persisted by the binding save; a refusal leaves the row
+                # exactly as it was, still resumable.
+                require(not read_only)
+                saved = self.resumable(resume)
+                self.row['resume_grant_sha256'] = self.grant_sha
+                self.row['resumed_at'] = self.now().isoformat()
+                self.record(saved, False)
+                revision = self.complete_upload()
+            elif read_only:
                 require(self.row is not None and self.row['identity'] is not None)
                 completed = completed_on_content(self.row, self.prepared)
                 require(all(self.row['counts'][kind] == 1 for kind in ('create', 'init', 'content'))
@@ -574,24 +696,7 @@ class Runner:
                 self.journal['targets'][self.prepared.source_id] = self.row
                 self.save()
                 self.record(self.call('create', 'POST', '/api/records', 201, self.prepared.body), False)
-                base, file = self.routes()
-                initialized = self.call('init', 'POST', base + '/files', 201, encode([{'key': self.key}]))
-                require(isinstance(initialized, dict) and isinstance(initialized.get('entries'), list)
-                        and len(initialized['entries']) == 1)
-                self.file(initialized['entries'][0], False)
-                uploaded = self.call('content', 'PUT', file + '/content', 200, self.prepared.xml)
-                require(isinstance(uploaded, dict))
-                completed = uploaded.get('status') == 'completed'
-                self.file(uploaded, completed)
-                if completed:
-                    self.row['upload_completion'] = {
-                        'schema_version': 1, 'kind': 'content-completed-v1', 'request_index': 2,
-                        'response_sha256': self.row['requests'][2]['response_sha256']}
-                    require(completed_on_content(self.row, self.prepared))
-                    self.save()  # Persist the validated branch before any readback.
-                else:
-                    self.file(self.call('commit', 'POST', file + '/commit', 200), True)
-                revision = self.readback()
+                revision = self.complete_upload()
             self.row.update(phase='verified', verified_revision=revision)
             self.save()
             return {'draft_verified': True, 'read_only': read_only, 'binding': self.prepared.binding,
@@ -601,16 +706,23 @@ class Runner:
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=('prepare', 'preflight', 'execute', 'readback'))
+    parser.add_argument('action', choices=('prepare', 'preflight', 'execute', 'resume', 'readback'))
     parser.add_argument('--json-file', required=True, type=Path)
     parser.add_argument('--output-dir', required=True)
     parser.add_argument('--grant', type=Path)
     parser.add_argument('--duplicate-proof', type=Path)
     parser.add_argument('--token-keychain', metavar='SERVICE', help=KEYCHAIN_HELP)
+    parser.add_argument('--preparation', type=Path,
+                        help='Original preparation packet of a started row whose runtime has changed (resume)')
+    parser.add_argument('--resume-candidate', metavar='RECORD_ID',
+                        help='The started row\'s own draft id that resume or its preflight rehearsal completes')
     args = parser.parse_args()
     try:
         paths = OutputPaths(args.output_dir, 'production')
-        prepared = prepare(args.json_file, paths)
+        resuming = args.action == 'resume' or (args.action == 'preflight' and args.resume_candidate is not None)
+        require((args.preparation is not None) == resuming and (args.resume_candidate is not None) == resuming)
+        prepared = (bridged_preparation(args.json_file, paths, args.preparation) if args.preparation is not None
+                    else prepare(args.json_file, paths))
         if args.action == 'prepare':
             result = {'binding': prepared.binding, 'evidence': prepared.evidence, 'provider_requests': 0}
         else:
@@ -618,6 +730,10 @@ def main():
             authorize(prepared, paths, args.grant, args.duplicate_proof, datetime.now(timezone.utc))
             if args.action == 'preflight':
                 result = {'binding': prepared.binding, 'provider_requests': 0}
+                if resuming:
+                    runner = Runner(args.json_file, paths, args.grant, args.duplicate_proof,
+                                    'dummy-preflight-token-only', object(), preparation=args.preparation)
+                    result.update(runner.rehearse_resume(args.resume_candidate))
             else:
                 try:
                     token = production_token('Production token (memory only; deposit:write): ',
@@ -625,8 +741,10 @@ def main():
                 except BaseException:
                     print(TOKEN_HELD)
                     return 1
-                runner = Runner(args.json_file, paths, args.grant, args.duplicate_proof, token)
-                result = runner.run(read_only=args.action == 'readback')
+                runner = Runner(args.json_file, paths, args.grant, args.duplicate_proof, token,
+                                preparation=args.preparation)
+                result = runner.run(read_only=args.action == 'readback',
+                                    resume=args.resume_candidate if args.action == 'resume' else None)
         print(encode(result).decode())
         return 0
     except BaseException:

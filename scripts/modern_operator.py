@@ -188,14 +188,20 @@ def known_records(paths, extra=()):
     return known
 
 
-def inventory_matches(records, source_id, title, xml, known=frozenset()):
-    """Every owned record that could already carry this source; any hit refuses minting."""
+def inventory_matches(records, source_id, title, xml, known=frozenset(), own=None):
+    """Every owned record that could already carry this source; any hit refuses minting.
+
+    `own` is the id of this source's own started draft when a create is resumed; it
+    is the record being completed, not a duplicate.
+    """
     key = ' '.join(title.casefold().split())
     md5 = hashlib.md5(xml, usedforsecurity=False).hexdigest()
     digest = sha(xml)
     file_name = (source_id + '.xml').casefold()
     hits = []
     for record in records:
+        if own is not None and str(record.get('id')) == str(own):
+            continue
         reasons = []
         files = record.get('files', [])
         if ' '.join(str(record.get('title', '')).casefold().split()) == key:
@@ -233,6 +239,19 @@ def rebuild_records(inventory_path, inventory):
     return [summarize(item, details.get(item['id'])) for item in items]
 
 
+def resumable_candidate(paths, source_id):
+    """The untrusted candidate id of a started row whose create returned 201, else None."""
+    journal_path = Path(paths.uploads_registry_path + '.modern-v1.json')
+    if not journal_path.exists():
+        return None
+    row = draft.read_document(journal_path)[0].get('targets', {}).get(source_id)
+    if (isinstance(row, dict) and row.get('phase') == 'started' and row.get('identity') is None
+            and row.get('resume_grant_sha256') is None and isinstance(row.get('untrusted_candidate_id'), str)
+            and row.get('counts') == {'get': 0, 'create': 1, 'init': 0, 'content': 0, 'commit': 0}):
+        return row['untrusted_candidate_id']
+    return None
+
+
 def source_already_attempted(paths, source_id):
     root = draft.state_root(paths)
     if (root / (source_id + '.modern-create-v1.intent.json')).exists():
@@ -248,11 +267,20 @@ def source_already_attempted(paths, source_id):
 
 
 def mint_create(json_file, paths, inventory_path, owner, reviewer, canary_receipt_sha256,
-                grant_out, proof_out, *, window=600, now=utc_now, known=()):
-    """Write the duplicate proof and create grant, then prove the executor accepts them."""
-    prepared = prepare(json_file, paths)
+                grant_out, proof_out, *, window=600, now=utc_now, known=(), preparation=None, resume=None):
+    """Write the duplicate proof and create grant, then prove the executor accepts them.
+
+    With `resume`, the grant is for completing this source's own started draft
+    (its candidate id), bound to the original preparation packet.
+    """
+    require((preparation is None) == (resume is None))
+    prepared = (draft.bridged_preparation(json_file, paths, preparation) if preparation is not None
+                else prepare(json_file, paths))
     root = draft.state_root(paths)
-    require(not source_already_attempted(paths, prepared.source_id))
+    if resume is None:
+        require(not source_already_attempted(paths, prepared.source_id))
+    else:
+        require(isinstance(resume, str) and resumable_candidate(paths, prepared.source_id) == resume)
     journal_path = Path(paths.uploads_registry_path + '.modern-v1.json')
     history = journal_path.read_bytes() if journal_path.exists() else b'{}'
     inventory_path = Path(inventory_path)
@@ -274,7 +302,7 @@ def mint_create(json_file, paths, inventory_path, owner, reviewer, canary_receip
     require(records and all(str(record.get('owner')) == owner for record in records)
             and all(set(record) == set(summarize({'id': 1})) for record in records))
     title = parse(prepared.body)['metadata']['title']
-    hits = inventory_matches(records, prepared.source_id, title, prepared.xml, known_records(paths, known))
+    hits = inventory_matches(records, prepared.source_id, title, prepared.xml, known_records(paths, known), own=resume)
     if hits:
         raise Held('Inventory holds candidate records for this source: ' + json.dumps(hits, sort_keys=True))
     proof = {'schema_version': 1, 'origin': draft.ORIGIN, 'owner': owner, 'binding': prepared.binding,
@@ -299,6 +327,7 @@ def mint_create(json_file, paths, inventory_path, owner, reviewer, canary_receip
             path.unlink(missing_ok=True)
         raise
     return {'source_id': prepared.source_id, 'binding': prepared.binding, 'title': title,
+            'resume_candidate': resume,
             'inventory_sha256': inventory_sha, 'inventory_records': len(records),
             'grant_sha256': sha(Path(grant_out).read_bytes()), 'proof_sha256': grant['duplicate_proof_sha256'],
             'window_ends': grant['expires_at'], 'provider_requests': 0}
@@ -320,6 +349,9 @@ def main():
     mint.add_argument('--window-seconds', type=int, default=600)
     mint.add_argument('--known-record', action='append', default=[],
                       help='Record ID whose files were verified another way; repeatable')
+    mint.add_argument('--preparation', help='Original preparation packet when resuming after a runtime change')
+    mint.add_argument('--resume-candidate', metavar='RECORD_ID',
+                      help="Mint a resume grant for this source's own started draft with this id")
     args = parser.parse_args()
     try:
         if args.action == 'inventory':
@@ -340,7 +372,8 @@ def main():
             paths = OutputPaths(args.output_dir, 'production')
             result = mint_create(args.json_file, paths, args.inventory, args.owner, args.reviewer,
                                  args.canary_receipt_sha256, args.grant_out, args.proof_out,
-                                 window=args.window_seconds, known=args.known_record)
+                                 window=args.window_seconds, known=args.known_record,
+                                 preparation=args.preparation, resume=args.resume_candidate)
         print(encode(result).decode())
         return 0
     except Held as held:

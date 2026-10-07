@@ -57,6 +57,7 @@ PR44_RUNTIME = 'd89389d398ddc93f2e0e9fe817130c0b5a01592a147b499f975ad52615bc94a1
 PR45_RUNTIME = 'd1055bf636fe04299be2b670af1b3aeefcae6c64149996b85cea469b672ea4f2'
 PR46_RUNTIME = '62eeaad6183950bae245937f79a7d4e16df546a6635d9ea4dfbb7c4c2bf5902d'
 REVIEWED194_RUNTIME = '6cc86a1740fcd93e65d42e21b1c199c160974c607be54db71f43d3e25466349e'
+PICES26_RUNTIME = 'e23b81aba71ac50d348f25c60d4ac4c1d60bd88e3dc89f356d5599597d3d023c'
 PROGRAM20_RUNTIME = '78e3fdd4f3170a804aa49b25bf4e01586a2a18a5ef914a76b2be9ac4ceb72ea2'
 CAPTURE_LIMITS = {'get': 5}
 PUBLISH_LIMITS = {'get': 22, 'review': 1, 'submit': 1}
@@ -88,7 +89,8 @@ def validate_request(value, bound, community, request_id, *, created=False):
                     (('submitted', True, False), ('accepted', False, True))))
 
 
-def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_path):
+def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_path,
+           resume_grant_path=None, resume_duplicate_path=None):
     """Validate old requests at their old times, never revive the old grant.
 
     PR34/35 cover original19; PR36 also covers86; PR37 adds2628; PR38 adds412.
@@ -129,6 +131,11 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
             (PICES_POLICY, 5), (INSTITUTION_POLICY, 6), (CITATION_ORG_POLICY, 7),
             (REVIEWED_CREATORS_POLICY, 8), (PROGRAM_POLICY, 9)):
         compatible.add(PROGRAM20_RUNTIME)
+    if (prepared.evidence['policy'], prepared.evidence['schema_version']) in (
+            (POLICY, 1), (EXTENSION_POLICY, 2), (DIRECT_POLICY, 3), (EXXON_POLICY, 4),
+            (PICES_POLICY, 5), (INSTITUTION_POLICY, 6), (CITATION_ORG_POLICY, 7),
+            (REVIEWED_CREATORS_POLICY, 8), (PROGRAM_POLICY, 9)):
+        compatible.add(PICES26_RUNTIME)
     require(isinstance(evidence, dict) and set(evidence) == set(prepared.evidence)
             and evidence['runtime_sha256'] in compatible
             and packet['binding'] == sha(encode(evidence))
@@ -153,7 +160,7 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
     completed = draft.completed_on_content(row, prepared)
     # Historical clients could emit only the marker-free four-write transcript.
     require(not completed or evidence['runtime_sha256'] in
-            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME, PR41_RUNTIME, PR42_RUNTIME, PR43_RUNTIME, PR44_RUNTIME, PR45_RUNTIME, PR46_RUNTIME, REVIEWED194_RUNTIME, PROGRAM20_RUNTIME))
+            (prepared.evidence['runtime_sha256'], PR39_RUNTIME, PR40_RUNTIME, PR41_RUNTIME, PR42_RUNTIME, PR43_RUNTIME, PR44_RUNTIME, PR45_RUNTIME, PR46_RUNTIME, REVIEWED194_RUNTIME, PROGRAM20_RUNTIME, PICES26_RUNTIME))
     writes = [('create', 'POST', '/api/records', 201, sha(prepared.body)),
               ('init', 'POST', base + '/files', 201, sha(encode([{'key': prepared.source_id + '.xml'}]))),
               ('content', 'PUT', file + '/content', 200, sha(prepared.xml)),
@@ -167,9 +174,11 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
                                          commit=int(not completed))
             and all(type(v) is int for v in row['counts'].values()))
     wanted = writes + reads * ((len(requests) - len(writes)) // 5)
+    resumed = row.get('resume_grant_sha256')
+    require((resumed is None) == (resume_grant_path is None) == (resume_duplicate_path is None))
     grant_sha = None
     prior = None
-    for receipt, expectation in zip(requests, wanted, strict=True):
+    for index, (receipt, expectation) in enumerate(zip(requests, wanted, strict=True)):
         require(isinstance(receipt, dict)
                 and tuple(receipt.get(k) for k in ('kind', 'method', 'path', 'http_status', 'body_sha256')) == expectation
                 and receipt.get('credential_suppressed') is False and receipt.get('status') == 'uncertain'
@@ -178,10 +187,21 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
         attempted = draft.instant(receipt.get('attempted_at'))
         require(prior is None or prior <= attempted)
         prior = attempted
+        if resumed is not None and index >= 1:
+            # Receipts after a resumed create were authorized by the second, resume grant,
+            # whose window must also contain the recorded resume instant.
+            resumed_at = draft.instant(row.get('resumed_at'))
+            resume_grant, resume_sha = draft.authorize(old, paths, resume_grant_path, resume_duplicate_path, attempted)
+            draft.authorize(old, paths, resume_grant_path, resume_duplicate_path, resumed_at)
+            require(resumed == resume_sha and resume_grant['owner'] == identity['owner']
+                    and draft.instant(requests[0]['attempted_at']) <= resumed_at <= attempted
+                    and draft.instant(identity['created']) <= attempted)
+            continue
         grant, grant_sha = draft.authorize(old, paths, old_grant_path, old_duplicate_path, attempted)
+        created = draft.instant(identity['created'])
+        since = (attempted - draft.RESUME_CLOCK_SKEW if resumed is not None else draft.instant(grant['started_at']))
         require(identity['owner'] == grant['owner'] and row.get('grant_sha256') == grant_sha
-                and draft.instant(grant['started_at']) <= draft.instant(identity['created'])
-                < draft.instant(grant['expires_at']))
+                and since <= created < draft.instant(grant['expires_at']))
         # The create receipt precedes the request. The following init receipt is
         # the first retained time known to follow successful identity validation.
         if receipt['kind'] != 'create':
@@ -197,6 +217,8 @@ def bridge(json_file, paths, preparation_path, old_grant_path, old_duplicate_pat
              'preparation_packet_sha256': packet_sha, 'draft_row_sha256': sha(encode(row)),
              'create_intent_sha256': intent_sha, 'grant_sha256': grant_sha,
              'identity': identity, 'verified_revision': row['verified_revision'], 'state_root': str(root)}
+    if resumed is not None:
+        value['resume_grant_sha256'] = resumed
     value['binding'] = sha(encode(value))
     return prepared, value
 
@@ -381,10 +403,12 @@ def authorize(grant, prepared, bound, paths, action, now, documents):
 
 class Runner:
     def __init__(self, json_file, paths, preparation, old_grant, old_duplicate, grant, token,
-                 *, action, snapshot=None, qa=None, duplicate=None, release=None, transport=None, now=None):
+                 *, action, snapshot=None, qa=None, duplicate=None, release=None, transport=None, now=None,
+                 resume_grant=None, resume_duplicate=None):
         require(action in ('capture', 'publish'))
         self.json_file, self.paths = Path(json_file), paths
-        self.bridge_paths = (Path(preparation), Path(old_grant), Path(old_duplicate))
+        self.bridge_paths = (Path(preparation), Path(old_grant), Path(old_duplicate),
+                             *(Path(p) for p in (resume_grant, resume_duplicate) if p is not None))
         self.prepared, self.bound = bridge(json_file, paths, *self.bridge_paths)
         self.now = now or (lambda: datetime.now(timezone.utc))
         self.action, self.grant_path = action, Path(grant)
@@ -693,13 +717,15 @@ def main():
     parser.add_argument('action', choices=('bridge', 'capture', 'prepare-qa', 'preflight', 'publish', 'readback'))
     for key in ('json-file', 'output-dir', 'preparation', 'old-grant', 'old-duplicate'):
         parser.add_argument('--' + key, required=True)
-    for key in ('grant', 'snapshot', 'qa', 'duplicate', 'release', 'manifest', 'source-revision', 'community'):
+    for key in ('grant', 'snapshot', 'qa', 'duplicate', 'release', 'manifest', 'source-revision', 'community',
+                'resume-grant', 'resume-duplicate'):
         parser.add_argument('--' + key)
     parser.add_argument('--token-keychain', metavar='SERVICE', help=draft.KEYCHAIN_HELP)
     args = parser.parse_args()
     try:
         paths = OutputPaths(args.output_dir, 'production')
-        prepared, bound = bridge(args.json_file, paths, args.preparation, args.old_grant, args.old_duplicate)
+        prepared, bound = bridge(args.json_file, paths, args.preparation, args.old_grant, args.old_duplicate,
+                                 args.resume_grant, args.resume_duplicate)
         if args.action == 'bridge':
             result = {'bridge': bound, 'provider_requests': 0}
         elif args.action == 'prepare-qa':
@@ -719,7 +745,8 @@ def main():
                 # Dummy token validates the complete offline contract; no Transport is constructed.
                 runner = Runner(args.json_file, paths, args.preparation, args.old_grant, args.old_duplicate,
                                 args.grant, 'dummy-preflight-token-only', action=action, snapshot=args.snapshot,
-                                qa=args.qa, duplicate=args.duplicate, release=args.release, transport=object())
+                                qa=args.qa, duplicate=args.duplicate, release=args.release, transport=object(),
+                                resume_grant=args.resume_grant, resume_duplicate=args.resume_duplicate)
                 runner.load()
                 result = {'preflight_verified': True, 'provider_requests': 0}
             else:
@@ -733,7 +760,8 @@ def main():
                     return 1
                 runner = Runner(args.json_file, paths, args.preparation, args.old_grant, args.old_duplicate,
                                 args.grant, token, action=action, snapshot=args.snapshot, qa=args.qa,
-                                duplicate=args.duplicate, release=args.release)
+                                duplicate=args.duplicate, release=args.release,
+                                resume_grant=args.resume_grant, resume_duplicate=args.resume_duplicate)
                 result = runner.run(read_only=args.action == 'readback')
         print(encode(result).decode())
         return 0

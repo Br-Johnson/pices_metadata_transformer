@@ -878,6 +878,21 @@ def prepare(json_file, paths):
     return Prepared(sid, body, xml, evidence, sha(encode(evidence)))
 
 
+QUOTE_ENTITIES = (('&quot;', '"'), ('&#34;', '"'), ('&#x22;', '"'), ('&#39;', "'"), ('&#x27;', "'"))
+
+
+def same_text(actual, expected):
+    """Equal HTML text once quote entities are decoded; the provider stores &quot; as a quote.
+
+    Nothing else is repaired: tags, ampersands and angle-bracket entities stay literal.
+    """
+    if not isinstance(actual, str) or not isinstance(expected, str):
+        return False
+    for entity, character in QUOTE_ENTITIES:
+        actual, expected = actual.replace(entity, character), expected.replace(entity, character)
+    return actual == expected
+
+
 def compare_metadata(actual, expected):
     """Accept only known empty defaults and vocabulary display labels; no HTML repair."""
     require(isinstance(actual, dict))
@@ -886,8 +901,9 @@ def compare_metadata(actual, expected):
                 'version', 'sizes', 'formats'}
     require(set(actual) <= set(expected) | defaults)
     require(all(actual[k] in (None, '', [], {}) for k in set(actual) - set(expected)))
-    for key in ('title', 'publisher', 'publication_date', 'description', 'subjects'):
+    for key in ('title', 'publisher', 'publication_date', 'subjects'):
         require(actual.get(key) == expected[key])
+    require(same_text(actual.get('description'), expected['description']))
     def vocabulary(value, wanted):
         require(isinstance(value, dict) and value.get('id') == wanted['id']
                 and set(value) <= {'id', 'title'})
@@ -923,5 +939,5 @@ def compare_metadata(actual, expected):
     require(isinstance(descriptions, list) and len(descriptions) == 1)
     value, wanted = descriptions[0], expected['additional_descriptions'][0]
     require(isinstance(value, dict) and set(value) <= {'description', 'type', 'lang'}
-            and value.get('lang') in (None, {}) and value.get('description') == wanted['description'])
+            and value.get('lang') in (None, {}) and same_text(value.get('description'), wanted['description']))
     vocabulary(value.get('type'), wanted['type'])

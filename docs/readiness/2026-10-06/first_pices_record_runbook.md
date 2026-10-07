@@ -131,6 +131,46 @@ This is the real API test with a validated record. If it holds with an HTML
 403 on the first request, the User-Agent value is being rejected and the
 evidence sidecar beside the journal shows the page.
 
+## 3a. What happened on the first create, and the resume route
+
+The first production create for FGDC-1319 ran at 02:17:35 UTC on 2026-10-07.
+Zenodo answered 201 and created draft record 23201173, but the executor held
+before binding the identity: Zenodo stores a description's `&quot;` entities as
+plain quotes, and the metadata comparison demanded byte equality. The row is
+`started` with the candidate id recorded, the create count spent, the file
+steps not run, and the complete 201 body retained in the hash-bound sidecar.
+
+The comparison now treats quote entities as the same text and nothing else.
+A started row of this exact shape is completed by the executor's `resume`
+action under a second grant and the original preparation packet, which carries
+the runtime the row was created with: it re-validates the retained 201 body,
+binds the identity, then performs the file init, upload, commit and five-GET
+readback, recording the second grant in the row. The publication bridge accepts
+such a row when given `--resume-grant` and `--resume-duplicate`. Mint the
+resume grant with the toolkit:
+
+```bash
+python -B -m scripts.modern_operator mint-create --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" --inventory "$OUTPUT/../evidence/pices26/inventory-<STAMP>.json" --owner 266679 --reviewer "<reviewer identity>" --canary-receipt-sha256 f2141c916b38a53168edca63f0af79b47df3e9913653f3538aba040ca9a20f7c --grant-out "$OUTPUT/../evidence/pices26/FGDC-1319.resume-grant-<STAMP>.json" --proof-out "$OUTPUT/../evidence/pices26/FGDC-1319.resume-duplicate-proof-<STAMP>.json" --preparation "$OUTPUT/../evidence/pices26/FGDC-1319.preparation.json" --resume-candidate 23201173
+```
+
+The inventory now lists draft 23201173 itself; with `--resume-candidate` it is
+the record being completed, not a duplicate. Then:
+
+```bash
+python -B -m scripts.modern_singleton_executor preflight --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" --grant "$OUTPUT/../evidence/pices26/FGDC-1319.resume-grant-<STAMP>.json" --duplicate-proof "$OUTPUT/../evidence/pices26/FGDC-1319.resume-duplicate-proof-<STAMP>.json" --preparation "$OUTPUT/../evidence/pices26/FGDC-1319.preparation.json" --resume-candidate 23201173
+python -B -m scripts.modern_singleton_executor resume --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" --grant "$OUTPUT/../evidence/pices26/FGDC-1319.resume-grant-<STAMP>.json" --duplicate-proof "$OUTPUT/../evidence/pices26/FGDC-1319.resume-duplicate-proof-<STAMP>.json" --preparation "$OUTPUT/../evidence/pices26/FGDC-1319.preparation.json" --resume-candidate 23201173 --token-keychain pices-zenodo-production
+```
+
+The preflight with a candidate rehearses the whole resume offline against the
+retained body: it reports `resume_rehearsed: true` without a request or a write,
+and a refusal there costs nothing. A refusal during `resume` itself also leaves
+the row untouched and resumable; the second grant is recorded only when the
+identity binds. Zenodo stamps `created` on its own clock, so the created time
+may precede the local attempt time by up to sixty seconds.
+
+Every later record goes through the plain `execute`, whose create response now
+passes the comparison.
+
 ## 4. From draft to accepted PICES membership
 
 The remaining stages are documented in the

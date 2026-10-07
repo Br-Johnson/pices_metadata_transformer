@@ -106,10 +106,13 @@ toolkit were committed to main:
 Source/test binding (191 files):
 `63614aecbe18582e33489a27d25abeb19bc5fde399a91581da51f4f6280873cb`.
 No preparation or grant was made on the merged PR #47 runtime, so no
-compatibility constant is needed for it.
-No pinned runtime constant changes: the fifteen historical constants (PR34 to
-PR46, REVIEWED194 and PROGRAM20) are untouched and the live runtime is always
-accepted, so the FGDC-141 original packet (PR42 runtime) still passes the
+compatibility constant is needed for it. The FGDC-1319 draft 23201173 was
+created under runtime `e23b81ab…`, now `PICES26_RUNTIME` in the publication
+bridge and the executor's `RESUME_RUNTIMES`. Runtime after the quote-entity
+comparison, the executor `resume` route and resume minting:
+`74e3a233de0f2b56ca573a8ea3613a6c37c87a45356ec495e7ae1ded0e2e85a5`. Source/test binding (191 files): `f3c951f84deedb26da628a5955540c2cbbb621a9205a6bc85f4005108a6f58a0`.
+The fifteen historical constants (PR34 to PR46, REVIEWED194 and PROGRAM20)
+are untouched and the live runtime is always accepted, so the FGDC-141 original packet (PR42 runtime) still passes the
 recovery preflight's runtime check. Main's pre-change runtime `108fe080…` is
 in no constant, so nothing prepared or granted on it can bridge; no production
 draft was created on it. All 4,206 original XML files are untouched.

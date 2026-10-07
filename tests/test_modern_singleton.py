@@ -119,5 +119,33 @@ class ModernSingletonMappingTests(unittest.TestCase):
             self.assertNotEqual(prepared.binding, mapping.prepare(self.json_file, self.paths).binding)
 
 
+class SameTextTests(unittest.TestCase):
+    def test_quote_entities_compare_equal_and_nothing_else_is_repaired(self):
+        from scripts.modern_singleton import same_text
+        self.assertTrue(same_text('a "b" c', 'a &quot;b&quot; c'))
+        self.assertTrue(same_text("it's", 'it&#39;s'))
+        self.assertTrue(same_text('x &quot;y&quot;', 'x "y"'))
+        self.assertFalse(same_text('<p>a</p>', '&lt;p&gt;a&lt;/p&gt;'))
+        self.assertFalse(same_text('a &amp; b', 'a & b'))
+        self.assertFalse(same_text('a "b"', 'a "c"'))
+        self.assertFalse(same_text(None, 'a'))
+
+    def test_compare_metadata_accepts_decoded_quotes_in_descriptions_only(self):
+        from scripts.modern_singleton import Held, compare_metadata
+        expected = {'resource_type': {'id': 'other'}, 'title': 'T &quot;q&quot;', 'publisher': 'Zenodo',
+                    'publication_date': '2001-01-01', 'description': 'about &quot;x&quot; here',
+                    'subjects': [{'subject': 'a'}],
+                    'creators': [{'person_or_org': {'type': 'organizational', 'name': 'Org'}}],
+                    'additional_descriptions': [{'type': {'id': 'other'}, 'description': '<pre>{&quot;k&quot;:1}</pre>'}]}
+        stored = {**expected, 'description': 'about "x" here',
+                  'additional_descriptions': [{'type': {'id': 'other', 'title': {'en': 'Other'}},
+                                               'description': '<pre>{"k":1}</pre>'}]}
+        compare_metadata(stored, expected)
+        with self.assertRaises(Held):
+            compare_metadata({**stored, 'title': 'T "q"'}, expected)
+        with self.assertRaises(Held):
+            compare_metadata({**stored, 'description': 'about "y" here'}, expected)
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -18,7 +18,7 @@ from datetime import timedelta
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-from scripts.modern_singleton import Held, encode, parse
+from scripts.modern_singleton import Held, encode, parse, sha
 from scripts.modern_singleton_executor import (
     LIMITS,
     MAX_BYTES,
@@ -31,6 +31,8 @@ from scripts.modern_singleton_executor import (
 from scripts.production_mutations import MutationJournal
 from scripts.upload_service import atomic_json, ledger_lock, read_json
 from tests import modern_singleton_fixtures as fixtures
+
+NOW = fixtures.NOW
 
 
 class FaultTransport:
@@ -732,6 +734,206 @@ class ProductionTokenTests(unittest.TestCase):
               patch('scripts.modern_singleton_executor.getpass.getpass', side_effect=echoing_prompt),
               self.assertRaises(getpass.GetPassWarning)):
             production_token('Production token: ', action='execute')
+
+
+class ResumeTests(unittest.TestCase):
+    """A create that returned 201 but whose validation held can be completed under a second grant."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.sources = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(cls.sources.cleanup)
+        cls.prepared_root = fixtures.prepare_sources(Path(cls.sources.name), ids=['FGDC-141'])
+
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.fixture = fixtures.Fixture(Path(self.temporary.name) / 'f', self.prepared_root)
+        self.packet = self.fixture.root / 'preparation.json'
+        self.write_packet(self.fixture.prepared.evidence)
+        self.candidate = self.fixture.transport.identifier
+
+    def write_packet(self, evidence):
+        self.packet.write_bytes(encode({'binding': sha(encode(evidence)), 'evidence': evidence, 'provider_requests': 0}))
+
+    def journal_path(self):
+        return Path(self.fixture.paths.uploads_registry_path + '.modern-v1.json')
+
+    def held_create(self):
+        """Run a create whose 201 body is retained but refused by the metadata comparison."""
+        with patch('scripts.modern_singleton_executor.compare_metadata', side_effect=Held('refused')), \
+                self.assertRaises(Held):
+            self.fixture.runner().run()
+        row = read_json(self.journal_path())['targets']['FGDC-141']
+        self.assertEqual((row['phase'], row['identity'], row['untrusted_candidate_id'], row['counts']['create']),
+                         ('started', None, self.candidate, 1))
+        return row
+
+    def resume_documents(self, *, window_start=None, label='resume', binding=None):
+        """A second grant and proof; by default a later window than the create grant."""
+        start = window_start if window_start is not None else NOW + timedelta(minutes=10)
+        proof = dict(self.fixture.proof, checked_at=NOW.isoformat(), expires_at=(NOW + timedelta(hours=1)).isoformat(),
+                     reviewed_by='Resume reviewer')
+        if binding is not None:
+            proof['binding'] = binding
+        proof_path = self.fixture.root / f'{label}-proof.json'
+        proof_path.write_bytes(encode(proof))
+        grant = dict(self.fixture.grant, reviewed_by='Resume reviewer', started_at=start.isoformat(),
+                     expires_at=(start + timedelta(seconds=600)).isoformat(),
+                     duplicate_proof_sha256=sha(proof_path.read_bytes()))
+        if binding is not None:
+            grant['binding'] = binding
+        grant_path = self.fixture.root / f'{label}-grant.json'
+        grant_path.write_bytes(encode(grant))
+        return grant_path, proof_path
+
+    def rewrite_sidecar(self, mutate):
+        """Change the retained create response consistently, as a genuine capture would have stored it."""
+        journal_path = self.journal_path()
+        journal = read_json(journal_path)
+        receipt = journal['targets']['FGDC-141']['requests'][0]
+        sidecar = journal_path.parent / receipt['response_evidence']['filename']
+        evidence = parse(sidecar.read_bytes())
+        body = parse(__import__('base64').b64decode(evidence['body_base64']))
+        mutate(body, evidence)
+        raw = encode(body)
+        evidence['body_base64'] = __import__('base64').b64encode(raw).decode()
+        evidence['retained_bytes'] = evidence['received_bytes'] = len(raw)
+        evidence['retained_sha256'] = evidence['response_sha256'] = sha(raw)
+        receipt['response_sha256'], receipt['bytes'] = sha(raw), len(raw)
+        sidecar.write_bytes(encode(evidence))
+        receipt['response_evidence']['sha256'] = sha(sidecar.read_bytes())
+        atomic_json(journal_path, journal)
+
+    def runner(self, grant_path, proof_path, now=None):
+        return Runner(self.fixture.json_file, self.fixture.paths, grant_path, proof_path,
+                      fixtures.TOKEN, self.fixture.transport, now or (lambda: NOW + timedelta(minutes=15)),
+                      preparation=self.packet)
+
+    def test_resume_binds_the_retained_identity_and_finishes_the_upload(self):
+        self.held_create()
+        grant_path, proof_path = self.resume_documents()
+        rehearsal = self.runner(grant_path, proof_path).rehearse_resume(self.candidate)
+        self.assertEqual(rehearsal, {'resume_rehearsed': True, 'candidate': self.candidate, 'provider_requests': 0})
+        self.assertIsNone(read_json(self.journal_path())['targets']['FGDC-141']['identity'])
+        calls_before = len(self.fixture.transport.calls)
+        result = self.runner(grant_path, proof_path).run(resume=self.candidate)
+        self.assertTrue(result['draft_verified'])
+        self.assertEqual(result['identity']['id'], self.candidate)
+        row = read_json(self.journal_path())['targets']['FGDC-141']
+        self.assertEqual((row['phase'], row['counts']), ('verified', {'get': 5, 'create': 1, 'init': 1, 'content': 1, 'commit': 1}))
+        self.assertEqual([r['kind'] for r in row['requests']], ['create', 'init', 'content', 'commit'] + ['get'] * 5)
+        self.assertEqual(row['resume_grant_sha256'], sha(grant_path.read_bytes()))
+        self.assertNotEqual(row['grant_sha256'], row['resume_grant_sha256'])
+        self.assertEqual(row['resumed_at'], (NOW + timedelta(minutes=15)).isoformat())
+        self.assertEqual(len(self.fixture.transport.calls) - calls_before, 8)
+        self.assertNotIn(('POST', '/api/records', self.fixture.prepared.body), self.fixture.transport.calls[calls_before:])
+        # The publication bridge accepts the row only with the resume grant and proof, which
+        # alone cover the receipts made outside the create grant's window.
+        from scripts.modern_publication import bridge
+        prepared, bound = bridge(self.fixture.json_file, self.fixture.paths, self.packet, self.fixture.grant_path,
+                                 self.fixture.proof_path, grant_path, proof_path)
+        self.assertEqual(bound['resume_grant_sha256'], row['resume_grant_sha256'])
+        for bad in ((self.fixture.grant_path, self.fixture.proof_path), (grant_path, None), (None, None)):
+            with self.subTest(bad=bad), self.assertRaises(Held):
+                bridge(self.fixture.json_file, self.fixture.paths, self.packet, self.fixture.grant_path,
+                       self.fixture.proof_path, *bad)
+        # The create grant is retired once the row is resumed; a later readback needs the resume grant.
+        with self.assertRaises(Held):
+            self.runner(self.fixture.grant_path, self.fixture.proof_path, now=lambda: NOW).run(read_only=True)
+        self.assertEqual(read_json(self.journal_path())['targets']['FGDC-141']['counts']['get'], 5)
+        self.assertTrue(self.runner(grant_path, proof_path).run(read_only=True)['read_only'])
+
+    def test_a_refusal_during_resume_leaves_the_row_resumable(self):
+        self.held_create()
+        grant_path, proof_path = self.resume_documents()
+        before = read_json(self.journal_path())
+        with patch('scripts.modern_singleton_executor.compare_metadata', side_effect=Held('still refused')), \
+                self.assertRaises(Held):
+            self.runner(grant_path, proof_path).run(resume=self.candidate)
+        self.assertEqual(read_json(self.journal_path()), before)
+        self.assertTrue(self.runner(grant_path, proof_path).run(resume=self.candidate)['draft_verified'])
+
+    def test_resume_bridges_a_packet_whose_runtime_differed(self):
+        """The row and packet keep the create-time runtime; the live runtime has moved on."""
+        self.held_create()
+        original = self.fixture.prepared.evidence['runtime_sha256']
+        grant_path, proof_path = self.resume_documents()
+        moved = patch('scripts.modern_singleton.runtime_binding', return_value='b' * 64)
+        with moved, self.assertRaises(Held):  # the create-time runtime is not listed
+            self.runner(grant_path, proof_path)
+        with moved, patch('scripts.modern_singleton_executor.RESUME_RUNTIMES', (original,)):
+            self.runner(grant_path, proof_path).rehearse_resume(self.candidate)
+            result = self.runner(grant_path, proof_path).run(resume=self.candidate)
+            self.assertEqual(result['binding'], self.fixture.prepared.binding)
+            from scripts.modern_publication import bridge
+            with self.assertRaises(Held):  # the publication bridge needs the constant too
+                bridge(self.fixture.json_file, self.fixture.paths, self.packet,
+                       self.fixture.grant_path, self.fixture.proof_path, grant_path, proof_path)
+            with patch('scripts.modern_publication.PICES26_RUNTIME', original):
+                prepared, bound = bridge(self.fixture.json_file, self.fixture.paths, self.packet,
+                                         self.fixture.grant_path, self.fixture.proof_path, grant_path, proof_path)
+            self.assertEqual((bound['original_runtime_sha256'], bound['runtime_sha256'], bound['identity']['id']),
+                             (original, 'b' * 64, self.candidate))
+        with moved, patch('scripts.modern_singleton_executor.RESUME_RUNTIMES', (original,)), \
+                self.assertRaises(Held):  # a packet whose non-runtime evidence differs
+            self.write_packet(dict(self.fixture.prepared.evidence, source_sha256='c' * 64))
+            self.runner(grant_path, proof_path)
+
+    def test_a_created_time_slightly_before_the_grant_start_is_accepted_through_resume_and_bridge(self):
+        self.held_create()
+        early = (NOW - timedelta(seconds=30)).isoformat()
+        self.rewrite_sidecar(lambda body, evidence: body.update(created=early))
+        # The live draft reports the same creation instant as the retained body.
+        self.fixture.transport.change = lambda index, status, data: (
+            status, dict(data, created=early) if isinstance(data, dict) and 'created' in data else data)
+        grant_path, proof_path = self.resume_documents()
+        self.runner(grant_path, proof_path).run(resume=self.candidate)
+        row = read_json(self.journal_path())['targets']['FGDC-141']
+        self.assertEqual(row['identity']['created'], early)
+        from scripts.modern_publication import bridge
+        bridge(self.fixture.json_file, self.fixture.paths, self.packet, self.fixture.grant_path,
+               self.fixture.proof_path, grant_path, proof_path)
+
+    def test_resume_refuses_every_other_state(self):
+        grant_path, proof_path = self.resume_documents()
+        with self.assertRaises(Held):  # nothing started yet
+            self.runner(grant_path, proof_path).run(resume=self.candidate)
+        self.held_create()
+        with self.assertRaises(Held):  # the same grant as the create
+            self.runner(self.fixture.grant_path, self.fixture.proof_path, now=lambda: NOW).run(resume=self.candidate)
+        with self.assertRaises(Held):  # the wrong candidate
+            self.runner(grant_path, proof_path).run(resume='19000009')
+        journal_path = self.journal_path()
+        journal = read_json(journal_path)
+        row = journal['targets']['FGDC-141']
+        sidecar = journal_path.parent / row['requests'][0]['response_evidence']['filename']
+        original = sidecar.read_bytes()
+        tampered = parse(original)
+        tampered['request'] = dict(tampered['request'], note='edited')  # only the sidecar digest can notice
+        sidecar.write_bytes(encode(tampered))
+        with self.assertRaises(Held):  # a tampered retained response
+            self.runner(grant_path, proof_path).run(resume=self.candidate)
+        sidecar.write_bytes(original)
+        attempted = row['requests'][0]['attempted_at']
+        row['requests'][0]['attempted_at'] = (NOW + timedelta(seconds=61)).isoformat()
+        atomic_json(journal_path, journal)
+        with self.assertRaises(Held):  # the body was created more than the skew allowance before the attempt
+            self.runner(grant_path, proof_path).run(resume=self.candidate)
+        row['requests'][0]['attempted_at'] = (NOW + timedelta(seconds=59)).isoformat()
+        atomic_json(journal_path, journal)
+        self.runner(grant_path, proof_path).rehearse_resume(self.candidate)  # inside the allowance
+        row['requests'][0]['attempted_at'] = attempted
+        row['untrusted_candidate_id'] = '19000009'
+        atomic_json(journal_path, journal)
+        with self.assertRaises(Held):  # a candidate that is not the retained body's id
+            self.runner(grant_path, proof_path).run(resume='19000009')
+        self.assertIsNone(read_json(journal_path)['targets']['FGDC-141']['identity'])
+        row['untrusted_candidate_id'] = self.candidate
+        atomic_json(journal_path, journal)
+        self.runner(grant_path, proof_path).run(resume=self.candidate)
+        with self.assertRaises(Held):  # a verified row cannot be resumed again
+            self.runner(*self.resume_documents(label='again')).run(resume=self.candidate)
 
 
 if __name__ == '__main__':

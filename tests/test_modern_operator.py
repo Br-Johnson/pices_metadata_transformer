@@ -221,6 +221,32 @@ class OperatorMintTests(unittest.TestCase):
         self.mint(inventory)
         self.assertTrue(list(self.root.glob('grant-*.json')) and list(self.root.glob('proof-*.json')))
 
+    def test_resume_minting_needs_a_started_row_with_the_same_candidate(self):
+        inventory = self.inventory([owned(40, 'Unrelated', ['a']),
+                                    owned(19000001, json.loads(self.fixture.prepared.body)['metadata']['title'])])
+        packet = self.root / 'packet.json'
+        packet.write_bytes(encode({'binding': self.fixture.prepared.binding,
+                                   'evidence': self.fixture.prepared.evidence, 'provider_requests': 0}))
+        journal = Path(self.fixture.paths.uploads_registry_path + '.modern-v1.json')
+        with self.assertRaises(Held):  # no started row
+            self.mint(inventory, preparation=str(packet), resume='19000001')
+        journal.write_bytes(encode({'schema_version': 1, 'kind': 'modern-production-draft-attempts', 'targets': {
+            'FGDC-141': {'phase': 'started', 'identity': None, 'untrusted_candidate_id': '19000001',
+                         'counts': {'get': 0, 'create': 1, 'init': 0, 'content': 0, 'commit': 0}, 'requests': [{}]}}}))
+        with self.assertRaises(Held):  # the candidate must match
+            self.mint(inventory, preparation=str(packet), resume='19000002')
+        with self.assertRaises(Held):  # without resume, the started row itself refuses a fresh create
+            self.mint(inventory)
+        with self.assertRaises(Held):  # the packet and the candidate go together
+            self.mint(inventory, preparation=str(packet))
+        with self.assertRaises(Held):
+            self.mint(inventory, resume='19000001')
+        result = self.mint(inventory, preparation=str(packet), resume='19000001')
+        self.assertEqual((result['resume_candidate'], result['binding']), ('19000001', self.fixture.prepared.binding))
+        twin = self.inventory([owned(19000001, 'x'), owned(19000002, json.loads(self.fixture.prepared.body)['metadata']['title'], ['a'])])
+        with self.assertRaises(Held):  # another record with the same title is still a candidate
+            self.mint(twin, preparation=str(packet), resume='19000001')
+
     def test_summaries_normalize_mentions_checksums_and_digest_literals(self):
         row = operator.summarize(owned(10, 'x', ['FGDC-9.xml'], note='see FGDC 141, fgdc-0141 and FGDC-1410; ' + 'b' * 64))
         self.assertEqual(row['mentions'], ['FGDC-141', 'FGDC-1410', 'FGDC-9'])
