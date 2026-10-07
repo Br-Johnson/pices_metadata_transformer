@@ -4,17 +4,21 @@ Only temporary source-derived fixtures and injected transports are exercised.
 No test grants provider authority or treats a source assessment as publication QA.
 """
 
+import contextlib
 import copy
+import getpass
 import json
 import os
 import stat
+import subprocess
 import tempfile
 import unittest
+import warnings
 from datetime import timedelta
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-from scripts.modern_singleton import encode, parse
+from scripts.modern_singleton import Held, encode, parse
 from scripts.modern_singleton_executor import (
     LIMITS,
     MAX_BYTES,
@@ -22,6 +26,7 @@ from scripts.modern_singleton_executor import (
     USER_AGENT,
     Runner,
     Transport,
+    production_token,
 )
 from scripts.production_mutations import MutationJournal
 from scripts.upload_service import atomic_json, ledger_lock, read_json
@@ -544,8 +549,8 @@ class ModernSingletonExecutorTests(unittest.TestCase):
 class ModernSingletonTransportTests(unittest.TestCase):
     def test_user_agent_identifies_the_client_with_a_valid_header_value(self):
         # zenodo.org's edge rejects requests without a User-Agent; the value must
-        # name the project and a reachable URL and be a legal header value.
-        self.assertRegex(USER_AGENT, r'\Apices-metadata-transformer/\d+\.\d+ \(\+https://[^\s()]+\)\Z')
+        # name the project, a reachable URL and a contact, and be a legal header value.
+        self.assertRegex(USER_AGENT, r'\Apices-metadata-transformer/\d+\.\d+ \(\+https://[^\s();]+; [^\s()@;]+@[^\s();]+\)\Z')
         self.assertTrue(USER_AGENT.isascii() and USER_AGENT.isprintable() and USER_AGENT == USER_AGENT.strip())
 
     def test_mac_wire_uses_fixed_host_exact_body_and_modern_headers_without_redirects(self):
@@ -634,6 +639,99 @@ class ModernSingletonTransportTests(unittest.TestCase):
                     transport.request('GET', '/api/records/19000001/draft', None, timeout=timeout)
             constructor.assert_not_called()
             tls.assert_not_called()
+
+
+class ProductionTokenTests(unittest.TestCase):
+    SERVICE = 'pices-zenodo-production'
+    COMMAND = ['/usr/bin/security', 'find-generic-password', '-s', 'pices-zenodo-production', '-w']
+
+    @contextlib.contextmanager
+    def mac_terminal(self, *, tty=True, system='Darwin'):
+        stdin = Mock()
+        stdin.isatty.return_value = tty
+        with (patch('scripts.modern_singleton_executor.platform.system', return_value=system),
+              patch('scripts.modern_singleton_executor.sys.stdin', stdin)):
+            yield
+
+    def test_keychain_token_is_read_from_the_named_login_item_without_prompting(self):
+        completed = Mock(returncode=0, stdout='keychain-token-value-0123456789\r\n', stderr='')
+        with (self.mac_terminal(),
+              patch('scripts.modern_singleton_executor.subprocess.run', return_value=completed) as run,
+              patch('scripts.modern_singleton_executor.getpass.getpass', side_effect=AssertionError('no prompt'))):
+            token = production_token('Production token: ', self.SERVICE, action='execute')
+        self.assertEqual(token, 'keychain-token-value-0123456789')
+        run.assert_called_once_with(self.COMMAND, stdin=subprocess.DEVNULL, capture_output=True, text=True,
+                                    timeout=30, check=False)
+
+    def test_keychain_failures_and_bad_service_names_hold_without_a_prompt(self):
+        cases = ((self.SERVICE, Mock(returncode=44, stdout='', stderr='The specified item could not be found')),
+                 (self.SERVICE, Mock(returncode=1, stdout='looks-like-a-token-0123456789\n', stderr='')),
+                 (self.SERVICE, Mock(returncode=0, stdout='\n', stderr='')),
+                 (self.SERVICE, Mock(returncode=0, stdout='two\nlines\n', stderr='')),
+                 ('zenodo-production', None), ('bad service name', None), ('', None), ('../x', None),
+                 ('-w', None), ('pices-' + 'x' * 121, None))
+        for service, completed in cases:
+            with self.subTest(service=service):
+                with (self.mac_terminal(),
+                      patch('scripts.modern_singleton_executor.subprocess.run', return_value=completed) as run,
+                      patch('scripts.modern_singleton_executor.getpass.getpass',
+                            side_effect=AssertionError('no prompt')),
+                      self.assertRaises(Held)):
+                    production_token('Production token: ', service, action='execute')
+                if completed is None:
+                    run.assert_not_called()
+
+    def test_both_token_routes_require_a_mac_terminal_and_the_prompt_never_spawns_a_process(self):
+        for system, tty in (('Linux', True), ('Darwin', False)):
+            with self.subTest(system=system, tty=tty):
+                with (self.mac_terminal(tty=tty, system=system),
+                      patch('scripts.modern_singleton_executor.subprocess.run',
+                            side_effect=AssertionError('no process')) as run,
+                      patch('scripts.modern_singleton_executor.getpass.getpass',
+                            side_effect=AssertionError('no prompt')) as prompt):
+                    for keychain in (self.SERVICE, None):
+                        with self.assertRaises(Held):
+                            production_token('Production token: ', keychain, action='execute')
+                    run.assert_not_called()
+                    prompt.assert_not_called()
+        with (self.mac_terminal(),
+              patch('scripts.modern_singleton_executor.subprocess.run', side_effect=AssertionError('no process')),
+              patch('scripts.modern_singleton_executor.getpass.getpass',
+                    return_value='typed-token-0123456789') as prompt):
+            self.assertEqual(production_token('Production token: ', action='execute'), 'typed-token-0123456789')
+            prompt.assert_called_once_with('Production token: ')
+
+    def test_keychain_route_is_refused_for_publish_before_any_lookup_and_bad_shapes_hold(self):
+        with (self.mac_terminal(),
+              patch('scripts.modern_singleton_executor.subprocess.run', side_effect=AssertionError('no process')) as run,
+              patch('scripts.modern_singleton_executor.getpass.getpass', side_effect=AssertionError('no prompt')),
+              self.assertRaises(Held)):
+            production_token('Production token: ', self.SERVICE, action='publish')
+        run.assert_not_called()
+        with (self.mac_terminal(),
+              patch('scripts.modern_singleton_executor.subprocess.run', side_effect=AssertionError('no process')),
+              self.assertRaises(Held)):
+            production_token('Production token: ', self.SERVICE, action='unlisted')
+        for stdout in ('short\n', 'has space inside 0123456789\n', 'non-ascii-\u00e9-0123456789\n', 'x' * 4097 + '\n'):
+            with self.subTest(stdout=stdout[:12]):
+                with (self.mac_terminal(),
+                      patch('scripts.modern_singleton_executor.subprocess.run',
+                            return_value=Mock(returncode=0, stdout=stdout, stderr='')),
+                      self.assertRaises(Held)):
+                    production_token('Production token: ', self.SERVICE, action='execute')
+        with (self.mac_terminal(),
+              patch('scripts.modern_singleton_executor.getpass.getpass', return_value='short'),
+              self.assertRaises(Held)):
+            production_token('Production token: ', action='publish')
+
+    def test_insecure_prompt_fallback_is_an_error_not_a_token(self):
+        def echoing_prompt(prompt):
+            warnings.warn('Password input may be echoed.', getpass.GetPassWarning, stacklevel=2)
+            return 'echoed-token-0123456789'
+        with (self.mac_terminal(),
+              patch('scripts.modern_singleton_executor.getpass.getpass', side_effect=echoing_prompt),
+              self.assertRaises(getpass.GetPassWarning)):
+            production_token('Production token: ', action='execute')
 
 
 if __name__ == '__main__':

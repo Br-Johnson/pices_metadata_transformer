@@ -2,11 +2,14 @@
 
 - [x] Reproduce the production 403 from the Mac at 21:12 UTC: zenodo.org's edge firewall rejects a request without a `User-Agent` with an HTML 403 ("unusual traffic"), per request, and the Mac transport sent none. The 12:05 UTC create body was discarded and the 13:18:42 UTC GET's client was not recorded, so neither earlier 403 is formally attributed. Evidence: [probe receipts](readiness/2026-10-06/zenodo_edge_user_agent_evidence.json), [handoff](readiness/2026-10-06/zenodo_user_agent_handoff.md).
 - [x] Send `User-Agent: pices-metadata-transformer/1.0 (+repository URL)` from the shared production transport; validate the value at import and pin the header on body-less GETs too; 174 local tests across seven transport and mapping modules pass on the branch merged with main; scoped Ruff clean. Operator sequence: [first-record runbook](readiness/2026-10-06/first_pices_record_runbook.md).
-- [ ] Pass full current-head CI and Codex review, then merge under standing authorization.
+- [x] PR #47 merged at `f77eaa70a971a697d9894e9da8dc6b982d9b6905` (2026-10-06 23:44 UTC) after exact-head CI on the prior head and an independent Claude review relay; the Codex connector was at its usage limit.
 - [ ] The parent (Brett or his Codex session) updates Zenodo support ticket 3327790 with this finding.
-- [ ] Before any one-shot provider action, send one credential-free GET carrying the exact shipped `User-Agent` through the transport's header set and retain it as probe D; this lane could not.
+- [x] Brett decided on 2026-10-06: drafts only for the first batch, contact `johnson@psc.org` in the User-Agent, the 26 PICES-authored singletons in scope with reviewer subagents signing review fields and Brett as human release authority, and a Keychain token source so the executor runs without anyone typing the token.
+- [x] Probe D (2026-10-07 00:45 UTC): a credential-free GET with the exact shipped `User-Agent`, contact included, returned 200 with the vendor MIME type; retained in the evidence receipt.
 - [ ] Parent verifies the retained original packets, owner and this network evidence, then separately grants and dispatches the single FGDC-141 GET-only observation from the merged runtime; it has not run, and the route and its holds are unchanged.
-- [ ] First new production record through the community-first chain, starting with a PICES-authored singleton from `modern_pices_singletons26.json`.
+- [x] Land the contact address, the Keychain token source (terminal required, `pices-` service prefix, refused for `publish`) and the operator toolkit `scripts/modern_operator.py` (bounded owner inventory, executor-validated create grant and duplicate proof) on main after independent review; all ten related local test modules pass; scoped Ruff clean; two independent review passes with their material findings resolved.
+- [ ] Drafts for the 26 PICES-authored singletons through `prepare`, `inventory`, `mint-create`, `preflight` and `execute`, one record at a time, starting with FGDC-1319; no publication in this batch.
+- [ ] Batch design for the remaining 3,636 singletons: [ADR 0011](adr/0011-batched-modern-publication.md) (proposed); implement step by step after the 26 drafts exist.
 
 ## Current workflow and consolidated code — 2026-10-06
 

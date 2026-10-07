@@ -9,14 +9,11 @@ membership and complete readback, not a pending request, establish completion.
 import argparse
 import base64
 import copy
-import getpass
 import hashlib
-import platform
 import re
 import sys
 import time
 import uuid
-import warnings
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -698,6 +695,7 @@ def main():
         parser.add_argument('--' + key, required=True)
     for key in ('grant', 'snapshot', 'qa', 'duplicate', 'release', 'manifest', 'source-revision', 'community'):
         parser.add_argument('--' + key)
+    parser.add_argument('--token-keychain', metavar='SERVICE', help=draft.KEYCHAIN_HELP)
     args = parser.parse_args()
     try:
         paths = OutputPaths(args.output_dir, 'production')
@@ -725,11 +723,14 @@ def main():
                 runner.load()
                 result = {'preflight_verified': True, 'provider_requests': 0}
             else:
-                require(platform.system() == 'Darwin' and sys.stdin.isatty())
-                with warnings.catch_warnings():
-                    warnings.simplefilter('error', getpass.GetPassWarning)
-                    scopes = CAPTURE_TOKEN_SCOPE if action == 'capture' else PUBLICATION_TOKEN_SCOPE
-                    token = getpass.getpass('Production token (memory only; ' + scopes + '): ')
+                scopes = CAPTURE_TOKEN_SCOPE if action == 'capture' else PUBLICATION_TOKEN_SCOPE
+                try:
+                    # The irreversible publish keeps a live prompt; the Keychain serves reads and capture.
+                    token = draft.production_token('Production token (memory only; ' + scopes + '): ',
+                                                   args.token_keychain, action=args.action)
+                except BaseException:
+                    print(draft.TOKEN_HELD)
+                    return 1
                 runner = Runner(args.json_file, paths, args.preparation, args.old_grant, args.old_duplicate,
                                 args.grant, token, action=action, snapshot=args.snapshot, qa=args.qa,
                                 duplicate=args.duplicate, release=args.release)

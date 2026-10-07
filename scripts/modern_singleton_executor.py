@@ -14,6 +14,7 @@ import platform
 import re
 import signal
 import ssl
+import subprocess
 import sys
 import time
 import warnings
@@ -51,9 +52,43 @@ MIME = 'application/vnd.inveniordm.v1+json'
 # HTML 403 ("unusual traffic from your network") before they reach the API;
 # the sandbox does not enforce this. Zenodo asks clients to identify themselves:
 # https://blog.zenodo.org/2026/09/15/2026-09-15-stability-and-performance-updates/
-USER_AGENT = 'pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)'
+USER_AGENT = 'pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer; johnson@psc.org)'
 # An invalid header value must fail at import, never after an attempt is spent.
 require(USER_AGENT.isascii() and USER_AGENT.isprintable() and USER_AGENT == USER_AGENT.strip())
+KEYCHAIN_SERVICE_PATTERN = r'pices-[A-Za-z0-9._-]{1,120}'
+KEYCHAIN_HELP = ('Read the production token from the macOS login Keychain item with this service '
+                 'name (security find-generic-password) instead of prompting for it; never for publish')
+TOKEN_HELD = ('{"held":true,"stage":"token","instruction":"No attempt was started and nothing is spent: the '
+              'token stage held (missing or malformed Keychain item, no Mac terminal, or a Keychain token '
+              'requested for publish); fix that and rerun"}')
+KEYCHAIN_ACTIONS = frozenset({'execute', 'readback', 'capture', 'observe', 'inventory'})
+
+
+def production_token(prompt, keychain=None, *, action):
+    """Obtain the production token from the macOS Keychain or an interactive prompt.
+
+    Both routes need a Mac terminal. The Keychain route lets the sole Mac executor
+    run without anyone typing the token; the item must already exist, and only
+    the listed read, draft and capture actions may use it, never publish. The value stays in memory and is
+    never logged; a missing item, failed lookup or malformed value holds before
+    any attempt can be spent.
+    """
+    require(platform.system() == 'Darwin' and sys.stdin.isatty())
+    require(keychain is None or action in KEYCHAIN_ACTIONS)
+    if keychain is None:
+        with warnings.catch_warnings():
+            warnings.simplefilter('error', getpass.GetPassWarning)
+            token = getpass.getpass(prompt)
+    else:
+        require(isinstance(keychain, str) and re.fullmatch(KEYCHAIN_SERVICE_PATTERN, keychain) is not None)
+        completed = subprocess.run(['/usr/bin/security', 'find-generic-password', '-s', keychain, '-w'],
+                                   stdin=subprocess.DEVNULL, capture_output=True, text=True, timeout=30, check=False)
+        require(completed.returncode == 0)
+        token = completed.stdout.rstrip('\r\n')
+    require(isinstance(token, str) and 16 <= len(token) <= 4096 and all(33 <= ord(c) <= 126 for c in token))
+    return token
+
+
 BINARY_MEDIA = {'application/octet-stream', 'application/xml', 'text/xml'}
 
 
@@ -571,6 +606,7 @@ def main():
     parser.add_argument('--output-dir', required=True)
     parser.add_argument('--grant', type=Path)
     parser.add_argument('--duplicate-proof', type=Path)
+    parser.add_argument('--token-keychain', metavar='SERVICE', help=KEYCHAIN_HELP)
     args = parser.parse_args()
     try:
         paths = OutputPaths(args.output_dir, 'production')
@@ -583,10 +619,12 @@ def main():
             if args.action == 'preflight':
                 result = {'binding': prepared.binding, 'provider_requests': 0}
             else:
-                require(platform.system() == 'Darwin' and sys.stdin.isatty())
-                with warnings.catch_warnings():
-                    warnings.simplefilter('error', getpass.GetPassWarning)
-                    token = getpass.getpass('Production token (memory only; deposit:write): ')
+                try:
+                    token = production_token('Production token (memory only; deposit:write): ',
+                                             args.token_keychain, action=args.action)
+                except BaseException:
+                    print(TOKEN_HELD)
+                    return 1
                 runner = Runner(args.json_file, paths, args.grant, args.duplicate_proof, token)
                 result = runner.run(read_only=args.action == 'readback')
         print(encode(result).decode())

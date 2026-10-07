@@ -7,8 +7,6 @@ Provider dispatch requires separately reviewed actual evidence and a fresh grant
 
 import argparse
 import base64
-import getpass
-import platform
 import re
 import sys
 import time
@@ -429,6 +427,7 @@ def main():
                  'parent_packet', 'owner_proof', 'network_recovery_proof'):
         parser.add_argument('--' + role.replace('_', '-'), required=True, type=Path)
     parser.add_argument('--grant', type=Path)
+    parser.add_argument('--token-keychain', metavar='SERVICE', help=draft.KEYCHAIN_HELP)
     args = parser.parse_args()
     paths = OutputPaths(str(args.output), 'production')
     documents = {role: getattr(args, role) for role in ('preparation', 'submitted_wire', 'original_grant',
@@ -440,10 +439,15 @@ def main():
                           'limits': LIMITS, 'provider_requests': 0, 'approved': False,
                           'replay_authorized': False, 'modern_create_outcome': 'unresolved'}).decode())
             return
-        require(args.grant is not None and platform.system() == 'Darwin' and sys.stdin.isatty())
+        require(args.grant is not None)
         grant, _ = draft.read_document(args.grant)
         authorize(context, grant, datetime.now(timezone.utc))
-        token = getpass.getpass('Production token for bounded GET-only observation: ')
+        try:
+            token = draft.production_token('Production token for bounded GET-only observation: ',
+                                           args.token_keychain, action='observe')
+        except BaseException:
+            print(draft.TOKEN_HELD, file=sys.stderr)
+            return 2
         runner = Runner(args.json_file, paths, documents, args.grant, token)
         result = runner.run()
         print(encode({'phase': result['phase'], 'counts': result['counts'],
@@ -462,4 +466,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())

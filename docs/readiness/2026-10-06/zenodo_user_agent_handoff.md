@@ -56,10 +56,14 @@ python3 -c "import http.client, ssl, sys; sys.path.insert(0, '.'); from scripts.
 A 200 with the vendor MIME type and an `X-RateLimit-Limit` value verifies the
 exact shipped bytes; an HTML 403 holds everything until the value is reviewed.
 
+Probe D was sent on 2026-10-07 at 00:45:17 UTC with the contact-bearing value and
+returned 200, `application/vnd.inveniordm.v1+json`, `x-ratelimit-limit: 133`; it is
+retained in the evidence receipt.
+
 ## Change
 
 `Transport.request` now sends
-`User-Agent: pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)`
+`User-Agent: pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer; johnson@psc.org)`
 alongside the unchanged `Authorization`, `Accept`, `Accept-Encoding: identity`
 and `Connection: close` headers, on every request shape. `modern_publication.py`
 and `modern_unknown_create.py` reuse this transport, so capture, publication,
@@ -69,10 +73,24 @@ edit fails before any attempt can be spent. The tests import the constant,
 check its form, and pin the header on body-bearing POST and PUT and on
 body-less GETs with both Accept values.
 
-The value omits the contact element of Zenodo's recommended form. Decide it
-before the first production create: appending it later changes the runtime
-hash, and once a draft exists that needs a reviewed compatibility constant.
-The token is never part of the string.
+The contact element is Brett's address, decided on 2026-10-06 before the first
+production create, so the runtime hash changes once. The token is never part of
+the string. The three executors also accept `--token-keychain SERVICE`, which
+reads the token from the macOS login Keychain item of that service name through
+`security find-generic-password` instead of prompting; the value stays in memory
+and is never logged, and a missing item or malformed value holds before any
+attempt is spent. Both routes still require a Mac terminal, the service name
+must start with `pices-`, and the irreversible `publish` action refuses the
+Keychain route and keeps its live prompt. `scripts/modern_operator.py` adds the
+bounded owner-inventory capture and the create grant and duplicate proof
+minting that the runbook uses; minted documents are validated by the executor's
+own `authorize` before they are reported. The matcher compares title, file name,
+file MD5 against the XML, SHA256 literals, normalized source-id mentions, and
+refuses any record whose files cannot be seen unless it is protected, excluded,
+recorded in the modern journal or explicitly known; minting re-derives the
+summary from the hashed raw receipts, so an edited summary cannot pass. Two
+independent review passes were run on this change and their material findings
+were resolved before it was committed.
 
 The sandbox canary transport in `scripts/mac_sandbox_canary.py` is unchanged:
 sandbox.zenodo.org does not apply the rule and its source hash is pinned. The
@@ -80,11 +98,15 @@ legacy `scripts/zenodo_api.py` client and the matching adapters still send the
 python-requests default; they are outside the first-record path and are
 recorded in [tech-debt](../../tech-debt.md).
 
-Runtime SHA256 after the change, on the branch merged with main at
-`14c4109` (reviewed citations31):
+Runtime SHA256 of PR #47 as merged (`f77eaa7`):
 `19afd44a7dd156df8f3168c9badc96dbe4d74e4320dbffdc3f8c131e1ac13f0c`.
-Source/test binding (189 files):
-`711b6a50e0723f4fd2a9d423f53cfa2219cb8ecd512efb61011028c15793e1b0`.
+Runtime SHA256 after the contact address, Keychain token source and operator
+toolkit were committed to main:
+`e23b81aba71ac50d348f25c60d4ac4c1d60bd88e3dc89f356d5599597d3d023c`.
+Source/test binding (191 files):
+`63614aecbe18582e33489a27d25abeb19bc5fde399a91581da51f4f6280873cb`.
+No preparation or grant was made on the merged PR #47 runtime, so no
+compatibility constant is needed for it.
 No pinned runtime constant changes: the fifteen historical constants (PR34 to
 PR46, REVIEWED194 and PROGRAM20) are untouched and the live runtime is always
 accepted, so the FGDC-141 original packet (PR42 runtime) still passes the
@@ -102,7 +124,10 @@ with the pinned requirements, after merging main:
 
 | Module | Tests | Result |
 |---|---|---|
-| tests.test_modern_singleton_executor | 32 | pass |
+| tests.test_modern_singleton_executor | 37 | pass |
+| tests.test_modern_operator | 8 | pass |
+| tests.test_mac_sandbox_canary | 29 | pass |
+| tests.test_production_mutations | 31 | pass |
 | tests.test_modern_transport_diagnostics | 9 | pass |
 | tests.test_modern_unknown_create | 35 | pass |
 | tests.test_modern_response_evidence | 33 | pass |

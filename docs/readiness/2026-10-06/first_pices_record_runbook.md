@@ -3,9 +3,9 @@
 This is the shortest honest path from the merged User-Agent fix to one
 validated record published into the PICES community. It consolidates the
 existing contracts; it changes none of them and grants nothing by itself.
-Only the sole Mac executor runs the token-bearing steps, from a real terminal.
-The code lane that wrote this runbook cannot run them: it holds no token, and
-its session is blocked from the production state folder.
+Only the sole Mac executor runs the token-bearing steps, from a real terminal;
+with Brett's 2026-10-06 authorization that executor is the Claude session in the
+app's Terminal pane, reading the token from the Keychain.
 
 Target: `FGDC-1319`, the first member of
 [modern_pices_singletons26.json](modern_pices_singletons26.json). Its source
@@ -27,12 +27,14 @@ PICES community. Any other member of that list works the same way.
 | PICES community | UUID `92279449-f6e1-422d-8610-40802567c58b`, slug `pices`, parent `null`, visibility public, submission policy open, review policy `members`, observed 2026-10-06 21:12 UTC |
 | Sandbox canary receipt | `mac_sandbox_receipt_2026-10-05.zip`, SHA256 `f2141c916b38a53168edca63f0af79b47df3e9913653f3538aba040ca9a20f7c` |
 | Token scopes | draft and capture `deposit:write`; publication `deposit:write deposit:actions` |
+| Token source | Keychain item `pices-zenodo-production` (`--token-keychain pices-zenodo-production`) |
 
 Run every command from the checkout with the Python 3.12 environment that
 has `requirements.txt` installed, for example
 `/Users/brettjohnson/.cache/pices-venv312/bin/python`. Never put the token in
-an argument, a file, the shell history or captured output; the executors
-prompt for it.
+an argument, a file, the shell history or captured output. The executors read it
+from the macOS login Keychain item `pices-zenodo-production` when given
+`--token-keychain pices-zenodo-production`, and prompt for it otherwise.
 
 ## 0. Probe D: the shipped User-Agent, no token
 
@@ -58,7 +60,7 @@ SRC=$(mktemp -d) && cp FGDC/FGDC-1319.xml "$SRC/" && python -B scripts/collectio
 Then produce the preparation packet (zero provider requests):
 
 ```bash
-python -B -m scripts.modern_singleton_executor prepare --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" > "$OUTPUT/../evidence/FGDC-1319/preparation.json"
+python -B -m scripts.modern_singleton_executor prepare --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" > "$OUTPUT/../evidence/pices26/FGDC-1319.preparation.json"
 ```
 
 Keep that packet: the bridge, QA and publication stages all require it. Its
@@ -68,76 +70,62 @@ Keep that packet: the bridge, QA and publication stages all require it. Its
 
 The create grant and the duplicate proof must be reviewed documents, fresh
 within an hour, bound to the preparation binding and the state root. The proof
-asserts that the owner's current records contain no copy of this source. Capture
-the inventory with the token read into the shell, never typed into a file:
+asserts that the owner's current records contain no copy of this source. The
+operator toolkit captures the inventory through the production transport with
+the Keychain token, which also verifies that the stored token works, and
+writes raw page receipts plus a summary document:
 
 ```bash
-read -rs -p 'Production token (deposit:write): ' ZT; echo; mkdir -p "$OUTPUT/../evidence/FGDC-1319"; for p in 1 2 3; do curl -sS --fail --max-time 20 --max-redirs 0 -A 'pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)' -H "Authorization: Bearer $ZT" -H 'Accept: application/json' "https://zenodo.org/api/deposit/depositions?page=$p&size=100&sort=mostrecent&all_versions=true" -o "$OUTPUT/../evidence/FGDC-1319/inventory-page-$p.json"; done; unset ZT; python3 -c "import json,glob; rows=[r for f in sorted(glob.glob('$OUTPUT/../evidence/FGDC-1319/inventory-page-*.json')) for r in json.load(open(f))]; print(len(rows), 'owned records; titles containing PICES Scientific Report No. 18:', [r['id'] for r in rows if 'No. 18' in r.get('title','')])"
+python -B -m scripts.modern_operator inventory --evidence-dir "$OUTPUT/../evidence/pices26" --captured-by "Claude Fable 5.1 (capture)" --token-keychain pices-zenodo-production
 ```
 
-Stop at the first empty page. Review the listing yourself: no owned record may
-already carry this source's title, its file `FGDC-1319.xml`, or its XML
-SHA256. Then mint the two documents with your name as reviewer. The grant
-window is ten minutes, so mint immediately before step 3:
+It lists `/api/deposit/depositions` fifty records a page until an empty page,
+at most one hundred pages, fetches the detail of any record whose listing shows
+no files (at most twenty-five), writes raw receipts as `.partial` files until
+the capture completes, and prints the inventory path, its SHA256 and the record
+count. The legacy listing's coverage of RDM drafts is unproven; drafts created
+by this chain are known through the journal, which the executor checks before
+every write. An independent reviewer then reads the inventory summary against
+the source's title, `FGDC-1319.xml` and any mention of `FGDC-1319`, and signs
+the minting with its own name. Minting is offline; it refuses on any match (title, file name, file MD5
+against the XML, SHA256 literal, or source-id mention), on any record whose
+files cannot be seen unless its ID is protected, excluded, in the modern journal
+or passed as `--known-record`, on an inventory older than fifty minutes, on a
+mismatched owner, on an existing intent or journal row for the source, and on
+any window over ten minutes. It only reports success after the executor's own
+`authorize` accepts the two documents, and it removes both files if anything
+fails after the first write. A capture that holds names its stage, page and
+status in its reason and leaves only `.partial` receipts. Use new output names
+for every attempt:
 
 ```bash
-python -B - <<'EOF'
-import hashlib, json, sys
-from datetime import datetime, timedelta, timezone
-from pathlib import Path
-sys.path.insert(0, '.')
-from scripts.modern_singleton import encode
-from scripts.modern_singleton_executor import EXECUTOR, LIMITS, ORIGIN
-OUTPUT = Path('/Users/brettjohnson/Documents/Codex/2026-09-30/task-4/pices-production-operations/output')
-EVID = OUTPUT.parent / 'evidence' / 'FGDC-1319'
-REVIEWER = 'Brett Johnson'   # the human who reviewed the inventory listing
-OWNER = '266679'
-packet = json.loads((EVID / 'preparation.json').read_bytes())
-state_root = str((OUTPUT / 'state' / 'uploads' / 'production').resolve())
-sha = lambda b: hashlib.sha256(b).hexdigest()
-inventory = b''.join(p.read_bytes() for p in sorted(EVID.glob('inventory-page-*.json')))
-history = (OUTPUT / 'state' / 'uploads' / 'production' / 'uploads_registry.json.modern-v1.json')
-history_bytes = history.read_bytes() if history.exists() else b'{}'
-now = datetime.now(timezone.utc).replace(microsecond=0)
-proof = {'schema_version': 1, 'origin': ORIGIN, 'owner': OWNER, 'binding': packet['binding'],
-         'state_root': state_root, 'complete': True, 'history_reconciled': True,
-         'checked_at': now.isoformat(), 'expires_at': (now + timedelta(minutes=55)).isoformat(),
-         'matched_record_ids': [], 'matched_dois': [],
-         'inventory_sha256': sha(inventory), 'history_sha256': sha(history_bytes), 'reviewed_by': REVIEWER}
-proof_path = EVID / 'create-duplicate-proof.json'
-proof_path.write_bytes(encode(proof))
-grant = {'schema_version': 1, 'approved': True, 'executor': EXECUTOR, 'origin': ORIGIN,
-         'binding': packet['binding'], 'state_root': state_root, 'owner': OWNER, 'limits': dict(LIMITS),
-         'started_at': now.isoformat(), 'expires_at': (now + timedelta(minutes=10)).isoformat(),
-         'duplicate_proof_sha256': sha(proof_path.read_bytes()), 'reviewed_by': REVIEWER,
-         'token_scope': 'deposit:write', 'draft_only': True,
-         'canary_receipt_sha256': 'f2141c916b38a53168edca63f0af79b47df3e9913653f3538aba040ca9a20f7c'}
-(EVID / 'create-grant.json').write_bytes(encode(grant))
-print('proof and grant written; window ends', grant['expires_at'])
-EOF
+python -B -m scripts.modern_operator mint-create --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" --inventory "$OUTPUT/../evidence/pices26/inventory-<STAMP>.json" --owner 266679 --reviewer "<reviewer identity>" --canary-receipt-sha256 f2141c916b38a53168edca63f0af79b47df3e9913653f3538aba040ca9a20f7c --grant-out "$OUTPUT/../evidence/pices26/FGDC-1319.create-grant-<STAMP>.json" --proof-out "$OUTPUT/../evidence/pices26/FGDC-1319.create-duplicate-proof-<STAMP>.json"
 ```
 
-`matched_record_ids: []` is your statement that the review found no match;
-do not mint it before looking.
+One inventory can serve several records minted within its fifty-minute life.
+Mint immediately before step 3; the grant window is ten minutes.
 
 ## 3. Preflight, then the one-shot draft create
 
 ```bash
-python -B -m scripts.modern_singleton_executor preflight --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" --grant "$OUTPUT/../evidence/FGDC-1319/create-grant.json" --duplicate-proof "$OUTPUT/../evidence/FGDC-1319/create-duplicate-proof.json"
+python -B -m scripts.modern_singleton_executor preflight --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" --grant "$OUTPUT/../evidence/pices26/FGDC-1319.create-grant-<STAMP>.json" --duplicate-proof "$OUTPUT/../evidence/pices26/FGDC-1319.create-duplicate-proof-<STAMP>.json"
 ```
 
 A `{"binding": ..., "provider_requests": 0}` line means the whole offline
 contract holds. Then, inside the same ten-minute window:
 
 ```bash
-python -B -m scripts.modern_singleton_executor execute --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" --grant "$OUTPUT/../evidence/FGDC-1319/create-grant.json" --duplicate-proof "$OUTPUT/../evidence/FGDC-1319/create-duplicate-proof.json"
+python -B -m scripts.modern_singleton_executor execute --json-file "$OUTPUT/data/zenodo_json/FGDC-1319.json" --output-dir "$OUTPUT" --grant "$OUTPUT/../evidence/pices26/FGDC-1319.create-grant-<STAMP>.json" --duplicate-proof "$OUTPUT/../evidence/pices26/FGDC-1319.create-duplicate-proof-<STAMP>.json" --token-keychain pices-zenodo-production
 ```
 
-It prompts for the token, then performs at most four writes (create, file
+It reads the token from the Keychain, then performs at most four writes (create, file
 init, XML upload, commit) and five readback GETs, and prints the verified
 identity. The record is a private draft; nothing is published. The journal row
 in `<state root>/uploads_registry.json.modern-v1.json` reaches phase
-`verified`. A held result keeps everything spent and retained; do not rerun.
+`verified`. A held result after the journal row appears keeps everything spent and
+retained; do not rerun. A `"stage":"token"` hold happens before any attempt
+and spends nothing; fix the Keychain item or terminal and rerun inside the
+window.
 
 This is the real API test with a validated record. If it holds with an HTML
 403 on the first request, the User-Agent value is being rejected and the

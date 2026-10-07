@@ -5,7 +5,8 @@ The original production `POST /api/records` returned HTTP 403 and remains an **u
 > 2026-10-06 update: the runtime pinned below predates the [User-Agent change](zenodo_user_agent_handoff.md),
 > which the edge firewall requires. Dispatch only from a checkout at or after its merged head; the preflight
 > binding records the runtime actually used. The "no client changes" sentence under *Current external hold*
-> is superseded by that handoff. Everything else here, including the holds, is unchanged.
+> is superseded by that handoff, and `observe` accepts `--token-keychain pices-zenodo-production` in place of
+> the prompt. Everything else here, including the holds, is unchanged.
 
 ## Pins and release prerequisites
 

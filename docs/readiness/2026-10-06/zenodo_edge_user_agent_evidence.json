@@ -8,11 +8,11 @@
   "captured_at": "2026-10-06T21:12:09Z",
   "probe_window_utc": {
     "first_request": "2026-10-06T21:11:18Z",
-    "last_request": "2026-10-06T21:12:09Z"
+    "last_request": "2026-10-07T00:45:17Z"
   },
   "authorization": "Brett Johnson asked in chat on 2026-10-06 to find a safe way to upload the prepared records to the PICES community; these were unauthenticated diagnostic reads made under that request, outside the executor's grant system, with no production token and no mutation.",
   "request_shape": "All probes were credential-free, body-less GETs. Probe B carried the production transport's header set minus Authorization; it does not show how an authenticated POST with a body is treated.",
-  "provider_requests": 3,
+  "provider_requests": 4,
   "provider_mutations": 0,
   "finding": "zenodo.org answered a request that carried no User-Agent header with an HTML 403 (\"Access to this resource has been restricted due to unusual traffic from your network\") before the request reached the InvenioRDM application. The identical request with a User-Agent header was served normally. The client IP was not blocked at capture time: a curl request 48 seconds earlier (probe A) and the same Python request with a User-Agent three seconds later (probe C) both returned 200.",
   "executor_transport_headers_before_fix": [
@@ -21,7 +21,7 @@
     "Accept-Encoding: identity",
     "Connection: close"
   ],
-  "executor_transport_user_agent_after_fix": "pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)",
+  "executor_transport_user_agent_after_fix": "pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer; johnson@psc.org)",
   "probes": [
     {
       "label": "A_curl_default_user_agent",
@@ -70,6 +70,22 @@
       "response_sha256": "26104464cfbf3da8eaa467b51b150075ce046fc91f054fedd02282fb546e6851",
       "x_ratelimit_limit": "133",
       "observed_at": "2026-10-06T21:12:09Z"
+    },
+    {
+      "label": "D_exact_shipped_user_agent",
+      "client": "Python 3.12.12 http.client.HTTPSConnection, header set with the shipped USER_AGENT constant",
+      "request_headers": {
+        "Accept": "application/vnd.inveniordm.v1+json",
+        "Accept-Encoding": "identity",
+        "Connection": "close",
+        "User-Agent": "pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer; johnson@psc.org)"
+      },
+      "http_status": 200,
+      "content_type": "application/vnd.inveniordm.v1+json",
+      "response_bytes": 3285,
+      "response_sha256": "039257194ae4ceef27cfd23c84beafad40bb964ccbf703c74bf9b481f89a0f88",
+      "x_ratelimit_limit": "133",
+      "observed_at": "2026-10-07T00:45:17Z"
     }
   ],
   "external_references": [
@@ -93,5 +109,17 @@
       "note": "published limits: guest 60 per minute and 2,000 per hour; authenticated 100 per minute and 5,000 per hour; 429 with X-RateLimit headers beyond them"
     }
   ],
-  "limits": "This evidence shows the per-request edge rule and that this Mac was not IP-blocked at 21:11 to 21:12 UTC. Probe C sent the short token 'pices-metadata-transformer/1.0'; the exact shipped constant with the '(+https://...)' comment was not probed from this session, so verify it with one credential-free GET through the shipped header set before any one-shot provider action. It does not reconstruct the 12:05 UTC FGDC-141 create response body, and the client and headers of the 13:18:42 UTC credential-free GET were not recorded, so neither earlier 403 is formally attributed."
+  "limits": "This evidence shows the per-request edge rule and that this Mac was not IP-blocked at 21:11 to 21:12 UTC. Probe D (2026-10-07 00:45 UTC) sent the exact shipped constant, contact included, and received 200 with the vendor MIME type, so the shipped bytes are verified for an unauthenticated GET. It does not reconstruct the 12:05 UTC FGDC-141 create response body, and the client and headers of the 13:18:42 UTC credential-free GET were not recorded, so neither earlier 403 is formally attributed.",
+  "user_agent_history": [
+    {
+      "value": "pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer)",
+      "from": "PR #47 (merged 2026-10-06T23:44:06Z)",
+      "note": "no contact element; never probed"
+    },
+    {
+      "value": "pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pices_metadata_transformer; johnson@psc.org)",
+      "from": "2026-10-06 contact decision by Brett Johnson in chat",
+      "note": "contact address added before the first production create; verified by probe D at 2026-10-07T00:45:17Z"
+    }
+  ]
 }
