@@ -2,8 +2,8 @@
   "canary_receipt_sha256": "f2141c916b38a53168edca63f0af79b47df3e9913653f3538aba040ca9a20f7c",
   "counts": {
     "sources": 26,
-    "started": 1,
-    "verified": 25
+    "started": 0,
+    "verified": 26
   },
   "inventory": {
     "captured_at": "2026-10-07T04:17:45+00:00",
@@ -14,9 +14,17 @@
   "kind": "pices26-draft-batch-receipt-v1",
   "origin": "https://zenodo.org",
   "owner": "266679",
-  "provider_mutations": "one create, one file init and one content upload per verified record; one create for FGDC-1938",
+  "post_batch_check": {
+    "captured_at": "2026-10-07T05:36:13+00:00",
+    "details": 25,
+    "inventory": "inventory-20261007T053613Z-bc64c6.json",
+    "record_count": 46,
+    "result": "each of the 26 ids present once, owner 266679, unsubmitted, no shared titles; the 24 batch drafts list exactly <source>.xml with the original MD5",
+    "sha256": "c7c4e1c1f75778415a61db99a81a62b9d8e7a82baac18057796f59e4f2a22ec7"
+  },
+  "provider_mutations": "one create, one file init and one content upload per record; FGDC-1938 completed its init and upload on resume",
   "publication_approved": false,
-  "recorded_at": "2026-10-07T05:05:00Z",
+  "recorded_at": "2026-10-07T06:40:00Z",
   "recorded_by": "Claude Fable 5.1 (Claude Code session on Brett Johnson's Mac)",
   "records": [
     {
@@ -285,21 +293,26 @@
     },
     {
       "binding": "ae4393d13bcad00657f6ef264ab234cd41a4bfe6d5ccc023a9646a3ec2126291",
-      "counts": {
-        "commit": 0,
-        "content": 0,
-        "create": 1,
-        "get": 0,
-        "init": 0
-      },
-      "create_attempted_at": "2026-10-07T04:39:01.576401+00:00",
       "create_grant_sha256": "f8bfc044ecb36a144fe3b13548f6b39bdd466eb8397c3f037c7b36f17ed356e1",
-      "create_http_status": 201,
+      "created": "2026-10-07T04:39:02.101665+00:00",
       "duplicate_proof_sha256": "c72d8a2a20ca9b8ab0ebeb29ff644da142e74718495ba927e91c416959e9450c",
-      "phase": "started",
+      "parent_id": "23203061",
+      "phase": "verified",
+      "record_id": "23203062",
+      "resume_duplicate_proof_sha256": "571169d4059a4cfdfa4013f7dc33a86e955c70ccd67b2b2175cc6a7caa1f35fc",
+      "resume_grant_sha256": "1081b8f2c501539ab1db6fd4344d0f31934e901f7e18a0cdd78c232c4fdca9b0",
+      "resume_inventory": {
+        "captured_at": "2026-10-07T06:20:58+00:00",
+        "file": "inventory-20261007T062058Z-2efaa8.json",
+        "record_count": 46,
+        "reviewer": "Independent reviewer agent (Claude, session 3b1f13) 2026-10-07; inventory 51c13edb for the FGDC-1938 resume",
+        "sha256": "51c13edbc20527dd3dcfc645662f1f042ab5b96e00766b1438bd3314d965cda4"
+      },
+      "resume_runtime_sha256": "74c63546d70c0febe11615c86c692e728e023ef400dda13e7393b15e106a85c4",
+      "resumed_at": "2026-10-07T06:29:28.522915+00:00",
       "runtime_sha256": "74e3a233de0f2b56ca573a8ea3613a6c37c87a45356ec495e7ae1ded0e2e85a5",
       "source_id": "FGDC-1938",
-      "untrusted_candidate_id": "23203062"
+      "verified_revision": 5
     },
     {
       "binding": "6f75e64fce8a04aff8ebbb5c2bd042da988a6f7e42e8c8bce149e4901e15f231",

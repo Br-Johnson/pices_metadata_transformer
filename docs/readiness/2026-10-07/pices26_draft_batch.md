@@ -2,9 +2,9 @@
 
 The 26 PICES-authored singletons in
 [modern_pices_singletons26.json](../2026-10-06/modern_pices_singletons26.json)
-now exist on zenodo.org as unpublished drafts owned by Zenodo user 266679,
-except FGDC-1938, whose create returned 201 and whose row is `started` and
-resumable. Nothing was published, submitted or deleted. The per-record
+now exist on zenodo.org as verified, unpublished drafts owned by Zenodo user
+266679; FGDC-1938's create held once and was completed by the resume route
+described below. Nothing was published, submitted or deleted. The per-record
 identities, grant and proof hashes are in
 [pices26_draft_batch.json](pices26_draft_batch.json); the original journals,
 grants, proofs and raw receipts stay in the production root on Brett's Mac.
@@ -58,7 +58,7 @@ Terminal pane with the token read from the Keychain item
 | FGDC-1935 | 23203048 | 23203047 | 04:38:25 | verified, revision 5 |
 | FGDC-1936 | 23203052 | 23203051 | 04:38:37 | verified, revision 5 |
 | FGDC-1937 | 23203060 | 23203059 | 04:38:49 | verified, revision 5 |
-| FGDC-1938 | 23203062 (untrusted candidate) | 23203061 | 04:39:01 (create) | started; resumable |
+| FGDC-1938 | 23203062 | 23203061 | 04:39:02, resumed 06:29:28 | verified, revision 5 |
 | FGDC-1939 | 23203129 | 23203128 | 04:44:02 | verified, revision 5 |
 | FGDC-1940 | 23203131 | 23203130 | 04:44:14 | verified, revision 5 |
 | FGDC-2708 | 23203133 | 23203132 | 04:44:26 | verified, revision 5 |
@@ -110,6 +110,15 @@ so the FGDC-1938 row can be resumed under the new runtime with its original
 preparation packet, and the 24 verified rows can later bridge to publication.
 The retained 23203062 body passes the new comparison offline.
 
+The fix landed on main as `12933fd` after an independent review with its
+findings resolved; CI passed at 06:28:16 UTC. A fresh inventory
+(`inventory-20261007T062058Z-2efaa8.json`, SHA256 `51c13edb…`, 46 records,
+four requests) was signed by the reviewer agent for the resume, and the
+resume ran at 06:29:28 UTC under runtime `74c63546…`: resume grant
+`1081b8f2c501…` minted and rehearsed offline against the
+retained body, then the identity bound, the file uploaded and verified at
+revision 5. The row now matches every other verified row.
+
 ## The inventory bound
 
 The post-batch inventory capture at 04:46:25 UTC held after both listing pages
@@ -122,15 +131,30 @@ them under `skipped_details`, keeps its provider-only shape, and the matcher
 already treats known ids as verified another way. The bound of 25 now applies
 to unknown records only, which is what it was for.
 
+## Post-batch check (05:36 UTC)
+
+A fresh inventory captured with the detail skip
+(`inventory-20261007T053613Z-bc64c6.json`, SHA256
+`c7c4e1c1f75778415a61db99a81a62b9d8e7a82baac18057796f59e4f2a22ec7`, 46
+records, two pages, 25 detail receipts, 27 requests, no mutation) lists each
+of the 26 record ids exactly once, all owned by 266679, all `unsubmitted`
+with no DOI. The provider's own detail listing of every one of the 24
+verified batch drafts shows exactly one file, `<source>.xml`, whose MD5
+equals the original XML's. Records 23201173 and 23203062 were passed as
+known and not detail-fetched in that capture; a second capture two minutes
+later (`inventory-20261007T053833Z-cab769.json`, SHA256 `53a0d771…`, four
+requests) fetched 23201173's detail, which lists exactly `FGDC-1319.xml`
+with the original MD5, and showed 23203062 still without a file, as a held
+create should be. No title is shared between
+any two of the 26; the inventory's only repeated titles belong to earlier
+versions of two unrelated pre-existing records. The journal and the run logs
+agree on every identity and grant hash.
+
 ## Still open after this batch
 
-- Resume FGDC-1938 under the new runtime after CI and independent review:
-  fresh inventory, reviewer signature, `mint-create --preparation
-  --resume-candidate 23203062`, `preflight`, `resume`.
-- Post-batch duplicate check from a fresh inventory: each of the 26 ids
-  present once, owner 266679, no repeated title, and the provider's file
-  listing for each new draft (one capture with the three pre-batch records as
-  `--known-record` fetches exactly the 25 new details).
+- The provider's own file listing of 23203062 after the resume has not been
+  captured; the resume readback verified the file. A later inventory with the
+  record not passed as known fetches it in one detail GET.
 - The reviewer's note A: FGDC-1924 (Scientific Report No. 9) and FGDC-2708
   describe the same October 1997 CCCC workshop with different XML, titles,
   descriptions and metadata dates; both drafts exist, as the 26-record scope

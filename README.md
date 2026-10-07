@@ -51,8 +51,8 @@ Mac executor. Zenodo support ticket 3327790 is pending. The 2026-10-06
 reproduced 403 to zenodo.org's edge rule for requests without a `User-Agent` and requires
 dispatch from a checkout at or after its merged head. On 2026-10-07 the 26 PICES-authored
 singletons became production drafts under the sole Mac executor
-([batch note](docs/readiness/2026-10-07/pices26_draft_batch.md)): 25 verified, FGDC-1938
-resumable after a sanitiser hold; none published. The
+([batch note](docs/readiness/2026-10-07/pices26_draft_batch.md)): all 26 verified
+after one sanitiser hold was resumed; none published. The
 [community-first release handoff](docs/readiness/2026-10-06/modern_pices_community_handoff.md)
 still requires actual PICES authority, source/record QA, a human release and accepted
 membership/default readback. AquaDocs linkage is
