@@ -151,7 +151,7 @@ class SameTextTests(unittest.TestCase):
         self.assertFalse(same_text('ab', ' ab'))  # nor stripped whitespace
         self.assertFalse(same_text('e\u0301', 'e'))  # a real difference still differs
 
-    def test_compare_metadata_accepts_folded_descriptions_but_not_folded_titles(self):
+    def test_compare_metadata_folds_descriptions_and_titles_but_nothing_else(self):
         from scripts.modern_singleton import Held, compare_metadata
         expected = {'resource_type': {'id': 'other'}, 'title': 'T \uff92', 'publisher': 'Zenodo',
                     'publication_date': '2001-01-01', 'description': 'People\uff92s Republic',
@@ -162,10 +162,37 @@ class SameTextTests(unittest.TestCase):
                   'additional_descriptions': [{'type': {'id': 'other', 'title': {'en': 'Other'}},
                                                'description': '<pre>13\u30e824</pre>'}]}
         compare_metadata(stored, expected)
-        with self.assertRaises(Held):  # the title comparison stays byte-exact
-            compare_metadata({**stored, 'title': 'T \u30e1'}, expected)
+        # 2026-10-20: the provider folds plain fields too (FGDC-37's creator name), so titles fold.
+        compare_metadata({**stored, 'title': 'T \u30e1'}, expected)
+        with self.assertRaises(Held):
+            compare_metadata({**stored, 'title': 'T \u30e2'}, expected)
         with self.assertRaises(Held):
             compare_metadata({**stored, 'description': 'People\u2019s Republic'}, expected)
+
+    def test_compare_metadata_folds_widths_in_plain_fields_as_the_provider_stores_them(self):
+        """Observed on FGDC-37 (2026-10-20): U+FF96 in a creator name came back as U+30E8."""
+        from scripts.modern_singleton import Held, compare_metadata, same_plain
+        expected = {'resource_type': {'id': 'other'}, 'title': 'Hydrospheric\uff96Atmospheric', 'publisher': 'Zenodo',
+                    'publication_date': '2001-01-01', 'description': 'd', 'subjects': [{'subject': 'Ni\uff71o'}],
+                    'creators': [{'person_or_org': {'type': 'organizational',
+                                                    'name': 'Institute for Hydrospheric\uff96Atmospheric Sciences'},
+                                  'affiliations': [{'name': 'Nagoya\uff96'}]},
+                                 {'person_or_org': {'type': 'personal', 'family_name': 'Ka\uff96', 'given_name': 'A'}}],
+                    'additional_descriptions': [{'type': {'id': 'other'}, 'description': '<pre>x</pre>'}]}
+        stored = {**expected, 'title': 'Hydrospheric\u30e8Atmospheric', 'subjects': [{'subject': 'Ni\u30a2o'}],
+                  'creators': [{'person_or_org': {'type': 'organizational',
+                                                  'name': 'Institute for Hydrospheric\u30e8Atmospheric Sciences'},
+                                'affiliations': [{'name': 'Nagoya\u30e8'}]},
+                               {'person_or_org': {'type': 'personal', 'family_name': 'Ka\u30e8', 'given_name': 'A',
+                                                  'name': 'Ka\u30e8, A'}}]}
+        compare_metadata(stored, expected)
+        self.assertFalse(same_plain('T "q"', 'T &quot;q&quot;'))  # entities stay literal in plain fields
+        changed = {**stored, 'creators': [{'person_or_org': {'type': 'organizational', 'name': 'Other'}},
+                                          stored['creators'][1]]}
+        with self.assertRaises(Held):
+            compare_metadata(changed, expected)
+        with self.assertRaises(Held):
+            compare_metadata({**stored, 'subjects': [{'subject': 'Nino'}]}, expected)
 
     def test_compare_metadata_accepts_decoded_quotes_in_descriptions_only(self):
         from scripts.modern_singleton import Held, compare_metadata

@@ -16,7 +16,7 @@ Invariants:
   when a release names it; the review binds the source and wire SHA256 of
   every member, so a code change between stages strands nothing.
 - A record is complete only after the published readback shows the exact wire
-  metadata (with the provider tolerances of `same_text`), the original file by
+  metadata (with the provider tolerances of `same_text` and `same_plain`), the original file by
   size and MD5, the owner, DOI pids and the PICES community as its default.
 - The token never reaches a file or output; every retained response is
   credential-screened first. Publication always prompts for the token.

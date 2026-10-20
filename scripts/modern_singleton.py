@@ -912,6 +912,20 @@ def same_text(actual, expected):
     return canonical_text(actual) == canonical_text(expected)
 
 
+def same_plain(actual, expected):
+    """Equal once both sides take the provider's stored form for a plain (non-HTML) text field.
+
+    The same sanitiser runs on titles, publishers, subjects and creator and affiliation names
+    (SanitizedUnicode); its width folding was observed on a creator name (FGDC-37, U+FF96
+    stored as U+30E8, 2026-10-20). Only the width fold and NFC are tolerated here; quote
+    entities stay literal in plain fields.
+    """
+    if not isinstance(actual, str) or not isinstance(expected, str):
+        return False
+    fold = lambda text: unicodedata.normalize('NFC', text.translate(WIDTH_FOLD))  # noqa: E731
+    return fold(actual) == fold(expected)
+
+
 def compare_metadata(actual, expected):
     """Accept only known empty defaults and vocabulary display labels; no HTML repair."""
     require(isinstance(actual, dict))
@@ -920,8 +934,14 @@ def compare_metadata(actual, expected):
                 'version', 'sizes', 'formats'}
     require(set(actual) <= set(expected) | defaults)
     require(all(actual[k] in (None, '', [], {}) for k in set(actual) - set(expected)))
-    for key in ('title', 'publisher', 'publication_date', 'subjects'):
-        require(actual.get(key) == expected[key])
+    require(actual.get('publication_date') == expected['publication_date'])
+    for key in ('title', 'publisher'):
+        require(same_plain(actual.get(key), expected[key]))
+    subjects = actual.get('subjects')
+    require(isinstance(subjects, list) and len(subjects) == len(expected['subjects']))
+    for value, wanted in zip(subjects, expected['subjects'], strict=True):
+        require(isinstance(value, dict) and set(value) == set(wanted)
+                and all(same_plain(value[key], wanted[key]) for key in wanted))
     require(same_text(actual.get('description'), expected['description']))
     def vocabulary(value, wanted):
         require(isinstance(value, dict) and value.get('id') == wanted['id']
@@ -939,19 +959,22 @@ def compare_metadata(actual, expected):
             for actual_affiliation, affiliation in zip(actual_affiliations, affiliations, strict=True):
                 require(isinstance(actual_affiliation, dict)
                         and set(actual_affiliation) <= {'name', 'identifiers'}
-                        and actual_affiliation.get('name') == affiliation['name']
+                        and same_plain(actual_affiliation.get('name'), affiliation['name'])
                         and actual_affiliation.get('identifiers') in (None, []))
         else:
             require(value.get('affiliations') in (None, []))
         person = value.get('person_or_org')
         expected_person = wanted['person_or_org']
         require(isinstance(person, dict) and person.get('identifiers') in (None, [])
-                and all(person.get(key) == wanted_value for key, wanted_value in expected_person.items()))
+                and person.get('type') == expected_person['type']
+                and all(same_plain(person.get(key), wanted_value)
+                        for key, wanted_value in expected_person.items() if key != 'type'))
         if expected_person['type'] == 'personal':
             require(set(person) <= {'name', 'type', 'family_name', 'given_name', 'identifiers'})
             # The pinned service derives this display from the two reviewed fields.
             if 'name' in person:
-                require(person['name'] == expected_person['family_name'] + ', ' + expected_person['given_name'])
+                require(same_plain(person['name'], expected_person['family_name'] + ', '
+                                   + expected_person['given_name']))
         else:
             require(set(person) <= {'name', 'type', 'identifiers'})
     descriptions = actual.get('additional_descriptions')
