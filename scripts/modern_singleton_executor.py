@@ -60,11 +60,13 @@ USER_AGENT = 'pices-metadata-transformer/1.0 (+https://github.com/Br-Johnson/pic
 require(USER_AGENT.isascii() and USER_AGENT.isprintable() and USER_AGENT == USER_AGENT.strip())
 KEYCHAIN_SERVICE_PATTERN = r'pices-[A-Za-z0-9._-]{1,120}'
 KEYCHAIN_HELP = ('Read the production token from the macOS login Keychain item with this service '
-                 'name (security find-generic-password) instead of prompting for it; never for publish')
+                 'name (security find-generic-password) instead of prompting for it; never for the single-record publish')
 TOKEN_HELD = ('{"held":true,"stage":"token","instruction":"No attempt was started and nothing is spent: the '
               'token stage held (missing or malformed Keychain item, no Mac terminal, or a Keychain token '
               'requested for publish); fix that and rerun"}')
-KEYCHAIN_ACTIONS = frozenset({'execute', 'resume', 'readback', 'capture', 'observe', 'inventory'})
+# 'bulk-publish' is the bulk route's publish stage, which Brett allowed to read the Keychain on
+# 2026-10-20 (ADR 0013); the single-record publisher's 'publish' keeps its live prompt.
+KEYCHAIN_ACTIONS = frozenset({'execute', 'resume', 'readback', 'capture', 'observe', 'inventory', 'bulk-publish'})
 # Runtimes under which a started row may be resumed after the live runtime changed:
 # the first PICES26 create (FGDC-1319) and the PICES26 draft batch (FGDC-1938).
 RESUME_RUNTIMES = ('e23b81aba71ac50d348f25c60d4ac4c1d60bd88e3dc89f356d5599597d3d023c',

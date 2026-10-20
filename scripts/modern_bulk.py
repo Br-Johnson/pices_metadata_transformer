@@ -19,7 +19,8 @@ Invariants:
   metadata (with the provider tolerances of `same_text` and `same_plain`), the original file by
   size and MD5, the owner, DOI pids and the PICES community as its default.
 - The token never reaches a file or output; every retained response is
-  credential-screened first. Publication always prompts for the token.
+  credential-screened first. Publication prompts for the token unless the operator passes the
+  Keychain item, which Brett allowed for this route on 2026-10-20.
 
 Assumptions: `modern_batch` manifests and the live preparation are the truth
 for membership and twins; the owner inventory, this route's journal and the
@@ -1352,10 +1353,10 @@ def candidates(paths):
 # ---------------------------------------------------------------- command line
 
 def transport_and_token(stage, keychain):
-    """Drafts and reconcile may use the Keychain; publication always prompts."""
+    """Every stage may read the Keychain item; publication prompts when none is given."""
     if stage == 'publish':
-        require(keychain is None)
-        token = draft.production_token('Zenodo production token (publish): ', None, action='publish')
+        token = draft.production_token('Zenodo production token (publish): ', keychain,
+                                       action='bulk-publish' if keychain else 'publish')
     else:
         token = draft.production_token('Zenodo production token: ', keychain, action='execute')
     return draft.Transport(token), token
@@ -1392,6 +1393,8 @@ def main():
     publish.add_argument('--release', required=True)
     publish.add_argument('--owner', required=True)
     publish.add_argument('--limit', type=int)
+    publish.add_argument('--token-keychain', metavar='SERVICE',
+                         help='Read the token from this Keychain item (allowed by Brett on 2026-10-20); prompts otherwise')
     reconcile = sub.add_parser('reconcile', help='Observe held records by GET and move their phase')
     reconcile.add_argument('--source', action='append', required=True)
     reconcile.add_argument('--owner', required=True)
@@ -1494,7 +1497,7 @@ def main():
                 result = runner.run(approved, runner.draft_member, limit=args.limit)
         elif args.action == 'publish':
             release, release_sha = load_release(paths, args.release)
-            transport, token = transport_and_token('publish', None)
+            transport, token = transport_and_token('publish', args.token_keychain)
             with ledger_lock(paths):
                 runner = Bulk(paths, transport, token, owner=args.owner, stage='publish')
                 runner.ledger['inputs'] = {'release': str(Path(args.release).resolve()), 'release_sha256': release_sha}

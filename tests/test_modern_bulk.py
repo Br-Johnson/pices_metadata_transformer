@@ -691,6 +691,17 @@ class BulkRouteTests(unittest.TestCase):
         self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
         self.assertEqual(len([m for m, _ in self.writes() if m == 'PUT']), 2)
 
+    def test_publish_reads_the_keychain_only_when_given_and_never_as_the_single_record_action(self):
+        with patch.object(bulk.draft, 'production_token', return_value=TOKEN) as token, \
+                patch.object(bulk.draft, 'Transport', return_value='transport'):
+            self.assertEqual(bulk.transport_and_token('publish', 'pices-zenodo-production'), ('transport', TOKEN))
+            token.assert_called_with('Zenodo production token (publish): ', 'pices-zenodo-production',
+                                     action='bulk-publish')
+            bulk.transport_and_token('publish', None)
+            token.assert_called_with('Zenodo production token (publish): ', None, action='publish')
+        self.assertIn('bulk-publish', draft.KEYCHAIN_ACTIONS)
+        self.assertNotIn('publish', draft.KEYCHAIN_ACTIONS)
+
     def test_request_starts_are_spaced_by_the_pace(self):
         starts = []
         inner = self.provider.request

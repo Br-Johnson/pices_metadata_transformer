@@ -70,7 +70,7 @@ Brett deferred that linkage until after initial publication on 2026-10-06.
 | Stage | Requests | Token |
 |---|---|---|
 | `drafts` | create POST, file-init POST, content PUT, commit POST only when the PUT did not complete the upload, then GET draft and GET file listing | Keychain or prompt |
-| `publish` | once per run, GET the PICES community with the token (identity, public visibility, parent, `can_submit_record` and `can_include_directly` must hold); per record GET draft, review PUT (`community-submission` to the PICES UUID), GET draft again (the PUT has no compare-and-swap), submit-review POST with `{"require_review": false}`, then GET published record and GET file listing | Live prompt, entered by Brett once per run, as for the single-record publisher |
+| `publish` | once per run, GET the PICES community with the token (identity, public visibility, parent, `can_submit_record` and `can_include_directly` must hold); per record GET draft, review PUT (`community-submission` to the PICES UUID), GET draft again (the PUT has no compare-and-swap), submit-review POST with `{"require_review": false}`, then GET published record and GET file listing | Keychain item `pices-zenodo-production`, allowed by Brett in chat on 2026-10-20 so publication runs unattended; without `--token-keychain` it prompts |
 
 The draft readback requires the exact wire metadata (with the provider
 sanitiser tolerances of `same_text`), public record access, restricted files,
@@ -138,5 +138,6 @@ or edits a published record.
   and intents claim both; uploads and commits are spent per file, and
   `reconcile` reads a pair interrupted between its uploads and allows only the
   missing file again. The 69 unreviewed singletons stay outside.
-- One typed token per publish run replaces one per record; the token is never
-  read from the Keychain for publication.
+- One token per publish run replaces one per record. On 2026-10-20 Brett
+  allowed the bulk publish stage to read the Keychain item (action
+  `bulk-publish`); the single-record publisher keeps its live prompt.
