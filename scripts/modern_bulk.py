@@ -43,6 +43,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from scripts import modern_batch as batch
+from scripts import modern_content_class as content_class
 from scripts import modern_operator as operator
 from scripts import modern_singleton_executor as draft
 from scripts.modern_draft_schema import expected_empty_file_warning
@@ -83,8 +84,6 @@ MAX_CONSECUTIVE_HOLDS = 3
 MAX_ALLOWANCE = 1  # a write whose effect reconcile did not observe may be sent once more, once
 CREATE_SETTLE = timedelta(minutes=2)
 ABSENCE_GAP = timedelta(minutes=10)  # a lost create counts as absent only after two inventories this far apart
-AFTER_PHASE = {'creating': (), 'created': ('init', 'content', 'commit'), 'initialized': ('content', 'commit'),
-               'draft-verified': ('review',), 'review-set': (), 'published': ()}
 SAMPLE_FRACTION = 0.10
 SAMPLE_MIN = 20
 STOP_STATUSES = {401, 403, 408, 425, 429} | set(range(500, 600))
@@ -163,12 +162,30 @@ def load_record(paths, source_id):
             and document.get('phase') in PHASES and isinstance(document.get('requests'), list)
             and isinstance(document.get('counts'), dict) and set(document['counts']) == set(LIMITS)
             and isinstance(document.get('allowances'), dict) and set(document['allowances']) <= set(WRITES)
-            and all(type(v) is int and 0 < v <= MAX_ALLOWANCE for v in document['allowances'].values()))
-    for kind, limit in LIMITS.items():
-        limit += document['allowances'].get(kind, 0)
+            and all(type(v) is int and 0 < v <= MAX_ALLOWANCE * (len(files_of(document)) if k in ('content', 'commit')
+                                                                  else 1)
+                    for k, v in document['allowances'].items()))
+    for kind in LIMITS:
+        limit = write_limit(document, kind)
         require(type(document['counts'][kind]) is int and 0 <= document['counts'][kind] <= limit
                 and document['counts'][kind] == sum(r.get('kind') == kind for r in document['requests']))
     return document
+
+
+def files_of(entry):
+    """The original files of a record, sheet row or member: one for a singleton, two for a pair."""
+    return entry['files'] if 'files' in entry else [entry['file']]
+
+
+def source_ids_of(entry):
+    target = entry.get('target')
+    return list(target['source_ids']) if target else [entry['source_id']]
+
+
+def write_limit(record, kind):
+    """Per-record dispatch limit: one of each write, one upload and commit per file, plus allowances."""
+    per_file = len(files_of(record)) if kind in ('content', 'commit') else 1
+    return LIMITS[kind] * per_file + record.get('allowances', {}).get(kind, 0)
 
 
 def save_record(paths, record):
@@ -180,11 +197,13 @@ def save_record(paths, record):
 def new_record(source_id, member, origin):
     return {'schema_version': 1, 'kind': RECORD_KIND, 'source_id': source_id, 'origin': origin,
             'source_sha256': member['source_sha256'], 'wire_sha256': member['wire_sha256'],
-            'file': member['file'], 'review_sha256': member['review_sha256'], 'batch_id': member['batch_id'],
+            **({'files': member['files'], 'target': member['target']} if member.get('target')
+               else {'file': member['file']}),
+            'review_sha256': member['review_sha256'], 'batch_id': member['batch_id'],
             'identity': None, 'candidate_id': None, 'phase': 'planned', 'hold': None,
             'counts': dict.fromkeys(LIMITS, 0), 'allowances': {}, 'requests': [], 'draft_revision': None,
             'request_id': None, 'request_status': None, 'release_sha256': None, 'pids': None,
-            'inventory_allowed': [], 'absence': [], 'history': []}
+            'inventory_allowed': [], 'absence': [], 'uploaded': [], 'resend': {}, 'history': []}
 
 
 def own_identities(paths):
@@ -204,6 +223,44 @@ def member_now(paths, source_id):
     prepared = prepare(str(json_input(paths, source_id)), paths)
     require(prepared.source_id == source_id)
     return prepared
+
+
+class PairPrepared:
+    """A reviewed pair (two byte-identical originals) in the shape the stages use."""
+
+    def __init__(self, prepared):
+        names = [name for name, _ in prepared.originals]
+        contents = [raw for _, raw in prepared.originals]
+        require(len(names) == 2 and contents[0] == contents[1]
+                and names == [sid + '.xml' for sid in prepared.source_ids])
+        self.source_id = prepared.source_ids[0]
+        self.source_ids = list(prepared.source_ids)
+        self.record_target_id = prepared.record_target_id
+        self.body, self.xml, self.evidence = prepared.body, contents[0], prepared.evidence
+        self.contents = dict(prepared.originals)
+
+
+def pair_now(paths, target):
+    prepared = content_class.prepare(target['record_target_id'], paths, reviewed_at=target['reviewed_at'])
+    pair = PairPrepared(prepared)
+    require('source_ids' not in target or pair.source_ids == list(target['source_ids']))
+    return pair
+
+
+def prepare_entry(paths, entry):
+    """Live preparation of a member or record: a singleton source or a pair target."""
+    target = entry.get('target')
+    return pair_now(paths, target) if target else member_now(paths, entry['source_id'])
+
+
+def contents_of(prepared):
+    """File key to original bytes."""
+    return getattr(prepared, 'contents', None) or {prepared.source_id + '.xml': prepared.xml}
+
+
+def files_facts(prepared):
+    return [{'key': key, 'size': len(raw), 'sha256': sha(raw),
+             'md5': hashlib.md5(raw, usedforsecurity=False).hexdigest()} for key, raw in contents_of(prepared).items()]
 
 
 def text_of(node):
@@ -279,6 +336,51 @@ def sheet_row(paths, source_id):
             'flags': flags_for(source, wire)}
 
 
+def pair_row(paths, target):
+    prepared = pair_now(paths, target)
+    wire = parse(prepared.body)
+    meta = wire['metadata']
+    source = xml_fields(prepared.xml)
+    return {'source_id': prepared.source_id, 'policy': prepared.evidence['policy'],
+            'target': {'kind': 'pair', 'record_target_id': prepared.record_target_id,
+                       'source_ids': prepared.source_ids, 'reviewed_at': target['reviewed_at']},
+            'source_sha256': sha(prepared.xml), 'wire_sha256': sha(prepared.body), 'files': files_facts(prepared),
+            'source': {**source, 'abstract': source['abstract'][:500]},
+            'wire': {'title': meta['title'], 'creators': [creator_name(c) for c in meta['creators']],
+                     'publication_date': meta['publication_date'], 'description': meta['description'][:500],
+                     'description_length': len(meta['description']),
+                     'subjects': [s['subject'] for s in meta['subjects']]},
+            'flags': flags_for(source, wire)}
+
+
+def pair_twins(paths, rows):
+    """Twin check for pair rows against every journal source except these pairs' own two ids."""
+    facts = [{'source_id': row['source_id'], 'source_sha256': row['source_sha256'],
+              'title_key': batch.title_key(row['wire']['title'])} for row in rows]
+    own = [sid for row in rows for sid in row['target']['source_ids']]
+    attempted = batch.attempted_facts(paths, batch.journal_phases(paths), own)
+    return batch.resolve_twins(facts, attempted, [], batch.load_registry(paths))
+
+
+def build_pair_sheet(paths, batch_id, targets, built_by, reviewed_at, now=utc_now):
+    """Review sheet for reviewed pairs, with the twin check against every journal and each other."""
+    require(re.fullmatch(batch.BATCH_ID, batch_id) is not None and 0 < len(targets) <= batch.MAX_MEMBERS)
+    draft.instant(reviewed_at)
+    rows = [pair_row(paths, {'record_target_id': t, 'reviewed_at': reviewed_at}) for t in targets]
+    ids = [sid for row in rows for sid in row['target']['source_ids']]
+    require(len(set(ids)) == len(ids))
+    twins, used = pair_twins(paths, rows)
+    membership = sha(encode([[row['source_id'], row['wire_sha256']] for row in rows]))
+    size = min(len(rows), max(SAMPLE_MIN, math.ceil(SAMPLE_FRACTION * len(rows))))
+    flagged = [row['source_id'] for row in rows if row['flags']]
+    others = sorted({row['source_id'] for row in rows} - set(flagged), key=batch.by_number)
+    sample = sorted(random.Random(membership).sample(others, min(size, len(others))), key=batch.by_number)
+    return {'schema_version': 1, 'kind': SHEET_KIND, 'batch_id': batch_id, 'manifest_sha256': None,
+            'membership_sha256': membership, 'built_by': built_by, 'built_at': now().isoformat(),
+            'member_count': len(rows), 'flagged': flagged, 'sample': sample, 'twins': twins,
+            'allowances': [a['origin'] for a in used], 'rows': rows}
+
+
 def build_sheet(paths, manifest, manifest_sha, built_by, now=utc_now):
     rows = [sheet_row(paths, member['source_id']) for member in manifest['members']]
     flagged = [row['source_id'] for row in rows if row['flags']]
@@ -349,7 +451,9 @@ def load_review(paths, path):
     members = {}
     for row in sheet['rows']:
         members[row['source_id']] = {'source_id': row['source_id'], 'source_sha256': row['source_sha256'],
-                                     'wire_sha256': row['wire_sha256'], 'file': row['file'],
+                                     'wire_sha256': row['wire_sha256'],
+                                     **({'files': row['files'], 'target': row['target']} if row.get('target')
+                                        else {'file': row['file']}),
                                      'review_sha256': review_sha, 'batch_id': sheet['batch_id'],
                                      'approved': review['decisions'][row['source_id']]['decision'] == 'approved'}
     return review, review_sha, [row['source_id'] for row in sheet['rows']], members
@@ -397,15 +501,21 @@ def check_draft(data, prepared, record, owner, *, files_complete, status='draft'
     access = data.get('access', {})
     check(access.get('record') == 'public' and access.get('files') == 'restricted', 'access differs')
     files = data.get('files', {})
-    expected = record['file']
-    keys = {expected['key']} if files_complete else set()
-    check(files.get('enabled') is True and isinstance(files.get('entries'), dict) and set(files['entries']) == keys
-          and files.get('count') == len(keys)
-          and files.get('total_bytes') == (expected['size'] if files_complete else 0), 'draft files differ')
-    if files_complete:
-        check_file_entry(files['entries'][expected['key']], expected)
-        check(data.get('errors', []) == [], 'draft reports validation errors')
+    expected = files_of(record)
+    entries = files.get('entries') if isinstance(files.get('entries'), dict) else None
+    if files_complete == 'partial':  # some originals completed, the rest not yet (a pair between uploads)
+        check(entries is not None and set(entries) < {f['key'] for f in expected}, 'draft files differ')
+        present = [f for f in expected if f['key'] in entries]
     else:
+        present = expected if files_complete else []
+    check(files.get('enabled') is True and entries is not None and set(entries) == {f['key'] for f in present}
+          and files.get('count') == len(present)
+          and files.get('total_bytes') == sum(f['size'] for f in present), 'draft files differ')
+    for f in present:
+        check_file_entry(entries[f['key']], f)
+    if files_complete is True:
+        check(data.get('errors', []) == [], 'draft reports validation errors')
+    elif not present:
         try:
             expected_empty_file_warning(data)
         except Held:
@@ -434,11 +544,12 @@ def check_published(data, prepared, record, owner, communities):
     access = data.get('access', {})
     check(access.get('record') == 'public' and access.get('files') == 'restricted', 'published access differs')
     files = data.get('files', {})
-    expected = record['file']
+    expected = files_of(record)
     check(files.get('enabled') is True and isinstance(files.get('entries'), dict)
-          and set(files['entries']) == {expected['key']} and files.get('count') == 1
-          and files.get('total_bytes') == expected['size'], 'published files differ')
-    check_file_entry(files['entries'][expected['key']], expected)
+          and set(files['entries']) == {f['key'] for f in expected} and files.get('count') == len(expected)
+          and files.get('total_bytes') == sum(f['size'] for f in expected), 'published files differ')
+    for f in expected:
+        check_file_entry(files['entries'][f['key']], f)
     membership = data.get('parent', {}).get('communities', {})
     check(isinstance(communities, list) and communities and communities[0] == PICES_COMMUNITY,
           'the verified PICES community is required', Held)
@@ -516,8 +627,7 @@ class Bulk:
 
     def call(self, record, kind, method, path, expected, body=None, accept=draft.MIME):
         """Journal, pace, dispatch, retain and classify one request."""
-        check(record['counts'][kind] < LIMITS[kind] + record['allowances'].get(kind, 0),
-              f'{kind} already spent for this record; reconcile it')
+        check(record['counts'][kind] < write_limit(record, kind), f'{kind} already spent for this record; reconcile it')
         require(not any(r.get('status') == 'uncertain' for r in record['requests']))
         record['counts'][kind] += 1
         receipt = {'index': len(record['requests']), 'kind': kind, 'method': method, 'path': path,
@@ -554,6 +664,32 @@ class Bulk:
             raise RecordHold(f'{kind} response is not valid JSON') from None
         check(isinstance(value, dict), f'{kind} response is not an object')
         return value
+
+    @staticmethod
+    def unspent(record, kind, path, key):
+        """A file's upload or commit is sent once, or once more only when reconcile saw it absent."""
+        sent = sum(r['kind'] == kind and r['path'] == path for r in record['requests'])
+        again = key in record.get('resend', {}).get(kind, [])
+        check(sent == 0 or (sent == 1 and again), f'{kind} of {key} was already sent; reconcile it')
+
+    @staticmethod
+    def check_listing(listing, expected, label):
+        entries = listing.get('entries')
+        check(isinstance(entries, list) and len(entries) == len(expected), f'{label} file listing differs')
+        by_key = {e.get('key'): e for e in entries if isinstance(e, dict)}
+        check(set(by_key) == {f['key'] for f in expected}, f'{label} file keys differ')
+        for f in expected:
+            check_file_entry(by_key[f['key']], f)
+            check(by_key[f['key']].get('status') == 'completed', f'{label} file is not completed')
+
+    def entry_hits(self, prepared, source_ids, allowed=()):
+        """Inventory hits for every source id the record stands for."""
+        hits = []
+        for sid in source_ids:
+            for hit in self.inventory_hits(prepared, allowed, source_id=sid):
+                if hit not in hits:
+                    hits.append(hit)
+        return hits
 
     def advance(self, record, phase):
         record['phase'] = phase
@@ -653,13 +789,13 @@ class Bulk:
             ids.discard(record['candidate_id'])  # this source's own create answer
         return ids
 
-    def inventory_hits(self, prepared, allowed=()):
+    def inventory_hits(self, prepared, allowed=(), source_id=None):
         """Unknown owner records that may carry this source; `allowed` are reviewed false matches."""
         own = own_identities(self.paths) | {str(i) for i in allowed}
         records = [r for r in self.inventory['records'] if str(r.get('id')) not in own]
         known = operator.known_records(self.paths)
         title = parse(prepared.body)['metadata']['title']
-        hits = operator.inventory_matches(records, prepared.source_id, title, prepared.xml, known=known)
+        hits = operator.inventory_matches(records, source_id or prepared.source_id, title, prepared.xml, known=known)
         core = batch.title_key(title)
         for r in records:
             if batch.title_key(r.get('title', '')) == core and not any(h['id'] == r.get('id') for h in hits):
@@ -704,12 +840,18 @@ class Bulk:
             if any(r.get('status') == 'uncertain' for r in record['requests']):
                 self.hold(record, 'a request was interrupted before its answer was recorded; reconcile it')
                 raise RecordHold('interrupted request')
-        prepared = member_now(self.paths, sid)
+        prepared = prepare_entry(self.paths, member)
         check(sha(prepared.xml) == member['source_sha256'] and sha(prepared.body) == member['wire_sha256'],
               'live preparation differs from the reviewed sheet')
+        sids = source_ids_of(member)
         if record is None or record['phase'] == 'planned':
-            check(sid not in PROTECTED, 'protected source')
-            check(sid not in exclusions(self.paths), 'excluded by a reviewed decision')
+            check(not set(sids) & set(PROTECTED), 'protected source')
+            check(not set(sids) & set(exclusions(self.paths)), 'excluded by a reviewed decision')
+            for other in sids[1:]:
+                # The second source of a pair carries no record of its own; nothing may claim it either.
+                check(load_record(self.paths, other) is None and not intent_path(self.paths, other).exists()
+                      and self.modern_row(other) is None and self.legacy_claims(other) is None,
+                      f'{other} is already claimed by another record or lane')
             row = self.modern_row(sid)
             if row is not None:
                 record = new_record(sid, member, 'modern-v1')
@@ -727,13 +869,13 @@ class Bulk:
             if record is None:
                 record = new_record(sid, member, 'bulk')
             else:  # released from an earlier barrier hold; bind it to the current review
-                record.update({k: member[k] for k in ('source_sha256', 'wire_sha256', 'file', 'review_sha256',
-                                                       'batch_id')})
+                record.update({k: member[k] for k in ('source_sha256', 'wire_sha256', 'file', 'files', 'target',
+                                                       'review_sha256', 'batch_id') if k in member})
             claim = self.legacy_claims(sid)
             if claim is not None:
                 self.hold(record, claim + ' exists for this source')
                 raise RecordHold(claim)
-            hits = self.inventory_hits(prepared, record.get('inventory_allowed', []))
+            hits = self.entry_hits(prepared, sids, record.get('inventory_allowed', []))
             if hits:
                 self.hold(record, 'owner inventory may already carry this source: ' + json.dumps(hits))
                 raise RecordHold('inventory match')
@@ -746,20 +888,24 @@ class Bulk:
 
     def continue_draft(self, record, prepared, foreign):
         sid = record['source_id']
-        key = record['file']['key']
+        expected = files_of(record)
+        contents = contents_of(prepared)
+        require([f['key'] for f in expected] == list(contents))
         if record['phase'] == 'creating':
             check(record['counts']['create'] < 1 + record['allowances'].get('create', 0),
                   'create already spent; reconcile it')
-            if record['counts']['create'] == 0 and not intent_path(self.paths, sid).exists():
-                write_exclusive(intent_path(self.paths, sid), {
-                    'schema_version': 1, 'kind': 'modern-bulk-intent-v1', 'source_id': sid,
-                    'source_sha256': record['source_sha256'], 'wire_sha256': record['wire_sha256'],
-                    'review_sha256': record['review_sha256'], 'run_id': self.run_id, 'at': self.now().isoformat()})
-            require(intent_path(self.paths, sid).exists())
+            for claimed in source_ids_of(record):  # a pair claims both of its sources
+                if record['counts']['create'] == 0 and not intent_path(self.paths, claimed).exists():
+                    write_exclusive(intent_path(self.paths, claimed), {
+                        'schema_version': 1, 'kind': 'modern-bulk-intent-v1', 'source_id': claimed, 'record': sid,
+                        'source_sha256': record['source_sha256'], 'wire_sha256': record['wire_sha256'],
+                        'review_sha256': record['review_sha256'], 'run_id': self.run_id,
+                        'at': self.now().isoformat()})
+                require(intent_path(self.paths, claimed).exists())
             if record['counts']['create'] > 0:
                 # An allowed re-send passes the whole barrier again on an inventory captured now.
                 self.refresh_inventory(force=True)
-                hits = self.inventory_hits(prepared, record.get('inventory_allowed', []))
+                hits = self.entry_hits(prepared, source_ids_of(record), record.get('inventory_allowed', []))
                 check(not hits, 're-sent create blocked by the owner inventory: ' + json.dumps(hits))
             sent = self.now()
             value = self.call(record, 'create', 'POST', '/api/records', 201, prepared.body)
@@ -772,30 +918,37 @@ class Bulk:
             record['identity'] = identity
             self.advance(record, 'created')
         base = '/api/records/' + record['identity']['id'] + '/draft'
-        file = base + '/files/' + key
         if record['phase'] == 'created':
-            value = self.call(record, 'init', 'POST', base + '/files', 201, encode([{'key': key}]))
+            value = self.call(record, 'init', 'POST', base + '/files', 201,
+                              encode([{'key': f['key']} for f in expected]))
             entries = value.get('entries')
-            check(isinstance(entries, list) and len(entries) == 1, 'file init listing differs')
-            check_file_entry(entries[0], record['file'], completed=False)
-            check(entries[0].get('status') == 'pending', 'initialized file is not pending')
+            check(isinstance(entries, list) and len(entries) == len(expected)
+                  and sorted(e.get('key') for e in entries if isinstance(e, dict)) == sorted(contents),
+                  'file init listing differs')
+            for entry in entries:
+                check(entry.get('status') == 'pending', 'initialized file is not pending')
             self.advance(record, 'initialized')
         if record['phase'] == 'initialized':
-            value = self.call(record, 'content', 'PUT', file + '/content', 200, prepared.xml)
-            check(value.get('key') == key, 'uploaded file key differs')
-            if value.get('status') != 'completed':
-                value = self.call(record, 'commit', 'POST', file + '/commit', 200)
-            check(value.get('status') == 'completed', 'upload did not complete')
-            check_file_entry(value, record['file'])
+            uploaded = record.setdefault('uploaded', [])
+            for f in expected:
+                if f['key'] in uploaded:
+                    continue
+                file = base + '/files/' + f['key']
+                self.unspent(record, 'content', file + '/content', f['key'])
+                value = self.call(record, 'content', 'PUT', file + '/content', 200, contents[f['key']])
+                check(value.get('key') == f['key'], 'uploaded file key differs')
+                if value.get('status') != 'completed':
+                    self.unspent(record, 'commit', file + '/commit', f['key'])
+                    value = self.call(record, 'commit', 'POST', file + '/commit', 200)
+                check(value.get('status') == 'completed', 'upload did not complete')
+                check_file_entry(value, f)
+                uploaded.append(f['key'])
+                save_record(self.paths, record)
             self.advance(record, 'uploaded')
         if record['phase'] == 'uploaded':
             _, revision = check_draft(self.call(record, 'get', 'GET', base, 200), prepared, record, self.owner,
                                       files_complete=True)
-            listing = self.call(record, 'get', 'GET', base + '/files', 200)
-            entries = listing.get('entries')
-            check(isinstance(entries, list) and len(entries) == 1, 'draft file listing differs')
-            check_file_entry(entries[0], record['file'])
-            check(entries[0].get('status') == 'completed', 'draft file is not completed')
+            self.check_listing(self.call(record, 'get', 'GET', base + '/files', 200), expected, 'draft')
             record['draft_revision'] = revision
             self.advance(record, 'draft-verified')
             return 'drafted'
@@ -812,7 +965,7 @@ class Bulk:
             self.hold(record, 'a request was interrupted before its answer was recorded; reconcile it')
             raise RecordHold('interrupted request')
         check(record['phase'] in ('draft-verified', 'adopted', 'review-set', 'accepted'), 'record is not drafted')
-        prepared = member_now(self.paths, source_id)
+        prepared = prepare_entry(self.paths, record)
         check(sha(prepared.xml) == record['source_sha256'] and sha(prepared.body) == record['wire_sha256'],
               'live preparation differs from the drafted record')
         try:
@@ -862,11 +1015,7 @@ class Bulk:
         if record['phase'] == 'accepted':
             record['pids'] = check_published(self.call(record, 'get', 'GET', base, 200), prepared, record,
                                              self.owner, self.community_ids)
-            listing = self.call(record, 'get', 'GET', base + '/files', 200)
-            entries = listing.get('entries')
-            check(isinstance(entries, list) and len(entries) == 1, 'published file listing differs')
-            check_file_entry(entries[0], record['file'])
-            check(entries[0].get('status') == 'completed', 'published file is not completed')
+            self.check_listing(self.call(record, 'get', 'GET', base + '/files', 200), files_of(record), 'published')
             self.advance(record, 'published')
             return 'published'
         raise RecordHold(f'unexpected phase {record["phase"]}')
@@ -938,7 +1087,7 @@ class Bulk:
         """
         record = load_record(self.paths, source_id)
         check(record is not None and record['hold'] is not None, 'only a held record is reconciled', Held)
-        prepared = member_now(self.paths, source_id)
+        prepared = prepare_entry(self.paths, record)
         require(sha(prepared.xml) == record['source_sha256'] and sha(prepared.body) == record['wire_sha256'])
         for receipt in record['requests']:
             if receipt.get('status') == 'uncertain':
@@ -955,17 +1104,42 @@ class Bulk:
                 refunds = ['create']
         else:
             phase = self.observe(record, prepared)
-            refunds = [kind for kind in AFTER_PHASE[phase]
-                       if record['counts'][kind] >= LIMITS[kind] + record['allowances'].get(kind, 0)]
-            for kind in refunds:
-                check(record['allowances'].get(kind, 0) < MAX_ALLOWANCE,
-                      f'{kind} was already allowed again once; needs a separate decision')
-                record['allowances'][kind] = record['allowances'].get(kind, 0) + 1
+            refunds = self.refunds(record, phase)
         record['hold'] = None
         record['history'].append({'reconciled_from': previous, 'observed_phase': phase, 'allowed_again': refunds,
                                   'at': self.now().isoformat(), 'run_id': self.run_id})
         self.advance(record, phase)
         return {'source_id': source_id, 'phase': phase, 'identity': record['identity'], 'allowed_again': refunds}
+
+    def refunds(self, record, phase):
+        """Allow once more each write the observed phase shows had no effect; per file for uploads."""
+        granted = []
+
+        def grant(kind, key=None):
+            per = len(files_of(record)) if kind in ('content', 'commit') else 1
+            check(record['allowances'].get(kind, 0) < MAX_ALLOWANCE * per,
+                  f'{kind} was already allowed again; needs a separate decision')
+            record['allowances'][kind] = record['allowances'].get(kind, 0) + 1
+            if key is not None:
+                resend = record.setdefault('resend', {}).setdefault(kind, [])
+                check(key not in resend, f'{kind} of {key} was already allowed again; needs a separate decision')
+                resend.append(key)
+            granted.append(kind if key is None else kind + ':' + key)
+
+        if phase in ('created', 'initialized'):
+            if phase == 'created' and record['counts']['init'] >= write_limit(record, 'init'):
+                grant('init')
+            done = set(record.get('uploaded', [])) if phase == 'initialized' else set()
+            base = '/api/records/' + record['identity']['id'] + '/draft/files/'
+            for f in files_of(record):
+                if f['key'] in done:
+                    continue
+                for kind, suffix in (('content', '/content'), ('commit', '/commit')):
+                    if any(r['kind'] == kind and r['path'] == base + f['key'] + suffix for r in record['requests']):
+                        grant(kind, f['key'])
+        elif phase == 'draft-verified' and record['counts']['review'] >= write_limit(record, 'review'):
+            grant('review')
+        return granted
 
     def reconcile_create(self, record, prepared):
         """Bind or clear a create whose outcome is not in the journal; None while absence is unconfirmed."""
@@ -1025,7 +1199,7 @@ class Bulk:
 
     def observe(self, record, prepared):
         base = '/api/records/' + record['identity']['id']
-        key = record['file']['key']
+        keys = [f['key'] for f in files_of(record)]
         try:
             value = self.call(record, 'get', 'GET', base + '/draft', 200)
         except RecordHold:
@@ -1038,8 +1212,10 @@ class Bulk:
         status = value.get('status')
         check(status in ('draft', 'draft_with_review'),
               f'draft status {status}: the submission awaits community action; inspect it on Zenodo')
-        complete = key in value.get('files', {}).get('entries', {})
-        check_draft(value, prepared, record, self.owner, files_complete=complete,
+        listed = set(value.get('files', {}).get('entries', {}) or {})
+        complete = set(keys) <= listed
+        check_draft(value, prepared, record, self.owner, files_complete=True if complete else
+                    ('partial' if listed else False),
                     status='draft_with_review' if status == 'draft_with_review' else 'draft')
         if status == 'draft_with_review':
             review = value.get('parent', {}).get('review', {})
@@ -1052,7 +1228,12 @@ class Bulk:
             return 'draft-verified'
         listing = self.call(record, 'get', 'GET', base + '/draft/files', 200)
         entries = listing.get('entries') if isinstance(listing.get('entries'), list) else []
-        return 'initialized' if any(e.get('key') == key for e in entries) else 'created'
+        present = {e.get('key'): e.get('status') for e in entries if isinstance(e, dict)}
+        if not present:
+            return 'created'
+        check(set(present) == set(keys), 'only some files were initialized; needs a separate decision')
+        record['uploaded'] = [k for k in keys if present[k] == 'completed']
+        return 'initialized'
 
 
 # ---------------------------------------------------------------- release
@@ -1216,6 +1397,11 @@ def main():
     reconcile.add_argument('--source', action='append', required=True)
     reconcile.add_argument('--owner', required=True)
     reconcile.add_argument('--token-keychain', metavar='SERVICE', help=draft.KEYCHAIN_HELP)
+    pairs = sub.add_parser('plan-pairs', help='Build the review sheet for reviewed two-file pair targets offline')
+    pairs.add_argument('--batch-id', required=True)
+    pairs.add_argument('--built-by', required=True)
+    pairs.add_argument('--targets-file', required=True, help='JSON list of pair record_target_ids (sha256:...)')
+    pairs.add_argument('--reviewed-at', required=True, help='Fixed past assessment time; the wire depends on it')
     release_hold = sub.add_parser('unhold', help='Release a barrier hold on a record with no provider request')
     release_hold.add_argument('--source', required=True)
     release_hold.add_argument('--decided-by', required=True)
@@ -1244,6 +1430,14 @@ def main():
             result = {'manifest': str(manifest_file), 'sheet': str(path), 'sheet_sha256': sha(path.read_bytes()),
                       'members': sheet['member_count'], 'flagged': len(sheet['flagged']),
                       'sample': len(sheet['sample']), 'twins': manifest['twins'], 'provider_requests': 0}
+        elif args.action == 'plan-pairs':
+            targets, _ = draft.read_document(args.targets_file)
+            require(isinstance(targets, list) and all(isinstance(v, str) for v in targets))
+            sheet = build_pair_sheet(paths, args.batch_id, targets, args.built_by, args.reviewed_at)
+            path = write_exclusive(sheet_path(paths, args.batch_id), sheet)
+            result = {'sheet': str(path), 'sheet_sha256': sha(path.read_bytes()), 'members': sheet['member_count'],
+                      'flagged': len(sheet['flagged']), 'sample': len(sheet['sample']), 'twins': sheet['twins'],
+                      'provider_requests': 0}
         elif args.action == 'review':
             sheet, sheet_sha = draft.read_document(sheet_path(paths, args.batch_id))
             given, _ = draft.read_document(args.decisions)
@@ -1282,7 +1476,16 @@ def main():
                            if (load_record(paths, m['source_id']) or {}).get('phase') not in DRAFTED]
                 runner = Bulk(paths, transport, token, owner=args.owner, stage='drafts',
                               captured_by=args.captured_by)
-                if pending:
+                pairs = [m for m in approved if m.get('target')]
+                require(not pairs or len(pairs) == len(approved))
+                if pending and pairs:
+                    rows = [{'source_id': m['source_id'], 'source_sha256': m['source_sha256'], 'target': m['target'],
+                             'wire': {'title': parse(prepare_entry(paths, m).body)['metadata']['title']}}
+                            for m in pairs if m['source_id'] in pending]
+                    twins, used = pair_twins(paths, rows)
+                    runner.ledger['inputs'] = {'review_sha256': review_sha, 'pair_twins': twins,
+                                               'allowances': [a['origin'] for a in used]}
+                elif pending:
                     manifest = batch.build_manifest(paths, pending, batch_id=(members[order[0]]['batch_id'] + '-'
                                                     + stamp(utc_now()))[:64].rstrip('-'),
                                                     owner=args.owner, built_by=args.captured_by)
@@ -1312,6 +1515,9 @@ def main():
         return 1
     except FileExistsError:
         print(json.dumps({'held': True, 'reason': 'a document with that name already exists; nothing was replaced'}))
+        return 1
+    except ValueError as error:  # closed holds of the preparation and operation guards
+        print(json.dumps({'held': True, 'reason': str(error)[:300]}))
         return 1
 
 

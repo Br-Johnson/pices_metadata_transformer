@@ -115,7 +115,9 @@ def journal_phases(paths):
                     and isinstance(row.get('phase'), str))
             phases[source_id] = row['phase']
     for source_id, record in bulk_rows(paths).items():
-        phases[source_id] = 'bulk:' + record['phase']
+        target = record.get('target') if isinstance(record.get('target'), dict) else {}
+        for claimed in target.get('source_ids') or [source_id]:  # a pair record stands for both sources
+            phases[claimed] = 'bulk:' + record['phase']
     return phases
 
 

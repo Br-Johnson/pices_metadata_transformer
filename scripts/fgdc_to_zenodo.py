@@ -730,46 +730,47 @@ class FGDCToZenodoTransformer:
         # Extract additional fields from crosswalk
         self._extract_additional_fields(root, metadata, file_path)
     
+    @staticmethod
+    def _element_text(element: ET.Element) -> str:
+        """Whole text of an element, inline markup included (CO<sub>2</sub> -> CO2).
+
+        An element without children keeps its stripped text exactly as before; only marked-up
+        text is joined, with whitespace collapsed around the removed tags.
+        """
+        if len(element) == 0:
+            return (element.text or '').strip()
+        parts = [element.text or '']
+        for child in element:
+            inner = ''.join(child.itertext())
+            tail = child.tail or ''
+            if child.tag.lower() in ('sub', 'sup'):
+                # Pretty-printing whitespace around a subscript is not content: "CO <sub>2</sub> )" is CO2).
+                # A following word keeps one space ("CO<sub>2</sub> flux" is "CO2 flux").
+                parts[-1] = parts[-1].rstrip()
+                inner = inner.strip()
+                rest = tail.lstrip()
+                tail = rest if not rest or rest[0] in ')]}.,;:' or not tail[:1].isspace() else ' ' + rest
+            parts.extend((inner, tail))
+        return ' '.join(''.join(parts).split())
+
     def _extract_keywords(self, root: ET.Element, file_path: str) -> List[str]:
-        """Extract and flatten keywords."""
+        """Extract and flatten keywords.
+
+        Keyword elements may carry inline markup such as CO<sub>2</sub>; the whole text is
+        taken, so a keyword is never cut at its first child element.
+        """
         keywords = []
         keyword_sections = root.findall('.//keywords')
-        
+
         for section in keyword_sections:
-            # Theme keywords
-            theme_keys = section.findall('.//themekey')
-            for key in theme_keys:
-                if key.text:
-                    keyword = key.text.strip()
+            for tag in ('themekey', 'placekey', 'stratumkey', 'temporalkey'):
+                for key in section.findall('.//' + tag):
+                    keyword = self._element_text(key)
                     if keyword and keyword not in keywords:
                         keywords.append(keyword)
-            
-            # Place keywords
-            place_keys = section.findall('.//placekey')
-            for key in place_keys:
-                if key.text:
-                    keyword = key.text.strip()
-                    if keyword and keyword not in keywords:
-                        keywords.append(keyword)
-            
-            # Stratum keywords
-            stratum_keys = section.findall('.//stratumkey')
-            for key in stratum_keys:
-                if key.text:
-                    keyword = key.text.strip()
-                    if keyword and keyword not in keywords:
-                        keywords.append(keyword)
-            
-            # Temporal keywords
-            temporal_keys = section.findall('.//temporalkey')
-            for key in temporal_keys:
-                if key.text:
-                    keyword = key.text.strip()
-                    if keyword and keyword not in keywords:
-                        keywords.append(keyword)
-        
+
         return keywords
-    
+
     def _extract_subjects(self, root: ET.Element, file_path: str) -> List[Dict[str, str]]:
         """Extract subjects from controlled vocabularies."""
         subjects = []
@@ -785,14 +786,13 @@ class FGDCToZenodoTransformer:
                 # Get theme keywords for this thesaurus
                 theme_keys = section.findall('.//themekey')
                 for key in theme_keys:
-                    if key.text:
-                        term = key.text.strip()
-                        if term:
-                            subjects.append({
-                                'term': term,
-                                'identifier': f"{thesaurus_name}:{term}",
-                                'scheme': 'thesaurus'
-                            })
+                    term = self._element_text(key)
+                    if term:
+                        subjects.append({
+                            'term': term,
+                            'identifier': f"{thesaurus_name}:{term}",
+                            'scheme': 'thesaurus'
+                        })
         
         return subjects
     

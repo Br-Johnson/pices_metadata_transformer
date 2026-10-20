@@ -130,7 +130,13 @@ or edits a published record.
 - The 26 verified PICES drafts are published by the `publish` stage after
   their own batch review; FGDC-141's unknown create stays held for its
   separate route.
-- The 203 pairs and the 69 unreviewed singletons are outside this decision
-  until a two-file draft path and their own reviews exist.
+- The 203 reviewed pairs (two byte-identical originals under two source ids,
+  prepared by `modern_content_class`) use the same route as one record with
+  both files: `plan-pairs` builds their sheet with a fixed assessment time
+  (their wire depends on it) and the twin check against every journal source
+  except each pair's own two ids; the record is journaled under the first id
+  and intents claim both; uploads and commits are spent per file, and
+  `reconcile` reads a pair interrupted between its uploads and allows only the
+  missing file again. The 69 unreviewed singletons stay outside.
 - One typed token per publish run replaces one per record; the token is never
   read from the Keychain for publication.

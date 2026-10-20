@@ -9,6 +9,15 @@ Offline commands may run anywhere; token-bearing commands need the Mac terminal
 (the app's Terminal pane), because the token prompt and the Keychain read both
 require a TTY. Owner `266679`, PICES community `92279449-f6e1-422d-8610-40802567c58b`.
 
+## Operator wrapper
+
+`pices-production-operations/bin/pices-bulk.sh` wraps the commands below:
+`drafts BATCH...` (stops at the first run that does not complete),
+`release NAME BATCH...`, `publish NAME` (prompts for the token) and `status`.
+Results go to `pices-production-operations/logs/bulk/`. On 2026-10-20 the
+app's auto-mode classifier refused provider-touching runs from the Claude
+session, so these run in Brett's own terminal unless he allows them.
+
 ## Once: inputs and registry
 
 1. Prepared inputs for every source are classified into `$OUTPUT/data`
@@ -47,6 +56,18 @@ The run rebuilds the manifest for the pending approved members (fresh twin
 check), captures the owner inventory and refreshes it every 45 minutes,
 adopts verified modern-v1 drafts without a request, and stops on any
 transport failure, 429, 5xx, HTML or edge 403, or three record holds in a row.
+
+## Pairs (two byte-identical originals, one record)
+
+```bash
+python -B -m scripts.modern_bulk plan-pairs --output-dir "$OUTPUT" --batch-id pairs-001 --built-by "<builder>" --targets-file targets.json --reviewed-at 2026-10-20T12:00:00+00:00
+```
+
+`targets.json` lists `record_target_id`s from
+`docs/readiness/2026-10-06/modern_exxon_pairs203.json`. The assessment time is
+fixed for the batch because the pair wire depends on it. Review, drafts,
+release and publish then run exactly as for singletons; the record holds both
+files and is journaled under its first source id.
 
 ## Release and publication
 

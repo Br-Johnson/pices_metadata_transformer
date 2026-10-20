@@ -6,10 +6,12 @@ Brett's goal (2026-10-20): publish all appropriate records to production Zenodo,
 - [x] [ADR 0013](adr/0013-bulk-draft-and-publication-route.md) and `scripts/modern_bulk.py`: per-record journal, batch review sheets and AI review documents, drafts and publication stages, release documents, GET-only `reconcile`, reviewed exclusions; 20 offline contracts in `tests/test_modern_bulk.py`.
 - [x] Title twins among the 3,636: 135 connected groups (405 sources) adjudicated by three independent reviewer agents; 128 groups distinct, 7 sources excluded as duplicates in the source collection (FGDC-77, 78, 460, 2364, 2421, 2515, 2538).
 - [x] Classify all sources into the production root (`reviewed_at` 2026-10-20); the 27 existing inputs are kept; all 3,636 prepare there.
-- [ ] Independent code review, local checks and CI on main; then record the allowances and exclusions in the production registry.
-- [ ] Plan the batches (the 25 verified PICES drafts first, adopted), produce review sheets and the AI accuracy reviews.
-- [ ] Draft stage per batch (Keychain token), release document, publish stage (token typed by Brett once per run), post-run inventory check.
-- [ ] FGDC-141's unknown create and the 203 pairs remain outside until their own decisions.
+- [x] Independent code review (two P1 and ten P2 findings resolved), 522 local tests, `c28c651` on main; 131 twin allowances (Brett's FGDC-1924/2708 decision included) and 7 exclusions recorded in the production registry.
+- [x] Plan 16 batches (3,628 members: the 26 PICES drafts first, adopted) with review sheets; six independent reviewer agents approved 3,627 and held FGDC-1939. Reviewer A found that keywords with inline markup were cut (`CO<sub>2</sub>` became "Carbon Dioxide (CO"): 25 sources. The transformer now takes the whole element text; the 24 without a draft were reclassified, held in their original batches and re-reviewed as bulk-017. FGDC-1939's existing draft carries the cut subject and stays held until a metadata-edit step exists.
+- [x] All reviews recorded in the production state root: bulk-001..016 (3,603 approved; FGDC-1939 and the 24 CO2 sources held there), bulk-017 (24 approved), pairs-001 (203 approved): 3,830 records, 4,033 sources. An offline simulation of the run-time twin checks passes for every batch in order.
+- [ ] Draft stage per batch (Keychain token), release document, publish stage (token typed by Brett once per run), post-run inventory check. The app's auto-mode classifier refuses provider-touching runs from the Claude session, so Brett runs `pices-production-operations/bin/pices-bulk.sh` in his own terminal (or allows the session to run it).
+- [x] Two-file pairs: `plan-pairs`, per-file upload spending and partial-upload reconcile, after an independent review (three P1 and two P2 findings resolved); ten pair title twins adjudicated distinct and recorded as allowances; the 406 pair inputs copied to the production root.
+- [ ] FGDC-141's unknown create stays outside until its own decision.
 
 ## Earlier increment: identify the production client to Zenodo's edge — 2026-10-06
 

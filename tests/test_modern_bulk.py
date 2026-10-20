@@ -26,6 +26,11 @@ from tests import modern_singleton_fixtures as fixtures
 OWNER = '123'
 TOKEN = 'dummy-modern-bulk-offline-only'
 SOURCES = ('FGDC-1915', 'FGDC-1916', 'FGDC-1917', 'FGDC-1924', 'FGDC-2708')
+PAIR = ('FGDC-2953', 'FGDC-3181')
+PAIR_TARGET = 'sha256:0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025'
+TWIN_PAIR = ('FGDC-2921', 'FGDC-3149')
+TWIN_PAIR_TARGET = 'sha256:4c7a232a36c52b9da730f8300fc168c94f8baa500a4ee2c4588abb9165092f34'
+TWIN_SINGLETON = 'FGDC-1849'
 
 
 class Clock:
@@ -160,10 +165,11 @@ class Provider:
                 return 404, {'status': 404, 'message': 'not found'}
             return 200, self.document(record)
         if rest == 'draft/files' and method == 'POST':
-            key = parse(body)[0]['key']
-            record['files'][key] = b''
-            record['pending'].add(key)
-            return 201, {'entries': [self.entry(record, key)]}
+            keys = [item['key'] for item in parse(body)]
+            for key in keys:
+                record['files'][key] = b''
+                record['pending'].add(key)
+            return 201, {'entries': [self.entry(record, key) for key in keys]}
         if rest == 'draft/files' and method == 'GET':
             return 200, {'entries': [self.entry(record, k) for k in record['files']]}
         if rest.endswith('/content') and method == 'PUT':
@@ -220,7 +226,8 @@ class BulkRouteTests(unittest.TestCase):
     def setUpClass(cls):
         cls.sources = tempfile.TemporaryDirectory()
         cls.addClassCleanup(cls.sources.cleanup)
-        cls.prepared_root = fixtures.prepare_sources(Path(cls.sources.name), ids=list(SOURCES))
+        cls.prepared_root = fixtures.prepare_sources(Path(cls.sources.name), ids=[
+            *SOURCES, *PAIR, *TWIN_PAIR, TWIN_SINGLETON])
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -380,7 +387,7 @@ class BulkRouteTests(unittest.TestCase):
         self.assertEqual(self.drafts(review_file)['status'], 'stopped')
         self.provider.fail_at = None
         outcome = self.runner('reconcile').reconcile('FGDC-1915')
-        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('initialized', ['content']))
+        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('initialized', ['content:FGDC-1915.xml']))
         self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
         record = bulk.load_record(self.paths, 'FGDC-1915')
         self.assertEqual((record['counts']['content'], record['allowances']), (2, {'content': 1}))
@@ -597,6 +604,92 @@ class BulkRouteTests(unittest.TestCase):
         self.assertEqual(len([c for c in self.writes() if c[1] == '/api/records']), 1)
         self.assertRaises(Held, bulk.exclude, self.paths, 'FGDC-1916', 'late', 'Reviewer agent')
         self.assertNotIn('FGDC-1915', bulk.candidates(self.paths))
+
+    def test_pair_targets_publish_one_record_with_both_originals(self):
+        reviewed_at = fixtures.NOW.isoformat()
+        sheet = bulk.build_pair_sheet(self.paths, 'pairs-001', [PAIR_TARGET], 'Planner', reviewed_at,
+                                      now=self.clock.now)
+        bulk.write_exclusive(bulk.sheet_path(self.paths, 'pairs-001'), sheet)
+        row = sheet['rows'][0]
+        self.assertEqual((row['source_id'], row['target']['source_ids']), ('FGDC-2953', list(PAIR)))
+        self.assertEqual([f['key'] for f in row['files']], ['FGDC-2953.xml', 'FGDC-3181.xml'])
+        review_file = self.review('pairs-001', sheet)
+        self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
+        record = bulk.load_record(self.paths, 'FGDC-2953')
+        self.assertEqual((record['counts']['content'], record['uploaded']), (2, ['FGDC-2953.xml', 'FGDC-3181.xml']))
+        self.assertIsNone(bulk.load_record(self.paths, 'FGDC-3181'))
+        for sid in PAIR:
+            self.assertTrue(bulk.intent_path(self.paths, sid).exists())
+            self.assertTrue(operator.source_already_attempted(self.paths, sid))
+            self.assertEqual(batch.journal_phases(self.paths)[sid], 'bulk:draft-verified')
+            with self.assertRaises(ValueError):
+                reject_modern_attempt(self.paths, sid)
+        self.assertEqual(self.publish(self.release([review_file]))['counts'], {'published': 1})
+        provider = self.provider.records[record['identity']['id']]
+        self.assertEqual(sorted(provider['files']), ['FGDC-2953.xml', 'FGDC-3181.xml'])
+        self.assertEqual(bulk.load_record(self.paths, 'FGDC-2953')['phase'], 'published')
+
+    def pair_review(self, batch_id, target):
+        sheet = bulk.build_pair_sheet(self.paths, batch_id, [target], 'Planner', fixtures.NOW.isoformat(),
+                                      now=self.clock.now)
+        bulk.write_exclusive(bulk.sheet_path(self.paths, batch_id), sheet)
+        return self.review(batch_id, sheet)
+
+    def test_pair_title_twin_with_a_drafted_singleton_needs_an_allowance(self):
+        self.drafts(self.review('bulk-030', self.plan('bulk-030', [TWIN_SINGLETON])[1]))
+        with self.assertRaises(Held):
+            bulk.build_pair_sheet(self.paths, 'pairs-030', [TWIN_PAIR_TARGET], 'Planner', fixtures.NOW.isoformat(),
+                                  now=self.clock.now)
+        batch.record_allowance(self.paths, 'pair-twin-test', [TWIN_SINGLETON, *TWIN_PAIR], 'Reviewer agent',
+                               'different annual reports')
+        review_file = self.pair_review('pairs-031', TWIN_PAIR_TARGET)
+        self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
+
+    def test_drafted_pair_does_not_twin_with_its_own_partner_on_a_rerun(self):
+        review_file = self.pair_review('pairs-032', PAIR_TARGET)
+        self.provider.lose_at = 1 + 2  # the first upload's answer is lost
+        self.assertEqual(self.drafts(review_file)['status'], 'stopped')
+        self.provider.lose_at = None
+        _, _, order, members = bulk.load_review(self.paths, review_file)
+        rows = [{'source_id': m['source_id'], 'source_sha256': m['source_sha256'], 'target': m['target'],
+                 'wire': {'title': parse(bulk.prepare_entry(self.paths, m).body)['metadata']['title']}}
+                for m in members.values()]
+        self.assertEqual(bulk.pair_twins(self.paths, rows), ([], []))
+
+    def test_pair_interrupted_between_its_uploads_is_reconciled_by_get(self):
+        review_file = self.pair_review('pairs-033', PAIR_TARGET)
+        self.provider.fail_at = 1 + 3  # the second upload never arrives
+        self.assertEqual(self.drafts(review_file)['status'], 'stopped')
+        self.provider.fail_at = None
+        record = bulk.load_record(self.paths, 'FGDC-2953')
+        self.assertEqual((record['phase'], record['uploaded']), ('initialized', ['FGDC-2953.xml']))
+        before = len(self.provider.calls)
+        outcome = self.runner('reconcile').reconcile('FGDC-2953')
+        self.assertTrue(all(m == 'GET' for m, _ in self.provider.calls[before:]))
+        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('initialized', ['content:FGDC-3181.xml']))
+        self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
+        puts = [p for m, p in self.writes() if m == 'PUT']
+        self.assertEqual([p.rsplit('/', 2)[-2] for p in puts], ['FGDC-2953.xml', 'FGDC-3181.xml', 'FGDC-3181.xml'])
+
+    def test_an_answered_upload_is_never_sent_again_without_reconcile(self):
+        review_file = self.pair_review('pairs-034', PAIR_TARGET)
+        real, calls = bulk.check_file_entry, []
+
+        def crash(entry, expected, **kwargs):
+            if entry.get('status') == 'completed' and not calls:
+                calls.append(1)
+                raise KeyboardInterrupt  # the process dies after the first upload's answer is saved
+            return real(entry, expected, **kwargs)
+        with patch.object(bulk, 'check_file_entry', crash), self.assertRaises(KeyboardInterrupt):
+            self.drafts(review_file)
+        record = bulk.load_record(self.paths, 'FGDC-2953')
+        self.assertEqual((record['counts']['content'], record['uploaded']), (1, []))
+        self.assertEqual(self.drafts(review_file)['counts'], {'held': 1})
+        self.assertEqual(len([m for m, _ in self.writes() if m == 'PUT']), 1)
+        outcome = self.runner('reconcile').reconcile('FGDC-2953')
+        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('initialized', []))
+        self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
+        self.assertEqual(len([m for m, _ in self.writes() if m == 'PUT']), 2)
 
     def test_sheet_flags_and_sample_are_fixed_by_the_membership(self):
         _, sheet = self.plan('bulk-017', list(SOURCES[:3]))
