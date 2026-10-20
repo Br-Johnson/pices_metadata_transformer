@@ -637,12 +637,11 @@ class Bulk:
         save_record(self.paths, record)  # durable before dispatch
         self.paced()
         self.ledger['requests'] += 1
+        self.last_request = self.clock()  # pacing spaces request starts: at most one per PACE_SECONDS
         try:
             response = self.transport.request(method, path, body, timeout=draft.TIMEOUT, accept=accept)
         except Exception:
-            self.last_request = self.clock()
             raise record_stop(f'{kind} request interrupted or timed out; outcome unknown') from None
-        self.last_request = self.clock()
         response = normalize_response(response)
         evidence, reference = self.retain(record, receipt['index'], receipt, response)
         receipt.update(status='answered', http_status=response.status, bytes=len(response.body),

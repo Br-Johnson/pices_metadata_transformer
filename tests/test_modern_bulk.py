@@ -691,6 +691,24 @@ class BulkRouteTests(unittest.TestCase):
         self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
         self.assertEqual(len([m for m, _ in self.writes() if m == 'PUT']), 2)
 
+    def test_request_starts_are_spaced_by_the_pace(self):
+        starts = []
+        inner = self.provider.request
+
+        def timed(method, path, body, *, timeout, accept=draft.MIME):
+            starts.append(self.clock.ticks)
+            self.clock.ticks += 0.5  # the provider takes half a second to answer
+            return inner(method, path, body, timeout=timeout, accept=accept)
+        self.provider.request = timed
+        review_file = self.review('bulk-040', self.plan('bulk-040', ['FGDC-1915'])[1])
+        _, _, order, members = bulk.load_review(self.paths, review_file)
+        runner = bulk.Bulk(self.paths, self.provider, TOKEN, owner=OWNER, stage='drafts', now=self.clock.now,
+                           clock=lambda: self.clock.ticks, sleep=self.clock.sleep, captured_by='Bulk test')
+        self.assertEqual(runner.run([members[s] for s in order], runner.draft_member)['counts'], {'drafted': 1})
+        gaps = [b - a for a, b in zip(starts, starts[1:], strict=False)]
+        self.assertTrue(gaps and all(gap >= bulk.PACE_SECONDS - 1e-9 for gap in gaps), gaps)
+        self.assertTrue(any(gap < bulk.PACE_SECONDS + 0.5 for gap in gaps[1:]), gaps)
+
     def test_sheet_flags_and_sample_are_fixed_by_the_membership(self):
         _, sheet = self.plan('bulk-017', list(SOURCES[:3]))
         self.assertEqual(sheet['sample'], sorted(set(r['source_id'] for r in sheet['rows']) - set(sheet['flagged']),
