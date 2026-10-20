@@ -200,6 +200,8 @@ class Provider:
                 return 404, {'status': 404}
             return 200, self.document(record, published=True)
         if rest == 'files' and method == 'GET':
+            if accept != 'application/json':  # production answers 406 for the vendor type here
+                return 406, {'status': 406, 'message': "Invalid 'Accept' header. Expected one of: application/json"}
             return 200, {'entries': [self.entry(record, k, published=True) for k in record['files']]}
         raise AssertionError('unexpected fake route ' + method + ' ' + path)
 

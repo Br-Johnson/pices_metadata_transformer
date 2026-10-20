@@ -1015,7 +1015,9 @@ class Bulk:
         if record['phase'] == 'accepted':
             record['pids'] = check_published(self.call(record, 'get', 'GET', base, 200), prepared, record,
                                              self.owner, self.community_ids)
-            self.check_listing(self.call(record, 'get', 'GET', base + '/files', 200), files_of(record), 'published')
+            # The published files endpoint serves only application/json (406 for the vendor type).
+            self.check_listing(self.call(record, 'get', 'GET', base + '/files', 200, accept=JSON_MEDIA),
+                               files_of(record), 'published')
             self.advance(record, 'published')
             return 'published'
         raise RecordHold(f'unexpected phase {record["phase"]}')
