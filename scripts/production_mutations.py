@@ -33,6 +33,10 @@ def reject_modern_attempt(paths, source_id, record_id=None, doi=None):
     modern = Path(paths.uploads_registry_path + '.modern-v1.json')
     if intent.exists() or intent.is_symlink():
         raise ValueError('Modern production attempt exists; legacy writes require reconciliation')
+    bulk = root / 'bulk-v1'  # the bulk route's per-record journal (ADR 0013)
+    if any(path.exists() or path.is_symlink() for path in (bulk / 'intents' / (source_id + '.create.json'),
+                                                           bulk / 'records' / (source_id + '.json'))):
+        raise ValueError('Bulk production attempt exists; legacy writes require reconciliation')
     if modern.exists() or modern.is_symlink():
         value = json.loads(modern.read_bytes())
         if (not isinstance(value, dict) or value.get('kind') != 'modern-production-draft-attempts'

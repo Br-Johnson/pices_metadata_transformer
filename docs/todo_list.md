@@ -1,4 +1,17 @@
-## Active increment: identify the production client to Zenodo's edge — 2026-10-06
+## Active increment: publish every reviewed, validation-passing record — 2026-10-20
+
+Brett's goal (2026-10-20): publish all appropriate records to production Zenodo, where appropriate means reviewed by an AI for accuracy and passing validation.
+
+- [x] Measure the population offline: 3,636 singletons prepare under the ten reviewed creator policies and `agent_qa`; 203 pairs, 69 unreviewed singletons, 39 held, 6 failed and 5 protected sources stay outside. The single-record chain cannot carry them (one 1 MiB journal fills near 160 rows; eight hand-built documents and a typed token per publication).
+- [x] [ADR 0013](adr/0013-bulk-draft-and-publication-route.md) and `scripts/modern_bulk.py`: per-record journal, batch review sheets and AI review documents, drafts and publication stages, release documents, GET-only `reconcile`, reviewed exclusions; 20 offline contracts in `tests/test_modern_bulk.py`.
+- [x] Title twins among the 3,636: 135 connected groups (405 sources) adjudicated by three independent reviewer agents; 128 groups distinct, 7 sources excluded as duplicates in the source collection (FGDC-77, 78, 460, 2364, 2421, 2515, 2538).
+- [x] Classify all sources into the production root (`reviewed_at` 2026-10-20); the 27 existing inputs are kept; all 3,636 prepare there.
+- [ ] Independent code review, local checks and CI on main; then record the allowances and exclusions in the production registry.
+- [ ] Plan the batches (the 25 verified PICES drafts first, adopted), produce review sheets and the AI accuracy reviews.
+- [ ] Draft stage per batch (Keychain token), release document, publish stage (token typed by Brett once per run), post-run inventory check.
+- [ ] FGDC-141's unknown create and the 203 pairs remain outside until their own decisions.
+
+## Earlier increment: identify the production client to Zenodo's edge — 2026-10-06
 
 - [x] Reproduce the production 403 from the Mac at 21:12 UTC: zenodo.org's edge firewall rejects a request without a `User-Agent` with an HTML 403 ("unusual traffic"), per request, and the Mac transport sent none. The 12:05 UTC create body was discarded and the 13:18:42 UTC GET's client was not recorded, so neither earlier 403 is formally attributed. Evidence: [probe receipts](readiness/2026-10-06/zenodo_edge_user_agent_evidence.json), [handoff](readiness/2026-10-06/zenodo_user_agent_handoff.md).
 - [x] Send `User-Agent: pices-metadata-transformer/1.0 (+repository URL)` from the shared production transport; validate the value at import and pin the header on body-less GETs too; 174 local tests across seven transport and mapping modules pass on the branch merged with main; scoped Ruff clean. Operator sequence: [first-record runbook](readiness/2026-10-06/first_pices_record_runbook.md).

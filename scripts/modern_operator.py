@@ -23,6 +23,7 @@ import time
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
+from scripts import modern_batch as batch
 from scripts import modern_singleton_executor as draft
 from scripts.modern_response_evidence import sensitive
 from scripts.modern_singleton import Held, encode, parse, prepare, require, sha
@@ -104,7 +105,8 @@ def fetch_json(transport, token, path):
 
 
 def capture_inventory(transport, token, evidence_dir, captured_by, *, max_pages=MAX_PAGES,
-                      max_details=MAX_DETAILS, now=utc_now, pace=PACE_SECONDS, known=frozenset()):
+                      max_details=MAX_DETAILS, now=utc_now, pace=PACE_SECONDS, known=frozenset(),
+                      max_bytes=None):
     """GET the owner's listing until an empty page, then details for records that list no files.
 
     The legacy listing shows no files for RDM drafts, so every draft this chain creates
@@ -112,9 +114,12 @@ def capture_inventory(transport, token, evidence_dir, captured_by, *, max_pages=
     chain and pinned by the journal) are not fetched: the summary keeps their listing
     shape, names them under `skipped_details`, and the matcher treats them as known.
     Raw responses are retained as `.partial` files until the capture completes,
-    so an interrupted capture never looks like an inventory.
+    so an interrupted capture never looks like an inventory. The summary bound is the
+    executors' 1 MiB document bound unless the caller (the bulk route) reads it itself.
     """
     known = {str(record_id) for record_id in known}
+    max_bytes = draft.MAX_BYTES if max_bytes is None else max_bytes
+    require(type(max_bytes) is int and draft.MAX_BYTES <= max_bytes <= 64 * 1024 * 1024)
     require(isinstance(captured_by, str) and captured_by.strip()
             and 1 <= max_pages <= MAX_PAGES and 0 <= max_details <= MAX_DETAILS
             and all(re.fullmatch('[1-9][0-9]{0,19}', record_id) for record_id in known))
@@ -170,8 +175,8 @@ def capture_inventory(transport, token, evidence_dir, captured_by, *, max_pages=
                 'completed_at': now().isoformat(), 'page_size': PAGE_SIZE,
                 'pages': pages, 'details': details, 'skipped_details': skipped, 'complete': True,
                 'record_count': len(records), 'records': records}
-    if len(encode(document)) > draft.MAX_BYTES:
-        raise Held('inventory summary exceeds the 1 MiB document bound; receipts stay partial')
+    if len(encode(document)) > max_bytes:
+        raise Held('inventory summary exceeds its document bound; receipts stay partial')
     for temp, final in retained:
         os.link(temp, final)  # fails rather than replacing an existing receipt
         os.unlink(temp)
@@ -196,6 +201,13 @@ def known_records(paths, extra=()):
                 known.update(str(row['identity'].get(key)) for key in ('id', 'parent_id'))
             if row.get('untrusted_candidate_id') is not None:
                 known.add(str(row['untrusted_candidate_id']))
+    if paths is not None:
+        # Records of the bulk route (ADR 0013), pinned by its per-record journal.
+        for record in batch.bulk_rows(paths).values():
+            if isinstance(record.get('identity'), dict):
+                known.update(str(record['identity'].get(key)) for key in ('id', 'parent_id'))
+            if record.get('candidate_id') is not None:
+                known.add(str(record['candidate_id']))
     return known
 
 
@@ -266,6 +278,9 @@ def resumable_candidate(paths, source_id):
 def source_already_attempted(paths, source_id):
     root = draft.state_root(paths)
     if (root / (source_id + '.modern-create-v1.intent.json')).exists():
+        return True
+    if ((root / batch.BULK_DIR / 'intents' / (source_id + '.create.json')).exists()
+            or (root / batch.BULK_DIR / 'records' / (source_id + '.json')).exists()):
         return True
     for suffix, key in (('.modern-v1.json', 'targets'), ('.mutations.json', 'targets'), ('', None)):
         path = Path(paths.uploads_registry_path + suffix)

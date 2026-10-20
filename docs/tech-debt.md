@@ -1,3 +1,12 @@
+## 2026-10-20: the bulk route (ADR 0013)
+
+- The bulk route is a second production writer beside the single-record executors. Both take the same ledger lock and see each other's barriers (`known_records`, `journal_phases`, `source_already_attempted`, `reject_modern_attempt`), but the single-record chain should now be used only for its own started rows (FGDC-141) and history; new sources go through `scripts/modern_bulk.py`.
+- The transport keeps its contract of reading only `Content-Type` and `Location`, so the bulk runner paces at 0.8 seconds per request and stops on a 429 instead of reading `X-RateLimit-*`. Retaining those headers needs a reviewed change to that contract and its tests.
+- `reconcile` grants one more dispatch only for a write whose effect a GET shows absent, and resolves a lost create from a fresh inventory after two minutes; a create whose 201 failed validation (a new provider sanitiser step) still needs a code tolerance first, as in October.
+- The wire's preservation block includes the artifact-contract hash, which includes the classification time, so wires differ between classification runs. Review sheets bind the wire as it sits in the production root; reclassifying a source after its review invalidates that review (the run holds on the hash mismatch).
+- The owner inventory grows with every draft (about 75 listing pages at full scale); captures are paced at 0.5 seconds and refreshed every 45 minutes. A search-scoped inventory would be cheaper.
+- Pairs (203 two-file records) and FGDC-141 are outside the route.
+
 ## 2026-10-07: provider text sanitisation and the legacy listing at draft scale
 
 - Zenodo sanitises every text field with `ftfy.fix_text` (marshmallow-utils `sanitize_unicode`, bleach on top for HTML fields). Two of its steps have now cost a spent create each: `&quot;` decoding (FGDC-1319) and half-width folding U+FF92 to U+30E1 (FGDC-1938). `same_text` now decodes the five quote entities, folds half-width and full-width forms exactly as ftfy's width map does, and compares NFC forms; titles stay byte-exact. ftfy's other default steps (curly-quote uncurling, control-character removal, ligatures, mojibake repair, stripping) are not tolerated until seen; one description in the corpus carries a control character and will hold. See [the batch note](readiness/2026-10-07/pices26_draft_batch.md).

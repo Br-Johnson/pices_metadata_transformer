@@ -1,4 +1,4 @@
-"""Batch manifests for the modern singleton chain: finite membership, twins and exclusions.
+"""Batch manifests for the modern singleton chain and the bulk route: membership, twins and exclusions.
 
 Purpose: build and validate `modern-batch-v1` manifests (ADR 0012) offline. A manifest
 pins, per member, the preparation binding the executor demands, so one batch grant can
@@ -34,6 +34,8 @@ from scripts.modern_singleton import (
 )
 from scripts.path_config import OutputPaths
 
+BULK_DIR = 'bulk-v1'  # the bulk route's journal under the state root (ADR 0013)
+BULK_RECORD_KIND = 'modern-bulk-record-v1'
 MANIFEST_KIND = 'modern-batch-v1'
 ALLOWANCE_KIND = 'modern-twin-allowance-v1'
 STAGES = ('drafts',)
@@ -84,18 +86,36 @@ def allowances_dir(paths):
     return batches_dir(paths) / 'allowances'
 
 
-def journal_phases(paths):
-    """Source id to phase for every row of the modern journal; empty when there is none."""
-    journal_path = Path(paths.uploads_registry_path + '.modern-v1.json')
-    if not journal_path.exists():
+def bulk_rows(paths):
+    """Source id to record for every record of the bulk route (ADR 0013); empty when there is none."""
+    directory = draft.state_root(paths) / BULK_DIR / 'records'
+    if not directory.is_dir():
         return {}
-    journal, _ = draft.read_document(journal_path)
-    require(isinstance(journal.get('targets'), dict))
+    rows = {}
+    for path in sorted(directory.glob('FGDC-*.json'), key=lambda p: by_number(p.stem)):
+        document, _ = draft.read_document(path)
+        require(isinstance(document, dict) and document.get('kind') == BULK_RECORD_KIND
+                and document.get('source_id') == path.stem and isinstance(document.get('phase'), str))
+        rows[path.stem] = document
+    return rows
+
+
+def journal_phases(paths):
+    """Source id to phase for every row of the modern and bulk journals; empty when there is none.
+
+    A bulk record supersedes the modern-v1 row it adopted, so its phase is the current one.
+    """
     phases = {}
-    for source_id, row in journal['targets'].items():
-        require(isinstance(row, dict) and re.fullmatch(SOURCE_ID, source_id) is not None
-                and isinstance(row.get('phase'), str))
-        phases[source_id] = row['phase']
+    journal_path = Path(paths.uploads_registry_path + '.modern-v1.json')
+    if journal_path.exists():
+        journal, _ = draft.read_document(journal_path)
+        require(isinstance(journal.get('targets'), dict))
+        for source_id, row in journal['targets'].items():
+            require(isinstance(row, dict) and re.fullmatch(SOURCE_ID, source_id) is not None
+                    and isinstance(row.get('phase'), str))
+            phases[source_id] = row['phase']
+    for source_id, record in bulk_rows(paths).items():
+        phases[source_id] = 'bulk:' + record['phase']
     return phases
 
 
