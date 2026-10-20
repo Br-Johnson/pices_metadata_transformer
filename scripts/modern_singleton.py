@@ -896,6 +896,21 @@ def canonical_text(text):
     return unicodedata.normalize('NFC', text.translate(WIDTH_FOLD))
 
 
+# A character reference escaped once more ("&amp;#38;" in the source abstract): the provider's
+# sanitiser unescapes the text once (ftfy) and bleach then decodes the reference and escapes
+# the character again, so FGDC-1295's "ADF&amp;#38;G" was stored as "ADF&amp;G" (2026-10-20).
+ESCAPED_REFERENCE = re.compile(r'&amp;#(?:[xX]([0-9a-fA-F]{1,6})|([0-9]{1,7}));')
+
+
+def decode_escaped_references(text):
+    def one(match):
+        code = int(match.group(1), 16) if match.group(1) else int(match.group(2))
+        if code > 0x10FFFF or 0xD800 <= code <= 0xDFFF:
+            return match.group(0)
+        return html.escape(chr(code), quote=False)
+    return ESCAPED_REFERENCE.sub(one, text)
+
+
 def same_text(actual, expected):
     """Equal once both sides take the provider's stored form.
 
@@ -903,13 +918,15 @@ def same_text(actual, expected):
     ``sanitize_unicode``). Two of its steps have been observed on production and are
     reproduced here: HTML quote entities are decoded, and half-width or full-width
     forms (U+FF01 to U+FFEE and U+3000) fold to their standard forms with NFC
-    composition, so U+FF92 is stored as U+30E1. Nothing else is repaired: tags,
+    composition, so U+FF92 is stored as U+30E1. A character reference escaped once
+    more ("&amp;#38;") may be stored as its escaped character ("&amp;"). Nothing else is repaired: tags,
     ampersands, angle-bracket entities, curly quotes, ligatures, other compatibility
     characters, control characters and surrounding whitespace stay literal.
     """
     if not isinstance(actual, str) or not isinstance(expected, str):
         return False
-    return canonical_text(actual) == canonical_text(expected)
+    return (canonical_text(decode_escaped_references(actual))
+            == canonical_text(decode_escaped_references(expected)))
 
 
 def same_plain(actual, expected):

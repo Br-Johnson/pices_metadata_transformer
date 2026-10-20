@@ -12,6 +12,7 @@ Brett's goal (2026-10-20): publish all appropriate records to production Zenodo,
 - [ ] Draft stage per batch (Keychain token), release document, publish stage (token typed by Brett once per run), post-run inventory check. The app's auto-mode classifier refuses provider-touching runs from the Claude session, so Brett runs `pices-production-operations/bin/pices-bulk.sh` in his own terminal (or allows the session to run it).
 - [x] Two-file pairs: `plan-pairs`, per-file upload spending and partial-upload reconcile, after an independent review (three P1 and two P2 findings resolved); ten pair title twins adjudicated distinct and recorded as allowances; the 406 pair inputs copied to the production root.
 - [ ] FGDC-141's unknown create stays outside until its own decision.
+- [ ] Repair the source text of the seven sanitiser-altered records (FGDC-2570, 2583, 2588, 2589, 2591, 2733, 2768) and FGDC-1939's cut keyword, then publish them through a reviewed metadata-edit or new-draft step.
 
 ## Earlier increment: identify the production client to Zenodo's edge — 2026-10-06
 

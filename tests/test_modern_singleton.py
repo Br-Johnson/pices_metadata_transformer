@@ -169,6 +169,17 @@ class SameTextTests(unittest.TestCase):
         with self.assertRaises(Held):
             compare_metadata({**stored, 'description': 'People\u2019s Republic'}, expected)
 
+    def test_an_escaped_character_reference_may_be_stored_as_its_escaped_character(self):
+        """Observed on FGDC-1295 (2026-10-20): "ADF&amp;#38;G" was stored as "ADF&amp;G"."""
+        from scripts.modern_singleton import same_text
+        self.assertTrue(same_text('the ADF&amp;G was', 'the ADF&amp;#38;G was'))
+        self.assertTrue(same_text('a &lt; b', 'a &amp;#60; b'))
+        self.assertTrue(same_text('x&amp;y', 'x&amp;#x26;y'))
+        self.assertTrue(same_text('the ADF&amp;#38;G was', 'the ADF&amp;#38;G was'))  # kept as sent
+        self.assertFalse(same_text('the ADF&amp;G was', 'the ADF&amp;#39;G was'))  # a different character
+        self.assertFalse(same_text('20Deposited', '20&lt;Ra/Ra&lt;100 Deposited'))  # stripped text still differs
+        self.assertTrue(same_text('&amp;#1114112;', '&amp;#1114112;'))  # out-of-range references stay literal
+
     def test_compare_metadata_folds_widths_in_plain_fields_as_the_provider_stores_them(self):
         """Observed on FGDC-37 (2026-10-20): U+FF96 in a creator name came back as U+30E8."""
         from scripts.modern_singleton import Held, compare_metadata, same_plain
