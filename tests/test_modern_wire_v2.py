@@ -71,33 +71,35 @@ class LocationRules(unittest.TestCase):
                     '<southbc>%s</southbc></bounding></spdom>' % (west, east, north, south))
 
     def test_box_point_and_antimeridian(self):
-        feature, note = wire_v2.bounding_box(self.box(-170, -150, 60, 50))
+        [feature], note = wire_v2.bounding_box(self.box(-170, -150, 60, 50))
         self.assertIsNone(note)
         self.assertEqual(feature['geometry']['type'], 'Polygon')
         self.assertEqual(feature['geometry']['coordinates'][0][0], [-170.0, 50.0])
-        point, _ = wire_v2.bounding_box(self.box(-150, -150, 55, 55))
+        [point], _ = wire_v2.bounding_box(self.box(-150, -150, 55, 55))
         self.assertEqual(point['geometry'], {'type': 'Point', 'coordinates': [-150.0, 55.0]})
-        crossing, _ = wire_v2.bounding_box(self.box(160, -160, 60, 50))
-        self.assertEqual(crossing['geometry']['type'], 'MultiPolygon')
-        self.assertEqual([polygon[0][1][0] for polygon in crossing['geometry']['coordinates']], [180.0, -160.0])
+        crossing, _ = wire_v2.bounding_box(self.box(160, -160, 60, 50))  # Zenodo refuses MultiPolygon
+        self.assertEqual([f['geometry']['type'] for f in crossing], ['Polygon', 'Polygon'])
+        self.assertEqual([f['geometry']['coordinates'][0][1][0] for f in crossing], [180.0, -160.0])
+        self.assertEqual([f['description'][-28:] for f in crossing],
+                         ['; part west of the date line', '; part east of the date line'])
 
     def test_unusable_boxes_stay_as_text(self):
-        self.assertEqual(wire_v2.bounding_box(root()), (None, None))
-        feature, note = wire_v2.bounding_box(self.box(-170, -150, 50, 60))  # south above north
-        self.assertIsNone(feature)
+        self.assertEqual(wire_v2.bounding_box(root()), ([], None))
+        features, note = wire_v2.bounding_box(self.box(-170, -150, 50, 60))  # south above north
+        self.assertEqual(features, [])
         self.assertEqual(note, 'Bounding coordinates as given: W -170, E -150, N 50, S 60')
-        self.assertIsNone(wire_v2.bounding_box(self.box('x', -150, 60, 50))[0])
+        self.assertEqual(wire_v2.bounding_box(self.box('x', -150, 60, 50))[0], [])
         self.assertEqual(wire_v2.bounding_box(self.box(0, 0, 0, 0)),
-                         (None, 'Bounding coordinates as given: W 0, E 0, N 0, S 0'))
-        equator, _ = wire_v2.bounding_box(self.box(-140, -140, 0, 0))  # FGDC-940: a mooring at 0N 140W
+                         ([], 'Bounding coordinates as given: W 0, E 0, N 0, S 0'))
+        [equator], _ = wire_v2.bounding_box(self.box(-140, -140, 0, 0))  # FGDC-940: a mooring at 0N 140W
         self.assertEqual(equator['geometry'], {'type': 'Point', 'coordinates': [-140.0, 0.0]})
 
     def test_swapped_date_line_box_is_not_a_world_map(self):
         swapped, note = wire_v2.bounding_box(self.box(-176.42, -177.78, 58, 55))  # FGDC-2324: a 358 degree span
-        self.assertIsNone(swapped)
+        self.assertEqual(swapped, [])
         self.assertEqual(note, 'Bounding coordinates as given: W -176.42, E -177.78, N 58, S 55')
         basin, _ = wire_v2.bounding_box(self.box(100, -75.76, 60, 20))  # FGDC-3740: the North Pacific, 184 degrees
-        self.assertEqual(basin['geometry']['type'], 'MultiPolygon')
+        self.assertEqual(len(basin), 2)
 
 
 class ContactRules(unittest.TestCase):
@@ -171,6 +173,11 @@ class RecordRules(unittest.TestCase):
         broken['metadata']['locations'] = {'features': [{'geometry': {'type': 'Polygon'}}]}
         with self.assertRaises(Held):
             wire_v2.validate(broken)
+        multi = json.loads(json.dumps(record))
+        multi['metadata']['locations'] = {'features': [{'geometry': {
+            'type': 'MultiPolygon', 'coordinates': [[[[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 0.0]]]]}}]}
+        with self.assertRaises(Held):  # valid GeoJSON, refused by Zenodo
+            wire_v2.validate(multi)
         with self.assertRaises(Held):
             wire_v2.build(self.v1, self.base.xml, ['FGDC-1915'], 'software')
 

@@ -187,9 +187,18 @@ class Provider:
             data = parse(body)
             published = self.document(record, published=True)
             assert data['pids'] == published['pids'] and data['custom_fields'] == record['edit']['custom_fields']
+            errors = []
+            for index, feature in enumerate((data['metadata'].get('locations') or {}).get('features', [])):
+                if feature['geometry']['type'] not in ('Point', 'Polygon'):  # as zenodo.org answers
+                    errors.append({'field': f'metadata.locations.features.{index}.geometry.type',
+                                   'messages': ['Unsupported value: ' + feature['geometry']['type']]})
+                    del feature['geometry']
             record['edit'].update(metadata=data['metadata'], access=data['access'],
                                   revision=record['edit']['revision'] + 1)
-            return 200, self.edit_document(record)
+            value = self.edit_document(record)
+            if errors:
+                value['errors'] = errors
+            return 200, value
         if rest == 'draft/actions/publish' and method == 'POST':
             edit = record['edit']
             record.update(metadata=edit['metadata'], access=edit['access'], revision=edit['revision'] + 1, edit=None)
@@ -954,6 +963,38 @@ class BulkRouteTests(unittest.TestCase):
         self.assertEqual((result['action'], result['records']), ('update', 1))
         release, _, members = bulk.load_release(self.paths, result['release'], 'update')
         self.assertEqual((release['records'], list(members)), ([SOURCES[0]], [SOURCES[0]]))
+
+    def test_partly_refused_save_is_rebound_to_a_newer_reviewed_wire(self):
+        base = self.published_v1('bulk-059', [SOURCES[0]])
+        first, _ = self.v2_review(base)
+        release_file = self.update_release([first], name='update-059')
+        real = bulk.wire_v2.build
+
+        def multipolygon(*args, **kwargs):  # the canary's first wire: one MultiPolygon feature
+            record = real(*args, **kwargs)
+            record['metadata']['locations'] = {'features': [{'description': 'box', 'geometry': {
+                'type': 'MultiPolygon', 'coordinates': [[[[0.0, 0.0], [1.0, 0.0], [1.0, 1.0], [0.0, 0.0]]]]}}]}
+            return record
+        with patch.object(bulk.wire_v2, 'build', multipolygon), patch.object(bulk.wire_v2, 'validate'):
+            sheet = bulk.build_v2_sheet(self.paths, base, 'Planner', now=self.clock.now, suffix='v2b')
+            bulk.write_exclusive(bulk.sheet_path(self.paths, sheet['batch_id']), sheet)
+            refused = self.review(sheet['batch_id'], sheet)
+            result = self.update(self.update_release([refused], name='update-059b'))
+        self.assertEqual(result['counts'], {'held': 1})
+        self.assertIn('reviewed v2 wire', result['holds'][0]['reason'])
+        record = bulk.load_record(self.paths, SOURCES[0])
+        self.assertEqual((record['phase'], record['counts']['update'], record['counts']['publish']), ('edit-open', 1, 0))
+        _, _, _, members = bulk.load_review(self.paths, first)
+        writes = len(self.writes())
+        outcome = self.runner('reconcile').rebind_update(SOURCES[0], members[SOURCES[0]], 'Operator', 'MultiPolygon refused')
+        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('edit-open', ['update']))
+        self.assertEqual(len(self.writes()), writes)  # GET only
+        self.assertEqual(self.update(release_file)['counts'], {'updated': 1})
+        record = bulk.load_record(self.paths, SOURCES[0])
+        self.assertEqual((record['wire_version'], record['counts']['update']), (2, 2))
+        self.assertEqual(record['update']['rebound'][0]['decided_by'], 'Operator')
+        provider = self.provider.records[record['identity']['id']]
+        self.assertEqual(provider['metadata'], parse(bulk.prepare_entry(self.paths, record).body)['metadata'])
 
     def test_update_reads_the_keychain_as_its_own_action(self):
         with patch.object(bulk.draft, 'production_token', return_value=TOKEN) as token, \

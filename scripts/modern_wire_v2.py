@@ -147,36 +147,43 @@ def time_period(root):
 # ---------------------------------------------------------------- locations
 
 def bounding_box(root):
-    """A `locations` feature for the FGDC bounding box, or the reason it could not be mapped."""
+    """`locations` features for the FGDC bounding box, or the reason it could not be mapped.
+
+    Zenodo accepts Point and Polygon geometries only ("Unsupported value: MultiPolygon", canary of
+    2026-10-21), so a box across the date line becomes two Polygon features that meet at 180 degrees.
+    """
     names = ('westbc', 'eastbc', 'northbc', 'southbc')
     raw = [text_of(root.find('./idinfo/spdom/bounding/' + name)) for name in names]
     if not any(raw):
-        return None, None
+        return [], None
     try:
         west, east, north, south = (float(value) for value in raw)
     except ValueError:
-        return None, 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
+        return [], 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
     if not (-180 <= west <= 180 and -180 <= east <= 180 and -90 <= south <= north <= 90):
-        return None, 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
+        return [], 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
     if west == east == north == south == 0:  # a placeholder (92 records), not a point off West Africa
-        return None, 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
+        return [], 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
     if west > east and east + 360 - west > MAX_CROSSING_SPAN:
         # Read as a date-line crossing this would be a near-global map; the values themselves stay as text.
-        return None, 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
+        return [], 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
     description = 'Bounding coordinates: W {}, E {}, N {}, S {}'.format(*raw)
     if west == east or north == south:
         center_lon = west if west == east else (west + east) / 2 if west < east else None
         if center_lon is None:  # a zero-height box across the date line: its western end
             center_lon = west
-        geometry = {'type': 'Point', 'coordinates': [center_lon, (north + south) / 2]}
-    elif west < east:
-        geometry = {'type': 'Polygon', 'coordinates': [[[west, south], [east, south], [east, north],
-                                                        [west, north], [west, south]]]}
-    else:  # crosses the antimeridian: two boxes meeting at 180 degrees
-        geometry = {'type': 'MultiPolygon', 'coordinates': [
-            [[[west, south], [180.0, south], [180.0, north], [west, north], [west, south]]],
-            [[[-180.0, south], [east, south], [east, north], [-180.0, north], [-180.0, south]]]]}
-    return {'geometry': geometry, 'description': description}, None
+        return [{'geometry': {'type': 'Point', 'coordinates': [center_lon, (north + south) / 2]},
+                 'description': description}], None
+    if west < east:
+        return [{'geometry': box(west, east, north, south), 'description': description}], None
+    return [{'geometry': box(west, 180.0, north, south), 'description': description + '; part west of the date line'},
+            {'geometry': box(-180.0, east, north, south), 'description': description + '; part east of the date line'}
+            ], None
+
+
+def box(west, east, north, south):
+    return {'type': 'Polygon', 'coordinates': [[[west, south], [east, south], [east, north], [west, north],
+                                                [west, south]]]}
 
 
 # ---------------------------------------------------------------- contributors
@@ -343,7 +350,7 @@ def build(v1_wire, xml, source_ids, resource_type):
     root = ET.fromstring(xml)
     pubdate, pubdate_origin = publication_date(root)
     dates, unparsed = time_period(root)
-    location, location_note = bounding_box(root)
+    features, location_note = bounding_box(root)
     related, link_notes = links(root)
     notes_extra = unparsed + ([location_note] if location_note else []) + link_notes
     meta = {
@@ -359,8 +366,8 @@ def build(v1_wire, xml, source_ids, resource_type):
     optional = {'dates': dates, 'contributors': contributors(root, meta1['creators']), 'rights': rights(root),
                 'related_identifiers': related, 'references': references(root)}
     meta.update({key: value for key, value in optional.items() if value})
-    if location is not None:
-        meta['locations'] = {'features': [location]}
+    if features:
+        meta['locations'] = {'features': features}
     record = {'metadata': meta, 'access': {'record': 'public', 'files': 'public'}, 'files': {'enabled': True}}
     validate(record)
     return record
@@ -375,6 +382,7 @@ def validate(record):
     require(set(record) == {'metadata', 'access', 'files'} and record['files'] == {'enabled': True}
             and record['access'] == {'record': 'public', 'files': 'public'})
     meta = record['metadata']
+    require(all(f['geometry']['type'] in ('Point', 'Polygon') for f in meta.get('locations', {}).get('features', [])))
     require(meta['resource_type']['id'] in RESOURCE_TYPES and meta['publisher'] == 'Zenodo' and meta['creators']
             and all(isinstance(meta[key], str) and meta[key].strip()
                     for key in ('title', 'description', 'publication_date')))

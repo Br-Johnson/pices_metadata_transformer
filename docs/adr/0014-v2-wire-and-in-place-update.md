@@ -58,7 +58,7 @@ subjects are carried over, and place keywords were already subjects in v1.
 | citation title | `title` | v1 title without the artifact suffix |
 | citation `pubdate`, else `metainfo/metd` | `publication_date` | exact dates only: YYYY, YYYYMM, YYYYMMDD, MMYYYY when YYYYMM is not a year, "Month YYYY"; years 1800 to 2026 |
 | `timeperd` | `dates` (`collected`) | a range becomes an interval; several single dates become their span, with the count noted; a begin date without an end date (499 records) becomes that date, described as "begin date only, no end date in the FGDC record", because the provider accepts only closed EDTF intervals; an unparsed value stays as text |
-| `spdom/bounding` | `locations` | Point, Polygon, or MultiPolygon split at ±180; an invalid box stays as text, and so do the placeholder box 0, 0, 0, 0 (92 records) and a date-line box wider than 200°, whose west and east bounds are swapped or mis-signed (31 records) |
+| `spdom/bounding` | `locations` | Point or Polygon; a box across the date line becomes two Polygon features that meet at ±180, because Zenodo refuses MultiPolygon ("Unsupported value: MultiPolygon", canary of 2026-10-21); an invalid box stays as text, and so do the placeholder box 0, 0, 0, 0 (92 records) and a date-line box wider than 200°, whose west and east bounds are swapped or mis-signed (31 records) |
 | `ptcontac`, `distrib` | `contributors` | `contactperson`, then a distinct `distributor`; names and organisations only; a name containing a replacement mark is skipped. An organisation-primary contact is always an organisation, commas included. A person-primary contact is a person when written "Family, Given", or in natural order beside its organisation; without an organisation, a several-word value is an organisation in the person slot ("NOAA Central Library"). All 82 such values follow this rule |
 | purpose, `supplinf` | additional description `notes` | labelled paragraphs |
 | data quality, process steps | additional description `methods` | labelled paragraphs |
@@ -149,7 +149,12 @@ publication checks compare with the v2 rules and expect public files.
    `published` with `wire_version` 2. The v1 hashes move to `update.previous`.
 4. `edit`, `update` and `publish` are spent at most once per record. Records journaled
    before these kinds existed load with them unspent; this is the forward migration.
-5. `reconcile` observes a held update by GET only and moves it to the phase the provider
+5. `rebind-update --source --review` is a recorded decision for a save the provider refused in
+   part. It uses GET only. The edit draft must still be open, the published record must still be
+   v1, and no publish may have been sent. The step then points the held update at a newer
+   reviewed v2 wire and allows one more save. The canary used it after Zenodo refused
+   MultiPolygon.
+6. `reconcile` observes a held update by GET only and moves it to the phase the provider
    shows:
    - an open v1 edit draft is `edit-open`;
    - an open v2 edit draft is `edit-saved`;
@@ -157,7 +162,7 @@ publication checks compare with the v2 rules and expect public files.
    - a published v1 record with no draft is `editing`.
 
    A write whose effect is absent is allowed once more.
-6. The token may come from the Keychain under the action `bulk-update`. Brett allowed this on 2026-10-21, for both the canary and the full run.
+7. The token may come from the Keychain under the action `bulk-update`. Brett allowed this on 2026-10-21, for both the canary and the full run.
 
 ### Order
 
@@ -187,3 +192,13 @@ publication checks compare with the v2 rules and expect public files.
   reviewed reset of the edit counts.
 - The 188 low-confidence types are AI calls. Brett can rule on any group, and a change is
   another in-place update.
+
+## Canary, 2026-10-21
+
+The first canary was FGDC-985, record 23508755. It ran these requests:
+
+1. Opened the edit draft and checked it against the published v1 record.
+2. Saved the v2 wire. Zenodo answered 200, listed one error, `metadata.locations.features.0.geometry.type: Unsupported value: MultiPolygon`, and stored everything else, without the geometry.
+3. Compared the saved draft with the wire. The comparison failed and held the record before publication.
+
+The published record was unchanged. The pinned storage schema accepts MultiPolygon; the service schema does not. Date-line boxes therefore became two Polygon features. The batch was re-sheeted as `bulk-005-v2b` and re-reviewed. `rebind-update` then pointed the held canary at the new wire.

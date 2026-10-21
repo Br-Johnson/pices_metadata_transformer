@@ -366,16 +366,15 @@ def flags_for(source, wire, wire_version=1):
 def v2_summary(prepared):
     """What the reviewer checks in a v2 wire, beside the source fields."""
     meta = parse(prepared.body)['metadata']
-    location = (meta.get('locations') or {}).get('features', [{}])[0]
-    geometry = location.get('geometry') or {}
-    polygons = {'Polygon': [geometry.get('coordinates')], 'MultiPolygon': geometry.get('coordinates')}.get(
-        geometry.get('type'), [])
+    features = (meta.get('locations') or {}).get('features', [])
+    polygons = [f['geometry']['coordinates'] for f in features if f['geometry']['type'] == 'Polygon']
     span = sum(max(x for x, _ in polygon[0]) - min(x for x, _ in polygon[0]) for polygon in polygons)
     texts = [d['description'] for d in meta['additional_descriptions']] + [
         r['description']['en'] for r in meta.get('rights', [])]
     return {'resource_type': meta['resource_type']['id'], 'publication_date': meta['publication_date'],
             'dates': [d['date'] for d in meta.get('dates', [])],
-            'location': location.get('description', ''), 'geometry': geometry.get('type'),
+            'location': features[0]['description'] if features else '',
+            'geometry': '+'.join(f['geometry']['type'] for f in features) or None,
             'longitude_span': round(span, 2),
             'contact_details_removed': any(wire_v2.EMAIL_MARK in t for t in texts),
             'contributors': [creator_name(c) + ' (' + c['role']['id'] + ', ' + c['person_or_org']['type'] + ')'
@@ -490,7 +489,7 @@ def build_sheet(paths, manifest, manifest_sha, built_by, now=utc_now, wire_versi
             'flagged': flagged, 'sample': sample, 'rows': rows}
 
 
-def build_v2_sheet(paths, base_review, built_by, now=utc_now):
+def build_v2_sheet(paths, base_review, built_by, now=utc_now, suffix='v2'):
     """The v2 review sheet for the approved members of a reviewed v1 batch (ADR 0014).
 
     Membership, twins and duplicates were settled by the base review; this sheet carries the same
@@ -498,7 +497,7 @@ def build_v2_sheet(paths, base_review, built_by, now=utc_now):
     protected sources are left out and listed.
     """
     review, review_sha, order, members = load_review(paths, base_review)
-    require(review.get('wire_version', 1) == 1 and not review['batch_id'].endswith('-v2'))
+    require(re.fullmatch('v2[a-z]?', suffix) is not None and not re.search('-v2[a-z]?$', review['batch_id']))
     barred = set(exclusions(paths)) | set(PROTECTED)
     rows, skipped = [], []
     for sid in order:
@@ -516,7 +515,7 @@ def build_v2_sheet(paths, base_review, built_by, now=utc_now):
     others = sorted({row['source_id'] for row in rows} - set(flagged), key=batch.by_number)
     size = min(len(others), max(SAMPLE_MIN, math.ceil(SAMPLE_FRACTION * len(rows))))
     sample = sorted(random.Random(membership).sample(others, size), key=batch.by_number)
-    return {'schema_version': 1, 'kind': SHEET_KIND, 'batch_id': review['batch_id'] + '-v2', 'wire_version': 2,
+    return {'schema_version': 1, 'kind': SHEET_KIND, 'batch_id': review['batch_id'] + '-' + suffix, 'wire_version': 2,
             'base_review': {'path': str(Path(base_review).resolve()), 'sha256': review_sha,
                             'batch_id': review['batch_id']},
             'manifest_sha256': None, 'membership_sha256': membership, 'built_by': built_by,
@@ -717,7 +716,10 @@ def check_published(data, prepared, record, owner, communities):
 
 
 def check_edit_draft(data, prepared, record, owner, communities, *, saved=False):
-    """An edit draft of a published record: same identity and DOIs, this wire, the original files."""
+    """An edit draft of a published record: same identity and DOIs, this wire, the original files.
+
+    With `prepared` None the metadata and access are not compared (a partly saved draft being rebound).
+    """
     identity = record['identity']
     parent = data.get('parent', {}) if isinstance(data, dict) else {}
     check(isinstance(data, dict) and data.get('id') == identity['id'] and data.get('is_published') is True
@@ -727,12 +729,13 @@ def check_edit_draft(data, prepared, record, owner, communities, *, saved=False)
     base = '/api/records/' + identity['id'] + '/draft'
     check(data.get('links', {}).get('self') == draft.ORIGIN + base, 'edit draft links differ')
     check({'record': data.get('pids'), 'parent': parent.get('pids')} == record['pids'], 'edit draft DOI pids differ')
-    try:
-        compare_wire(data.get('metadata'), prepared)
-    except Held:
-        raise RecordHold('edit draft metadata differs from the ' + ('reviewed v2 wire' if saved else 'published wire'))\
-            from None
-    check(access_matches(data.get('access', {}), prepared), 'edit draft access differs')
+    if prepared is not None:
+        try:
+            compare_wire(data.get('metadata'), prepared)
+        except Held:
+            raise RecordHold('edit draft metadata differs from the ' + ('reviewed v2 wire' if saved else
+                                                                        'published wire')) from None
+        check(access_matches(data.get('access', {}), prepared), 'edit draft access differs')
     files = data.get('files', {})
     expected = files_of(record)
     entries = files.get('entries') if isinstance(files.get('entries'), dict) else None
@@ -1516,6 +1519,48 @@ class Bulk:
         check(pids == record['pids'], 'published DOI pids changed')
         return 'edit-published', granted
 
+    def rebind_update(self, source_id, member, decided_by, note):
+        """A recorded decision: point a held, unpublished update at a newer reviewed v2 wire; GET only.
+
+        For a save the provider refused in part (the 2026-10-21 canary: "Unsupported value:
+        MultiPolygon"). The edit draft must still be open with this record's identity, DOIs, files and
+        community, the published record must still be the v1 wire, and no publish may have been sent.
+        One more save is allowed; the next update run sends it and verifies the result as usual.
+        """
+        record = load_record(self.paths, source_id)
+        check(record is not None and record['hold'] is not None and record['phase'] == 'edit-open'
+              and record['counts']['publish'] == 0, 'only a held update with an open, unpublished edit is rebound', Held)
+        check(all(isinstance(v, str) and v.strip() for v in (decided_by, note)), 'decider and note are required', Held)
+        check(member['approved'] and member.get('wire_version') == 2 and member['source_id'] == source_id
+              and member['source_sha256'] == record['source_sha256'] and files_of(member) == files_of(record)
+              and member['wire_sha256'] != record['update']['wire_sha256'],
+              'the review does not approve a newer v2 wire for this record', Held)
+        current = prepare_entry(self.paths, record)
+        require(sha(current.xml) == record['source_sha256'] and sha(current.body) == record['wire_sha256'])
+        target = prepare_entry(self.paths, record, wire_version=2)
+        check(sha(target.body) == member['wire_sha256'], 'live v2 preparation differs from the reviewed sheet', Held)
+        for receipt in record['requests']:
+            if receipt.get('status') == 'uncertain':
+                receipt['status'] = 'unanswered'
+        ids = self.community_ids or self.verify_community()
+        base = '/api/records/' + record['identity']['id']
+        opened = self.call(record, 'get', 'GET', base + '/draft', 200)
+        check_edit_draft(opened, None, record, self.owner, ids)
+        pids = check_published(self.call(record, 'get', 'GET', base, 200), current, record, self.owner, ids)
+        check(pids == record['pids'], 'published DOI pids changed')
+        check(record['allowances'].get('update', 0) < MAX_ALLOWANCE, 'update was already allowed again', Held)
+        record['allowances']['update'] = record['allowances'].get('update', 0) + 1
+        update = record['update']
+        update.setdefault('rebound', []).append({
+            'from': {k: update[k] for k in ('wire_sha256', 'review_sha256', 'batch_id')}, 'previous_hold': record['hold'],
+            'decided_by': decided_by, 'note': note, 'at': self.now().isoformat(), 'run_id': self.run_id})
+        update.update(wire_sha256=member['wire_sha256'], review_sha256=member['review_sha256'],
+                      batch_id=member['batch_id'], carried=carried_of(opened))
+        record['hold'] = None
+        self.advance(record, 'edit-open')
+        return {'source_id': source_id, 'phase': 'edit-open', 'allowed_again': ['update'],
+                'wire_sha256': member['wire_sha256']}
+
     def observe(self, record, prepared):
         base = '/api/records/' + record['identity']['id']
         keys = [f['key'] for f in files_of(record)]
@@ -1741,9 +1786,17 @@ def main():
     update.add_argument('--limit', type=int)
     update.add_argument('--token-keychain', metavar='SERVICE',
                         help='Read the token from this Keychain item; prompts otherwise')
+    rebind = sub.add_parser('rebind-update', help='Point a held, unpublished update at a newer reviewed v2 wire (GET only)')
+    rebind.add_argument('--source', required=True)
+    rebind.add_argument('--review', required=True, help='The v2 review that approves the newer wire')
+    rebind.add_argument('--owner', required=True)
+    rebind.add_argument('--decided-by', required=True)
+    rebind.add_argument('--note', required=True)
+    rebind.add_argument('--token-keychain', metavar='SERVICE', help=draft.KEYCHAIN_HELP)
     plan_v2 = sub.add_parser('plan-v2', help='Build the v2 review sheet for the approved members of a v1 review')
     plan_v2.add_argument('--base-review', required=True)
     plan_v2.add_argument('--built-by', required=True)
+    plan_v2.add_argument('--suffix', default='v2', help='v2, or v2b, v2c ... when an earlier v2 sheet of the batch was superseded')
     reconcile = sub.add_parser('reconcile', help='Observe held records by GET and move their phase')
     reconcile.add_argument('--source', action='append', required=True)
     reconcile.add_argument('--owner', required=True)
@@ -1790,7 +1843,7 @@ def main():
                       'flagged': len(sheet['flagged']), 'sample': len(sheet['sample']), 'twins': sheet['twins'],
                       'provider_requests': 0}
         elif args.action == 'plan-v2':
-            sheet = build_v2_sheet(paths, args.base_review, args.built_by)
+            sheet = build_v2_sheet(paths, args.base_review, args.built_by, suffix=args.suffix)
             path = write_exclusive(sheet_path(paths, sheet['batch_id']), sheet)
             result = {'sheet': str(path), 'sheet_sha256': sha(path.read_bytes()), 'batch_id': sheet['batch_id'],
                       'members': sheet['member_count'], 'flagged': len(sheet['flagged']),
@@ -1851,6 +1904,15 @@ def main():
                     runner.ledger['inputs'] = {'review_sha256': review_sha, 'manifest': str(manifest_file),
                                                'manifest_sha256': sha(manifest_file.read_bytes())}
                 result = runner.run(approved, runner.draft_member, limit=args.limit)
+        elif args.action == 'rebind-update':
+            _, _, _, members = load_review(paths, args.review)
+            require(args.source in members)
+            transport, token = transport_and_token('reconcile', args.token_keychain)
+            with ledger_lock(paths):
+                runner = Bulk(paths, transport, token, owner=args.owner, stage='reconcile')
+                result = runner.rebind_update(args.source, members[args.source], args.decided_by, args.note)
+                runner.ledger['status'] = 'complete'
+                runner.save_ledger()
         elif args.action == 'update':
             release, release_sha, members = load_release(paths, args.release, 'update')
             transport, token = transport_and_token('update', args.token_keychain)
