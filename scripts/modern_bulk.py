@@ -1726,7 +1726,7 @@ def main():
     release.add_argument('--instruction', required=True)
     release.add_argument('--instructed-at', required=True)
     release.add_argument('--prepared-by', required=True)
-    release.add_argument('--action', choices=('publish', 'update'), default='publish')
+    release.add_argument('--action', dest='release_action', choices=('publish', 'update'), default='publish')
     release.add_argument('--only', action='append', metavar='FGDC-N',
                          help='Name only these records (each must be releasable), e.g. for a canary')
     publish = sub.add_parser('publish', help='Publish the records of a release into the PICES community')
@@ -1807,7 +1807,7 @@ def main():
         elif args.action == 'release':
             document = build_release(paths, args.review, authority=args.authority, instruction=args.instruction,
                                      instructed_at=args.instructed_at, prepared_by=args.prepared_by,
-                                     action=args.action, only=args.only)
+                                     action=args.release_action, only=args.only)
             require(re.fullmatch(batch.BATCH_ID, args.name) is not None)
             path = write_exclusive(bulk_root(paths) / 'releases' / (args.name + '.json'), document)
             result = {'release': str(path), 'release_sha256': sha(path.read_bytes()), 'action': document['action'],

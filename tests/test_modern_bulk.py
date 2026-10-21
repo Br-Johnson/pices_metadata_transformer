@@ -940,6 +940,21 @@ class BulkRouteTests(unittest.TestCase):
         path.write_text(json.dumps(document))
         self.assertEqual([bulk.load_record(self.paths, SOURCES[0])['counts'][k] for k in bulk.EDIT_WRITES], [0, 0, 0])
 
+    def test_update_release_from_the_command_line_names_only_the_canary(self):
+        base = self.published_v1('bulk-058', list(SOURCES[:2]))
+        review_file = self.v2_review(base)[0]
+        argv = ['modern_bulk', 'release', '--output-dir', str(Path(self.temp.name) / 'prepared'), '--name', 'update-canary',
+                '--review', str(review_file), '--action', 'update', '--only', SOURCES[0], '--authority', 'Brett Johnson',
+                '--instruction', 'canary', '--instructed-at', '2026-10-20', '--prepared-by', 'Bulk test']
+        with patch.object(bulk.sys, 'argv', argv), patch.object(bulk.draft, 'production_token') as token, \
+                patch('builtins.print') as printed:
+            self.assertEqual(bulk.main(), 0)
+        token.assert_not_called()
+        result = json.loads(printed.call_args.args[0])
+        self.assertEqual((result['action'], result['records']), ('update', 1))
+        release, _, members = bulk.load_release(self.paths, result['release'], 'update')
+        self.assertEqual((release['records'], list(members)), ([SOURCES[0]], [SOURCES[0]]))
+
     def test_update_reads_the_keychain_as_its_own_action(self):
         with patch.object(bulk.draft, 'production_token', return_value=TOKEN) as token, \
                 patch.object(bulk.draft, 'Transport', return_value='transport'):
