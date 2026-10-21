@@ -57,8 +57,8 @@ subjects are carried over, and place keywords were already subjects in v1.
 |---|---|---|
 | citation title | `title` | v1 title without the artifact suffix |
 | citation `pubdate`, else `metainfo/metd` | `publication_date` | exact dates only: YYYY, YYYYMM, YYYYMMDD, MMYYYY when YYYYMM is not a year, "Month YYYY"; years 1800 to 2026 |
-| `timeperd` | `dates` (`collected`) | a range becomes an interval; several single dates become their span, with the count noted; an unparsed value stays as text |
-| `spdom/bounding` | `locations` | Point, Polygon, or MultiPolygon split at ±180; an invalid box stays as text, and so does a date-line box wider than 200°, whose west and east bounds are swapped or mis-signed (31 records) |
+| `timeperd` | `dates` (`collected`) | a range becomes an interval; several single dates become their span, with the count noted; a begin date without an end date (499 records) becomes that date, described as "begin date only, no end date in the FGDC record", because the provider accepts only closed EDTF intervals; an unparsed value stays as text |
+| `spdom/bounding` | `locations` | Point, Polygon, or MultiPolygon split at ±180; an invalid box stays as text, and so do the placeholder box 0, 0, 0, 0 (92 records) and a date-line box wider than 200°, whose west and east bounds are swapped or mis-signed (31 records) |
 | `ptcontac`, `distrib` | `contributors` | `contactperson`, then a distinct `distributor`; names and organisations only; a name containing a replacement mark is skipped. An organisation-primary contact is always an organisation, commas included. A person-primary contact is a person when written "Family, Given", or in natural order beside its organisation; without an organisation, a several-word value is an organisation in the person slot ("NOAA Central Library"). All 82 such values follow this rule |
 | purpose, `supplinf` | additional description `notes` | labelled paragraphs |
 | data quality, process steps | additional description `methods` | labelled paragraphs |
@@ -157,7 +157,7 @@ publication checks compare with the v2 rules and expect public files.
    - a published v1 record with no draft is `editing`.
 
    A write whose effect is absent is allowed once more.
-6. The token may come from the Keychain under the action `bulk-update`.
+6. The token may come from the Keychain under the action `bulk-update`. Brett allowed this on 2026-10-21, for both the canary and the full run.
 
 ### Order
 

@@ -57,6 +57,10 @@ class DateRules(unittest.TestCase):
         dates, _ = wire_v2.time_period(root(multiple))
         self.assertEqual(dates[0]['date'], '1988-02/1990')
         self.assertIn('2 dates within this span', dates[0]['description'])
+        begun = '<timeperd><timeinfo><rngdates><begdate>19680101</begdate><enddate></enddate></rngdates></timeinfo></timeperd>'
+        dates, _ = wire_v2.time_period(root(begun))
+        self.assertEqual(dates[0]['date'], '1968-01-01')
+        self.assertTrue(dates[0]['description'].endswith('begin date only, no end date in the FGDC record'))
         vague = '<timeperd><timeinfo><sngdate><caldate>Unknown</caldate></sngdate></timeinfo></timeperd>'
         self.assertEqual(wire_v2.time_period(root(vague)), ([], ['Time period: Unknown']))
 
@@ -83,6 +87,10 @@ class LocationRules(unittest.TestCase):
         self.assertIsNone(feature)
         self.assertEqual(note, 'Bounding coordinates as given: W -170, E -150, N 50, S 60')
         self.assertIsNone(wire_v2.bounding_box(self.box('x', -150, 60, 50))[0])
+        self.assertEqual(wire_v2.bounding_box(self.box(0, 0, 0, 0)),
+                         (None, 'Bounding coordinates as given: W 0, E 0, N 0, S 0'))
+        equator, _ = wire_v2.bounding_box(self.box(-140, -140, 0, 0))  # FGDC-940: a mooring at 0N 140W
+        self.assertEqual(equator['geometry'], {'type': 'Point', 'coordinates': [-140.0, 0.0]})
 
     def test_swapped_date_line_box_is_not_a_world_map(self):
         swapped, note = wire_v2.bounding_box(self.box(-176.42, -177.78, 58, 55))  # FGDC-2324: a 358 degree span

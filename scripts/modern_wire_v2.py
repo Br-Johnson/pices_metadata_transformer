@@ -125,8 +125,9 @@ def time_period(root):
         if start and stop and date_bounds(start)[0] <= date_bounds(stop)[1]:
             value = start if start == stop else start + '/' + stop
             return [{'date': value, 'type': {'id': 'collected'}, 'description': description}], unparsed
-        if start and not end:
-            return [{'date': start, 'type': {'id': 'collected'}, 'description': description}], unparsed
+        if start and not end:  # 499 records: a start date only, which says nothing about the end
+            return [{'date': start, 'type': {'id': 'collected'},
+                     'description': description + '; begin date only, no end date in the FGDC record'}], unparsed
         unparsed.append('Time period: ' + ' to '.join(v for v in (begin, end) if v))
         return [], unparsed
     singles = texts(info, './/caldate')
@@ -156,6 +157,8 @@ def bounding_box(root):
     except ValueError:
         return None, 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
     if not (-180 <= west <= 180 and -180 <= east <= 180 and -90 <= south <= north <= 90):
+        return None, 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
+    if west == east == north == south == 0:  # a placeholder (92 records), not a point off West Africa
         return None, 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
     if west > east and east + 360 - west > MAX_CROSSING_SPAN:
         # Read as a date-line crossing this would be a near-global map; the values themselves stay as text.
