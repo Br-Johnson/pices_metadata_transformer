@@ -1,3 +1,23 @@
+## 2026-10-20: v2 wire and in-place updates (ADR 0014)
+
+- **Edit counts.** `edit`, `update` and `publish` are spent once per record. A third mapping, or a correction of one record's type, needs new write kinds or a reviewed reset of those counts. It also needs a matching `previous` chain beyond one step.
+- **Edit-draft shape.** These parts of the edit draft are assumptions about InvenioRDM, taken from its code and the fake provider, not yet observed on zenodo.org:
+  - `is_published` true;
+  - status `published`;
+  - file entries listed with checksums;
+  - `custom_fields` echoed;
+  - PUT answering 200 with `errors` for partial saves.
+
+  The canary must confirm them. Any difference holds the record before its PUT.
+- **Licence on public files.** Zenodo may expect a licence on public files. Brett chose none. If the provider objects, the PUT reports errors and the record holds before publication.
+- **Low-confidence types.** 188 resource types are low-confidence AI calls. Two groups the reviewers judged differently were harmonised by rule: library-holding books and bibliographic databases became reports.
+- **Pinned classification.** The manifest is pinned by SHA256 in code. A change to it is a code change, with its own review.
+- **Orphan edit drafts.** The check for a hand-changed record runs on the edit draft, after the edit POST. A record somebody changed holds safely, but leaves an open v1 edit draft on Zenodo. A GET of the published record before the POST would avoid that, at one more request per record (about 34 minutes over 2,516 records). It was not added.
+- **Contact typing and wide boxes.** These rules come from an independent review on 2026-10-20 that scanned all 3,830 approved records: contacts are typed by their FGDC element, and date-line boxes wider than 200° stay as text. A new source collection would need the same scan.
+- **E-mail addresses.** The description carried from v1 still contains e-mail addresses and phone numbers from the source abstracts: 86 and 64. Brett's rule 5 covers the new fields only.
+- **Leftover JSON helpers.** v1 helpers that only served the JSON preserved block remain in `modern_singleton` for the published v1 history and the single-record chain.
+- **Local test runner.** `ci/run_offline_tests.py` needs `/proc/self/fd`, so on macOS every test that writes a file errors there. Use unittest discovery with a private temp directory locally; GitHub CI runs the guarded runner.
+
 ## 2026-10-20: the bulk route (ADR 0013)
 
 - The bulk route is a second production writer beside the single-record executors. Both take the same ledger lock and see each other's barriers (`known_records`, `journal_phases`, `source_already_attempted`, `reject_modern_attempt`), but the single-record chain should now be used only for its own started rows (FGDC-141) and history; new sources go through `scripts/modern_bulk.py`.

@@ -1,4 +1,4 @@
-"""Offline contracts for the bulk draft and publication route (ADR 0013).
+"""Offline contracts for the bulk draft and publication route (ADR 0013) and its v2 wire (ADR 0014).
 
 A synthetic InvenioRDM provider stands in for zenodo.org; real prepared sources
 supply the wire and the original XML. No network, token or production state.
@@ -51,7 +51,7 @@ class Clock:
 
 
 class Provider:
-    """Synthetic InvenioRDM: drafts, files, community submission and the legacy listing."""
+    """Synthetic InvenioRDM: drafts, files, community submission, edits of published records and the legacy listing."""
 
     def __init__(self, clock):
         self.clock = clock
@@ -74,7 +74,8 @@ class Provider:
         self.records[record_id] = {
             'id': record_id, 'parent': parent_id, 'metadata': copy.deepcopy(wire['metadata']),
             'created': self.clock.now().isoformat(), 'revision': 1, 'files': {key: xml} if files else {},
-            'pending': set(), 'review': None, 'status': 'draft', 'request': None}
+            'pending': set(), 'review': None, 'status': 'draft', 'request': None, 'access': copy.deepcopy(wire['access']),
+            'edit': None}
         return record_id
 
     def entry(self, record, key, *, published=False):
@@ -93,7 +94,7 @@ class Provider:
         done = {k: v for k, v in record['files'].items() if k not in record['pending']}
         value = {'id': record['id'], 'created': record['created'], 'revision_id': record['revision'],
                  'metadata': copy.deepcopy(record['metadata']),
-                 'access': {'record': 'public', 'files': 'restricted'},
+                 'access': copy.deepcopy(record.get('access') or {'record': 'public', 'files': 'restricted'}),
                  'is_published': published, 'status': 'published' if published else record['status'],
                  'pids': {}, 'versions': {'index': 1},
                  'parent': {'id': record['parent'], 'access': {'owned_by': {'user': OWNER}}, 'communities': {},
@@ -116,6 +117,16 @@ class Provider:
             value['parent']['communities'] = {'ids': ids, 'default': record['review']}
             del value['links']['files']
             value['links']['files'] = draft.ORIGIN + base + '/files'
+        return value
+
+    def edit_document(self, record):
+        """An edit draft of a published record: the published document with the draft's own values."""
+        value = self.document(record, published=True)
+        edit = record['edit']
+        base = '/api/records/' + record['id'] + '/draft'
+        value.update(metadata=copy.deepcopy(edit['metadata']), access=copy.deepcopy(edit['access']),
+                     revision_id=edit['revision'], custom_fields=copy.deepcopy(edit['custom_fields']))
+        value['links'] = {'self': draft.ORIGIN + base, 'files': draft.ORIGIN + base + '/files'}
         return value
 
     def request_document(self, record):
@@ -154,7 +165,7 @@ class Provider:
             self.next_id += 2
             record = {'id': record_id, 'parent': parent_id, 'metadata': wire['metadata'],
                       'created': self.clock.now().isoformat(), 'revision': 1, 'files': {}, 'pending': set(),
-                      'review': None, 'status': 'draft', 'request': None}
+                      'review': None, 'status': 'draft', 'request': None, 'access': wire['access'], 'edit': None}
             self.records[record_id] = record
             return 201, self.document(record)
         parts = path.split('/')
@@ -162,8 +173,27 @@ class Provider:
         rest = '/'.join(parts[4:])
         if rest == 'draft' and method == 'GET':
             if record['status'] == 'published':
+                if record.get('edit'):
+                    return 200, self.edit_document(record)
                 return 404, {'status': 404, 'message': 'not found'}
             return 200, self.document(record)
+        if rest == 'draft' and method == 'POST':  # edit a published record; an open edit draft is returned as is
+            assert record['status'] == 'published' and body is None
+            if not record.get('edit'):
+                record['edit'] = {'metadata': copy.deepcopy(record['metadata']), 'access': copy.deepcopy(record['access']),
+                                  'custom_fields': {'legacy:test': 'kept'}, 'revision': record['revision'] + 1}
+            return 201, self.edit_document(record)
+        if rest == 'draft' and method == 'PUT':
+            data = parse(body)
+            published = self.document(record, published=True)
+            assert data['pids'] == published['pids'] and data['custom_fields'] == record['edit']['custom_fields']
+            record['edit'].update(metadata=data['metadata'], access=data['access'],
+                                  revision=record['edit']['revision'] + 1)
+            return 200, self.edit_document(record)
+        if rest == 'draft/actions/publish' and method == 'POST':
+            edit = record['edit']
+            record.update(metadata=edit['metadata'], access=edit['access'], revision=edit['revision'] + 1, edit=None)
+            return 202, self.document(record, published=True)
         if rest == 'draft/files' and method == 'POST':
             keys = [item['key'] for item in parse(body)]
             for key in keys:
@@ -274,12 +304,42 @@ class BulkRouteTests(unittest.TestCase):
         return bulk.write_exclusive(bulk.bulk_root(self.paths) / 'releases' / (name + '.json'), document)
 
     def publish(self, release_file):
-        release, release_sha = bulk.load_release(self.paths, release_file)
+        release, release_sha, _ = bulk.load_release(self.paths, release_file)
         runner = self.runner('publish')
         return runner.run(release['records'], lambda sid: runner.publish_member(sid, release_sha))
 
     def writes(self):
         return [(m, p) for m, p in self.provider.calls if m != 'GET']
+
+    def published_v1(self, batch_id, ids):
+        review_file = self.review(batch_id, self.plan(batch_id, ids)[1])
+        self.drafts(review_file)
+        self.assertEqual(self.publish(self.release([review_file], name='release-' + batch_id))['counts'],
+                         {'published': len(ids)})
+        return review_file
+
+    def v2_review(self, base_review, held=()):
+        sheet = bulk.build_v2_sheet(self.paths, base_review, 'Planner', now=self.clock.now)
+        bulk.write_exclusive(bulk.sheet_path(self.paths, sheet['batch_id']), sheet)
+        return self.review(sheet['batch_id'], sheet, held=held), sheet
+
+    def update_release(self, review_files, name='update-1', only=None):
+        document = bulk.build_release(self.paths, review_files, authority='Brett Johnson',
+                                      instruction='Apply the v2 mapping to the published records by in-place edit',
+                                      instructed_at='2026-10-20', prepared_by='Bulk test', now=self.clock.now,
+                                      action='update', only=only)
+        return bulk.write_exclusive(bulk.bulk_root(self.paths) / 'releases' / (name + '.json'), document)
+
+    def update(self, release_file):
+        release, release_sha, members = bulk.load_release(self.paths, release_file, 'update')
+        runner = self.runner('update')
+        return runner.run(release['records'], lambda sid: runner.update_member(sid, release_sha, members[sid]))
+
+    def ready_update(self, batch_id, sid):
+        """One published v1 record with an approved v2 review and an update release; the next call index."""
+        base = self.published_v1(batch_id, [sid])
+        release_file = self.update_release([self.v2_review(base)[0]], name='update-' + batch_id)
+        return release_file, len(self.provider.calls)
 
     # ---- tests
 
@@ -294,7 +354,7 @@ class BulkRouteTests(unittest.TestCase):
             record = bulk.load_record(self.paths, sid)
             self.assertEqual(record['phase'], 'draft-verified')
             self.assertEqual(record['counts'], {'create': 1, 'init': 1, 'content': 1, 'commit': 0, 'review': 0,
-                                                'submit': 0, 'get': 2})
+                                                'submit': 0, 'edit': 0, 'update': 0, 'publish': 0, 'get': 2})
             self.assertTrue(bulk.intent_path(self.paths, sid).exists())
             evidence = sorted(p.name for p in bulk.evidence_dir(self.paths, sid).iterdir())
             self.assertEqual(evidence, ['000.create.json', '001.init.json', '002.content.json', '003.get.json',
@@ -738,6 +798,157 @@ class BulkRouteTests(unittest.TestCase):
                                       'short_description',
                                       'description_omits_abstract_opening', 'suspicious_creator',
                                       'control_character', 'no_subjects'})
+
+
+    # ---- v2 wire (ADR 0014)
+
+    def test_v2_sheet_carries_the_approved_unexcluded_members_with_their_v2_wire(self):
+        base = self.review('bulk-050', self.plan('bulk-050', list(SOURCES[:3]))[1], held=(SOURCES[2],))
+        bulk.exclude(self.paths, SOURCES[1], 'test exclusion', 'Reviewer agent')
+        review_file, sheet = self.v2_review(base)
+        self.assertEqual((sheet['batch_id'], sheet['wire_version'], sheet['skipped']),
+                         ('bulk-050-v2', 2, [SOURCES[1], SOURCES[2]]))
+        row = sheet['rows'][0]
+        _, _, _, members = bulk.load_review(self.paths, base)
+        self.assertEqual((row['source_id'], row['source_sha256'], row['wire_version']),
+                         (SOURCES[0], members[SOURCES[0]]['source_sha256'], 2))
+        wire = parse(bulk.prepare_entry(self.paths, {'source_id': SOURCES[0]}, 2).body)
+        self.assertEqual(row['wire_sha256'], draft.sha(encode(wire)))
+        self.assertFalse(wire['metadata']['title'].endswith(' - FGDC XML metadata artifact'))
+        self.assertEqual(wire['access'], {'record': 'public', 'files': 'public'})
+        self.assertEqual(row['v2']['resource_type'], bulk.resource_types()[SOURCES[0]])
+        self.assertEqual(bulk.load_review(self.paths, review_file)[3][SOURCES[0]]['wire_version'], 2)
+        with self.assertRaises(Held):
+            bulk.build_v2_sheet(self.paths, review_file, 'Planner', now=self.clock.now)
+
+    def test_v2_members_are_created_and_published_with_public_originals(self):
+        base = self.review('bulk-051', self.plan('bulk-051', list(SOURCES[:2]))[1])
+        review_file, _ = self.v2_review(base)
+        self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 2})
+        self.assertEqual(self.publish(self.release([review_file]))['counts'], {'published': 2})
+        for sid in SOURCES[:2]:
+            record = bulk.load_record(self.paths, sid)
+            provider = self.provider.records[record['identity']['id']]
+            wire = parse(bulk.prepare_entry(self.paths, record).body)
+            self.assertEqual((record['phase'], record['wire_version']), ('published', 2))
+            self.assertEqual((provider['metadata'], provider['access']), (wire['metadata'], wire['access']))
+        with self.assertRaises(Held):  # nothing is left for an update
+            self.update_release([review_file])
+
+    def test_published_v1_records_are_updated_in_place_exactly_once(self):
+        base = self.published_v1('bulk-052', list(SOURCES[:2]))
+        before = {sid: bulk.load_record(self.paths, sid) for sid in SOURCES[:2]}
+        review_file, sheet = self.v2_review(base)
+        release_file = self.update_release([review_file])
+        start = len(self.provider.calls)
+        self.assertEqual(self.update(release_file)['counts'], {'updated': 2})
+        writes = [(m, p) for m, p in self.provider.calls[start:] if m != 'GET']
+        expected = []
+        for sid in SOURCES[:2]:
+            record = bulk.load_record(self.paths, sid)
+            row = next(r for r in sheet['rows'] if r['source_id'] == sid)
+            self.assertEqual((record['phase'], record['wire_version'], record['wire_sha256']), ('published', 2,
+                                                                                                 row['wire_sha256']))
+            self.assertEqual((record['identity'], record['pids']), (before[sid]['identity'], before[sid]['pids']))
+            self.assertEqual(record['update']['previous']['wire_sha256'], before[sid]['wire_sha256'])
+            self.assertEqual([record['counts'][k] for k in ('edit', 'update', 'publish')], [1, 1, 1])
+            provider = self.provider.records[record['identity']['id']]
+            wire = parse(bulk.prepare_entry(self.paths, record).body)
+            self.assertEqual((provider['metadata'], provider['access'], provider['edit']),
+                             (wire['metadata'], wire['access'], None))
+            path = '/api/records/' + record['identity']['id'] + '/draft'
+            expected += [('POST', path), ('PUT', path), ('POST', path + '/actions/publish')]
+        self.assertEqual(writes, expected)
+        start = len(self.provider.calls)
+        self.assertEqual(self.update(release_file)['counts'], {'already-updated': 2})
+        self.assertEqual(self.provider.calls[start:], [])
+
+    def test_update_holds_before_saving_when_the_published_record_changed_elsewhere(self):
+        release_file, start = self.ready_update('bulk-053', SOURCES[0])
+        record = bulk.load_record(self.paths, SOURCES[0])
+        self.provider.records[record['identity']['id']]['metadata']['title'] = 'Changed by hand'
+        result = self.update(release_file)
+        self.assertEqual(result['counts'], {'held': 1})
+        self.assertIn('published wire', result['holds'][0]['reason'])
+        self.assertEqual([m for m, _ in self.provider.calls[start:] if m != 'GET'], ['POST'])
+        self.assertEqual(bulk.load_record(self.paths, SOURCES[0])['phase'], 'editing')
+
+    def test_lost_update_answer_is_observed_and_never_sent_twice(self):
+        release_file, start = self.ready_update('bulk-054', SOURCES[0])
+        self.provider.lose_at = start + 2  # community, edit, then the PUT takes effect and its answer is lost
+        self.assertEqual(self.update(release_file)['status'], 'stopped')
+        self.provider.lose_at = None
+        self.assertEqual(bulk.load_record(self.paths, SOURCES[0])['phase'], 'edit-open')
+        before = len(self.provider.calls)
+        outcome = self.runner('reconcile').reconcile(SOURCES[0])
+        self.assertTrue(all(m == 'GET' for m, _ in self.provider.calls[before:]))
+        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('edit-saved', []))
+        self.assertEqual(self.update(release_file)['counts'], {'updated': 1})
+        self.assertEqual([m for m, _ in self.provider.calls[start:] if m != 'GET'], ['POST', 'PUT', 'POST'])
+
+    def test_lost_publish_answer_completes_by_readback_only(self):
+        release_file, start = self.ready_update('bulk-055', SOURCES[0])
+        self.provider.lose_at = start + 3
+        self.assertEqual(self.update(release_file)['status'], 'stopped')
+        self.provider.lose_at = None
+        outcome = self.runner('reconcile').reconcile(SOURCES[0])
+        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('edit-published', []))
+        before = len(self.provider.calls)
+        self.assertEqual(self.update(release_file)['counts'], {'updated': 1})
+        self.assertTrue(all(m == 'GET' for m, _ in self.provider.calls[before:]))
+
+    def test_edit_that_never_arrived_is_allowed_once_more_and_a_lost_edit_answer_is_adopted(self):
+        release_file, start = self.ready_update('bulk-056', SOURCES[0])
+        self.provider.fail_at = start + 1  # the edit request never reaches the provider
+        self.assertEqual(self.update(release_file)['status'], 'stopped')
+        self.provider.fail_at = None
+        outcome = self.runner('reconcile').reconcile(SOURCES[0])
+        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('editing', ['edit']))
+        self.provider.lose_at = len(self.provider.calls) + 1  # this time the edit opens and its answer is lost
+        self.assertEqual(self.update(release_file)['status'], 'stopped')
+        self.provider.lose_at = None
+        outcome = self.runner('reconcile').reconcile(SOURCES[0])
+        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('edit-open', []))
+        self.assertEqual(self.update(release_file)['counts'], {'updated': 1})
+        record = bulk.load_record(self.paths, SOURCES[0])
+        self.assertEqual([record['counts'][k] for k in ('edit', 'update', 'publish')], [2, 1, 1])
+        self.assertRaises(Held, self.runner('reconcile').reconcile, SOURCES[0])  # only held records
+
+    def test_pair_record_is_updated_with_both_originals(self):
+        base = self.pair_review('pairs-050', PAIR_TARGET)
+        self.drafts(base)
+        self.assertEqual(self.publish(self.release([base], name='release-pairs-050'))['counts'], {'published': 1})
+        review_file, sheet = self.v2_review(base)
+        self.assertEqual(sheet['rows'][0]['target']['source_ids'], list(PAIR))
+        self.assertEqual(self.update(self.update_release([review_file]))['counts'], {'updated': 1})
+        record = bulk.load_record(self.paths, PAIR[0])
+        provider = self.provider.records[record['identity']['id']]
+        self.assertEqual((record['wire_version'], sorted(provider['files'])), (2, [s + '.xml' for s in PAIR]))
+        self.assertIn('FGDC-2953 and FGDC-3181 (identical records)',
+                      provider['metadata']['additional_descriptions'][-1]['description'])
+
+    def test_releases_keep_their_action_and_older_records_load_with_unspent_edits(self):
+        base = self.published_v1('bulk-057', [SOURCES[0]])
+        release_file = self.update_release([self.v2_review(base)[0]])
+        self.assertRaises(Held, bulk.load_release, self.paths, release_file)  # not a publication release
+        old = bulk.bulk_root(self.paths) / 'releases' / 'release-bulk-057.json'
+        self.assertRaises(Held, bulk.load_release, self.paths, old, 'update')
+        path = bulk.record_path(self.paths, SOURCES[0])
+        document = json.loads(path.read_text())
+        for kind in bulk.EDIT_WRITES:
+            del document['counts'][kind]
+        path.write_text(json.dumps(document))
+        self.assertEqual([bulk.load_record(self.paths, SOURCES[0])['counts'][k] for k in bulk.EDIT_WRITES], [0, 0, 0])
+
+    def test_update_reads_the_keychain_as_its_own_action(self):
+        with patch.object(bulk.draft, 'production_token', return_value=TOKEN) as token, \
+                patch.object(bulk.draft, 'Transport', return_value='transport'):
+            bulk.transport_and_token('update', 'pices-zenodo-production')
+            token.assert_called_with('Zenodo production token (update): ', 'pices-zenodo-production',
+                                     action='bulk-update')
+            bulk.transport_and_token('update', None)
+            token.assert_called_with('Zenodo production token (update): ', None, action='publish')
+        self.assertIn('bulk-update', draft.KEYCHAIN_ACTIONS)
 
 
 def result_outcomes(paths, result):

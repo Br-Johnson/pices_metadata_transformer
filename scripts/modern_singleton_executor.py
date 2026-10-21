@@ -66,7 +66,8 @@ TOKEN_HELD = ('{"held":true,"stage":"token","instruction":"No attempt was starte
               'requested for publish); fix that and rerun"}')
 # 'bulk-publish' is the bulk route's publish stage, which Brett allowed to read the Keychain on
 # 2026-10-20 (ADR 0013); the single-record publisher's 'publish' keeps its live prompt.
-KEYCHAIN_ACTIONS = frozenset({'execute', 'resume', 'readback', 'capture', 'observe', 'inventory', 'bulk-publish'})
+KEYCHAIN_ACTIONS = frozenset({'execute', 'resume', 'readback', 'capture', 'observe', 'inventory', 'bulk-publish',
+                              'bulk-update'})
 # Runtimes under which a started row may be resumed after the live runtime changed:
 # the first PICES26 create (FGDC-1319) and the PICES26 draft batch (FGDC-1938).
 RESUME_RUNTIMES = ('e23b81aba71ac50d348f25c60d4ac4c1d60bd88e3dc89f356d5599597d3d023c',
@@ -79,7 +80,9 @@ def production_token(prompt, keychain=None, *, action):
 
     Both routes need a Mac terminal. The Keychain route lets the sole Mac executor
     run without anyone typing the token; the item must already exist, and only
-    the listed read, draft and capture actions may use it, never publish. The value stays in memory and is
+    the listed actions may use it: read, draft and capture actions, and the bulk
+    route's publish and update stages (ADR 0013, ADR 0014), never the single-record
+    publish action. The value stays in memory and is
     never logged; a missing item, failed lookup or malformed value holds before
     any attempt can be spent.
     """

@@ -11,8 +11,21 @@ Brett's goal (2026-10-20): publish all appropriate records to production Zenodo,
 - [x] All reviews recorded in the production state root: bulk-001..016 (3,603 approved; FGDC-1939 and the 24 CO2 sources held there), bulk-017 (24 approved), pairs-001 (203 approved): 3,830 records, 4,033 sources. An offline simulation of the run-time twin checks passes for every batch in order.
 - [ ] Draft stage per batch (Keychain token), release document, publish stage (token typed by Brett once per run), post-run inventory check. The app's auto-mode classifier refuses provider-touching runs from the Claude session, so Brett runs `pices-production-operations/bin/pices-bulk.sh` in his own terminal (or allows the session to run it).
 - [x] Two-file pairs: `plan-pairs`, per-file upload spending and partial-upload reconcile, after an independent review (three P1 and two P2 findings resolved); ten pair title twins adjudicated distinct and recorded as allowances; the 406 pair inputs copied to the production root.
+- [x] Bulk runs through bulk-011, 2026-10-20: 2,515 records published into PICES with DOIs. FGDC-2599 is a verified v1 draft. No holds and no uncertain receipts. Paused at Brett's request.
+- [x] Brett's browser spot check led to the v2 mapping decisions (eight answers, 2026-10-20). Delivered:
+  - [ADR 0014](adr/0014-v2-wire-and-in-place-update.md) and `scripts/modern_wire_v2.py`;
+  - the pinned classification in [resource_types.json](readiness/2026-10-20/resource_types.json): eight reviewer agents, 1,952 datasets, 1,878 reports, 188 low confidence;
+  - `plan-v2`, v2 creates, and the in-place `update` stage with reconcile in `scripts/modern_bulk.py`;
+  - 52 offline contracts in `tests/test_modern_bulk.py` and `tests/test_modern_wire_v2.py`.
+
+  All 3,823 publishable records build, pass the pinned schema and survive the emulated sanitiser unchanged.
+- [ ] Independent review of the v2 change, commit, CI.
+- [ ] Canary: update one published record (`release-update --only`) and show it to Brett in the browser before any scaled run.
+- [ ] Build v2 sheets and AI accuracy reviews for bulk-001..017 and pairs-001.
+- [ ] Publish the members not yet drafted in v2 (bulk-011 rest, bulk-012..017, pairs-001). Publish FGDC-2599 from its v1 draft.
+- [ ] Update the 2,516 v1 records in place.
 - [ ] FGDC-141's unknown create stays outside until its own decision.
-- [ ] Repair the source text of the seven sanitiser-altered records (FGDC-2570, 2583, 2588, 2589, 2591, 2733, 2768) and FGDC-1939's cut keyword, then publish them through a reviewed metadata-edit or new-draft step.
+- [ ] Repair the source text of the seven sanitiser-altered records (FGDC-2570, 2583, 2588, 2589, 2591, 2733, 2768) and FGDC-1939's cut keyword, then publish them through a reviewed metadata-edit or new-draft step. FGDC-1939's existing draft could take its v2 wire by a draft PUT; that step is not built.
 
 ## Earlier increment: identify the production client to Zenodo's edge — 2026-10-06
 

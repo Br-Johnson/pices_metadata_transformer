@@ -93,3 +93,47 @@ held after a request is observed with
 whose effect is absent to be sent once more by the next run. A lost create is
 bound from the inventory when its draft appears; otherwise reconcile must see
 absence twice, ten minutes apart, before the next run may re-send it.
+
+## Second wire (v2) and in-place updates — ADR 0014
+
+[ADR 0014](../../adr/0014-v2-wire-and-in-place-update.md) carries Brett's 2026-10-20 mapping
+decisions: FGDC content in real Zenodo fields, a public XML file without a license, a
+Dataset or Report type from the pinned classification, and no title suffix.
+
+The review sheet for a batch, offline. It holds the approved members of the v1 review with
+their v2 wires:
+
+```bash
+python -B -m scripts.modern_bulk plan-v2 --output-dir "$OUTPUT" --base-review "$OUTPUT/state/uploads/production/bulk-v1/reviews/bulk-NNN.review.json" --built-by "<builder>"
+```
+
+A reviewer agent other than the builder checks the new fields of every flagged and sampled
+row against `FGDC/<id>.xml`. Those fields are the type, publication date, dates, map,
+contributors, rights, notes, links and references. The agent records the decisions with
+`review --batch-id bulk-NNN-v2`.
+
+**Members not yet drafted.** Run `drafts`, `release` and `publish` with the `bulk-NNN-v2`
+review exactly as above. The records are created and published in the v2 form.
+
+**Records already published with v1.** Build an update release from the same review, then
+run the update:
+
+```bash
+python -B -m scripts.modern_bulk release --output-dir "$OUTPUT" --action update --name update-NNN --review <v2 review>... [--only FGDC-N] --authority "Brett Johnson" --instruction "<Brett's question 8 answer>" --instructed-at 2026-10-20 --prepared-by "<operator>"
+python -B -m scripts.modern_bulk update --output-dir "$OUTPUT" --release "$OUTPUT/state/uploads/production/bulk-v1/releases/update-NNN.json" --owner 266679 --token-keychain pices-zenodo-production
+```
+
+Each update sends these requests:
+
+1. Edit POST. The edit draft must equal the published v1 record.
+2. Draft PUT with the v2 wire, the record's own DOI pids and its custom fields.
+3. Publish POST.
+4. GET of the record.
+5. GET of its files.
+
+The DOI stays the same and the record gets a new revision. A record somebody changed by
+hand holds before anything is saved. `reconcile` observes a held update by GET only.
+
+The wrapper has matching commands: `pices-bulk.sh plan-v2 BATCH...`,
+`release-update NAME [--only FGDC-N]... BATCH-v2...` and `update NAME`. Update one record
+as a canary, and show it to Brett before any scaled run.

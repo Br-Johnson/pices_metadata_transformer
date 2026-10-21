@@ -1,8 +1,9 @@
-"""Bulk draft and publication route for reviewed records (ADR 0013).
+"""Bulk draft and publication route for reviewed records (ADR 0013, ADR 0014).
 
 Purpose: carry reviewed, validation-passing singletons from prepared inputs to
 published records in the PICES community in batches, with one journal file per
-record instead of the single-record chain's per-record grant documents.
+record instead of the single-record chain's per-record grant documents; and edit
+published v1 records in place to their reviewed v2 wire (same DOI, new revision).
 
 Invariants:
 - Every provider request is journaled as `uncertain` before dispatch, and every
@@ -47,6 +48,7 @@ from scripts import modern_batch as batch
 from scripts import modern_content_class as content_class
 from scripts import modern_operator as operator
 from scripts import modern_singleton_executor as draft
+from scripts import modern_wire_v2 as wire_v2
 from scripts.modern_draft_schema import expected_empty_file_warning
 from scripts.modern_publication import pids as published_pids
 from scripts.modern_publication import validate_request
@@ -73,10 +75,14 @@ RUN_KIND = 'modern-bulk-run-v1'
 EXCLUSION_KIND = 'modern-bulk-exclusion-v1'
 PICES_COMMUNITY = '92279449-f6e1-422d-8610-40802567c58b'
 JSON_MEDIA = 'application/json'
-WRITES = ('create', 'init', 'content', 'commit', 'review', 'submit')
+WRITES = ('create', 'init', 'content', 'commit', 'review', 'submit', 'edit', 'update', 'publish')
 LIMITS = dict.fromkeys(WRITES, 1) | {'get': 40}
+EDIT_WRITES = ('edit', 'update', 'publish')  # the in-place update of a published record (ADR 0014)
 PHASES = ('planned', 'creating', 'created', 'initialized', 'uploaded', 'draft-verified', 'adopted',
-          'review-set', 'accepted', 'published')
+          'review-set', 'accepted', 'published', 'editing', 'edit-open', 'edit-saved', 'edit-published')
+UPDATING = ('editing', 'edit-open', 'edit-saved', 'edit-published')
+RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-20/resource_types.json'
+RESOURCE_TYPES_SHA = '7c933607ba7b5ab5af4f2c3038d69d9820619f0939f33f300a60c8996af1c3a6'
 DRAFTED = ('draft-verified', 'adopted', 'review-set', 'accepted', 'published')
 PACE_SECONDS = 0.8
 INVENTORY_REFRESH = timedelta(minutes=45)
@@ -158,10 +164,15 @@ def load_record(paths, source_id):
     if not path.exists():
         return None
     document, _ = draft.read_document(path)
+    counts = document.get('counts') if isinstance(document, dict) else None
+    if isinstance(counts, dict) and set(LIMITS) - set(counts) == set(EDIT_WRITES) and set(counts) < set(LIMITS):
+        # Forward migration: a record journaled before the update stage existed spent none of its writes.
+        document['counts'] = {**counts, **dict.fromkeys(EDIT_WRITES, 0)}
     require(isinstance(document, dict) and document.get('kind') == RECORD_KIND
             and document.get('schema_version') == 1 and document.get('source_id') == source_id
             and document.get('phase') in PHASES and isinstance(document.get('requests'), list)
             and isinstance(document.get('counts'), dict) and set(document['counts']) == set(LIMITS)
+            and document.get('wire_version', 1) in (1, 2)
             and isinstance(document.get('allowances'), dict) and set(document['allowances']) <= set(WRITES)
             and all(type(v) is int and 0 < v <= MAX_ALLOWANCE * (len(files_of(document)) if k in ('content', 'commit')
                                                                   else 1)
@@ -201,6 +212,7 @@ def new_record(source_id, member, origin):
             **({'files': member['files'], 'target': member['target']} if member.get('target')
                else {'file': member['file']}),
             'review_sha256': member['review_sha256'], 'batch_id': member['batch_id'],
+            'wire_version': member.get('wire_version', 1),
             'identity': None, 'candidate_id': None, 'phase': 'planned', 'hold': None,
             'counts': dict.fromkeys(LIMITS, 0), 'allowances': {}, 'requests': [], 'draft_revision': None,
             'request_id': None, 'request_status': None, 'release_sha256': None, 'pids': None,
@@ -248,10 +260,38 @@ def pair_now(paths, target):
     return pair
 
 
-def prepare_entry(paths, entry):
-    """Live preparation of a member or record: a singleton source or a pair target."""
+def resource_types():
+    """The reviewed Dataset or Report classification, by first source id (pinned)."""
+    raw = RESOURCE_TYPES_PATH.read_bytes()
+    require(RESOURCE_TYPES_SHA is not None and sha(raw) == RESOURCE_TYPES_SHA)
+    document = parse(raw)
+    require(document.get('kind') == 'pices-resource-types-v1' and isinstance(document.get('types'), dict))
+    return document['types']
+
+
+class WireV2:
+    """A prepared source or pair with its v2 wire (ADR 0014); originals and evidence unchanged."""
+    wire_version = 2
+
+    def __init__(self, base, resource_type):
+        self.source_id = base.source_id
+        self.source_ids = list(getattr(base, 'source_ids', [base.source_id]))
+        self.record_target_id = getattr(base, 'record_target_id', None)
+        self.xml = base.xml
+        self.contents = contents_of(base)
+        self.v1_body = base.body
+        self.body = encode(wire_v2.build(parse(base.body), base.xml, self.source_ids, resource_type))
+        self.evidence = {**base.evidence, 'wire_version': 2, 'v1_wire_sha256': sha(base.body),
+                         'resource_type': resource_type}
+
+
+def prepare_entry(paths, entry, wire_version=None):
+    """Live preparation of a member or record: a singleton source or a pair target, at its wire version."""
     target = entry.get('target')
-    return pair_now(paths, target) if target else member_now(paths, entry['source_id'])
+    base = pair_now(paths, target) if target else member_now(paths, entry['source_id'])
+    if (wire_version or entry.get('wire_version', 1)) == 2:
+        return WireV2(base, resource_types()[base.source_id])
+    return base
 
 
 def contents_of(prepared):
@@ -289,17 +329,18 @@ def creator_name(creator):
     return person.get('name', '')
 
 
-def flags_for(source, wire):
+def flags_for(source, wire, wire_version=1):
     """Automatic signals for the reviewer; a flag is a reason to look, not a verdict."""
     meta = wire['metadata']
     flags = []
     core = batch.title_key(meta['title'])
     if core != ' '.join(source['title'].casefold().split()):
         flags.append('title_differs_from_source')
-    # The record describes the XML artifact, so its publication date is the metadata date (metd).
+    # v1 describes the XML artifact, so its publication date is the metadata date (metd); v2 takes the
+    # citation date when it is exact (ADR 0014), which v2_flags checks instead.
     metadata_date = re.sub(r'\D', '', source.get('metadata_date', ''))
     wire_date = meta['publication_date'].replace('-', '')
-    if not metadata_date or metadata_date[:len(wire_date)] != wire_date:
+    if wire_version == 1 and (not metadata_date or metadata_date[:len(wire_date)] != wire_date):
         flags.append('publication_date_differs_from_metadata_date')
     description = meta['description']
     if len(description) < 50:
@@ -322,8 +363,53 @@ def flags_for(source, wire):
     return flags
 
 
-def sheet_row(paths, source_id):
-    prepared = member_now(paths, source_id)
+def v2_summary(prepared):
+    """What the reviewer checks in a v2 wire, beside the source fields."""
+    meta = parse(prepared.body)['metadata']
+    location = (meta.get('locations') or {}).get('features', [{}])[0]
+    geometry = location.get('geometry') or {}
+    polygons = {'Polygon': [geometry.get('coordinates')], 'MultiPolygon': geometry.get('coordinates')}.get(
+        geometry.get('type'), [])
+    span = sum(max(x for x, _ in polygon[0]) - min(x for x, _ in polygon[0]) for polygon in polygons)
+    texts = [d['description'] for d in meta['additional_descriptions']] + [
+        r['description']['en'] for r in meta.get('rights', [])]
+    return {'resource_type': meta['resource_type']['id'], 'publication_date': meta['publication_date'],
+            'dates': [d['date'] for d in meta.get('dates', [])],
+            'location': location.get('description', ''), 'geometry': geometry.get('type'),
+            'longitude_span': round(span, 2),
+            'contact_details_removed': any(wire_v2.EMAIL_MARK in t for t in texts),
+            'contributors': [creator_name(c) + ' (' + c['role']['id'] + ', ' + c['person_or_org']['type'] + ')'
+                             for c in meta.get('contributors', [])],
+            'rights': (meta.get('rights') or [{}])[0].get('description', {}).get('en', '')[:300],
+            'notes': [d['type']['id'] + ': ' + re.sub('<[^>]+>', ' ', d['description'])[:400]
+                      for d in meta['additional_descriptions']],
+            'related_identifiers': [r['identifier'] for r in meta.get('related_identifiers', [])],
+            'references': [r['reference'][:200] for r in meta.get('references', [])]}
+
+
+def v2_flags(source, summary):
+    """Signals for the new v2 fields; the v1 signals of the same row still apply."""
+    flags = []
+    if not summary['dates'] and source.get('time_period'):
+        flags.append('time_period_not_mapped')
+    if not summary['geometry']:
+        flags.append('no_map')
+    if summary['resource_type'] == 'publication-report' and summary['dates']:
+        flags.append('report_with_collection_dates')
+    if any(text.startswith('technical-info') and 'as given' in text for text in summary['notes']):
+        flags.append('value_kept_as_text')
+    if summary['longitude_span'] > 180 and summary['longitude_span'] < 360:
+        flags.append('wide_box')
+    if summary['contact_details_removed']:
+        flags.append('contact_details_removed')
+    cited = re.sub(r'\D', '', source.get('pubdate', ''))
+    if summary['publication_date'].replace('-', '') not in (cited, re.sub(r'\D', '', source.get('metadata_date', ''))):
+        flags.append('publication_date_reformatted')
+    return flags
+
+
+def sheet_row(paths, source_id, wire_version=1):
+    prepared = prepare_entry(paths, {'source_id': source_id}, wire_version)
     wire = parse(prepared.body)
     meta = wire['metadata']
     source = xml_fields(prepared.xml)
@@ -334,11 +420,20 @@ def sheet_row(paths, source_id):
             'wire': {'title': meta['title'], 'creators': [creator_name(c) for c in meta['creators']],
                      'publication_date': meta['publication_date'], 'description': meta['description'][:500],
                      'description_length': len(meta['description']), 'subjects': len(meta['subjects'])},
-            'flags': flags_for(source, wire)}
+            'flags': flags_for(source, wire, wire_version)} | v2_row_extra(prepared, source, wire_version)
 
 
-def pair_row(paths, target):
-    prepared = pair_now(paths, target)
+def v2_row_extra(prepared, source, wire_version):
+    if wire_version != 2:
+        return {}
+    summary = v2_summary(prepared)
+    wire = parse(prepared.body)
+    return {'wire_version': 2, 'v1_wire_sha256': prepared.evidence['v1_wire_sha256'], 'v2': summary,
+            'flags': flags_for(source, wire, 2) + v2_flags(source, summary)}
+
+
+def pair_row(paths, target, wire_version=1):
+    prepared = prepare_entry(paths, {'target': target}, wire_version)
     wire = parse(prepared.body)
     meta = wire['metadata']
     source = xml_fields(prepared.xml)
@@ -351,7 +446,7 @@ def pair_row(paths, target):
                      'publication_date': meta['publication_date'], 'description': meta['description'][:500],
                      'description_length': len(meta['description']),
                      'subjects': [s['subject'] for s in meta['subjects']]},
-            'flags': flags_for(source, wire)}
+            'flags': flags_for(source, wire, wire_version)} | v2_row_extra(prepared, source, wire_version)
 
 
 def pair_twins(paths, rows):
@@ -363,11 +458,11 @@ def pair_twins(paths, rows):
     return batch.resolve_twins(facts, attempted, [], batch.load_registry(paths))
 
 
-def build_pair_sheet(paths, batch_id, targets, built_by, reviewed_at, now=utc_now):
+def build_pair_sheet(paths, batch_id, targets, built_by, reviewed_at, now=utc_now, wire_version=1):
     """Review sheet for reviewed pairs, with the twin check against every journal and each other."""
     require(re.fullmatch(batch.BATCH_ID, batch_id) is not None and 0 < len(targets) <= batch.MAX_MEMBERS)
     draft.instant(reviewed_at)
-    rows = [pair_row(paths, {'record_target_id': t, 'reviewed_at': reviewed_at}) for t in targets]
+    rows = [pair_row(paths, {'record_target_id': t, 'reviewed_at': reviewed_at}, wire_version) for t in targets]
     ids = [sid for row in rows for sid in row['target']['source_ids']]
     require(len(set(ids)) == len(ids))
     twins, used = pair_twins(paths, rows)
@@ -382,8 +477,8 @@ def build_pair_sheet(paths, batch_id, targets, built_by, reviewed_at, now=utc_no
             'allowances': [a['origin'] for a in used], 'rows': rows}
 
 
-def build_sheet(paths, manifest, manifest_sha, built_by, now=utc_now):
-    rows = [sheet_row(paths, member['source_id']) for member in manifest['members']]
+def build_sheet(paths, manifest, manifest_sha, built_by, now=utc_now, wire_version=1):
+    rows = [sheet_row(paths, member['source_id'], wire_version) for member in manifest['members']]
     flagged = [row['source_id'] for row in rows if row['flags']]
     others = sorted({row['source_id'] for row in rows} - set(flagged), key=batch.by_number)
     size = min(len(others), max(SAMPLE_MIN, math.ceil(SAMPLE_FRACTION * len(rows))))
@@ -393,6 +488,40 @@ def build_sheet(paths, manifest, manifest_sha, built_by, now=utc_now):
             'manifest_sha256': manifest_sha, 'membership_sha256': manifest['membership_sha256'],
             'built_by': built_by, 'built_at': now().isoformat(), 'member_count': len(rows),
             'flagged': flagged, 'sample': sample, 'rows': rows}
+
+
+def build_v2_sheet(paths, base_review, built_by, now=utc_now):
+    """The v2 review sheet for the approved members of a reviewed v1 batch (ADR 0014).
+
+    Membership, twins and duplicates were settled by the base review; this sheet carries the same
+    originals with their v2 wires for the accuracy review of the new fields. Excluded and
+    protected sources are left out and listed.
+    """
+    review, review_sha, order, members = load_review(paths, base_review)
+    require(review.get('wire_version', 1) == 1 and not review['batch_id'].endswith('-v2'))
+    barred = set(exclusions(paths)) | set(PROTECTED)
+    rows, skipped = [], []
+    for sid in order:
+        member = members[sid]
+        if not member['approved'] or set(source_ids_of(member)) & barred:
+            skipped.append(sid)
+            continue
+        row = pair_row(paths, member['target'], 2) if member.get('target') else sheet_row(paths, sid, 2)
+        require(row['source_id'] == sid and row['source_sha256'] == member['source_sha256']
+                and row['v1_wire_sha256'] == member['wire_sha256'] and files_of(row) == files_of(member))
+        rows.append(row)
+    require(rows)
+    membership = sha(encode([[row['source_id'], row['wire_sha256']] for row in rows]))
+    flagged = [row['source_id'] for row in rows if row['flags']]
+    others = sorted({row['source_id'] for row in rows} - set(flagged), key=batch.by_number)
+    size = min(len(others), max(SAMPLE_MIN, math.ceil(SAMPLE_FRACTION * len(rows))))
+    sample = sorted(random.Random(membership).sample(others, size), key=batch.by_number)
+    return {'schema_version': 1, 'kind': SHEET_KIND, 'batch_id': review['batch_id'] + '-v2', 'wire_version': 2,
+            'base_review': {'path': str(Path(base_review).resolve()), 'sha256': review_sha,
+                            'batch_id': review['batch_id']},
+            'manifest_sha256': None, 'membership_sha256': membership, 'built_by': built_by,
+            'built_at': now().isoformat(), 'member_count': len(rows), 'flagged': flagged, 'sample': sample,
+            'skipped': skipped, 'rows': rows}
 
 
 def sheet_path(paths, batch_id):
@@ -455,12 +584,38 @@ def load_review(paths, path):
                                      'wire_sha256': row['wire_sha256'],
                                      **({'files': row['files'], 'target': row['target']} if row.get('target')
                                         else {'file': row['file']}),
+                                     'wire_version': row.get('wire_version', 1),
                                      'review_sha256': review_sha, 'batch_id': sheet['batch_id'],
                                      'approved': review['decisions'][row['source_id']]['decision'] == 'approved'}
     return review, review_sha, [row['source_id'] for row in sheet['rows']], members
 
 
 # ---------------------------------------------------------------- provider checks
+
+def compare_wire(actual, prepared):
+    """The provider's metadata equals this wire (v1 or v2 rules); any difference holds the record."""
+    expected = parse(prepared.body)['metadata']
+    try:
+        if getattr(prepared, 'wire_version', 1) == 2:
+            wire_v2.compare(actual, expected)
+        else:
+            compare_metadata(actual, expected)
+    except (Held, KeyError, TypeError, AttributeError, ValueError):
+        raise Held('metadata differs') from None
+
+
+def expected_access(prepared):
+    """Access as the wire sets it: v1 keeps the XML restricted, v2 makes it public (Brett, 2026-10-20)."""
+    access = parse(prepared.body)['access']
+    require(access in ({'record': 'public', 'files': 'restricted'}, {'record': 'public', 'files': 'public'}))
+    return access
+
+
+def access_matches(access, prepared):
+    wanted = expected_access(prepared)
+    return (isinstance(access, dict) and access.get('record') == wanted['record']
+            and access.get('files') == wanted['files'] and not (access.get('embargo') or {}).get('active'))
+
 
 def identity_of(data):
     parent = data.get('parent') if isinstance(data.get('parent'), dict) else {}
@@ -496,11 +651,10 @@ def check_draft(data, prepared, record, owner, *, files_complete, status='draft'
     check(data.get('links', {}).get('self') == draft.ORIGIN + base
           and data.get('links', {}).get('files') == draft.ORIGIN + base + '/files', 'draft links differ')
     try:
-        compare_metadata(data.get('metadata'), parse(prepared.body)['metadata'])
+        compare_wire(data.get('metadata'), prepared)
     except Held:
         raise RecordHold('provider metadata differs from the wire') from None
-    access = data.get('access', {})
-    check(access.get('record') == 'public' and access.get('files') == 'restricted', 'access differs')
+    check(access_matches(data.get('access', {}), prepared), 'access differs')
     files = data.get('files', {})
     expected = files_of(record)
     entries = files.get('entries') if isinstance(files.get('entries'), dict) else None
@@ -539,11 +693,10 @@ def check_published(data, prepared, record, owner, communities):
     base = '/api/records/' + record['identity']['id']
     check(data.get('links', {}).get('self') == draft.ORIGIN + base, 'published links differ')
     try:
-        compare_metadata(data.get('metadata'), parse(prepared.body)['metadata'])
+        compare_wire(data.get('metadata'), prepared)
     except Held:
         raise RecordHold('published metadata differs from the wire') from None
-    access = data.get('access', {})
-    check(access.get('record') == 'public' and access.get('files') == 'restricted', 'published access differs')
+    check(access_matches(data.get('access', {}), prepared), 'published access differs')
     files = data.get('files', {})
     expected = files_of(record)
     check(files.get('enabled') is True and isinstance(files.get('entries'), dict)
@@ -563,6 +716,53 @@ def check_published(data, prepared, record, owner, communities):
         raise RecordHold('published DOI pids are incomplete') from None
 
 
+def check_edit_draft(data, prepared, record, owner, communities, *, saved=False):
+    """An edit draft of a published record: same identity and DOIs, this wire, the original files."""
+    identity = record['identity']
+    parent = data.get('parent', {}) if isinstance(data, dict) else {}
+    check(isinstance(data, dict) and data.get('id') == identity['id'] and data.get('is_published') is True
+          and data.get('status') == 'published' and parent.get('id') == identity['parent_id']
+          and parent.get('access', {}).get('owned_by', {}).get('user') == owner
+          and data.get('versions', {}).get('index') == 1, 'edit draft state or identity differs')
+    base = '/api/records/' + identity['id'] + '/draft'
+    check(data.get('links', {}).get('self') == draft.ORIGIN + base, 'edit draft links differ')
+    check({'record': data.get('pids'), 'parent': parent.get('pids')} == record['pids'], 'edit draft DOI pids differ')
+    try:
+        compare_wire(data.get('metadata'), prepared)
+    except Held:
+        raise RecordHold('edit draft metadata differs from the ' + ('reviewed v2 wire' if saved else 'published wire'))\
+            from None
+    check(access_matches(data.get('access', {}), prepared), 'edit draft access differs')
+    files = data.get('files', {})
+    expected = files_of(record)
+    entries = files.get('entries') if isinstance(files.get('entries'), dict) else None
+    check(files.get('enabled') is True and entries is not None and set(entries) == {f['key'] for f in expected}
+          and files.get('count') == len(expected) and files.get('total_bytes') == sum(f['size'] for f in expected),
+          'edit draft files differ')
+    for f in expected:
+        check_file_entry(entries[f['key']], f)
+    if saved:
+        check(data.get('errors', []) == [], 'edit draft reports validation errors')
+    membership = parent.get('communities', {})
+    check(isinstance(membership, dict) and sorted(membership.get('ids') or []) == sorted(communities)
+          and membership.get('default') == PICES_COMMUNITY, 'edit draft community differs')
+    revision = data.get('revision_id')
+    check(type(revision) is int and revision >= 1, 'edit draft revision missing')
+    return revision
+
+
+def carried_of(data):
+    """What the update PUT keeps from the edit draft: its DOI pids and custom fields."""
+    custom = data.get('custom_fields') or {}
+    check(isinstance(data.get('pids'), dict) and isinstance(custom, dict), 'edit draft pids or custom fields differ')
+    return {'pids': data['pids'], 'custom_fields': custom}
+
+
+def update_body(prepared, carried):
+    """The v2 wire with the record's own DOI pids and custom fields, so the update changes nothing else."""
+    return encode({**parse(prepared.body), 'pids': carried['pids'], 'custom_fields': carried['custom_fields']})
+
+
 # ---------------------------------------------------------------- runner
 
 class Bulk:
@@ -570,7 +770,7 @@ class Bulk:
 
     def __init__(self, paths, transport, token, *, owner, stage, now=utc_now, clock=time.monotonic,
                  sleep=time.sleep, pace=PACE_SECONDS, captured_by='modern_bulk'):
-        require(stage in ('drafts', 'publish', 'reconcile'))
+        require(stage in ('drafts', 'publish', 'reconcile', 'update'))
         require(isinstance(token, str) and 16 <= len(token) <= 4096 and all(33 <= ord(c) <= 126 for c in token))
         require(isinstance(owner, str) and re.fullmatch('[1-9][0-9]{0,19}', owner) is not None)
         self.paths, self.transport, self.token, self.owner, self.stage = paths, transport, token, owner, stage
@@ -835,7 +1035,7 @@ class Bulk:
         if record is not None:
             if record['hold'] is not None:
                 return 'held-earlier'
-            if record['phase'] in DRAFTED:
+            if record['phase'] in DRAFTED + UPDATING:
                 return 'already-drafted'
             if any(r.get('status') == 'uncertain' for r in record['requests']):
                 self.hold(record, 'a request was interrupted before its answer was recorded; reconcile it')
@@ -870,7 +1070,7 @@ class Bulk:
                 record = new_record(sid, member, 'bulk')
             else:  # released from an earlier barrier hold; bind it to the current review
                 record.update({k: member[k] for k in ('source_sha256', 'wire_sha256', 'file', 'files', 'target',
-                                                       'review_sha256', 'batch_id') if k in member})
+                                                       'review_sha256', 'batch_id', 'wire_version') if k in member})
             claim = self.legacy_claims(sid)
             if claim is not None:
                 self.hold(record, claim + ' exists for this source')
@@ -1022,6 +1222,77 @@ class Bulk:
             return 'published'
         raise RecordHold(f'unexpected phase {record["phase"]}')
 
+    def update_member(self, source_id, release_sha, member):
+        """Edit one published v1 record in place to its reviewed v2 wire: same DOI, a new revision."""
+        record = load_record(self.paths, source_id)
+        check(record is not None, 'no record for this source')
+        if record['hold'] is not None:
+            return 'held-earlier'
+        if record['phase'] == 'published' and record.get('wire_version', 1) == 2:
+            return 'already-updated'
+        if any(r.get('status') == 'uncertain' for r in record['requests']):
+            self.hold(record, 'a request was interrupted before its answer was recorded; reconcile it')
+            raise RecordHold('interrupted request')
+        check(record['phase'] in ('published',) + UPDATING and record.get('wire_version', 1) == 1
+              and isinstance(record.get('pids'), dict), 'record is not a published v1 record')
+        check(member['approved'] and member.get('wire_version') == 2 and member['source_id'] == source_id
+              and member['source_sha256'] == record['source_sha256'] and files_of(member) == files_of(record),
+              'the v2 review does not approve this record with its original')
+        current = prepare_entry(self.paths, record)
+        check(sha(current.xml) == record['source_sha256'] and sha(current.body) == record['wire_sha256'],
+              'live preparation differs from the published record')
+        target = prepare_entry(self.paths, record, wire_version=2)
+        check(sha(target.body) == member['wire_sha256'], 'live v2 preparation differs from the reviewed sheet')
+        if record['phase'] == 'published':
+            record['update'] = {'wire_version': 2, 'wire_sha256': member['wire_sha256'],
+                                'review_sha256': member['review_sha256'], 'batch_id': member['batch_id'],
+                                'release_sha256': release_sha, 'started_at': self.now().isoformat(),
+                                'run_id': self.run_id, 'carried': None}
+            self.advance(record, 'editing')  # durable before the edit request
+        check(record.get('update', {}).get('wire_sha256') == member['wire_sha256'],
+              'the update in progress targets another wire')
+        try:
+            return self.continue_update(record, current, target)
+        finally:
+            save_record(self.paths, record)
+
+    def continue_update(self, record, current, target):
+        if self.community_ids is None:
+            self.verify_community()
+        base = '/api/records/' + record['identity']['id']
+        update = record['update']
+        if record['phase'] == 'editing':
+            # Opening the edit draft answers with the record as published; it must be exactly the v1 wire.
+            opened = self.call(record, 'edit', 'POST', base + '/draft', 201)
+            check_edit_draft(opened, current, record, self.owner, self.community_ids)
+            update['carried'] = carried_of(opened)
+            self.advance(record, 'edit-open')
+        if record['phase'] == 'edit-open':
+            check(isinstance(update.get('carried'), dict), 'the edit draft was not observed; reconcile it')
+            saved = self.call(record, 'update', 'PUT', base + '/draft', 200, update_body(target, update['carried']))
+            update['saved_revision'] = check_edit_draft(saved, target, record, self.owner, self.community_ids,
+                                                        saved=True)
+            self.advance(record, 'edit-saved')
+        if record['phase'] == 'edit-saved':
+            value = self.call(record, 'publish', 'POST', base + '/draft/actions/publish', 202)
+            check(value.get('id') == record['identity']['id'] and value.get('is_published') is True,
+                  'the publish answer names another record or no published state')
+            self.advance(record, 'edit-published')
+        if record['phase'] == 'edit-published':
+            pids = check_published(self.call(record, 'get', 'GET', base, 200), target, record, self.owner,
+                                   self.community_ids)
+            check(pids == record['pids'], 'published DOI pids changed')
+            self.check_listing(self.call(record, 'get', 'GET', base + '/files', 200, accept=JSON_MEDIA),
+                               files_of(record), 'published')
+            update['previous'] = {k: record[k] for k in ('wire_sha256', 'review_sha256', 'batch_id')} | {
+                'wire_version': record.get('wire_version', 1)}
+            update['completed_at'] = self.now().isoformat()
+            record.update(wire_version=2, wire_sha256=update['wire_sha256'], review_sha256=update['review_sha256'],
+                          batch_id=update['batch_id'])
+            self.advance(record, 'published')
+            return 'updated'
+        raise RecordHold(f'unexpected phase {record["phase"]}')
+
     def run(self, items, step, *, limit=None):
         """Apply `step` to each item in order; record holds and stop on systemic failure."""
         done = 0
@@ -1051,7 +1322,7 @@ class Bulk:
                         raise StopRun(f'{MAX_CONSECUTIVE_HOLDS} consecutive record holds') from None
                     continue
                 self.outcome(sid, result)
-                if result in ('drafted', 'adopted', 'published'):
+                if result in ('drafted', 'adopted', 'published', 'updated'):
                     self.consecutive_holds = 0
                     done += 1
         except StopRun as stop:
@@ -1104,6 +1375,10 @@ class Bulk:
                         'absence_observations': len(record['absence']), 'allowed_again': []}
             if phase == 'creating':
                 refunds = ['create']
+        elif record['phase'] in UPDATING:
+            target = prepare_entry(self.paths, record, wire_version=2)
+            require(sha(target.body) == record['update']['wire_sha256'])
+            phase, refunds = self.observe_update(record, prepared, target)
         else:
             phase = self.observe(record, prepared)
             refunds = self.refunds(record, phase)
@@ -1199,6 +1474,48 @@ class Bulk:
         record['identity'] = identity
         return 'created'
 
+    def observe_update(self, record, current, target):
+        """Where an interrupted in-place update stands, by GET only; the phase and the writes allowed again."""
+        base = '/api/records/' + record['identity']['id']
+        ids = self.community_ids or self.verify_community()
+        granted = []
+
+        def again(kind):  # a spent write whose effect the provider does not show may be sent once more
+            if record['counts'][kind] >= write_limit(record, kind):
+                check(record['allowances'].get(kind, 0) < MAX_ALLOWANCE,
+                      f'{kind} was already allowed again; needs a separate decision')
+                record['allowances'][kind] = record['allowances'].get(kind, 0) + 1
+                granted.append(kind)
+
+        try:
+            opened = self.call(record, 'get', 'GET', base + '/draft', 200)
+        except RecordHold:
+            opened = None  # no edit draft is open (404)
+        if opened is not None:
+            try:
+                check_edit_draft(opened, target, record, self.owner, ids, saved=True)
+            except RecordHold:
+                check_edit_draft(opened, current, record, self.owner, ids)
+                check(record['counts']['publish'] == 0,
+                      'a v1 edit draft is open after the publish was sent; needs a person')
+                record['update']['carried'] = carried_of(opened)
+                again('update')
+                return 'edit-open', granted
+            again('publish')
+            return 'edit-saved', granted
+        published = self.call(record, 'get', 'GET', base, 200)
+        try:
+            pids = check_published(published, target, record, self.owner, ids)
+        except RecordHold:
+            pids = check_published(published, current, record, self.owner, ids)
+            check(pids == record['pids'], 'published DOI pids changed')
+            check(record['counts']['update'] == 0 and record['counts']['publish'] == 0,
+                  'the record is still v1 and no edit draft is open after an update was sent; needs a person')
+            again('edit')
+            return 'editing', granted
+        check(pids == record['pids'], 'published DOI pids changed')
+        return 'edit-published', granted
+
     def observe(self, record, prepared):
         base = '/api/records/' + record['identity']['id']
         keys = [f['key'] for f in files_of(record)]
@@ -1240,42 +1557,60 @@ class Bulk:
 
 # ---------------------------------------------------------------- release
 
-def build_release(paths, reviews, *, authority, instruction, instructed_at, prepared_by, now=utc_now):
-    """Name every approved, drafted, unheld record of the given reviews for publication."""
+def releasable(record, member, action):
+    """Whether a release of this action may name the record for this approved member."""
+    if record is None or record['hold'] is not None or record['source_sha256'] != member['source_sha256']:
+        return False
+    if action == 'publish':
+        return (record['phase'] in ('draft-verified', 'adopted', 'review-set', 'accepted')
+                and record['wire_sha256'] == member['wire_sha256'])
+    return (member.get('wire_version') == 2 and record.get('wire_version', 1) == 1
+            and (record['phase'] == 'published'
+                 or (record['phase'] in UPDATING and record['update']['wire_sha256'] == member['wire_sha256'])))
+
+
+def build_release(paths, reviews, *, authority, instruction, instructed_at, prepared_by, now=utc_now,
+                  action='publish', only=None):
+    """Name every approved, unheld record of the given reviews for publication, or for its v2 update."""
     check(all(isinstance(v, str) and v.strip() for v in (authority, instruction, instructed_at, prepared_by)),
           'authority, instruction, its date and the preparer are required', Held)
+    check(action in ('publish', 'update'), 'a release publishes drafts or updates published records', Held)
     listed, records = [], []
     for path in reviews:
         review, review_sha, order, members = load_review(paths, path)
         listed.append({'path': str(Path(path).resolve()), 'sha256': review_sha, 'batch_id': review['batch_id']})
         for sid in order:
-            record = load_record(paths, sid)
-            if (members[sid]['approved'] and record is not None and record['hold'] is None
-                    and record['phase'] in ('draft-verified', 'adopted', 'review-set', 'accepted')
-                    and record['source_sha256'] == members[sid]['source_sha256']
-                    and record['wire_sha256'] == members[sid]['wire_sha256']):
+            if (members[sid]['approved'] and (only is None or sid in only)
+                    and releasable(load_record(paths, sid), members[sid], action)):
                 records.append(sid)
+    check(only is None or set(only) <= set(records), 'a named record is not releasable for this action', Held)
     check(records and len(set(records)) == len(records), 'the release would name no record', Held)
-    return {'schema_version': 1, 'kind': RELEASE_KIND, 'authority': authority, 'authority_type': 'human',
-            'instruction': instruction, 'instructed_at': instructed_at, 'prepared_by': prepared_by,
-            'prepared_at': now().isoformat(), 'community': PICES_COMMUNITY, 'reviews': listed,
-            'record_count': len(records), 'records': records}
+    return {'schema_version': 1, 'kind': RELEASE_KIND, 'action': action, 'authority': authority,
+            'authority_type': 'human', 'instruction': instruction, 'instructed_at': instructed_at,
+            'prepared_by': prepared_by, 'prepared_at': now().isoformat(), 'community': PICES_COMMUNITY,
+            'reviews': listed, 'record_count': len(records), 'records': records}
 
 
-def load_release(paths, path):
+def load_release(paths, path, action='publish'):
+    """A release of this action (releases written before updates existed publish) and its approved members."""
     release, release_sha = draft.read_document(path)
     require(isinstance(release, dict) and release.get('kind') == RELEASE_KIND and release.get('schema_version') == 1
+            and release.get('action', 'publish') == action
             and release.get('authority_type') == 'human' and release.get('community') == PICES_COMMUNITY
             and all(isinstance(release.get(k), str) and release[k].strip()
                     for k in ('authority', 'instruction', 'instructed_at', 'prepared_by'))
             and isinstance(release.get('records'), list) and release['record_count'] == len(release['records']))
-    approved = set()
+    approved = {}
     for entry in release['reviews']:
         review, review_sha, order, members = load_review(paths, entry['path'])
         require(review_sha == entry['sha256'])
-        approved |= {sid for sid in order if members[sid]['approved']}
-    require(set(release['records']) <= approved and len(set(release['records'])) == len(release['records']))
-    return release, release_sha
+        for sid in order:
+            if members[sid]['approved']:
+                require(sid not in approved)
+                approved[sid] = members[sid]
+    require(set(release['records']) <= set(approved) and len(set(release['records'])) == len(release['records']))
+    release_members = {sid: approved[sid] for sid in release['records']}
+    return release, release_sha, release_members
 
 
 def exclusions(paths):
@@ -1355,10 +1690,10 @@ def candidates(paths):
 # ---------------------------------------------------------------- command line
 
 def transport_and_token(stage, keychain):
-    """Every stage may read the Keychain item; publication prompts when none is given."""
-    if stage == 'publish':
-        token = draft.production_token('Zenodo production token (publish): ', keychain,
-                                       action='bulk-publish' if keychain else 'publish')
+    """Every stage may read the Keychain item; publication and updates prompt when none is given."""
+    if stage in ('publish', 'update'):
+        token = draft.production_token(f'Zenodo production token ({stage}): ', keychain,
+                                       action=('bulk-' + stage) if keychain else 'publish')
     else:
         token = draft.production_token('Zenodo production token: ', keychain, action='execute')
     return draft.Transport(token), token
@@ -1391,12 +1726,24 @@ def main():
     release.add_argument('--instruction', required=True)
     release.add_argument('--instructed-at', required=True)
     release.add_argument('--prepared-by', required=True)
+    release.add_argument('--action', choices=('publish', 'update'), default='publish')
+    release.add_argument('--only', action='append', metavar='FGDC-N',
+                         help='Name only these records (each must be releasable), e.g. for a canary')
     publish = sub.add_parser('publish', help='Publish the records of a release into the PICES community')
     publish.add_argument('--release', required=True)
     publish.add_argument('--owner', required=True)
     publish.add_argument('--limit', type=int)
     publish.add_argument('--token-keychain', metavar='SERVICE',
                          help='Read the token from this Keychain item (allowed by Brett on 2026-10-20); prompts otherwise')
+    update = sub.add_parser('update', help='Edit the published records of an update release to their v2 wire')
+    update.add_argument('--release', required=True)
+    update.add_argument('--owner', required=True)
+    update.add_argument('--limit', type=int)
+    update.add_argument('--token-keychain', metavar='SERVICE',
+                        help='Read the token from this Keychain item; prompts otherwise')
+    plan_v2 = sub.add_parser('plan-v2', help='Build the v2 review sheet for the approved members of a v1 review')
+    plan_v2.add_argument('--base-review', required=True)
+    plan_v2.add_argument('--built-by', required=True)
     reconcile = sub.add_parser('reconcile', help='Observe held records by GET and move their phase')
     reconcile.add_argument('--source', action='append', required=True)
     reconcile.add_argument('--owner', required=True)
@@ -1442,6 +1789,12 @@ def main():
             result = {'sheet': str(path), 'sheet_sha256': sha(path.read_bytes()), 'members': sheet['member_count'],
                       'flagged': len(sheet['flagged']), 'sample': len(sheet['sample']), 'twins': sheet['twins'],
                       'provider_requests': 0}
+        elif args.action == 'plan-v2':
+            sheet = build_v2_sheet(paths, args.base_review, args.built_by)
+            path = write_exclusive(sheet_path(paths, sheet['batch_id']), sheet)
+            result = {'sheet': str(path), 'sheet_sha256': sha(path.read_bytes()), 'batch_id': sheet['batch_id'],
+                      'members': sheet['member_count'], 'flagged': len(sheet['flagged']),
+                      'sample': len(sheet['sample']), 'skipped': sheet['skipped'], 'provider_requests': 0}
         elif args.action == 'review':
             sheet, sheet_sha = draft.read_document(sheet_path(paths, args.batch_id))
             given, _ = draft.read_document(args.decisions)
@@ -1453,10 +1806,11 @@ def main():
                       'held': len(document['decisions']) - approved, 'provider_requests': 0}
         elif args.action == 'release':
             document = build_release(paths, args.review, authority=args.authority, instruction=args.instruction,
-                                     instructed_at=args.instructed_at, prepared_by=args.prepared_by)
+                                     instructed_at=args.instructed_at, prepared_by=args.prepared_by,
+                                     action=args.action, only=args.only)
             require(re.fullmatch(batch.BATCH_ID, args.name) is not None)
             path = write_exclusive(bulk_root(paths) / 'releases' / (args.name + '.json'), document)
-            result = {'release': str(path), 'release_sha256': sha(path.read_bytes()),
+            result = {'release': str(path), 'release_sha256': sha(path.read_bytes()), 'action': document['action'],
                       'records': document['record_count'], 'provider_requests': 0}
         elif args.action == 'unhold':
             with ledger_lock(paths):
@@ -1477,7 +1831,7 @@ def main():
             transport, token = transport_and_token('drafts', args.token_keychain)
             with ledger_lock(paths):
                 pending = [m['source_id'] for m in approved
-                           if (load_record(paths, m['source_id']) or {}).get('phase') not in DRAFTED]
+                           if (load_record(paths, m['source_id']) or {}).get('phase') not in DRAFTED + UPDATING]
                 runner = Bulk(paths, transport, token, owner=args.owner, stage='drafts',
                               captured_by=args.captured_by)
                 pairs = [m for m in approved if m.get('target')]
@@ -1497,8 +1851,17 @@ def main():
                     runner.ledger['inputs'] = {'review_sha256': review_sha, 'manifest': str(manifest_file),
                                                'manifest_sha256': sha(manifest_file.read_bytes())}
                 result = runner.run(approved, runner.draft_member, limit=args.limit)
+        elif args.action == 'update':
+            release, release_sha, members = load_release(paths, args.release, 'update')
+            transport, token = transport_and_token('update', args.token_keychain)
+            with ledger_lock(paths):
+                runner = Bulk(paths, transport, token, owner=args.owner, stage='update')
+                runner.ledger['inputs'] = {'release': str(Path(args.release).resolve()), 'release_sha256': release_sha}
+                result = runner.run(release['records'],
+                                    lambda sid: runner.update_member(sid, release_sha, members[sid]),
+                                    limit=args.limit)
         elif args.action == 'publish':
-            release, release_sha = load_release(paths, args.release)
+            release, release_sha, _ = load_release(paths, args.release)
             transport, token = transport_and_token('publish', args.token_keychain)
             with ledger_lock(paths):
                 runner = Bulk(paths, transport, token, owner=args.owner, stage='publish')
