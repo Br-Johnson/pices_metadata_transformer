@@ -94,6 +94,17 @@ class LocationRules(unittest.TestCase):
         [equator], _ = wire_v2.bounding_box(self.box(-140, -140, 0, 0))  # FGDC-940: a mooring at 0N 140W
         self.assertEqual(equator['geometry'], {'type': 'Point', 'coordinates': [-140.0, 0.0]})
 
+    def test_the_date_line_meridian_and_line_shaped_boxes(self):
+        [edge], _ = wire_v2.bounding_box(self.box(180, -166, 66, 60))  # FGDC-2632: starts at the date line
+        self.assertEqual(edge['geometry']['coordinates'][0][:2], [[-180.0, 60.0], [-166.0, 60.0]])
+        for west, east in ((180, -180), (-180, -180)):  # FGDC-3775 and FGDC-3969: the whole globe
+            [globe], _ = wire_v2.bounding_box(self.box(west, east, 90, -90))
+            self.assertEqual(globe['geometry']['coordinates'][0][:2], [[-180.0, -90.0], [180.0, -90.0]])
+        for box in ((-130.91, -130.91, 42.9, 8.49), (-150, -140, 55, 55)):  # FGDC-3859: a meridian segment
+            self.assertEqual(wire_v2.bounding_box(self.box(*box))[0], [])
+        [point], _ = wire_v2.bounding_box(self.box(-130.91, -130.91, 42.9, 42.9))
+        self.assertEqual(point['geometry'], {'type': 'Point', 'coordinates': [-130.91, 42.9]})
+
     def test_swapped_date_line_box_is_not_a_world_map(self):
         swapped, note = wire_v2.bounding_box(self.box(-176.42, -177.78, 58, 55))  # FGDC-2324: a 358 degree span
         self.assertEqual(swapped, [])

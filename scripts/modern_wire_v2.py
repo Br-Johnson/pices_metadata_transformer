@@ -164,16 +164,19 @@ def bounding_box(root):
         return [], 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
     if west == east == north == south == 0:  # a placeholder (92 records), not a point off West Africa
         return [], 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
+    # 180 and -180 are one meridian: a box's west edge there is -180 and its east edge 180, so W 180 / E -166
+    # is the box from -180 to -166 and W 180 / E -180 (or W -180 / E -180) the whole globe, not slivers.
+    west = -180.0 if west == 180 else west
+    east = 180.0 if east == -180 else east
     if west > east and east + 360 - west > MAX_CROSSING_SPAN:
         # Read as a date-line crossing this would be a near-global map; the values themselves stay as text.
         return [], 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
+    if (west == east) != (north == south):
+        # A box of zero width or zero height is a line, not a place: its midpoint is in no field of the XML.
+        return [], 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
     description = 'Bounding coordinates: W {}, E {}, N {}, S {}'.format(*raw)
-    if west == east or north == south:
-        center_lon = west if west == east else (west + east) / 2 if west < east else None
-        if center_lon is None:  # a zero-height box across the date line: its western end
-            center_lon = west
-        return [{'geometry': {'type': 'Point', 'coordinates': [center_lon, (north + south) / 2]},
-                 'description': description}], None
+    if west == east:  # and north == south: a point
+        return [{'geometry': {'type': 'Point', 'coordinates': [west, north]}, 'description': description}], None
     if west < east:
         return [{'geometry': box(west, east, north, south), 'description': description}], None
     return [{'geometry': box(west, 180.0, north, south), 'description': description + '; part west of the date line'},

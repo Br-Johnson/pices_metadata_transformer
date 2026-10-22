@@ -19,8 +19,8 @@ Brett's goal (2026-10-20): publish all appropriate records to production Zenodo,
   - 52 offline contracts in `tests/test_modern_bulk.py` and `tests/test_modern_wire_v2.py`.
 
   All 3,823 publishable records build, pass the pinned schema and survive the emulated sanitiser unchanged.
-- [ ] Independent review of the v2 change, commit, CI.
-- [ ] Canary: update one published record (`release-update --only`) and show it to Brett in the browser before any scaled run.
+- [x] Independent review of the v2 change. Four P1 mapping defects were fixed: contact typing, swapped date-line boxes and e-mail addresses in new text. A batch reviewer found two more: the 0,0,0,0 placeholder box and begin-only periods. Commits `da675dd` through `a8a1436` are on main, and CI is green on `da675dd`.
+- [x] Canary FGDC-985 (record 23508755), 2026-10-21. The first save was partly refused ("Unsupported value: MultiPolygon") and held before publication. Date-line boxes are now two Polygons. The batch was re-reviewed as bulk-005-v2b and the canary was rebound with `rebind-update` (GET only). Updated: same DOI, revision 6. Brett approved the full run on 2026-10-21, with the Keychain allowed for `update`.
 - [ ] Build v2 sheets and AI accuracy reviews for bulk-001..017 and pairs-001.
 - [ ] Publish the members not yet drafted in v2 (bulk-011 rest, bulk-012..017, pairs-001). Publish FGDC-2599 from its v1 draft.
 - [ ] Update the 2,516 v1 records in place.
