@@ -81,8 +81,8 @@ EDIT_WRITES = ('edit', 'update', 'publish')  # the in-place update of a publishe
 PHASES = ('planned', 'creating', 'created', 'initialized', 'uploaded', 'draft-verified', 'adopted',
           'review-set', 'accepted', 'published', 'editing', 'edit-open', 'edit-saved', 'edit-published')
 UPDATING = ('editing', 'edit-open', 'edit-saved', 'edit-published')
-RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-20/resource_types.json'
-RESOURCE_TYPES_SHA = '7c933607ba7b5ab5af4f2c3038d69d9820619f0939f33f300a60c8996af1c3a6'
+RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/resource_types.json'
+RESOURCE_TYPES_SHA = '5a339a00ac9c764d8ce6f895ce6b0179aa9456957ff3f945e1659d8533baa48b'  # supersedes the 2026-10-20 manifest (7c933607...)
 DRAFTED = ('draft-verified', 'adopted', 'review-set', 'accepted', 'published')
 PACE_SECONDS = 0.8
 INVENTORY_REFRESH = timedelta(minutes=45)
