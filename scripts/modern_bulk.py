@@ -1831,7 +1831,11 @@ def release_legacy_claim(paths, source_id, inventory_path, decided_by, authority
           and all(row.get('counts', {}).get(k, 0) == 0 for k in ('init', 'content', 'commit'))
           and not any(isinstance(a, int) and 200 <= a < 300 for a in answers),
           'only an unbound single-record create with no candidate and no 2xx answer is released', Held)
-    inventory, inventory_sha = draft.read_document(inventory_path)
+    source = Path(inventory_path)  # an owner inventory exceeds the 1 MiB document bound; the runner's own bound applies
+    check(source.is_file() and not source.is_symlink() and source.stat().st_size <= INVENTORY_MAX_BYTES,
+          'the inventory file is missing or too large', Held)
+    raw = source.read_bytes()
+    inventory, inventory_sha = parse(raw), sha(raw)
     check(isinstance(inventory, dict) and inventory.get('kind') == operator.INVENTORY_KIND
           and inventory.get('complete') is True
           and now() - draft.instant(inventory['captured_at']) <= LEGACY_RELEASE_FRESHNESS,
