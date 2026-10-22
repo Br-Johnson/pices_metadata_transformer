@@ -259,6 +259,7 @@ class PairPrepared:
 
 
 def pair_now(paths, target):
+    """The live preparation of a reviewed pair under whichever pinned pair policy admits it (ADR 0010, 0015)."""
     prepared = content_class.prepare(target['record_target_id'], paths, reviewed_at=target['reviewed_at'])
     pair = PairPrepared(prepared)
     require('source_ids' not in target or pair.source_ids == list(target['source_ids']))
@@ -303,6 +304,11 @@ def repaired(metadata, repairs):
     result = walk(metadata)
     require(all(used))
     return result
+def resource_type_of(source_id):
+    """The pinned type of a source or of a pair's first source; a source without one holds its record."""
+    types = resource_types()
+    check(source_id in types, 'no reviewed resource type for ' + source_id + ' in the pinned manifest')
+    return types[source_id]
 
 
 class WireV2:
@@ -331,7 +337,7 @@ def prepare_entry(paths, entry, wire_version=None):
     target = entry.get('target')
     base = pair_now(paths, target) if target else member_now(paths, entry['source_id'])
     if (wire_version or entry.get('wire_version', 1)) == 2:
-        return WireV2(base, resource_types()[base.source_id])
+        return WireV2(base, resource_type_of(base.source_id))
     return base
 
 

@@ -33,6 +33,10 @@ Brett's goal (2026-10-20): publish all appropriate records to production Zenodo,
 - [x] `bin/pices-pipeline-v2.sh` ran as the single provider writer, 2026-10-22 12:00 to 20:46 UTC. All 3,823 approved records are published in v2: 1,307 created directly, 2,516 updated in place. Each has a distinct id and DOI, and every one is listed in the PICES community. Receipt: [v2 publication receipt](readiness/2026-10-22/v2_publication_receipt.md).
 - [x] Publish the members not yet drafted in v2 (bulk-011 rest, bulk-012..017, pairs-001). Publish FGDC-2599 from its v1 draft.
 - [x] Update the 2,516 v1 records in place.
+- [ ] The 25 non-Exxon pairs (50 sources), approved by Brett on 2026-10-22 ("take on the 25 non-Exxon pairs"):
+  - [x] [ADR 0015](adr/0015-nonexxon-pair-policy.md): second pinned pair policy `modern-xml-nonexxon-pairs25-v1` in `scripts/modern_content_class.py`, derived on every call from the archived 2026-10-06 pair review and the Food Habits supplement; manifest [modern_nonexxon_pairs25.json](readiness/2026-10-22/modern_nonexxon_pairs25.json); all 25 prepare offline with v1 and v2 wires; a missing resource type now holds the record with its reason.
+  - [ ] Brett reviews [resource_types_pairs25_proposal.json](readiness/2026-10-22/resource_types_pairs25_proposal.json) (21 report, 4 dataset; FGDC-2838 medium confidence) and merges the types into a new dated manifest with a new `RESOURCE_TYPES_SHA`.
+  - [ ] `plan-pairs --targets-file docs/readiness/2026-10-22/pairs25_targets.json`, independent v1 review, `plan-v2`, v2 review, drafts, release, publish; inventory check after.
 - [ ] FGDC-141's unknown create stays outside until its own decision.
 - [ ] Source-correction candidates that v2 reviewers found. Each is faithful to its XML but probably wrong in the source:
   - map signs: FGDC-4115 and 4140 (Station Papa at 145E, not 145W), 4159 (Babine Lake at 126E), 4176 (Sea of Okhotsk mapped to the Gulf of Alaska), 4092, 4098, 3834, 1925 (W 180 where its siblings give W 125), 142 and 256;

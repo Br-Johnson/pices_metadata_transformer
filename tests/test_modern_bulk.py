@@ -16,6 +16,7 @@ from unittest.mock import patch
 
 from scripts import modern_batch as batch
 from scripts import modern_bulk as bulk
+from scripts import modern_content_class as content_class
 from scripts import modern_operator as operator
 from scripts import modern_singleton_executor as draft
 from scripts.modern_singleton import Held, encode, parse, prepare
@@ -31,6 +32,12 @@ PAIR_TARGET = 'sha256:0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4
 TWIN_PAIR = ('FGDC-2921', 'FGDC-3149')
 TWIN_PAIR_TARGET = 'sha256:4c7a232a36c52b9da730f8300fc168c94f8baa500a4ee2c4588abb9165092f34'
 TWIN_SINGLETON = 'FGDC-1849'
+# Two of the 25 non-Exxon pairs (ADR 0015): an ADF&G report-series pair and the Food Habits personal pair.
+ADFG_PAIR = ('FGDC-2949', 'FGDC-3177')
+ADFG_TARGET = 'sha256:26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8'
+FOODHABITS_PAIR = ('FGDC-2837', 'FGDC-3065')
+FOODHABITS_TARGET = 'sha256:8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237'
+PROPOSAL = bulk.RESOURCE_TYPES_PATH.with_name('resource_types_pairs25_proposal.json')
 
 
 class Clock:
@@ -272,7 +279,7 @@ class BulkRouteTests(unittest.TestCase):
         cls.sources = tempfile.TemporaryDirectory()
         cls.addClassCleanup(cls.sources.cleanup)
         cls.prepared_root = fixtures.prepare_sources(Path(cls.sources.name), ids=[
-            *SOURCES, *PAIR, *TWIN_PAIR, TWIN_SINGLETON])
+            *SOURCES, *PAIR, *TWIN_PAIR, TWIN_SINGLETON, *ADFG_PAIR, *FOODHABITS_PAIR])
 
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -1143,6 +1150,60 @@ class BulkRouteTests(unittest.TestCase):
             bulk.transport_and_token('update', None)
             token.assert_called_with('Zenodo production token (update): ', None, action='publish')
         self.assertIn('bulk-update', draft.KEYCHAIN_ACTIONS)
+
+    # ---- the 25 non-Exxon pairs (ADR 0015)
+
+    def proposed_types(self):
+        """The pinned types plus the proposal for the 25 pairs, as the manifest will read once Brett merges it."""
+        merged = {**bulk.resource_types(), **parse(PROPOSAL.read_bytes())['types']}
+        return patch.object(bulk, 'resource_types', return_value=merged)
+
+    def test_nonexxon_pairs_plan_as_pairs_and_publish_in_v2_with_the_proposed_types(self):
+        sheet = bulk.build_pair_sheet(self.paths, 'pairs-060', [ADFG_TARGET, FOODHABITS_TARGET], 'Planner',
+                                      fixtures.NOW.isoformat(), now=self.clock.now)
+        self.assertEqual([(r['source_id'], r['policy'], r['target']['source_ids']) for r in sheet['rows']],
+                         [(ADFG_PAIR[0], content_class.NONEXXON_POLICY, list(ADFG_PAIR)),
+                          (FOODHABITS_PAIR[0], content_class.NONEXXON_POLICY, list(FOODHABITS_PAIR))])
+        self.assertEqual(sheet['twins'], [])
+        bulk.write_exclusive(bulk.sheet_path(self.paths, 'pairs-060'), sheet)
+        base = self.review('pairs-060', sheet)
+        with self.proposed_types():
+            review_file, v2_sheet = self.v2_review(base)
+            self.assertEqual([(r['wire_version'], r['v2']['resource_type']) for r in v2_sheet['rows']],
+                             [(2, 'publication-report'), (2, 'dataset')])
+            self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 2})
+            self.assertEqual(self.publish(self.release([review_file], name='release-pairs-060'))['counts'],
+                             {'published': 2})
+        for pair, resource_type in ((ADFG_PAIR, 'publication-report'), (FOODHABITS_PAIR, 'dataset')):
+            record = bulk.load_record(self.paths, pair[0])
+            provider = self.provider.records[record['identity']['id']]
+            self.assertEqual((record['phase'], record['wire_version'], sorted(provider['files'])),
+                             ('published', 2, [s + '.xml' for s in pair]))
+            self.assertEqual(provider['metadata']['resource_type'], {'id': resource_type})
+            self.assertFalse(provider['metadata']['title'].endswith(bulk.wire_v2.ARTIFACT_SUFFIX))
+            self.assertEqual(provider['access'], {'record': 'public', 'files': 'public'})
+            self.assertIsNone(bulk.load_record(self.paths, pair[1]))
+            for sid in pair:
+                self.assertTrue(bulk.intent_path(self.paths, sid).exists())
+        foodhabits = self.provider.records[bulk.load_record(self.paths, FOODHABITS_PAIR[0])['identity']['id']]
+        self.assertEqual(foodhabits['metadata']['creators'], [
+            {'person_or_org': {'type': 'personal', 'given_name': 'Pat', 'family_name': 'Livingston'}},
+            {'person_or_org': {'type': 'personal', 'given_name': 'Douglas', 'family_name': 'Smith'}}])
+        adfg = self.provider.records[bulk.load_record(self.paths, ADFG_PAIR[0])['identity']['id']]
+        self.assertEqual(adfg['metadata']['creators'], [{'person_or_org': {
+            'name': 'Alaska Department of Fish and Game (ADF&G), Division of Commercial Fisheries, '
+                    'Management and Development Division', 'type': 'organizational'}}])
+
+    def test_v2_pair_without_a_reviewed_resource_type_holds_until_the_manifest_carries_it(self):
+        target = {'record_target_id': ADFG_TARGET, 'reviewed_at': fixtures.NOW.isoformat()}
+        self.assertEqual(bulk.pair_row(self.paths, target)['policy'], content_class.NONEXXON_POLICY)  # v1 needs no type
+        self.assertNotIn(ADFG_PAIR[0], bulk.resource_types())
+        with self.assertRaises(bulk.RecordHold) as held:
+            bulk.pair_row(self.paths, target, 2)
+        self.assertIn('no reviewed resource type for FGDC-2949', str(held.exception))
+        with self.proposed_types():
+            row = bulk.pair_row(self.paths, target, 2)
+        self.assertEqual((row['wire_version'], row['v2']['resource_type']), (2, 'publication-report'))
 
 
 def result_outcomes(paths, result):

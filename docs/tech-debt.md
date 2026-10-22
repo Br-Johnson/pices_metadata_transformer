@@ -1,3 +1,10 @@
+## 2026-10-22: the 25 non-Exxon pairs (ADR 0015)
+
+- **One policy, 25 pairs.** The second pair policy is finite like the first: the manifest must equal what the pinned review and supplement derive, so a review correction for one pair holds all 25 until the manifest is rebuilt and re-pinned. Dropping the Food Habits pair, should Brett not want its personal typing, is therefore a code change, not a review decision.
+- **Resource types by proposal.** The types of the 25 pairs are proposed in a separate file that no runtime reads. Until Brett merges them into a new dated manifest and pins it, a v2 sheet or draft of these pairs holds with "no reviewed resource type". The v1 sheet (`plan-pairs`) does not need the type.
+- **Two readings of one review.** `reviewed_groups()` in `modern_content_class` and the manifest builder that produced `modern_nonexxon_pairs25.json` read the same review; the manifest is the pinned result and the derivation is its check. A third pair policy would repeat this shape; a generic loader was not written because two policies do not yet show the shape.
+- **Primary-origin check.** The 25 pairs compare the live origin elements with the review's `ordered_primary_origin_elements` through `source_element`. The Exxon policy never had that check; it relies on the source SHA256 alone.
+
 ## 2026-10-20: v2 wire and in-place updates (ADR 0014)
 
 - **Edit counts.** `edit`, `update` and `publish` are spent once per record. A third mapping, or a correction of one record's type, needs new write kinds or a reviewed reset of those counts. It also needs a matching `previous` chain beyond one step.

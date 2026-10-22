@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "kind": "pices-resource-types-proposal-v1",
+  "status": "PROPOSAL_NOT_RUNTIME_ADMISSION",
+  "proposed_by": "Claude Fable 5.1, deep-coder subagent of session a49e1cd3, 2026-10-22, from the first source XML of each pair",
+  "scope": "The 25 non-Exxon two-file pairs of modern_nonexxon_pairs25.json (ADR 0015), keyed by the first source id of each pair, which is the id modern_bulk.resource_types() looks up for a pair record.",
+  "rule": "dataset: the entry describes data (survey, cruise, catch, tagging, monitoring data, a database, time series, model output, gridded or satellite products, a data collection). publication-report: the entry describes a document (report, proceedings, workshop report, journal article, thesis, book or chapter, newsletter, bulletin, radio-show script, bibliography, progress report, proposal). A report that mainly presents data is a report when the entry describes the publication; data documented in a report is a dataset when the entry describes the data.",
+  "decision": "Brett Johnson, 2026-10-20 (question 4 of the v2 mapping questions): each record is typed Dataset or Publication>Report by AI classification of what the catalogue entry describes.",
+  "for_manifest": {
+    "path": "docs/readiness/2026-10-22/resource_types.json",
+    "sha256": "5a339a00ac9c764d8ce6f895ce6b0179aa9456957ff3f945e1659d8533baa48b"
+  },
+  "merge": "Not read by any runtime. After review, Brett merges `types` into a new dated resource-type manifest and pins its SHA256 in modern_bulk.RESOURCE_TYPES_SHA; until then a v2 wire for these pairs holds with \"no reviewed resource type\".",
+  "counts": {
+    "dataset": 4,
+    "publication-report": 21
+  },
+  "low_confidence": [
+    "FGDC-2838"
+  ],
+  "pairs": [
+    {
+      "record_target_id": "sha256:26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8",
+      "source_ids": [
+        "FGDC-2949",
+        "FGDC-3177"
+      ],
+      "first_source_id": "FGDC-2949",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 113 - Tanner crab and Bottom fish trawl survey of northern Shelikof Strait, Uyak and Uganik Bays and the Chignik Area, July and August 1982. By David L. Owen and James E. Blackburn. April 1984 42 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:29238d857a6e7542b14e1efc34964d57be39852a90de70712fd9028c9c8a1eab",
+      "source_ids": [
+        "FGDC-3015",
+        "FGDC-3243"
+      ],
+      "first_source_id": "FGDC-3015",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 123 - Tanner crab, king crab and Bottom fish trawl survey of northern Shelikof Strait, Chignik Area and Pavlof Bay, Alaska July and August 1983 By James E. Blackburn. August 1984 44 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:327e3be013aa03c2795f19a8e79cafc59dfce5628efe0c0eff970ea68461afdd",
+      "source_ids": [
+        "FGDC-2982",
+        "FGDC-3210"
+      ],
+      "first_source_id": "FGDC-2982",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 118 - Vertical and horizontal in-river fish distribution, Stikine River, 1983 By David Mesiar. June 1984 31 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:3545d2a03e23dd16f246ba2e836dc33f76dbe1394aa645e0debf85c5f55a3d96",
+      "source_ids": [
+        "FGDC-2838",
+        "FGDC-3066"
+      ],
+      "first_source_id": "FGDC-2838",
+      "group_id": "institution-sun-yat-sen-marine-institute",
+      "title": "Carbonate Chemistry of the Bering Sea",
+      "proposed_type": "dataset",
+      "confidence": "medium",
+      "note": "Carbonate Chemistry of the Bering Sea: the abstract describes measurements made (oxygen, pH, calcium, total alkalinity, eastern Bering Sea, late winter 1983) and the purpose is to collect data; the entry describes the data, not a paper. Medium confidence: pubdate 1985 and the estimated carbon fluxes could also describe a publication of those results."
+    },
+    {
+      "record_target_id": "sha256:41d91946ae8c93520bb49b6cfc1b60aad634489ac2e45de9ff4fa4c891684bec",
+      "source_ids": [
+        "FGDC-2937",
+        "FGDC-3165"
+      ],
+      "first_source_id": "FGDC-2937",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 115 - Estimation of the 1983 sockeye salmon (Oncorhynchus nerka) return to the Alsek River through analysis of tagging data. By Doulgas N. McBride and David R. Bernard. May 1984 24 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:4385a97b249dfbe21ef694ae80bc40c0f7b409f0cdc4b4705f532a90f1549914",
+      "source_ids": [
+        "FGDC-2915",
+        "FGDC-3143"
+      ],
+      "first_source_id": "FGDC-2915",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 114 - Prince William Sound tagging research, 1983. By Michael L. McCurdy. April 1984 43 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:43f274d62e355529dce0cda7a351796d106f0b9571f68d7ae51a33dd9705c002",
+      "source_ids": [
+        "FGDC-2861",
+        "FGDC-3089"
+      ],
+      "first_source_id": "FGDC-2861",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 108 - Alaska domestic Groundfish fishery for three years 1970 through 1980 with a review of two historic fisheries - Pacific cod (Gadus macrocephalus) and sablefish (Anoplopoma fimbria). By Phillip W. Rigby. March 1984 446 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:51e1a0c3dbac56958c4d0452dc87558162302a6273e33d237cc74ff4ec79aaf9",
+      "source_ids": [
+        "FGDC-3060",
+        "FGDC-3288"
+      ],
+      "first_source_id": "FGDC-3060",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 127 - Bristol Bay chum salmon (Oncorhynchus keta) sex, age, weight and length statistics, 1960 to 1977. By Henry J. yuen and Michael L. Nelson. September 1984 82 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:650a2e277e5800d95a1ff7017ef08e029a438d9d79396eed0e63af5d213d412c",
+      "source_ids": [
+        "FGDC-3026",
+        "FGDC-3254"
+      ],
+      "first_source_id": "FGDC-3026",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 120 - Bristol Bay Chinook salmon (Oncorhynchus tshawytsha) sex, age, weight and length statistics, 1966 - 1977. By Henry J. Yuen and Michael L. Nelson. June 1984. 100 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:6e73f6729dcfd517429864b8e189f6ac9597b638c8a011c5a5bbc494c7b84f7f",
+      "source_ids": [
+        "FGDC-3059",
+        "FGDC-3287"
+      ],
+      "first_source_id": "FGDC-3059",
+      "group_id": "institution-vniro",
+      "title": "Hydrological and Hydrochemical Data of the Sea of Okhotsk and the Western Bering Sea",
+      "proposed_type": "dataset",
+      "confidence": "high",
+      "note": "Hydrological and Hydrochemical Data of the Sea of Okhotsk and the Western Bering Sea: unpublished material; 998 stations of temperature, salinity, oxygen and nutrient determinations. The entry describes data, like the pinned type of the sibling VNIRO entry FGDC-3398 (Biochemical Data)."
+    },
+    {
+      "record_target_id": "sha256:80c261cd5465afee8dab90e7428160c66b0ca63a5482a9733784e51c91c2778a",
+      "source_ids": [
+        "FGDC-2904",
+        "FGDC-3132"
+      ],
+      "first_source_id": "FGDC-2904",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 111 - Abundance, age, sex and size of salmon (Oncorhynchus spp.) catches and escapements in the Kuskokwim Area, 1982 By Daniel C. Huttunen. April 1984 76 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237",
+      "source_ids": [
+        "FGDC-2837",
+        "FGDC-3065"
+      ],
+      "first_source_id": "FGDC-2837",
+      "group_id": "food-habits-editor-compiler",
+      "title": "Food Habits Database",
+      "proposed_type": "dataset",
+      "confidence": "high",
+      "note": "Food Habits Database: a stomach-content database of Bering Sea species, in progress and updated annually; the entry describes the data."
+    },
+    {
+      "record_target_id": "sha256:921e4abfddf9d47993f0c606b970035b88ffe2562bad03b6691ce46cbc7eb89b",
+      "source_ids": [
+        "FGDC-3037",
+        "FGDC-3265"
+      ],
+      "first_source_id": "FGDC-3037",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 124 - Lower Cook Inlet Sockeye and chum salmon age, weight and length statistics, 1970 - 1983. By Thomas R. Schroeder. August 1984 45 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:927bb889e309c91bdbd22053c78bfb88e9f37d6f693ef785c3679dc892dd024f",
+      "source_ids": [
+        "FGDC-2894",
+        "FGDC-3122"
+      ],
+      "first_source_id": "FGDC-2894",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 110 - U.S./Canada cooperative pink and sockeye salmon tagging, interception rates, migration patterns, run timing and stock intermingling in southern Southeastern Alaska and northern British Columbia. By Stephen H. Hoffman, Larry Talley and M.C. Seibel. March 1984 188 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:a65bcdaf08b02f83bb2813a14edb2733a207fcc007a4c41cfd34aef348df024a",
+      "source_ids": [
+        "FGDC-2993",
+        "FGDC-3221"
+      ],
+      "first_source_id": "FGDC-2993",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 122 - Upper Cook Inlet Salmon (Oncorhynchus spp.) escapement studies, 1983 By Bruce E. King and Kenneth E. Tarbox. July 1984. 142 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:b894b4d7dacde8dff0994f6c761d2bc25d1ec580927f74fa84cd5f5676defc44",
+      "source_ids": [
+        "FGDC-2960",
+        "FGDC-3188"
+      ],
+      "first_source_id": "FGDC-2960",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 116 - Prince William Sound General Districts pink (Oncorhynchus gorbuscha) and chum (O. keta) salmon aerial and ground escapement surveys and pre-emergent alevin index surveys, brood years 1980 through 1983. By Michael L. McCurdy. June 1984 116 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:ca9a74702d046a13e70abac603f87b17618ecd2a70c51f1363c80629f574f615",
+      "source_ids": [
+        "FGDC-2948",
+        "FGDC-3176"
+      ],
+      "first_source_id": "FGDC-2948",
+      "group_id": "institution-far-eastern-tinro-literal",
+      "title": "Database for Plotnikovis Method of Ice Forecasting",
+      "proposed_type": "dataset",
+      "confidence": "high",
+      "note": "Database for Plotnikovis Method of Ice Forecasting: unpublished material; a 10-day mean drifting-ice boundary series (1961-1988) used as a predictor; the entry describes the data."
+    },
+    {
+      "record_target_id": "sha256:d3c01de168200db59092a5d24e0d0b302042b772488fada1b8d381e700e83df3",
+      "source_ids": [
+        "FGDC-2850",
+        "FGDC-3078"
+      ],
+      "first_source_id": "FGDC-2850",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 105 - Age, sex and size composition of Pacific herring, Clupea harengus pallasii, from eastern Bering Sea coastal spawning sites, Alaska, 1983. By Stephen M. Fried, D. Craig Whitmore, and Daniel J. Bergstrom. January 1984 40 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:d62c478268c54ac21ba33336fec9c930554165bdf0882217f0863aea4d4d68ae",
+      "source_ids": [
+        "FGDC-2839",
+        "FGDC-3067"
+      ],
+      "first_source_id": "FGDC-2839",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 107 - Revised anadromous stream catalog of Southeastern Alaska - District 106 - 107 - Southern Etolin Island. By John Edgington and Ted Mickowski. February 1984 440 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:d67382ea4475d9d44e1214a171cb98a1a06edd6ce32559694133904e59ae6fb0",
+      "source_ids": [
+        "FGDC-2926",
+        "FGDC-3154"
+      ],
+      "first_source_id": "FGDC-2926",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 112 - Stock composition of the 1983 sockeye salmon (Oncorhynchus nerka) run to the Chignik Lakes estimated using scale patterns and linear Discriminant functions. By Robert H. Conrad. April 1984 31 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:e6160e2ad93b28764b4fc16f021b58b8fbc9f8e02fa9d0f7a2abcb3905c203ac",
+      "source_ids": [
+        "FGDC-2883",
+        "FGDC-3111"
+      ],
+      "first_source_id": "FGDC-2883",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 109 - Origins of sockeye salmon (Oncorhynchus nerka) in the Copper River fishery of 1982 based on scale pattern analysis. By Samuel Sharr, David R. Bernard and William E. Goshert. March 1984 31 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:ebcdb3f1f6d5210c3ccb49c59acbb0af3e1bc8f022ef9e56c84317d952e0f76b",
+      "source_ids": [
+        "FGDC-2872",
+        "FGDC-3100"
+      ],
+      "first_source_id": "FGDC-2872",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 106 - Revised anadromous stream catalog of Southeastern Alaska - District 106 - North Prince of Wales Island - Volume I. By John Edgington and Ted Mickowski. February 1984 393 pp. Revised anadromous stream catalog of Southeastern Alaska - District 106 - North Prince of Wales Island - Volume II. By John Edgington and Ted Mickowski. February 1984 401 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:f02fcbd12d5147acc0951e4d8ed5e475891937443240c06b8c7062d61fcf9368",
+      "source_ids": [
+        "FGDC-3004",
+        "FGDC-3232"
+      ],
+      "first_source_id": "FGDC-3004",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 119 - Age, sex and size of Yukon River Salmon catch and escapement, 1983. By Lawrence S. Buklis and John A. Wilcock. June 1984 91 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:f3cb8a667d674df59c9552569750453e3e9584d80499e3b5fea1bbc7fc9fff78",
+      "source_ids": [
+        "FGDC-2971",
+        "FGDC-3199"
+      ],
+      "first_source_id": "FGDC-2971",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 117 - 1982 Bristol Bay Salmon test fishing projects Edited by: Douglas M. Eggers and Stephen M. Fried. June 1984 81 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    },
+    {
+      "record_target_id": "sha256:fcf77e5bcd5b5e65b25dcfaa7e0db91f2aac3cd875649f3428eb3a93b6644833",
+      "source_ids": [
+        "FGDC-3048",
+        "FGDC-3276"
+      ],
+      "first_source_id": "FGDC-3048",
+      "group_id": "institution-adfg-commercial-fisheries",
+      "title": "No. 125 - Revised anadromous stream catalog of Southeastern Alaska. District 108 - Stikine River and its tributaries - Volume I. By John Edgington and Brian Lynch. August 1984. 186 pp.",
+      "proposed_type": "publication-report",
+      "confidence": "high",
+      "note": "ADF&G Technical Data Report series item: the title is a report citation (number, authors or editors, month and year, page count) and the abstract and purpose describe the publication series; the pinned manifest types all 217 singleton entries of this series as publication-report."
+    }
+  ],
+  "types": {
+    "FGDC-2949": "publication-report",
+    "FGDC-3015": "publication-report",
+    "FGDC-2982": "publication-report",
+    "FGDC-2838": "dataset",
+    "FGDC-2937": "publication-report",
+    "FGDC-2915": "publication-report",
+    "FGDC-2861": "publication-report",
+    "FGDC-3060": "publication-report",
+    "FGDC-3026": "publication-report",
+    "FGDC-3059": "dataset",
+    "FGDC-2904": "publication-report",
+    "FGDC-2837": "dataset",
+    "FGDC-3037": "publication-report",
+    "FGDC-2894": "publication-report",
+    "FGDC-2993": "publication-report",
+    "FGDC-2960": "publication-report",
+    "FGDC-2948": "dataset",
+    "FGDC-2850": "publication-report",
+    "FGDC-2839": "publication-report",
+    "FGDC-2926": "publication-report",
+    "FGDC-2883": "publication-report",
+    "FGDC-2872": "publication-report",
+    "FGDC-3004": "publication-report",
+    "FGDC-2971": "publication-report",
+    "FGDC-3048": "publication-report"
+  }
+}

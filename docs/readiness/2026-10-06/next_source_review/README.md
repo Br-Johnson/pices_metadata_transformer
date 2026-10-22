@@ -32,3 +32,11 @@ rights, legacy metadata and production identities must remain preserved.
 The sole provider executor, spent unknown-create hold and support/network recovery
 requirement remain effective. No request, retry, identity adoption or publication
 is authorized by this archive. AquaDocs remains user-deferred.
+
+## 2026-10-22: runtime admission of the 25 pairs
+
+[ADR 0015](../../../adr/0015-nonexxon-pair-policy.md) pins `pices-nonexxon25-pair-source-review.json`,
+`pices-foodhabits-pair-literal-parts-supplement.json` and
+`pices-foodhabits-pair-current-source-bindings.json` as the evidence behind the second pair
+policy, `modern-xml-nonexxon-pairs25-v1`, in `scripts/modern_content_class.py`. The files are
+unchanged; the manifest design and integration contract stay historical drafts.
