@@ -324,9 +324,15 @@ class ModernReviewedCitations31Tests(unittest.TestCase):
         self.assertTrue({'FGDC-3814', 'FGDC-3816', 'FGDC-3817', 'FGDC-3838'} <= held)  # Farley suffix.
         self.assertTrue({'FGDC-545', 'FGDC-581'} <= held)  # UNaAMI remains a whole-array hold.
         self.assertTrue(held.isdisjoint(self.rows))
+        # The creators64 proposal (2026-10-22) may admit some of these behind its own pinned review;
+        # none of them may enter citations31.
         for sid in sorted(held):
-            with self.subTest(held=sid), self.assertRaises(ValueError):
-                mapping.source_policy(sid)
+            with self.subTest(held=sid):
+                try:
+                    policy = mapping.source_policy(sid)[1]['policy']
+                except ValueError:
+                    continue
+                self.assertEqual(policy, mapping.CREATORS64_POLICY)
         plan = mapping.pinned(mapping.PLAN, mapping.PLAN_SHA)['targets']
         pairs = {sid for target in plan if len(target['source_ids']) == 2 for sid in target['source_ids']}
         self.assertTrue(pairs)

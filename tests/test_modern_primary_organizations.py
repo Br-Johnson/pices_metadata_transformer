@@ -292,6 +292,12 @@ class ModernPrimaryOrganizationTests(unittest.TestCase):
                 path.write_bytes(fixture.json_file.read_bytes())
                 if sid in {'FGDC-184', 'FGDC-197', 'FGDC-4068'}:
                     self.assertEqual(mapping.source_policy(sid)[1]['policy'], mapping.CITATIONS31_POLICY)
+                elif sid == 'FGDC-885':
+                    # Proposed in creators64 (2026-10-22) behind its own pinned review; never a primary organization.
+                    try:
+                        self.assertEqual(mapping.source_policy(sid)[1]['policy'], mapping.CREATORS64_POLICY)
+                    except ValueError:
+                        pass
                 else:
                     with self.assertRaises(ValueError):
                         mapping.source_policy(sid)

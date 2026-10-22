@@ -246,10 +246,18 @@ class ModernReviewedCreatorTests(unittest.TestCase):
         for sid in basis:
             self.assertEqual(mapping.reviewed_creator_source_policy(sid)[1]['policy'], mapping.CITATIONS31_POLICY)
         self.assertEqual(len(held_ids - basis), 26)
-        excluded = (held_ids - basis) | {'FGDC-2953', 'FGDC-3181', *OLD_SOURCES, *mapping.PROTECTED}
-        for sid in sorted(excluded):
+        for sid in sorted({'FGDC-2953', 'FGDC-3181', *OLD_SOURCES, *mapping.PROTECTED}):
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.reviewed_creator_source_policy(sid)
+        # The creators64 proposal (2026-10-22) may admit some personal29 holds behind its own pinned
+        # review; none of them may enter the frozen194 scope.
+        for sid in sorted(held_ids - basis):
+            with self.subTest(source=sid):
+                try:
+                    policy = mapping.reviewed_creator_source_policy(sid)[1]['policy']
+                except ValueError:
+                    continue
+                self.assertEqual(policy, mapping.CREATORS64_POLICY)
 
     def test_self_rehashed_manifest_cannot_change_membership_authority_roots_or_reviewed_vectors(self):
         fixture = self.fixture()

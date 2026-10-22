@@ -1,0 +1,58 @@
+{
+ "after": {
+  "description": "scripts with the creators64 policy added to modern_singleton.py",
+  "runtime_sha256": "bf3024a1f55ff9fd23875bd853bc4282d55b62a5aed840da1c94c3c1c00e637d"
+ },
+ "before": {
+  "description": "scripts at commit 0b03335 (HEAD of the worktree branch before this change)",
+  "runtime_sha256": "c6eeb9058c251f89600d7be7205b5392793bf85348a93ff0ef84e68592401f7f"
+ },
+ "checked_by": "Claude Fable 5.1 (deep-coder subagent of session a49e1cd3)",
+ "checked_on": "2026-10-22",
+ "data": "A copy of /Users/brettjohnson/Documents/Codex/2026-09-30/task-4/pices-production-operations/output/data (zenodo_json and original_fgdc, 4,042 prepared inputs) made in the session scratch area; the production folder was read only.",
+ "differences": [],
+ "held_before_and_after": 406,
+ "held_note": "The 406 held inputs are the 203 reviewed pairs (two originals each); modern_singleton.prepare holds class members by design and modern_content_class prepares them. They are held identically before and after.",
+ "identical_v1_wires_policies_and_evidence_without_runtime": true,
+ "kind": "creators64-wire-regression-check-v1",
+ "prepared_after": 3636,
+ "prepared_before": 3636,
+ "prepared_by_policy": {
+  "modern-xml-citation-organizations129-v1": 129,
+  "modern-xml-direct-organizations-v1": 2628,
+  "modern-xml-exxon412-v1": 412,
+  "modern-xml-institutions91-v1": 91,
+  "modern-xml-ncdc19-v1": 19,
+  "modern-xml-organizations86-v1": 86,
+  "modern-xml-pices26-v1": 26,
+  "modern-xml-program-organizations20-v1": 20,
+  "modern-xml-reviewed-citations31-v1": 31,
+  "modern-xml-reviewed-creators194-v1": 194
+ },
+ "prepared_inputs": 4042,
+ "script": "docs/readiness/2026-10-22/check_creators64_wire_regression.py",
+ "sixty_four_sources": {
+  "approved_held": 50,
+  "approved_prepared": [
+   "FGDC-2234",
+   "FGDC-2413",
+   "FGDC-2587",
+   "FGDC-2668",
+   "FGDC-2674",
+   "FGDC-2683",
+   "FGDC-3599",
+   "FGDC-3814",
+   "FGDC-3816",
+   "FGDC-3817",
+   "FGDC-3838",
+   "FGDC-542",
+   "FGDC-885",
+   "FGDC-887"
+  ],
+  "approved_prepared_equals_admitted": true,
+  "description": "The 64 sources are not in the production inputs; they were classified offline with the runbook manifest set (--reviewed-at 2026-10-20T00:00:00+00:00) into the scratch area. HEAD and the working tree with the pending review hold all 64; a synthetic approved review prepares the 14 admitted sources and still holds the other 50.",
+  "head_and_pending_identical": true,
+  "head_held": 64,
+  "pending_held": 64
+ }
+}

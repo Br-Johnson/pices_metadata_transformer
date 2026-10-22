@@ -1095,3 +1095,15 @@ The earlier personal-pair source hold is now resolved by a separate frozen
 supplement; all25 remaining pairs still need preparation implementation and the
 class-specific state, two-file readback, QA/release and community publication lane.
 Provider recovery and separate action grants remain prerequisites for live work.
+
+
+## Creators64 proposal and the v2 wire's lost context — 2026-10-22
+
+The [creators64 proposal](readiness/2026-10-22/creators64_proposals.json) admits 14 of the
+64 remaining singletons behind a review file that starts closed; the other 50 stay held with
+their reasons. The policy renders each admitted source's preservation paragraph into the v1
+wire as citations31 does, but `scripts.modern_wire_v2.build` rebuilds the additional
+descriptions from the XML and carries nothing of the v1 preservation block forward, so the
+citations31 paragraphs and these new ones do not reach a v2 record. A later v2 mapping change
+would need a reviewed home for those paragraphs (for example a `notes` paragraph) and, for the
+published citations31 records, another in-place update.

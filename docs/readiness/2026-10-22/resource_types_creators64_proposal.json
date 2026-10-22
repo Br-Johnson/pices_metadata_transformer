@@ -1,0 +1,45 @@
+{
+ "counts": {
+  "dataset": 6,
+  "publication-report": 8
+ },
+ "how_to_adopt": "After the creator review is approved, add these entries to the pinned resource-type manifest in a new file and re-pin scripts.modern_bulk.RESOURCE_TYPES_SHA, as the 2026-10-22 manifest superseded the 2026-10-20 one.",
+ "kind": "pices-resource-types-creators64-proposal-v1",
+ "mapping_manifest_sha256": "8c8c42cffc4de8723ff111441025254d4b47f95c080058c91fd41c9678a931c9",
+ "notes": {
+  "FGDC-2234": "the entry describes a database of Coast Guard boardings",
+  "FGDC-2413": "the entry describes Soviet trawl survey and exploratory fishing data (CPUE, length-weight, species composition)",
+  "FGDC-2587": "NOAA Central Library foreign data collection holding; the entry describes a printed lecture (\"Publication Title: ...\"), typed as the other library holdings",
+  "FGDC-2668": "the entry describes a journal article (Journal of Sedimentary Petrology 57(3), 1987)",
+  "FGDC-2674": "the entry describes a magazine article (Audubon, July-August 1991)",
+  "FGDC-2683": "the entry describes a magazine article (National Geographic Magazine 105(1), 1954)",
+  "FGDC-3599": "ONR Japan/East Sea research-project description with no document described; the sibling project descriptions FGDC-3593 and FGDC-3596 are typed dataset",
+  "FGDC-3814": "NPAFC Doc. 678 cruise report; purpose \"To report research cruise ...\"; the sibling cruise report FGDC-3809 is typed publication-report",
+  "FGDC-3816": "the entry describes midwater rope trawl fish data collected during the 2002 BASIS survey",
+  "FGDC-3817": "the entry describes oceanographic (CTD and plankton) data collected during the 2002 BASIS survey",
+  "FGDC-3838": "NPAFC Doc. 816 cruise report; purpose \"To report on the Ocean Carrying Capacity (OCC) program fall 2003 survey\"",
+  "FGDC-542": "the entry describes a historical catch database by statistical block (1984-1991)",
+  "FGDC-885": "the entry describes the NPAFC Doc. 499 report of the August 2000 survey (\"Report submitted to the North Pacific Anadromous Fish Commission\"), as the sibling cruise reports FGDC-3809 and FGDC-3814",
+  "FGDC-887": "the entry describes the 1999 NPAFC report of the July and September 1999 surveys (embedded reference \"... 1999. Eastern Bering Sea (Bristol Bay) Coastal ...\")"
+ },
+ "policy": "modern-xml-reviewed-creators64-v1",
+ "proposed_by": "Claude Fable 5.1 (deep-coder subagent of session a49e1cd3), 2026-10-22",
+ "rule": "dataset: the entry describes data (survey, cruise, catch, tagging, monitoring data, a database, time series, model output, gridded or satellite products, a data collection). publication-report: the entry describes a document (report, proceedings, workshop report, journal article, thesis, book or chapter, newsletter, bulletin, radio-show script, bibliography, progress report, proposal). A report that mainly presents data is a report when the entry describes the publication; data documented in a report is a dataset when the entry describes the data.",
+ "status": "proposal pending independent review; not pinned",
+ "types": {
+  "FGDC-2234": "dataset",
+  "FGDC-2413": "dataset",
+  "FGDC-2587": "publication-report",
+  "FGDC-2668": "publication-report",
+  "FGDC-2674": "publication-report",
+  "FGDC-2683": "publication-report",
+  "FGDC-3599": "dataset",
+  "FGDC-3814": "publication-report",
+  "FGDC-3816": "dataset",
+  "FGDC-3817": "dataset",
+  "FGDC-3838": "publication-report",
+  "FGDC-542": "dataset",
+  "FGDC-885": "publication-report",
+  "FGDC-887": "publication-report"
+ }
+}

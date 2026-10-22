@@ -96,6 +96,16 @@ CITATIONS31_DOCUMENTS = {'basis_proposal': {'path': 'docs/readiness/2026-10-06/n
                      'sha256': '971d4d09365acbd69d4b1c23972bcb30807a61b18dc40665afbfe820b32892cd'},
  'office_review': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-role-office11-independent-source-review.json',
                    'sha256': 'dbde3f4c6a36b9368b75683e21ab9dff1098968285eef0abd9eba896a37fc673'}}
+CREATORS64 = ROOT / 'docs/readiness/2026-10-22/modern_reviewed_creators64.json'
+CREATORS64_SHA = '8c8c42cffc4de8723ff111441025254d4b47f95c080058c91fd41c9678a931c9'
+CREATORS64_PROPOSALS = ROOT / 'docs/readiness/2026-10-22/creators64_proposals.json'
+CREATORS64_PROPOSALS_SHA = '33554bda919da592fe60d9435dcfe68bd838a55310accef790d180d86602b930'
+# The independent review of the creators64 proposal. The file starts as "proposal pending
+# independent review" and admits nothing; the reviewer replaces it and re-pins this SHA.
+CREATORS64_REVIEW = ROOT / 'docs/readiness/2026-10-22/modern_reviewed_creators64_review.json'
+CREATORS64_REVIEW_SHA = '4ca571fae029d6a761f74afc740b5cf91460be9283c8dfe85f227f895e248f79'
+CREATORS64_POLICY = 'modern-xml-reviewed-creators64-v1'
+CREATORS64_APPROVED = 'approved'
 DFO_PROFILE = ROOT / 'docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json'
 DFO_PROFILE_SHA = '6587234a935a8eb893f6890ad3ec01a330c7ff4e8c55dcaeb6c03800bf157b0d'
 PRESERVATION_LABEL = (
@@ -732,11 +742,136 @@ def reviewed_citation_source_policy(source_id):
         if sid == source_id:
             matches.append(selected)
     require(rows == expected and len({encode(row['modern_creators']) for row in rows}) == 19
-            and sum(len(row['modern_creators']) for row in rows) == 65 and len(matches) == 1)
+            and sum(len(row['modern_creators']) for row in rows) == 65 and len(matches) <= 1)
+    if not matches:
+        return reviewed_creators64_source_policy(source_id)
     selected = matches[0]
     return dict(selected, members=[{'source_id': selected['source_id'],
                                     'source_sha256': selected['source_sha256']}]), {
         'schema_version': 10, 'policy': CITATIONS31_POLICY, 'mapping_manifest_sha256': CITATIONS31_SHA,
+        'creator_authority_kind': selected['creator_authority_kind'], 'creator_cohort': selected['creator_cohort']}
+
+
+def modern_creator_shape(creator):
+    """A reviewed service creator: typed person or organisation, optional named affiliations only."""
+    require(isinstance(creator, dict) and set(creator) <= {'person_or_org', 'affiliations'})
+    person = creator.get('person_or_org')
+    require(isinstance(person, dict) and person.get('type') in ('personal', 'organizational'))
+    keys = {'type', 'family_name', 'given_name'} if person['type'] == 'personal' else {'type', 'name'}
+    require(set(person) == keys and all(isinstance(person[key], str) and person[key].strip() for key in keys))
+    if 'affiliations' in creator:
+        require(isinstance(creator['affiliations'], list) and creator['affiliations']
+                and all(isinstance(value, dict) and set(value) == {'name'}
+                        and isinstance(value['name'], str) and value['name'].strip()
+                        for value in creator['affiliations']))
+
+
+def reviewed_creators64_source_policy(source_id):
+    """Fourteen proposed creator vectors behind a separately pinned independent review.
+
+    The proposals document is the frozen source packet: every mapping row is rebuilt from it
+    here and must match exactly, so neither file can change a vector alone. Admission needs
+    the review file to be approved, pinned, bound to both documents and to list the source
+    as approved; until then every member is held. No name is parsed; held proposals, the
+    protected records and every other source end the finite chain here.
+    """
+    manifest = pinned(CREATORS64, CREATORS64_SHA)
+    proposals = pinned(CREATORS64_PROPOSALS, CREATORS64_PROPOSALS_SHA)
+    review = pinned(CREATORS64_REVIEW, CREATORS64_REVIEW_SHA)
+    targets = {row['record_target_id']: row for row in pinned(PLAN, PLAN_SHA)['targets']}
+    profiles = {row['profile']: row for row in pinned(PROFILE, PROFILE_SHA)['cohorts']}
+    profiled_ids = {member['source_id'] for row in profiles.values() for member in row['members']}
+    bindings = {row['source_id']: row for row in
+                pinned(CITATIONS31_DIRECT_BINDINGS, CITATIONS31_DIRECT_BINDINGS_SHA)['members']}
+    admitted = proposals['admitted_members']
+    require(isinstance(proposals, dict) and proposals['kind'] == 'creators64-source-proposals-v1'
+            and proposals['policy'] == CREATORS64_POLICY and isinstance(admitted, list) and admitted
+            and isinstance(proposals['proposals'], list) and len(proposals['proposals']) == 64
+            and len(proposals['members']) == 64 and len(proposals['held_members']) + len(admitted) == 64
+            and [row['source_id'] for row in proposals['members']]
+            == [row['source_id'] for row in proposals['proposals']])
+    expected, counts = [], {'creator426': 0, 'direct': 0}
+    for index, proposal in enumerate(proposals['proposals']):
+        sid = proposal['source_id']
+        member = {'source_id': sid, 'source_sha256': proposal['source_sha256']}
+        require(sid not in PROTECTED and isinstance(sid, str) and re.fullmatch(r'FGDC-[1-9][0-9]*', sid)
+                and proposal['decision'] in ('admit', 'hold'))
+        if proposal['decision'] == 'hold':
+            require(proposal['proposed_creators'] is None and member in proposals['held_members']
+                    and isinstance(proposal['reason'], str) and proposal['reason'].strip())
+            continue
+        require(member in admitted)
+        modern = proposal['proposed_creators']
+        paragraph = proposal['additional_preservation_paragraph']
+        require(isinstance(modern, list) and modern and isinstance(paragraph, str) and paragraph.strip())
+        for creator in modern:
+            modern_creator_shape(creator)
+        target = targets[sid]
+        require(target['source_ids'] == [sid] and target['source_semantic_status'] == 'supported'
+                and target['source_sha256'] == proposal['source_sha256']
+                and target['identity_decision']['production_record_id'] is None
+                and target['identity_decision']['production_doi'] is None)
+        authority = proposal['legacy_creator_authority']
+        kind, cohort_name = authority['kind'], authority['creator_cohort']
+        creators = proposal['legacy_creators']
+        if kind == 'creator426':
+            profile = profiles[cohort_name]
+            require(member in profile['members'] and profile['creators'] == creators
+                    and sha(encode(profile)) == authority['object_sha256'])
+        else:
+            binding = bindings[sid]
+            require(kind == 'direct' and cohort_name is None and sid not in profiled_ids
+                    and binding['source_sha256'] == proposal['source_sha256']
+                    and binding['complete_creator_objects'] == creators
+                    and sha(encode(binding)) == authority['object_sha256'])
+        counts[kind] += 1
+        expected.append({
+            'source_id': sid, 'source_sha256': proposal['source_sha256'], 'source_path': 'FGDC/' + sid + '.xml',
+            'source_bytes': proposal['source_bytes'], 'source_root_sha256': proposal['source_root_sha256'],
+            'source_plan_target_sha256': sha(encode(target)), 'group': proposal['group'],
+            'creator_authority_kind': kind, 'creator_cohort': cohort_name,
+            'creator_authority_object_sha256': authority['object_sha256'],
+            'creators': creators, 'modern_creators': modern, 'primary_origins': proposal['primary_origin_elements'],
+            'additional_preservation_paragraphs': [paragraph],
+            'proposal_row_pointer': '/proposals/' + str(index), 'proposal_row_sha256': sha(encode(proposal))})
+    members = [{'source_id': row['source_id'], 'source_sha256': row['source_sha256']} for row in expected]
+    header = {'schema_version': 1, 'kind': 'modern-reviewed-creators64-v1', 'policy': CREATORS64_POLICY,
+              'source_plan_sha256': PLAN_SHA, 'creator426_profile_sha256': PROFILE_SHA,
+              'direct_binding_sha256': CITATIONS31_DIRECT_BINDINGS_SHA,
+              'proposals_path': 'docs/readiness/2026-10-22/creators64_proposals.json',
+              'proposals_sha256': CREATORS64_PROPOSALS_SHA,
+              'member_count': len(members), 'members': members, 'membership_sha256': sha(encode(members)),
+              'authority_counts': counts,
+              'modern_creator_object_count': sum(len(row['modern_creators']) for row in expected),
+              'context_sha256': sha(encode({row['source_id']: row['additional_preservation_paragraphs']
+                                            for row in expected}))}
+    require(isinstance(manifest, dict) and set(manifest) == set(header) | {'rows', 'conventions'}
+            and all(type(manifest[key]) is type(value) and manifest[key] == value
+                    for key, value in header.items())
+            and isinstance(manifest['conventions'], dict) and manifest['rows'] == expected
+            and members == admitted and len({row['source_id'] for row in members}) == len(members))
+    # Fail closed: the proposal admits nothing until an independent reviewer approves it.
+    require(isinstance(review, dict) and review.get('kind') == 'modern-reviewed-creators64-review-v1'
+            and review.get('policy') == CREATORS64_POLICY
+            and review.get('mapping_manifest_sha256') == CREATORS64_SHA
+            and review.get('proposals_sha256') == CREATORS64_PROPOSALS_SHA
+            and review.get('members') == members and review.get('status') == CREATORS64_APPROVED
+            and isinstance(review.get('reviewer'), str) and review['reviewer'].strip()
+            and isinstance(review.get('reviewed_at'), str) and review['reviewed_at'].strip())
+    decisions = review.get('decisions')
+    require(isinstance(decisions, dict) and set(decisions) == {row['source_id'] for row in members}
+            and all(isinstance(value, dict) and value.get('decision') in ('approved', 'held')
+                    for value in decisions.values()))
+    approved = [row for row in members if decisions[row['source_id']]['decision'] == 'approved']
+    require(approved and review.get('approved_members') == approved
+            and review.get('held_members') == [row for row in members if row not in approved])
+    matches = [row for row in expected if row['source_id'] == source_id
+               and decisions[source_id]['decision'] == 'approved'] if source_id in decisions else []
+    require(len(matches) == 1)
+    selected = matches[0]
+    return dict(selected, members=[{'source_id': selected['source_id'],
+                                    'source_sha256': selected['source_sha256']}]), {
+        'schema_version': 11, 'policy': CREATORS64_POLICY, 'mapping_manifest_sha256': CREATORS64_SHA,
         'creator_authority_kind': selected['creator_authority_kind'], 'creator_cohort': selected['creator_cohort']}
 
 
@@ -745,6 +880,8 @@ def creator_authority_sha(selected, policy_fields):
     policy = policy_fields['policy']
     if policy == CITATIONS31_POLICY:
         return PROFILE_SHA if selected['creator_authority_kind'] == 'creator426' else CITATIONS31_SHA
+    if policy == CREATORS64_POLICY:
+        return PROFILE_SHA if selected['creator_authority_kind'] == 'creator426' else CREATORS64_SHA
     if policy == REVIEWED_CREATORS_POLICY:
         return {'creator426': PROFILE_SHA, 'dfo70': DFO_PROFILE_SHA,
                 'direct': REVIEWED_CREATORS_MAPPING_SHA}[selected['creator_authority_kind']]
@@ -823,8 +960,10 @@ def prepare(json_file, paths):
     reviewed = policy_fields['policy'] == REVIEWED_CREATORS_POLICY
     program = policy_fields['policy'] == PROGRAM_POLICY
     citations = policy_fields['policy'] == CITATIONS31_POLICY
+    creators64 = policy_fields['policy'] == CREATORS64_POLICY
     authority_sha = creator_authority_sha(selected, policy_fields)
-    if direct or institution or ((reviewed or citations) and selected['creator_authority_kind'] == 'direct'):
+    if direct or institution or ((reviewed or citations or creators64)
+                                 and selected['creator_authority_kind'] == 'direct'):
         require('creator_interpretation' not in policy)
     else:
         reference = policy.get('creator_interpretation', {})
@@ -837,7 +976,7 @@ def prepare(json_file, paths):
     if direct or institution:
         origins = ET.fromstring(xml).findall('./idinfo/citation/citeinfo/origin')
         require(origins and [source_element(node) for node in origins] in selected['primary_origin_variants'])
-    if reviewed or program or citations:
+    if reviewed or program or citations or creators64:
         root = ET.fromstring(xml)
         require([source_element(node) for node in root.findall('./idinfo/citation/citeinfo/origin')]
                 == selected['primary_origins'] and sha(encode(source_element(root))) == selected['source_root_sha256'])
@@ -848,7 +987,7 @@ def prepare(json_file, paths):
             and target['identity_decision']['production_doi'] is None)
     validate_restricted_metadata(metadata)
     require(metadata['creators'] == selected['creators'])
-    if exxon or pices or institution or citation_org or reviewed or program or citations:
+    if exxon or pices or institution or citation_org or reviewed or program or citations or creators64:
         creators = selected['modern_creators']
     else:
         require(all(set(c) == {'name', 'type'} and c['type'] == 'Organization'
@@ -859,7 +998,7 @@ def prepare(json_file, paths):
     require(isinstance(keywords, list) and all(isinstance(k, str) and k.strip() for k in keywords))
     legacy = encode(metadata)
     context = ''.join('<p>' + html.escape(text) + '</p>'
-                      for text in selected['additional_preservation_paragraphs']) if citations else ''
+                      for text in selected['additional_preservation_paragraphs']) if citations or creators64 else ''
     preservation = '<p>' + PRESERVATION_LABEL + '</p>' + context + '<pre>' + html.escape(legacy.decode()) + '</pre>'
     wire = {'metadata': {
         'resource_type': {'id': 'other'}, 'title': metadata['title'],

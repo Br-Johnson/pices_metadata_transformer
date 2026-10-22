@@ -923,3 +923,9 @@ This local cohort has not been pushed or used for a provider operation.
 
 
 - [ ] Implement and independently review the [31-source finite design](readiness/2026-10-06/next_source_review/README.md), then measure actual preparation before changing coverage. Separately implement the reviewed 25 remaining pair preparations and required pair execution guards. Source review alone grants no provider action.
+
+## Remaining 64 singletons: creators64 proposal — 2026-10-22
+
+- [x] Decide the 64 remaining singletons one by one from the citation origin and the archived reviews: 14 admitted, 50 held, each with quoted evidence in `readiness/2026-10-22/creators64_proposals.json`. Pin the mapping manifest and a review file that starts as "proposal pending independent review", so `scripts.modern_singleton` holds every member until the reviewer replaces that file and re-pins `CREATORS64_REVIEW_SHA`.
+- [x] Show every currently prepared source keeps its v1 wire byte for byte (all 4,042 prepared inputs of a production copy, `readiness/2026-10-22/creators64_wire_regression.json`), and that the 14 classify, prepare and build valid v2 wires under a synthetic approved review.
+- [ ] Independent review of the 14 proposed vectors, the suffix and honorific conventions and the 50 hold reasons; then pin the approved review, add the 14 to the resource-type manifest (`readiness/2026-10-22/resource_types_creators64_proposal.json`) and run them through the bulk route. The 50 holds need owner decisions (data-collection, platform and system credits; literal spelling conflicts; compound and venue credits).

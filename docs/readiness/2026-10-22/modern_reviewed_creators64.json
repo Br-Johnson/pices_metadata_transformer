@@ -1,0 +1,1537 @@
+{
+ "authority_counts": {
+  "creator426": 12,
+  "direct": 2
+ },
+ "context_sha256": "f922b871e590e29bedbc5ae5786798ad1685f3c4ccf8309cd317cebc2a8ef5bf",
+ "conventions": {
+  "affiliations": "Direct-kind sources follow the citations31 direct10 convention: an affiliation object is added only for an explicit, unambiguous attachment in the citation (\"... of INSTITUTION\" shared by the connected list, or a parenthetical after one name). creator426-kind sources follow their reviewed cohort notes, which add no affiliation objects; institutions stay in the preserved citation.",
+  "honorific_rank_role": "Honorifics (Dr., Mr.), military ranks (CWO3) and stated roles (editor) are not name parts. They are left out of the name fields and preserved verbatim in the preservation paragraph, as the citations31 policy did for FGDC-2597 (\"Dr. Hatakeyama, former Director-General ...\" -> Hatakeyama).",
+  "particle": "A nobility particle stays where the source's own inverted form puts it (\"Boguslawski, G. Von\" -> family_name \"Boguslawski\", given_name \"G. Von\").",
+  "suffix": "Generational suffixes (Jr., III) stay with the given names in the inverted citation form the sources themselves use (\"Farley, E.V., Jr.\"): family_name \"Farley\", given_name \"Edward V., Jr.\". The provider displays family_name, given_name, so the record reads \"Farley, Edward V., Jr.\" and the DataCite familyName stays the family name. This is a representation convention for the independent reviewer to confirm, not a claim that the suffix is a given name; InvenioRDM has no suffix field."
+ },
+ "creator426_profile_sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2",
+ "direct_binding_sha256": "0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633",
+ "kind": "modern-reviewed-creators64-v1",
+ "member_count": 14,
+ "members": [
+  {
+   "source_id": "FGDC-542",
+   "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c"
+  },
+  {
+   "source_id": "FGDC-885",
+   "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+  },
+  {
+   "source_id": "FGDC-887",
+   "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+  },
+  {
+   "source_id": "FGDC-2234",
+   "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+  },
+  {
+   "source_id": "FGDC-2413",
+   "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728"
+  },
+  {
+   "source_id": "FGDC-2587",
+   "source_sha256": "e0524fa518c066a4d2b40886bd53c3fcea4073c7b02e12ce5a331aad2a957f65"
+  },
+  {
+   "source_id": "FGDC-2668",
+   "source_sha256": "554c38ba3ad5c3bdbdc17aeed63361e30783aca26770d32fe3e46980af58785c"
+  },
+  {
+   "source_id": "FGDC-2674",
+   "source_sha256": "b38af5b7f620dc0051fcdd79354dd4fc23efde7b6837a4c410d6ec02a07426f0"
+  },
+  {
+   "source_id": "FGDC-2683",
+   "source_sha256": "190e3cff17272e516358f6cf106a491e19ba98d5f8de4d7f32f11c360b9b832f"
+  },
+  {
+   "source_id": "FGDC-3599",
+   "source_sha256": "e68427690dad4285c3cdf893e0cee5b254a9064c4a00331c23e7875d4881c267"
+  },
+  {
+   "source_id": "FGDC-3814",
+   "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+  },
+  {
+   "source_id": "FGDC-3816",
+   "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+  },
+  {
+   "source_id": "FGDC-3817",
+   "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+  },
+  {
+   "source_id": "FGDC-3838",
+   "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+  }
+ ],
+ "membership_sha256": "9f6cd6ac79e75a765f41a57f135508e588e75f62f67f3f756860b94ed14c05ee",
+ "modern_creator_object_count": 78,
+ "policy": "modern-xml-reviewed-creators64-v1",
+ "proposals_path": "docs/readiness/2026-10-22/creators64_proposals.json",
+ "proposals_sha256": "33554bda919da592fe60d9435dcfe68bd838a55310accef790d180d86602b930",
+ "rows": [
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation credits Korean data to Mr. Hynn-Su Jo of National Fisheries Research and Development Agency, Pujan, Republic of Korea; Polish data to Dr. Jerzy Janusz of Sea Fisheries Institute, Gdynia, Poland; and Chinese data to Loh-Lee Low and Shanghai Fisheries University. These are scoped data-by credits, retained in source order and spelling; the honorifics Mr. and Dr. are not name parts and are preserved here, and the institutions named after \"of\" stay in this preserved citation rather than as affiliations. The point of contact, Low, Loh-Lee, confirms that family name; the honorific-first natural order fixes the other two. Shanghai Fisheries University is credited as the organisation the source names."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "23b09a439462cc1f0ea1894dcde50d08af9028e390c7c55390f5311777b24419",
+   "creator_cohort": "mixed_source_roles_15_FGDC-542",
+   "creators": [
+    {
+     "name": "Mr. Hynn-Su Jo"
+    },
+    {
+     "name": "Dr. Jerzy Janusz"
+    },
+    {
+     "name": "Loh-Lee Low"
+    },
+    {
+     "name": "Shanghai Fisheries University"
+    }
+   ],
+   "group": "donut_hole_database",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Jo",
+      "given_name": "Hynn-Su",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Janusz",
+      "given_name": "Jerzy",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Low",
+      "given_name": "Loh-Lee",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "name": "Shanghai Fisheries University",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "br",
+       "tail": "\n          Polish data by Dr. Jerzy Janusz of Sea Fisheries Institute, Gdynia, Poland.\n          ",
+       "text": null
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "br",
+       "tail": "\n          Chinese data by Loh-Lee Low and Shanghai Fisheries University.\n        ",
+       "text": null
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          Korean Data by Mr. Hynn-Su Jo of National Fisheries Research and Development Agency, Pujan, Republic of Korea.\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/3",
+   "proposal_row_sha256": "b6112abf446ee89f075bee83781c04d8d9a34992dc95f7dc7104351ebd1fd62b",
+   "source_bytes": 4517,
+   "source_id": "FGDC-542",
+   "source_path": "FGDC/FGDC-542.xml",
+   "source_plan_target_sha256": "78301c20c22d815840dd7c731f868d1451cf0ce4031e49d3d64038644b4134a0",
+   "source_root_sha256": "afb422605cff9a20d61c1b4549d240cf0108881f90f3ebaaef9798d2a384c005",
+   "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation lists Edward V. Farley, Jr., Richard E. Haight, Charles M. Guthrie III and John E. Pohl, followed on a separate line by Auke Bay Laboratory (ABL), Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA). The literal names, initials and order are retained. The generational suffixes Jr. and III are kept with the given names in inverted citation form and are not part of the family names. The institutional line stays in this preserved citation and is not added as an affiliation. The embedded reference (Farley, E.V., Jr., R.E. Haight, C.M. Guthrie, and J.E. Pohl. 2000. NPAFC Doc. 499) confirms the family names."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "f3652b4fd5ec3b4cff0037559ef148cff2d30db4a615e9fcd98a2e700fa44392",
+   "creator_cohort": "mixed_source_roles_15_FGDC-885",
+   "creators": [
+    {
+     "name": "Edward V. Farley, Jr."
+    },
+    {
+     "name": "Richard E. Haight"
+    },
+    {
+     "name": "Charles M. Guthrie III"
+    },
+    {
+     "name": "John E. Pohl"
+    }
+   ],
+   "group": "bristol_bay_doc499",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Farley",
+      "given_name": "Edward V., Jr.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Haight",
+      "given_name": "Richard E.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Guthrie",
+      "given_name": "Charles M. III",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Pohl",
+      "given_name": "John E.",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [
+        {
+         "attributes": {},
+         "children": [],
+         "tag": "br",
+         "tail": "\n            Auke Bay Laboratory (ABL), Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n          ",
+         "text": null
+        }
+       ],
+       "tag": "p",
+       "tail": "\n        ",
+       "text": "\n            Edward V. Farley, Jr., Richard E. Haight, Charles M. Guthrie III, and John E. Pohl\n            "
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/30",
+   "proposal_row_sha256": "8ba9ab663f456d4768bd82fee8f4f8a6936954ffbc5d7662ba42050d01728814",
+   "source_bytes": 7671,
+   "source_id": "FGDC-885",
+   "source_path": "FGDC/FGDC-885.xml",
+   "source_plan_target_sha256": "4db3b66dc1ef700ae0974a454da6c124da863b82d0014cfeac8e0da27647d80e",
+   "source_root_sha256": "9b3e4b6602b10e472f91bb1a28d428ef3f4094c39bc14ed9a1c3ec89660e5a62",
+   "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation lists Farley, E.V., Jr., J.M. Murphy, R.E. Haight, G.M. Guthrie, C.T. Baier, M.D. Adkison, V.I. Radchenko and F.R. Satterfield, followed by Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, NOAA. The exact initials and order are retained as given, including G.M. Guthrie; nothing is expanded or replaced from another record. The first name is already in inverted form in the source; its suffix Jr. stays with the initials and is not part of the family name. The institutional line stays in this preserved citation and is not added as an affiliation. The embedded reference repeats the same eight names in the same order."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "4a450c48a3cdb3fe3c494023ced80a8120d3fa9f858dff7d5bc299266bacb44f",
+   "creator_cohort": "mixed_source_roles_15_FGDC-887",
+   "creators": [
+    {
+     "name": "Farley, E.V., Jr."
+    },
+    {
+     "name": "J.M. Murphy"
+    },
+    {
+     "name": "R.E. Haight"
+    },
+    {
+     "name": "G.M. Guthrie"
+    },
+    {
+     "name": "C.T. Baier"
+    },
+    {
+     "name": "M.D. Adkison"
+    },
+    {
+     "name": "V.I. Radchenko"
+    },
+    {
+     "name": "F.R. Satterfield"
+    }
+   ],
+   "group": "bristol_bay_1999",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Farley",
+      "given_name": "E.V., Jr.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Murphy",
+      "given_name": "J.M.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Haight",
+      "given_name": "R.E.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Guthrie",
+      "given_name": "G.M.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Baier",
+      "given_name": "C.T.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Adkison",
+      "given_name": "M.D.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Radchenko",
+      "given_name": "V.I.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Satterfield",
+      "given_name": "F.R.",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "br",
+       "tail": "\n          Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, NOAA\n        ",
+       "text": null
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          Farley, E.V., Jr., J.M. Murphy, R.E. Haight, G.M. Guthrie, C.T. Baier, M.D. Adkison, V.I. Radchenko, and F.R. Satterfield\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/31",
+   "proposal_row_sha256": "009cf4729c7ef0c295900c56f0d21465fd16c5e887d4454b8bed1158c5fa7120",
+   "source_bytes": 7954,
+   "source_id": "FGDC-887",
+   "source_path": "FGDC/FGDC-887.xml",
+   "source_plan_target_sha256": "75e827b04f9d634ee8f4ed63e3ecc44d2bbae8a948bfd92576008491fecc95e5",
+   "source_root_sha256": "024e3b7b07a211d1e06d8bd8e495256e760b5dd144c555d773da082d171d453d",
+   "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation credits CWO3 James Mike Anderson. The military rank CWO3 is not a name part and is preserved here rather than in the name fields; the given names James Mike and the family name Anderson are retained as written. The point of contact, Busch, Gregory C., is a separate role and is not promoted."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "823fb31416b5a05279452c3c84e1fb723382d49e92ade99aaa0564107b004413",
+   "creator_cohort": "plain_person_and_roles_14_FGDC-2234",
+   "creators": [
+    {
+     "name": "CWO3 James Mike Anderson"
+    }
+   ],
+   "group": "uscg_anderson",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Anderson",
+      "given_name": "James Mike",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "CWO3  James Mike Anderson"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/34",
+   "proposal_row_sha256": "49efc1b2d46b5bcb226e1f3048eca7657835d184227643636b33c6ab4da0082a",
+   "source_bytes": 4559,
+   "source_id": "FGDC-2234",
+   "source_path": "FGDC/FGDC-2234.xml",
+   "source_plan_target_sha256": "dfc00b38db0a0cd7c947b74e4fbf30cd89b61420596962e38bbf3e0075bf0efa",
+   "source_root_sha256": "7e6b56eb07874a3b215dcf266f4019b7400d2066b4c1328ed1915689cb0388a4",
+   "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation credits Dr. Vidar Wespestad, editor, followed by Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA). The credit is limited to the stated editor role; the honorific Dr. and the role are not name parts and are preserved here rather than in the name fields. The point of contact, Wespestad, Vidar, confirms the family and given names. No survey or XML authorship is inferred and the institutional line is not added as an affiliation."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "f32eebbedc489986b8eb0661edf09067062c05d010cfc28ea41a5f65178b3726",
+   "creator_cohort": "mixed_source_roles_15_FGDC-2413",
+   "creators": [
+    {
+     "name": "Dr. Vidar Wespestad"
+    }
+   ],
+   "group": "editor_wespestad",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Wespestad",
+      "given_name": "Vidar",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "br",
+       "tail": "\n          Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA)\n        ",
+       "text": null
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          Dr. Vidar Wespestad, editor\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/37",
+   "proposal_row_sha256": "608f54853014e4245652dd6be5228f9ba20a6aee9ca7566d02b5107768d56b2e",
+   "source_bytes": 4217,
+   "source_id": "FGDC-2413",
+   "source_path": "FGDC/FGDC-2413.xml",
+   "source_plan_target_sha256": "db57b0c6d3ddd83d0973ca1899c79bea3c8818d7e41bea2c2a99de440266037e",
+   "source_root_sha256": "a143ec2d468be4622e0405eb385691bb94ef72091f91c8b3ee014dd01fcc0b6b",
+   "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation origin, Rud. Virchow and Fr. v. Holtzenforff, is the collection-level editorial credit of the lecture series and is preserved as context; the source abstract names the author of this lecture explicitly as Boguslawski, G. Von. That inverted form supplies the name parts used here, family name Boguslawski and given name G. Von, with the particle kept where the source places it. No spelling is corrected and no editor role is inferred for the series editors."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "efc175ca3747b5d2180f4ad680324d62c7dfc8bacf8ef3f931cf72d15b4d9b91",
+   "creator_cohort": "remaining966_source_credit_fgdc_2587",
+   "creators": [
+    {
+     "name": "Boguslawski, G. Von"
+    }
+   ],
+   "group": "boguslawski_1878",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Boguslawski",
+      "given_name": "G. Von",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Rud. Virchow and Fr. v. Holtzenforff"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/38",
+   "proposal_row_sha256": "f035fcf3814f05c577da506159ecd773a7e7017ad491c5ef000a8f87c9ca30a3",
+   "source_bytes": 5512,
+   "source_id": "FGDC-2587",
+   "source_path": "FGDC/FGDC-2587.xml",
+   "source_plan_target_sha256": "12aac59a1606e960d13f74f383e799d1b1e17c7a733314a73fbeea867a06d601",
+   "source_root_sha256": "e827a321bfc4a152020c5720bd4a173eb6845efd822788021fcc95b6ef1be474",
+   "source_sha256": "e0524fa518c066a4d2b40886bd53c3fcea4073c7b02e12ce5a331aad2a957f65"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation credits C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey. All four named people are retained in source order; the embedded reference to the 1987 Journal of Sedimentary Petrology article lists only Nelson, Johnson and Barber, and that difference is preserved, not resolved. Johnson's parenthetical museum is the only explicit personal affiliation and the only one mapped; the trailing U.S. Geological Survey phrase has no unambiguous scope and stays in this preserved citation. The generational suffix is kept with the given names in the inverted citation form the source itself uses; it is not part of the family name."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "163bf1b2cae3eb41bcf756e6c25bafb9c37ffe8d92b0250adc159d168604de05",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey",
+     "type": "Organization"
+    }
+   ],
+   "group": "usgs_bering_shelf_1987",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Nelson",
+      "given_name": "C. Hans",
+      "type": "personal"
+     }
+    },
+    {
+     "affiliations": [
+      {
+       "name": "Denver Museum of Natural History"
+      }
+     ],
+     "person_or_org": {
+      "family_name": "Johnson",
+      "given_name": "Kirk R.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Barber",
+      "given_name": "John H., Jr.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Phillips",
+      "given_name": "Robert L.",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "C. Hans Nelson, Kirk R. Johnson (Denver Museum of Natural History), John H. Barber, Jr., and Robert L. Phillips: U.S. Geological Survey"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/39",
+   "proposal_row_sha256": "652a9cd318c817050b3ef61eafd4f812675f6ec2107cea9b7447f281e1ee6e37",
+   "source_bytes": 4825,
+   "source_id": "FGDC-2668",
+   "source_path": "FGDC/FGDC-2668.xml",
+   "source_plan_target_sha256": "46077c2e62562b9a185b0b7d23ee080a49615ec855669188d0a0bdd14d05dc86",
+   "source_root_sha256": "34570ba91a1eceea941c124c8195c3158855b3fb095e939e5fc69653a291dcc4",
+   "source_sha256": "554c38ba3ad5c3bdbdc17aeed63361e30783aca26770d32fe3e46980af58785c"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation credits Frank Graham, Jr. of the Audubon Magazine; the embedded reference (F. Graham Jr., \"U.S. and Soviet Environmentalists Join Forces Across the Bering Strait,\" Audubon, July-August 1991) confirms the family name. The generational suffix is kept with the given names in the inverted citation form the source itself uses; it is not part of the family name. The magazine is the publication venue and is not added as an affiliation or creator."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "e5dc2da7d51689b652ffd6df45e6c3553c531681115564e723dffff6cb610f46",
+   "creator_cohort": "other_plain_21_FGDC-2674",
+   "creators": [
+    {
+     "name": "Frank Graham, Jr."
+    }
+   ],
+   "group": "audubon_graham",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Graham",
+      "given_name": "Frank, Jr.",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Frank Graham, Jr. of the Audubon Magazine"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/40",
+   "proposal_row_sha256": "a9b2d92c4f620256a4844c1619c4447f248311d046a1e120b6d0f02bac7b5aae",
+   "source_bytes": 5581,
+   "source_id": "FGDC-2674",
+   "source_path": "FGDC/FGDC-2674.xml",
+   "source_plan_target_sha256": "c8e8cc4f29b0dad4b6af26cc7e1ddf5c8adb1ee27049290f2cef76c34f6d93a4",
+   "source_root_sha256": "72edbfe6dd60c14e735e3aadaff963f0d973b5b029065a2f974a6e174f5c429d",
+   "source_sha256": "b38af5b7f620dc0051fcdd79354dd4fc23efde7b6837a4c410d6ec02a07426f0"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation origin, The National Geographic Magazine, is the publication venue and is preserved as context; the source abstract cites the article as Juan Munoz. 1954. Cliff Dwellers of the Bering Sea ..., National Geographic Magazine 105(1):129-146, which supplies the personal credit used here in natural name order. The venue is not substituted as an author."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "e0f175b7640fe9dcf37b6d3cfdc7c031ab82db36bf12a21879b1375cb9582003",
+   "creator_cohort": "supplemental_source_citation_FGDC-2683",
+   "creators": [
+    {
+     "name": "Juan Munoz"
+    }
+   ],
+   "group": "national_geographic_munoz",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Munoz",
+      "given_name": "Juan",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "The National Geographic Magazine"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/41",
+   "proposal_row_sha256": "ae2c46f8aaaf0f1721136e6a309184b4fad74f4e1c129ac528da9ee309a8773b",
+   "source_bytes": 4819,
+   "source_id": "FGDC-2683",
+   "source_path": "FGDC/FGDC-2683.xml",
+   "source_plan_target_sha256": "0d815216b94b5e4191e1aeb0119da017f698bd807a3cdf4df4b304e8f3659aa8",
+   "source_root_sha256": "1ed517f8573d8780097cb9b074cdec0357d6cf597d0de7819ab925362526a7e3",
+   "source_sha256": "190e3cff17272e516358f6cf106a491e19ba98d5f8de4d7f32f11c360b9b832f"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation credits U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS. The Office of Naval Research is retained as the first credited party; the source abstract describes its role as having supported the Japan/East Sea research during 1998-2000, so its listing is the source's own credit, not a claim of authorship. The three named people share the Naval Research Laboratory affiliation the source attaches to them with \"of\"; the sentence-ending period after MS is not part of the name, and Pat is not expanded. The point of contact, Jacobs, Gregg, confirms that family name. Collaborators named in the abstract (Rainer Bleck, Dong-Kyu Lee) are not added."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "b47575121c5edfd21ef99266eddea7e196fa7eb798e3f9f13ce41bda7faef916",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS.",
+     "type": "Organization"
+    }
+   ],
+   "group": "onr_japan_east_sea",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "U.S. Navy, Office of Naval Research",
+      "type": "organizational"
+     }
+    },
+    {
+     "affiliations": [
+      {
+       "name": "Naval Research Laboratory, Stennis Space Center, MS"
+      }
+     ],
+     "person_or_org": {
+      "family_name": "Hurlburt",
+      "given_name": "Harley",
+      "type": "personal"
+     }
+    },
+    {
+     "affiliations": [
+      {
+       "name": "Naval Research Laboratory, Stennis Space Center, MS"
+      }
+     ],
+     "person_or_org": {
+      "family_name": "Hogan",
+      "given_name": "Pat",
+      "type": "personal"
+     }
+    },
+    {
+     "affiliations": [
+      {
+       "name": "Naval Research Laboratory, Stennis Space Center, MS"
+      }
+     ],
+     "person_or_org": {
+      "family_name": "Jacobs",
+      "given_name": "Gregg",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "U.S. Navy, Office of Naval Research and Harley Hurlburt, Pat Hogan, and Gregg Jacobs of Naval Research Laboratory, Stennis Space Center, MS."
+    }
+   ],
+   "proposal_row_pointer": "/proposals/43",
+   "proposal_row_sha256": "eeb64099df2dc2282f438af7c523b341a4e16d254b9a303938cecba04a7168be",
+   "source_bytes": 4945,
+   "source_id": "FGDC-3599",
+   "source_path": "FGDC/FGDC-3599.xml",
+   "source_plan_target_sha256": "be8f16a0a10eaffc6c8a17c287557af698cc657b1e3e2d67ae1ce824094ac639",
+   "source_root_sha256": "262e92e1cd76581b3a6a3d9bab8cb693621590b58f44be6379d4a7360ca38367",
+   "source_sha256": "e68427690dad4285c3cdf893e0cee5b254a9064c4a00331c23e7875d4881c267"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation lists Edward V. Farley, Jr., Bruce Wing, Angela Middleton, John Pohl and Lee Hulbert of NOAA, NMFS, Alaska Fisheries Science Center, Auke Bay Laboratory; Jamal Moss of the School of Aquatic and Fisheries Sciences, University of Washington; Marc Trudel of Pacific Biological Station, Nanaimo; Edward Parks and Ted Hamilton of Yukon River Drainage Fisheries Association; Cynthia Lagoudakis of the U.S. Forest Service; Danielle McCallum of NWO, Inc.; and the North Pacific Anadromous Fish Commission as the trailing credit. The literal names and order are retained; the institutions named after \"of\" stay in this preserved citation and are not added as affiliations. The generational suffix is kept with the given names in the inverted citation form the source itself uses; it is not part of the family name. The commission is credited as the source lists it, the body the report was submitted to; no report or XML authorship is asserted for it. The embedded reference (Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl, L. Hulbert, J. Moss, M. Trudel, E. Parks, T. Hamilton, C. Lagoudakis, and D. McCallum. 2003. NPAFC Doc. 678) confirms the family names."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "77de6a76cc424db2d9aca3d55d43855f737f75fc8d8688bf30c88575e5677cc7",
+   "creator_cohort": "basis_mixed_34_FGDC-3814",
+   "creators": [
+    {
+     "name": "Edward V. Farley, Jr."
+    },
+    {
+     "name": "Bruce Wing"
+    },
+    {
+     "name": "Angela Middleton"
+    },
+    {
+     "name": "John Pohl"
+    },
+    {
+     "name": "Lee Hulbert"
+    },
+    {
+     "name": "Jamal Moss"
+    },
+    {
+     "name": "Marc Trudel"
+    },
+    {
+     "name": "Edward Parks"
+    },
+    {
+     "name": "Ted Hamilton"
+    },
+    {
+     "name": "Cynthia Lagoudakis"
+    },
+    {
+     "name": "Danielle McCallum"
+    },
+    {
+     "name": "North Pacific Anadromous Fish Commission"
+    }
+   ],
+   "group": "basis_doc678_farley",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Farley",
+      "given_name": "Edward V., Jr.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Wing",
+      "given_name": "Bruce",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Middleton",
+      "given_name": "Angela",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Pohl",
+      "given_name": "John",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Hulbert",
+      "given_name": "Lee",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Moss",
+      "given_name": "Jamal",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Trudel",
+      "given_name": "Marc",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Parks",
+      "given_name": "Edward",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Hamilton",
+      "given_name": "Ted",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Lagoudakis",
+      "given_name": "Cynthia",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "McCallum",
+      "given_name": "Danielle",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "name": "North Pacific Anadromous Fish Commission",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Edward V. Farley, Jr., Bruce Wing, Angela Middleton, John Pohl, and Lee Hulbert of National Oceanic and Atmospheric Administration (NOAA), National Marine Fisheries Service (NMFS), Alaska Fisheries Science Center (AFSC), Auke Bay Laboratory (ABL)"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Jamal Moss of the School of Aquatic and Fisheries Sciences, University of Washington, Seattle, WA, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Marc Trudel of Pacific Biological Station, Nanaimo, British Columbia, Canada"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Edward Parks and Ted Hamilton of Yukon River Drainage Fisheries Association, Anchorage, AK, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Cynthia Lagoudakis of the U.S. Forest Service, Juneau, AK, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Danielle McCallum of NWO, Inc. Edmonds, WA, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n        ",
+       "text": "North Pacific Anadromous Fish Commission"
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/55",
+   "proposal_row_sha256": "f366e7ceb19f50c493c0d6b2c07ca49dcc9b5df728fa59c2bed4ee1f7603e431",
+   "source_bytes": 7243,
+   "source_id": "FGDC-3814",
+   "source_path": "FGDC/FGDC-3814.xml",
+   "source_plan_target_sha256": "7fcfedb6b8105ba6d0288d6ca20a92408222a7646eee9ffe105d08382aeab74a",
+   "source_root_sha256": "4b44d56c4d1888b608967e8faa8ec7c04bdddbc6f5922934d92f2592a377232d",
+   "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation lists Edward V. Farley, Jr., Bruce Wing, Angela Middleton, John Pohl and Lee Hulbert of NOAA, NMFS, Alaska Fisheries Science Center, Auke Bay Laboratory; Jamal Moss of the School of Aquatic and Fisheries Sciences, University of Washington; Marc Trudel of Pacific Biological Station, Nanaimo; Edward Parks and Ted Hamilton of Yukon River Drainage Fisheries Association; Cynthia Lagoudakis of the U.S. Forest Service; Danielle McCallum of NWO, Inc.; and the North Pacific Anadromous Fish Commission as the trailing credit. The literal names and order are retained; the institutions named after \"of\" stay in this preserved citation and are not added as affiliations. The generational suffix is kept with the given names in the inverted citation form the source itself uses; it is not part of the family name. The commission is credited as the source lists it, the body the report was submitted to; no report or XML authorship is asserted for it. The embedded reference (Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl, L. Hulbert, J. Moss, M. Trudel, E. Parks, T. Hamilton, C. Lagoudakis, and D. McCallum. 2003. NPAFC Doc. 678) confirms the family names."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "5aea82af49beede5945f3292efbb5bf5eae8da75b7be78b5943a0335acfd4cb9",
+   "creator_cohort": "basis_mixed_34_FGDC-3816",
+   "creators": [
+    {
+     "name": "Edward V. Farley, Jr."
+    },
+    {
+     "name": "Bruce Wing"
+    },
+    {
+     "name": "Angela Middleton"
+    },
+    {
+     "name": "John Pohl"
+    },
+    {
+     "name": "Lee Hulbert"
+    },
+    {
+     "name": "Jamal Moss"
+    },
+    {
+     "name": "Marc Trudel"
+    },
+    {
+     "name": "Edward Parks"
+    },
+    {
+     "name": "Ted Hamilton"
+    },
+    {
+     "name": "Cynthia Lagoudakis"
+    },
+    {
+     "name": "Danielle McCallum"
+    },
+    {
+     "name": "North Pacific Anadromous Fish Commission"
+    }
+   ],
+   "group": "basis_doc678_farley",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Farley",
+      "given_name": "Edward V., Jr.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Wing",
+      "given_name": "Bruce",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Middleton",
+      "given_name": "Angela",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Pohl",
+      "given_name": "John",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Hulbert",
+      "given_name": "Lee",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Moss",
+      "given_name": "Jamal",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Trudel",
+      "given_name": "Marc",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Parks",
+      "given_name": "Edward",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Hamilton",
+      "given_name": "Ted",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Lagoudakis",
+      "given_name": "Cynthia",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "McCallum",
+      "given_name": "Danielle",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "name": "North Pacific Anadromous Fish Commission",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Edward V. Farley, Jr., Bruce Wing, Angela Middleton, John Pohl, and Lee Hulbert of National Oceanic and Atmospheric Administration (NOAA), National Marine Fisheries Service (NMFS), Alaska Fisheries Science Center (AFSC), Auke Bay Laboratory (ABL)"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Jamal Moss of the University of Washington (UW), School of Aquatic and Fisheries Sciences"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Marc Trudel of Pacific Biological Station, Nanaimo, British Columbia, Canada"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Edward Parks and Ted Hamilton of Yukon River Drainage Fisheries Association, Anchorage, AK, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Cynthia Lagoudakis of the U.S. Forest Service, Juneau, AK, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Danielle McCallum of NWO, Inc. Edmonds, WA, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n        ",
+       "text": "North Pacific Anadromous Fish Commission"
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/56",
+   "proposal_row_sha256": "0b813c694a90bf164fb2e9686532e47feb0768a139831913398d6a8de9c61f10",
+   "source_bytes": 8011,
+   "source_id": "FGDC-3816",
+   "source_path": "FGDC/FGDC-3816.xml",
+   "source_plan_target_sha256": "1d2ac824977813a9188060f849425c07b37d2086dc71f9ccbbcec4dae7908949",
+   "source_root_sha256": "8aa3d64c532ed22e04471dd9f7eeb966c96b8b6519bbc11ef52c6c3fac2359cf",
+   "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation lists Edward V. Farley, Jr., Bruce Wing, Angela Middleton, John Pohl and Lee Hulbert of NOAA, NMFS, Alaska Fisheries Science Center, Auke Bay Laboratory; Jamal Moss of the School of Aquatic and Fisheries Sciences, University of Washington; Marc Trudel of Pacific Biological Station, Nanaimo; Edward Parks and Ted Hamilton of Yukon River Drainage Fisheries Association; Cynthia Lagoudakis of the U.S. Forest Service; Danielle McCallum of NWO, Inc.; and the North Pacific Anadromous Fish Commission as the trailing credit. The literal names and order are retained; the institutions named after \"of\" stay in this preserved citation and are not added as affiliations. The generational suffix is kept with the given names in the inverted citation form the source itself uses; it is not part of the family name. The commission is credited as the source lists it, the body the report was submitted to; no report or XML authorship is asserted for it. The embedded reference (Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl, L. Hulbert, J. Moss, M. Trudel, E. Parks, T. Hamilton, C. Lagoudakis, and D. McCallum. 2003. NPAFC Doc. 678) confirms the family names."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "125f021da596695260ca4051d7c328895576e6f35519ef2cd19392b986273299",
+   "creator_cohort": "basis_mixed_34_FGDC-3817",
+   "creators": [
+    {
+     "name": "Edward V. Farley, Jr."
+    },
+    {
+     "name": "Bruce Wing"
+    },
+    {
+     "name": "Angela Middleton"
+    },
+    {
+     "name": "John Pohl"
+    },
+    {
+     "name": "Lee Hulbert"
+    },
+    {
+     "name": "Jamal Moss"
+    },
+    {
+     "name": "Marc Trudel"
+    },
+    {
+     "name": "Edward Parks"
+    },
+    {
+     "name": "Ted Hamilton"
+    },
+    {
+     "name": "Cynthia Lagoudakis"
+    },
+    {
+     "name": "Danielle McCallum"
+    },
+    {
+     "name": "North Pacific Anadromous Fish Commission"
+    }
+   ],
+   "group": "basis_doc678_farley",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Farley",
+      "given_name": "Edward V., Jr.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Wing",
+      "given_name": "Bruce",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Middleton",
+      "given_name": "Angela",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Pohl",
+      "given_name": "John",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Hulbert",
+      "given_name": "Lee",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Moss",
+      "given_name": "Jamal",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Trudel",
+      "given_name": "Marc",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Parks",
+      "given_name": "Edward",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Hamilton",
+      "given_name": "Ted",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Lagoudakis",
+      "given_name": "Cynthia",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "McCallum",
+      "given_name": "Danielle",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "name": "North Pacific Anadromous Fish Commission",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Edward V. Farley, Jr., Bruce Wing, Angela Middleton, John Pohl, and Lee Hulbert of Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, Juneau, AK, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Jamal Moss of the School of Aquatic and Fisheries Sciences, University of Washington, Seattle, WA, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Marc Trudel of Pacific Biological Station, Nanaimo, British Columbia, Canada"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Edward Parks and Ted Hamilton of Yukon River Drainage Fisheries Association, Anchorage, AK, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Cynthia Lagoudakis of the U.S. Forest Service, Juneau, AK, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n          ",
+       "text": "Danielle McCallum of NWO, Inc. Edmonds, WA, USA"
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "li",
+       "tail": "\n        ",
+       "text": "North Pacific Anadromous Fish Commission"
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/57",
+   "proposal_row_sha256": "598a0c4c250328b6676a85406139acac0b40e246282fee98f074b282f4eb36bf",
+   "source_bytes": 6532,
+   "source_id": "FGDC-3817",
+   "source_path": "FGDC/FGDC-3817.xml",
+   "source_plan_target_sha256": "d66e832b45c8173fcebf5a5227f69b95c550d14c911263a6b7cd1afe364ec859",
+   "source_root_sha256": "7ee696488e7898cfb6cfb2a5c2557219ff00bc9879e7a384d680b7d3a0ea3891",
+   "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "The primary citation lists Edward V. Farley, Jr., James M. Murphy, Angela Middleton, Lisa Eisner, Jamal Moss and John Pohl of NOAA, NMFS, Alaska Fisheries Science Center, Auke Bay Laboratory; Oleg Ivanov and Natalia Kuznetsova of Pacific Fisheries Research Center (TINRO-Center), Vladivostok; Marc Trudel of Pacific Biological Station, Nanaimo; Mary Drew of Pacific States Marine Fisheries Commission; Cynthia Lagoudakis of the U.S. Forest Service; George Yaska of Yukon River Drainage Fisheries Association; and the North Pacific Anadromous Fish Commission as the trailing credit. The literal names, the initial M. and the order are retained; the institutions named after \"of\" stay in this preserved citation and are not added as affiliations. The generational suffix is kept with the given names in the inverted citation form the source itself uses; it is not part of the family name. The commission is credited as the source lists it, the body the report was submitted to; no report or XML authorship is asserted for it. The embedded reference (Farley, E.V., Jr., J. Murphy, A. Middleton, L. Eisner, J. Moss, J. Pohl, O. Ivanov, N. Kuznetsova, M. Trudel, M. Drew, C. Lagoudakis, and G. Yaska. 2004. NPAFC Doc. 816) confirms the family names."
+   ],
+   "creator_authority_kind": "creator426",
+   "creator_authority_object_sha256": "4e073d8799ad2ea2709c05c29a31bd3790c56bef06fe07070d1a3a9678667b16",
+   "creator_cohort": "basis_mixed_34_FGDC-3838",
+   "creators": [
+    {
+     "name": "Edward V. Farley, Jr."
+    },
+    {
+     "name": "James M. Murphy"
+    },
+    {
+     "name": "Angela Middleton"
+    },
+    {
+     "name": "Lisa Eisner"
+    },
+    {
+     "name": "Jamal Moss"
+    },
+    {
+     "name": "John Pohl"
+    },
+    {
+     "name": "Oleg Ivanov"
+    },
+    {
+     "name": "Natalia Kuznetsova"
+    },
+    {
+     "name": "Marc Trudel"
+    },
+    {
+     "name": "Mary Drew"
+    },
+    {
+     "name": "Cynthia Lagoudakis"
+    },
+    {
+     "name": "George Yaska"
+    },
+    {
+     "name": "North Pacific Anadromous Fish Commission"
+    }
+   ],
+   "group": "basis_doc816_farley",
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Farley",
+      "given_name": "Edward V., Jr.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Murphy",
+      "given_name": "James M.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Middleton",
+      "given_name": "Angela",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Eisner",
+      "given_name": "Lisa",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Moss",
+      "given_name": "Jamal",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Pohl",
+      "given_name": "John",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Ivanov",
+      "given_name": "Oleg",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Kuznetsova",
+      "given_name": "Natalia",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Trudel",
+      "given_name": "Marc",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Drew",
+      "given_name": "Mary",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Lagoudakis",
+      "given_name": "Cynthia",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Yaska",
+      "given_name": "George",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "name": "North Pacific Anadromous Fish Commission",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [
+        {
+         "attributes": {},
+         "children": [],
+         "tag": "li",
+         "tail": "\n            ",
+         "text": "Edward V. Farley, Jr., James M. Murphy, Angela Middleton, Lisa Eisner, Jamal Moss, and John Pohl of National Oceanic and Atmospheric Administration (NOAA), National Marine Fisheries Service (NMFS), Alaska Fisheries Science Center (AFSC), Auke Bay Laboratory (ABL)"
+        },
+        {
+         "attributes": {},
+         "children": [],
+         "tag": "li",
+         "tail": "\n            ",
+         "text": "Oleg Ivanov and Natalia Kuznetsova of Pacific Fisheries Research Center (TINRO-Center), Vladivostok, Russia"
+        },
+        {
+         "attributes": {},
+         "children": [],
+         "tag": "li",
+         "tail": "\n            ",
+         "text": "Marc Trudel of Pacific Biological Station, Nanaimo, British Columbia, Canada"
+        },
+        {
+         "attributes": {},
+         "children": [],
+         "tag": "li",
+         "tail": "\n            ",
+         "text": "Mary Drew of Pacific States Marine Fisheries Commission, Portland, OR, USA"
+        },
+        {
+         "attributes": {},
+         "children": [],
+         "tag": "li",
+         "tail": "\n            ",
+         "text": "Cynthia Lagoudakis of the U.S. Forest Service, Juneau, AK, USA"
+        },
+        {
+         "attributes": {},
+         "children": [],
+         "tag": "li",
+         "tail": "\n            ",
+         "text": "George Yaska of Yukon River Drainage Fisheries Association, Anchorage, AK, USA"
+        },
+        {
+         "attributes": {},
+         "children": [],
+         "tag": "li",
+         "tail": "\n          ",
+         "text": "North Pacific Anadromous Fish Commission"
+        }
+       ],
+       "tag": "ol",
+       "tail": "\n        ",
+       "text": "\n            "
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/60",
+   "proposal_row_sha256": "05d26ed4ceaf1edfaf6074f5f7cf48aa007362b12a600d181c9400b9cb89ee35",
+   "source_bytes": 7608,
+   "source_id": "FGDC-3838",
+   "source_path": "FGDC/FGDC-3838.xml",
+   "source_plan_target_sha256": "23f2f6ce0c6c7c90a4b3a9c61924f8b162bfc4695fcc01c4376df89bfb223927",
+   "source_root_sha256": "40c2e2ca5efff191bb287fc6943d8a821eb4403fd6147569521df03961dda138",
+   "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+  }
+ ],
+ "schema_version": 1,
+ "source_plan_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+}

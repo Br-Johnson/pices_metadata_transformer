@@ -1,0 +1,141 @@
+{
+ "approved_members": [],
+ "decisions": {
+  "FGDC-2234": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-2413": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-2587": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-2668": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-2674": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-2683": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3599": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3814": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3816": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3817": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3838": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-542": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-885": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-887": {
+   "decision": "pending",
+   "note": null
+  }
+ },
+ "held_members": [],
+ "how_to_approve": "Set status to \"approved\", fill reviewer and reviewed_at, set each decision to \"approved\" or \"held\" with a note, list the approved and held members, keep mapping_manifest_sha256 and proposals_sha256 unchanged, then pin this file's new SHA256 in scripts.modern_singleton.CREATORS64_REVIEW_SHA. scripts.modern_singleton admits a source only when this file is approved, pinned, and lists that source as approved; everything else stays held.",
+ "kind": "modern-reviewed-creators64-review-v1",
+ "mapping_manifest_path": "docs/readiness/2026-10-22/modern_reviewed_creators64.json",
+ "mapping_manifest_sha256": "8c8c42cffc4de8723ff111441025254d4b47f95c080058c91fd41c9678a931c9",
+ "members": [
+  {
+   "source_id": "FGDC-542",
+   "source_sha256": "20bec6511be112b40ad97943ea01e457b6750becfecb288a2291877c8777d90c"
+  },
+  {
+   "source_id": "FGDC-885",
+   "source_sha256": "f92cdff068e5ff05e7c80065d1998df4e5e5afebcfd8c2deb07533693b9b0488"
+  },
+  {
+   "source_id": "FGDC-887",
+   "source_sha256": "23ea5f53bbe842e81096deb8fcf1fa0af2c4f26e19b7efae4d6d0108be7cd582"
+  },
+  {
+   "source_id": "FGDC-2234",
+   "source_sha256": "738310467146a506a49ff6cad2500c00cdd4edbdcc12f1e21a0252bbcf822095"
+  },
+  {
+   "source_id": "FGDC-2413",
+   "source_sha256": "4c8da6c8a6cb73ade89ce4758b09c5dca258dede9eed004979eafd567d38c728"
+  },
+  {
+   "source_id": "FGDC-2587",
+   "source_sha256": "e0524fa518c066a4d2b40886bd53c3fcea4073c7b02e12ce5a331aad2a957f65"
+  },
+  {
+   "source_id": "FGDC-2668",
+   "source_sha256": "554c38ba3ad5c3bdbdc17aeed63361e30783aca26770d32fe3e46980af58785c"
+  },
+  {
+   "source_id": "FGDC-2674",
+   "source_sha256": "b38af5b7f620dc0051fcdd79354dd4fc23efde7b6837a4c410d6ec02a07426f0"
+  },
+  {
+   "source_id": "FGDC-2683",
+   "source_sha256": "190e3cff17272e516358f6cf106a491e19ba98d5f8de4d7f32f11c360b9b832f"
+  },
+  {
+   "source_id": "FGDC-3599",
+   "source_sha256": "e68427690dad4285c3cdf893e0cee5b254a9064c4a00331c23e7875d4881c267"
+  },
+  {
+   "source_id": "FGDC-3814",
+   "source_sha256": "7493be1b6bf775bae511c064e89bc4f44214eaede645b93d79f242784b168563"
+  },
+  {
+   "source_id": "FGDC-3816",
+   "source_sha256": "14314df938e499ea5c9b9a9a9258adacd6152929817b5b589714f65aa1a60b97"
+  },
+  {
+   "source_id": "FGDC-3817",
+   "source_sha256": "1528a5ebe8da9ac8036ebb378355405fcf27c3af3ed81d7eee8a5153ae9d178d"
+  },
+  {
+   "source_id": "FGDC-3838",
+   "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
+  }
+ ],
+ "membership_sha256": "9f6cd6ac79e75a765f41a57f135508e588e75f62f67f3f756860b94ed14c05ee",
+ "policy": "modern-xml-reviewed-creators64-v1",
+ "proposals_path": "docs/readiness/2026-10-22/creators64_proposals.json",
+ "proposals_sha256": "33554bda919da592fe60d9435dcfe68bd838a55310accef790d180d86602b930",
+ "proposed_by": "Claude Fable 5.1 (deep-coder subagent of session a49e1cd3), 2026-10-22",
+ "reviewed_at": null,
+ "reviewer": null,
+ "reviewer_checklist": [
+  "Read every admitted row against FGDC/<id>.xml: the literal origin, the embedded reference, the contact names.",
+  "Confirm the family/given split of every person from the evidence quoted in creators64_proposals.json, not from the name alone.",
+  "Confirm or reject the suffix convention (given_name carries \"Jr.\"/\"III\" in inverted citation form) for FGDC-885, 887, 2668, 2674, 3814, 3816, 3817 and 3838; a rejection holds those sources.",
+  "Confirm that dropping Dr./Mr./CWO3 and the editor role from the name fields (FGDC-542, 2234, 2413) and keeping them in the paragraph follows the FGDC-2597 precedent.",
+  "Confirm the organisational typing of Shanghai Fisheries University (FGDC-542) and U.S. Navy, Office of Naval Research (FGDC-3599), and the affiliation objects on FGDC-2668 and FGDC-3599.",
+  "Confirm every held reason; a hold the reviewer lifts needs a new proposal row and manifest, not an edit of this file alone."
+ ],
+ "schema_version": 1,
+ "status": "proposal pending independent review"
+}

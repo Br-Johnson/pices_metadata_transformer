@@ -150,9 +150,17 @@ class ModernInstitutionCoverageTests(unittest.TestCase):
             self.assertEqual(mapping.institution_source_policy(sid)[1]['policy'], mapping.REVIEWED_CREATORS_POLICY)
         for sid in citations:
             self.assertEqual(mapping.institution_source_policy(sid)[1]['policy'], mapping.CITATIONS31_POLICY)
-        for sid in (*sorted(held), 'FGDC-859', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
+        for sid in ('FGDC-859', 'FGDC-182', 'FGDC-2953', 'FGDC-3181', *PROTECTED):
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.institution_source_policy(sid)
+        # The creators64 proposal (2026-10-22) may admit some of the nine behind its own pinned review.
+        for sid in sorted(held):
+            with self.subTest(source=sid):
+                try:
+                    policy = mapping.institution_source_policy(sid)[1]['policy']
+                except ValueError:
+                    continue
+                self.assertEqual(policy, mapping.CREATORS64_POLICY)
 
     def test_rehashed_manifest_cannot_change_origin_legacy_wire_or_selected_source_hash(self):
         fixture = self.fixture()

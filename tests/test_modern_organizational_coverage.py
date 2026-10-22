@@ -164,8 +164,15 @@ class ModernOrganizationalCoverageTests(unittest.TestCase):
             with self.subTest(source=sid):
                 changed = fixture.json_file.with_name(sid + '.json')
                 changed.write_bytes(fixture.json_file.read_bytes())
-                with self.assertRaises(ValueError):
-                    mapping.source_policy(sid)
+                if sid == 'FGDC-885':
+                    # Proposed in creators64 (2026-10-22) behind its own pinned review; never this policy.
+                    try:
+                        self.assertEqual(mapping.source_policy(sid)[1]['policy'], mapping.CREATORS64_POLICY)
+                    except ValueError:
+                        pass
+                else:
+                    with self.assertRaises(ValueError):
+                        mapping.source_policy(sid)
                 with self.assertRaises(ValueError):
                     mapping.prepare(changed, fixture.paths)
 
