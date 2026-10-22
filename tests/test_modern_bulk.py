@@ -1082,6 +1082,58 @@ class BulkRouteTests(unittest.TestCase):
         self.assertEqual(len([m for m, _ in self.writes() if m == 'PUT']), puts)  # no second PUT
         self.assertEqual(self.publish(self.release([review_file], name='release-062'))['counts'], {'published': 1})
 
+    def unbound_legacy_create(self, sid):
+        (draft.state_root(self.paths) / (sid + '.modern-create-v1.intent.json')).write_text('{"intent": 1}')
+        journal = {'schema_version': 1, 'kind': 'modern-production-draft-attempts', 'targets': {
+            sid: {'phase': 'started', 'identity': None, 'binding': 'x', 'requests': [],
+                  'counts': {'get': 0, 'create': 1, 'init': 0, 'content': 0, 'commit': 0}}}}
+        Path(self.paths.uploads_registry_path + '.modern-v1.json').write_text(json.dumps(journal))
+
+    def inventory_file(self, extra=()):
+        records = [dict(r, owner=int(OWNER)) for r in [*self.provider.listing(), *extra]]
+        document = {'kind': operator.INVENTORY_KIND, 'complete': True,
+                    'captured_at': self.clock.now().replace(microsecond=0).isoformat(),
+                    'record_count': len(records), 'records': records}
+        path = Path(self.temp.name) / 'inventory.json'
+        path.write_text(json.dumps(document))
+        return path
+
+    def test_an_unbound_legacy_create_is_released_on_a_clean_inventory_then_created_once(self):
+        sid = SOURCES[0]
+        self.unbound_legacy_create(sid)
+        review_file = self.review('bulk-063', self.plan('bulk-063', [sid])[1])
+        self.assertEqual(self.drafts(review_file)['counts'], {'held': 1})  # the claim holds it before any write
+        self.assertEqual(self.writes(), [])
+        record = bulk.load_record(self.paths, sid)
+        record['hold'] = None
+        bulk.save_record(self.paths, record)  # a planned barrier hold, released by `unhold` in production
+        title = parse(bulk.member_now(self.paths, sid).body)['metadata']['title']
+        twin = {'id': 99999999, 'title': title, 'files': [], 'state': 'unsubmitted', 'submitted': False, 'doi': None}
+        self.assertRaises(Held, bulk.release_legacy_claim, self.paths, sid, self.inventory_file([twin]), 'Operator',
+                          'Brett', 'no record', now=self.clock.now)
+        stale = self.inventory_file()
+        self.assertRaises(Held, bulk.release_legacy_claim, self.paths, sid, stale, 'Operator', 'Brett', 'no record',
+                          now=lambda: self.clock.now() + timedelta(days=2))
+        bulk.release_legacy_claim(self.paths, sid, self.inventory_file(), 'Operator', 'Brett Johnson, 2026-10-22',
+                                  'the 403 came from the edge firewall', now=self.clock.now)
+        self.assertTrue(bulk.legacy_released(self.paths, sid))
+        journal = json.loads(Path(self.paths.uploads_registry_path + '.modern-v1.json').read_text())
+        bound = dict(journal['targets'][sid], untrusted_candidate_id='30000999')
+        self.assertRaises(Held, bulk.release_legacy_claim, self.paths, 'FGDC-1916', self.inventory_file(), 'Operator',
+                          'Brett', 'no record', now=self.clock.now)  # no single-record row at all
+        journal['targets']['FGDC-1916'] = bound
+        Path(self.paths.uploads_registry_path + '.modern-v1.json').write_text(json.dumps(journal))
+        self.assertRaises(Held, bulk.release_legacy_claim, self.paths, 'FGDC-1916', self.inventory_file(), 'Operator',
+                          'Brett', 'a create that answered 201 has a draft', now=self.clock.now)
+        del journal['targets']['FGDC-1916']
+        Path(self.paths.uploads_registry_path + '.modern-v1.json').write_text(json.dumps(journal))
+        self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
+        self.assertEqual(len([c for c in self.writes() if c == ('POST', '/api/records')]), 1)
+        journal = json.loads(Path(self.paths.uploads_registry_path + '.modern-v1.json').read_text())
+        journal['targets'][sid]['phase'] = 'changed'
+        Path(self.paths.uploads_registry_path + '.modern-v1.json').write_text(json.dumps(journal))
+        self.assertRaises(Held, bulk.legacy_released, self.paths, sid)  # the release binds the row as it stood
+
     def test_update_reads_the_keychain_as_its_own_action(self):
         with patch.object(bulk.draft, 'production_token', return_value=TOKEN) as token, \
                 patch.object(bulk.draft, 'Transport', return_value='transport'):

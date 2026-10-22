@@ -81,11 +81,13 @@ EDIT_WRITES = ('edit', 'update', 'publish')  # the in-place update of a publishe
 PHASES = ('planned', 'creating', 'created', 'initialized', 'uploaded', 'draft-verified', 'adopted',
           'review-set', 'accepted', 'published', 'editing', 'edit-open', 'edit-saved', 'edit-published')
 UPDATING = ('editing', 'edit-open', 'edit-saved', 'edit-published')
-RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/resource_types_r2.json'
-RESOURCE_TYPES_SHA = '664c59d733b87591f5cbc5b3e97d472e5bde367b90df22a96daaa4d7d052f1ed'  # adds FGDC-1939; supersedes 5a339a00...
+RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/resource_types_r3.json'
+RESOURCE_TYPES_SHA = 'fdcc8d98ef374554ed180aed91db78257b6df69043d1d212b34ee992b6de5ae5'  # adds FGDC-141; supersedes r2 664c59d7...
 SOURCE_REPAIRS_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/source_repairs.json'
 SOURCE_REPAIRS_SHA = '5d8f46aad7177a9ded3084e56b6051708c13d1d66b8dc605e3d5c0d64f3ffa05'
 EXCLUSION_LIFT_KIND = 'modern-bulk-exclusion-lift-v1'
+LEGACY_RELEASE_KIND = 'modern-bulk-legacy-release-v1'
+LEGACY_RELEASE_FRESHNESS = timedelta(hours=24)
 DRAFTED = ('draft-verified', 'adopted', 'review-set', 'accepted', 'published')
 PACE_SECONDS = 0.8
 INVENTORY_REFRESH = timedelta(minutes=45)
@@ -1034,16 +1036,7 @@ class Bulk:
 
     def inventory_hits(self, prepared, allowed=(), source_id=None):
         """Unknown owner records that may carry this source; `allowed` are reviewed false matches."""
-        own = own_identities(self.paths) | {str(i) for i in allowed}
-        records = [r for r in self.inventory['records'] if str(r.get('id')) not in own]
-        known = operator.known_records(self.paths)
-        title = parse(prepared.body)['metadata']['title']
-        hits = operator.inventory_matches(records, source_id or prepared.source_id, title, prepared.xml, known=known)
-        core = batch.title_key(title)
-        for r in records:
-            if batch.title_key(r.get('title', '')) == core and not any(h['id'] == r.get('id') for h in hits):
-                hits.append({'id': r.get('id'), 'reasons': ['core_title']})
-        return hits
+        return inventory_hits_in(self.paths, self.inventory, prepared, allowed, source_id)
 
     def modern_row(self, source_id):
         journal_path = Path(self.paths.uploads_registry_path + '.modern-v1.json')
@@ -1054,7 +1047,7 @@ class Bulk:
 
     def legacy_claims(self, source_id):
         root = draft.state_root(self.paths)
-        if (root / (source_id + '.modern-create-v1.intent.json')).exists():
+        if (root / (source_id + '.modern-create-v1.intent.json')).exists() and not legacy_released(self.paths, source_id):
             return 'modern-v1 intent'
         return self.chain_claims(source_id, ('', '.mutations.json'))
 
@@ -1096,6 +1089,8 @@ class Bulk:
                       and self.modern_row(other) is None and self.legacy_claims(other) is None,
                       f'{other} is already claimed by another record or lane')
             row = self.modern_row(sid)
+            if row is not None and legacy_released(self.paths, sid):
+                row = None  # a recorded release (FGDC-141): the bulk barrier below decides alone
             if row is not None:
                 record = new_record(sid, member, 'modern-v1')
                 claim = self.chain_claims(sid, ('.modern-publication-v1.json', '.modern-capture-v1.json'))
@@ -1780,6 +1775,84 @@ def exclusions(paths):
     return found
 
 
+def inventory_hits_in(paths, inventory, prepared, allowed=(), source_id=None):
+    """Unknown owner records of an inventory that may carry this source; `allowed` are reviewed false matches."""
+    own = own_identities(paths) | {str(i) for i in allowed}
+    records = [r for r in inventory['records'] if str(r.get('id')) not in own]
+    known = operator.known_records(paths)
+    title = parse(prepared.body)['metadata']['title']
+    hits = operator.inventory_matches(records, source_id or prepared.source_id, title, prepared.xml, known=known)
+    core = batch.title_key(title)
+    for r in records:
+        if batch.title_key(r.get('title', '')) == core and not any(h['id'] == r.get('id') for h in hits):
+            hits.append({'id': r.get('id'), 'reasons': ['core_title']})
+    return hits
+
+
+def legacy_paths(paths, source_id):
+    require(re.fullmatch(batch.SOURCE_ID, source_id) is not None)
+    return (draft.state_root(paths) / (source_id + '.modern-create-v1.intent.json'),
+            bulk_root(paths) / 'legacy-releases' / (source_id + '.json'))
+
+
+def legacy_released(paths, source_id):
+    """Whether a recorded release covers this source's unfinished single-record claim exactly as it stands."""
+    intent, path = legacy_paths(paths, source_id)
+    if not path.exists():
+        return False
+    release, _ = draft.read_document(path)
+    journal_path = Path(paths.uploads_registry_path + '.modern-v1.json')
+    journal, _ = draft.read_document(journal_path)
+    row = journal.get('targets', {}).get(source_id)
+    require(isinstance(release, dict) and release.get('kind') == LEGACY_RELEASE_KIND
+            and release.get('source_id') == source_id and isinstance(row, dict)
+            and release.get('row_sha256') == sha(encode(row))
+            and release.get('intent_sha256') == (sha(intent.read_bytes()) if intent.exists() else None))
+    return True
+
+
+def release_legacy_claim(paths, source_id, inventory_path, decided_by, authority, reason, now=utc_now):
+    """Record that an unfinished single-record create left no record, so the bulk route may create the source.
+
+    Only a create the single-record chain never bound (phase `started`, no identity, no draft
+    steps) is released, and only when a recent owner inventory holds no unknown record that could
+    carry the source. The single-record row and intent stay as they are; the release binds their
+    hashes. The bulk route still runs its whole barrier, on a fresh inventory, before its create.
+    """
+    check(all(isinstance(v, str) and v.strip() for v in (decided_by, authority, reason)),
+          'decider, authority and reason are required', Held)
+    intent, path = legacy_paths(paths, source_id)
+    journal, _ = draft.read_document(Path(paths.uploads_registry_path + '.modern-v1.json'))
+    row = journal.get('targets', {}).get(source_id)
+    check(isinstance(row, dict), 'no single-record row for this source', Held)
+    answers = [r.get('http_status') for r in row.get('requests', []) if r.get('kind') == 'create']
+    check(row.get('phase') == 'started' and row.get('identity') is None
+          and row.get('untrusted_candidate_id') is None and row.get('resume_grant_sha256') is None
+          and all(row.get('counts', {}).get(k, 0) == 0 for k in ('init', 'content', 'commit'))
+          and not any(isinstance(a, int) and 200 <= a < 300 for a in answers),
+          'only an unbound single-record create with no candidate and no 2xx answer is released', Held)
+    inventory, inventory_sha = draft.read_document(inventory_path)
+    check(isinstance(inventory, dict) and inventory.get('kind') == operator.INVENTORY_KIND
+          and inventory.get('complete') is True
+          and now() - draft.instant(inventory['captured_at']) <= LEGACY_RELEASE_FRESHNESS,
+          'a complete owner inventory from the last 24 hours is required', Held)
+    owners = {str(r.get('owner')) for r in inventory['records']}
+    check(len(owners) <= 1, 'the inventory lists records of more than one owner', Held)
+    hits = []
+    for prepared in (member_now(paths, source_id), prepare_entry(paths, {'source_id': source_id}, 2)):
+        hits += [h for h in inventory_hits_in(paths, inventory, prepared) if h not in hits]
+    check(not hits, 'the owner inventory may already carry this source: ' + json.dumps(hits), Held)
+    document = {'schema_version': 1, 'kind': LEGACY_RELEASE_KIND, 'source_id': source_id,
+                'row_sha256': sha(encode(row)), 'row_phase': row['phase'], 'create_answers': answers,
+                'untrusted_candidate_id': None,
+                'intent_sha256': sha(intent.read_bytes()) if intent.exists() else None,
+                'inventory': {'path': str(Path(inventory_path).resolve()), 'sha256': inventory_sha,
+                              'captured_at': inventory['captured_at'], 'record_count': inventory['record_count'],
+                              'owners': sorted(owners), 'hits': []},
+                'decided_by': decided_by, 'authority': authority, 'reason': reason, 'decided_at': now().isoformat()}
+    return write_exclusive(path, document)
+
+
 def lift_exclusion(paths, source_id, decided_by, reason, now=utc_now):
     """Record that an exclusion no longer applies because its cause was repaired; the exclusion itself stays."""
     path = bulk_root(paths) / 'exclusions' / (source_id + '.json')
@@ -1916,6 +1989,12 @@ def main():
     revise.add_argument('--decided-by', required=True)
     revise.add_argument('--note', required=True)
     revise.add_argument('--token-keychain', metavar='SERVICE', help=draft.KEYCHAIN_HELP)
+    legacy = sub.add_parser('release-legacy', help='Record that an unbound single-record create left no record (offline)')
+    legacy.add_argument('--source', required=True)
+    legacy.add_argument('--inventory', required=True, help='A complete owner inventory captured in the last 24 hours')
+    legacy.add_argument('--decided-by', required=True)
+    legacy.add_argument('--authority', required=True)
+    legacy.add_argument('--reason', required=True)
     lift = sub.add_parser('lift-exclusion', help='Record that a repaired exclusion no longer applies (offline)')
     lift.add_argument('--source', required=True)
     lift.add_argument('--decided-by', required=True)
@@ -2038,6 +2117,11 @@ def main():
                     runner.ledger['inputs'] = {'review_sha256': review_sha, 'manifest': str(manifest_file),
                                                'manifest_sha256': sha(manifest_file.read_bytes())}
                 result = runner.run(approved, runner.draft_member, limit=args.limit)
+        elif args.action == 'release-legacy':
+            with ledger_lock(paths):
+                path = release_legacy_claim(paths, args.source, args.inventory, args.decided_by, args.authority,
+                                            args.reason)
+            result = {'release': str(path), 'provider_requests': 0}
         elif args.action == 'lift-exclusion':
             with ledger_lock(paths):
                 path = lift_exclusion(paths, args.source, args.decided_by, args.reason)

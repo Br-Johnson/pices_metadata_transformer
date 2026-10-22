@@ -234,7 +234,7 @@ class ClassificationManifest(unittest.TestCase):
     def test_pinned_types_cover_every_reviewed_record_with_two_values(self):
         types = bulk.resource_types()
         self.assertEqual(set(types.values()), set(wire_v2.RESOURCE_TYPES))
-        self.assertEqual(len(types), 3831)  # the 3,830 first reviewed, plus FGDC-1939 after its keyword repair
+        self.assertEqual(len(types), 3832)  # the 3,830 first reviewed, plus FGDC-1939 and FGDC-141
         document = json.loads(bulk.RESOURCE_TYPES_PATH.read_text())
         self.assertEqual(sum(document['counts'].values()), len(types))
         self.assertTrue(set(document['confidence_low']) <= set(types))
