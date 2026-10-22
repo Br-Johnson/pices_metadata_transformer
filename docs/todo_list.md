@@ -30,9 +30,9 @@ Brett's goal (2026-10-20): publish all appropriate records to production Zenodo,
     - seven NOAA Central Library books typed as datasets (`e2fd57b`).
   - Each affected batch was re-sheeted (the stale sheets are in `sheets/superseded/`) and rechecked.
 - [x] bulk-005 updated in place: 250 records, same DOIs, one lost answer reconciled automatically. FGDC-2599 published from its v1 draft on 2026-10-22. bulk-017 published in v2: 24 records.
-- [ ] `bin/pices-pipeline-v2.sh` runs as the single provider writer. For each batch it publishes new members in v2, then updates published v1 records. Order: bulk-017, 011, 012, 013, 014, 015, 016, pairs-001, then 001-004 and 006-010.
-- [ ] Publish the members not yet drafted in v2 (bulk-011 rest, bulk-012..017, pairs-001). Publish FGDC-2599 from its v1 draft.
-- [ ] Update the 2,516 v1 records in place.
+- [x] `bin/pices-pipeline-v2.sh` ran as the single provider writer, 2026-10-22 12:00 to 20:46 UTC. All 3,823 approved records are published in v2: 1,307 created directly, 2,516 updated in place. Each has a distinct id and DOI, and every one is listed in the PICES community. Receipt: [v2 publication receipt](readiness/2026-10-22/v2_publication_receipt.md).
+- [x] Publish the members not yet drafted in v2 (bulk-011 rest, bulk-012..017, pairs-001). Publish FGDC-2599 from its v1 draft.
+- [x] Update the 2,516 v1 records in place.
 - [ ] FGDC-141's unknown create stays outside until its own decision.
 - [ ] Source-correction candidates that v2 reviewers found. Each is faithful to its XML but probably wrong in the source:
   - map signs: FGDC-4115 and 4140 (Station Papa at 145E, not 145W), 4159 (Babine Lake at 126E), 4176 (Sea of Okhotsk mapped to the Gulf of Alaska), 4092, 4098, 3834, 1925 (W 180 where its siblings give W 125), 142 and 256;
