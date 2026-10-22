@@ -27,8 +27,10 @@ retained in historical checkouts, plans and handoffs.
 
 The provider executor, bounded action grants, immutable original XML, source
 evidence, identity/DOI preservation and production release requirements remain in
-force. The spent unknown-create hold and supported-network-recovery requirement
-remain unchanged. AquaDocs linkage is deferred until after initial publication;
+force. The supported-network-recovery requirement remains unchanged. On 2026-10-22
+Brett authorized resolving FGDC-141's spent unknown create through the bulk route: a
+recorded, hash-bound release of its single-record claim, a fresh owner inventory showing
+no record that could carry it, then the full bulk barrier before a single create. AquaDocs linkage is deferred until after initial publication;
 it is not completed or passed and is not an initial publication blocker.
 
 ## Agent Protocol

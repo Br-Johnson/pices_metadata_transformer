@@ -1,0 +1,87 @@
+{
+ "kind": "pices-source-repairs-v1",
+ "decision": "Seven approved records were excluded on 2026-10-20 because the provider sanitiser would damage their text; each exclusion says to publish after the text is repaired. These exact repairs apply only to the v2 record of the named sources. The original FGDC XML is unchanged and stays attached.",
+ "rule": "This collection stores Latin-1 letters as U+FF00 plus the Latin-1 byte (U+FFE4 for a-umlaut, U+FFE9 for e-acute, U+FFFC for u-umlaut); the sanitiser deletes U+FFFC and folds U+FFE4/U+FFE9, so names would be published damaged. A \"<\" directly followed by a letter is read by the sanitiser as an HTML tag and stripped together with the text after it; one space after \"<\" keeps the comparison as text.",
+ "decided_by": "Claude Opus 5.5 operator (session a49e1cd3), 2026-10-22, to be confirmed by an independent reviewer agent",
+ "repairs": {
+  "FGDC-2570": [
+   {
+    "from": "Universit￤t",
+    "to": "Universität",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   },
+   {
+    "from": "f￼r",
+    "to": "für",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   }
+  ],
+  "FGDC-2583": [
+   {
+    "from": "Universit￤t",
+    "to": "Universität",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   },
+   {
+    "from": "f￼r",
+    "to": "für",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   }
+  ],
+  "FGDC-2588": [
+   {
+    "from": "Universit￤t",
+    "to": "Universität",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   },
+   {
+    "from": "f￼r",
+    "to": "für",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   }
+  ],
+  "FGDC-2589": [
+   {
+    "from": "Universit￤t",
+    "to": "Universität",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   },
+   {
+    "from": "f￼r",
+    "to": "für",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   }
+  ],
+  "FGDC-2591": [
+   {
+    "from": "Universit￤t",
+    "to": "Universität",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   },
+   {
+    "from": "f￼r",
+    "to": "für",
+    "reason": "Freie Universitaet Berlin, Institut fuer Meteorologie: U+FFE4 and U+FFFC are a-umlaut and u-umlaut"
+   }
+  ],
+  "FGDC-2733": [
+   {
+    "from": "Poincar￩",
+    "to": "Poincaré",
+    "reason": "Poincare wave: U+FFE9 is e-acute"
+   },
+   {
+    "from": "S￼nderman",
+    "to": "Sünderman",
+    "reason": "Suendermann tidal models (1977): U+FFFC is u-umlaut; source spelling otherwise kept"
+   }
+  ],
+  "FGDC-2768": [
+   {
+    "from": "&lt;Ra",
+    "to": "&lt; Ra",
+    "reason": "Rayleigh-number ranges \"20<Ra/Ra<100\" and \"250<Ra/Ra\": a space after \"<\" keeps them as text"
+   }
+  ]
+ }
+}

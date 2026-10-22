@@ -183,6 +183,10 @@ class Provider:
                 record['edit'] = {'metadata': copy.deepcopy(record['metadata']), 'access': copy.deepcopy(record['access']),
                                   'custom_fields': {'legacy:test': 'kept'}, 'revision': record['revision'] + 1}
             return 201, self.edit_document(record)
+        if rest == 'draft' and method == 'PUT' and record['status'] != 'published':  # save an unpublished draft
+            data = parse(body)
+            record.update(metadata=data['metadata'], access=data['access'], revision=record['revision'] + 1)
+            return 200, self.document(record)
         if rest == 'draft' and method == 'PUT':
             data = parse(body)
             published = self.document(record, published=True)
@@ -995,6 +999,88 @@ class BulkRouteTests(unittest.TestCase):
         self.assertEqual(record['update']['rebound'][0]['decided_by'], 'Operator')
         provider = self.provider.records[record['identity']['id']]
         self.assertEqual(provider['metadata'], parse(bulk.prepare_entry(self.paths, record).body)['metadata'])
+
+    def test_reviewed_source_repairs_apply_exactly_and_must_apply(self):
+        base = json.loads(bulk.prepare_entry(self.paths, {'source_id': SOURCES[0]}, 2).body)
+        word = base['metadata']['description'].split()[0]
+        with patch.object(bulk, 'source_repairs', return_value={SOURCES[0]: [{'from': word, 'to': word + 'X'}]}):
+            fixed = bulk.prepare_entry(self.paths, {'source_id': SOURCES[0]}, 2)
+            self.assertTrue(json.loads(fixed.body)['metadata']['description'].startswith(word + 'X'))
+            self.assertEqual(fixed.evidence['source_repairs'], 1)
+        with patch.object(bulk, 'source_repairs', return_value={SOURCES[0]: [{'from': 'no such text', 'to': 'x'}]}), \
+                self.assertRaises(Held):
+            bulk.prepare_entry(self.paths, {'source_id': SOURCES[0]}, 2)
+        self.assertEqual(set(bulk.source_repairs()), {'FGDC-2570', 'FGDC-2583', 'FGDC-2588', 'FGDC-2589', 'FGDC-2591',
+                                                      'FGDC-2733', 'FGDC-2768'})
+
+    def test_a_lifted_exclusion_no_longer_bars_the_source_and_the_exclusion_stays(self):
+        bulk.exclude(self.paths, SOURCES[0], 'held for source-text repair: test', 'Reviewer agent')
+        bulk.exclude(self.paths, SOURCES[2], 'duplicate of FGDC-1915 in the source collection', 'Reviewer agent')
+        self.assertRaises(Held, bulk.lift_exclusion, self.paths, SOURCES[2], 'Operator', 'mistaken')
+        self.assertIn(SOURCES[0], bulk.exclusions(self.paths))
+        self.assertRaises(Held, bulk.lift_exclusion, self.paths, SOURCES[1], 'Operator', 'repaired')
+        bulk.lift_exclusion(self.paths, SOURCES[0], 'Operator', 'text repaired in source_repairs.json')
+        self.assertNotIn(SOURCES[0], bulk.exclusions(self.paths))
+        self.assertTrue((bulk.bulk_root(self.paths) / 'exclusions' / (SOURCES[0] + '.json')).exists())
+        self.assertRaises(FileExistsError, bulk.lift_exclusion, self.paths, SOURCES[0], 'Operator', 'again')
+        review_file = self.review('bulk-060', self.plan('bulk-060', [SOURCES[0]])[1])
+        self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
+
+    def test_an_adopted_draft_with_an_old_wire_is_revised_then_published(self):
+        prepared = prepare(Path(self.paths.zenodo_json_dir) / 'FGDC-1915.json', self.paths)
+        old = parse(prepared.body)
+        old['metadata']['subjects'] = old['metadata']['subjects'][:1]  # the draft holds an older, cut wire
+        record_id = self.provider.add_draft(old, 'FGDC-1915.xml', prepared.xml)
+        provider_record = self.provider.records[record_id]
+        identity = {'id': record_id, 'parent_id': provider_record['parent'], 'owner': OWNER,
+                    'created': provider_record['created']}
+        (draft.state_root(self.paths) / 'FGDC-1915.modern-create-v1.intent.json').write_text('{}')
+        journal = {'schema_version': 1, 'kind': 'modern-production-draft-attempts', 'targets': {
+            'FGDC-1915': {'phase': 'verified', 'identity': identity, 'verified_revision': 1,
+                          'untrusted_candidate_id': record_id, 'binding': 'x', 'counts': {}, 'requests': []}}}
+        Path(self.paths.uploads_registry_path + '.modern-v1.json').write_text(json.dumps(journal))
+        review_file, _ = self.v2_review(self.review('bulk-061', self.plan('bulk-061', ['FGDC-1915'])[1]))
+        self.assertEqual(self.drafts(review_file)['counts'], {'adopted': 1})
+        self.assertEqual(self.publish(self.release([review_file], name='release-061'))['counts'], {'held': 1})
+        record = bulk.load_record(self.paths, 'FGDC-1915')  # the old draft does not match: held before any write
+        self.assertEqual((record['phase'], record['counts']['review'], record['hold']['reason']),
+                         ('adopted', 0, 'provider metadata differs from the wire'))
+        _, _, _, members = bulk.load_review(self.paths, review_file)
+        outcome = self.runner('drafts').revise_draft('FGDC-1915', members['FGDC-1915'], 'Operator', 'keyword repaired')
+        self.assertEqual(outcome['phase'], 'draft-verified')
+        puts = len([m for m, _ in self.writes() if m == 'PUT'])
+        again = self.runner('drafts').revise_draft('FGDC-1915', members['FGDC-1915'], 'Operator', 'again')
+        self.assertEqual((again['phase'], len([m for m, _ in self.writes() if m == 'PUT'])), ('draft-verified', puts))
+        self.assertEqual(self.publish(self.release([review_file], name='release-061b'))['counts'], {'published': 1})
+        wire = parse(bulk.prepare_entry(self.paths, bulk.load_record(self.paths, 'FGDC-1915')).body)
+        self.assertEqual((provider_record['metadata'], provider_record['access']), (wire['metadata'], wire['access']))
+
+    def test_a_lost_revision_answer_is_recovered_without_a_second_put_when_it_took_effect(self):
+        prepared = prepare(Path(self.paths.zenodo_json_dir) / 'FGDC-1915.json', self.paths)
+        old = parse(prepared.body)
+        old['metadata']['subjects'] = old['metadata']['subjects'][:1]
+        record_id = self.provider.add_draft(old, 'FGDC-1915.xml', prepared.xml)
+        provider_record = self.provider.records[record_id]
+        identity = {'id': record_id, 'parent_id': provider_record['parent'], 'owner': OWNER,
+                    'created': provider_record['created']}
+        (draft.state_root(self.paths) / 'FGDC-1915.modern-create-v1.intent.json').write_text('{}')
+        journal = {'schema_version': 1, 'kind': 'modern-production-draft-attempts', 'targets': {
+            'FGDC-1915': {'phase': 'verified', 'identity': identity, 'verified_revision': 1,
+                          'untrusted_candidate_id': record_id, 'binding': 'x', 'counts': {}, 'requests': []}}}
+        Path(self.paths.uploads_registry_path + '.modern-v1.json').write_text(json.dumps(journal))
+        review_file, _ = self.v2_review(self.review('bulk-062', self.plan('bulk-062', ['FGDC-1915'])[1]))
+        self.drafts(review_file)
+        _, _, _, members = bulk.load_review(self.paths, review_file)
+        self.provider.lose_at = len(self.provider.calls) + 1  # the GET answers; the PUT takes effect, its answer is lost
+        self.assertRaises(Held, self.runner('drafts').revise_draft, 'FGDC-1915', members['FGDC-1915'], 'Operator', 'n')
+        self.provider.lose_at = None
+        record = bulk.load_record(self.paths, 'FGDC-1915')
+        self.assertIn('interrupted', record['hold']['reason'])
+        puts = len([m for m, _ in self.writes() if m == 'PUT'])
+        self.assertEqual(self.runner('drafts').revise_draft('FGDC-1915', members['FGDC-1915'], 'Operator', 'n')['phase'],
+                         'draft-verified')
+        self.assertEqual(len([m for m, _ in self.writes() if m == 'PUT']), puts)  # no second PUT
+        self.assertEqual(self.publish(self.release([review_file], name='release-062'))['counts'], {'published': 1})
 
     def test_update_reads_the_keychain_as_its_own_action(self):
         with patch.object(bulk.draft, 'production_token', return_value=TOKEN) as token, \

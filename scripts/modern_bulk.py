@@ -81,8 +81,11 @@ EDIT_WRITES = ('edit', 'update', 'publish')  # the in-place update of a publishe
 PHASES = ('planned', 'creating', 'created', 'initialized', 'uploaded', 'draft-verified', 'adopted',
           'review-set', 'accepted', 'published', 'editing', 'edit-open', 'edit-saved', 'edit-published')
 UPDATING = ('editing', 'edit-open', 'edit-saved', 'edit-published')
-RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/resource_types.json'
-RESOURCE_TYPES_SHA = '5a339a00ac9c764d8ce6f895ce6b0179aa9456957ff3f945e1659d8533baa48b'  # supersedes the 2026-10-20 manifest (7c933607...)
+RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/resource_types_r2.json'
+RESOURCE_TYPES_SHA = '664c59d733b87591f5cbc5b3e97d472e5bde367b90df22a96daaa4d7d052f1ed'  # adds FGDC-1939; supersedes 5a339a00...
+SOURCE_REPAIRS_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/source_repairs.json'
+SOURCE_REPAIRS_SHA = '5d8f46aad7177a9ded3084e56b6051708c13d1d66b8dc605e3d5c0d64f3ffa05'
+EXCLUSION_LIFT_KIND = 'modern-bulk-exclusion-lift-v1'
 DRAFTED = ('draft-verified', 'adopted', 'review-set', 'accepted', 'published')
 PACE_SECONDS = 0.8
 INVENTORY_REFRESH = timedelta(minutes=45)
@@ -269,6 +272,37 @@ def resource_types():
     return document['types']
 
 
+def source_repairs():
+    """Reviewed exact text repairs by source id (pinned): source text the provider sanitiser would damage."""
+    raw = SOURCE_REPAIRS_PATH.read_bytes()
+    require(sha(raw) == SOURCE_REPAIRS_SHA)
+    document = parse(raw)
+    require(document.get('kind') == 'pices-source-repairs-v1' and isinstance(document.get('repairs'), dict))
+    return document['repairs']
+
+
+def repaired(metadata, repairs):
+    """The metadata with each repair applied to every string value; a repair that applies nowhere holds."""
+    require(isinstance(repairs, list) and all(isinstance(r.get('from'), str) and r['from'] and isinstance(r.get('to'), str)
+                                              for r in repairs))
+    used = [0] * len(repairs)
+
+    def walk(value):
+        if isinstance(value, str):
+            for index, repair in enumerate(repairs):
+                used[index] += value.count(repair['from'])
+                value = value.replace(repair['from'], repair['to'])
+            return value
+        if isinstance(value, list):
+            return [walk(item) for item in value]
+        if isinstance(value, dict):
+            return {key: walk(item) for key, item in value.items()}
+        return value
+    result = walk(metadata)
+    require(all(used))
+    return result
+
+
 class WireV2:
     """A prepared source or pair with its v2 wire (ADR 0014); originals and evidence unchanged."""
     wire_version = 2
@@ -280,9 +314,14 @@ class WireV2:
         self.xml = base.xml
         self.contents = contents_of(base)
         self.v1_body = base.body
-        self.body = encode(wire_v2.build(parse(base.body), base.xml, self.source_ids, resource_type))
+        record = wire_v2.build(parse(base.body), base.xml, self.source_ids, resource_type)
+        repairs = source_repairs().get(base.source_id, [])
+        if repairs:  # reviewed text repairs (source_repairs.json); the original XML is unchanged
+            record = {**record, 'metadata': repaired(record['metadata'], repairs)}
+            wire_v2.validate(record)
+        self.body = encode(record)
         self.evidence = {**base.evidence, 'wire_version': 2, 'v1_wire_sha256': sha(base.body),
-                         'resource_type': resource_type}
+                         'resource_type': resource_type, 'source_repairs': len(repairs)}
 
 
 def prepare_entry(paths, entry, wire_version=None):
@@ -630,7 +669,7 @@ def check_file_entry(entry, expected, *, completed=True):
 
 
 def check_draft(data, prepared, record, owner, *, files_complete, status='draft', bind_since=None,
-                foreign=frozenset()):
+                foreign=frozenset(), compare=True):
     """The draft as the provider holds it; binds the identity on the first validated response."""
     check(isinstance(data, dict) and data.get('is_published') is False and data.get('status') == status
           and data.get('pids') == {} and data.get('doi') in (None, '')
@@ -649,11 +688,12 @@ def check_draft(data, prepared, record, owner, *, files_complete, status='draft'
     base = '/api/records/' + identity['id'] + '/draft'
     check(data.get('links', {}).get('self') == draft.ORIGIN + base
           and data.get('links', {}).get('files') == draft.ORIGIN + base + '/files', 'draft links differ')
-    try:
-        compare_wire(data.get('metadata'), prepared)
-    except Held:
-        raise RecordHold('provider metadata differs from the wire') from None
-    check(access_matches(data.get('access', {}), prepared), 'access differs')
+    if compare:  # off only for the structure of a draft about to be revised to its reviewed wire
+        try:
+            compare_wire(data.get('metadata'), prepared)
+        except Held:
+            raise RecordHold('provider metadata differs from the wire') from None
+        check(access_matches(data.get('access', {}), prepared), 'access differs')
     files = data.get('files', {})
     expected = files_of(record)
     entries = files.get('entries') if isinstance(files.get('entries'), dict) else None
@@ -1519,6 +1559,69 @@ class Bulk:
         check(pids == record['pids'], 'published DOI pids changed')
         return 'edit-published', granted
 
+    def revise_draft(self, source_id, member, decided_by, note):
+        """A recorded decision: put the reviewed wire into this record's existing, unpublished draft.
+
+        For a draft made before its wire was corrected (FGDC-1939, a PICES26 draft whose keyword was
+        cut). The record may be unheld, or held by the publish stage because its draft still holds the
+        old wire, or held because an earlier revision's answer was lost. The draft's structure
+        (identity, unpublished state, files, no community or review) is checked on a GET before the one
+        PUT; the PUT answer must show the reviewed wire, public files and no validation errors. A lost
+        PUT whose effect the next GET does not show is sent once more. Any failure holds the record.
+        """
+        record = load_record(self.paths, source_id)
+        reason = (record or {}).get('hold') and record['hold'].get('reason')
+        transient = re.compile(r'(get|update) (request interrupted|answered 5[0-9][0-9] )')
+        check(record is not None and record['phase'] in ('adopted', 'draft-verified')
+              and (reason in (None, 'provider metadata differs from the wire') or transient.match(reason or ''))
+              and record['counts']['review'] == 0 and record['counts']['submit'] == 0,
+              'only an unpublished, unsubmitted draft, unheld or held for its old wire, is revised', Held)
+        check(all(isinstance(v, str) and v.strip() for v in (decided_by, note)), 'decider and note are required', Held)
+        check(member['approved'] and member['source_id'] == source_id and member['source_sha256'] == record['source_sha256']
+              and member['wire_sha256'] == record['wire_sha256'] and files_of(member) == files_of(record),
+              'the review does not approve this record with its wire', Held)
+        prepared = prepare_entry(self.paths, record)
+        check(sha(prepared.xml) == record['source_sha256'] and sha(prepared.body) == record['wire_sha256'],
+              'live preparation differs from the reviewed wire', Held)
+        previous = record['hold']
+        for receipt in record['requests']:
+            if receipt.get('status') == 'uncertain':
+                receipt['status'] = 'unanswered'
+        record['hold'] = None
+        base = '/api/records/' + record['identity']['id'] + '/draft'
+        try:
+            current = self.call(record, 'get', 'GET', base, 200)
+            check_draft(current, prepared, record, self.owner, files_complete=True, compare=False)
+            try:
+                check_draft(current, prepared, record, self.owner, files_complete=True)
+                already = True  # an earlier PUT whose answer was lost did take effect
+            except RecordHold:
+                already = False
+            if not already:
+                if record['counts']['update'] >= write_limit(record, 'update'):
+                    check(previous and transient.match(previous['reason'] or '')
+                          and previous['reason'].startswith('update')
+                          and record['allowances'].get('update', 0) < MAX_ALLOWANCE,
+                          'the draft revision was already sent; needs a separate decision')
+                    record['allowances']['update'] = record['allowances'].get('update', 0) + 1
+                saved = self.call(record, 'update', 'PUT', base, 200, prepared.body)
+                _, revision = check_draft(saved, prepared, record, self.owner, files_complete=True)
+            else:
+                _, revision = check_draft(current, prepared, record, self.owner, files_complete=True)
+        except (Held, StopRun) as error:
+            self.hold(record, str(error))
+            self.ledger['holds'].append({'source_id': source_id, 'reason': str(error), 'at': self.now().isoformat()})
+            self.ledger['status'] = 'stopped'
+            self.save_ledger()
+            raise Held('draft revision held: ' + str(error)) from None
+        record['draft_revision'] = revision
+        record.setdefault('revisions', []).append({'decided_by': decided_by, 'note': note, 'at': self.now().isoformat(),
+                                                   'run_id': self.run_id, 'wire_sha256': record['wire_sha256'],
+                                                   'revision': revision, 'previous_hold': previous})
+        self.advance(record, 'draft-verified')
+        self.ledger['outcomes'][source_id] = 'revised'
+        return {'source_id': source_id, 'phase': 'draft-verified', 'revision': revision}
+
     def rebind_update(self, source_id, member, decided_by, note):
         """A recorded decision: point a held, unpublished update at a newer reviewed v2 wire; GET only.
 
@@ -1668,7 +1771,27 @@ def exclusions(paths):
             require(isinstance(document, dict) and document.get('kind') == EXCLUSION_KIND
                     and document.get('source_id') == path.stem)
             found[path.stem] = document
+        for path in sorted((directory / 'lifted').glob('FGDC-*.json')):
+            lift, _ = draft.read_document(path)
+            _, exclusion_sha = draft.read_document(directory / (path.stem + '.json'))
+            require(isinstance(lift, dict) and lift.get('kind') == EXCLUSION_LIFT_KIND
+                    and lift.get('source_id') == path.stem and lift.get('exclusion_sha256') == exclusion_sha)
+            found.pop(path.stem, None)
     return found
+
+
+def lift_exclusion(paths, source_id, decided_by, reason, now=utc_now):
+    """Record that an exclusion no longer applies because its cause was repaired; the exclusion itself stays."""
+    path = bulk_root(paths) / 'exclusions' / (source_id + '.json')
+    check(re.fullmatch(batch.SOURCE_ID, source_id) is not None and path.exists(), 'no exclusion for this source', Held)
+    check(all(isinstance(v, str) and v.strip() for v in (decided_by, reason)), 'decider and reason are required', Held)
+    exclusion, exclusion_sha = draft.read_document(path)
+    check(str(exclusion.get('reason', '')).startswith('held for source-text repair'),
+          'only an exclusion held for source-text repair is lifted; a duplicate stays excluded', Held)
+    document = {'schema_version': 1, 'kind': EXCLUSION_LIFT_KIND, 'source_id': source_id,
+                'exclusion_sha256': exclusion_sha, 'exclusion_reason': exclusion.get('reason'),
+                'reason': reason, 'decided_by': decided_by, 'decided_at': now().isoformat()}
+    return write_exclusive(bulk_root(paths) / 'exclusions' / 'lifted' / (source_id + '.json'), document)
 
 
 def exclude(paths, source_id, reason, decided_by, now=utc_now):
@@ -1786,6 +1909,17 @@ def main():
     update.add_argument('--limit', type=int)
     update.add_argument('--token-keychain', metavar='SERVICE',
                         help='Read the token from this Keychain item; prompts otherwise')
+    revise = sub.add_parser('revise-draft', help='Put the reviewed wire into an existing unpublished draft (one PUT)')
+    revise.add_argument('--source', required=True)
+    revise.add_argument('--review', required=True, help='The review that approves the wire the record is bound to')
+    revise.add_argument('--owner', required=True)
+    revise.add_argument('--decided-by', required=True)
+    revise.add_argument('--note', required=True)
+    revise.add_argument('--token-keychain', metavar='SERVICE', help=draft.KEYCHAIN_HELP)
+    lift = sub.add_parser('lift-exclusion', help='Record that a repaired exclusion no longer applies (offline)')
+    lift.add_argument('--source', required=True)
+    lift.add_argument('--decided-by', required=True)
+    lift.add_argument('--reason', required=True)
     rebind = sub.add_parser('rebind-update', help='Point a held, unpublished update at a newer reviewed v2 wire (GET only)')
     rebind.add_argument('--source', required=True)
     rebind.add_argument('--review', required=True, help='The v2 review that approves the newer wire')
@@ -1904,6 +2038,19 @@ def main():
                     runner.ledger['inputs'] = {'review_sha256': review_sha, 'manifest': str(manifest_file),
                                                'manifest_sha256': sha(manifest_file.read_bytes())}
                 result = runner.run(approved, runner.draft_member, limit=args.limit)
+        elif args.action == 'lift-exclusion':
+            with ledger_lock(paths):
+                path = lift_exclusion(paths, args.source, args.decided_by, args.reason)
+            result = {'lift': str(path), 'provider_requests': 0}
+        elif args.action == 'revise-draft':
+            _, _, _, members = load_review(paths, args.review)
+            require(args.source in members)
+            transport, token = transport_and_token('drafts', args.token_keychain)
+            with ledger_lock(paths):
+                runner = Bulk(paths, transport, token, owner=args.owner, stage='drafts')
+                result = runner.revise_draft(args.source, members[args.source], args.decided_by, args.note)
+                runner.ledger['status'] = 'complete'
+                runner.save_ledger()
         elif args.action == 'rebind-update':
             _, _, _, members = load_review(paths, args.review)
             require(args.source in members)
