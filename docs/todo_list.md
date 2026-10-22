@@ -21,10 +21,25 @@ Brett's goal (2026-10-20): publish all appropriate records to production Zenodo,
   All 3,823 publishable records build, pass the pinned schema and survive the emulated sanitiser unchanged.
 - [x] Independent review of the v2 change. Four P1 mapping defects were fixed: contact typing, swapped date-line boxes and e-mail addresses in new text. A batch reviewer found two more: the 0,0,0,0 placeholder box and begin-only periods. Commits `da675dd` through `a8a1436` are on main, and CI is green on `da675dd`.
 - [x] Canary FGDC-985 (record 23508755), 2026-10-21. The first save was partly refused ("Unsupported value: MultiPolygon") and held before publication. Date-line boxes are now two Polygons. The batch was re-reviewed as bulk-005-v2b and the canary was rebound with `rebind-update` (GET only). Updated: same DOI, revision 6. Brett approved the full run on 2026-10-21, with the Keychain allowed for `update`.
-- [ ] Build v2 sheets and AI accuracy reviews for bulk-001..017 and pairs-001.
+- [x] v2 sheets and independent AI accuracy reviews for all 18 batches, recorded 2026-10-21 and 2026-10-22: 3,823 records, all approved.
+  - The weekly usage limit interrupted 17 reviewers at once. They were resumed after the reset.
+  - Reviewers found four more mapping or typing problems, each fixed before its batch published or updated:
+    - the 0,0,0,0 placeholder box and begin-only periods (`7b570ae`);
+    - Zenodo's refusal of MultiPolygon (`a8a1436`);
+    - the date-line meridian and line-shaped boxes (`e4e64d5`);
+    - seven NOAA Central Library books typed as datasets (`e2fd57b`).
+  - Each affected batch was re-sheeted (the stale sheets are in `sheets/superseded/`) and rechecked.
+- [x] bulk-005 updated in place: 250 records, same DOIs, one lost answer reconciled automatically. FGDC-2599 published from its v1 draft on 2026-10-22. bulk-017 published in v2: 24 records.
+- [ ] `bin/pices-pipeline-v2.sh` runs as the single provider writer. For each batch it publishes new members in v2, then updates published v1 records. Order: bulk-017, 011, 012, 013, 014, 015, 016, pairs-001, then 001-004 and 006-010.
 - [ ] Publish the members not yet drafted in v2 (bulk-011 rest, bulk-012..017, pairs-001). Publish FGDC-2599 from its v1 draft.
 - [ ] Update the 2,516 v1 records in place.
 - [ ] FGDC-141's unknown create stays outside until its own decision.
+- [ ] Source-correction candidates that v2 reviewers found. Each is faithful to its XML but probably wrong in the source:
+  - map signs: FGDC-4115 and 4140 (Station Papa at 145E, not 145W), 4159 (Babine Lake at 126E), 4176 (Sea of Okhotsk mapped to the Gulf of Alaska), 4092, 4098, 3834, 1925 (W 180 where its siblings give W 125), 142 and 256;
+  - contact name order: FGDC-1795 "Sei-ichi, Saitoh";
+  - name suffix: "Jr." lands in the given name, for example "Zenger, Jr., Harold H.".
+  
+  A correction is a reviewed source repair, then one more update; each record has one update spent.
 - [ ] Repair the source text of the seven sanitiser-altered records (FGDC-2570, 2583, 2588, 2589, 2591, 2733, 2768) and FGDC-1939's cut keyword, then publish them through a reviewed metadata-edit or new-draft step. FGDC-1939's existing draft could take its v2 wire by a draft PUT; that step is not built.
 
 ## Earlier increment: identify the production client to Zenodo's edge — 2026-10-06
