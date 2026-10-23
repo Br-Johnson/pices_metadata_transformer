@@ -217,6 +217,10 @@
    "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
   },
   {
+   "source_id": "FGDC-3851",
+   "source_sha256": "c84125a527d9746840b85c1abc78c580e49648c0cbe54a93a69fb544663d672e"
+  },
+  {
    "source_id": "FGDC-3873",
    "source_sha256": "a69efb77584a9d7f7a57f027061db3fc7cab02e99af265682b83e10fa49464bb"
   },
@@ -460,8 +464,34 @@
   "FGDC-3851": {
    "carried_from_review_sha256": null,
    "carried_from_round": null,
-   "decision": "pending",
-   "note": "Previous round: held. Use the contact form Hermann, Albert J. per Brett's decision. Brett chose \"Use the spelling the record itself gives in its byline or contact; the citation text stays in the attached XML\". The record's contact gives the name as \"Hermann, Albert J.\". The proposed \"Hermann, Al\" combines the citation's given form with the contact's family name, a form the record never gives. Round 1 also found the conflict was in both the given-name form and the surname spelling. In the other 13 byline cases the byline element gives only an initial or the same given name (N./Nancy, A./Akihisa, A.V./Alexander V., Christine), so keeping the citation's given name agrees with it. Here the contact gives a different, fuller form, so the contact form should be used whole: family_name \"Hermann\", given_name \"Albert J.\". The paragraph keeps the citation's \"Al Herman\". Round 3: row changed since the previous round; needs a fresh decision.",
+   "decision": "approved",
+   "evidence": [
+    {
+     "text": "Al Herman National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL)",
+     "xpath": "./idinfo/citation/citeinfo/origin"
+    },
+    {
+     "text": "Hermann, Albert J.",
+     "xpath": "./idinfo/ptcontac/cntinfo/cntperp/cntper"
+    },
+    {
+     "text": "Albert.J.Hermann@noaa.gov",
+     "xpath": "./idinfo/ptcontac/cntinfo/cntemail"
+    },
+    {
+     "text": "Hermann, Albert J.",
+     "xpath": "./distinfo/distrib/cntinfo/cntperp/cntper"
+    },
+    {
+     "text": "Albert.J.Hermann@noaa.gov",
+     "xpath": "./distinfo/distrib/cntinfo/cntemail"
+    },
+    {
+     "text": "Kimberly Bahl",
+     "xpath": "./metainfo/metc/cntinfo/cntperp/cntper"
+    }
+   ],
+   "note": "Approved in round 3. The round-2 hold asked for the contact form whole; the vector is now family_name \"Hermann\", given_name \"Albert J.\", and both name parts are the text of one record element, ./idinfo/ptcontac/cntinfo/cntperp/cntper \"Hermann, Albert J.\", repeated identically at ./distinfo/distrib/cntinfo/cntperp/cntper. Both contact e-mails read \"Albert.J.Hermann@noaa.gov\", and the Seattle address (7600 Sand Point Way N.E.) agrees with the citation's PMEL line. The citation origin reads \"Al Herman\" followed by the NOAA, OAR, PMEL line; the paragraph records \"Al Herman\" and the XML keeps it. The only other person in the record, \"Kimberly Bahl\" at ./metainfo/metc, is the metadata contact, not a competing creator, so the record gives one unambiguous form and the owner decision's hold condition does not apply. Using \"Albert J.\" for \"Al\" is more than a surname spelling change; it follows the round-2 ruling that \"Hermann, Al\" is a form the record never gives, and Brett may still prefer the narrower reading. The resource type (dataset) and every other field of the row are unchanged from round 2. The proposal's XML quotes match their elements (whitespace normalised) and its file quotes occur in files whose SHA-256 match.",
    "row_unchanged_since_previous_round": false
   },
   "FGDC-3873": {
@@ -1023,18 +1053,12 @@
   }
  ],
  "membership_sha256": "f9e95ea526847c2c4c872a44cb61f4fb144cf0efbd06d6202a851b623915edbf",
- "pending_members": [
-  {
-   "source_id": "FGDC-3851",
-   "source_sha256": "c84125a527d9746840b85c1abc78c580e49648c0cbe54a93a69fb544663d672e"
-  }
- ],
  "policy": "modern-xml-reviewed-creators64-v1",
  "proposals_path": "docs/readiness/2026-10-22/creators64_proposals.json",
  "proposals_sha256": "75a9edef19ef3a875ad7ad9f81a44cdaa7c1f5762b0743a81d7f429c53284c57",
  "proposed_by": "Claude Fable 5.1 (deep-coder subagent of session a49e1cd3), 2026-10-22",
- "reviewed_at": null,
- "reviewer": null,
+ "reviewed_at": "2026-10-23T22:48:58+00:00",
+ "reviewer": "Claude Opus 5.5, independent reviewer agent of session a49e1cd3 (did not write the creators64 proposals); round 3",
  "reviewer_checklist": [
   "Round 3 re-proposes FGDC-3851 only: family_name \"Hermann\", given_name \"Albert J.\", both from the record's point-of-contact element \"Hermann, Albert J.\" (quoted in creators64_proposals.json under byline_spelling_evidence); the paragraph records the citation's \"Al Herman\".",
   "The 56 round-2 approvals are carried forward with their notes. Re-confirm them mechanically: every carried row in modern_reviewed_creators64.json equals the same source's row in modern_reviewed_creators64_round2.json (the manifest the pinned round-2 review approved); rows_changed_since_round_2 in the proposals must be [\"FGDC-3851\"] only.",
@@ -1042,5 +1066,5 @@
  ],
  "round": 3,
  "schema_version": 1,
- "status": "proposal pending independent review"
+ "status": "approved"
 }
