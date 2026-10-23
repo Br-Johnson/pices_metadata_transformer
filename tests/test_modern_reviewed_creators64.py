@@ -24,7 +24,7 @@ from tests import modern_singleton_fixtures as fixtures
 
 MANIFEST_SHA = 'b8d6205bd778a56cf31134388f9e9236da3a05867e48c8a052c21bea1416a526'  # round 3
 PROPOSALS_SHA = '75a9edef19ef3a875ad7ad9f81a44cdaa7c1f5762b0743a81d7f429c53284c57'  # round 3
-REVIEW_SHA = 'ae1637e9c00a77ba9b0e59bb02665ce9f29833894948a74cf6b31e3d06e539c6'  # round 3, pending: 56 carried, 3851 pending
+REVIEW_SHA = '4ae77e76d12e446150128901ed23b0f1ec515442b0d5a5583a878ab5f1c4f7de'  # round 3, approved: 56 carried + 3851
 ROUND2_MANIFEST_SHA = '966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5'  # the manifest round 2 approved
 ROUND2_REVIEW_SHA = '522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694'  # the round-2 review: 56 approved
 ROUND2_DIR = 'docs/readiness/2026-10-22/'
@@ -138,8 +138,10 @@ class ModernReviewedCreators64Tests(unittest.TestCase):
         previous_review = mapping.parse(round2_review.read_bytes())
         carried = [sid for sid, decision in self.review['decisions'].items() if decision.get('carried_from_round') == 2]
         self.assertEqual(sorted(carried, key=lambda s: int(s[5:])), [sid for sid in ADMITTED if sid != 'FGDC-3851'])
+        # An approved round-3 review admits the carried 56 plus FGDC-3851; a pending one only the carried 56.
+        expected = carried + (['FGDC-3851'] if self.review['status'] == 'approved' else [])
         self.assertEqual([row['source_id'] for row in self.review['approved_members']],
-                         sorted(carried, key=lambda s: int(s[5:])))
+                         sorted(expected, key=lambda s: int(s[5:])))
         for sid in carried:
             with self.subTest(carried=sid):
                 self.assertEqual(self.rows[sid], previous_rows[sid])
