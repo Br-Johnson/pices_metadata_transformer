@@ -1197,12 +1197,13 @@ class BulkRouteTests(unittest.TestCase):
     def test_v2_pair_without_a_reviewed_resource_type_holds_until_the_manifest_carries_it(self):
         target = {'record_target_id': ADFG_TARGET, 'reviewed_at': fixtures.NOW.isoformat()}
         self.assertEqual(bulk.pair_row(self.paths, target)['policy'], content_class.NONEXXON_POLICY)  # v1 needs no type
-        self.assertNotIn(ADFG_PAIR[0], bulk.resource_types())
-        with self.assertRaises(bulk.RecordHold) as held:
+        pinned = bulk.resource_types()
+        self.assertEqual(pinned[ADFG_PAIR[0]], 'publication-report')  # r4 carries the reviewed type
+        without = {k: v for k, v in pinned.items() if k != ADFG_PAIR[0]}
+        with patch.object(bulk, 'resource_types', return_value=without), self.assertRaises(bulk.RecordHold) as held:
             bulk.pair_row(self.paths, target, 2)
         self.assertIn('no reviewed resource type for FGDC-2949', str(held.exception))
-        with self.proposed_types():
-            row = bulk.pair_row(self.paths, target, 2)
+        row = bulk.pair_row(self.paths, target, 2)
         self.assertEqual((row['wire_version'], row['v2']['resource_type']), (2, 'publication-report'))
 
 
