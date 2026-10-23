@@ -97,13 +97,13 @@ CITATIONS31_DOCUMENTS = {'basis_proposal': {'path': 'docs/readiness/2026-10-06/n
  'office_review': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-role-office11-independent-source-review.json',
                    'sha256': 'dbde3f4c6a36b9368b75683e21ab9dff1098968285eef0abd9eba896a37fc673'}}
 CREATORS64 = ROOT / 'docs/readiness/2026-10-22/modern_reviewed_creators64.json'
-CREATORS64_SHA = '8c8c42cffc4de8723ff111441025254d4b47f95c080058c91fd41c9678a931c9'
+CREATORS64_SHA = '966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5'
 CREATORS64_PROPOSALS = ROOT / 'docs/readiness/2026-10-22/creators64_proposals.json'
-CREATORS64_PROPOSALS_SHA = '33554bda919da592fe60d9435dcfe68bd838a55310accef790d180d86602b930'
+CREATORS64_PROPOSALS_SHA = '69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920145e3eb5f111'
 # The independent review of the creators64 proposal. The file starts as "proposal pending
 # independent review" and admits nothing; the reviewer replaces it and re-pins this SHA.
 CREATORS64_REVIEW = ROOT / 'docs/readiness/2026-10-22/modern_reviewed_creators64_review.json'
-CREATORS64_REVIEW_SHA = '4ca571fae029d6a761f74afc740b5cf91460be9283c8dfe85f227f895e248f79'
+CREATORS64_REVIEW_SHA = 'e5bf62776e936e3badc12d0e31f97b914f991b539cbae35b6f90bff07e141458'
 CREATORS64_POLICY = 'modern-xml-reviewed-creators64-v1'
 CREATORS64_APPROVED = 'approved'
 DFO_PROFILE = ROOT / 'docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json'
@@ -767,7 +767,7 @@ def modern_creator_shape(creator):
 
 
 def reviewed_creators64_source_policy(source_id):
-    """Fourteen proposed creator vectors behind a separately pinned independent review.
+    """The proposed creator vectors of the remaining singletons behind a pinned independent review.
 
     The proposals document is the frozen source packet: every mapping row is rebuilt from it
     here and must match exactly, so neither file can change a vector alone. Admission needs

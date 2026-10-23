@@ -22,14 +22,20 @@ from scripts.citation_creator_interpretation import source_element
 from scripts.path_config import OutputPaths
 from tests import modern_singleton_fixtures as fixtures
 
-MANIFEST_SHA = '8c8c42cffc4de8723ff111441025254d4b47f95c080058c91fd41c9678a931c9'
-PROPOSALS_SHA = '33554bda919da592fe60d9435dcfe68bd838a55310accef790d180d86602b930'
-PENDING_REVIEW_SHA = '4ca571fae029d6a761f74afc740b5cf91460be9283c8dfe85f227f895e248f79'
-ADMITTED = tuple('FGDC-' + str(i) for i in (
-    542, 885, 887, 2234, 2413, 2587, 2668, 2674, 2683, 3599, 3814, 3816, 3817, 3838))
-HELD_SAMPLE = ('FGDC-545', 'FGDC-581', 'FGDC-419', 'FGDC-715', 'FGDC-859', 'FGDC-2296', 'FGDC-3873',
-               'FGDC-3970', 'FGDC-3680', 'FGDC-3808', 'FGDC-3825', 'FGDC-3831', 'FGDC-893', 'FGDC-3851',
-               'FGDC-287', 'FGDC-411', 'FGDC-771', 'FGDC-2229', 'FGDC-2235', 'FGDC-2824', 'FGDC-3786')
+MANIFEST_SHA = '966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5'
+PROPOSALS_SHA = '69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920145e3eb5f111'
+PENDING_REVIEW_SHA = 'e5bf62776e936e3badc12d0e31f97b914f991b539cbae35b6f90bff07e141458'
+UNAAMI = tuple('FGDC-' + str(i) for i in (545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 556, 557, 558,
+                                            559, 560, 573, 574, 575, 576, 578, 579, 580, 581))
+WAKATAKE = tuple('FGDC-' + str(i) for i in (3680, 3681, 3800, 3802, 3803, 3804, 3805, 3806, 3807, 3808))
+# Round 2 (2026-10-22): the 14 first-round vectors (885, 2587 and 3817 re-proposed), the 23 Unaami and six
+# product/system credits admitted by Brett as organisations, and 14 spelling conflicts resolved from the
+# records' own bylines by Brett's decision; seven compound, venue and unnamed credits stay held.
+ADMITTED = tuple(sorted(tuple('FGDC-' + str(i) for i in (419, 542, 715, 859, 885, 887, 893, 2234, 2296, 2413, 2587,
+                                                         2668, 2674, 2683, 3599, 3814, 3816, 3817, 3825, 3831, 3838,
+                                                         3851, 3873, 3970)) + UNAAMI + WAKATAKE,
+                        key=lambda s: int(s[5:])))
+HELD_SAMPLE = ('FGDC-287', 'FGDC-411', 'FGDC-771', 'FGDC-2229', 'FGDC-2235', 'FGDC-2824', 'FGDC-3786')
 OLD_SAMPLES = ('FGDC-141', 'FGDC-696', 'FGDC-95', 'FGDC-1839', 'FGDC-1319',
                'FGDC-59', 'FGDC-3875', 'FGDC-1', 'FGDC-355', 'FGDC-184')
 TYPES = mapping.parse((mapping.ROOT / 'docs/readiness/2026-10-22/resource_types_creators64_proposal.json').read_bytes())
@@ -102,11 +108,15 @@ class ModernReviewedCreators64Tests(unittest.TestCase):
         members = sorted(remaining - citations - set(mapping.PROTECTED), key=lambda s: int(s[5:]))
         self.assertEqual(len(members), 64)
         self.assertEqual([row['source_id'] for row in self.proposals['members']], members)
-        self.assertEqual(Counter(row['decision'] for row in self.proposals['proposals']), {'admit': 14, 'hold': 50})
+        self.assertEqual(Counter(row['decision'] for row in self.proposals['proposals']), {'admit': 57, 'hold': 7})
+        self.assertEqual(len(ADMITTED), 57)
         self.assertEqual(tuple(self.rows), ADMITTED)
-        self.assertEqual(self.manifest['member_count'], 14)
-        self.assertEqual(self.manifest['authority_counts'], {'creator426': 12, 'direct': 2})
-        self.assertEqual(self.manifest['modern_creator_object_count'], 78)
+        self.assertEqual(self.manifest['member_count'], 57)
+        self.assertEqual(self.manifest['authority_counts'], {'creator426': 55, 'direct': 2})
+        self.assertEqual(self.manifest['modern_creator_object_count'], 192)
+        self.assertEqual(self.proposals['round'], 2)
+        self.assertEqual(set(self.proposals['owner_decisions']), {'unaami_as_organisation', 'credited_name_as_org', 'records_own_byline'})
+        self.assertEqual(len(self.review['history']), 1)
         self.assertEqual(self.review['status'], 'proposal pending independent review')
         self.assertIsNone(self.review['reviewer'])
         self.assertEqual(self.review['mapping_manifest_sha256'], MANIFEST_SHA)
@@ -124,7 +134,7 @@ class ModernReviewedCreators64Tests(unittest.TestCase):
             mapping.CITATIONS31_DIRECT_BINDINGS, mapping.CITATIONS31_DIRECT_BINDINGS_SHA)['members']}
         targets = {row['record_target_id']: row for row in mapping.pinned(mapping.PLAN, mapping.PLAN_SHA)['targets']}
         held = {row['source_id'] for row in self.proposals['held_members']}
-        self.assertEqual(len(held), 50)
+        self.assertEqual(len(held), 7)
         for proposal in self.proposals['proposals']:
             sid = proposal['source_id']
             with self.subTest(source=sid):
@@ -179,6 +189,38 @@ class ModernReviewedCreators64Tests(unittest.TestCase):
         self.assertEqual(self.rows['FGDC-3814']['modern_creators'], self.rows['FGDC-3816']['modern_creators'])
         self.assertEqual(self.rows['FGDC-885']['modern_creators'][0]['person_or_org'],
                          {'type': 'personal', 'family_name': 'Farley', 'given_name': 'Edward V., Jr.'})
+        self.assertEqual(self.rows['FGDC-885']['modern_creators'][2]['person_or_org']['given_name'], 'Charles M., III')
+        self.assertNotIn('editor', self.rows['FGDC-2587']['additional_preservation_paragraphs'][0])
+        self.assertIn('of Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, Juneau, AK, USA',
+                      self.rows['FGDC-3817']['additional_preservation_paragraphs'][0])
+        self.assertNotIn('NOAA', self.rows['FGDC-3817']['additional_preservation_paragraphs'][0])
+        for sid in UNAAMI:
+            self.assertEqual(self.rows[sid]['modern_creators'],
+                             [{'person_or_org': {'type': 'organizational', 'name': 'Unaami Arctic Data Collection'}}])
+            self.assertEqual(self.rows[sid]['creators'], [{'name': 'Unaami Arctic Data Collection'}])
+        for sid, name in (('FGDC-419', 'Word Wright'), ('FGDC-715', 'CIA World Bank II'),
+                          ('FGDC-859', "Satellite Pour l'Ovservation de la Terre (SPOT)"),
+                          ('FGDC-2296', 'FORUT (Campaign for Development and Solidarity)'),
+                          ('FGDC-3873', 'Prince William Sound Nowcast-Forecast System (PWS NFS)'),
+                          ('FGDC-3970', 'Nationwide Ocean Wave Information Network for Ports and HArbourS (NOWPHAS), Japan')):
+            self.assertEqual(self.rows[sid]['modern_creators'], [{'person_or_org': {'type': 'organizational', 'name': name}}])
+            self.assertEqual(self.rows[sid]['creators'], [{'name': name}])
+        # A spelling taken from the record's own byline: the quoted element carries it, the paragraph keeps the citation's.
+        for sid, family, cited in (*((sid, 'Davis', 'Navis') for sid in WAKATAKE), ('FGDC-3825', 'Urano', 'Uran'),
+                                   ('FGDC-3831', 'Bugaev', 'Bugae'), ('FGDC-893', 'Kondzela', 'Kandzela'),
+                                   ('FGDC-3851', 'Hermann', 'Herman')):
+            with self.subTest(source=sid):
+                proposal = self.by_source[sid]
+                self.assertEqual(proposal['owner_decision'], 'records_own_byline')
+                self.assertIn(family, proposal['byline_spelling_evidence'][family]['text'])
+                self.assertIn(family, [c['person_or_org'].get('family_name') for c in self.rows[sid]['modern_creators']])
+                self.assertNotIn(cited, [c['person_or_org'].get('family_name') for c in self.rows[sid]['modern_creators']])
+                self.assertIn(cited, self.rows[sid]['additional_preservation_paragraphs'][0])
+                self.assertIn(cited, ' '.join(c['name'] for c in self.rows[sid]['creators']))
+        self.assertEqual(self.rows['FGDC-3825']['modern_creators'][8]['person_or_org'],
+                         {'type': 'personal', 'family_name': 'Urano', 'given_name': 'Akihisa'})
+        self.assertEqual(self.rows['FGDC-3851']['modern_creators'],
+                         [{'person_or_org': {'type': 'personal', 'family_name': 'Hermann', 'given_name': 'Al'}}])
         self.assertEqual(self.rows['FGDC-2587']['modern_creators'][0]['person_or_org']['given_name'], 'G. Von')
         self.assertEqual(self.rows['FGDC-2413']['modern_creators'],
                          [{'person_or_org': {'type': 'personal', 'family_name': 'Wespestad', 'given_name': 'Vidar'}}])

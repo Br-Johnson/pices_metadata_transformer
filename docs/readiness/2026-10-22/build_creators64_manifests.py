@@ -7,10 +7,19 @@ mapping manifest holds the admitted sources only, and the review manifest starts
 "proposal pending independent review", so `scripts.modern_singleton` holds every member
 until a reviewer replaces that file with an approved one.
 
+Round 2 (2026-10-22): the first independent review approved 11 of the 14 proposed vectors
+and both representation conventions, and held 885, 2587 and 3817 for the reasons recorded
+in REVIEW_ROUND_1; those three are re-proposed here. Brett decided three groups of the
+first round's holds (OWNER_DECISIONS): the 23 Unaami collection credits and six product or
+system credits are admitted as organisational creators named exactly as cited, and 14
+spelling conflicts take the spelling the record itself gives in its byline, embedded
+reference or contact. Seven compound, venue and unnamed credits stay held.
+
 Invariants: original XML is read, never written. Legacy creator arrays come from the pinned
 creator426 profile (creator426 kind) or the pinned institution91 bindings (direct kind) and
 are checked against a fresh offline classification. Modern vectors keep every literal
-source part; nothing is corrected, expanded or inferred from a name alone.
+source part in source order; a spelling is taken from the record's own byline element only
+under the owner decision, with the citation's spelling recorded in the paragraph.
 
 Run from the repository root:
   python -B docs/readiness/2026-10-22/build_creators64_manifests.py --classified <qa-output-dir>
@@ -46,9 +55,45 @@ from scripts.production_mutations import PROTECTED  # noqa: E402
 OUT = ROOT / 'docs/readiness/2026-10-22'
 POLICY = 'modern-xml-reviewed-creators64-v1'
 RECONCILIATION = ROOT / 'docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json'
-NEXT = ROOT / 'docs/readiness/2026-10-06/next_source_review'
 PROPOSED_BY = 'Claude Fable 5.1 (deep-coder subagent of session a49e1cd3), 2026-10-22'
 INSTRUCTION = 'Brett Johnson, 2026-10-22: "take on the 64 unreviewed singletons"'
+
+# ------------------------------------------------------------------ owner decisions and the first review
+
+OWNER_DECISIONS = {
+    'unaami_as_organisation': (
+        'Brett Johnson, 2026-10-22, "Unaami as organisation" (relayed by the coordinating session): admit '
+        'each of the 23 Unaami records with one organisational creator whose name is the collection name '
+        'exactly as cited, with no other change.'),
+    'credited_name_as_org': (
+        'Brett Johnson, 2026-10-22, "Credited name as org" (relayed by the coordinating session): admit '
+        'each of the six product or system credits (419, 715, 859, 2296, 3873, 3970) with the credited name '
+        'exactly as cited, typed organisational; where an origin holds several credits, keep each one as '
+        'cited and in order.'),
+    'records_own_byline': (
+        'Brett Johnson, 2026-10-22, "Record\'s own byline" (relayed by the coordinating session): for the 14 '
+        'spelling conflicts use the spelling the record itself gives in its byline, embedded reference or '
+        'contact, quote that element as evidence, record the citation\'s spelling in the paragraph and keep '
+        'the citation\'s order and split otherwise; a record with no single unambiguous byline spelling '
+        'stays held.'),
+}
+
+REVIEW_ROUND_1 = {
+    'reviewer': 'independent reviewer, 2026-10-22 (verdicts relayed by the coordinating session)',
+    'scope': 'the 14 vectors proposed in the first build of this file (commit 1d0c2a4)',
+    'approved': ['FGDC-542', 'FGDC-887', 'FGDC-2234', 'FGDC-2413', 'FGDC-2668', 'FGDC-2674', 'FGDC-2683',
+                 'FGDC-3599', 'FGDC-3814', 'FGDC-3816', 'FGDC-3838'],
+    'conventions_approved': ['suffix: ", Jr." at the end of the given name',
+                             'honorifics, ranks and roles moved into the paragraph'],
+    'held': {
+        'FGDC-885': 'Guthrie\'s given name was "Charles M. III" with no comma while Farley in the same array is '
+                    '"Edward V., Jr."; re-propose as "Charles M., III".',
+        'FGDC-2587': 'The paragraph called Virchow and Holtzenforff series editors; the reviewed creator426 note '
+                     'says their roles are unresolved and no editor role is inferred. Remove the role claim.',
+        'FGDC-3817': 'The paragraph was copied from 3814 and says NOAA; 3817\'s origin reads "of Auke Bay '
+                     'Laboratory, Alaska Fisheries Science Center, NMFS, Juneau, AK, USA". Write 3817\'s own paragraph.',
+    },
+}
 
 # ------------------------------------------------------------------ conventions
 
@@ -56,29 +101,33 @@ CONVENTIONS = {
     'scope': 'Only the exact 64 sources: remaining100 of the program20 reconciliation minus the 31 '
              'citations31 members minus the five protected records. Every one is a supported singleton '
              'in the frozen publication plan; none is in the remaining45 (39 held, 6 failed).',
-    'literal_parts': 'Creator names keep every literal source part in source order. No spelling is '
-                     'corrected, no initial is expanded, no person is added from a contact, abstract or '
-                     'external work, and no entity type is inferred from a name alone.',
-    'entity_category': 'A credit is admitted as organisational only when the record itself shows the '
-                       'named body acting (a laboratory, office, university, commission, agency named as '
-                       'the credited party). A credit that names a data collection, data product, '
-                       'satellite platform, forecast system or observation network is held: Zenodo '
-                       'creators are personal or organisational and the source does not supply that '
-                       'category.',
+    'literal_parts': 'Creator names keep every literal source part in source order. No initial is expanded, '
+                     'no person is added from a contact, abstract or external work, and no entity type is '
+                     'inferred from a name alone. A spelling changes only under the owner decision '
+                     '"Record\'s own byline" (below), and then only to the spelling the record itself gives.',
+    'entity_category': 'A credit is admitted as organisational when the record itself shows the named body '
+                       'acting (a laboratory, office, university, commission, agency named as the credited '
+                       'party). Credits that name a data collection, data product, satellite platform, '
+                       'forecast system or observation network were held in the first round because the '
+                       'source does not supply a person or organisation category; Brett decided on '
+                       '2026-10-22 ("Unaami as organisation", "Credited name as org") that these are admitted '
+                       'as organisational creators under the credited name exactly as cited, and their '
+                       'paragraphs say so.',
     'name_parts': 'A person is split into family and given names only when the record settles the '
                   'boundary: an inverted form in the citation or embedded reference, an initials-plus-'
                   'family pattern, a matching inverted contact name, or an honorific that fixes natural '
                   'order (Mr./Dr. Given Family).',
     'suffix': 'Generational suffixes (Jr., III) stay with the given names in the inverted citation form '
-              'the sources themselves use ("Farley, E.V., Jr."): family_name "Farley", given_name '
-              '"Edward V., Jr.". The provider displays family_name, given_name, so the record reads '
-              '"Farley, Edward V., Jr." and the DataCite familyName stays the family name. This is a '
-              'representation convention for the independent reviewer to confirm, not a claim that the '
-              'suffix is a given name; InvenioRDM has no suffix field.',
+              'the sources themselves use ("Farley, E.V., Jr."), with a comma before the suffix: family_name '
+              '"Farley", given_name "Edward V., Jr."; family_name "Guthrie", given_name "Charles M., III". '
+              'The provider displays family_name, given_name, so the record reads "Farley, Edward V., Jr." '
+              'and the DataCite familyName stays the family name. Approved by the first independent review; '
+              'InvenioRDM has no suffix field.',
     'honorific_rank_role': 'Honorifics (Dr., Mr.), military ranks (CWO3) and stated roles (editor) are '
                            'not name parts. They are left out of the name fields and preserved verbatim '
                            'in the preservation paragraph, as the citations31 policy did for FGDC-2597 '
-                           '("Dr. Hatakeyama, former Director-General ..." -> Hatakeyama).',
+                           '("Dr. Hatakeyama, former Director-General ..." -> Hatakeyama). Approved by the '
+                           'first independent review.',
     'particle': 'A nobility particle stays where the source\'s own inverted form puts it '
                 '("Boguslawski, G. Von" -> family_name "Boguslawski", given_name "G. Von").',
     'affiliations': 'Direct-kind sources follow the citations31 direct10 convention: an affiliation '
@@ -86,18 +135,23 @@ CONVENTIONS = {
                     '("... of INSTITUTION" shared by the connected list, or a parenthetical after one '
                     'name). creator426-kind sources follow their reviewed cohort notes, which add no '
                     'affiliation objects; institutions stay in the preserved citation.',
-    'literal_conflict': 'A personal name whose literal spelling conflicts with the record\'s own '
-                        'embedded reference, the referenced work\'s byline or the record\'s own contact '
-                        'name is held (Navis/Davis, Uran/Urano, Bugae/Bugaev, Kandzela/Kondzela, '
-                        'Herman/Hermann). The project does not correct source text, and publishing a '
-                        'known-conflicting personal name needs an owner decision.',
+    'literal_conflict': 'A personal name whose literal spelling conflicts with the record\'s own embedded '
+                        'reference, the referenced work\'s byline or the record\'s own contact name was held '
+                        'in the first round. Brett decided on 2026-10-22 ("Record\'s own byline") that the '
+                        'spelling the record itself gives in its byline, embedded reference or contact is '
+                        'used; that element is quoted as evidence, the citation\'s spelling is recorded in '
+                        'the paragraph, and the citation\'s order and split are kept otherwise. The builder '
+                        'checks mechanically that every adopted family name appears in the quoted element.',
     'preservation_paragraph': 'Every admitted source carries one paragraph, rendered into the v1 '
                               'preservation block as the citations31 policy does, that quotes the '
-                              'complete literal credit and states what was left out of the name fields.',
+                              'complete literal credit and states what was left out of or changed in the '
+                              'name fields and under which decision.',
 }
 
 SUFFIX_NOTE = ('The generational suffix is kept with the given names in the inverted citation form the '
-               'source itself uses; it is not part of the family name.')
+               'source itself uses, with a comma before it; it is not part of the family name.')
+BYLINE = 'By Brett Johnson\'s decision of 2026-10-22 ("Record\'s own byline")'
+AS_ORG = 'By Brett Johnson\'s decision of 2026-10-22 ("Credited name as org")'
 
 
 def person(family, given, affiliation=None):
@@ -112,18 +166,24 @@ def org(name):
 
 
 NRL = 'Naval Research Laboratory, Stennis Space Center, MS'
-BASIS678 = [person('Farley', 'Edward V., Jr.'), person('Wing', 'Bruce'), person('Middleton', 'Angela'), person('Pohl', 'John'),
-            person('Hulbert', 'Lee'), person('Moss', 'Jamal'), person('Trudel', 'Marc'), person('Parks', 'Edward'),
-            person('Hamilton', 'Ted'), person('Lagoudakis', 'Cynthia'), person('McCallum', 'Danielle'),
-            org('North Pacific Anadromous Fish Commission')]
+NPAFC = 'North Pacific Anadromous Fish Commission'
+BASIS678 = [person('Farley', 'Edward V., Jr.'), person('Wing', 'Bruce'), person('Middleton', 'Angela'),
+            person('Pohl', 'John'), person('Hulbert', 'Lee'), person('Moss', 'Jamal'), person('Trudel', 'Marc'),
+            person('Parks', 'Edward'), person('Hamilton', 'Ted'), person('Lagoudakis', 'Cynthia'),
+            person('McCallum', 'Danielle'), org(NPAFC)]
 BASIS816 = [person('Farley', 'Edward V., Jr.'), person('Murphy', 'James M.'), person('Middleton', 'Angela'),
             person('Eisner', 'Lisa'), person('Moss', 'Jamal'), person('Pohl', 'John'), person('Ivanov', 'Oleg'),
             person('Kuznetsova', 'Natalia'), person('Trudel', 'Marc'), person('Drew', 'Mary'),
-            person('Lagoudakis', 'Cynthia'), person('Yaska', 'George'), org('North Pacific Anadromous Fish Commission')]
+            person('Lagoudakis', 'Cynthia'), person('Yaska', 'George'), org(NPAFC)]
+WAKATAKE = [person('Tanaka', 'Hideji'), person('Davis', 'Nancy'), person('Onuma', 'Takeshi'),
+            person('Yamada', 'Makoto'), person('Yamamoto', 'Yuzo'), person('Tsuchiya', 'Sadamasa'),
+            org('North Pacific Anadromous Fish Commission (NPAFC)')]
+KAIYO = [person('Azumaya', 'Tomonori'), person('Yamamura', 'Orio'), person('Fukuwaka', 'Masa-aki'),
+         person('Kusaka', 'Akira'), person('Nagasawa', 'Toru'), person('Urawa', 'Shigehiko'),
+         person('Nomura', 'Tetsuichi'), person('Moriya', 'Shogo'), person('Urano', 'Akihisa'), org(NPAFC)]
 
 BASIS_REVIEW = 'docs/readiness/2026-10-06/next_source_review/pices-basis19-independent-complete-array-review.json'
 BASIS_EVIDENCE = 'docs/readiness/2026-10-06/next_source_review/pices-basis19-primary-evidence.json'
-BASIS_PROPOSAL = 'docs/readiness/2026-10-06/next_source_review/pices-basis19-modern-personal-source-proposals.json'
 DIRECT_REVIEW = 'docs/readiness/2026-10-06/next_source_review/pices-direct14-independent-source-review.json'
 DIRECT_PROPOSAL = 'docs/readiness/2026-10-06/next_source_review/pices-direct14-modern-source-proposals.json'
 CONTRACT_REVIEW = 'docs/readiness/2026-10-06/next_source_review/pices-contract-chain9-independent-source-review.json'
@@ -142,27 +202,32 @@ HATAKEYAMA_QUOTE = ('The primary source credits Dr. Hatakeyama, former Director-
 
 UNAAMI = ['FGDC-' + str(n) for n in (545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 556, 557, 558,
                                       559, 560, 573, 574, 575, 576, 578, 579, 580, 581)]
-NAVIS = ['FGDC-' + str(n) for n in (3680, 3681, 3800, 3802, 3803, 3804, 3805, 3806, 3807, 3808)]
+WAKATAKE_IDS = ['FGDC-' + str(n) for n in (3680, 3681, 3800, 3802, 3803, 3804, 3805, 3806, 3807, 3808)]
 
-UNAAMI_REASON = (
-    'The citation origin credits a data collection, not a person or an organisation. The record\'s own '
-    'purpose text calls the Unaami Data Collection "an interdisciplinary, diverse collection of Arctic '
-    'variables", and its constraints ask users to "acknowledge the Unaami Data Collection and the original '
-    'source of the data". Zenodo creators are personal or organisational; no source evidence establishes a '
-    'same-named organisational collective, and the contact (Overland, James E., unaami-team@noaa.gov) is a '
-    'separate role that may not be promoted. The program20 independent review and the remaining100 '
-    'reconciliation held all 23 for this reason. Release needs an owner decision on how a data-collection '
-    'credit is represented, or a source-owner record naming the responsible organisation.')
-NAVIS_REASON = (
-    'The literal "Nancy Navis" conflicts with the record\'s own embedded reference ("Tanaka, H, N. Davis, '
-    'T. Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya") and with the referenced NPAFC Doc. 622 byline '
-    '("Nancy Davis"); the basis19 independent review held all ten arrays for this literal conflict. The '
-    'project does not correct source spellings, and publishing a known-conflicting personal name needs an '
-    'owner decision. The other five people and the trailing NPAFC credit are not approved separately.')
+UNAAMI_PARAGRAPH = (
+    'The primary citation credits the Unaami Arctic Data Collection as the originator of this variable. The '
+    'record\'s own purpose text describes the Unaami Data Collection as an interdisciplinary, diverse collection '
+    'of Arctic variables, and its constraints ask users to acknowledge the Unaami Data Collection and the '
+    'original source of the data. By Brett Johnson\'s decision of 2026-10-22 ("Unaami as organisation") the '
+    'collection is credited as an organisational creator under its name exactly as cited. The point of contact, '
+    'Overland, James E., is a separate role and is not promoted; no original data source is named as a creator.')
+WAKATAKE_PARAGRAPH = (
+    'The primary citation lists Hideji Tanaka, Nancy Navis, Takeshi Onuma, Makoto Yamada, Yuzo Yamamoto and '
+    'Sadamasa Tsuchiya of Hokkaido National Fisheries Research Institute, and the North Pacific Anadromous Fish '
+    'Commission (NPAFC) as the trailing credit. The record\'s own embedded reference (Tanaka, H, N. Davis, T. '
+    'Onuma, M. Yamada, Y. Yamamoto, and S. Tsuchiya. 2002. NPAFC Doc. 622) spells the second family name '
+    'Davis, as does the referenced report\'s byline (Nancy Davis). ' + BYLINE + ' the record\'s own spelling, '
+    'Davis, is used and the citation\'s spelling, Navis, is recorded here. The citation\'s order and name parts '
+    'are otherwise kept; the institute named after "of" stays in this preserved citation and is not added as an '
+    'affiliation. The commission is credited as the source lists it, under its name exactly as cited; no report '
+    'or XML authorship is asserted for it.')
+WAKATAKE_TYPES = {'FGDC-3680': ('publication-report', 'cruise summary report (NPAFC Doc. 622; purpose "To summarize the '
+                                'R/V Wakatake maru cruise research"), typed as the sibling cruise report FGDC-3809')}
 
 # ------------------------------------------------------------------ decisions
-# Each admitted entry: group, modern creators, paragraph, resource type, extra evidence quotes.
-# Each held entry: group, reason, extra evidence quotes. XML evidence is added automatically.
+# Each admitted entry: group, modern creators, paragraph, resource type and note, evidence quotes, and
+# the owner decision or review round that admits it. Each held entry: group, reason, evidence quotes.
+# XML evidence (origin, title, purpose, abstract, contact, embedded reference) is added automatically.
 
 ADMIT = {
     'FGDC-3814': {
@@ -189,10 +254,24 @@ ADMIT = {
                   'type_note': 'the entry describes midwater rope trawl fish data collected during the 2002 BASIS survey',
                   'paragraph': None, 'evidence': [(BASIS_REVIEW, BASIS_PARTS_QUOTE), (BASIS_REVIEW, BASIS_HOLD_QUOTE),
                                                   (BASIS_EVIDENCE, 'Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl')]},
-    'FGDC-3817': {'group': 'basis_doc678_farley', 'modern_creators': BASIS678, 'resource_type': 'dataset',
-                  'type_note': 'the entry describes oceanographic (CTD and plankton) data collected during the 2002 BASIS survey',
-                  'paragraph': None, 'evidence': [(BASIS_REVIEW, BASIS_PARTS_QUOTE), (BASIS_REVIEW, BASIS_HOLD_QUOTE),
-                                                  (BASIS_EVIDENCE, 'Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl')]},
+    'FGDC-3817': {
+        'group': 'basis_doc678_farley', 'modern_creators': BASIS678, 'resource_type': 'dataset',
+        'type_note': 'the entry describes oceanographic (CTD and plankton) data collected during the 2002 BASIS survey',
+        'paragraph': (
+            'The primary citation lists Edward V. Farley, Jr., Bruce Wing, Angela Middleton, John Pohl and '
+            'Lee Hulbert of Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, Juneau, AK, USA; Jamal '
+            'Moss of the School of Aquatic and Fisheries Sciences, University of Washington, Seattle, WA, USA; '
+            'Marc Trudel of Pacific Biological Station, Nanaimo, British Columbia, Canada; Edward Parks and Ted '
+            'Hamilton of Yukon River Drainage Fisheries Association, Anchorage, AK, USA; Cynthia Lagoudakis of '
+            'the U.S. Forest Service, Juneau, AK, USA; Danielle McCallum of NWO, Inc. Edmonds, WA, USA; and the '
+            'North Pacific Anadromous Fish Commission as the trailing credit. The literal names and order are '
+            'retained; the institutions named after "of" stay in this preserved citation and are not added as '
+            'affiliations. ' + SUFFIX_NOTE + ' The commission is credited as the source lists it, the body the '
+            'report was submitted to; no report or XML authorship is asserted for it. The embedded reference '
+            '(Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl, L. Hulbert, J. Moss, M. Trudel, E. Parks, T. '
+            'Hamilton, C. Lagoudakis, and D. McCallum. 2003. NPAFC Doc. 678) confirms the family names.'),
+        'evidence': [(BASIS_REVIEW, BASIS_PARTS_QUOTE), (BASIS_REVIEW, BASIS_HOLD_QUOTE),
+                     (BASIS_EVIDENCE, 'Farley, E.V., Jr., B. Wing, A. Middleton, J. Pohl')]},
     'FGDC-3838': {
         'group': 'basis_doc816_farley', 'modern_creators': BASIS816, 'resource_type': 'publication-report',
         'type_note': 'NPAFC Doc. 816 cruise report; purpose "To report on the Ocean Carrying Capacity (OCC) program fall 2003 survey"',
@@ -215,8 +294,8 @@ ADMIT = {
                      (BASIS_EVIDENCE, 'James M. Murphy'), (BASIS_EVIDENCE, 'George Yaska')]},
     'FGDC-885': {
         'group': 'bristol_bay_doc499',
-        'modern_creators': [person('Farley', 'Edward V., Jr.'), person('Haight', 'Richard E.'), person('Guthrie', 'Charles M. III'),
-                            person('Pohl', 'John E.')],
+        'modern_creators': [person('Farley', 'Edward V., Jr.'), person('Haight', 'Richard E.'),
+                            person('Guthrie', 'Charles M., III'), person('Pohl', 'John E.')],
         'resource_type': 'publication-report',
         'type_note': 'the entry describes the NPAFC Doc. 499 report of the August 2000 survey ("Report submitted to the '
                      'North Pacific Anadromous Fish Commission"), as the sibling cruise reports FGDC-3809 and FGDC-3814',
@@ -225,15 +304,16 @@ ADMIT = {
             'Pohl, followed on a separate line by Auke Bay Laboratory (ABL), Alaska Fisheries Science Center (AFSC), '
             'National Marine Fisheries Service (NMFS), National Oceanic and Atmospheric Administration (NOAA). The '
             'literal names, initials and order are retained. The generational suffixes Jr. and III are kept with '
-            'the given names in inverted citation form and are not part of the family names. The institutional '
-            'line stays in this preserved citation and is not added as an affiliation. The embedded reference '
-            '(Farley, E.V., Jr., R.E. Haight, C.M. Guthrie, and J.E. Pohl. 2000. NPAFC Doc. 499) confirms the '
-            'family names.'),
+            'the given names in inverted citation form, each after a comma (Edward V., Jr.; Charles M., III), and '
+            'are not part of the family names. The institutional line stays in this preserved citation and is not '
+            'added as an affiliation. The embedded reference (Farley, E.V., Jr., R.E. Haight, C.M. Guthrie, and J.E. '
+            'Pohl. 2000. NPAFC Doc. 499) confirms the family names.'),
         'evidence': [(RECON, 'Four explicitly named primary citation credits are retained in source order, including the literal Jr. and III suffixes')]},
     'FGDC-887': {
         'group': 'bristol_bay_1999',
-        'modern_creators': [person('Farley', 'E.V., Jr.'), person('Murphy', 'J.M.'), person('Haight', 'R.E.'), person('Guthrie', 'G.M.'),
-                            person('Baier', 'C.T.'), person('Adkison', 'M.D.'), person('Radchenko', 'V.I.'), person('Satterfield', 'F.R.')],
+        'modern_creators': [person('Farley', 'E.V., Jr.'), person('Murphy', 'J.M.'), person('Haight', 'R.E.'),
+                            person('Guthrie', 'G.M.'), person('Baier', 'C.T.'), person('Adkison', 'M.D.'),
+                            person('Radchenko', 'V.I.'), person('Satterfield', 'F.R.')],
         'resource_type': 'publication-report',
         'type_note': 'the entry describes the 1999 NPAFC report of the July and September 1999 surveys (embedded reference "... 1999. Eastern Bering Sea (Bristol Bay) Coastal ...")',
         'paragraph': (
@@ -259,7 +339,8 @@ ADMIT = {
                      (CIT31, HATAKEYAMA_QUOTE)]},
     'FGDC-542': {
         'group': 'donut_hole_database',
-        'modern_creators': [person('Jo', 'Hynn-Su'), person('Janusz', 'Jerzy'), person('Low', 'Loh-Lee'), org('Shanghai Fisheries University')],
+        'modern_creators': [person('Jo', 'Hynn-Su'), person('Janusz', 'Jerzy'), person('Low', 'Loh-Lee'),
+                            org('Shanghai Fisheries University')],
         'resource_type': 'dataset',
         'type_note': 'the entry describes a historical catch database by statistical block (1984-1991)',
         'paragraph': (
@@ -277,12 +358,14 @@ ADMIT = {
         'group': 'boguslawski_1878', 'modern_creators': [person('Boguslawski', 'G. Von')], 'resource_type': 'publication-report',
         'type_note': 'NOAA Central Library foreign data collection holding; the entry describes a printed lecture ("Publication Title: ..."), typed as the other library holdings',
         'paragraph': (
-            'The primary citation origin, Rud. Virchow and Fr. v. Holtzenforff, is the collection-level editorial '
-            'credit of the lecture series and is preserved as context; the source abstract names the author of '
-            'this lecture explicitly as Boguslawski, G. Von. That inverted form supplies the name parts used here, '
-            'family name Boguslawski and given name G. Von, with the particle kept where the source places it. No '
-            'spelling is corrected and no editor role is inferred for the series editors.'),
-        'evidence': [(CREATOR426, 'The creator name collapses the two internal spaces and omits the sentence-ending period only')]},
+            'The primary citation origin names Rud. Virchow and Fr. v. Holtzenforff at the level of the lecture '
+            'series ("Sammlung Gemein Verstandlicher Wisseuschaftlicher Vortrage"); their roles are not stated by the '
+            'record and are left unresolved, and the two names are preserved here as citation context, not mapped. '
+            'The source abstract names the author of this lecture explicitly as Boguslawski, G. Von. That inverted '
+            'form supplies the name parts used here, family name Boguslawski and given name G. Von, with the '
+            'particle kept where the source places it. No spelling is corrected and no role is inferred for anyone.'),
+        'evidence': [(CREATOR426, 'The creator name collapses the two internal spaces and omits the sentence-ending period only'),
+                     (CREATOR426, 'Rud. Virchow and Fr. v. Holtzenforff remain the primary collection-level citation context, with their roles unresolved; no editor role or corrected spelling is inferred')]},
     'FGDC-2674': {
         'group': 'audubon_graham', 'modern_creators': [person('Graham', 'Frank, Jr.')], 'resource_type': 'publication-report',
         'type_note': 'the entry describes a magazine article (Audubon, July-August 1991)',
@@ -344,98 +427,192 @@ ADMIT = {
         'evidence': [(DIRECT_REVIEW, 'Neither dropping ONR nor converting support into an unqualified author is approved.'),
                      (CONTRACT_REVIEW, 'The approved representation lists the two already source-credited organizational party groups separately, in source order, while retaining the entire original contract clause'),
                      (CIT31, 'Mark Halverson, Rich Pawlowicz, and Randall Lee with University of British Columbia, Department of Earth and Ocean Sciences. The literal names and shared source affiliation are retained')]},
-}
-
-HOLD = {
-    **{sid: {'group': 'unaami_literal_collection23', 'reason': UNAAMI_REASON,
+    # ---- Brett, 2026-10-22: "Unaami as organisation"
+    **{sid: {'group': 'unaami_literal_collection23', 'owner_decision': 'unaami_as_organisation',
+             'modern_creators': [org('Unaami Arctic Data Collection')], 'resource_type': 'dataset',
+             'type_note': 'one Unaami Arctic Data Collection time series ("Variable Name (Sampling): ...")',
+             'paragraph': UNAAMI_PARAGRAPH,
              'evidence': [(PROGRAM_REVIEW, 'The exact29 holds are resource/system/platform credits or unresolved identity/role meanings'),
                           (RECON, 'Named data collection is established, but a same-named human organizational collective is not.')]}
        for sid in UNAAMI},
-    'FGDC-419': {'group': 'program_identity', 'reason': (
-        'The literal "Word Wright" could be a person\'s name, a trade name or a publisher; the record (a book, '
-        'Alaska Geographic vol. 26 no. 3) gives no context that settles the entity category, and the contact, '
-        'Richard P. Emanuel, may not be promoted. Held by the program20 independent review for the same gap.'),
+    # ---- Brett, 2026-10-22: "Credited name as org"
+    'FGDC-419': {
+        'group': 'program_identity', 'owner_decision': 'credited_name_as_org',
+        'modern_creators': [org('Word Wright')], 'resource_type': 'publication-report',
+        'type_note': 'the entry describes a book (Alaska Geographic vol. 26, no. 3, "With index")',
+        'paragraph': (
+            'The primary citation credits Word Wright for this Alaska Geographic volume (vol. 26, no. 3). The record '
+            'does not say whether the name is a person, a trade name or a publisher. ' + AS_ORG + ' the credited '
+            'name is used as an organisational creator exactly as cited. The point of contact, Emanuel, Richard P., '
+            'is a separate role and is not promoted.'),
         'evidence': [(RECON, 'The source primary name Word Wright and book description do not distinguish a publisher/trade brand from a personal credit')]},
-    'FGDC-715': {'group': 'program_identity', 'reason': (
-        '"CIA World Bank II" credits a data product (the abstract describes "the CIA World Data Bank II", a '
-        'declassified compilation of coastline files), not a person or an organisation, and the literal is a '
-        'variant of the product name. Not a creator category the provider carries without an owner decision.'),
+    'FGDC-715': {
+        'group': 'program_identity', 'owner_decision': 'credited_name_as_org',
+        'modern_creators': [org('CIA World Bank II')], 'resource_type': 'dataset',
+        'type_note': 'the entry describes coastline data (Canada coastline near Alaska)',
+        'paragraph': (
+            'The primary citation credits CIA World Bank II. The abstract describes the compilation as the CIA World '
+            'Data Bank II, declassified to the public domain, received through the U.S. Fish & Wildlife Service and '
+            'also sold by EROS as RWDB2. ' + AS_ORG + ' the credited name is used as an organisational creator '
+            'exactly as cited, variant spelling included; no compiler or distributor named in the abstract is '
+            'substituted. The point of contact, Oakley, Karen, is a separate role and is not promoted.'),
         'evidence': [(RECON, 'Primary CIA World Bank II is a literal databank/collection credit.')]},
-    'FGDC-859': {'group': 'program_identity', 'reason': (
-        'The credit names a satellite platform ("The French Earth Observation Satellite, SPOT" in the abstract), '
-        'not an agent; typing it organisational would substitute the operator, SPOT Image, which the source names '
-        'separately.'),
+    'FGDC-859': {
+        'group': 'program_identity', 'owner_decision': 'credited_name_as_org',
+        'modern_creators': [org("Satellite Pour l'Ovservation de la Terre (SPOT)")], 'resource_type': 'dataset',
+        'type_note': 'the entry describes satellite imagery data (SPOT high resolution visible data, 1986 - Present)',
+        'paragraph': (
+            'The primary citation credits Satellite Pour l\'Ovservation de la Terre (SPOT), the imaging platform the '
+            'abstract describes as the French Earth Observation Satellite; SPOT Image, which the abstract names '
+            'separately as the vendor of the imagery, is not substituted. ' + AS_ORG + ' the credited name is used '
+            'as an organisational creator exactly as cited, spelling included. The point of contact, Oakley, Karen, '
+            'is a separate role and is not promoted.'),
         'evidence': [(RECON, 'Exact legacy name credits a platform; an organizational type would replace platform meaning with its operator')]},
-    'FGDC-2296': {'group': 'program_identity', 'reason': (
-        'The expansion "Campaign for Development and Solidarity" names a Norwegian development NGO, while the '
-        'record (a Tromso satellite surveillance database, contact Hans A. Tommervik) points to the Tromso research '
-        'foundation of the same acronym; the program20 review recorded this identity conflict. Publishing the '
-        'literal as an organisational creator would attribute the database to a possibly wrong real organisation.'),
+    'FGDC-2296': {
+        'group': 'program_identity', 'owner_decision': 'credited_name_as_org',
+        'modern_creators': [org('FORUT (Campaign for Development and Solidarity)')], 'resource_type': 'dataset',
+        'type_note': 'the entry describes a database of satellite, field and atmospheric data (Tromso Arctic Surveillance)',
+        'paragraph': (
+            'The primary citation credits FORUT (Campaign for Development and Solidarity). The expansion names a '
+            'Norwegian development organisation, while the record (a Tromso satellite-surveillance database; point of '
+            'contact Tommervik, Hans A.) suggests the Tromso research foundation of the same acronym; that identity '
+            'question is recorded here and not resolved. ' + AS_ORG + ' the credited name is used as an '
+            'organisational creator exactly as cited. The point of contact is a separate role and is not promoted.'),
         'evidence': [(RECON, 'The complete FORUT expansion points to one NGO while scientific data, Tromso address and official historical research foundation suggest a different FORUT.')]},
-    'FGDC-3873': {'group': 'program_identity', 'reason': (
-        'The credit names a nowcast-forecast system (models and an observing network, as the abstract describes), '
-        'not an organisation; the host or developer cannot be inferred from the contact.'),
+    'FGDC-3873': {
+        'group': 'program_identity', 'owner_decision': 'credited_name_as_org',
+        'modern_creators': [org('Prince William Sound Nowcast-Forecast System (PWS NFS)')], 'resource_type': 'dataset',
+        'type_note': 'the entry describes the observations and model simulations of the nowcast-forecast system',
+        'paragraph': (
+            'The primary citation credits the Prince William Sound Nowcast-Forecast System (PWS NFS), which the '
+            'abstract describes as a system with modelling and observational components. ' + AS_ORG + ' the '
+            'credited name is used as an organisational creator exactly as cited. The point of contact, Bird, '
+            'Nancy, is a separate role and is not promoted; no developer or host is inferred.'),
         'evidence': [(RECON, 'Source credits a named nowcast-forecast system and describes models, instrumentation and monitoring sites.')]},
-    'FGDC-3970': {'group': 'program_identity', 'reason': (
-        'The credit names an observation network; the abstract attributes observation to "the associated agencies '
-        'of the Ports and Harbous Bureau of MLIT" and analysis to the Port and Airport Research Institute, so the '
-        'network name is the data resource, not the acting organisation.'),
+    'FGDC-3970': {
+        'group': 'program_identity', 'owner_decision': 'credited_name_as_org',
+        'modern_creators': [org('Nationwide Ocean Wave Information Network for Ports and HArbourS (NOWPHAS), Japan')],
+        'resource_type': 'dataset',
+        'type_note': 'the entry describes Japanese nationwide coastal wave data served through NEAR-GOOS RDMDB',
+        'paragraph': (
+            'The primary citation credits the Nationwide Ocean Wave Information Network for Ports and HArbourS '
+            '(NOWPHAS), Japan. The abstract attributes observation to "the associated agencies of the Ports and '
+            'Harbous Bureau of MLIT (Ministry of Land, Infrastructure and Transport)" and analysis to the Port and '
+            'Airport Research Institute; those bodies are not substituted. ' + AS_ORG + ' the credited network name '
+            'is used as an organisational creator exactly as cited, capitalisation included. The point of contact, '
+            'Okano, Hirofumi, is a separate role and is not promoted.'),
         'evidence': [(RECON, 'does not yet establish the exact credited name as a human organizational collective rather than the instrument/network resource')]},
-    **{sid: {'group': 'basis_doc622_navis', 'reason': NAVIS_REASON,
+    # ---- Brett, 2026-10-22: "Record's own byline"
+    **{sid: {'group': 'basis_doc622_wakatake', 'owner_decision': 'records_own_byline',
+             'byline': {'Davis': './idinfo/descript/abstract'},
+             'modern_creators': WAKATAKE,
+             'resource_type': WAKATAKE_TYPES.get(sid, ('dataset', None))[0],
+             'type_note': WAKATAKE_TYPES.get(sid, (None, 'one data component of the 2002 Wakatake maru cruise, '
+                                                  'typed as the sibling data entries FGDC-3810 and FGDC-3812'))[1],
+             'paragraph': WAKATAKE_PARAGRAPH,
              'evidence': [(BASIS_REVIEW, 'Do not correct Navis to Davis or infer an identity link.'),
-                          (BASIS_EVIDENCE, 'Tanaka, H, N. Davis')]} for sid in NAVIS},
-    'FGDC-3825': {'group': 'basis_doc717_uran', 'reason': (
-        'The literal "Akihisa Uran" conflicts with the record\'s own embedded reference ("A. Urano") and the NPAFC '
-        'Doc. 717 byline ("Akihisa Urano"); the embedded reference also orders the authors differently. Held by the '
-        'basis19 independent review; no correction or reordering is approved.'),
+                          (BASIS_EVIDENCE, 'Tanaka, H, N. Davis'), (BASIS_EVIDENCE, 'Nancy Davis')]}
+       for sid in WAKATAKE_IDS},
+    'FGDC-3825': {
+        'group': 'basis_doc717_kaiyo', 'owner_decision': 'records_own_byline',
+        'byline': {'Urano': './idinfo/descript/abstract'},
+        'modern_creators': KAIYO, 'resource_type': 'dataset',
+        'type_note': 'the entry describes the trawl operations and catches of the 2002 Kaiyo maru survey; a data '
+                     'sibling of the report FGDC-3822, typed as FGDC-3823 to FGDC-3827',
+        'paragraph': (
+            'The primary citation lists Tomonori Azumaya, Orio Yamamura, Masa-aki Fukuwaka, Akira Kusaka and Toru '
+            'Nagasawa of Hokkaido National Fisheries Research Institute, Fisheries Research Agency, Kushiro, Japan; '
+            'Shigehiko Urawa and Tetsuichi Nomura of National Salmon Resources Center, Sapport, Japan; Shogo Moriya '
+            'of Research and Development Center, Nisshinbo Industry Inc., Chiba, Japan; Akihisa Uran of Field '
+            'Science Center for Northern Biosphere, Hokkaido University of Sapporo, Hokkaido, Japan; and the North '
+            'Pacific Anadromous Fish Commission as the trailing credit. The record\'s own embedded reference '
+            '(Tomonori Azumaya, S. Urawa, O. Yamamura, M. Fukuwaka, A. Kusaka, T. Nagasawa, T. Nomura, S. Moriya, '
+            'and A. Urano. 2003. NPAFC Doc. 717) spells the last family name Urano, as does the referenced report\'s '
+            'byline (Akihisa Urano). ' + BYLINE + ' the record\'s own spelling, Urano, is used and the citation\'s '
+            'spelling, Uran, is recorded here. The citation\'s order is kept, not the reference\'s; the institutions '
+            'named after "of" stay in this preserved citation and are not added as affiliations. The commission is '
+            'credited as the source lists it; no report or XML authorship is asserted for it.'),
         'evidence': [(BASIS_REVIEW, 'Do not substitute Urano, use different report byline order, or approve other people separately.'),
                      (BASIS_EVIDENCE, 'Akihisa Urano')]},
-    'FGDC-3831': {'group': 'basis_doc763_bugae', 'reason': (
-        'The literal "Alexander V. Bugae" conflicts with the record\'s own embedded reference ("Bugaev A.V.") and the '
-        'NPAFC Doc. 763 byline ("Alexander V. Bugaev"). Held by the basis19 independent review; the spelling is not '
-        'corrected and no identity is asserted.'),
+    'FGDC-3831': {
+        'group': 'basis_doc763_tinro', 'owner_decision': 'records_own_byline',
+        'byline': {'Bugaev': './idinfo/descript/abstract'},
+        'modern_creators': [person('Bugaev', 'Alexander V.'), org(NPAFC)], 'resource_type': 'publication-report',
+        'type_note': 'scale-pattern analysis estimates reported as an NPAFC document (purpose "To report age and '
+                     'stock composition estimates"), typed as FGDC-3833',
+        'paragraph': (
+            'The primary citation credits Alexander V. Bugae of KamchatNIRO, Kamchatka Fisheries & Oceanography '
+            'Inst., Fisheries State Committee of Russia, Petropavlovsk-Kamchatski, Russia, and the North Pacific '
+            'Anadromous Fish Commission as the trailing credit. The record\'s own embedded reference (Bugaev A.V. '
+            '2004. NPAFC Doc. 763) spells the family name Bugaev, as does the referenced report\'s byline '
+            '(Alexander V. Bugaev). ' + BYLINE + ' the record\'s own spelling, Bugaev, is used and the citation\'s '
+            'spelling, Bugae, is recorded here. The institute stays in this preserved citation and is not added as '
+            'an affiliation; the commission is credited as the source lists it.'),
         'evidence': [(BASIS_REVIEW, 'Do not correct the source surname or replace it with the related report credit.'),
                      (BASIS_EVIDENCE, 'Alexander V. Bugaev')]},
-    'FGDC-893': {'group': 'literal_conflict_contact', 'reason': (
-        'The literal "Christine Kandzela" conflicts with the record\'s own point of contact, "Kondzela, Christine", '
-        'and "Richard Wilmot." carries a stray period. The same literal-conflict rule that holds Navis, Uran and '
-        'Bugae applies; the spelling is not corrected.'),
+    'FGDC-893': {
+        'group': 'contact_spelling', 'owner_decision': 'records_own_byline',
+        'byline': {'Kondzela': './idinfo/ptcontac/cntinfo/cntperp/cntper'},
+        'modern_creators': [person('Kondzela', 'Christine'), person('Wilmot', 'Richard')], 'resource_type': 'dataset',
+        'type_note': 'a study description sourced from an AFSC Quarterly Report article, typed as FGDC-898 '
+                     '("survey/field-study description sourced from an AFSC Quarterly Report article")',
+        'paragraph': (
+            'The primary citation credits Christine Kandzela and Richard Wilmot. (AFSC Quarterly Report: Jul. - Sep. '
+            '2002) Alaska Fisheries Science Center (AFSC), National Marine Fisheries Service (NMFS), National '
+            'Oceanic and Atmospheric Administration (NOAA). The record\'s own point of contact, Kondzela, Christine, '
+            'spells the first family name Kondzela. ' + BYLINE + ' the record\'s own spelling, Kondzela, is used '
+            'and the citation\'s spelling, Kandzela, is recorded here. The period after Wilmot closes the sentence '
+            'and is not part of the name. The quarterly-report label and the institutional hierarchy stay in this '
+            'preserved citation; neither is a creator or an affiliation.'),
         'evidence': [(RECON, 'The saved complete array has no approved finite personal name-part/type after-image')]},
-    'FGDC-3851': {'group': 'literal_conflict_contact', 'reason': (
-        'The literal "Al Herman" conflicts with the record\'s own point of contact, "Hermann, Albert J.", in both the '
-        'given-name form and the surname spelling; neither is corrected or inferred.'),
+    'FGDC-3851': {
+        'group': 'contact_spelling', 'owner_decision': 'records_own_byline',
+        'byline': {'Hermann': './idinfo/ptcontac/cntinfo/cntperp/cntper'},
+        'modern_creators': [person('Hermann', 'Al')], 'resource_type': 'dataset',
+        'type_note': 'the entry describes circulation model output (ROMS, coastal Gulf of Alaska)',
+        'paragraph': (
+            'The primary citation credits Al Herman, followed by National Oceanic and Atmospheric Administration '
+            '(NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory '
+            '(PMEL). The record\'s own point of contact, Hermann, Albert J., spells the family name Hermann. '
+            + BYLINE + ' the record\'s own spelling, Hermann, is used and the citation\'s spelling, Herman, is '
+            'recorded here. The given name keeps the citation\'s form, Al; it is not expanded from the contact. The '
+            'institutional line stays in this preserved citation and is not added as an affiliation.'),
         'evidence': [(RECON, 'Al Herman differs in both name/abbreviation and surname spelling from Albert J. Hermann in the contact.')]},
+}
+
+HOLD = {
     'FGDC-287': {'group': 'direct_compound', 'reason': (
         'The compound credit mixes two institutions, an explicit support credit (SEBSCC) and two people without a '
         'separator; which parties are creators and which are affiliations or support is not settled by the record. '
-        'Held by the direct14 independent review.'),
+        'Held by the direct14 independent review; no owner decision covers it.'),
         'evidence': [(DIRECT_REVIEW, 'The compound primary origin mixes two institutions, explicit SEBSCC support and two people without an unambiguous boundary.')]},
     'FGDC-411': {'group': 'direct_unnamed_person', 'reason': (
         'The credit is an unnamed person ("Professor Emeritus of the University of Alaska Fairbanks ..."); no '
         'personal creator can be formed without a name, the office reading is unsupported, and the contact, Hood, '
-        'Donald W., may not be promoted. Held by the role-office11 review and its addendum.'),
+        'Donald W., may not be promoted. Held by the role-office11 review and its addendum; no owner decision covers it.'),
         'evidence': [(OFFICE_ADDENDUM, 'Professor Emeritus remains an individual academic status qualified by institutional affiliation.')]},
     'FGDC-771': {'group': 'direct_contract_chain', 'reason': (
         'A two-stage contract chain whose terminal "Chugach National Forest, U.S. Bureau of land Management" '
         'grouping is unresolved (one party, two parties, or an affiliation). Held by the contract-chain9 '
-        'independent review.'),
+        'independent review; no owner decision covers it.'),
         'evidence': [(CONTRACT_REVIEW, 'the terminal comma and U.S. Bureau of land Management do not establish the final attachment/grouping')]},
     'FGDC-2229': {'group': 'direct_document_venue', 'reason': (
         '"MS Thesis, University of Washington (UW)" is a work and venue label, not a creator; the thesis author is '
-        'not in the citation and the contact, McDermott, Susanne F., may not be promoted.'),
+        'not in the citation and the contact, McDermott, Susanne F., may not be promoted. No owner decision covers it.'),
         'evidence': [(RECON, 'MS Thesis or Technical Report is a work/degree/series label, not a creator')]},
     'FGDC-2235': {'group': 'direct_et_al', 'reason': (
         '"Cliff Mass et al." explicitly names unnamed co-originators; a one-person vector would truncate the credit '
-        'and the department cannot stand for the people. Held by the direct14 independent review.'),
+        'and the department cannot stand for the people. Held by the direct14 independent review; no owner decision covers it.'),
         'evidence': [(DIRECT_REVIEW, 'Explicit et al. leaves additional originators unresolved.')]},
     'FGDC-2824': {'group': 'direct_document_venue', 'reason': (
         '"Technical Report, International Pacific Halibut Commission [TECH. REP. IPHC]" joins a series label to the '
-        'commission; the report\'s authors are not in the citation and the contact, Hoag, S.H., may not be promoted.'),
+        'commission; the report\'s authors are not in the citation and the contact, Hoag, S.H., may not be promoted. '
+        'No owner decision covers it.'),
         'evidence': [(RECON, 'MS Thesis or Technical Report is a work/degree/series label, not a creator')]},
     'FGDC-3786': {'group': 'direct_jodc_programs', 'reason': (
         'JODC is an organisation, but CSK and KER are credited only in the origin; nothing in the record describes '
         'them as acting bodies, so typing them organisational would infer the category from their names, which the '
-        'conventions forbid, and dropping them would truncate the literal credit.'),
+        'conventions forbid, and dropping them would truncate the literal credit. No owner decision covers it.'),
         'evidence': [(RECON, 'JODC plus CSK/KER labels have unresolved distinct production/research roles')]},
 }
 
@@ -488,6 +665,7 @@ def main():
     citations31 = {row['source_id'] for row in pinned(CITATIONS31, sha(CITATIONS31.read_bytes()))['members']}
     members = sorted(remaining100 - citations31 - set(PROTECTED), key=lambda s: int(s[5:]))
     assert len(members) == 64 and set(ADMIT) | set(HOLD) == set(members) and not set(ADMIT) & set(HOLD)
+    assert set(REVIEW_ROUND_1['approved']) | set(REVIEW_ROUND_1['held']) <= set(ADMIT)
     recon_rows = {row['source_id']: row for row in reconciliation['rows']}
     lanes = {m['source_id']: p['lane'] for p in reconciliation['partitions'] for m in p['members']}
 
@@ -525,19 +703,38 @@ def main():
         spec = ADMIT.get(sid) or HOLD[sid]
         paragraph = spec.get('paragraph')
         if decision == 'admit' and paragraph is None:
-            paragraph = ADMIT['FGDC-3814']['paragraph']  # the three Doc. 678 members share one credit
+            paragraph = ADMIT['FGDC-3814']['paragraph']  # 3816 shares the Doc. 678 credit and was approved with it
         evidence = [{'kind': 'xml', **item} for item in
                     xml_evidence(root, './idinfo/citation/citeinfo/origin', 'citation origin')
                     + xml_evidence(root, './idinfo/citation/citeinfo/title', 'citation title')
+                    + xml_evidence(root, './idinfo/descript/purpose', 'purpose')
+                    + xml_evidence(root, './idinfo/descript/abstract', 'abstract')
                     + xml_evidence(root, './idinfo/ptcontac/cntinfo/cntperp/cntper', 'point of contact person')]
         evidence += [{'kind': 'xml', 'xpath': './idinfo/descript/abstract', 'label': 'embedded reference or author line',
                       'text': text} for text in embedded_references(root)]
         evidence += [{'kind': 'file', **quote(path, needle)} for path, needle in spec['evidence']]
         evidence.append({'kind': 'file', **quote(RECON, recon['independent_decision'])})
+        byline = {}
+        for spelling, xpath in spec.get('byline', {}).items():
+            # The owner decision allows only a spelling the record itself gives: check it mechanically.
+            elements = [recursive_text(node) for node in root.findall(xpath)]
+            matching = [text for text in elements if spelling in text]
+            assert matching, f'{sid}: spelling {spelling!r} not found at {xpath}'
+            byline[spelling] = {'xpath': xpath, 'text': matching[0]}
+        if decision == 'admit':
+            round1 = ('approved' if sid in REVIEW_ROUND_1['approved'] else
+                      'held, re-proposed' if sid in REVIEW_ROUND_1['held'] else 'not proposed, held by the proposer')
+            round1_note = REVIEW_ROUND_1['held'].get(sid)
+        else:
+            round1, round1_note = 'held by the proposer', None
         proposal = {
             'source_id': sid, 'source_sha256': digest, 'source_path': 'FGDC/' + sid + '.xml',
             'source_bytes': len(raw), 'lane': lanes[sid], 'group': spec['group'], 'decision': decision,
-            'reason': spec.get('reason') or 'Admitted: the literal credit, its name parts and the entity categories are settled by the record and the cited evidence; see the preservation paragraph.',
+            'reason': spec.get('reason') or (
+                'Admitted: the literal credit, its name parts and the entity categories are settled by the record, '
+                'the cited evidence and the owner decision named below; see the preservation paragraph.'),
+            'owner_decision': spec.get('owner_decision'),
+            'review_round_1': {'verdict': round1, 'note': round1_note},
             'citation_origin_texts': [recursive_text(node) for node in origins],
             'primary_origin_elements': [source_element(node) for node in origins],
             'source_root_sha256': sha(encode(source_element(root))),
@@ -546,6 +743,7 @@ def main():
                                          'object_sha256': sha(encode(authority))},
             'prior_decision': recon['independent_decision'],
             'proposed_creators': spec.get('modern_creators'),
+            'byline_spelling_evidence': byline or None,
             'additional_preservation_paragraph': paragraph if decision == 'admit' else None,
             'proposed_resource_type': spec.get('resource_type'),
             'resource_type_note': spec.get('type_note'),
@@ -577,7 +775,9 @@ def main():
     proposals_document = {
         'schema_version': 1, 'kind': 'creators64-source-proposals-v1',
         'status': 'PROPOSAL_PENDING_INDEPENDENT_REVIEW_NOT_EXECUTION_AUTHORITY',
+        'round': 2,
         'proposed_by': PROPOSED_BY, 'instruction': INSTRUCTION,
+        'owner_decisions': OWNER_DECISIONS, 'review_round_1': REVIEW_ROUND_1,
         'policy': POLICY, 'conventions': CONVENTIONS, 'inputs': inputs,
         'fresh_classification': {'command': 'python -B -m scripts.collection_qa with the runbook manifest set '
                                             '(docs/readiness/2026-10-06/first_pices_record_runbook.md) and '
@@ -586,6 +786,8 @@ def main():
                                  'summary': classification['summary']['source_status_counts']},
         'counts': {'members': len(members), 'admit': len(admitted), 'hold': len(held),
                    'admit_by_group': dict(sorted(_count(rows, 'group').items())),
+                   'admit_by_owner_decision': dict(sorted(_count([p for p in proposals if p['decision'] == 'admit'],
+                                                                 'owner_decision', 'first review or proposer').items())),
                    'hold_by_group': dict(sorted(_count([p for p in proposals if p['decision'] == 'hold'], 'group').items())),
                    'modern_creator_objects': sum(len(r['modern_creators']) for r in rows)},
         'members': [{'source_id': sid, 'source_sha256': targets[sid]['source_sha256']} for sid in members],
@@ -606,7 +808,8 @@ def main():
         'authority_counts': dict(sorted(_count(rows, 'creator_authority_kind').items())),
         'modern_creator_object_count': sum(len(r['modern_creators']) for r in rows),
         'context_sha256': sha(encode({r['source_id']: r['additional_preservation_paragraphs'] for r in rows})),
-        'conventions': {key: CONVENTIONS[key] for key in ('suffix', 'honorific_rank_role', 'particle', 'affiliations')},
+        'conventions': {key: CONVENTIONS[key] for key in ('suffix', 'honorific_rank_role', 'particle', 'affiliations',
+                                                          'entity_category', 'literal_conflict')},
         'rows': rows,
     }
     manifest_path = OUT / 'modern_reviewed_creators64.json'
@@ -616,6 +819,7 @@ def main():
     review = {
         'schema_version': 1, 'kind': 'modern-reviewed-creators64-review-v1', 'policy': POLICY,
         'status': 'proposal pending independent review',
+        'round': 2,
         'mapping_manifest_path': 'docs/readiness/2026-10-22/modern_reviewed_creators64.json',
         'mapping_manifest_sha256': manifest_sha,
         'proposals_path': 'docs/readiness/2026-10-22/creators64_proposals.json', 'proposals_sha256': proposals_sha,
@@ -623,13 +827,14 @@ def main():
         'members': admitted, 'membership_sha256': sha(encode(admitted)),
         'approved_members': [], 'held_members': [],
         'decisions': {r['source_id']: {'decision': 'pending', 'note': None} for r in rows},
+        'history': [{'round': 1, **REVIEW_ROUND_1}],
         'reviewer_checklist': [
             'Read every admitted row against FGDC/<id>.xml: the literal origin, the embedded reference, the contact names.',
             'Confirm the family/given split of every person from the evidence quoted in creators64_proposals.json, not from the name alone.',
-            'Confirm or reject the suffix convention (given_name carries "Jr."/"III" in inverted citation form) for FGDC-885, 887, 2668, 2674, 3814, 3816, 3817 and 3838; a rejection holds those sources.',
-            'Confirm that dropping Dr./Mr./CWO3 and the editor role from the name fields (FGDC-542, 2234, 2413) and keeping them in the paragraph follows the FGDC-2597 precedent.',
-            'Confirm the organisational typing of Shanghai Fisheries University (FGDC-542) and U.S. Navy, Office of Naval Research (FGDC-3599), and the affiliation objects on FGDC-2668 and FGDC-3599.',
-            'Confirm every held reason; a hold the reviewer lifts needs a new proposal row and manifest, not an edit of this file alone.',
+            'Round 1 approved the suffix convention (given_name carries ", Jr." or ", III") and the honorific/rank/role convention; check the three re-proposed rows (885, 2587, 3817) against the round-1 notes.',
+            'For the owner-decided groups, check that each organisational name is the credited name exactly as cited (Unaami 23; 419, 715, 859, 2296, 3873, 3970) and that each adopted spelling (Davis, Urano, Bugaev, Kondzela, Hermann) is the one the quoted record element gives, with the citation\'s spelling recorded in the paragraph.',
+            'Confirm the organisational typing of Shanghai Fisheries University (542) and U.S. Navy, Office of Naval Research (3599), and the affiliation objects on 2668 and 3599.',
+            'Confirm the seven held reasons; a hold the reviewer lifts needs a new proposal row and manifest, not an edit of this file alone.',
         ],
         'how_to_approve': (
             'Set status to "approved", fill reviewer and reviewed_at, set each decision to "approved" or "held" '
@@ -657,14 +862,18 @@ def main():
     }
     (OUT / 'resource_types_creators64_proposal.json').write_bytes(dumps(type_document))
     print(json.dumps({'members': len(members), 'admitted': len(admitted), 'held': len(held),
+                      'modern_creator_objects': manifest['modern_creator_object_count'],
+                      'authority_counts': manifest['authority_counts'],
                       'proposals_sha256': proposals_sha, 'manifest_sha256': manifest_sha,
                       'review_sha256': sha(review_path.read_bytes())}, indent=1))
 
 
-def _count(items, key):
+def _count(items, key, default=None):
     counts = {}
     for item in items:
-        counts[item[key]] = counts.get(item[key], 0) + 1
+        value = item.get(key) if default is not None else item[key]
+        value = default if value is None else value
+        counts[value] = counts.get(value, 0) + 1
     return counts
 
 

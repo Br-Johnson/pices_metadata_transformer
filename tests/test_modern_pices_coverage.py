@@ -140,9 +140,14 @@ class ModernPicesCoverageTests(unittest.TestCase):
         outside = next(row['members'][0]['source_id'] for row in profile['cohorts']
                        if row['profile'] == 'plain_institution_program_37_FGDC-859')
         self.assertEqual(outside, 'FGDC-859')
-        for sid in (outside, *PROTECTED):
+        for sid in PROTECTED:
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.pices_source_policy(sid)
+        # SPOT is proposed in creators64 (2026-10-22) behind its own pinned review; it never enters pices26.
+        try:
+            self.assertEqual(mapping.pices_source_policy(outside)[1]['policy'], mapping.CREATORS64_POLICY)
+        except ValueError:
+            pass
 
     def test_legacy_input_cannot_gain_type_or_editor_even_when_modern_shape_is_valid(self):
         fixture = self.fixture()

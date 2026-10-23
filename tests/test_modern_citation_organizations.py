@@ -159,9 +159,18 @@ class ModernCitationOrganizationTests(unittest.TestCase):
             self.assertEqual(mapping.citation_organization_source_policy(sid)[1]['policy'], mapping.PROGRAM_POLICY)
         for sid in sorted(basis):
             self.assertEqual(mapping.citation_organization_source_policy(sid)[1]['policy'], mapping.CITATIONS31_POLICY)
-        for sid in [*sorted(held), 'FGDC-710', 'FGDC-859', 'FGDC-2953', 'FGDC-3181', *mapping.PROTECTED]:
+        for sid in ['FGDC-710', 'FGDC-2953', 'FGDC-3181', *mapping.PROTECTED]:
             with self.subTest(source=sid), self.assertRaises(ValueError):
                 mapping.citation_organization_source_policy(sid)
+        # The creators64 proposal (2026-10-22) may admit some of these behind its own pinned review;
+        # none of them may enter the citation-organization mapping.
+        for sid in [*sorted(held), 'FGDC-859']:
+            with self.subTest(source=sid):
+                try:
+                    policy = mapping.citation_organization_source_policy(sid)[1]['policy']
+                except ValueError:
+                    continue
+                self.assertEqual(policy, mapping.CREATORS64_POLICY)
 
     def test_self_rehashed_mapping_cannot_change_finite_membership_credit_order_or_projection(self):
         fixture = self.fixture()

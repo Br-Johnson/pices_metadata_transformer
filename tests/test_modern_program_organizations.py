@@ -224,12 +224,16 @@ class ModernProgramOrganizationTests(unittest.TestCase):
         self.assertEqual(held, self.review['held_members'])
         self.assertEqual(mapping.sha(mapping.encode(held)), self.manifest['retained_held_membership_sha256'])
         self.assertTrue(set(HOLDS).isdisjoint(APPROVED))
+        # The creators64 proposal (2026-10-22) admits these 29 as organisational credits exactly as cited,
+        # behind its own pinned review; they never enter the program20 mapping.
         for sid in HOLDS:
             with self.subTest(source=sid):
-                with self.assertRaises(ValueError):
-                    mapping.program_organization_source_policy(sid)
-                with self.assertRaises(ValueError):
-                    mapping.source_policy(sid)
+                for selector in (mapping.program_organization_source_policy, mapping.source_policy):
+                    try:
+                        policy = selector(sid)[1]['policy']
+                    except ValueError:
+                        continue
+                    self.assertEqual(policy, mapping.CREATORS64_POLICY)
 
     def test_self_rehashed_manifest_cannot_change_scope_roots_live_authority_or_ordered_vectors(self):
         fixture = self.fixture('FGDC-4061')

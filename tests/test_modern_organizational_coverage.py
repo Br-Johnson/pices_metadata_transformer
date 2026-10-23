@@ -164,7 +164,7 @@ class ModernOrganizationalCoverageTests(unittest.TestCase):
             with self.subTest(source=sid):
                 changed = fixture.json_file.with_name(sid + '.json')
                 changed.write_bytes(fixture.json_file.read_bytes())
-                if sid == 'FGDC-885':
+                if sid in {'FGDC-885', 'FGDC-859'}:
                     # Proposed in creators64 (2026-10-22) behind its own pinned review; never this policy.
                     try:
                         self.assertEqual(mapping.source_policy(sid)[1]['policy'], mapping.CREATORS64_POLICY)
