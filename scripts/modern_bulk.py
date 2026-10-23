@@ -81,8 +81,8 @@ EDIT_WRITES = ('edit', 'update', 'publish')  # the in-place update of a publishe
 PHASES = ('planned', 'creating', 'created', 'initialized', 'uploaded', 'draft-verified', 'adopted',
           'review-set', 'accepted', 'published', 'editing', 'edit-open', 'edit-saved', 'edit-published')
 UPDATING = ('editing', 'edit-open', 'edit-saved', 'edit-published')
-RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/resource_types_r4.json'
-RESOURCE_TYPES_SHA = '2cc3afd86c9111a82f0a5882816da7394325dcabc142355521778a254d5548a6'  # adds the 25 non-Exxon pairs; supersedes r3 fdcc8d98...
+RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/resource_types_r5.json'
+RESOURCE_TYPES_SHA = 'ef0e8f2ba6f020b3b19aa4a69ad88f69a4e873b733c8f90e6ecb2d58dc1d3ec4'  # adds the creators64 sources; supersedes r4 2cc3afd8...
 SOURCE_REPAIRS_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/source_repairs.json'
 SOURCE_REPAIRS_SHA = '5d8f46aad7177a9ded3084e56b6051708c13d1d66b8dc605e3d5c0d64f3ffa05'
 EXCLUSION_LIFT_KIND = 'modern-bulk-exclusion-lift-v1'
