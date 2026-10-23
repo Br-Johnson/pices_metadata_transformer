@@ -97,13 +97,14 @@ CITATIONS31_DOCUMENTS = {'basis_proposal': {'path': 'docs/readiness/2026-10-06/n
  'office_review': {'path': 'docs/readiness/2026-10-06/next_source_review/pices-role-office11-independent-source-review.json',
                    'sha256': 'dbde3f4c6a36b9368b75683e21ab9dff1098968285eef0abd9eba896a37fc673'}}
 CREATORS64 = ROOT / 'docs/readiness/2026-10-22/modern_reviewed_creators64.json'
-CREATORS64_SHA = '966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5'
+CREATORS64_SHA = 'b8d6205bd778a56cf31134388f9e9236da3a05867e48c8a052c21bea1416a526'
 CREATORS64_PROPOSALS = ROOT / 'docs/readiness/2026-10-22/creators64_proposals.json'
-CREATORS64_PROPOSALS_SHA = '69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920145e3eb5f111'
-# The independent review of the creators64 proposal. The file starts as "proposal pending
-# independent review" and admits nothing; the reviewer replaces it and re-pins this SHA.
+CREATORS64_PROPOSALS_SHA = '75a9edef19ef3a875ad7ad9f81a44cdaa7c1f5762b0743a81d7f429c53284c57'
+# The independent review of the creators64 proposal. A pending review admits nothing; the reviewer
+# replaces it and re-pins this SHA. Round 3 (2026-10-23) re-proposes FGDC-3851 and carries the 56
+# round-2 approvals forward in a pending file, so every member is held until that re-confirmation.
 CREATORS64_REVIEW = ROOT / 'docs/readiness/2026-10-22/modern_reviewed_creators64_review.json'
-CREATORS64_REVIEW_SHA = '522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694'
+CREATORS64_REVIEW_SHA = 'ae1637e9c00a77ba9b0e59bb02665ce9f29833894948a74cf6b31e3d06e539c6'
 CREATORS64_POLICY = 'modern-xml-reviewed-creators64-v1'
 CREATORS64_APPROVED = 'approved'
 DFO_PROFILE = ROOT / 'docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json'

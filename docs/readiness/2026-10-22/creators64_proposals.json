@@ -233,7 +233,7 @@
   "affiliations": "Direct-kind sources follow the citations31 direct10 convention: an affiliation object is added only for an explicit, unambiguous attachment in the citation (\"... of INSTITUTION\" shared by the connected list, or a parenthetical after one name). creator426-kind sources follow their reviewed cohort notes, which add no affiliation objects; institutions stay in the preserved citation.",
   "entity_category": "A credit is admitted as organisational when the record itself shows the named body acting (a laboratory, office, university, commission, agency named as the credited party). Credits that name a data collection, data product, satellite platform, forecast system or observation network were held in the first round because the source does not supply a person or organisation category; Brett decided on 2026-10-22 (\"Unaami as organisation\", \"Credited name as org\") that these are admitted as organisational creators under the credited name exactly as cited, and their paragraphs say so.",
   "honorific_rank_role": "Honorifics (Dr., Mr.), military ranks (CWO3) and stated roles (editor) are not name parts. They are left out of the name fields and preserved verbatim in the preservation paragraph, as the citations31 policy did for FGDC-2597 (\"Dr. Hatakeyama, former Director-General ...\" -> Hatakeyama). Approved by the first independent review.",
-  "literal_conflict": "A personal name whose literal spelling conflicts with the record's own embedded reference, the referenced work's byline or the record's own contact name was held in the first round. Brett decided on 2026-10-22 (\"Record's own byline\") that the spelling the record itself gives in its byline, embedded reference or contact is used; that element is quoted as evidence, the citation's spelling is recorded in the paragraph, and the citation's order and split are kept otherwise. The builder checks mechanically that every adopted family name appears in the quoted element.",
+  "literal_conflict": "A personal name whose literal spelling conflicts with the record's own embedded reference, the referenced work's byline or the record's own contact name was held in the first round. Brett decided on 2026-10-22 (\"Record's own byline\") that the spelling the record itself gives in its byline, embedded reference or contact is used; that element is quoted as evidence, the citation's spelling is recorded in the paragraph, and the citation's order and split are kept otherwise. Where the byline element gives only an initial or the same given name, the citation's given name is kept; where it gives a different, fuller form (FGDC-3851: contact \"Hermann, Albert J.\" against the citation's \"Al Herman\"), the second review ruled that the record's form is used whole. The builder checks mechanically that every adopted name part appears in the quoted element.",
   "literal_parts": "Creator names keep every literal source part in source order. No initial is expanded, no person is added from a contact, abstract or external work, and no entity type is inferred from a name alone. A spelling changes only under the owner decision \"Record's own byline\" (below), and then only to the spelling the record itself gives.",
   "name_parts": "A person is split into family and given names only when the record settles the boundary: an inverted form in the citation or embedded reference, an initials-plus-family pattern, a matching inverted contact name, or an honorific that fixes natural order (Mr./Dr. Given Family).",
   "particle": "A nobility particle stays where the source's own inverted form puts it (\"Boguslawski, G. Von\" -> family_name \"Boguslawski\", given_name \"G. Von\").",
@@ -283,7 +283,7 @@
  },
  "fresh_classification": {
   "command": "python -B -m scripts.collection_qa with the runbook manifest set (docs/readiness/2026-10-06/first_pices_record_runbook.md) and --reviewed-at 2026-10-20T00:00:00+00:00 over the 64 XML files",
-  "profile_sha256": "6373a57f3384ae3da9a0056d60f833cf5194b9e41265182333d14bf58d9a443c",
+  "profile_sha256": "25a2a2727ce49dde2101c299497d1ff8fefce7e9b23ea739ce4705914a5fbb9c",
   "summary": {
    "failed": 0,
    "held": 0,
@@ -325,7 +325,9 @@
   "docs/readiness/2026-10-04/source_citation_credits_426.json": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2",
   "docs/readiness/2026-10-06/modern_institution91_source_bindings.json": "0cdf17201243f9bdaeaca90c4ae1f46b573d0be9429359942a8b7eb89a73d633",
   "docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a",
-  "docs/readiness/2026-10-06/modern_reviewed_citations31.json": "62f32e602ac1389ecdbffb07ed5627b2aadb047d777fd8469295680bb93729cc"
+  "docs/readiness/2026-10-06/modern_reviewed_citations31.json": "62f32e602ac1389ecdbffb07ed5627b2aadb047d777fd8469295680bb93729cc",
+  "docs/readiness/2026-10-22/modern_reviewed_creators64_review_round2.json": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+  "docs/readiness/2026-10-22/modern_reviewed_creators64_round2.json": "966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5"
  },
  "instruction": "Brett Johnson, 2026-10-22: \"take on the 64 unreviewed singletons\"",
  "kind": "creators64-source-proposals-v1",
@@ -8978,8 +8980,12 @@
    "source_sha256": "e88c82da4efbbefec81eaee8eec821ae4250dfdd43674d7fbfdaa6f00a32557c"
   },
   {
-   "additional_preservation_paragraph": "The primary citation credits Al Herman, followed by National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL). The record's own point of contact, Hermann, Albert J., spells the family name Hermann. By Brett Johnson's decision of 2026-10-22 (\"Record's own byline\") the record's own spelling, Hermann, is used and the citation's spelling, Herman, is recorded here. The given name keeps the citation's form, Al; it is not expanded from the contact. The institutional line stays in this preserved citation and is not added as an affiliation.",
+   "additional_preservation_paragraph": "The primary citation credits Al Herman, followed by National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL). The record's own point of contact and distributor give the name as Hermann, Albert J. By Brett Johnson's decision of 2026-10-22 (\"Record's own byline\") the record's own form is used whole, family name Hermann and given name Albert J., and the citation's form, Al Herman, is recorded here. The institutional line stays in this preserved citation and is not added as an affiliation.",
    "byline_spelling_evidence": {
+    "Albert J.": {
+     "text": "Hermann, Albert J.",
+     "xpath": "./idinfo/ptcontac/cntinfo/cntperp/cntper"
+    },
     "Hermann": {
      "text": "Hermann, Albert J.",
      "xpath": "./idinfo/ptcontac/cntinfo/cntperp/cntper"
@@ -9028,6 +9034,18 @@
     },
     {
      "kind": "file",
+     "path": "docs/readiness/2026-10-22/modern_reviewed_creators64_review_round2.json",
+     "quote": "Use the contact form Hermann, Albert J. per Brett's decision.",
+     "sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694"
+    },
+    {
+     "kind": "file",
+     "path": "docs/readiness/2026-10-22/modern_reviewed_creators64_review_round2.json",
+     "quote": "Here the contact gives a different, fuller form, so the contact form should be used whole: family_name \\\"Hermann\\\", given_name \\\"Albert J.\\\". The paragraph keeps the citation's \\\"Al Herman\\\".",
+     "sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694"
+    },
+    {
+     "kind": "file",
      "path": "docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json",
      "quote": "PRESERVED_PERSONAL29_MAPPING_HOLD",
      "sha256": "15b3af5c751009e90db94bb23ed195132a3d0e3cf566ba69d478c0d28960d65a"
@@ -9073,13 +9091,13 @@
     {
      "person_or_org": {
       "family_name": "Hermann",
-      "given_name": "Al",
+      "given_name": "Albert J.",
       "type": "personal"
      }
     }
    ],
    "proposed_resource_type": "dataset",
-   "reason": "Admitted: the literal credit, its name parts and the entity categories are settled by the record, the cited evidence and the owner decision named below; see the preservation paragraph.",
+   "reason": "Re-proposed in round 3. The second independent review held the round-2 vector \"Hermann, Al\" because it combined the citation's given form with the contact's family name, a form the record never gives, and ruled that under Brett's decision the contact form is used whole.",
    "resource_type_note": "the entry describes circulation model output (ROMS, coastal Gulf of Alaska)",
    "review_round_1": {
     "note": null,
@@ -9319,7 +9337,137 @@
   "reviewer": "independent reviewer, 2026-10-22 (verdicts relayed by the coordinating session)",
   "scope": "the 14 vectors proposed in the first build of this file (commit 1d0c2a4)"
  },
- "round": 2,
+ "review_round_2": {
+  "approved": [
+   "FGDC-419",
+   "FGDC-542",
+   "FGDC-545",
+   "FGDC-546",
+   "FGDC-547",
+   "FGDC-548",
+   "FGDC-549",
+   "FGDC-550",
+   "FGDC-551",
+   "FGDC-552",
+   "FGDC-553",
+   "FGDC-554",
+   "FGDC-556",
+   "FGDC-557",
+   "FGDC-558",
+   "FGDC-559",
+   "FGDC-560",
+   "FGDC-573",
+   "FGDC-574",
+   "FGDC-575",
+   "FGDC-576",
+   "FGDC-578",
+   "FGDC-579",
+   "FGDC-580",
+   "FGDC-581",
+   "FGDC-715",
+   "FGDC-859",
+   "FGDC-885",
+   "FGDC-887",
+   "FGDC-893",
+   "FGDC-2234",
+   "FGDC-2296",
+   "FGDC-2413",
+   "FGDC-2587",
+   "FGDC-2668",
+   "FGDC-2674",
+   "FGDC-2683",
+   "FGDC-3599",
+   "FGDC-3680",
+   "FGDC-3681",
+   "FGDC-3800",
+   "FGDC-3802",
+   "FGDC-3803",
+   "FGDC-3804",
+   "FGDC-3805",
+   "FGDC-3806",
+   "FGDC-3807",
+   "FGDC-3808",
+   "FGDC-3814",
+   "FGDC-3816",
+   "FGDC-3817",
+   "FGDC-3825",
+   "FGDC-3831",
+   "FGDC-3838",
+   "FGDC-3873",
+   "FGDC-3970"
+  ],
+  "held": {
+   "FGDC-3851": "Use the contact form Hermann, Albert J. per Brett's decision. Brett chose \"Use the spelling the record itself gives in its byline or contact; the citation text stays in the attached XML\". The record's contact gives the name as \"Hermann, Albert J.\". The proposed \"Hermann, Al\" combines the citation's given form with the contact's family name, a form the record never gives. Round 1 also found the conflict was in both the given-name form and the surname spelling. In the other 13 byline cases the byline element gives only an initial or the same given name (N./Nancy, A./Akihisa, A.V./Alexander V., Christine), so keeping the citation's given name agrees with it. Here the contact gives a different, fuller form, so the contact form should be used whole: family_name \"Hermann\", given_name \"Albert J.\". The paragraph keeps the citation's \"Al Herman\"."
+  },
+  "manifest_sha256": "966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5",
+  "proposals_sha256": "69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920145e3eb5f111",
+  "review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+  "reviewed_at": "2026-10-22",
+  "reviewer": "Claude Opus 5.5, independent reviewer agent of session a49e1cd3 (did not write the creators64 proposals); round 2",
+  "round": 2
+ },
+ "round": 3,
+ "rows_changed_since_round_2": [
+  "FGDC-3851"
+ ],
+ "rows_unchanged_since_round_2": [
+  "FGDC-419",
+  "FGDC-542",
+  "FGDC-545",
+  "FGDC-546",
+  "FGDC-547",
+  "FGDC-548",
+  "FGDC-549",
+  "FGDC-550",
+  "FGDC-551",
+  "FGDC-552",
+  "FGDC-553",
+  "FGDC-554",
+  "FGDC-556",
+  "FGDC-557",
+  "FGDC-558",
+  "FGDC-559",
+  "FGDC-560",
+  "FGDC-573",
+  "FGDC-574",
+  "FGDC-575",
+  "FGDC-576",
+  "FGDC-578",
+  "FGDC-579",
+  "FGDC-580",
+  "FGDC-581",
+  "FGDC-715",
+  "FGDC-859",
+  "FGDC-885",
+  "FGDC-887",
+  "FGDC-893",
+  "FGDC-2234",
+  "FGDC-2296",
+  "FGDC-2413",
+  "FGDC-2587",
+  "FGDC-2668",
+  "FGDC-2674",
+  "FGDC-2683",
+  "FGDC-3599",
+  "FGDC-3680",
+  "FGDC-3681",
+  "FGDC-3800",
+  "FGDC-3802",
+  "FGDC-3803",
+  "FGDC-3804",
+  "FGDC-3805",
+  "FGDC-3806",
+  "FGDC-3807",
+  "FGDC-3808",
+  "FGDC-3814",
+  "FGDC-3816",
+  "FGDC-3817",
+  "FGDC-3825",
+  "FGDC-3831",
+  "FGDC-3838",
+  "FGDC-3873",
+  "FGDC-3970"
+ ],
  "schema_version": 1,
  "status": "PROPOSAL_PENDING_INDEPENDENT_REVIEW_NOT_EXECUTION_AUTHORITY"
 }

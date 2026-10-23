@@ -3,12 +3,12 @@
   "creator426": 55,
   "direct": 2
  },
- "context_sha256": "8473894351c8db1d374d3a6f67673553e462801901d3c53e16916e22dd299b57",
+ "context_sha256": "e0a5d9dcc9db15eaa41a0981f72f2e8a8aaf28bfb2fd7283d9c12120df462d70",
  "conventions": {
   "affiliations": "Direct-kind sources follow the citations31 direct10 convention: an affiliation object is added only for an explicit, unambiguous attachment in the citation (\"... of INSTITUTION\" shared by the connected list, or a parenthetical after one name). creator426-kind sources follow their reviewed cohort notes, which add no affiliation objects; institutions stay in the preserved citation.",
   "entity_category": "A credit is admitted as organisational when the record itself shows the named body acting (a laboratory, office, university, commission, agency named as the credited party). Credits that name a data collection, data product, satellite platform, forecast system or observation network were held in the first round because the source does not supply a person or organisation category; Brett decided on 2026-10-22 (\"Unaami as organisation\", \"Credited name as org\") that these are admitted as organisational creators under the credited name exactly as cited, and their paragraphs say so.",
   "honorific_rank_role": "Honorifics (Dr., Mr.), military ranks (CWO3) and stated roles (editor) are not name parts. They are left out of the name fields and preserved verbatim in the preservation paragraph, as the citations31 policy did for FGDC-2597 (\"Dr. Hatakeyama, former Director-General ...\" -> Hatakeyama). Approved by the first independent review.",
-  "literal_conflict": "A personal name whose literal spelling conflicts with the record's own embedded reference, the referenced work's byline or the record's own contact name was held in the first round. Brett decided on 2026-10-22 (\"Record's own byline\") that the spelling the record itself gives in its byline, embedded reference or contact is used; that element is quoted as evidence, the citation's spelling is recorded in the paragraph, and the citation's order and split are kept otherwise. The builder checks mechanically that every adopted family name appears in the quoted element.",
+  "literal_conflict": "A personal name whose literal spelling conflicts with the record's own embedded reference, the referenced work's byline or the record's own contact name was held in the first round. Brett decided on 2026-10-22 (\"Record's own byline\") that the spelling the record itself gives in its byline, embedded reference or contact is used; that element is quoted as evidence, the citation's spelling is recorded in the paragraph, and the citation's order and split are kept otherwise. Where the byline element gives only an initial or the same given name, the citation's given name is kept; where it gives a different, fuller form (FGDC-3851: contact \"Hermann, Albert J.\" against the citation's \"Al Herman\"), the second review ruled that the record's form is used whole. The builder checks mechanically that every adopted name part appears in the quoted element.",
   "particle": "A nobility particle stays where the source's own inverted form puts it (\"Boguslawski, G. Von\" -> family_name \"Boguslawski\", given_name \"G. Von\").",
   "suffix": "Generational suffixes (Jr., III) stay with the given names in the inverted citation form the sources themselves use (\"Farley, E.V., Jr.\"), with a comma before the suffix: family_name \"Farley\", given_name \"Edward V., Jr.\"; family_name \"Guthrie\", given_name \"Charles M., III\". The provider displays family_name, given_name, so the record reads \"Farley, Edward V., Jr.\" and the DataCite familyName stays the family name. Approved by the first independent review; InvenioRDM has no suffix field."
  },
@@ -250,7 +250,7 @@
  "modern_creator_object_count": 192,
  "policy": "modern-xml-reviewed-creators64-v1",
  "proposals_path": "docs/readiness/2026-10-22/creators64_proposals.json",
- "proposals_sha256": "69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920145e3eb5f111",
+ "proposals_sha256": "75a9edef19ef3a875ad7ad9f81a44cdaa7c1f5762b0743a81d7f429c53284c57",
  "rows": [
   {
    "additional_preservation_paragraphs": [
@@ -4116,7 +4116,7 @@
   },
   {
    "additional_preservation_paragraphs": [
-    "The primary citation credits Al Herman, followed by National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL). The record's own point of contact, Hermann, Albert J., spells the family name Hermann. By Brett Johnson's decision of 2026-10-22 (\"Record's own byline\") the record's own spelling, Hermann, is used and the citation's spelling, Herman, is recorded here. The given name keeps the citation's form, Al; it is not expanded from the contact. The institutional line stays in this preserved citation and is not added as an affiliation."
+    "The primary citation credits Al Herman, followed by National Oceanic and Atmospheric Administration (NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory (PMEL). The record's own point of contact and distributor give the name as Hermann, Albert J. By Brett Johnson's decision of 2026-10-22 (\"Record's own byline\") the record's own form is used whole, family name Hermann and given name Albert J., and the citation's form, Al Herman, is recorded here. The institutional line stays in this preserved citation and is not added as an affiliation."
    ],
    "creator_authority_kind": "creator426",
    "creator_authority_object_sha256": "8fb62dc5989ccb2cbd4de4ac18209380e9dbf53404b8f108881ea9ff9cf32eca",
@@ -4131,7 +4131,7 @@
     {
      "person_or_org": {
       "family_name": "Hermann",
-      "given_name": "Al",
+      "given_name": "Albert J.",
       "type": "personal"
      }
     }
@@ -4154,7 +4154,7 @@
     }
    ],
    "proposal_row_pointer": "/proposals/61",
-   "proposal_row_sha256": "494d8112a12af471987e8b7a6c23ae45e3d0f0df924302c4b00af3eb9115cdf4",
+   "proposal_row_sha256": "ed3a3486a338181e8718138c0ceb3b262e1d87c0198eeb5ac8437583dfd28120",
    "source_bytes": 5128,
    "source_id": "FGDC-3851",
    "source_path": "FGDC/FGDC-3851.xml",

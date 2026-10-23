@@ -225,242 +225,471 @@
    "source_sha256": "0e6fe45c03f5d1ab78a70fef4ccd36c395a0090c02be4b6c93e8fb21c4a3d8b2"
   }
  ],
+ "carried_forward": {
+  "from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+  "from_round": 2,
+  "members": [
+   "FGDC-419",
+   "FGDC-542",
+   "FGDC-545",
+   "FGDC-546",
+   "FGDC-547",
+   "FGDC-548",
+   "FGDC-549",
+   "FGDC-550",
+   "FGDC-551",
+   "FGDC-552",
+   "FGDC-553",
+   "FGDC-554",
+   "FGDC-556",
+   "FGDC-557",
+   "FGDC-558",
+   "FGDC-559",
+   "FGDC-560",
+   "FGDC-573",
+   "FGDC-574",
+   "FGDC-575",
+   "FGDC-576",
+   "FGDC-578",
+   "FGDC-579",
+   "FGDC-580",
+   "FGDC-581",
+   "FGDC-715",
+   "FGDC-859",
+   "FGDC-885",
+   "FGDC-887",
+   "FGDC-893",
+   "FGDC-2234",
+   "FGDC-2296",
+   "FGDC-2413",
+   "FGDC-2587",
+   "FGDC-2668",
+   "FGDC-2674",
+   "FGDC-2683",
+   "FGDC-3599",
+   "FGDC-3680",
+   "FGDC-3681",
+   "FGDC-3800",
+   "FGDC-3802",
+   "FGDC-3803",
+   "FGDC-3804",
+   "FGDC-3805",
+   "FGDC-3806",
+   "FGDC-3807",
+   "FGDC-3808",
+   "FGDC-3814",
+   "FGDC-3816",
+   "FGDC-3817",
+   "FGDC-3825",
+   "FGDC-3831",
+   "FGDC-3838",
+   "FGDC-3873",
+   "FGDC-3970"
+  ],
+  "rule": "a round-2 approval carries forward only when the member's manifest row (vector, paragraph, authority, origins, proposal row SHA256) is byte-identical to the row that review approved; the builder checked this against docs/readiness/2026-10-22/modern_reviewed_creators64_round2.json"
+ },
  "decisions": {
   "FGDC-2234": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-2296": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Credited name as org\", which names 2296 explicitly. \"FORUT (Campaign for Development and Solidarity)\" is exactly as cited and typed organisational. The paragraph records the unresolved identity question in its own words: the expansion names a development organisation, while the record (title Tromso Arctic Surveillance; contacts in Tromso; forut@forut.no) suggests the Tromso research foundation. Note for the coordinator: the hold in round 1 was for an identity conflict, not for being a product or system, so Brett may want to confirm that he meant this record too."
+   "note": "Owner decision \"Credited name as org\", which names 2296 explicitly. \"FORUT (Campaign for Development and Solidarity)\" is exactly as cited and typed organisational. The paragraph records the unresolved identity question in its own words: the expansion names a development organisation, while the record (title Tromso Arctic Surveillance; contacts in Tromso; forut@forut.no) suggests the Tromso research foundation. Note for the coordinator: the hold in round 1 was for an identity conflict, not for being a product or system, so Brett may want to confirm that he meant this record too.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-2413": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-2587": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Round-1 hold resolved. The paragraph now says the roles of Virchow and Holtzenforff are not stated by the record and are left unresolved, consistent with the reviewed creator426 note, and it infers no role. The creator Boguslawski/\"G. Von\" is unchanged and follows the record's own \"Author: Boguslawski, G. Von.\""
+   "note": "Round-1 hold resolved. The paragraph now says the roles of Virchow and Holtzenforff are not stated by the record and are left unresolved, consistent with the reviewed creator426 note, and it infers no role. The creator Boguslawski/\"G. Von\" is unchanged and follows the record's own \"Author: Boguslawski, G. Von.\"",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-2668": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-2674": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-2683": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3599": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3680": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3681": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3800": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3802": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3803": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3804": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3805": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3806": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3807": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3808": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation."
+   "note": "Owner decision \"Record's own byline\". Davis is taken from the record's embedded reference (\"Tanaka, H, N. Davis, ..., NPAFC Doc. 622\"); Navis is recorded in the paragraph. Nancy agrees with the initial N. The citation order and splits are otherwise kept, and all are confirmed by the reference initials. \"North Pacific Anadromous Fish Commission (NPAFC)\" keeps its parenthetical exactly as cited, as in the reviewed creator426 legacy credit. The institute is not added as an affiliation.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3814": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3816": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3817": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Round-1 hold resolved. The paragraph is now generated from this record's own origin (\"of Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, Juneau, AK, USA\"; no NOAA) and matches it entry by entry. The creator vector is unchanged from round 1 and correct."
+   "note": "Round-1 hold resolved. The paragraph is now generated from this record's own origin (\"of Auke Bay Laboratory, Alaska Fisheries Science Center, NMFS, Juneau, AK, USA\"; no NOAA) and matches it entry by entry. The creator vector is unchanged from round 1 and correct.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3825": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Urano is the spelling in the record's embedded reference (\"A. Urano\"); Uran is recorded in the paragraph. Given name Akihisa agrees with the reference initial A. The citation order (Azumaya, Yamamura, Fukuwaka, Kusaka, Nagasawa, Urawa, Nomura, Moriya, Urano, NPAFC) is kept even though the reference orders the names differently. This is correct: the decision covers spelling only, the citation is the primary credit, and the basis19 review forbade substituting the byline order. Both lists name the same nine people. All other names and splits are confirmed by the reference initials."
+   "note": "Owner decision \"Record's own byline\". Urano is the spelling in the record's embedded reference (\"A. Urano\"); Uran is recorded in the paragraph. Given name Akihisa agrees with the reference initial A. The citation order (Azumaya, Yamamura, Fukuwaka, Kusaka, Nagasawa, Urawa, Nomura, Moriya, Urano, NPAFC) is kept even though the reference orders the names differently. This is correct: the decision covers spelling only, the citation is the primary credit, and the basis19 review forbade substituting the byline order. Both lists name the same nine people. All other names and splits are confirmed by the reference initials.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3831": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". Bugaev is taken from the record's embedded reference \"Bugaev A.V.\"; Bugae is recorded in the paragraph. Given name \"Alexander V.\" agrees with A.V. The trailing NPAFC credit is kept organisational, and the institute stays in the paragraph."
+   "note": "Owner decision \"Record's own byline\". Bugaev is taken from the record's embedded reference \"Bugaev A.V.\"; Bugae is recorded in the paragraph. Given name \"Alexander V.\" agrees with A.V. The trailing NPAFC credit is kept organisational, and the institute stays in the paragraph.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3838": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3851": {
-   "decision": "held",
-   "note": "Use the contact form Hermann, Albert J. per Brett's decision. Brett chose \"Use the spelling the record itself gives in its byline or contact; the citation text stays in the attached XML\". The record's contact gives the name as \"Hermann, Albert J.\". The proposed \"Hermann, Al\" combines the citation's given form with the contact's family name, a form the record never gives. Round 1 also found the conflict was in both the given-name form and the surname spelling. In the other 13 byline cases the byline element gives only an initial or the same given name (N./Nancy, A./Akihisa, A.V./Alexander V., Christine), so keeping the citation's given name agrees with it. Here the contact gives a different, fuller form, so the contact form should be used whole: family_name \"Hermann\", given_name \"Albert J.\". The paragraph keeps the citation's \"Al Herman\"."
+   "carried_from_review_sha256": null,
+   "carried_from_round": null,
+   "decision": "pending",
+   "note": "Previous round: held. Use the contact form Hermann, Albert J. per Brett's decision. Brett chose \"Use the spelling the record itself gives in its byline or contact; the citation text stays in the attached XML\". The record's contact gives the name as \"Hermann, Albert J.\". The proposed \"Hermann, Al\" combines the citation's given form with the contact's family name, a form the record never gives. Round 1 also found the conflict was in both the given-name form and the surname spelling. In the other 13 byline cases the byline element gives only an initial or the same given name (N./Nancy, A./Akihisa, A.V./Alexander V., Christine), so keeping the citation's given name agrees with it. Here the contact gives a different, fuller form, so the contact form should be used whole: family_name \"Hermann\", given_name \"Albert J.\". The paragraph keeps the citation's \"Al Herman\". Round 3: row changed since the previous round; needs a fresh decision.",
+   "row_unchanged_since_previous_round": false
   },
   "FGDC-3873": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Credited name as org\". One organisational creator, \"Prince William Sound Nowcast-Forecast System (PWS NFS)\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts."
+   "note": "Owner decision \"Credited name as org\". One organisational creator, \"Prince William Sound Nowcast-Forecast System (PWS NFS)\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-3970": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Credited name as org\". One organisational creator, \"Nationwide Ocean Wave Information Network for Ports and HArbourS (NOWPHAS), Japan\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts."
+   "note": "Owner decision \"Credited name as org\". One organisational creator, \"Nationwide Ocean Wave Information Network for Ports and HArbourS (NOWPHAS), Japan\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-419": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Credited name as org\". One organisational creator, \"Word Wright\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts."
+   "note": "Owner decision \"Credited name as org\". One organisational creator, \"Word Wright\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-542": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-545": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-546": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-547": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-548": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-549": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-550": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-551": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-552": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-553": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-554": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-556": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-557": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-558": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-559": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-560": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-573": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-574": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-575": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-576": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-578": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-579": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-580": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-581": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted."
+   "note": "Owner decision \"Unaami as organisation\". The origin is exactly \"Unaami Arctic Data Collection\" and there is one organisational creator of that name, with no other change. The purpose text, the acknowledgement constraint and the contact Overland, James E. quoted in the paragraph are present in this XML. The contact is not promoted.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-715": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Credited name as org\". One organisational creator, \"CIA World Bank II\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts."
+   "note": "Owner decision \"Credited name as org\". One organisational creator, \"CIA World Bank II\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-859": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Credited name as org\". One organisational creator, \"Satellite Pour l'Ovservation de la Terre (SPOT)\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts."
+   "note": "Owner decision \"Credited name as org\". One organisational creator, \"Satellite Pour l'Ovservation de la Terre (SPOT)\", exactly as the origin gives it, with spelling and capitalisation kept. No operator, compiler, distributor, host or contact is substituted or promoted, and the paragraph statements are supported by the record's abstract, title and contacts.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-885": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Round-1 hold resolved. Guthrie is now given_name \"Charles M., III\", matching Farley's \"Edward V., Jr.\" in the same array. Names, order and split still match the origin and the NPAFC Doc. 499 reference. The paragraph states both suffixes accurately."
+   "note": "Round-1 hold resolved. Guthrie is now given_name \"Charles M., III\", matching Farley's \"Edward V., Jr.\" in the same array. Names, order and split still match the origin and the NPAFC Doc. 499 reference. The paragraph states both suffixes accurately.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-887": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files."
+   "note": "Approved in round 1. The vector is unchanged. The only paragraph change is the added clause stating the comma before the suffix, which is accurate, or none. The evidence quotes re-verify against the XML and the cited files.",
+   "row_unchanged_since_previous_round": true
   },
   "FGDC-893": {
+   "carried_from_review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "carried_from_round": 2,
    "decision": "approved",
-   "note": "Owner decision \"Record's own byline\". The family name Kondzela is taken from the record's contact \"Kondzela, Christine\", which also settles the split; the citation spelling Kandzela is recorded in the paragraph. The trailing period of \"Richard Wilmot.\" closes the credit before the parenthetical. It is punctuation, not a name part, so dropping it is correct; the same treatment was approved for \"MS.\" on 3599 and in the creator426 note for 2587. Citation order is kept, and the report label and institutional line stay in the paragraph."
+   "note": "Owner decision \"Record's own byline\". The family name Kondzela is taken from the record's contact \"Kondzela, Christine\", which also settles the split; the citation spelling Kandzela is recorded in the paragraph. The trailing period of \"Richard Wilmot.\" closes the credit before the parenthetical. It is punctuation, not a name part, so dropping it is correct; the same treatment was approved for \"MS.\" on 3599 and in the creator426 note for 2587. Citation order is kept, and the report label and institutional line stay in the paragraph.",
+   "row_unchanged_since_previous_round": true
   }
  },
- "held_members": [
-  {
-   "source_id": "FGDC-3851",
-   "source_sha256": "c84125a527d9746840b85c1abc78c580e49648c0cbe54a93a69fb544663d672e"
-  }
- ],
+ "held_members": [],
  "history": [
   {
    "approved": [
@@ -488,12 +717,81 @@
    "reviewer": "independent reviewer, 2026-10-22 (verdicts relayed by the coordinating session)",
    "round": 1,
    "scope": "the 14 vectors proposed in the first build of this file (commit 1d0c2a4)"
+  },
+  {
+   "approved": [
+    "FGDC-419",
+    "FGDC-542",
+    "FGDC-545",
+    "FGDC-546",
+    "FGDC-547",
+    "FGDC-548",
+    "FGDC-549",
+    "FGDC-550",
+    "FGDC-551",
+    "FGDC-552",
+    "FGDC-553",
+    "FGDC-554",
+    "FGDC-556",
+    "FGDC-557",
+    "FGDC-558",
+    "FGDC-559",
+    "FGDC-560",
+    "FGDC-573",
+    "FGDC-574",
+    "FGDC-575",
+    "FGDC-576",
+    "FGDC-578",
+    "FGDC-579",
+    "FGDC-580",
+    "FGDC-581",
+    "FGDC-715",
+    "FGDC-859",
+    "FGDC-885",
+    "FGDC-887",
+    "FGDC-893",
+    "FGDC-2234",
+    "FGDC-2296",
+    "FGDC-2413",
+    "FGDC-2587",
+    "FGDC-2668",
+    "FGDC-2674",
+    "FGDC-2683",
+    "FGDC-3599",
+    "FGDC-3680",
+    "FGDC-3681",
+    "FGDC-3800",
+    "FGDC-3802",
+    "FGDC-3803",
+    "FGDC-3804",
+    "FGDC-3805",
+    "FGDC-3806",
+    "FGDC-3807",
+    "FGDC-3808",
+    "FGDC-3814",
+    "FGDC-3816",
+    "FGDC-3817",
+    "FGDC-3825",
+    "FGDC-3831",
+    "FGDC-3838",
+    "FGDC-3873",
+    "FGDC-3970"
+   ],
+   "held": {
+    "FGDC-3851": "Use the contact form Hermann, Albert J. per Brett's decision. Brett chose \"Use the spelling the record itself gives in its byline or contact; the citation text stays in the attached XML\". The record's contact gives the name as \"Hermann, Albert J.\". The proposed \"Hermann, Al\" combines the citation's given form with the contact's family name, a form the record never gives. Round 1 also found the conflict was in both the given-name form and the surname spelling. In the other 13 byline cases the byline element gives only an initial or the same given name (N./Nancy, A./Akihisa, A.V./Alexander V., Christine), so keeping the citation's given name agrees with it. Here the contact gives a different, fuller form, so the contact form should be used whole: family_name \"Hermann\", given_name \"Albert J.\". The paragraph keeps the citation's \"Al Herman\"."
+   },
+   "manifest_sha256": "966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5",
+   "proposals_sha256": "69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920145e3eb5f111",
+   "review_sha256": "522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694",
+   "reviewed_at": "2026-10-22",
+   "reviewer": "Claude Opus 5.5, independent reviewer agent of session a49e1cd3 (did not write the creators64 proposals); round 2",
+   "round": 2
   }
  ],
- "how_to_approve": "Set status to \"approved\", fill reviewer and reviewed_at, set each decision to \"approved\" or \"held\" with a note, list the approved and held members, keep mapping_manifest_sha256 and proposals_sha256 unchanged, then pin this file's new SHA256 in scripts.modern_singleton.CREATORS64_REVIEW_SHA. scripts.modern_singleton admits a source only when this file is approved, pinned, and lists that source as approved; everything else stays held.",
+ "how_to_approve": "Decide FGDC-3851 (\"approved\" or \"held\" with a note) and move it from pending_members to approved_members or held_members; keep the 56 carried decisions; set status to \"approved\", fill reviewer and reviewed_at; keep mapping_manifest_sha256 and proposals_sha256 unchanged; remove pending_members when it is empty; then pin this file's new SHA256 in scripts.modern_singleton.CREATORS64_REVIEW_SHA. Until then every member, including the 56, is held by the mapper, because the review binds the whole manifest and proposals by SHA.",
  "kind": "modern-reviewed-creators64-review-v1",
  "mapping_manifest_path": "docs/readiness/2026-10-22/modern_reviewed_creators64.json",
- "mapping_manifest_sha256": "966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5",
+ "mapping_manifest_sha256": "b8d6205bd778a56cf31134388f9e9236da3a05867e48c8a052c21bea1416a526",
  "members": [
   {
    "source_id": "FGDC-419",
@@ -725,21 +1023,24 @@
   }
  ],
  "membership_sha256": "f9e95ea526847c2c4c872a44cb61f4fb144cf0efbd06d6202a851b623915edbf",
+ "pending_members": [
+  {
+   "source_id": "FGDC-3851",
+   "source_sha256": "c84125a527d9746840b85c1abc78c580e49648c0cbe54a93a69fb544663d672e"
+  }
+ ],
  "policy": "modern-xml-reviewed-creators64-v1",
  "proposals_path": "docs/readiness/2026-10-22/creators64_proposals.json",
- "proposals_sha256": "69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920145e3eb5f111",
+ "proposals_sha256": "75a9edef19ef3a875ad7ad9f81a44cdaa7c1f5762b0743a81d7f429c53284c57",
  "proposed_by": "Claude Fable 5.1 (deep-coder subagent of session a49e1cd3), 2026-10-22",
- "reviewed_at": "2026-10-22",
- "reviewer": "Claude Opus 5.5, independent reviewer agent of session a49e1cd3 (did not write the creators64 proposals); round 2",
+ "reviewed_at": null,
+ "reviewer": null,
  "reviewer_checklist": [
-  "Read every admitted row against FGDC/<id>.xml: the literal origin, the embedded reference, the contact names.",
-  "Confirm the family/given split of every person from the evidence quoted in creators64_proposals.json, not from the name alone.",
-  "Round 1 approved the suffix convention (given_name carries \", Jr.\" or \", III\") and the honorific/rank/role convention; check the three re-proposed rows (885, 2587, 3817) against the round-1 notes.",
-  "For the owner-decided groups, check that each organisational name is the credited name exactly as cited (Unaami 23; 419, 715, 859, 2296, 3873, 3970) and that each adopted spelling (Davis, Urano, Bugaev, Kondzela, Hermann) is the one the quoted record element gives, with the citation's spelling recorded in the paragraph.",
-  "Confirm the organisational typing of Shanghai Fisheries University (542) and U.S. Navy, Office of Naval Research (3599), and the affiliation objects on 2668 and 3599.",
-  "Confirm the seven held reasons; a hold the reviewer lifts needs a new proposal row and manifest, not an edit of this file alone."
+  "Round 3 re-proposes FGDC-3851 only: family_name \"Hermann\", given_name \"Albert J.\", both from the record's point-of-contact element \"Hermann, Albert J.\" (quoted in creators64_proposals.json under byline_spelling_evidence); the paragraph records the citation's \"Al Herman\".",
+  "The 56 round-2 approvals are carried forward with their notes. Re-confirm them mechanically: every carried row in modern_reviewed_creators64.json equals the same source's row in modern_reviewed_creators64_round2.json (the manifest the pinned round-2 review approved); rows_changed_since_round_2 in the proposals must be [\"FGDC-3851\"] only.",
+  "Round 1 approved the suffix convention and the honorific/rank/role convention; round 2 approved the three re-proposed rows, the owner-decided groups and the seven holds. Nothing else changed in round 3."
  ],
- "round": 2,
+ "round": 3,
  "schema_version": 1,
- "status": "approved"
+ "status": "proposal pending independent review"
 }

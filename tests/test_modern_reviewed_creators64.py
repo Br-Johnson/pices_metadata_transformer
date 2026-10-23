@@ -22,10 +22,12 @@ from scripts.citation_creator_interpretation import source_element
 from scripts.path_config import OutputPaths
 from tests import modern_singleton_fixtures as fixtures
 
-MANIFEST_SHA = '966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5'
-PROPOSALS_SHA = '69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920145e3eb5f111'
-PENDING_REVIEW_SHA = 'e5bf62776e936e3badc12d0e31f97b914f991b539cbae35b6f90bff07e141458'  # round 2, before the review
-REVIEW_SHA = '522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694'  # the independent review: 56 approved
+MANIFEST_SHA = 'b8d6205bd778a56cf31134388f9e9236da3a05867e48c8a052c21bea1416a526'  # round 3
+PROPOSALS_SHA = '75a9edef19ef3a875ad7ad9f81a44cdaa7c1f5762b0743a81d7f429c53284c57'  # round 3
+REVIEW_SHA = 'ae1637e9c00a77ba9b0e59bb02665ce9f29833894948a74cf6b31e3d06e539c6'  # round 3, pending: 56 carried, 3851 pending
+ROUND2_MANIFEST_SHA = '966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5'  # the manifest round 2 approved
+ROUND2_REVIEW_SHA = '522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694'  # the round-2 review: 56 approved
+ROUND2_DIR = 'docs/readiness/2026-10-22/'
 UNAAMI = tuple('FGDC-' + str(i) for i in (545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 556, 557, 558,
                                             559, 560, 573, 574, 575, 576, 578, 579, 580, 581))
 WAKATAKE = tuple('FGDC-' + str(i) for i in (3680, 3681, 3800, 3802, 3803, 3804, 3805, 3806, 3807, 3808))
@@ -50,7 +52,8 @@ def approved_review(directory, decisions=None, **changes):
     review.update(status='approved', reviewer='Offline fixture reviewer', reviewed_at='2026-10-22T00:00:00+00:00',
                   decisions={sid: {'decision': decision, 'note': None} for sid, decision in decisions.items()},
                   approved_members=[row for row in members if decisions.get(row['source_id']) == 'approved'],
-                  held_members=[row for row in members if decisions.get(row['source_id']) != 'approved'])
+                  held_members=[row for row in members if decisions.get(row['source_id']) != 'approved'],
+                  pending_members=[])
     review.update(changes)
     path = Path(directory) / 'creators64-review.json'
     path.write_bytes(mapping.encode(review))
@@ -115,19 +118,55 @@ class ModernReviewedCreators64Tests(unittest.TestCase):
         self.assertEqual(self.manifest['member_count'], 57)
         self.assertEqual(self.manifest['authority_counts'], {'creator426': 55, 'direct': 2})
         self.assertEqual(self.manifest['modern_creator_object_count'], 192)
-        self.assertEqual(self.proposals['round'], 2)
+        self.assertEqual(self.proposals['round'], 3)
         self.assertEqual(set(self.proposals['owner_decisions']), {'unaami_as_organisation', 'credited_name_as_org', 'records_own_byline'})
-        self.assertEqual(self.review['status'], 'approved')
-        self.assertIn('independent reviewer', self.review['reviewer'])
-        self.assertEqual([row['source_id'] for row in self.review['held_members']], ['FGDC-3851'])
+        self.assertEqual(self.proposals['rows_changed_since_round_2'], ['FGDC-3851'])
+        self.assertEqual(len(self.proposals['rows_unchanged_since_round_2']), 56)
+        self.assertEqual(self.review['round'], 3)
+        self.assertEqual([entry['round'] for entry in self.review['history']], [1, 2])
+        self.assertEqual(self.review['history'][1]['review_sha256'], ROUND2_REVIEW_SHA)
+        self.assertEqual(self.review['history'][1]['manifest_sha256'], ROUND2_MANIFEST_SHA)
         self.assertEqual(self.review['mapping_manifest_sha256'], MANIFEST_SHA)
         self.assertEqual(self.review['proposals_sha256'], PROPOSALS_SHA)
         self.assertEqual(self.review['members'], self.manifest['members'])
-        # The review admits exactly its approved members; its hold, the proposal's holds and others stay held.
-        for sid in (sid for sid in ADMITTED if sid != 'FGDC-3851'):
+        # The 56 round-2 approvals carry forward only as byte-identical rows of the manifest that review approved.
+        round2_manifest = mapping.ROOT / (ROUND2_DIR + 'modern_reviewed_creators64_round2.json')
+        round2_review = mapping.ROOT / (ROUND2_DIR + 'modern_reviewed_creators64_review_round2.json')
+        self.assertEqual(mapping.sha(round2_manifest.read_bytes()), ROUND2_MANIFEST_SHA)
+        self.assertEqual(mapping.sha(round2_review.read_bytes()), ROUND2_REVIEW_SHA)
+        previous_rows = {row['source_id']: row for row in mapping.parse(round2_manifest.read_bytes())['rows']}
+        previous_review = mapping.parse(round2_review.read_bytes())
+        carried = [sid for sid, decision in self.review['decisions'].items() if decision.get('carried_from_round') == 2]
+        self.assertEqual(sorted(carried, key=lambda s: int(s[5:])), [sid for sid in ADMITTED if sid != 'FGDC-3851'])
+        self.assertEqual([row['source_id'] for row in self.review['approved_members']],
+                         sorted(carried, key=lambda s: int(s[5:])))
+        for sid in carried:
+            with self.subTest(carried=sid):
+                self.assertEqual(self.rows[sid], previous_rows[sid])
+                self.assertEqual(self.review['decisions'][sid]['decision'], 'approved')
+                self.assertEqual(self.review['decisions'][sid]['note'], previous_review['decisions'][sid]['note'])
+                self.assertEqual(self.review['decisions'][sid]['carried_from_review_sha256'], ROUND2_REVIEW_SHA)
+        self.assertNotEqual(self.rows['FGDC-3851'], previous_rows['FGDC-3851'])
+        self.assertEqual(previous_review['decisions']['FGDC-3851']['decision'], 'held')
+        # Admission follows the committed review: a pending review admits nothing, an approved one admits exactly
+        # its approved members; the proposal's holds, the protected records and pair members never enter.
+        if self.review['status'] == 'approved':
+            self.assertIsNotNone(self.review['reviewer'])
+            live = {row['source_id'] for row in self.review['approved_members']}
+        else:
+            self.assertEqual(self.review['status'], 'proposal pending independent review')
+            self.assertIsNone(self.review['reviewer'])
+            self.assertEqual([row['source_id'] for row in self.review['pending_members']], ['FGDC-3851'])
+            self.assertEqual(self.review['decisions']['FGDC-3851']['decision'], 'pending')
+            live = set()
+        for sid in ADMITTED:
             with self.subTest(source=sid):
-                self.assertEqual(mapping.source_policy(sid)[1]['policy'], mapping.CREATORS64_POLICY)
-        for sid in ('FGDC-3851', *HELD_SAMPLE, *mapping.PROTECTED, 'FGDC-2953'):
+                if sid in live:
+                    self.assertEqual(mapping.source_policy(sid)[1]['policy'], mapping.CREATORS64_POLICY)
+                else:
+                    with self.assertRaises(mapping.Held):
+                        mapping.source_policy(sid)
+        for sid in (*HELD_SAMPLE, *mapping.PROTECTED, 'FGDC-2953'):
             with self.subTest(source=sid), self.assertRaises(mapping.Held):
                 mapping.source_policy(sid)
         self.assertEqual([mapping.source_policy(sid)[1]['schema_version'] for sid in OLD_SAMPLES], list(range(1, 11)))
@@ -223,8 +262,11 @@ class ModernReviewedCreators64Tests(unittest.TestCase):
                 self.assertIn(cited, ' '.join(c['name'] for c in self.rows[sid]['creators']))
         self.assertEqual(self.rows['FGDC-3825']['modern_creators'][8]['person_or_org'],
                          {'type': 'personal', 'family_name': 'Urano', 'given_name': 'Akihisa'})
+        # Round 3: the contact form is used whole, as the second review asked; the citation's form is recorded.
         self.assertEqual(self.rows['FGDC-3851']['modern_creators'],
-                         [{'person_or_org': {'type': 'personal', 'family_name': 'Hermann', 'given_name': 'Al'}}])
+                         [{'person_or_org': {'type': 'personal', 'family_name': 'Hermann', 'given_name': 'Albert J.'}}])
+        self.assertEqual(self.by_source['FGDC-3851']['byline_spelling_evidence']['Albert J.']['text'], 'Hermann, Albert J.')
+        self.assertIn('Al Herman', self.rows['FGDC-3851']['additional_preservation_paragraphs'][0])
         self.assertEqual(self.rows['FGDC-2587']['modern_creators'][0]['person_or_org']['given_name'], 'G. Von')
         self.assertEqual(self.rows['FGDC-2413']['modern_creators'],
                          [{'person_or_org': {'type': 'personal', 'family_name': 'Wespestad', 'given_name': 'Vidar'}}])

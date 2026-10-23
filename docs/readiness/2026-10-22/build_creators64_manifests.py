@@ -15,6 +15,14 @@ system credits are admitted as organisational creators named exactly as cited, a
 spelling conflicts take the spelling the record itself gives in its byline, embedded
 reference or contact. Seven compound, venue and unnamed credits stay held.
 
+Round 3 (2026-10-22): the second independent review (modern_reviewed_creators64_review_round2.json,
+SHA 522ed5f5...) approved 56 and held FGDC-3851, asking for the contact form whole ("Hermann,
+Albert J.") rather than the citation's given name with the contact's family name. 3851 is
+re-proposed that way. Because the review binds the whole proposals and manifest documents by
+SHA, any change to them unpins the review, so this build writes a pending round-3 review that
+carries the 56 round-2 approvals forward (each checked to be an unchanged row), marks 3851
+pending and records the history; nothing is admitted until the reviewer re-confirms and re-pins.
+
 Invariants: original XML is read, never written. Legacy creator arrays come from the pinned
 creator426 profile (creator426 kind) or the pinned institution91 bindings (direct kind) and
 are checked against a fresh offline classification. Modern vectors keep every literal
@@ -22,9 +30,12 @@ source part in source order; a spelling is taken from the record's own byline el
 under the owner decision, with the citation's spelling recorded in the paragraph.
 
 Run from the repository root:
-  python -B docs/readiness/2026-10-22/build_creators64_manifests.py --classified <qa-output-dir>
+  python -B docs/readiness/2026-10-22/build_creators64_manifests.py --classified <qa-output-dir> \
+      --previous-review docs/readiness/2026-10-22/modern_reviewed_creators64_review_round2.json \
+      --previous-manifest docs/readiness/2026-10-22/modern_reviewed_creators64_round2.json
 where <qa-output-dir> is a `scripts.collection_qa` run over the 64 XML files with the
-runbook manifest set and `--reviewed-at 2026-10-20T00:00:00+00:00`.
+runbook manifest set and `--reviewed-at 2026-10-20T00:00:00+00:00`, and the previous files are
+the approved round-2 review and the manifest it approved (byte-identical copies kept in the tree).
 """
 
 import argparse
@@ -140,8 +151,12 @@ CONVENTIONS = {
                         'in the first round. Brett decided on 2026-10-22 ("Record\'s own byline") that the '
                         'spelling the record itself gives in its byline, embedded reference or contact is '
                         'used; that element is quoted as evidence, the citation\'s spelling is recorded in '
-                        'the paragraph, and the citation\'s order and split are kept otherwise. The builder '
-                        'checks mechanically that every adopted family name appears in the quoted element.',
+                        'the paragraph, and the citation\'s order and split are kept otherwise. Where the '
+                        'byline element gives only an initial or the same given name, the citation\'s given '
+                        'name is kept; where it gives a different, fuller form (FGDC-3851: contact "Hermann, '
+                        'Albert J." against the citation\'s "Al Herman"), the second review ruled that the '
+                        'record\'s form is used whole. The builder checks mechanically that every adopted '
+                        'name part appears in the quoted element.',
     'preservation_paragraph': 'Every admitted source carries one paragraph, rendered into the v1 '
                               'preservation block as the citations31 policy does, that quotes the '
                               'complete literal credit and states what was left out of or changed in the '
@@ -192,6 +207,7 @@ PROGRAM_REVIEW = 'docs/readiness/2026-10-06/modern_program20_independent_review.
 RECON = 'docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json'
 CIT31 = 'docs/readiness/2026-10-06/modern_reviewed_citations31.json'
 CREATOR426 = 'docs/readiness/2026-10-04/source_citation_credits_426.json'
+REVIEW2 = 'docs/readiness/2026-10-22/modern_reviewed_creators64_review_round2.json'
 
 BASIS_PARTS_QUOTE = ('Resolved: literal Edward V. / Farley / Jr. and other complete source credits; '
                      'no missing person or new permission question')
@@ -567,17 +583,22 @@ ADMIT = {
         'evidence': [(RECON, 'The saved complete array has no approved finite personal name-part/type after-image')]},
     'FGDC-3851': {
         'group': 'contact_spelling', 'owner_decision': 'records_own_byline',
-        'byline': {'Hermann': './idinfo/ptcontac/cntinfo/cntperp/cntper'},
-        'modern_creators': [person('Hermann', 'Al')], 'resource_type': 'dataset',
+        'byline': {'Hermann': './idinfo/ptcontac/cntinfo/cntperp/cntper', 'Albert J.': './idinfo/ptcontac/cntinfo/cntperp/cntper'},
+        'modern_creators': [person('Hermann', 'Albert J.')], 'resource_type': 'dataset',
         'type_note': 'the entry describes circulation model output (ROMS, coastal Gulf of Alaska)',
+        'reason': ('Re-proposed in round 3. The second independent review held the round-2 vector "Hermann, Al" '
+                   'because it combined the citation\'s given form with the contact\'s family name, a form the record '
+                   'never gives, and ruled that under Brett\'s decision the contact form is used whole.'),
         'paragraph': (
             'The primary citation credits Al Herman, followed by National Oceanic and Atmospheric Administration '
             '(NOAA), Office of Oceanic and Atmospheric Research (OAR), Pacific Marine Environmental Laboratory '
-            '(PMEL). The record\'s own point of contact, Hermann, Albert J., spells the family name Hermann. '
-            + BYLINE + ' the record\'s own spelling, Hermann, is used and the citation\'s spelling, Herman, is '
-            'recorded here. The given name keeps the citation\'s form, Al; it is not expanded from the contact. The '
-            'institutional line stays in this preserved citation and is not added as an affiliation.'),
-        'evidence': [(RECON, 'Al Herman differs in both name/abbreviation and surname spelling from Albert J. Hermann in the contact.')]},
+            '(PMEL). The record\'s own point of contact and distributor give the name as Hermann, Albert J. '
+            + BYLINE + ' the record\'s own form is used whole, family name Hermann and given name Albert J., and '
+            'the citation\'s form, Al Herman, is recorded here. The institutional line stays in this preserved '
+            'citation and is not added as an affiliation.'),
+        'evidence': [(RECON, 'Al Herman differs in both name/abbreviation and surname spelling from Albert J. Hermann in the contact.'),
+                     (REVIEW2, 'Use the contact form Hermann, Albert J. per Brett\'s decision.'),
+                     (REVIEW2, 'Here the contact gives a different, fuller form, so the contact form should be used whole: family_name \\"Hermann\\", given_name \\"Albert J.\\". The paragraph keeps the citation\'s \\"Al Herman\\".')]},
 }
 
 HOLD = {
@@ -655,7 +676,18 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--classified', required=True,
                         help='collection_qa output dir for the 64 sources (runbook manifest set, reviewed-at 2026-10-20T00:00:00+00:00)')
+    parser.add_argument('--previous-review', required=True,
+                        help='the approved review of the previous round, whose decisions carry forward for unchanged rows')
+    parser.add_argument('--previous-manifest', required=True,
+                        help='the mapping manifest that previous review approved (byte-identical copy)')
     args = parser.parse_args()
+    previous_review = json.loads(Path(args.previous_review).read_text(encoding='utf-8'))
+    previous_manifest_raw = Path(args.previous_manifest).read_bytes()
+    assert previous_review['status'] == 'approved' and previous_review['kind'] == 'modern-reviewed-creators64-review-v1'
+    assert previous_review['mapping_manifest_sha256'] == sha(previous_manifest_raw), 'previous manifest is not the one the previous review approved'
+    previous_manifest = json.loads(previous_manifest_raw)
+    previous_rows = {row['source_id']: row for row in previous_manifest['rows']}
+    previous_review_sha = sha(Path(args.previous_review).read_bytes())
     classified = Path(args.classified)
     classification = json.loads((classified / 'classification.json').read_text())
     class_rows = {row['source_id']: row for row in classification['records']}
@@ -770,14 +802,42 @@ def main():
 
     admitted = [{'source_id': r['source_id'], 'source_sha256': r['source_sha256']} for r in rows]
     held = [{'source_id': p['source_id'], 'source_sha256': p['source_sha256']} for p in proposals if p['decision'] == 'hold']
+    # Carry the previous round's approvals forward only for rows that are byte-identical to the rows it
+    # approved (same proposal entry, same vector, same paragraph). Every other member is pending.
+    assert previous_review['members'] == admitted, 'membership changed; carry-forward needs a reviewer decision'
+    decisions, carried, changed = {}, [], []
+    for row in rows:
+        sid = row['source_id']
+        previous = previous_review['decisions'][sid]
+        if previous['decision'] == 'approved' and previous_rows.get(sid) == row:
+            decisions[sid] = {'decision': 'approved', 'note': previous['note'], 'carried_from_round': previous_review['round'],
+                              'carried_from_review_sha256': previous_review_sha, 'row_unchanged_since_previous_round': True}
+            carried.append(sid)
+        else:
+            why = ('row changed since the previous round' if previous_rows.get(sid) != row
+                   else 'previous decision was ' + previous['decision'])
+            decisions[sid] = {'decision': 'pending', 'note': 'Previous round: ' + previous['decision'] + '. ' + (previous['note'] or '')
+                              + ' Round 3: ' + why + '; needs a fresh decision.',
+                              'carried_from_round': None, 'carried_from_review_sha256': None,
+                              'row_unchanged_since_previous_round': previous_rows.get(sid) == row}
+            changed.append(sid)
+    review_round_2 = {
+        'reviewer': previous_review['reviewer'], 'reviewed_at': previous_review['reviewed_at'],
+        'review_sha256': previous_review_sha, 'round': previous_review['round'],
+        'approved': [row['source_id'] for row in previous_review['approved_members']],
+        'held': {row['source_id']: previous_review['decisions'][row['source_id']]['note'] for row in previous_review['held_members']},
+        'manifest_sha256': previous_review['mapping_manifest_sha256'], 'proposals_sha256': previous_review['proposals_sha256']}
     inputs = {str(path.relative_to(ROOT)): sha(path.read_bytes()) for path in
               (RECONCILIATION, CITATIONS31, PROFILE, CITATIONS31_DIRECT_BINDINGS, PLAN)}
+    inputs[args.previous_review] = previous_review_sha
+    inputs[args.previous_manifest] = sha(previous_manifest_raw)
     proposals_document = {
         'schema_version': 1, 'kind': 'creators64-source-proposals-v1',
         'status': 'PROPOSAL_PENDING_INDEPENDENT_REVIEW_NOT_EXECUTION_AUTHORITY',
-        'round': 2,
+        'round': 3,
         'proposed_by': PROPOSED_BY, 'instruction': INSTRUCTION,
-        'owner_decisions': OWNER_DECISIONS, 'review_round_1': REVIEW_ROUND_1,
+        'owner_decisions': OWNER_DECISIONS, 'review_round_1': REVIEW_ROUND_1, 'review_round_2': review_round_2,
+        'rows_unchanged_since_round_2': carried, 'rows_changed_since_round_2': changed,
         'policy': POLICY, 'conventions': CONVENTIONS, 'inputs': inputs,
         'fresh_classification': {'command': 'python -B -m scripts.collection_qa with the runbook manifest set '
                                             '(docs/readiness/2026-10-06/first_pices_record_runbook.md) and '
@@ -819,29 +879,38 @@ def main():
     review = {
         'schema_version': 1, 'kind': 'modern-reviewed-creators64-review-v1', 'policy': POLICY,
         'status': 'proposal pending independent review',
-        'round': 2,
+        'round': 3,
         'mapping_manifest_path': 'docs/readiness/2026-10-22/modern_reviewed_creators64.json',
         'mapping_manifest_sha256': manifest_sha,
         'proposals_path': 'docs/readiness/2026-10-22/creators64_proposals.json', 'proposals_sha256': proposals_sha,
         'proposed_by': PROPOSED_BY, 'reviewer': None, 'reviewed_at': None,
         'members': admitted, 'membership_sha256': sha(encode(admitted)),
-        'approved_members': [], 'held_members': [],
-        'decisions': {r['source_id']: {'decision': 'pending', 'note': None} for r in rows},
-        'history': [{'round': 1, **REVIEW_ROUND_1}],
+        'approved_members': [row for row in admitted if row['source_id'] in carried], 'held_members': [],
+        'pending_members': [row for row in admitted if row['source_id'] in changed],
+        'decisions': decisions,
+        'carried_forward': {'from_review_sha256': previous_review_sha, 'from_round': previous_review['round'],
+                            'members': carried, 'rule': 'a round-2 approval carries forward only when the member\'s '
+                            'manifest row (vector, paragraph, authority, origins, proposal row SHA256) is byte-identical '
+                            'to the row that review approved; the builder checked this against '
+                            + args.previous_manifest},
+        'history': [{'round': 1, **REVIEW_ROUND_1}, review_round_2],
         'reviewer_checklist': [
-            'Read every admitted row against FGDC/<id>.xml: the literal origin, the embedded reference, the contact names.',
-            'Confirm the family/given split of every person from the evidence quoted in creators64_proposals.json, not from the name alone.',
-            'Round 1 approved the suffix convention (given_name carries ", Jr." or ", III") and the honorific/rank/role convention; check the three re-proposed rows (885, 2587, 3817) against the round-1 notes.',
-            'For the owner-decided groups, check that each organisational name is the credited name exactly as cited (Unaami 23; 419, 715, 859, 2296, 3873, 3970) and that each adopted spelling (Davis, Urano, Bugaev, Kondzela, Hermann) is the one the quoted record element gives, with the citation\'s spelling recorded in the paragraph.',
-            'Confirm the organisational typing of Shanghai Fisheries University (542) and U.S. Navy, Office of Naval Research (3599), and the affiliation objects on 2668 and 3599.',
-            'Confirm the seven held reasons; a hold the reviewer lifts needs a new proposal row and manifest, not an edit of this file alone.',
+            'Round 3 re-proposes FGDC-3851 only: family_name "Hermann", given_name "Albert J.", both from the record\'s '
+            'point-of-contact element "Hermann, Albert J." (quoted in creators64_proposals.json under '
+            'byline_spelling_evidence); the paragraph records the citation\'s "Al Herman".',
+            'The 56 round-2 approvals are carried forward with their notes. Re-confirm them mechanically: every carried '
+            'row in modern_reviewed_creators64.json equals the same source\'s row in modern_reviewed_creators64_round2.json '
+            '(the manifest the pinned round-2 review approved); rows_changed_since_round_2 in the proposals must be '
+            '["FGDC-3851"] only.',
+            'Round 1 approved the suffix convention and the honorific/rank/role convention; round 2 approved the three '
+            're-proposed rows, the owner-decided groups and the seven holds. Nothing else changed in round 3.',
         ],
         'how_to_approve': (
-            'Set status to "approved", fill reviewer and reviewed_at, set each decision to "approved" or "held" '
-            'with a note, list the approved and held members, keep mapping_manifest_sha256 and proposals_sha256 '
-            'unchanged, then pin this file\'s new SHA256 in scripts.modern_singleton.CREATORS64_REVIEW_SHA. '
-            'scripts.modern_singleton admits a source only when this file is approved, pinned, and lists that '
-            'source as approved; everything else stays held.'),
+            'Decide FGDC-3851 ("approved" or "held" with a note) and move it from pending_members to approved_members '
+            'or held_members; keep the 56 carried decisions; set status to "approved", fill reviewer and reviewed_at; '
+            'keep mapping_manifest_sha256 and proposals_sha256 unchanged; remove pending_members when it is empty; then '
+            'pin this file\'s new SHA256 in scripts.modern_singleton.CREATORS64_REVIEW_SHA. Until then every member, '
+            'including the 56, is held by the mapper, because the review binds the whole manifest and proposals by SHA.'),
     }
     review_path = OUT / 'modern_reviewed_creators64_review.json'
     review_path.write_bytes(dumps(review))
@@ -864,6 +933,7 @@ def main():
     print(json.dumps({'members': len(members), 'admitted': len(admitted), 'held': len(held),
                       'modern_creator_objects': manifest['modern_creator_object_count'],
                       'authority_counts': manifest['authority_counts'],
+                      'carried_forward': len(carried), 'rows_changed_since_previous_round': changed,
                       'proposals_sha256': proposals_sha, 'manifest_sha256': manifest_sha,
                       'review_sha256': sha(review_path.read_bytes())}, indent=1))
 
