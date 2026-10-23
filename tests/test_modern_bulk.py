@@ -1020,6 +1020,18 @@ class BulkRouteTests(unittest.TestCase):
         self.assertEqual(set(bulk.source_repairs()), {'FGDC-885', 'FGDC-2570', 'FGDC-2583', 'FGDC-2588', 'FGDC-2589',
                                                       'FGDC-2591', 'FGDC-2674', 'FGDC-2733', 'FGDC-2768', 'FGDC-3808'})
 
+    def test_pinned_map_as_text_sources_lose_only_their_map(self):
+        sid = SOURCES[0]
+        plain = json.loads(bulk.prepare_entry(self.paths, {'source_id': sid}, 2).body)['metadata']
+        with patch.object(bulk, 'map_as_text', return_value={sid: 'contradicts its text'}):
+            texted = json.loads(bulk.prepare_entry(self.paths, {'source_id': sid}, 2).body)['metadata']
+        self.assertIn('locations', plain)
+        self.assertNotIn('locations', texted)
+        self.assertIn('Bounding coordinates as given', texted['additional_descriptions'][-1]['description'])
+        self.assertEqual({k: v for k, v in plain.items() if k not in ('locations', 'additional_descriptions')},
+                         {k: v for k, v in texted.items() if k not in ('locations', 'additional_descriptions')})
+        self.assertEqual(len(bulk.map_as_text()), 19)
+
     def test_a_lifted_exclusion_no_longer_bars_the_source_and_the_exclusion_stays(self):
         bulk.exclude(self.paths, SOURCES[0], 'held for source-text repair: test', 'Reviewer agent')
         bulk.exclude(self.paths, SOURCES[2], 'duplicate of FGDC-1915 in the source collection', 'Reviewer agent')

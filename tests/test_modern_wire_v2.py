@@ -105,6 +105,13 @@ class LocationRules(unittest.TestCase):
         [point], _ = wire_v2.bounding_box(self.box(-130.91, -130.91, 42.9, 42.9))
         self.assertEqual(point['geometry'], {'type': 'Point', 'coordinates': [-130.91, 42.9]})
 
+    def test_a_box_kept_as_text_by_decision_has_no_map(self):
+        box = self.box(171.2, 171.2, 57.1, 57.1)
+        self.assertEqual(len(wire_v2.bounding_box(box)[0]), 1)
+        self.assertEqual(wire_v2.bounding_box(box, as_text=True),
+                         ([], 'Bounding coordinates as given: W 171.2, E 171.2, N 57.1, S 57.1'))
+        self.assertEqual(wire_v2.bounding_box(root(), as_text=True), ([], None))
+
     def test_swapped_date_line_box_is_not_a_world_map(self):
         swapped, note = wire_v2.bounding_box(self.box(-176.42, -177.78, 58, 55))  # FGDC-2324: a 358 degree span
         self.assertEqual(swapped, [])

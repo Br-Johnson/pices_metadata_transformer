@@ -85,6 +85,8 @@ RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026
 RESOURCE_TYPES_SHA = 'ef0e8f2ba6f020b3b19aa4a69ad88f69a4e873b733c8f90e6ecb2d58dc1d3ec4'  # adds the creators64 sources; supersedes r4 2cc3afd8...
 SOURCE_REPAIRS_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/source_repairs_r2.json'
 SOURCE_REPAIRS_SHA = 'eb2028e5e4fd949d6cc8541d7a349adc99ba8b889cf73392203d565828439719'  # adds U+0097 -> U+2014 for 885, 2674, 3808; supersedes 5d8f46aa...
+MAP_AS_TEXT_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-23/map_as_text.json'
+MAP_AS_TEXT_SHA = '806aae568f7a365bd6e3f8bb3f6d02b7aaed6ff1cf2bc02573f325db358d3a96'
 EXCLUSION_LIFT_KIND = 'modern-bulk-exclusion-lift-v1'
 LEGACY_RELEASE_KIND = 'modern-bulk-legacy-release-v1'
 LEGACY_RELEASE_FRESHNESS = timedelta(hours=24)
@@ -311,6 +313,15 @@ def resource_type_of(source_id):
     return types[source_id]
 
 
+def map_as_text():
+    """Sources whose box contradicts their own text: published with the box as text, no map (pinned)."""
+    raw = MAP_AS_TEXT_PATH.read_bytes()
+    require(sha(raw) == MAP_AS_TEXT_SHA)
+    document = parse(raw)
+    require(document.get('kind') == 'pices-map-as-text-v1' and isinstance(document.get('sources'), dict))
+    return document['sources']
+
+
 class WireV2:
     """A prepared source or pair with its v2 wire (ADR 0014); originals and evidence unchanged."""
     wire_version = 2
@@ -322,7 +333,8 @@ class WireV2:
         self.xml = base.xml
         self.contents = contents_of(base)
         self.v1_body = base.body
-        record = wire_v2.build(parse(base.body), base.xml, self.source_ids, resource_type)
+        record = wire_v2.build(parse(base.body), base.xml, self.source_ids, resource_type,
+                               map_as_text=base.source_id in map_as_text())
         repairs = source_repairs().get(base.source_id, [])
         if repairs:  # reviewed text repairs (source_repairs.json); the original XML is unchanged
             record = {**record, 'metadata': repaired(record['metadata'], repairs)}

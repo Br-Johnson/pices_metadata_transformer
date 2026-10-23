@@ -146,7 +146,7 @@ def time_period(root):
 
 # ---------------------------------------------------------------- locations
 
-def bounding_box(root):
+def bounding_box(root, as_text=False):
     """`locations` features for the FGDC bounding box, or the reason it could not be mapped.
 
     Zenodo accepts Point and Polygon geometries only ("Unsupported value: MultiPolygon", canary of
@@ -156,6 +156,8 @@ def bounding_box(root):
     raw = [text_of(root.find('./idinfo/spdom/bounding/' + name)) for name in names]
     if not any(raw):
         return [], None
+    if as_text:  # a reviewed decision: this box contradicts the record's own text, so it is shown, not mapped
+        return [], 'Bounding coordinates as given: W {}, E {}, N {}, S {}'.format(*raw)
     try:
         west, east, north, south = (float(value) for value in raw)
     except ValueError:
@@ -346,14 +348,14 @@ def strip_suffix(title):
     return title[:-len(ARTIFACT_SUFFIX)] if title.endswith(ARTIFACT_SUFFIX) else title
 
 
-def build(v1_wire, xml, source_ids, resource_type):
+def build(v1_wire, xml, source_ids, resource_type, map_as_text=False):
     """The v2 record (metadata, access, files) for one reviewed source or pair."""
     require(resource_type in RESOURCE_TYPES and isinstance(source_ids, list) and source_ids)
     meta1 = v1_wire['metadata']
     root = ET.fromstring(xml)
     pubdate, pubdate_origin = publication_date(root)
     dates, unparsed = time_period(root)
-    features, location_note = bounding_box(root)
+    features, location_note = bounding_box(root, as_text=map_as_text)
     related, link_notes = links(root)
     notes_extra = unparsed + ([location_note] if location_note else []) + link_notes
     meta = {
