@@ -24,7 +24,8 @@ from tests import modern_singleton_fixtures as fixtures
 
 MANIFEST_SHA = '966e24e6509caa4a09a066f7ee712d44e451f2aed505770f81070b47886997d5'
 PROPOSALS_SHA = '69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920145e3eb5f111'
-PENDING_REVIEW_SHA = 'e5bf62776e936e3badc12d0e31f97b914f991b539cbae35b6f90bff07e141458'
+PENDING_REVIEW_SHA = 'e5bf62776e936e3badc12d0e31f97b914f991b539cbae35b6f90bff07e141458'  # round 2, before the review
+REVIEW_SHA = '522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694'  # the independent review: 56 approved
 UNAAMI = tuple('FGDC-' + str(i) for i in (545, 546, 547, 548, 549, 550, 551, 552, 553, 554, 556, 557, 558,
                                             559, 560, 573, 574, 575, 576, 578, 579, 580, 581))
 WAKATAKE = tuple('FGDC-' + str(i) for i in (3680, 3681, 3800, 3802, 3803, 3804, 3805, 3806, 3807, 3808))
@@ -96,10 +97,10 @@ class ModernReviewedCreators64Tests(unittest.TestCase):
         shutil.copytree(self.prepared_root, prepared)
         return OutputPaths(str(prepared), 'production')
 
-    def test_pinned_files_proposal_scope_and_pending_review_hold_every_member(self):
+    def test_pinned_files_proposal_scope_and_the_independent_review(self):
         for path, digest, expected in ((mapping.CREATORS64, mapping.CREATORS64_SHA, MANIFEST_SHA),
                                        (mapping.CREATORS64_PROPOSALS, mapping.CREATORS64_PROPOSALS_SHA, PROPOSALS_SHA),
-                                       (mapping.CREATORS64_REVIEW, mapping.CREATORS64_REVIEW_SHA, PENDING_REVIEW_SHA)):
+                                       (mapping.CREATORS64_REVIEW, mapping.CREATORS64_REVIEW_SHA, REVIEW_SHA)):
             self.assertEqual(digest, expected)
             self.assertEqual(mapping.sha(path.read_bytes()), expected)
         reconciliation = mapping.parse((mapping.ROOT / 'docs/readiness/2026-10-06/modern_program20_remaining100_reconciliation.json').read_bytes())
@@ -116,14 +117,17 @@ class ModernReviewedCreators64Tests(unittest.TestCase):
         self.assertEqual(self.manifest['modern_creator_object_count'], 192)
         self.assertEqual(self.proposals['round'], 2)
         self.assertEqual(set(self.proposals['owner_decisions']), {'unaami_as_organisation', 'credited_name_as_org', 'records_own_byline'})
-        self.assertEqual(len(self.review['history']), 1)
-        self.assertEqual(self.review['status'], 'proposal pending independent review')
-        self.assertIsNone(self.review['reviewer'])
+        self.assertEqual(self.review['status'], 'approved')
+        self.assertIn('independent reviewer', self.review['reviewer'])
+        self.assertEqual([row['source_id'] for row in self.review['held_members']], ['FGDC-3851'])
         self.assertEqual(self.review['mapping_manifest_sha256'], MANIFEST_SHA)
         self.assertEqual(self.review['proposals_sha256'], PROPOSALS_SHA)
         self.assertEqual(self.review['members'], self.manifest['members'])
-        # Fail closed: the pending review admits nothing, and the chain before it is unchanged.
-        for sid in (*ADMITTED, *HELD_SAMPLE, *mapping.PROTECTED, 'FGDC-2953'):
+        # The review admits exactly its approved members; its hold, the proposal's holds and others stay held.
+        for sid in (sid for sid in ADMITTED if sid != 'FGDC-3851'):
+            with self.subTest(source=sid):
+                self.assertEqual(mapping.source_policy(sid)[1]['policy'], mapping.CREATORS64_POLICY)
+        for sid in ('FGDC-3851', *HELD_SAMPLE, *mapping.PROTECTED, 'FGDC-2953'):
             with self.subTest(source=sid), self.assertRaises(mapping.Held):
                 mapping.source_policy(sid)
         self.assertEqual([mapping.source_policy(sid)[1]['schema_version'] for sid in OLD_SAMPLES], list(range(1, 11)))
