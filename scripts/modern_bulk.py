@@ -83,8 +83,8 @@ PHASES = ('planned', 'creating', 'created', 'initialized', 'uploaded', 'draft-ve
 UPDATING = ('editing', 'edit-open', 'edit-saved', 'edit-published')
 RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/resource_types_r5.json'
 RESOURCE_TYPES_SHA = 'ef0e8f2ba6f020b3b19aa4a69ad88f69a4e873b733c8f90e6ecb2d58dc1d3ec4'  # adds the creators64 sources; supersedes r4 2cc3afd8...
-SOURCE_REPAIRS_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/source_repairs.json'
-SOURCE_REPAIRS_SHA = '5d8f46aad7177a9ded3084e56b6051708c13d1d66b8dc605e3d5c0d64f3ffa05'
+SOURCE_REPAIRS_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/source_repairs_r2.json'
+SOURCE_REPAIRS_SHA = 'eb2028e5e4fd949d6cc8541d7a349adc99ba8b889cf73392203d565828439719'  # adds U+0097 -> U+2014 for 885, 2674, 3808; supersedes 5d8f46aa...
 EXCLUSION_LIFT_KIND = 'modern-bulk-exclusion-lift-v1'
 LEGACY_RELEASE_KIND = 'modern-bulk-legacy-release-v1'
 LEGACY_RELEASE_FRESHNESS = timedelta(hours=24)

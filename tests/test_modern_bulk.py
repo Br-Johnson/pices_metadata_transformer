@@ -1017,8 +1017,8 @@ class BulkRouteTests(unittest.TestCase):
         with patch.object(bulk, 'source_repairs', return_value={SOURCES[0]: [{'from': 'no such text', 'to': 'x'}]}), \
                 self.assertRaises(Held):
             bulk.prepare_entry(self.paths, {'source_id': SOURCES[0]}, 2)
-        self.assertEqual(set(bulk.source_repairs()), {'FGDC-2570', 'FGDC-2583', 'FGDC-2588', 'FGDC-2589', 'FGDC-2591',
-                                                      'FGDC-2733', 'FGDC-2768'})
+        self.assertEqual(set(bulk.source_repairs()), {'FGDC-885', 'FGDC-2570', 'FGDC-2583', 'FGDC-2588', 'FGDC-2589',
+                                                      'FGDC-2591', 'FGDC-2674', 'FGDC-2733', 'FGDC-2768', 'FGDC-3808'})
 
     def test_a_lifted_exclusion_no_longer_bars_the_source_and_the_exclusion_stays(self):
         bulk.exclude(self.paths, SOURCES[0], 'held for source-text repair: test', 'Reviewer agent')
