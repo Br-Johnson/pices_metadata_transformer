@@ -2,6 +2,7 @@
 
 import copy
 import html
+import re
 import shutil
 import tempfile
 import unittest
@@ -249,8 +250,20 @@ class ModernContentClassTests(unittest.TestCase):
 
 EXXON_PAIR_TARGET = 'sha256:0025e59c5556d26b1c14ceac8c4c840057a271724b524c087db2dd0fb4315025'
 EXXON_PAIR = ('FGDC-2953', 'FGDC-3181')
-# The v1 wire of that published Exxon pair at fixtures.NOW, measured before the second policy existed.
-EXXON_PAIR_WIRE_SHA = 'a2eeb7be5b6cf6100da6685e3cc33566e43307a983a9b985bc208e317689f583'
+# The prepared policies carry the absolute paths of their manifests, so the class artifact contract
+# SHA256, quoted in the legacy notes inside the preservation block, differs between checkouts. Everything
+# else in the wire is path-independent. This is the v1 wire of the published Exxon pair at fixtures.NOW
+# with that one sentence normalised; it was measured from the same bytes the pre-ADR-0015 code produced.
+CONTRACT_SENTENCE = re.compile(r'(Class artifact contract SHA-256: )[0-9a-f]{64}')
+EXXON_PAIR_WIRE_SHA = '86ddb397c59af2b7556089f4d174fc7c00dba25589728ad685c5c2e724ecd0e5'
+
+
+def normalised_wire_sha(body):
+    """(sentences replaced, SHA256) of the wire with the contract digest sentence replaced by a placeholder."""
+    wire = mapping.parse(body)
+    block = wire['metadata']['additional_descriptions'][0]
+    block['description'], count = CONTRACT_SENTENCE.subn(r'\1<contract>', block['description'])
+    return count, mapping.sha(mapping.encode(wire))
 EXXON_EVIDENCE_KEYS = {
     'schema_version', 'kind', 'policy', 'record_target_id', 'source_ids', 'source_sha256', 'reviewed_at',
     'mapping_manifest_sha256', 'source_review_sha256', 'source_plan_sha256', 'creator_profile_sha256',
@@ -388,7 +401,8 @@ class NonExxonPairPolicyTests(unittest.TestCase):
 
     def test_exxon_pair_wire_and_evidence_are_unchanged_by_the_second_policy(self):
         prepared = self.prepare(EXXON_PAIR_TARGET)
-        self.assertEqual((prepared.evidence['policy'], mapping.sha(prepared.body)), (mapping.POLICY, EXXON_PAIR_WIRE_SHA))
+        self.assertEqual(prepared.evidence['policy'], mapping.POLICY)
+        self.assertEqual(normalised_wire_sha(prepared.body), (1, EXXON_PAIR_WIRE_SHA))
         self.assertEqual(set(prepared.evidence), EXXON_EVIDENCE_KEYS)
         self.assertEqual(prepared.evidence['creator_profile_sha256'], singleton.EXXON_SHA)
         self.assertEqual(mapping.pair_rule(EXXON_PAIR_TARGET).creator_authority, mapping.EXXON821)

@@ -73,9 +73,10 @@ one published Exxon pair at the fixture time.
 ### Resource types
 
 The bulk route's v2 wire needs a Dataset or Report type for the first source id of each
-record. The pinned manifest `docs/readiness/2026-10-22/resource_types.json` has none for
-these pairs. `modern_bulk.resource_type_of` now holds a record with the reason "no reviewed
-resource type" instead of failing with a KeyError.
+record. The pinned manifest, `docs/readiness/2026-10-22/resource_types_r3.json` (SHA256
+`fdcc8d98…`) as this record is written, has none for these pairs.
+`modern_bulk.resource_type_of` now holds a record with the reason "no reviewed resource
+type" instead of failing with a KeyError.
 
 `docs/readiness/2026-10-22/resource_types_pairs25_proposal.json` proposes a type per pair
 from the first source's XML, under the pinned manifest's rule: the 21 ADF&G report-series
@@ -83,18 +84,26 @@ entries are `publication-report` (the pinned manifest types all 217 singleton en
 series the same way); the Sun Yat-sen carbonate-chemistry measurements, the VNIRO
 hydrochemical data, the Food Habits Database and the TINRO ice-boundary database are
 `dataset`. One call is medium confidence: FGDC-2838 (Carbonate Chemistry of the Bering Sea)
-could describe a 1985 publication of the measurements. No runtime reads the proposal. Brett
-merges the reviewed types into a new dated manifest and pins its SHA256, as ADR 0014
-requires.
+could describe a 1985 publication of the measurements. No runtime reads the proposal. The
+reviewed types go into `resource_types_r4.json`, built from r3, pinned by a new
+`RESOURCE_TYPES_SHA`, as ADR 0014 requires: one manifest per decision, never edited in place.
 
 ### Sequence
 
-1. Brett reviews the proposal and merges the types (new manifest, new pin).
-2. `modern_bulk plan-pairs --targets-file docs/readiness/2026-10-22/pairs25_targets.json
+1. Brett reviews the proposal; r4 is built from r3 with the 25 types and pinned.
+2. Classify the 50 sources into the production prepared root (`$OUTPUT/data`) with
+   `scripts.collection_qa`, the runbook manifest set and a fixed `--reviewed-at`, without
+   reclassifying any source that already has a reviewed input (see "Once: inputs and
+   registry" in the [runbook](../readiness/2026-10-20/bulk_route_runbook.md)). The pair
+   inputs are not there yet: `plan-pairs` reads `data/zenodo_json/<id>.json` and
+   `data/original_fgdc/<id>.xml` for both members of every pair and raises
+   FileNotFoundError without them. The classification time enters each input's policy
+   digest, the class artifact contract and so the wire, which is why it must stay fixed.
+3. `modern_bulk plan-pairs --targets-file docs/readiness/2026-10-22/pairs25_targets.json
    --reviewed-at <fixed past time>` builds the v1 sheet with the twin check against every
    journal. An offline scan of all 4,206 citation titles found no title twin for any of the
    25 pairs.
-3. An independent reviewer records the v1 review; `plan-v2` and a second review follow, then
+4. An independent reviewer records the v1 review; `plan-v2` and a second review follow, then
    `drafts`, `release` and `publish`, as in ADR 0013 and ADR 0014.
 
 ## Consequences

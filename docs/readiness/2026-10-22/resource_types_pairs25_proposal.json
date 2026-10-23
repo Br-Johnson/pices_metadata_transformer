@@ -7,10 +7,10 @@
   "rule": "dataset: the entry describes data (survey, cruise, catch, tagging, monitoring data, a database, time series, model output, gridded or satellite products, a data collection). publication-report: the entry describes a document (report, proceedings, workshop report, journal article, thesis, book or chapter, newsletter, bulletin, radio-show script, bibliography, progress report, proposal). A report that mainly presents data is a report when the entry describes the publication; data documented in a report is a dataset when the entry describes the data.",
   "decision": "Brett Johnson, 2026-10-20 (question 4 of the v2 mapping questions): each record is typed Dataset or Publication>Report by AI classification of what the catalogue entry describes.",
   "for_manifest": {
-    "path": "docs/readiness/2026-10-22/resource_types.json",
-    "sha256": "5a339a00ac9c764d8ce6f895ce6b0179aa9456957ff3f945e1659d8533baa48b"
+    "path": "docs/readiness/2026-10-22/resource_types_r3.json",
+    "sha256": "fdcc8d98ef374554ed180aed91db78257b6df69043d1d212b34ee992b6de5ae5"
   },
-  "merge": "Not read by any runtime. After review, Brett merges `types` into a new dated resource-type manifest and pins its SHA256 in modern_bulk.RESOURCE_TYPES_SHA; until then a v2 wire for these pairs holds with \"no reviewed resource type\".",
+  "merge": "Not read by any runtime. After review, `types` is merged into docs/readiness/2026-10-22/resource_types_r4.json, built from r3, and its SHA256 is pinned in modern_bulk.RESOURCE_TYPES_SHA; until then a v2 wire for these pairs holds with \"no reviewed resource type\".",
   "counts": {
     "dataset": 4,
     "publication-report": 21
