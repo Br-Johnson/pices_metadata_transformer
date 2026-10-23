@@ -103,7 +103,7 @@ CREATORS64_PROPOSALS_SHA = '69dcb3fede50f6b55d79721e6189a6975b8e2c7d9b60c97f8920
 # The independent review of the creators64 proposal. The file starts as "proposal pending
 # independent review" and admits nothing; the reviewer replaces it and re-pins this SHA.
 CREATORS64_REVIEW = ROOT / 'docs/readiness/2026-10-22/modern_reviewed_creators64_review.json'
-CREATORS64_REVIEW_SHA = 'e5bf62776e936e3badc12d0e31f97b914f991b539cbae35b6f90bff07e141458'
+CREATORS64_REVIEW_SHA = '522ed5f563c5aae4f13bc42fedbf1b2c07724c0b8436d6639b388cbeb1277694'
 CREATORS64_POLICY = 'modern-xml-reviewed-creators64-v1'
 CREATORS64_APPROVED = 'approved'
 DFO_PROFILE = ROOT / 'docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json'
