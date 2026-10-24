@@ -19,11 +19,16 @@ from referencing import Registry, Resource
 from referencing.jsonschema import DRAFT7
 
 from scripts.agent_qa import assess_source
-from scripts.citation_creator_interpretation import source_element
+from scripts.citation_creator_interpretation import (
+    SOURCE_CREDIT_436_MANIFEST_SHA256,
+    source_element,
+)
 from scripts.content_class_targets import require_singleton_operation
+from scripts.metadata_date_correction import MANIFEST_SHA256 as DATE_CORRECTIONS_SHA
 from scripts.modern_draft_schema import SCHEMA_FILES, SCHEMAS
 from scripts.production_mutations import PROTECTED
 from scripts.rehosting_authority import validate_restricted_metadata
+from scripts.source_scope_attestation import DECIDED_MANIFEST_SHA256
 
 ROOT = Path(__file__).resolve().parents[1]
 PROFILE = ROOT / 'docs/readiness/2026-10-04/source_citation_credits_426.json'
@@ -107,6 +112,22 @@ CREATORS64_REVIEW = ROOT / 'docs/readiness/2026-10-22/modern_reviewed_creators64
 CREATORS64_REVIEW_SHA = '4ae77e76d12e446150128901ed23b0f1ec515442b0d5a5583a878ab5f1c4f7de'
 CREATORS64_POLICY = 'modern-xml-reviewed-creators64-v1'
 CREATORS64_APPROVED = 'approved'
+# The 37 held sources Brett cleared on 2026-10-23 (ADR 0016). The proposal binds his decisions file and the
+# three evidence manifests the classification read; the review file starts closed and admits nothing until
+# an independent reviewer replaces it and re-pins HELD37_REVIEW_SHA.
+HELD37 = ROOT / 'docs/readiness/2026-10-23/modern_reviewed_held37.json'
+HELD37_SHA = '5f63983694a33ff6df365bbba79ce95e4fe473d5f484fe7d097b812fd656afe0'
+HELD37_PROPOSALS = ROOT / 'docs/readiness/2026-10-23/held37_proposals.json'
+HELD37_PROPOSALS_SHA = '3a543430de6f9ffe4ca7f30db3a135476c6a6735de45db08f490a5fbe7078b0d'
+HELD37_REVIEW = ROOT / 'docs/readiness/2026-10-23/modern_reviewed_held37_review.json'
+HELD37_REVIEW_SHA = 'd25bf58b29a396659b005bdb0e471a2e281cf83763fe667b7649a3f6574113a9'
+HELD37_DECISIONS = ROOT / 'docs/readiness/2026-10-23/held_sources_decisions.json'
+HELD37_DECISIONS_SHA = '47ec54fb08eb2748fac64a74b6b0728bb4869ffca5cef17f0c08921f53d2c7af'
+HELD37_CREDITS = ROOT / 'docs/readiness/2026-10-23/source_citation_credits_436.json'
+HELD37_SCOPE = ROOT / 'docs/readiness/2026-10-23/source_scope_decisions_926.json'
+HELD37_DATES = ROOT / 'docs/readiness/2026-10-23/metadata_date_corrections_5.json'
+HELD37_POLICY = 'modern-xml-reviewed-held37-v1'
+HELD37_GROUPS = ('access', 'creators', 'metadata_date')
 DFO_PROFILE = ROOT / 'docs/readiness/2026-10-03/dfo_staff_citation_interpretation.json'
 DFO_PROFILE_SHA = '6587234a935a8eb893f6890ad3ec01a330c7ff4e8c55dcaeb6c03800bf157b0d'
 PRESERVATION_LABEL = (
@@ -868,12 +889,172 @@ def reviewed_creators64_source_policy(source_id):
             and review.get('held_members') == [row for row in members if row not in approved])
     matches = [row for row in expected if row['source_id'] == source_id
                and decisions[source_id]['decision'] == 'approved'] if source_id in decisions else []
-    require(len(matches) == 1)
+    if not matches:
+        return reviewed_held37_source_policy(source_id)
     selected = matches[0]
     return dict(selected, members=[{'source_id': selected['source_id'],
                                     'source_sha256': selected['source_sha256']}]), {
         'schema_version': 11, 'policy': CREATORS64_POLICY, 'mapping_manifest_sha256': CREATORS64_SHA,
         'creator_authority_kind': selected['creator_authority_kind'], 'creator_cohort': selected['creator_cohort']}
+
+
+def reviewed_held37_source_policy(source_id):
+    """The 37 sources Brett cleared on 2026-10-23, behind a pinned proposal and a closed independent review.
+
+    Every mapping row is rebuilt from the frozen proposal, which binds Brett's decisions file, the three
+    evidence manifests the classification read (the decided scope, the source credits, the date
+    corrections) and the frozen plan target that still records the hold this lane clears. A member needs
+    the approved, pinned review to list it; a hold Brett did not decide stays a proposal hold. This is the
+    end of the finite chain: the protected records and every other source are held here.
+    """
+    manifest = pinned(HELD37, HELD37_SHA)
+    proposals = pinned(HELD37_PROPOSALS, HELD37_PROPOSALS_SHA)
+    review = pinned(HELD37_REVIEW, HELD37_REVIEW_SHA)
+    decisions = pinned(HELD37_DECISIONS, HELD37_DECISIONS_SHA)
+    credits = pinned(HELD37_CREDITS, SOURCE_CREDIT_436_MANIFEST_SHA256)
+    scope = pinned(HELD37_SCOPE, DECIDED_MANIFEST_SHA256)
+    dates = pinned(HELD37_DATES, DATE_CORRECTIONS_SHA)['corrections']
+    exxon = pinned(EXXON_PROFILE, EXXON_SHA)
+    exxon_modern = pinned(EXXON_MAPPING, EXXON_MAPPING_SHA)['modern_creators']
+    targets = {row['record_target_id']: row for row in pinned(PLAN, PLAN_SHA)['targets']}
+    inputs = {'docs/readiness/2026-10-23/held_sources_decisions.json': HELD37_DECISIONS_SHA,
+              'docs/readiness/2026-10-23/source_scope_decisions_926.json': DECIDED_MANIFEST_SHA256,
+              'docs/readiness/2026-10-23/source_citation_credits_436.json': SOURCE_CREDIT_436_MANIFEST_SHA256,
+              'docs/readiness/2026-10-23/metadata_date_corrections_5.json': DATE_CORRECTIONS_SHA,
+              'docs/readiness/2026-10-04/publication_plan.json': PLAN_SHA,
+              'docs/readiness/2026-10-02/exxon_citation_interpretation.json': EXXON_SHA,
+              'docs/readiness/2026-10-06/modern_exxon_singletons412.json': EXXON_MAPPING_SHA}
+    admitted = proposals['admitted_members']
+    require(isinstance(proposals, dict) and proposals['kind'] == 'held37-source-proposals-v1'
+            and proposals['policy'] == HELD37_POLICY and isinstance(admitted, list) and admitted
+            and all(proposals['inputs'].get(path) == digest for path, digest in inputs.items())
+            and isinstance(proposals['proposals'], list) and len(proposals['proposals']) == 37
+            and len(proposals['members']) == 37 and len(proposals['held_members']) + len(admitted) == 37
+            and [row['source_id'] for row in proposals['members']]
+            == [row['source_id'] for row in proposals['proposals']])
+    questions = {row['question']: row for row in decisions['decisions']}
+    cohorts = {member['source_id']: cohort for cohort in credits['cohorts'] for member in cohort['members']}
+    exxon_members = {member['source_id']: member['source_sha256'] for member in exxon['members']}
+    decided_scope = {member['source_id']: member for member in scope['members'][904:]}
+    expected, counts, groups = [], {'credits': 0, 'exxon': 0, 'direct': 0}, dict.fromkeys(HELD37_GROUPS, 0)
+    for index, proposal in enumerate(proposals['proposals']):
+        sid = proposal['source_id']
+        member = {'source_id': sid, 'source_sha256': proposal['source_sha256']}
+        question = questions[proposal['decision_question']]
+        group = proposal['hold_group']
+        require(sid not in PROTECTED and isinstance(sid, str) and re.fullmatch(r'FGDC-[1-9][0-9]*', sid)
+                and proposal['decision'] in ('admit', 'hold') and group in HELD37_GROUPS
+                and sid in question['sources'] and question['effect'] != 'stays held'
+                and {'A': 'access', 'B': 'creators', 'C': 'metadata_date'}[question['question'][0]] == group)
+        if proposal['decision'] == 'hold':
+            require(proposal['proposed_creators'] is None and member in proposals['held_members']
+                    and isinstance(proposal['reason'], str) and proposal['reason'].strip())
+            continue
+        require(member in admitted)
+        modern = proposal['proposed_creators']
+        paragraph = proposal['additional_preservation_paragraph']
+        require(isinstance(modern, list) and modern and isinstance(paragraph, str) and paragraph.strip())
+        for creator in modern:
+            modern_creator_shape(creator)
+        target = targets[sid]
+        # The frozen plan records the hold; the review this policy binds is its reviewed clearing.
+        require(target['source_ids'] == [sid] and target['source_semantic_status'] == 'held'
+                and target['source_sha256'] == proposal['source_sha256']
+                and target['identity_decision']['production_record_id'] is None
+                and target['identity_decision']['production_doi'] is None)
+        authority = proposal['legacy_creator_authority']
+        kind, cohort_name = authority['kind'], authority['creator_cohort']
+        creators = proposal['legacy_creators']
+        if kind == 'credits':
+            cohort = cohorts[sid]
+            require(cohort['profile'] == cohort_name and member in cohort['members']
+                    and cohort['creators'] == creators and sha(encode(cohort)) == authority['object_sha256'])
+            if group == 'creators':
+                require(cohort['decision']['question'] == question['question'])
+        elif kind == 'exxon':
+            require(cohort_name == exxon['profile'] and exxon_members.get(sid) == proposal['source_sha256']
+                    and exxon['creators'] == creators and modern == exxon_modern
+                    and sha(encode(exxon)) == authority['object_sha256'])
+        else:
+            # The default primary-citation reading of the fresh input, bound here by its exact objects.
+            require(kind == 'direct' and cohort_name is None and sid not in cohorts and sid not in exxon_members
+                    and isinstance(creators, list) and creators
+                    and all(isinstance(c, dict) and set(c) in ({'name'}, {'name', 'type'})
+                            and c.get('type', 'Organization') == 'Organization'
+                            and isinstance(c['name'], str) and c['name'].strip() for c in creators)
+                    and sha(encode(creators)) == authority['object_sha256'])
+        require(group != 'creators' or kind == 'credits')
+        correction = proposal['metadata_date_correction']
+        if group == 'metadata_date':
+            entry = dates[sid]
+            require(isinstance(correction, dict) and set(correction) == {'source_value', 'corrected_value', 'question'}
+                    and entry['source_sha256'] == proposal['source_sha256']
+                    and all(entry[key] == correction[key] for key in correction)
+                    and correction['question'] == question['question'])
+        else:
+            require(correction is None)
+        if group == 'access':
+            require(decided_scope[sid]['source_sha256'] == proposal['source_sha256']
+                    and decided_scope[sid]['cohort'] == 'held_access_' + question['question'])
+        counts[kind] += 1
+        groups[group] += 1
+        expected.append({
+            'source_id': sid, 'source_sha256': proposal['source_sha256'], 'source_path': 'FGDC/' + sid + '.xml',
+            'source_bytes': proposal['source_bytes'], 'source_root_sha256': proposal['source_root_sha256'],
+            'source_plan_target_sha256': sha(encode(target)), 'hold_group': group,
+            'decision_question': question['question'], 'creator_authority_kind': kind, 'creator_cohort': cohort_name,
+            'creator_authority_object_sha256': authority['object_sha256'],
+            'creators': creators, 'modern_creators': modern, 'primary_origins': proposal['primary_origin_elements'],
+            'metadata_date_correction': correction, 'additional_preservation_paragraphs': [paragraph],
+            'proposal_row_pointer': '/proposals/' + str(index), 'proposal_row_sha256': sha(encode(proposal))})
+    members = [{'source_id': row['source_id'], 'source_sha256': row['source_sha256']} for row in expected]
+    header = {'schema_version': 1, 'kind': 'modern-reviewed-held37-v1', 'policy': HELD37_POLICY,
+              'source_plan_sha256': PLAN_SHA, 'creator426_profile_sha256': PROFILE_SHA,
+              'exxon_profile_sha256': EXXON_SHA, 'exxon_mapping_sha256': EXXON_MAPPING_SHA,
+              'decisions_path': 'docs/readiness/2026-10-23/held_sources_decisions.json',
+              'decisions_sha256': HELD37_DECISIONS_SHA,
+              'credits_path': 'docs/readiness/2026-10-23/source_citation_credits_436.json',
+              'credits_sha256': SOURCE_CREDIT_436_MANIFEST_SHA256,
+              'scope_path': 'docs/readiness/2026-10-23/source_scope_decisions_926.json', 'scope_sha256': DECIDED_MANIFEST_SHA256,
+              'date_corrections_path': 'docs/readiness/2026-10-23/metadata_date_corrections_5.json',
+              'date_corrections_sha256': DATE_CORRECTIONS_SHA,
+              'proposals_path': 'docs/readiness/2026-10-23/held37_proposals.json', 'proposals_sha256': HELD37_PROPOSALS_SHA,
+              'member_count': len(members), 'members': members, 'membership_sha256': sha(encode(members)),
+              'authority_counts': counts, 'hold_group_counts': groups,
+              'modern_creator_object_count': sum(len(row['modern_creators']) for row in expected),
+              'context_sha256': sha(encode({row['source_id']: row['additional_preservation_paragraphs']
+                                            for row in expected}))}
+    require(isinstance(manifest, dict) and set(manifest) == set(header) | {'rows', 'conventions'}
+            and all(type(manifest[key]) is type(value) and manifest[key] == value
+                    for key, value in header.items())
+            and isinstance(manifest['conventions'], dict) and manifest['rows'] == expected
+            and members == admitted and len({row['source_id'] for row in members}) == len(members))
+    # Fail closed: the proposal admits nothing until an independent reviewer approves it.
+    require(isinstance(review, dict) and review.get('kind') == 'modern-reviewed-held37-review-v1'
+            and review.get('policy') == HELD37_POLICY
+            and review.get('mapping_manifest_sha256') == HELD37_SHA
+            and review.get('proposals_sha256') == HELD37_PROPOSALS_SHA
+            and review.get('members') == members and review.get('status') == CREATORS64_APPROVED
+            and isinstance(review.get('reviewer'), str) and review['reviewer'].strip()
+            and isinstance(review.get('reviewed_at'), str) and review['reviewed_at'].strip())
+    verdicts = review.get('decisions')
+    require(isinstance(verdicts, dict) and set(verdicts) == {row['source_id'] for row in members}
+            and all(isinstance(value, dict) and value.get('decision') in ('approved', 'held')
+                    for value in verdicts.values()))
+    approved = [row for row in members if verdicts[row['source_id']]['decision'] == 'approved']
+    require(approved and review.get('approved_members') == approved
+            and review.get('held_members') == [row for row in members if row not in approved])
+    matches = [row for row in expected if row['source_id'] == source_id
+               and verdicts[source_id]['decision'] == 'approved'] if source_id in verdicts else []
+    require(len(matches) == 1)
+    selected = matches[0]
+    return dict(selected, members=[{'source_id': selected['source_id'],
+                                    'source_sha256': selected['source_sha256']}]), {
+        'schema_version': 12, 'policy': HELD37_POLICY, 'mapping_manifest_sha256': HELD37_SHA,
+        'creator_authority_kind': selected['creator_authority_kind'], 'creator_cohort': selected['creator_cohort'],
+        'hold_group': selected['hold_group'], 'decision_question': selected['decision_question'],
+        'metadata_date_correction': selected['metadata_date_correction'],
+        'public_notes': selected['additional_preservation_paragraphs']}
 
 
 def creator_authority_sha(selected, policy_fields):
@@ -883,6 +1064,9 @@ def creator_authority_sha(selected, policy_fields):
         return PROFILE_SHA if selected['creator_authority_kind'] == 'creator426' else CITATIONS31_SHA
     if policy == CREATORS64_POLICY:
         return PROFILE_SHA if selected['creator_authority_kind'] == 'creator426' else CREATORS64_SHA
+    if policy == HELD37_POLICY:
+        return {'credits': SOURCE_CREDIT_436_MANIFEST_SHA256, 'exxon': EXXON_SHA,
+                'direct': HELD37_SHA}[selected['creator_authority_kind']]
     if policy == REVIEWED_CREATORS_POLICY:
         return {'creator426': PROFILE_SHA, 'dfo70': DFO_PROFILE_SHA,
                 'direct': REVIEWED_CREATORS_MAPPING_SHA}[selected['creator_authority_kind']]
@@ -962,13 +1146,24 @@ def prepare(json_file, paths):
     program = policy_fields['policy'] == PROGRAM_POLICY
     citations = policy_fields['policy'] == CITATIONS31_POLICY
     creators64 = policy_fields['policy'] == CREATORS64_POLICY
+    held37 = policy_fields['policy'] == HELD37_POLICY
     authority_sha = creator_authority_sha(selected, policy_fields)
-    if direct or institution or ((reviewed or citations or creators64)
+    if direct or institution or ((reviewed or citations or creators64 or held37)
                                  and selected['creator_authority_kind'] == 'direct'):
         require('creator_interpretation' not in policy)
     else:
         reference = policy.get('creator_interpretation', {})
         require(isinstance(reference, dict) and reference.get('manifest_sha256') == authority_sha)
+    if held37:
+        # The prepared input must carry exactly the lane's evidence for the hold it clears (ADR 0016).
+        correction = policy.get('metadata_date_correction')
+        if selected['metadata_date_correction'] is None:
+            require(correction is None)
+        else:
+            require(isinstance(correction, dict) and correction.get('manifest_sha256') == DATE_CORRECTIONS_SHA)
+        if selected['hold_group'] == 'access':
+            attestation = policy.get('source_scope_attestation')
+            require(isinstance(attestation, dict) and attestation.get('manifest_sha256') == DECIDED_MANIFEST_SHA256)
     metadata, source_sha, artifact, _ = assess_source(json_file, paths)
     xml = (ROOT / 'FGDC' / (sid + '.xml')).read_bytes()
     require(source_sha == sha(xml) == members[sid] and artifact is not None
@@ -977,18 +1172,19 @@ def prepare(json_file, paths):
     if direct or institution:
         origins = ET.fromstring(xml).findall('./idinfo/citation/citeinfo/origin')
         require(origins and [source_element(node) for node in origins] in selected['primary_origin_variants'])
-    if reviewed or program or citations or creators64:
+    if reviewed or program or citations or creators64 or held37:
         root = ET.fromstring(xml)
         require([source_element(node) for node in root.findall('./idinfo/citation/citeinfo/origin')]
                 == selected['primary_origins'] and sha(encode(source_element(root))) == selected['source_root_sha256'])
     target = next(row for row in pinned(PLAN, PLAN_SHA)['targets'] if row['record_target_id'] == sid)
-    require(target['source_ids'] == [sid] and target['source_semantic_status'] == 'supported'
+    # The frozen plan records a held37 member as held; its pinned review is the reviewed clearing.
+    require(target['source_ids'] == [sid] and target['source_semantic_status'] == ('held' if held37 else 'supported')
             and target['source_sha256'] == source_sha
             and target['identity_decision']['production_record_id'] is None
             and target['identity_decision']['production_doi'] is None)
     validate_restricted_metadata(metadata)
     require(metadata['creators'] == selected['creators'])
-    if exxon or pices or institution or citation_org or reviewed or program or citations or creators64:
+    if exxon or pices or institution or citation_org or reviewed or program or citations or creators64 or held37:
         creators = selected['modern_creators']
     else:
         require(all(set(c) == {'name', 'type'} and c['type'] == 'Organization'
@@ -999,7 +1195,7 @@ def prepare(json_file, paths):
     require(isinstance(keywords, list) and all(isinstance(k, str) and k.strip() for k in keywords))
     legacy = encode(metadata)
     context = ''.join('<p>' + html.escape(text) + '</p>'
-                      for text in selected['additional_preservation_paragraphs']) if citations or creators64 else ''
+                      for text in selected['additional_preservation_paragraphs']) if citations or creators64 or held37 else ''
     preservation = '<p>' + PRESERVATION_LABEL + '</p>' + context + '<pre>' + html.escape(legacy.decode()) + '</pre>'
     wire = {'metadata': {
         'resource_type': {'id': 'other'}, 'title': metadata['title'],

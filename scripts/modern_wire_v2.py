@@ -100,15 +100,26 @@ def date_bounds(edtf):
     return (year, month_start, day_start), (year, month_end, day_end)
 
 
-def publication_date(root):
-    """The citation publication date when it is an exact date, else the metadata date."""
+def publication_date(root, corrected=None):
+    """The citation publication date when it is an exact date, else the metadata date.
+
+    `corrected` is a reviewed exact correction of the metadata date (ADR 0016); it stands in for the
+    source value, which the record then explains in a note.
+    """
     cited = exact_date(text_of(root.find('./idinfo/citation/citeinfo/pubdate')))
     if cited is not None:
         return cited, 'citation'
-    metadata = exact_date(text_of(root.find('./metainfo/metd')))
+    metadata = corrected_day(corrected) if corrected is not None else exact_date(text_of(root.find('./metainfo/metd')))
     if metadata is None:
         raise Held('neither the citation date nor the metadata date is an exact date')
-    return metadata, 'metadata'
+    return metadata, 'metadata-corrected' if corrected is not None else 'metadata'
+
+
+def corrected_day(value):
+    """A reviewed correction is already an exact ISO day; anything else holds."""
+    require(isinstance(value, str) and re.fullmatch(r'\d{4}-\d{2}-\d{2}', value) is not None
+            and exact_date(value.replace('-', '')) == value)
+    return value
 
 
 def time_period(root):
@@ -274,8 +285,16 @@ def labelled(label, value):
     return label + ': ' + value if value else ''
 
 
-def additional_descriptions(root, source_ids, notes_extra, pubdate_origin):
-    notes = [labelled('Purpose', text_of(root.find('./idinfo/descript/purpose'))),
+PUBDATE_ORIGINS = {
+    'citation': 'citation.',
+    'metadata': 'FGDC metadata date; the citation gives no exact date.',
+    'metadata-corrected': 'corrected FGDC metadata date (see the metadata date note); the citation gives no exact date.',
+}
+
+
+def additional_descriptions(root, source_ids, notes_extra, pubdate_origin, corrected=None, notes=()):
+    """The notes, methods and technical-info descriptions; `notes` are reviewed paragraphs appended last (ADR 0016)."""
+    notes_items = [labelled('Purpose', text_of(root.find('./idinfo/descript/purpose'))),
              labelled('Supplemental information', text_of(root.find('./idinfo/descript/supplinf')))]
     quality = [labelled('Logical consistency', text_of(root.find('./dataqual/logic'))),
                labelled('Completeness', text_of(root.find('./dataqual/complete'))),
@@ -288,7 +307,12 @@ def additional_descriptions(root, source_ids, notes_extra, pubdate_origin):
     update = text_of(root.find('./idinfo/status/update'))
     standard = ' '.join(v for v in (text_of(root.find('./metainfo/metstdn')),
                                     '(' + text_of(root.find('./metainfo/metstdv')) + ')') if v not in ('', '()'))
-    metadata_date = exact_date(text_of(root.find('./metainfo/metd')))
+    raw_metadata_date = text_of(root.find('./metainfo/metd'))
+    metadata_date = corrected_day(corrected) if corrected is not None else exact_date(raw_metadata_date)
+    dated = metadata_date or raw_metadata_date
+    if corrected is not None:
+        dated += ' (a reviewed correction of the source value ' + ('"' + raw_metadata_date + '"' if raw_metadata_date
+                                                                   else 'left blank') + '; see the metadata date note)'
     identifiers = ' and '.join(source_ids)
     technical = [
         'Status: ' + '; '.join(v for v in (progress, labelled('maintenance and update frequency', update)) if v)
@@ -298,14 +322,14 @@ def additional_descriptions(root, source_ids, notes_extra, pubdate_origin):
         labelled('Ordering', '; '.join(leaf_texts(root.find('./distinfo/stdorder')))),
         labelled('Technical prerequisites', text_of(root.find('./distinfo/techpreq'))),
         *notes_extra,
-        'Catalogue record: FGDC metadata ' + (standard + ' ' if standard else '') + 'dated '
-        + (metadata_date or text_of(root.find('./metainfo/metd'))) + ', PICES GeoNetwork catalogue '
-        + ('identifiers ' if len(source_ids) > 1 else 'identifier ') + identifiers
+        'Catalogue record: FGDC metadata ' + (standard + ' ' if standard else '') + 'dated ' + dated
+        + ', PICES GeoNetwork catalogue ' + ('identifiers ' if len(source_ids) > 1 else 'identifier ') + identifiers
         + ('' if len(source_ids) == 1 else ' (identical records)') + '. Publication date taken from the '
-        + ('citation.' if pubdate_origin == 'citation' else 'FGDC metadata date; the citation gives no exact date.'),
+        + PUBDATE_ORIGINS[pubdate_origin],
+        *notes,
     ]
     result = []
-    for kind, items in (('notes', notes), ('methods', quality), ('technical-info', technical)):
+    for kind, items in (('notes', notes_items), ('methods', quality), ('technical-info', technical)):
         body = paragraphs(items)
         if body:
             result.append({'type': {'id': kind}, 'description': body})
@@ -348,12 +372,22 @@ def strip_suffix(title):
     return title[:-len(ARTIFACT_SUFFIX)] if title.endswith(ARTIFACT_SUFFIX) else title
 
 
-def build(v1_wire, xml, source_ids, resource_type, map_as_text=False):
-    """The v2 record (metadata, access, files) for one reviewed source or pair."""
+def build(v1_wire, xml, source_ids, resource_type, map_as_text=False, date_correction=None, notes=()):
+    """The v2 record (metadata, access, files) for one reviewed source or pair.
+
+    `date_correction` is a reviewed exact correction of the metadata date, bound to the source value it
+    replaces; `notes` are reviewed paragraphs for the technical-info description (both ADR 0016).
+    """
     require(resource_type in RESOURCE_TYPES and isinstance(source_ids, list) and source_ids)
+    require(isinstance(notes, (list, tuple)) and all(isinstance(note, str) and note.strip() for note in notes))
     meta1 = v1_wire['metadata']
     root = ET.fromstring(xml)
-    pubdate, pubdate_origin = publication_date(root)
+    corrected = None
+    if date_correction is not None:
+        require(isinstance(date_correction, dict) and isinstance(date_correction.get('corrected_value'), str)
+                and text_of(root.find('./metainfo/metd')) == date_correction.get('source_value'))
+        corrected = date_correction['corrected_value']
+    pubdate, pubdate_origin = publication_date(root, corrected)
     dates, unparsed = time_period(root)
     features, location_note = bounding_box(root, as_text=map_as_text)
     related, link_notes = links(root)
@@ -366,7 +400,8 @@ def build(v1_wire, xml, source_ids, resource_type, map_as_text=False):
         'publisher': 'Zenodo',
         'description': meta1['description'],
         'subjects': [s for s in meta1['subjects'] if s['subject'] != METADATA_ONLY_TAG],
-        'additional_descriptions': additional_descriptions(root, source_ids, notes_extra, pubdate_origin),
+        'additional_descriptions': additional_descriptions(root, source_ids, notes_extra, pubdate_origin, corrected,
+                                                           list(notes)),
     }
     optional = {'dates': dates, 'contributors': contributors(root, meta1['creators']), 'rights': rights(root),
                 'related_identifiers': related, 'references': references(root)}

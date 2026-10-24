@@ -28,6 +28,7 @@ from scripts.source_title_interpretation import (validate_source_title_interpret
 from scripts.dataset_access_interpretation import (validate_dataset_access_interpretation,
     dataset_access_member_ids, REGISTRATION_WORDING)
 from scripts.source_scope_attestation import validate_scope_attestation, scope_member_ids
+from scripts.metadata_date_correction import validate_metadata_date_correction, correction_member_ids
 
 
 def text(root, xpath):
@@ -35,7 +36,7 @@ def text(root, xpath):
     return re.sub(r'\s+', ' ', ''.join(node.itertext())).strip() if node is not None else ''
 
 
-def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None, collective_creator_interpretation_manifest=None, institution_creator_interpretation_manifest=None, source_link_interpretation_manifest=None, source_title_interpretation_manifest=None, source_scope_attestation_manifest=None):
+def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=None, access_interpretation_manifest=None, creator_interpretation_manifest=None, dataset_access_interpretation_manifest=None, contributor_access_interpretation_manifest=None, collective_creator_interpretation_manifest=None, institution_creator_interpretation_manifest=None, source_link_interpretation_manifest=None, source_title_interpretation_manifest=None, source_scope_attestation_manifest=None, metadata_date_correction_manifest=None):
     output = Path(output_dir)
     output.mkdir(parents=True, exist_ok=True)
     paths = OutputPaths(str(output), 'sandbox')
@@ -115,6 +116,15 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             scope_digest = None
         scope_reference = {'manifest_path': str(source_scope_attestation_manifest), 'manifest_sha256': scope_digest}
     scope_members = scope_member_ids(scope_reference) if scope_reference else frozenset()
+    correction_reference = None
+    if metadata_date_correction_manifest:
+        try:
+            correction_digest = hashlib.sha256(Path(metadata_date_correction_manifest).read_bytes()).hexdigest()
+        except OSError:
+            correction_digest = None
+        correction_reference = {'manifest_path': str(metadata_date_correction_manifest),
+                                'manifest_sha256': correction_digest}
+    correction_members = correction_member_ids(correction_reference) if correction_reference else frozenset()
     profile_hash = metadata_hash({'rules': {str(file.relative_to(rules)): hashlib.sha256(file.read_bytes()).hexdigest()
                                  for file in sorted(rules.rglob('*.py'))},
                                  'authority_reference': authority_reference, 'access_reference': access_reference,
@@ -124,7 +134,8 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                                  'source_title_reference': title_reference,
                                  'contributor_reference': contributor_reference,
                                  'dataset_access_reference': dataset_access_reference,
-                                 'source_scope_reference': scope_reference})
+                                 'source_scope_reference': scope_reference,
+                                 'metadata_date_correction_reference': correction_reference})
     prior = read_json(output / 'classification.json', {})
     cache = {row['source_id']: row for row in prior.get('records', [])} if prior.get('profile_sha256') == profile_hash and prior.get('reviewed_at') == reviewed_at else {}
     records, buckets = [], defaultdict(list)
@@ -157,6 +168,16 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                 continue
             primary_date = text(root, './idinfo/citation/citeinfo/pubdate')
             metadata_date = text(root, './metainfo/metd')
+            date_correction = None
+            if correction_reference and source.stem in correction_members:
+                # A reviewed exact correction of the source metadata date (Brett, 2026-10-23); the original
+                # value stays in the raw evidence and the file, and the corrected day enters the date fields.
+                try:
+                    date_correction = validate_metadata_date_correction(correction_reference, source.stem, digest, root)
+                except ValueError as exc:
+                    row['hold_reasons'].append(str(exc))
+                row['metadata_date_correction'] = date_correction['status'] if date_correction else 'not_established'
+            effective_metadata_date = date_correction['corrected_value'] if date_correction else metadata_date
             title = text(root, './idinfo/citation/citeinfo/title')
             origins = [re.sub(r'\s+', ' ', ''.join(node.itertext())).strip()
                        for node in root.findall('./idinfo/citation/citeinfo/origin')]
@@ -243,7 +264,7 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
             row.update(raw_primary_date=primary_date, raw_metadata_date=metadata_date,
                        raw_metadata_rights=metuc, raw_metadata_access=metac,
                        has_supported_xml_grant=bool(grant),
-                       metadata_date_precision='day' if re.fullmatch(r'\d{8}|\d{4}-\d{2}-\d{2}', metadata_date) else 'unsupported',
+                       metadata_date_precision='day' if re.fullmatch(r'\d{8}|\d{4}-\d{2}-\d{2}', effective_metadata_date) else 'unsupported',
                        primary_date_stratum='ambiguous_122003' if primary_date == '122003' else
                        'missing' if not primary_date else 'range_or_status' if re.search(r'Unknown|Present|thru|Planned|Unpublished|\d{4}\s*-\s*\d{4}', primary_date, re.I) else 'other',
                        origin_stratum='institutional_or_compound' if any(_citation_organization(name, transformer) for name in origins) else 'personal_or_unknown')
@@ -257,9 +278,14 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                       'source_sha256': digest, 'date_semantics': 'source_metadata_date',
                       'reviewer': 'Codex offline source classifier; not release authority', 'reviewed_at': reviewed_at,
                       'rationale': 'Source-only classification; no live record approval',
-                      'date_evidence': 'Source metainfo/metd: ' + metadata_date,
+                      'date_evidence': 'Source metainfo/metd: ' + metadata_date + (
+                          '; corrected to ' + date_correction['corrected_value'] + ' by the reviewed metadata date '
+                          'correction (' + date_correction['decided_by'] + ', ' + date_correction['decided_at'] + ', '
+                          + date_correction['question'] + ')' if date_correction else ''),
                       'rights_evidence': 'Exact source metainfo/metuc: ' + metuc + '; unresolved text is not a grant',
                       'rights_scope': 'original_fgdc_xml', 'rights_source_xpath': './metainfo/metuc', 'license': grant}
+            if date_correction:
+                policy['metadata_date_correction'] = correction_reference
             if authority:
                 policy['rehosting_authority'] = authority_reference
                 policy['rights_evidence'] = ('Brett user-attested historical GeoNetwork restoration authority; '
@@ -290,12 +316,12 @@ def classify_collection(source_dir, output_dir, reviewed_at, authority_manifest=
                                and cached_payload.get('content_classification') == classification)
             if not cache_valid:
                 source_copy.write_bytes(raw)
-            transformer.active_decision = {'metadata': {'publication_date': metadata_date,
+            transformer.active_decision = {'metadata': {'publication_date': effective_metadata_date,
                 'creators': interpreted_creators or [{'name': name, **({'type': 'Organization'} if _citation_organization(name, transformer) else {})}
                              for name in origins], 'license': grant or ''},
                 'artifact_policy': policy, 'content_classification': classification}
             metadata = (cached_payload['metadata'] if cache_valid else
-                        transformer._build_zenodo_metadata(root, str(source_copy))) if metadata_date else None
+                        transformer._build_zenodo_metadata(root, str(source_copy))) if effective_metadata_date else None
             if metadata:
                 artifact_title = title + ' - FGDC XML metadata artifact'
                 # The object contract/description identifies XML when the suffix would
@@ -394,7 +420,8 @@ def main():
     parser.add_argument('--institution-creator-interpretation-manifest', help='Pinned institution/program or reviewed joint/collection citation profile; exact full creator objects')
     parser.add_argument('--source-link-interpretation-manifest', help='Pinned historical shared dataset linkage preservation; no XML identity or replacement relation')
     parser.add_argument('--source-title-interpretation-manifest', help='Pinned eight source display titles with full original context and complete before/after metadata')
-    parser.add_argument('--source-scope-attestation-manifest', help='Pinned exact821 USER_ATTESTED scope or additive83 REVIEWER_RECONCILED profile; separate XML authority required')
+    parser.add_argument('--source-scope-attestation-manifest', help='Pinned exact821 USER_ATTESTED scope, additive83 REVIEWER_RECONCILED profile or the decided926 (2026-10-23); separate XML authority required')
+    parser.add_argument('--metadata-date-correction-manifest', help='Pinned exact USER_DECIDED metadata date corrections (2026-10-23); original XML unchanged, no rights or release grant')
     parser.add_argument('--reviewed-at', default=datetime.now(timezone.utc).isoformat(), help='Repeat same run timestamp to resume unchanged evidence')
     args = parser.parse_args()
     with patch.object(socket.socket, 'connect', side_effect=AssertionError('Offline classification')):
@@ -405,7 +432,8 @@ def main():
                                      args.institution_creator_interpretation_manifest,
                                      args.source_link_interpretation_manifest,
                                      args.source_title_interpretation_manifest,
-                                     args.source_scope_attestation_manifest)
+                                     args.source_scope_attestation_manifest,
+                                     args.metadata_date_correction_manifest)
     print(json.dumps(report['summary'], indent=2))
 
 

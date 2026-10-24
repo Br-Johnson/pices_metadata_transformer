@@ -1,0 +1,1874 @@
+{
+ "authority_counts": {
+  "credits": 12,
+  "direct": 23,
+  "exxon": 1
+ },
+ "context_sha256": "95e0eee4506e0eb87fba799c6a068da870eb4867eb475e2bcec9250dcb966500",
+ "conventions": {
+  "access": "The 22 access members enter the third generation of the source-scope attestation (source_scope_decisions_926.json): the reconciled904 verbatim plus one cohort per question. Their constraint texts stay unchanged in the record; v2 maps them to the rights statement and no licence is granted.",
+  "affiliations": "An affiliation object is added only for an explicit attachment the citation makes with \"of\" to a connected list (288) or already made in the reviewed Exxon821 projection (1994); every other institution stays in the preserved citation.",
+  "decided_creators": "A decided creator vector (B1 to B4) is Brett's answer verbatim: the names, the order and the entity type he gave. It enters the tenth generation of the source-credit manifest (source_citation_credits_436.json) as the legacy creators of the prepared input, with the original origin element preserved in the notes, and the mapping manifest as the modern creators.",
+  "metadata_dates": "A corrected metadata date (C1: 2080207 is 20080207; C2: a blank metd takes 2003-05-30, the metd of the 21 neighbouring NOAA records) is pinned in metadata_date_corrections_5.json, bound to the exact source bytes and source value. The original XML is unchanged; the corrected day is the prepared input's publication date and, in v2, the publication date when the citation gives no exact date, with a note.",
+  "other_creators": "Every other member keeps its literal legacy credit: an organisational name exactly as cited (including the reviewed creator426 cohorts of 710, 4027 and 4063 and the Exxon821 projection of 1994). A credit is split into people only where the record itself settles the boundary (288: the inverted contact name and natural order; 4027: the reviewed cohort note and the inverted contact name), and a role or support clause is moved into the paragraph (1864: \"Ed (by support of ... as compilers)\"). No spelling is changed and no name is imported.",
+  "preservation_paragraph": "Every member carries one paragraph that quotes the literal source values, states the decision with its question, answer and date, and says what the record keeps. It is rendered into the v1 preservation block (as the citations31 and creators64 policies do) and, for this lane only, into the v2 technical-info description, so the public record carries the source citation text and the date correction.",
+  "resource_types": "Dataset or Report by the pinned rule from each record's own XML; a call with a plausible alternative is listed as low confidence in resource_types_r6.json.",
+  "scope": "Only the 37 sources Brett cleared on 2026-10-23: 22 access holds (A1, A2, A3), 10 creator holds (B1 to B4) and 5 metadata-date holds (C1, C2). FGDC-909, 3850, 4185, 21, 4077 and 4184 stay held; FGDC-3373 and 3484 are retired. Every one of the 37 is a target of the frozen publication plan with source_semantic_status \"held\"; this lane is the reviewed clearing of that hold.",
+  "undecided_blockers": "A record with a second blocker Brett did not decide stays held with that blocker named: FGDC-2817 keeps its creators B2 but its access text (\"Check with Contributor\" with the use text \"Refer to webstite URL: http://www.csa.com/\") was not on the evidence sheet and is not cleared."
+ },
+ "creator426_profile_sha256": "15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2",
+ "credits_path": "docs/readiness/2026-10-23/source_citation_credits_436.json",
+ "credits_sha256": "c6b040b847c25e0024a6b981e5cce088bd4f5587b0911d1b485c25c3f3cfa83b",
+ "date_corrections_path": "docs/readiness/2026-10-23/metadata_date_corrections_5.json",
+ "date_corrections_sha256": "e28c8da137b97e7747c862476e461cf359f060da2a4f3a0166568e111f6bebca",
+ "decisions_path": "docs/readiness/2026-10-23/held_sources_decisions.json",
+ "decisions_sha256": "47ec54fb08eb2748fac64a74b6b0728bb4869ffca5cef17f0c08921f53d2c7af",
+ "exxon_mapping_sha256": "5dbfeb098ee8b3bbad0e06d020c1c14c88e32363d45fab4e69a5cc961482a94f",
+ "exxon_profile_sha256": "ee49147aec99d83cf54cb7fa4e59f7e50229967af0f08f5408e97144367e99e5",
+ "hold_group_counts": {
+  "access": 22,
+  "creators": 9,
+  "metadata_date": 5
+ },
+ "kind": "modern-reviewed-held37-v1",
+ "member_count": 36,
+ "members": [
+  {
+   "source_id": "FGDC-227",
+   "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220"
+  },
+  {
+   "source_id": "FGDC-288",
+   "source_sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff"
+  },
+  {
+   "source_id": "FGDC-572",
+   "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a"
+  },
+  {
+   "source_id": "FGDC-648",
+   "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01"
+  },
+  {
+   "source_id": "FGDC-710",
+   "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a"
+  },
+  {
+   "source_id": "FGDC-711",
+   "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d"
+  },
+  {
+   "source_id": "FGDC-758",
+   "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212"
+  },
+  {
+   "source_id": "FGDC-759",
+   "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9"
+  },
+  {
+   "source_id": "FGDC-761",
+   "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf"
+  },
+  {
+   "source_id": "FGDC-766",
+   "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5"
+  },
+  {
+   "source_id": "FGDC-802",
+   "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61"
+  },
+  {
+   "source_id": "FGDC-862",
+   "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec"
+  },
+  {
+   "source_id": "FGDC-870",
+   "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f"
+  },
+  {
+   "source_id": "FGDC-1206",
+   "source_sha256": "cb5d88557bc7d5eb5c5d2b5e48411efab46c5be0977260dccda9162bf614c1a6"
+  },
+  {
+   "source_id": "FGDC-1318",
+   "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b"
+  },
+  {
+   "source_id": "FGDC-1422",
+   "source_sha256": "3e6506b58ffab3498f5a9c7411d6d25dc12101374d7c44ebc5c612d4d9804a58"
+  },
+  {
+   "source_id": "FGDC-1423",
+   "source_sha256": "872710e1c650b9a1d28b775bbc4e51466c0328849bd59d781ae127b2c1269890"
+  },
+  {
+   "source_id": "FGDC-1770",
+   "source_sha256": "d9a3ebc23ac26962bccd4827e4a79fd74bcd5f01105255155ea24b37dc02835d"
+  },
+  {
+   "source_id": "FGDC-1771",
+   "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d"
+  },
+  {
+   "source_id": "FGDC-1864",
+   "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070"
+  },
+  {
+   "source_id": "FGDC-1994",
+   "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb"
+  },
+  {
+   "source_id": "FGDC-2586",
+   "source_sha256": "01f654604ccd4e26e8d8dfbb64e4f9c8ee9350af954f4bd230396185f4cbf662"
+  },
+  {
+   "source_id": "FGDC-3683",
+   "source_sha256": "63ee9cc74618ccca30fcddb633bfeccaaf65809e6e1bd065f65998a934cdde20"
+  },
+  {
+   "source_id": "FGDC-3687",
+   "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b"
+  },
+  {
+   "source_id": "FGDC-3919",
+   "source_sha256": "1d9f38fb6c83c2388b16075329009ec1c94ecc9ea46dfb64331f0d2313113c13"
+  },
+  {
+   "source_id": "FGDC-3920",
+   "source_sha256": "025ac052acf7f239a996c8321d2a52f24687a28d03c66f7e462f9f8fac0bbda1"
+  },
+  {
+   "source_id": "FGDC-3975",
+   "source_sha256": "b3897a8af8dfb943db7dceaf4d2f094bda9244540d0bdf03cdbda420a12ac83e"
+  },
+  {
+   "source_id": "FGDC-3976",
+   "source_sha256": "4044ca27fe2e57c8269d670caa940353c623866a8d4006234d30c677490f5a04"
+  },
+  {
+   "source_id": "FGDC-3977",
+   "source_sha256": "1401dd05edb925db35b070ece055de3d22993b2972a7c73887730aa450be89c8"
+  },
+  {
+   "source_id": "FGDC-3978",
+   "source_sha256": "e38dc63f5d3195c4870739aaa6ea50e85785c059adcc5550be36b58064e9ccba"
+  },
+  {
+   "source_id": "FGDC-4027",
+   "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92"
+  },
+  {
+   "source_id": "FGDC-4039",
+   "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd"
+  },
+  {
+   "source_id": "FGDC-4063",
+   "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076"
+  },
+  {
+   "source_id": "FGDC-4139",
+   "source_sha256": "be98473b278c4f4481040fb05f3e17db35d0b3d9e39e4369b569e7b0e0b14848"
+  },
+  {
+   "source_id": "FGDC-4161",
+   "source_sha256": "65fb6d71a7ecc18dbf33757e9d4f45ea9a8a6d7822e5ffd4b64bc281324e4111"
+  },
+  {
+   "source_id": "FGDC-4181",
+   "source_sha256": "e26d7f9bd812d07ef5c67d17edcd646856de32294369b56f9ca1746e0ecf4a79"
+  }
+ ],
+ "membership_sha256": "230fcc37e465d33308dc39a02ef83b0d724fbd02dfb588434eb9c05754decb8f",
+ "modern_creator_object_count": 46,
+ "policy": "modern-xml-reviewed-held37-v1",
+ "proposals_path": "docs/readiness/2026-10-23/held37_proposals.json",
+ "proposals_sha256": "3a543430de6f9ffe4ca7f30db3a135476c6a6735de45db08f490a5fbe7078b0d",
+ "rows": [
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Upon request\" and the use text \"See http://www.psmfc.org/pacfin/6-4.htm#6.4.8%20Confidentiality%20of%20Data\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Pacific States Marine Fisheries Commission (PSMFC), Pacific Fisheries Information Network (PACFIN), credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "d06f94cfc7ba2a68db05cc0c3c1dab9dc006dc3a65cdcc1cb546dccba144fb88",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Pacific States Marine Fisheries Commission (PSMFC), Pacific Fisheries Information Network (PACFIN)",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Pacific States Marine Fisheries Commission (PSMFC), Pacific Fisheries Information Network (PACFIN)",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Pacific States Marine Fisheries Commission (PSMFC), Pacific Fisheries Information Network (PACFIN)"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/0",
+   "proposal_row_sha256": "817878254d183b6a93007f91ebb180804787d807b0ce043bc323a364e6165f10",
+   "source_bytes": 4354,
+   "source_id": "FGDC-227",
+   "source_path": "FGDC/FGDC-227.xml",
+   "source_plan_target_sha256": "72a16c578ca9cb9ef11c99f6ba94128901c29a62d6d22fdf323d6eab5808d710",
+   "source_root_sha256": "041c46fd85617930c73d28bf8dc7f038f5640b1133294e68ec344cc87e5e22ad",
+   "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"SEBSCC Data Policy (see www.pmel.noaa.gov/bering)\" and the use text \"SEBSCC Data Policy (see www.pmel.noaa.gov/bering)\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation reads \"Stacy Smith, Susan M. Henrichs of the University of Alaska, Fairbanks\". The legacy metadata typed this compound as one organisation because it contains the word University; the record credits two people, who are credited personally in source order, Smith, Stacy and Henrichs, Susan M., with the shared affiliation University of Alaska, Fairbanks, which the citation attaches to the connected list with \"of\". The point of contact, Henrichs, Susan M., confirms the second family name; the first name is in natural order. No spelling is changed."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "b954e619a203eeb8f7d743bd564280d3c96f21a4ffb767af7cd16fc5a2f855f7",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Stacy Smith, Susan M. Henrichs of the University of Alaska, Fairbanks",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "affiliations": [
+      {
+       "name": "University of Alaska, Fairbanks"
+      }
+     ],
+     "person_or_org": {
+      "family_name": "Smith",
+      "given_name": "Stacy",
+      "type": "personal"
+     }
+    },
+    {
+     "affiliations": [
+      {
+       "name": "University of Alaska, Fairbanks"
+      }
+     ],
+     "person_or_org": {
+      "family_name": "Henrichs",
+      "given_name": "Susan M.",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Stacy Smith,  Susan M. Henrichs of the University of Alaska, Fairbanks"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/1",
+   "proposal_row_sha256": "7fbee969bbec284cfdf98e2671dffbe5a4bb7fc9fb6a08a50b346488432062a9",
+   "source_bytes": 5767,
+   "source_id": "FGDC-288",
+   "source_path": "FGDC/FGDC-288.xml",
+   "source_plan_target_sha256": "fee7d90b0187be38470ad95ef1be8c6643a4fb076134afc865b108abda66c13f",
+   "source_root_sha256": "48f786fdd47c68fe4521e530c545894955c09615e91aebb75ba68cd4276c9784",
+   "source_sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.\" and the use text \"Unknown\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "89d47544e7f23e4e6166f232299aaf15dc2a2b98a7730f8d2a3c03ffea19f25d",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/2",
+   "proposal_row_sha256": "1c5d574c3f83d11b9cba690e728844d8fc7e456da5b203cacd5a6d1f9f47f2ce",
+   "source_bytes": 4237,
+   "source_id": "FGDC-572",
+   "source_path": "FGDC/FGDC-572.xml",
+   "source_plan_target_sha256": "523b3b25d357fee5b98151d333fa4a29d729067c43450c73ed8459fcf1ac7ddf",
+   "source_root_sha256": "b0167c933b9c0f4bd191a0a20299a2be57fd433048a8f0d7331e671dc509abb8",
+   "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Legal restrictions are as outlined in the Memorandum of Agreement and Consent Decree\" and the use text \"Beach segment/subdivision numbering system has been modified over the course of data collection. Knowledge of this system is necessary for accurate interpretation of this data.\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Alaska Department of Environmental Conservation, Exxon Valdez Oil Spill Restoration Office, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "c819aefb9073a4cde120aec9db1486f2a1243e0d34886291f982df052156c490",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Alaska Department of Environmental Conservation, Exxon Valdez Oil Spill Restoration Office",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Alaska Department of Environmental Conservation, Exxon Valdez Oil Spill Restoration Office",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Alaska Department of Environmental Conservation, Exxon Valdez Oil Spill Restoration Office"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/3",
+   "proposal_row_sha256": "c84038455e64f9276dd364a18da6da82a6767559563c7687719d65490dfc5f85",
+   "source_bytes": 4581,
+   "source_id": "FGDC-648",
+   "source_path": "FGDC/FGDC-648.xml",
+   "source_plan_target_sha256": "06f16f43120210d86f8cd10ab000f3e79f2fd89611006e72bb1bdddc5c317ce6",
+   "source_root_sha256": "e14514f0f3aebd8e1ce9d9e6f856e306f39e545ef8a42abf54257dc0bc70ddcb",
+   "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Subject to provisions of Alaska Administrative Code on dis-closure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.\" and the use text \"Unknown\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Wildlife Conservation Division, Alaska Department of Fish and Game, credited as an organisational creator exactly as cited (reviewed creator426 cohort plain_institution_program_37_FGDC-710)."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "16173f0062907a57029cc0e645e59de09dcbe73b70419b1c854ac842c327971c",
+   "creator_cohort": "plain_institution_program_37_FGDC-710",
+   "creators": [
+    {
+     "name": "Wildlife Conservation Division, Alaska Department of Fish and Game",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Wildlife Conservation Division, Alaska Department of Fish and Game",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Wildlife Conservation Division, Alaska Department of Fish and Game"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/4",
+   "proposal_row_sha256": "7c3f723e2f2bdaca549c8e652df90107a9ef58e290b9399c606661e8dfc710be",
+   "source_bytes": 4655,
+   "source_id": "FGDC-710",
+   "source_path": "FGDC/FGDC-710.xml",
+   "source_plan_target_sha256": "acf5ebed6f810344b8020976c74e356ce8a2be1c0914789d5564f7b0a50e3558",
+   "source_root_sha256": "2d098bb8bfb12dce8eb07bc19e036fa5e40bbde47b7bcde9db4fb8ccf8ecfa11",
+   "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.\" and the use text \"Unknown\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits USDA Forest Service, Chugach National Forest, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "bd5beda10861ea716063fdbffbf28c408a41f2ee417705b9cb1605019e37f360",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "USDA Forest Service, Chugach National Forest",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "USDA Forest Service, Chugach National Forest",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "USDA Forest Service, Chugach National Forest"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/5",
+   "proposal_row_sha256": "f27baf3d3ca46dbbe03982b4f622deee38aa6d60bffea2cf43251319ead855b2",
+   "source_bytes": 5020,
+   "source_id": "FGDC-711",
+   "source_path": "FGDC/FGDC-711.xml",
+   "source_plan_target_sha256": "15174ab33392c3b1a17286159fc71cbe4a210802c27198221e79249a3f7294f9",
+   "source_root_sha256": "bad6a085661c1627fe24fc5a1ed3b0a3b33e293ced82e07c1919d7f177545d6c",
+   "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.\" and the use text \"Unknown\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "89d47544e7f23e4e6166f232299aaf15dc2a2b98a7730f8d2a3c03ffea19f25d",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/6",
+   "proposal_row_sha256": "78b799fdc7d34acf3725094783210d4387792d4377a4ea1d98262cd840891de9",
+   "source_bytes": 4572,
+   "source_id": "FGDC-758",
+   "source_path": "FGDC/FGDC-758.xml",
+   "source_plan_target_sha256": "bbc4925b25d2cb0731b7ef07c281a5fda439c6f70e0f3837d9bc8c4d6ec32842",
+   "source_root_sha256": "5d5c034b93999edbf31930747ad078392f0bd439ef08e54d96c8a51551adbbf9",
+   "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.\" and the use text \"Unknown\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "89d47544e7f23e4e6166f232299aaf15dc2a2b98a7730f8d2a3c03ffea19f25d",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/7",
+   "proposal_row_sha256": "c7f201f0c23412fd2206df92c344acad406f1a1f8afc732789b84ccf8b1fab3e",
+   "source_bytes": 4346,
+   "source_id": "FGDC-759",
+   "source_path": "FGDC/FGDC-759.xml",
+   "source_plan_target_sha256": "f452b3964a1dfd9386dd8bb2c10c096faba7b0671b0f4fed9828359383103cad",
+   "source_root_sha256": "c052ae1add8e39781d4d231df10346da4a11b3cc647b6844e06145f489d640ca",
+   "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.\" and the use text \"Unknown\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "89d47544e7f23e4e6166f232299aaf15dc2a2b98a7730f8d2a3c03ffea19f25d",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/8",
+   "proposal_row_sha256": "d6bdff7451bfaed806315a07bebd94b8ab48243177feda1e63d6396b278a00db",
+   "source_bytes": 4377,
+   "source_id": "FGDC-761",
+   "source_path": "FGDC/FGDC-761.xml",
+   "source_plan_target_sha256": "5b6a874736881e55d2d70ea1318afd128e9b99018d0b12808a43894113c8f8d9",
+   "source_root_sha256": "94d4eb26ccf5a7b3d866bc4c006aae6599c928a8338d748f9cfd3c20ff0ab1b4",
+   "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Dependent on the nature and extent of request. Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information.\" and the use text \"Unknown\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "89d47544e7f23e4e6166f232299aaf15dc2a2b98a7730f8d2a3c03ffea19f25d",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/9",
+   "proposal_row_sha256": "32f26b330d3b31798c42cd9691d6becac3162d43d6880682e3d7f343cd3043c8",
+   "source_bytes": 4362,
+   "source_id": "FGDC-766",
+   "source_path": "FGDC/FGDC-766.xml",
+   "source_plan_target_sha256": "1aae7bc36a4e628675da18118f5a5b51d5e0f9e3b8fec6e32e38e51bd72917cf",
+   "source_root_sha256": "49354dec630e0f5f39e3ec5d1cabb44840138c8f9dd6679f14c542b860258344",
+   "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"The DCW is commercially available on ISO 9660 formatted CD-ROM discs from ESRI. Consult ESRI for latest database acquisition costs.\" and the use text \"Use, duplication, and disclosure by the Government is subject to restrictions as set forth in FAR 52.227-14 Alternat III (g)(3)(JUN 1987), FAR 52.227-19 (c)(1)(ii)(OCT 1988), as applicable.\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Environmental Systems Research Institute (ESRI), credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "b866dad200c33984db6b968b238a7867ca940edcd584a854dda6cc17ab9db1ba",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Environmental Systems Research Institute (ESRI)",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Environmental Systems Research Institute (ESRI)",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Environmental Systems Research Institute (ESRI)"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/10",
+   "proposal_row_sha256": "258775fbb9c3aa86fa95181555fd5cffa03e9ed5a423466e1ec7494d48705e54",
+   "source_bytes": 5163,
+   "source_id": "FGDC-802",
+   "source_path": "FGDC/FGDC-802.xml",
+   "source_plan_target_sha256": "750fcd34665ca30656893fae1d12be4c178b9ca832846db73303761d8006708b",
+   "source_root_sha256": "b4cd6691ed75b649f7b30ed55c5dc3bcbd1468138a8daef2328f0a814abc88fc",
+   "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Data can be obtained through written request form and formal data inquiry procedures that are in alignment with University of Alaska Draft\" and the use text \"Some locational data relating to threatened and Endangerred Species or sensitive data have associated use restrictions.\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits University of Alaska, Anchorage, Alaska Natural Heritage Program, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "956322c185e84fb9d0a28126eca36d2413e5fb31a2dd1ce239869b55735e598a",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "University of Alaska, Anchorage, Alaska Natural Heritage Program",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "University of Alaska, Anchorage, Alaska Natural Heritage Program",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "University of Alaska, Anchorage, Alaska Natural Heritage Program"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/11",
+   "proposal_row_sha256": "835629a2f1ae95fbed66bcbed95d25fb1ace4c6eb56b07695750e130711ebc8d",
+   "source_bytes": 5038,
+   "source_id": "FGDC-862",
+   "source_path": "FGDC/FGDC-862.xml",
+   "source_plan_target_sha256": "6ba18f28bc48bb73f98f7916aac1ef9e7483cfaec7301b511f843ccb62f57a55",
+   "source_root_sha256": "d92ef46cddfcd1807972090065eb36fb28c32c6eb7cf3f66ab16f918385325d7",
+   "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Subject to provisions of Alaska Administrative Code on disclosure of public records and subject to Department of Fish and Game Standard Operating Procedure on public information. Free hard copies are available.\" and the use text \"Unknown\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "89d47544e7f23e4e6166f232299aaf15dc2a2b98a7730f8d2a3c03ffea19f25d",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Alaska Department of Fish and Game (ADF&G), Habitat and Restoration Division"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/12",
+   "proposal_row_sha256": "772a57f1a77fa1e7495d8ac4cf728ebdfb6ba038ca093a0dcdb34f4ef6352d4d",
+   "source_bytes": 4402,
+   "source_id": "FGDC-870",
+   "source_path": "FGDC/FGDC-870.xml",
+   "source_plan_target_sha256": "3c0b40d5ec801c15366370bad6bbacee0b9cb878c21bfc45fdc68741c4fec2ee",
+   "source_root_sha256": "cc4a428bba40ea2eb3bc61f7f9ec2d3915be70e59fbeab5cbb4d837cbcf6ab3e",
+   "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Creators: the primary citation origin of this FGDC record reads \"Journal of Cytology\", the journal in which the work appeared, not an author. Brett Johnson decided on 2026-10-23 (held-sources question B1, asked \"Credit Biryukova, I.V.; Matrosov, V.V.; Evdokimov, V.V., in this order?\", answered \"Yes, three authors\") that the creators are Biryukova, I.V.; Matrosov, V.V.; Evdokimov, V.V., in this order, credited personally. The evidence recorded on the sheet: a 2006 Curonian Spit National Park scientific collection (vol. 4, reference 5) gives \"Бирюкова И.В., Матросов В.В., Евдокимов В.В.\" for Tsitologiia 1998, vol. 40, no. 1, pp. 5-9, and a thesis gives the same three names in the same order; the article itself was not checked. The point of contact, Biryukova, Inga V., is a separate role; the initials are kept as cited and not expanded from it. The journal stays in this preserved citation."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "33d3edf96c250fd347c34e0a51f81d23f377edd1391d09ecc9af232aa42be2e8",
+   "creator_cohort": "held_creators_B1_FGDC-1206",
+   "creators": [
+    {
+     "name": "Biryukova, I.V."
+    },
+    {
+     "name": "Matrosov, V.V."
+    },
+    {
+     "name": "Evdokimov, V.V."
+    }
+   ],
+   "decision_question": "B1",
+   "hold_group": "creators",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "family_name": "Biryukova",
+      "given_name": "I.V.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Matrosov",
+      "given_name": "V.V.",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Evdokimov",
+      "given_name": "V.V.",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Journal of Cytology"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/13",
+   "proposal_row_sha256": "6cdddc8e4a753376f28f32553acb94a9a82c391c14586532957d42f38148664e",
+   "source_bytes": 4548,
+   "source_id": "FGDC-1206",
+   "source_path": "FGDC/FGDC-1206.xml",
+   "source_plan_target_sha256": "5508dcbfb84f1128e103928d794776c5f7920ae0ae59a47b1b74e688bb7852bc",
+   "source_root_sha256": "b11e1f89bc04a31997d00c7cfa51c29e77a0c4872297f010f027029bb5068354",
+   "source_sha256": "cb5d88557bc7d5eb5c5d2b5e48411efab46c5be0977260dccda9162bf614c1a6"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Must purchase the CD\" and the use text \"Refer to vendor policy.\". Brett Johnson decided on 2026-10-23 (held-sources question A2, asked \"Is each FGDC record the public catalogue entry, and not a copy of the restricted product?\", answered \"Yes, catalogue entry\") that the FGDC record is the public catalogue entry, not a copy of the restricted product it describes. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Resource Data, Inc., credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "63b6abfc60e9b069e73ae3c464f7d035fae36cff9b695b9937eeeea053acabeb",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Resource Data, Inc.",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A2",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Resource Data, Inc.",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Resource Data, Inc."
+    }
+   ],
+   "proposal_row_pointer": "/proposals/14",
+   "proposal_row_sha256": "fc51a9bf6c2a7cd369f21b09c2ad7fdb2b0aa765d3211ad216d74283464e2c2a",
+   "source_bytes": 4008,
+   "source_id": "FGDC-1318",
+   "source_path": "FGDC/FGDC-1318.xml",
+   "source_plan_target_sha256": "d63394b26a33ac5e2664b99e4ce96c024de0be2740fc3674fe0e2d7944264d35",
+   "source_root_sha256": "fc1fe7410e4a54e8225beede51c9275c19ead74c6901daf8a393ebfb770470ad",
+   "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Metadata date: this FGDC record's metadata date (metainfo/metd) is blank. Brett Johnson decided on 2026-10-23 (held-sources question C2, asked \"Use 2003-05-30, the metadata date of the 21 neighbouring NOAA records, as their metadata date?\", answered \"Yes, 2003-05-30\") that the metadata date is 2003-05-30, the metd of all 21 neighbouring NOAA records FGDC-1410 to FGDC-1435, including FGDC-1421, also a 2002 survey. The publication date of this record is that corrected metadata date; the citation gives no exact date and the original XML is unchanged. The primary citation credits National Oceanic and Atmospheric Administration (NOAA), credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "4e4dba1f54b81f65c76ee58fdb84a3bc402a8060b9903d9f1a18692ed8101b83",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "National Oceanic and Atmospheric Administration (NOAA)",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "C2",
+   "hold_group": "metadata_date",
+   "metadata_date_correction": {
+    "corrected_value": "2003-05-30",
+    "question": "C2",
+    "source_value": ""
+   },
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "National Oceanic and Atmospheric Administration (NOAA)",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "National Oceanic and Atmospheric Administration (NOAA)"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/15",
+   "proposal_row_sha256": "b405f09674d1a8fe16c3000da5ba86a8e2cec2dd34cfe8c974a2f484375aa8b5",
+   "source_bytes": 4887,
+   "source_id": "FGDC-1422",
+   "source_path": "FGDC/FGDC-1422.xml",
+   "source_plan_target_sha256": "f19081c956885a40b8dd219c48388f06cd19017d68b09bf88ba2db8ab1816426",
+   "source_root_sha256": "ddfa06ad113f4623b91c7eb7fa40b503f19b7e7f96ed8f9bed982a9d4e05aeb0",
+   "source_sha256": "3e6506b58ffab3498f5a9c7411d6d25dc12101374d7c44ebc5c612d4d9804a58"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Metadata date: this FGDC record's metadata date (metainfo/metd) is blank. Brett Johnson decided on 2026-10-23 (held-sources question C2, asked \"Use 2003-05-30, the metadata date of the 21 neighbouring NOAA records, as their metadata date?\", answered \"Yes, 2003-05-30\") that the metadata date is 2003-05-30, the metd of all 21 neighbouring NOAA records FGDC-1410 to FGDC-1435, including FGDC-1421, also a 2002 survey. The publication date of this record is that corrected metadata date; the citation gives no exact date and the original XML is unchanged. The primary citation credits National Oceanic and Atmospheric Administration (NOAA), credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "4e4dba1f54b81f65c76ee58fdb84a3bc402a8060b9903d9f1a18692ed8101b83",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "National Oceanic and Atmospheric Administration (NOAA)",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "C2",
+   "hold_group": "metadata_date",
+   "metadata_date_correction": {
+    "corrected_value": "2003-05-30",
+    "question": "C2",
+    "source_value": ""
+   },
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "National Oceanic and Atmospheric Administration (NOAA)",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "National Oceanic and Atmospheric Administration (NOAA)"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/16",
+   "proposal_row_sha256": "5dd9dc75cadc3c06842932df4d949bcc84de081c604c082ad34160c8004c9106",
+   "source_bytes": 5713,
+   "source_id": "FGDC-1423",
+   "source_path": "FGDC/FGDC-1423.xml",
+   "source_plan_target_sha256": "3a1c8e3fa2924903d6b21a3d6150cf20a396b4d0c54a4045ff8ba1cab6ef6a3d",
+   "source_root_sha256": "eaa30c438f99afe061c35c33817272295e7e887eff8668c1611111e69393b8a2",
+   "source_sha256": "872710e1c650b9a1d28b775bbc4e51466c0328849bd59d781ae127b2c1269890"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION\" and the use text \"See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits National Aeronautics and Space Administration (NASA), Goddard Earth Sciences (GES), Distributed Active Archive Center (DAAC), credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "78d2257aa042bf285e266aa1e38f9206e2d1cc7a95f849be10fee1cae3dc979c",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "National Aeronautics and Space Administration (NASA), Goddard Earth Sciences (GES), Distributed Active Archive Center (DAAC)",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "National Aeronautics and Space Administration (NASA), Goddard Earth Sciences (GES), Distributed Active Archive Center (DAAC)",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "National Aeronautics and Space Administration (NASA), Goddard Earth Sciences (GES), Distributed Active Archive Center (DAAC)"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/17",
+   "proposal_row_sha256": "8714eec7158ffac12d1bbdea16028876c8bb2702cba59293ef92eca216208954",
+   "source_bytes": 5349,
+   "source_id": "FGDC-1770",
+   "source_path": "FGDC/FGDC-1770.xml",
+   "source_plan_target_sha256": "bdc42a26f7ecff4cb83fc4c53da96fe172481fd4b81b63f70cb8a3aa80d6f9bd",
+   "source_root_sha256": "54ae97d192a4a8308ee0b0ce23106d8ad99140391cdea9554b56baf0197c90f0",
+   "source_sha256": "d9a3ebc23ac26962bccd4827e4a79fd74bcd5f01105255155ea24b37dc02835d"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION\" and the use text \"See http://daac.gsfc.nasa.gov/data/dataset/SEAWIFS/ds_top_help.html#RESTRICTION\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits National Aeronautics and Space Administration (NASA), Goddard Earth Sciences (GES), Distributed Active Archive Center (DAAC), credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "78d2257aa042bf285e266aa1e38f9206e2d1cc7a95f849be10fee1cae3dc979c",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "National Aeronautics and Space Administration (NASA), Goddard Earth Sciences (GES), Distributed Active Archive Center (DAAC)",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "National Aeronautics and Space Administration (NASA), Goddard Earth Sciences (GES), Distributed Active Archive Center (DAAC)",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "National Aeronautics and Space Administration (NASA), Goddard Earth Sciences (GES), Distributed Active Archive Center (DAAC)"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/18",
+   "proposal_row_sha256": "f2f7228ac6121b9b04194fc475117e22834d487ed6542ef4441a58131e9966ce",
+   "source_bytes": 5499,
+   "source_id": "FGDC-1771",
+   "source_path": "FGDC/FGDC-1771.xml",
+   "source_plan_target_sha256": "747adbd8c03554af1cdb3d057859cb72b4ca62eb08dc3ae984f40712236f3879",
+   "source_root_sha256": "44f7788b54c05a57a45c84bf34f4243d572cf2ba8cf87715525d3aa768b565ee",
+   "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"IOC/IODE rules\" and the use text \"None\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation reads \"Pacific Oceanological Institute (POI), Ed (by support of Russian NODC, Nav ODC and others as compilers)\". The institute is credited as an organisational creator under its cited name, Pacific Oceanological Institute (POI); the abbreviation Ed and the compiler-support clause naming Russian NODC, Nav ODC and others are roles and support, not name parts, and are preserved here; no supporting body is added as a creator."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "9c475d928f4d6dcc7b1e70f60010cfff3e0984f58b874b9acec792d6e5391680",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Pacific Oceanological Institute (POI), Ed (by support of Russian NODC, Nav ODC and others as compilers)",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Pacific Oceanological Institute (POI)",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Pacific Oceanological Institute (POI), Ed (by support of Russian NODC, Nav ODC and others as compilers)"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/19",
+   "proposal_row_sha256": "38514663807e90eb9c054a491bf30a7a2cdcedcd324a38974005c31d27eba7b2",
+   "source_bytes": 4468,
+   "source_id": "FGDC-1864",
+   "source_path": "FGDC/FGDC-1864.xml",
+   "source_plan_target_sha256": "4e78d0f80d8b056c2b8a2b458d1ac21cfd35fa75367781282d6fe2d4c3e9cc95",
+   "source_root_sha256": "3abb93b1a4bfa49493693c92a7bd86abe8bed3ec7d7ac173e8b08d1978a06e69",
+   "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Contact Source\" and the use text \"Contact Source\". Brett Johnson decided on 2026-10-23 (held-sources question A2, asked \"Is each FGDC record the public catalogue entry, and not a copy of the restricted product?\", answered \"Yes, catalogue entry\") that the FGDC record is the public catalogue entry, not a copy of the restricted product it describes. The texts are kept unchanged in this record and no licence is granted. The primary citation reads \"Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California.\" and is credited as the reviewed Exxon821 projection, as the 412 published Exxon singletons are: the Trustee Council as an organisation, Bodkin, James and Dean, Thomas A. personally with the affiliations the citation attaches with \"of\"."
+   ],
+   "creator_authority_kind": "exxon",
+   "creator_authority_object_sha256": "f3a35f519d7d78e2e8e913c8955b3894a1f309231ac976eb7333bfa2f730a9d7",
+   "creator_cohort": "exxon_primary_citation_821_2026_10_02",
+   "creators": [
+    {
+     "name": "Exxon Valdez Oil Spill Trustee Council",
+     "type": "Organization"
+    },
+    {
+     "affiliation": "U.S. Geological Survey, Anchorage, Alaska",
+     "name": "Bodkin, James"
+    },
+    {
+     "affiliation": "Coastal Resources Associates, Inc., Carlsbad, California",
+     "name": "Dean, Thomas A."
+    }
+   ],
+   "decision_question": "A2",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Exxon Valdez Oil Spill Trustee Council",
+      "type": "organizational"
+     }
+    },
+    {
+     "affiliations": [
+      {
+       "name": "U.S. Geological Survey, Anchorage, Alaska"
+      }
+     ],
+     "person_or_org": {
+      "family_name": "Bodkin",
+      "given_name": "James",
+      "type": "personal"
+     }
+    },
+    {
+     "affiliations": [
+      {
+       "name": "Coastal Resources Associates, Inc., Carlsbad, California"
+      }
+     ],
+     "person_or_org": {
+      "family_name": "Dean",
+      "given_name": "Thomas A.",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Exxon Valdez Oil Spill Trustee Council, James Bodkin of the U.S. Geological Survey, Anchorage, Alaska and Thomas A. Dean of Coastal Resources Associates, Inc., Carlsbad, California."
+    }
+   ],
+   "proposal_row_pointer": "/proposals/20",
+   "proposal_row_sha256": "cd7d23e2628560afc8b063d9d99d9268b7c5320b0b33e22ada62cbc7d806bab9",
+   "source_bytes": 6112,
+   "source_id": "FGDC-1994",
+   "source_path": "FGDC/FGDC-1994.xml",
+   "source_plan_target_sha256": "46741ca6aa4437b4a2ab892370cb6423077767e43e1fcf654330353a137e3572",
+   "source_root_sha256": "8c340ec12c2007524159e37f5c302f4c2637fe3fc7a5d8ee7adaaa0b55785c69",
+   "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Creators: the primary citation origin of this FGDC record reads \"Published by direction of the Chief of Naval Operations.\", an instruction to publish, not a named producer. Brett Johnson decided on 2026-10-23 (held-sources question B3, asked \"Credit the issuer, 'United States Navy, Office of the Chief of Naval Operations', as an organisation creator?\", answered \"Yes, the Navy office\") that the issuer, United States Navy, Office of the Chief of Naval Operations, is credited as an organisational creator. The NOAA/NCEI holding SN-240, box AA96144, confirms the 1953 title and names no author. The contact, NOAA Central Library, is the holding library and is not promoted."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "47dc6916ab138c57dba4d529bceb4ca425954e1227fb6b09202d36284ad7db8d",
+   "creator_cohort": "held_creators_B3_FGDC-2586",
+   "creators": [
+    {
+     "name": "United States Navy, Office of the Chief of Naval Operations",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "B3",
+   "hold_group": "creators",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "United States Navy, Office of the Chief of Naval Operations",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Published by direction of the Chief of Naval Operations."
+    }
+   ],
+   "proposal_row_pointer": "/proposals/21",
+   "proposal_row_sha256": "235d32a0ced8947247d980c7a9f11ba903d886f602e51308c7aaadaeb2734136",
+   "source_bytes": 4446,
+   "source_id": "FGDC-2586",
+   "source_path": "FGDC/FGDC-2586.xml",
+   "source_plan_target_sha256": "8a34b1d8ebb8e76cb07a53118e6d8861c6dfccaaf6435879ca7773ae0b5c98a1",
+   "source_root_sha256": "a380a8d850afaecab5c040361239166a4f640330fa2ee27cc087cf3519f8bc68",
+   "source_sha256": "01f654604ccd4e26e8d8dfbb64e4f9c8ee9350af954f4bd230396185f4cbf662"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Creators: the primary citation origin of this FGDC record is empty. Brett Johnson decided on 2026-10-23 (held-sources question B4, asked \"Which creator for the seven NEAR-GOOS records with an empty origin?\", answered \"JODC / JMA by operator\") that the operator of the database is credited: the Japan Oceanographic Data Center, which operates the NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) this record describes, credited as an organisational creator. The RDMDB manual says \"The Japan Oceanographic Data Center (JODC) operates the RDMDB\". The point of contact, Okano, Hirofumi, is a separate role and is not promoted; no data producer is named as a creator."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "dcf1a4478311e7704b36b11a55f1d8e14fd6db91a2a77dcc5565cbd2efdd80bd",
+   "creator_cohort": "held_creators_B4_FGDC-3683",
+   "creators": [
+    {
+     "name": "Japan Oceanographic Data Center",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "B4",
+   "hold_group": "creators",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Japan Oceanographic Data Center",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": null
+    }
+   ],
+   "proposal_row_pointer": "/proposals/23",
+   "proposal_row_sha256": "8b33f717d00f79394dad118a4a080ed9f1c4749d0973f121d70d4427d28b1236",
+   "source_bytes": 4294,
+   "source_id": "FGDC-3683",
+   "source_path": "FGDC/FGDC-3683.xml",
+   "source_plan_target_sha256": "c46715dd59ea51fd9674a8fecb233c13c127c84436b6bb4585875ff0637da255",
+   "source_root_sha256": "0ab2a1d7451eeafb500279e52466f309a6a93078d2323cea6c3184e1a42b2cb7",
+   "source_sha256": "63ee9cc74618ccca30fcddb633bfeccaaf65809e6e1bd065f65998a934cdde20"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use\" and the use text \"Review http://www.calacademy.org/research/ichthyology/Types/about_types.html#Use\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits California Academy of Sciences (CAS), Department of Ichthyology, credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "5fcb6f95a2d844dc7bebeb16223d68b6ba0f9330fd64ccdcced1f6fd91acfa52",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "California Academy of Sciences (CAS), Department of Ichthyology",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "California Academy of Sciences (CAS), Department of Ichthyology",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "California Academy of Sciences (CAS), Department of Ichthyology"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/24",
+   "proposal_row_sha256": "5c99672dadd2ca56a6ccd0cf25df4c1121de500825a72461a4be2787b76f3b46",
+   "source_bytes": 5652,
+   "source_id": "FGDC-3687",
+   "source_path": "FGDC/FGDC-3687.xml",
+   "source_plan_target_sha256": "a64c7058125a7c3e32cabd2d08e4ea92b009214fe14710e909d9a269f45ab38e",
+   "source_root_sha256": "84525c6a5e3a023d7212c42cd562ebea88ba00f63d300e35567ddddbd64f3bf9",
+   "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Creators: the primary citation origin of this FGDC record is empty. Brett Johnson decided on 2026-10-23 (held-sources question B4, asked \"Which creator for the seven NEAR-GOOS records with an empty origin?\", answered \"JODC / JMA by operator\") that the operator of the database is credited: the Japan Meteorological Agency, which operates the NEAR-GOOS Regional Real Time Data Base (RRTDB) at goos.kishou.go.jp this record describes, credited as an organisational creator. The point of contact, Yoshida, Takashi, is a separate role and is not promoted; no data producer is named as a creator."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "c20dacfaf3a23ebef7ebfe7b8b314748454e6cf4aaa2d2333054cbd786c62ee8",
+   "creator_cohort": "held_creators_B4_FGDC-3919",
+   "creators": [
+    {
+     "name": "Japan Meteorological Agency",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "B4",
+   "hold_group": "creators",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Japan Meteorological Agency",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": null
+    }
+   ],
+   "proposal_row_pointer": "/proposals/25",
+   "proposal_row_sha256": "e53bdd3be469127d0bf04607cc18acee17cdb9964d1fd6ffd493d324d6082e38",
+   "source_bytes": 4416,
+   "source_id": "FGDC-3919",
+   "source_path": "FGDC/FGDC-3919.xml",
+   "source_plan_target_sha256": "3a8b016acdcb4892710f41131fcdbfa6677e006f028088fe0cb604fc8ddc08d3",
+   "source_root_sha256": "38d215ee6366eff102b56198e7327dac03e87be1257e616bc9791623a319527f",
+   "source_sha256": "1d9f38fb6c83c2388b16075329009ec1c94ecc9ea46dfb64331f0d2313113c13"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Creators: the primary citation origin of this FGDC record is empty. Brett Johnson decided on 2026-10-23 (held-sources question B4, asked \"Which creator for the seven NEAR-GOOS records with an empty origin?\", answered \"JODC / JMA by operator\") that the operator of the database is credited: the Japan Meteorological Agency, which operates the NEAR-GOOS Regional Real Time Data Base (RRTDB) at goos.kishou.go.jp this record describes, credited as an organisational creator. The point of contact, Yoshida, Takashi, is a separate role and is not promoted; no data producer is named as a creator."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "8be4fcf69358daf85be9c60be0f5fcf4425ab0a95575fafa2971640ef1611857",
+   "creator_cohort": "held_creators_B4_FGDC-3920",
+   "creators": [
+    {
+     "name": "Japan Meteorological Agency",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "B4",
+   "hold_group": "creators",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Japan Meteorological Agency",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": null
+    }
+   ],
+   "proposal_row_pointer": "/proposals/26",
+   "proposal_row_sha256": "65d89c81733d85dd3774d65edad07f77552224ab2dd84e3a0409eaba0ba74b1e",
+   "source_bytes": 4377,
+   "source_id": "FGDC-3920",
+   "source_path": "FGDC/FGDC-3920.xml",
+   "source_plan_target_sha256": "0e8839c920b80825b1016c54b301375842815d61a98d5ef8a2e75c7ed1ca80a8",
+   "source_root_sha256": "961c678b94c04682d1bf0c97852583eaff99eb99630bd72eb39df4334a3450a9",
+   "source_sha256": "025ac052acf7f239a996c8321d2a52f24687a28d03c66f7e462f9f8fac0bbda1"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Creators: the primary citation origin of this FGDC record is empty. Brett Johnson decided on 2026-10-23 (held-sources question B4, asked \"Which creator for the seven NEAR-GOOS records with an empty origin?\", answered \"JODC / JMA by operator\") that the operator of the database is credited: the Japan Oceanographic Data Center, which operates the NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) this record describes, credited as an organisational creator. The RDMDB manual says \"The Japan Oceanographic Data Center (JODC) operates the RDMDB\". The point of contact, Okano, Hirofumi, is a separate role and is not promoted; no data producer is named as a creator."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "65e5dfdfa40414977b60210f3a5e82419d40905f32d7e3bfbf8ff779619d1a84",
+   "creator_cohort": "held_creators_B4_FGDC-3975",
+   "creators": [
+    {
+     "name": "Japan Oceanographic Data Center",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "B4",
+   "hold_group": "creators",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Japan Oceanographic Data Center",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": null
+    }
+   ],
+   "proposal_row_pointer": "/proposals/27",
+   "proposal_row_sha256": "630d6c1639a05fad0ade111446246195f6a45bf9767a67e0f9677bf340f0b962",
+   "source_bytes": 4285,
+   "source_id": "FGDC-3975",
+   "source_path": "FGDC/FGDC-3975.xml",
+   "source_plan_target_sha256": "5d838f1d81efd98f56fc7cc53b9dd58a9f6d45e420adf2e53c080b01e1f0f3b0",
+   "source_root_sha256": "4776f0126db273fbf85c91473a54d7483c1bbbc49fcf77e17095fed9d6987395",
+   "source_sha256": "b3897a8af8dfb943db7dceaf4d2f094bda9244540d0bdf03cdbda420a12ac83e"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Creators: the primary citation origin of this FGDC record is empty. Brett Johnson decided on 2026-10-23 (held-sources question B4, asked \"Which creator for the seven NEAR-GOOS records with an empty origin?\", answered \"JODC / JMA by operator\") that the operator of the database is credited: the Japan Oceanographic Data Center, which operates the NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) this record describes, credited as an organisational creator. The RDMDB manual says \"The Japan Oceanographic Data Center (JODC) operates the RDMDB\". The point of contact, Okano, Hirofumi, is a separate role and is not promoted; no data producer is named as a creator."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "5e45b7ceb3d136b79d0afb826b8202c7898897ebc3feba280362d8aaf2417314",
+   "creator_cohort": "held_creators_B4_FGDC-3976",
+   "creators": [
+    {
+     "name": "Japan Oceanographic Data Center",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "B4",
+   "hold_group": "creators",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Japan Oceanographic Data Center",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": null
+    }
+   ],
+   "proposal_row_pointer": "/proposals/28",
+   "proposal_row_sha256": "c2e40b306ad85aecea4a9127310c078ac8a2a68c198036045d57245de524abde",
+   "source_bytes": 4250,
+   "source_id": "FGDC-3976",
+   "source_path": "FGDC/FGDC-3976.xml",
+   "source_plan_target_sha256": "b3fdd18b0de5b20d98689bde6b37d16fb1eb9e9936325cd0f7c796e1084c2bb8",
+   "source_root_sha256": "c0496c762211ab65bc08937ed372d5e8abee68776606c0a96f6e24c77483a57b",
+   "source_sha256": "4044ca27fe2e57c8269d670caa940353c623866a8d4006234d30c677490f5a04"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Creators: the primary citation origin of this FGDC record is empty. Brett Johnson decided on 2026-10-23 (held-sources question B4, asked \"Which creator for the seven NEAR-GOOS records with an empty origin?\", answered \"JODC / JMA by operator\") that the operator of the database is credited: the Japan Oceanographic Data Center, which operates the NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) this record describes, credited as an organisational creator. The RDMDB manual says \"The Japan Oceanographic Data Center (JODC) operates the RDMDB\". The point of contact, Okano, Hirofumi, is a separate role and is not promoted; no data producer is named as a creator."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "fde78f188fc977cfa8d2e8d2ebdbb6fcc7de4e062abd7a22e1c22c5654a377ee",
+   "creator_cohort": "held_creators_B4_FGDC-3977",
+   "creators": [
+    {
+     "name": "Japan Oceanographic Data Center",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "B4",
+   "hold_group": "creators",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Japan Oceanographic Data Center",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": null
+    }
+   ],
+   "proposal_row_pointer": "/proposals/29",
+   "proposal_row_sha256": "8746eb89f7ba40789c1a74d9862153fde500c950b650bc14e0dccd243f27170a",
+   "source_bytes": 4448,
+   "source_id": "FGDC-3977",
+   "source_path": "FGDC/FGDC-3977.xml",
+   "source_plan_target_sha256": "f19e01bc470a3ceaddab6f9d424fb316a7bdf36bb5d5944a102f042d47de21ba",
+   "source_root_sha256": "b4d63ab4d4f5ed83a905e7e76aba5770c4307c0826b386d759ae3b457a4948aa",
+   "source_sha256": "1401dd05edb925db35b070ece055de3d22993b2972a7c73887730aa450be89c8"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Creators: the primary citation origin of this FGDC record is empty. Brett Johnson decided on 2026-10-23 (held-sources question B4, asked \"Which creator for the seven NEAR-GOOS records with an empty origin?\", answered \"JODC / JMA by operator\") that the operator of the database is credited: the Japan Oceanographic Data Center, which operates the NEAR-GOOS Regional Delayed Mode Data Base (RDMDB) this record describes, credited as an organisational creator. The RDMDB manual says \"The Japan Oceanographic Data Center (JODC) operates the RDMDB\". The point of contact, Okano, Hirofumi, is a separate role and is not promoted; no data producer is named as a creator."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "92edfd11ae2829e9c7cd29d9c61cade4cac8e0a8836aaf933cc33115282dd9da",
+   "creator_cohort": "held_creators_B4_FGDC-3978",
+   "creators": [
+    {
+     "name": "Japan Oceanographic Data Center",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "B4",
+   "hold_group": "creators",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Japan Oceanographic Data Center",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": null
+    }
+   ],
+   "proposal_row_pointer": "/proposals/30",
+   "proposal_row_sha256": "a0176bebfe9c0cbccedcdf85bde729dbf4e25e6f598bcc42785e26a576536035",
+   "source_bytes": 4373,
+   "source_id": "FGDC-3978",
+   "source_path": "FGDC/FGDC-3978.xml",
+   "source_plan_target_sha256": "77f977b449c52f034f661f4e7bbeeca59e28e8a302ecec09c90bd41d82a7a693",
+   "source_root_sha256": "30f63e77905dc5ac8039e33d7eff1dacff614e29931727338b788355cda83f8b",
+   "source_sha256": "e38dc63f5d3195c4870739aaa6ea50e85785c059adcc5550be36b58064e9ccba"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html\" and the use text \"See http://www.jamstec.go.jp/frsgc/gcwm/htdocs/disclaimer.html\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation lists Japan Agency for Marine-Earth Science and Technology (JAMSTEC); National Space Development Agency (NASDA), Japan; Hajime Akimoto; Atmospheric Composition Research Program, Frontier Research System for Global Change (FRSGC); Masaaki Takahashi and Masayuki Takigawa; Center for Climate System Research, University of Tokyo. The two institutional credits are credited as organisational creators and the three named people personally, in source order and natural name order (Akimoto, Hajime; Takahashi, Masaaki; Takigawa, Masayuki); the point of contact, Akimoto, Hajime, confirms the first family name. The semicolon-separated programme and university qualifications stay in this preserved citation and are not added as affiliations, as the reviewed creator426 cohort note says."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "28d0eb745a07ace27b8d6892c0bd75d9d928b6a37ed20f1dcb6d62b9eaf60a19",
+   "creator_cohort": "mixed_source_roles_15_FGDC-4027",
+   "creators": [
+    {
+     "name": "Japan Agency for Marine-Earth Science and Technology (JAMSTEC)"
+    },
+    {
+     "name": "National Space Development Agency (NASDA), Japan"
+    },
+    {
+     "name": "Hajime Akimoto"
+    },
+    {
+     "name": "Masaaki Takahashi"
+    },
+    {
+     "name": "Masayuki Takigawa"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Japan Agency for Marine-Earth Science and Technology (JAMSTEC)",
+      "type": "organizational"
+     }
+    },
+    {
+     "person_or_org": {
+      "name": "National Space Development Agency (NASDA), Japan",
+      "type": "organizational"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Akimoto",
+      "given_name": "Hajime",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Takahashi",
+      "given_name": "Masaaki",
+      "type": "personal"
+     }
+    },
+    {
+     "person_or_org": {
+      "family_name": "Takigawa",
+      "given_name": "Masayuki",
+      "type": "personal"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "br",
+       "tail": "\n          National Space Development Agency (NASDA), Japan\n          ",
+       "text": null
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "br",
+       "tail": "\n          Hajime Akimoto; Atmospheric Composition Research Program, Frontier Research System for Global Change (FRSGC)\n          ",
+       "text": null
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "br",
+       "tail": "\n          Masaaki Takahashi and Masayuki Takigawa; Center for Climate System Research, University of Tokyo\n          ",
+       "text": null
+      },
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "br",
+       "tail": "\n        ",
+       "text": null
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          Japan Agency for Marine-Earth Science and Technology (JAMSTEC)\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/31",
+   "proposal_row_sha256": "7ecaa6d03e7ac8edd3ed9d6aa569c8218c9f6398548b2520a3d8f256163d1b2a",
+   "source_bytes": 6442,
+   "source_id": "FGDC-4027",
+   "source_path": "FGDC/FGDC-4027.xml",
+   "source_plan_target_sha256": "3cab515021c62f7b239265dc519f953e8294bc3e77a0932190ea4c427c9154fc",
+   "source_root_sha256": "d0d72069cdbf722ed83cd845e32955a921f9a55b4598872e165bfb92190a85c7",
+   "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"User registration required.\" and the use text \"Review http://www.jamstec.go.jp/site_policy_e.html\". Brett Johnson decided on 2026-10-23 (held-sources question A1, asked \"Do these access and use texts restrict only the data or product, and not the catalogue description that was public in GeoNetwork?\", answered \"Yes, data only\") that the access and use texts restrict only the underlying data or product; the catalogue description was public in the PICES GeoNetwork catalogue. The texts are kept unchanged in this record and no licence is granted. The primary citation credits Japan Agency for Marine-Earth Science and Technology (JAMSTEC), credited as an organisational creator exactly as cited."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "967455bf82c26397c608cddf306661cee0062481d97a3187106ec141da35cb38",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Japan Agency for Marine-Earth Science and Technology (JAMSTEC)",
+     "type": "Organization"
+    }
+   ],
+   "decision_question": "A1",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Japan Agency for Marine-Earth Science and Technology (JAMSTEC)",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Japan Agency for Marine-Earth Science and Technology (JAMSTEC)"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/32",
+   "proposal_row_sha256": "08d6975c2cbc125b8353ff20760fd59dfad446e68da051b7ef12dcf5d421abef",
+   "source_bytes": 5340,
+   "source_id": "FGDC-4039",
+   "source_path": "FGDC/FGDC-4039.xml",
+   "source_plan_target_sha256": "2433a9b679b2249c011d40eb9f26f485f23b70f297c88524ced74c7c23cb4d98",
+   "source_root_sha256": "bea58b4d56d102f5afbd752a2f15fe854e24300c1c6d8009a5a7c1b7bab95db9",
+   "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Access and use constraints: this FGDC record's metadata access and use fields (metainfo/metac and metuc) repeat its data access and use fields (idinfo/accconst and useconst) word for word; the access text reads \"May require password access\" and the use text \"Contact Source\". Brett Johnson decided on 2026-10-23 (held-sources question A3, asked \"Does 'May require password access' refer to the POST data service, as in FGDC-4064, and not to this project description?\", answered \"Yes, data service\") that \"May require password access\" refers to the POST data service, as in the published sister record FGDC-4064, not to this project description. The texts are kept unchanged in this record and no licence is granted. The primary citation displays Census of Marine Life and Vancouver Aquarium separated by a line break; both are credited as organisational creators in source order without merging, as the reviewed creator426 cohort note says. Their relationship is not resolved and the point of contact, Tsang, Peggy, is not promoted."
+   ],
+   "creator_authority_kind": "credits",
+   "creator_authority_object_sha256": "7c63e6ac3497be17d7ae66a94e7994c3c47dd90b901f15a71513257e53b9e2d5",
+   "creator_cohort": "remaining966_source_credit_fgdc_4063",
+   "creators": [
+    {
+     "name": "Census of Marine Life"
+    },
+    {
+     "name": "Vancouver Aquarium"
+    }
+   ],
+   "decision_question": "A3",
+   "hold_group": "access",
+   "metadata_date_correction": null,
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Census of Marine Life",
+      "type": "organizational"
+     }
+    },
+    {
+     "person_or_org": {
+      "name": "Vancouver Aquarium",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [
+      {
+       "attributes": {},
+       "children": [],
+       "tag": "br",
+       "tail": "\n          Vancouver Aquarium\n        ",
+       "text": null
+      }
+     ],
+     "tag": "origin",
+     "tail": null,
+     "text": "\n          Census of Marine Life\n          "
+    }
+   ],
+   "proposal_row_pointer": "/proposals/33",
+   "proposal_row_sha256": "d86ef00d85084e09544262367bcf5568c8c25fa8be731ac82853d71e600b4e22",
+   "source_bytes": 5279,
+   "source_id": "FGDC-4063",
+   "source_path": "FGDC/FGDC-4063.xml",
+   "source_plan_target_sha256": "624e632123a5cd5b6a6fba3c4c411a8ce9c809001955abff6e664eeab7132cc4",
+   "source_root_sha256": "c572b1b8c988f42532d5e7c2eb97ca12190b1bb59a6dc741b6aee2e37b0e2ad9",
+   "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Metadata date: this FGDC record's metadata date (metainfo/metd) reads \"2080207\", seven digits. Brett Johnson confirmed on 2026-10-23 (held-sources question C1, asked \"Is 2080207 a typo for 20080207 (7 Feb 2008)? The original files stay unchanged; the fix goes into a reviewed correction with a note.\", answered \"Yes, 2008-02-07\") that it is a typo for 20080207: the other 31 DFO Ocean Science and Productivity records are dated 20070418 to 20080211, seven of them exactly 20080207, including the neighbouring records FGDC-4140 and FGDC-4180. The publication date of this record is the corrected metadata date 2008-02-07; the citation gives no exact date and the original XML is unchanged. The primary citation credits Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific, credited as an organisational creator exactly as cited, as the reviewed institutional policy publishes the sibling records FGDC-4140 and FGDC-4180."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "108e8db7dd0d4cf76169358211452f37af84fae12e6e34f222d35cb775db7d33",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+    }
+   ],
+   "decision_question": "C1",
+   "hold_group": "metadata_date",
+   "metadata_date_correction": {
+    "corrected_value": "2008-02-07",
+    "question": "C1",
+    "source_value": "2080207"
+   },
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/34",
+   "proposal_row_sha256": "3b7e11bf668eccbe439a859871a97ddbf494f897f7568379ba7c49f661ab8415",
+   "source_bytes": 6842,
+   "source_id": "FGDC-4139",
+   "source_path": "FGDC/FGDC-4139.xml",
+   "source_plan_target_sha256": "4212b214e5ce0367c7ca954ec88842ece9ec42c3a7b1cc02201a56bfa5ac08c6",
+   "source_root_sha256": "b0130b2e8541128f74d5106ea1af263f6bc1e6e5095f583ec210e0f8cca9db8b",
+   "source_sha256": "be98473b278c4f4481040fb05f3e17db35d0b3d9e39e4369b569e7b0e0b14848"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Metadata date: this FGDC record's metadata date (metainfo/metd) reads \"2080207\", seven digits. Brett Johnson confirmed on 2026-10-23 (held-sources question C1, asked \"Is 2080207 a typo for 20080207 (7 Feb 2008)? The original files stay unchanged; the fix goes into a reviewed correction with a note.\", answered \"Yes, 2008-02-07\") that it is a typo for 20080207: the other 31 DFO Ocean Science and Productivity records are dated 20070418 to 20080211, seven of them exactly 20080207, including the neighbouring records FGDC-4140 and FGDC-4180. The publication date of this record is the corrected metadata date 2008-02-07; the citation gives no exact date and the original XML is unchanged. The primary citation credits Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific, credited as an organisational creator exactly as cited, as the reviewed institutional policy publishes the sibling records FGDC-4140 and FGDC-4180."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "108e8db7dd0d4cf76169358211452f37af84fae12e6e34f222d35cb775db7d33",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+    }
+   ],
+   "decision_question": "C1",
+   "hold_group": "metadata_date",
+   "metadata_date_correction": {
+    "corrected_value": "2008-02-07",
+    "question": "C1",
+    "source_value": "2080207"
+   },
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/35",
+   "proposal_row_sha256": "8854e0d405325f7240911a3d631453de53d2ffdcba7744c786b61dbcf2c62e79",
+   "source_bytes": 7619,
+   "source_id": "FGDC-4161",
+   "source_path": "FGDC/FGDC-4161.xml",
+   "source_plan_target_sha256": "08cab55498b5b2c4aed7129c402fbb51a9283735db2f4c02a01ee2de76f749b9",
+   "source_root_sha256": "e27a8cde4cefd379b8d2ea803b9a02d68d58cd81f486519d858e072fb8619971",
+   "source_sha256": "65fb6d71a7ecc18dbf33757e9d4f45ea9a8a6d7822e5ffd4b64bc281324e4111"
+  },
+  {
+   "additional_preservation_paragraphs": [
+    "Metadata date: this FGDC record's metadata date (metainfo/metd) reads \"2080207\", seven digits. Brett Johnson confirmed on 2026-10-23 (held-sources question C1, asked \"Is 2080207 a typo for 20080207 (7 Feb 2008)? The original files stay unchanged; the fix goes into a reviewed correction with a note.\", answered \"Yes, 2008-02-07\") that it is a typo for 20080207: the other 31 DFO Ocean Science and Productivity records are dated 20070418 to 20080211, seven of them exactly 20080207, including the neighbouring records FGDC-4140 and FGDC-4180. The publication date of this record is the corrected metadata date 2008-02-07; the citation gives no exact date and the original XML is unchanged. The primary citation credits Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific, credited as an organisational creator exactly as cited, as the reviewed institutional policy publishes the sibling records FGDC-4140 and FGDC-4180."
+   ],
+   "creator_authority_kind": "direct",
+   "creator_authority_object_sha256": "108e8db7dd0d4cf76169358211452f37af84fae12e6e34f222d35cb775db7d33",
+   "creator_cohort": null,
+   "creators": [
+    {
+     "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+    }
+   ],
+   "decision_question": "C1",
+   "hold_group": "metadata_date",
+   "metadata_date_correction": {
+    "corrected_value": "2008-02-07",
+    "question": "C1",
+    "source_value": "2080207"
+   },
+   "modern_creators": [
+    {
+     "person_or_org": {
+      "name": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific",
+      "type": "organizational"
+     }
+    }
+   ],
+   "primary_origins": [
+    {
+     "attributes": {},
+     "children": [],
+     "tag": "origin",
+     "tail": null,
+     "text": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+    }
+   ],
+   "proposal_row_pointer": "/proposals/36",
+   "proposal_row_sha256": "6252e0d6b5d207417738ea403994d5ab627c6ae81e79d1243ac5ae70cc06d532",
+   "source_bytes": 8410,
+   "source_id": "FGDC-4181",
+   "source_path": "FGDC/FGDC-4181.xml",
+   "source_plan_target_sha256": "5d61681fa363e84dffdad92c498ceb281d79b166f867da3a0ec43facecdba9ce",
+   "source_root_sha256": "c8e1fbffa7f8329776e309a3f612267e748db9b269aca7505247f6f6d4241106",
+   "source_sha256": "e26d7f9bd812d07ef5c67d17edcd646856de32294369b56f9ca1746e0ecf4a79"
+  }
+ ],
+ "schema_version": 1,
+ "scope_path": "docs/readiness/2026-10-23/source_scope_decisions_926.json",
+ "scope_sha256": "045e29e95b75c88847df49372374872a23844c541fa8b4c41faac0f26b73a62d",
+ "source_plan_sha256": "39d2894d518fa5a10d87cc784ce40064e6757529f23219eea153f25805f506ad"
+}

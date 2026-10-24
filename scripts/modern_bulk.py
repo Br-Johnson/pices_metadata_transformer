@@ -81,8 +81,8 @@ EDIT_WRITES = ('edit', 'update', 'publish')  # the in-place update of a publishe
 PHASES = ('planned', 'creating', 'created', 'initialized', 'uploaded', 'draft-verified', 'adopted',
           'review-set', 'accepted', 'published', 'editing', 'edit-open', 'edit-saved', 'edit-published')
 UPDATING = ('editing', 'edit-open', 'edit-saved', 'edit-published')
-RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/resource_types_r5.json'
-RESOURCE_TYPES_SHA = 'ef0e8f2ba6f020b3b19aa4a69ad88f69a4e873b733c8f90e6ecb2d58dc1d3ec4'  # adds the creators64 sources; supersedes r4 2cc3afd8...
+RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-23/resource_types_r6.json'
+RESOURCE_TYPES_SHA = '950248823b091299be33277679c5e4080a7d3eecfdea9ccf9f3c7565e93c71d8'  # adds the 37 held sources Brett cleared on 2026-10-23; supersedes r5 ef0e8f2b...
 SOURCE_REPAIRS_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/source_repairs_r2.json'
 SOURCE_REPAIRS_SHA = 'eb2028e5e4fd949d6cc8541d7a349adc99ba8b889cf73392203d565828439719'  # adds U+0097 -> U+2014 for 885, 2674, 3808; supersedes 5d8f46aa...
 MAP_AS_TEXT_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-23/map_as_text.json'
@@ -333,8 +333,12 @@ class WireV2:
         self.xml = base.xml
         self.contents = contents_of(base)
         self.v1_body = base.body
+        # A held37 member (ADR 0016) carries its reviewed metadata date correction and public notes in its
+        # preparation evidence; every other preparation carries neither.
         record = wire_v2.build(parse(base.body), base.xml, self.source_ids, resource_type,
-                               map_as_text=base.source_id in map_as_text())
+                               map_as_text=base.source_id in map_as_text(),
+                               date_correction=base.evidence.get('metadata_date_correction'),
+                               notes=base.evidence.get('public_notes') or [])
         repairs = source_repairs().get(base.source_id, [])
         if repairs:  # reviewed text repairs (source_repairs.json); the original XML is unchanged
             record = {**record, 'metadata': repaired(record['metadata'], repairs)}

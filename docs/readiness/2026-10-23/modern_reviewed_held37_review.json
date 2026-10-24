@@ -1,0 +1,317 @@
+{
+ "approved_members": [],
+ "decisions": {
+  "FGDC-1206": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-1318": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-1422": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-1423": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-1770": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-1771": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-1864": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-1994": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-227": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-2586": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-288": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3683": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3687": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3919": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3920": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3975": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3976": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3977": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-3978": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-4027": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-4039": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-4063": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-4139": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-4161": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-4181": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-572": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-648": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-710": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-711": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-758": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-759": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-761": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-766": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-802": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-862": {
+   "decision": "pending",
+   "note": null
+  },
+  "FGDC-870": {
+   "decision": "pending",
+   "note": null
+  }
+ },
+ "held_members": [],
+ "how_to_approve": "Set status to \"approved\", fill reviewer and reviewed_at, set each decision to \"approved\" or \"held\" with a note, list the approved and held members, keep mapping_manifest_sha256 and proposals_sha256 unchanged, then pin this file's new SHA256 in scripts.modern_singleton.HELD37_REVIEW_SHA. scripts.modern_singleton admits a source only when this file is approved, pinned, and lists that source as approved; everything else stays held.",
+ "kind": "modern-reviewed-held37-review-v1",
+ "mapping_manifest_path": "docs/readiness/2026-10-23/modern_reviewed_held37.json",
+ "mapping_manifest_sha256": "5f63983694a33ff6df365bbba79ce95e4fe473d5f484fe7d097b812fd656afe0",
+ "members": [
+  {
+   "source_id": "FGDC-227",
+   "source_sha256": "ebec5132cf647ef71188c6c1411c7dba50891e8b6b84fbf6ffc5a98541357220"
+  },
+  {
+   "source_id": "FGDC-288",
+   "source_sha256": "c17618dc2c6b7f26b54dce940c074d26dd243b05b001559aaa642e1435d343ff"
+  },
+  {
+   "source_id": "FGDC-572",
+   "source_sha256": "523f6ccbdce2ac1c45d97b0205794772e8535e07ea6417ccb3bc7847d348df1a"
+  },
+  {
+   "source_id": "FGDC-648",
+   "source_sha256": "3b35a73a0589c17f2cf9202cd08407ce1fdb74eb8cdde7bcad599f204f5f8f01"
+  },
+  {
+   "source_id": "FGDC-710",
+   "source_sha256": "c09c24acdb88a1e7edc39f58da587624103aead9b359ee484ec716f6aa254a0a"
+  },
+  {
+   "source_id": "FGDC-711",
+   "source_sha256": "d21e5f8937e5f764e718dd3a4159fded2c44a74280600726fc7090b30f77470d"
+  },
+  {
+   "source_id": "FGDC-758",
+   "source_sha256": "06b16649d3577d2e4394efd858592f2d6da8825d6f149f2f7def7d629eaef212"
+  },
+  {
+   "source_id": "FGDC-759",
+   "source_sha256": "d1d932460b8f108beb22b936bc744c03deaa2c379e0dbedd253889fc9538a6e9"
+  },
+  {
+   "source_id": "FGDC-761",
+   "source_sha256": "f293f0db15a1fff0a983bd7d76bb76580fb049d53b1182cd9309c28873ad90bf"
+  },
+  {
+   "source_id": "FGDC-766",
+   "source_sha256": "6002b1cc9b205efc4959d5ac3b890dbdaa7cfb92e6ce15f534a96109e97aa7b5"
+  },
+  {
+   "source_id": "FGDC-802",
+   "source_sha256": "ba566ec856814b9e6c48ad789cf2dd1709c79366337d5ca64b4cb925dd68bd61"
+  },
+  {
+   "source_id": "FGDC-862",
+   "source_sha256": "b2f98cb373bc3f3bea6fb43b338a2b6ed3f1905723541976c0eba892796b8cec"
+  },
+  {
+   "source_id": "FGDC-870",
+   "source_sha256": "ffaf053a11197c917d956c8fdd3d96b27989b5a4ffbcc0a7047bf8aef5ab5c9f"
+  },
+  {
+   "source_id": "FGDC-1206",
+   "source_sha256": "cb5d88557bc7d5eb5c5d2b5e48411efab46c5be0977260dccda9162bf614c1a6"
+  },
+  {
+   "source_id": "FGDC-1318",
+   "source_sha256": "4040e8a5f7623585c86507e07517e39ff40cfd2e17af0595b7a164d443ddd84b"
+  },
+  {
+   "source_id": "FGDC-1422",
+   "source_sha256": "3e6506b58ffab3498f5a9c7411d6d25dc12101374d7c44ebc5c612d4d9804a58"
+  },
+  {
+   "source_id": "FGDC-1423",
+   "source_sha256": "872710e1c650b9a1d28b775bbc4e51466c0328849bd59d781ae127b2c1269890"
+  },
+  {
+   "source_id": "FGDC-1770",
+   "source_sha256": "d9a3ebc23ac26962bccd4827e4a79fd74bcd5f01105255155ea24b37dc02835d"
+  },
+  {
+   "source_id": "FGDC-1771",
+   "source_sha256": "60c70971c0661de2579341111f98dcc0bf529973b217134cf8f24cd56bc9055d"
+  },
+  {
+   "source_id": "FGDC-1864",
+   "source_sha256": "7fcfbdf6fe4cc35791dc497a8c02ac16c9367383edd14e47f9c18d7c87a45070"
+  },
+  {
+   "source_id": "FGDC-1994",
+   "source_sha256": "9e55e7f85b47425aa8f998848ccc772e592845d9bb4287f7a1612d871351f3fb"
+  },
+  {
+   "source_id": "FGDC-2586",
+   "source_sha256": "01f654604ccd4e26e8d8dfbb64e4f9c8ee9350af954f4bd230396185f4cbf662"
+  },
+  {
+   "source_id": "FGDC-3683",
+   "source_sha256": "63ee9cc74618ccca30fcddb633bfeccaaf65809e6e1bd065f65998a934cdde20"
+  },
+  {
+   "source_id": "FGDC-3687",
+   "source_sha256": "462968f7691bf90142067b857792e2b2644e5eaf0b64ed735c2bc9fcf16adf7b"
+  },
+  {
+   "source_id": "FGDC-3919",
+   "source_sha256": "1d9f38fb6c83c2388b16075329009ec1c94ecc9ea46dfb64331f0d2313113c13"
+  },
+  {
+   "source_id": "FGDC-3920",
+   "source_sha256": "025ac052acf7f239a996c8321d2a52f24687a28d03c66f7e462f9f8fac0bbda1"
+  },
+  {
+   "source_id": "FGDC-3975",
+   "source_sha256": "b3897a8af8dfb943db7dceaf4d2f094bda9244540d0bdf03cdbda420a12ac83e"
+  },
+  {
+   "source_id": "FGDC-3976",
+   "source_sha256": "4044ca27fe2e57c8269d670caa940353c623866a8d4006234d30c677490f5a04"
+  },
+  {
+   "source_id": "FGDC-3977",
+   "source_sha256": "1401dd05edb925db35b070ece055de3d22993b2972a7c73887730aa450be89c8"
+  },
+  {
+   "source_id": "FGDC-3978",
+   "source_sha256": "e38dc63f5d3195c4870739aaa6ea50e85785c059adcc5550be36b58064e9ccba"
+  },
+  {
+   "source_id": "FGDC-4027",
+   "source_sha256": "7db9891adfb2837497c24a1142e7029be9e7f02df6262edf6a9cf06f05eeda92"
+  },
+  {
+   "source_id": "FGDC-4039",
+   "source_sha256": "f20ec2b06fc1fc98199b647ae395cca52e43689aad8b01ac2c9d73e52db24ccd"
+  },
+  {
+   "source_id": "FGDC-4063",
+   "source_sha256": "d4316e685146a6232b5491273da2132f18f4c7397770634eb4d11fd00dc8a076"
+  },
+  {
+   "source_id": "FGDC-4139",
+   "source_sha256": "be98473b278c4f4481040fb05f3e17db35d0b3d9e39e4369b569e7b0e0b14848"
+  },
+  {
+   "source_id": "FGDC-4161",
+   "source_sha256": "65fb6d71a7ecc18dbf33757e9d4f45ea9a8a6d7822e5ffd4b64bc281324e4111"
+  },
+  {
+   "source_id": "FGDC-4181",
+   "source_sha256": "e26d7f9bd812d07ef5c67d17edcd646856de32294369b56f9ca1746e0ecf4a79"
+  }
+ ],
+ "membership_sha256": "230fcc37e465d33308dc39a02ef83b0d724fbd02dfb588434eb9c05754decb8f",
+ "policy": "modern-xml-reviewed-held37-v1",
+ "proposals_path": "docs/readiness/2026-10-23/held37_proposals.json",
+ "proposals_sha256": "3a543430de6f9ffe4ca7f30db3a135476c6a6735de45db08f490a5fbe7078b0d",
+ "proposed_by": "Claude Fable 5.1 (deep-coder subagent of session a49e1cd3), 2026-10-23",
+ "reviewed_at": null,
+ "reviewer": null,
+ "reviewer_checklist": [
+  "Read every row against FGDC/<id>.xml and docs/readiness/2026-10-23/held_sources_decisions.json: the row's decision_question names the question Brett answered, its sources list this record, and the answer is applied verbatim (creators B1 to B4, dates C1 and C2, access A1 to A3).",
+  "Access rows (22): the four constraint fields are the literal texts quoted in the paragraph, metac equals accconst and metuc equals useconst, and the record carries no new licence; the modern creator is the literal legacy credit typed organisational, except 288 (two people with the \"of\" affiliation), 1864 (the institute without the role clause), 4027 (two organisations and three people, as the creator426 note reads), 4063 (two organisations) and 1994 (the Exxon821 projection). Hold any of these five the record does not settle.",
+  "Creator rows (9 admitted, 2817 held): the names, order and entity type are Brett's answers; the context note and paragraph quote the origin text or say it is empty, name the contact as a separate role and name the evidence the sheet gave.",
+  "Date rows (5): the correction manifest binds the exact source value (\"2080207\" or blank) and the corrected day; the paragraph gives the source value, the corrected value, the reason and the decision; the publication date of the v1 wire is the corrected day.",
+  "Resource types (37): each type follows the pinned rule from the record's own XML; the low-confidence calls (870, 1318, 4027) are listed in resource_types_r6.json.",
+  "Confirm FGDC-2817 stays held (its access text was not decided) and that FGDC-909, 3850, 4185, 21, 4077, 4184, 3373 and 3484 are not members."
+ ],
+ "schema_version": 1,
+ "status": "proposal pending independent review"
+}

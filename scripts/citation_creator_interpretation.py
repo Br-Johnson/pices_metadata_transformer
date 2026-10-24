@@ -23,6 +23,20 @@ SOURCE_CREDIT_412_MANIFEST_SHA256 = 'c6aa4f9c2e4c80ea565b3a92d66d0e066b12f77534b
 SOURCE_CREDIT_415_MANIFEST_SHA256 = 'ae4404c40238542c517822fe4424d14a0cbe93efef542bf42d359717fd4ba2e3'
 SOURCE_CREDIT_423_MANIFEST_SHA256 = 'c720de8c0775adf3b432fc4bc5e28bdfbb36c67ceb91b73b719d0179cf8f8bf6'
 SOURCE_CREDIT_426_MANIFEST_SHA256 = '15c654dc714849327b827363071a1da3ad7c3fa20c2c95a990d7868e75e96bd2'
+# The 426 cohorts verbatim plus ten cohorts for the creator holds Brett decided on 2026-10-23 (B1 to B4).
+SOURCE_CREDIT_436_MANIFEST_SHA256 = 'c6b040b847c25e0024a6b981e5cce088bd4f5587b0911d1b485c25c3f3cfa83b'
+COHORT_MANIFESTS = (INSTITUTION_MANIFEST_SHA256, INSTITUTION_PROGRAM_MANIFEST_SHA256,
+                    JOINT_COLLECTION_MANIFEST_SHA256, LITERAL_EXTENSION_MANIFEST_SHA256,
+                    SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256,
+                    SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256,
+                    SOURCE_CREDIT_412_MANIFEST_SHA256, SOURCE_CREDIT_415_MANIFEST_SHA256,
+                    SOURCE_CREDIT_423_MANIFEST_SHA256, SOURCE_CREDIT_426_MANIFEST_SHA256,
+                    SOURCE_CREDIT_436_MANIFEST_SHA256)
+EXACT_CREDIT_MANIFESTS = (SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256,
+                          SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256,
+                          SOURCE_CREDIT_412_MANIFEST_SHA256, SOURCE_CREDIT_415_MANIFEST_SHA256,
+                          SOURCE_CREDIT_423_MANIFEST_SHA256, SOURCE_CREDIT_426_MANIFEST_SHA256,
+                          SOURCE_CREDIT_436_MANIFEST_SHA256)
 
 
 def source_element(node, outer=True):
@@ -36,14 +50,7 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
     """Return the pinned creator objects only for an exact audited source member."""
     if (not isinstance(reference, dict) or set(reference) != {'manifest_path', 'manifest_sha256'}
             or not isinstance(reference.get('manifest_path'), str) or not reference['manifest_path'].strip()
-            or reference.get('manifest_sha256') not in
-            (MANIFEST_SHA256, DFO_MANIFEST_SHA256, INSTITUTION_MANIFEST_SHA256,
-             INSTITUTION_PROGRAM_MANIFEST_SHA256, JOINT_COLLECTION_MANIFEST_SHA256,
-             LITERAL_EXTENSION_MANIFEST_SHA256, SOURCE_CREDIT_MANIFEST_SHA256,
-             ACCESS_HELD_CREDIT_MANIFEST_SHA256,
-             SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256,
-             SOURCE_CREDIT_412_MANIFEST_SHA256, SOURCE_CREDIT_415_MANIFEST_SHA256,
-             SOURCE_CREDIT_423_MANIFEST_SHA256, SOURCE_CREDIT_426_MANIFEST_SHA256)):
+            or reference.get('manifest_sha256') not in (MANIFEST_SHA256, DFO_MANIFEST_SHA256, *COHORT_MANIFESTS)):
         raise ValueError('Creator interpretation requires the exact reviewed manifest reference')
     try:
         raw = Path(reference['manifest_path']).read_bytes()
@@ -52,14 +59,7 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
     if hashlib.sha256(raw).hexdigest() != reference['manifest_sha256']:
         raise ValueError('Creator interpretation manifest differs from the reviewed profile')
     manifest = json.loads(raw)
-    profiles = (manifest['cohorts'] if reference['manifest_sha256'] in
-                (INSTITUTION_MANIFEST_SHA256, INSTITUTION_PROGRAM_MANIFEST_SHA256,
-                 JOINT_COLLECTION_MANIFEST_SHA256, LITERAL_EXTENSION_MANIFEST_SHA256,
-                 SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256,
-                 SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256,
-                 SOURCE_CREDIT_412_MANIFEST_SHA256, SOURCE_CREDIT_415_MANIFEST_SHA256,
-                 SOURCE_CREDIT_423_MANIFEST_SHA256, SOURCE_CREDIT_426_MANIFEST_SHA256)
-                else [manifest])
+    profiles = manifest['cohorts'] if reference['manifest_sha256'] in COHORT_MANIFESTS else [manifest]
     matches = [profile for profile in profiles
                if any(member['source_id'] == source_id and member['source_sha256'] == source_sha256
                       for member in profile['members'])]
@@ -67,11 +67,7 @@ def validate_creator_interpretation(reference, source_id, source_sha256, root, i
         raise ValueError('Source ID/hash is outside reviewed creator interpretation membership')
     profile = matches[0]
     nodes = root.findall(manifest['source_xpath'])
-    exact_credit_profile = reference['manifest_sha256'] in (
-        SOURCE_CREDIT_MANIFEST_SHA256, ACCESS_HELD_CREDIT_MANIFEST_SHA256,
-        SOURCE_CREDIT_401_MANIFEST_SHA256, SOURCE_CREDIT_409_MANIFEST_SHA256,
-        SOURCE_CREDIT_412_MANIFEST_SHA256, SOURCE_CREDIT_415_MANIFEST_SHA256,
-        SOURCE_CREDIT_423_MANIFEST_SHA256, SOURCE_CREDIT_426_MANIFEST_SHA256)
+    exact_credit_profile = reference['manifest_sha256'] in EXACT_CREDIT_MANIFESTS
     if exact_credit_profile and profile.get('primary_origin_element') is not None:
         if len(nodes) != 1 or source_element(nodes[0]) != profile['primary_origin_element']:
             raise ValueError('Creator interpretation requires the exact reviewed primary origin element')

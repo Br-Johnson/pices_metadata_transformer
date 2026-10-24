@@ -37,7 +37,7 @@ ADFG_PAIR = ('FGDC-2949', 'FGDC-3177')
 ADFG_TARGET = 'sha256:26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d750ca8a8'
 FOODHABITS_PAIR = ('FGDC-2837', 'FGDC-3065')
 FOODHABITS_TARGET = 'sha256:8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237'
-PROPOSAL = bulk.RESOURCE_TYPES_PATH.with_name('resource_types_pairs25_proposal.json')
+PROPOSAL = bulk.RESOURCE_TYPES_PATH.parents[1] / '2026-10-22/resource_types_pairs25_proposal.json'
 
 
 class Clock:

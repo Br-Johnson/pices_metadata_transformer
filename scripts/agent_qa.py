@@ -33,6 +33,7 @@ from scripts.source_link_interpretation import validate_source_link_policy
 from scripts.source_title_interpretation import validate_source_title_policy
 from scripts.dataset_access_interpretation import validate_dataset_access_policy
 from scripts.source_scope_attestation import validate_scope_policy
+from scripts.metadata_date_correction import validate_metadata_date_policy
 
 
 def _text(root, path):
@@ -135,6 +136,9 @@ def assess_source(json_file, paths):
         elif policy.get('license') != license_id:
             raise ValueError('XML policy license differs from explicit XML grant')
         date_text = _text(root, './metainfo/metd')
+        if policy.get('metadata_date_correction') is not None:
+            # A reviewed exact correction (Brett, 2026-10-23) of a metd the source cannot supply; the original is unchanged.
+            date_text = validate_metadata_date_policy(policy, Path(source_path).stem, source_hash, root)['corrected_value']
         access_constraints = _text(root, './metainfo/metac')
         if policy.get('dataset_access_interpretation') is not None:
             validate_dataset_access_policy(policy, Path(source_path).stem, source_hash, root, metadata)

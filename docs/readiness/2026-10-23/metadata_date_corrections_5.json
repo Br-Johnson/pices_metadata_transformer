@@ -1,0 +1,174 @@
+{
+ "channel": "Claude Code chat, AskUserQuestion answers to the questions in held_sources_evidence.md",
+ "corrections": {
+  "FGDC-1422": {
+   "answer": "Yes, 2003-05-30",
+   "asked": "Use 2003-05-30, the metadata date of the 21 neighbouring NOAA records, as their metadata date?",
+   "corrected_value": "2003-05-30",
+   "neighbours": {
+    "count": 21,
+    "members": [
+     "FGDC-1410",
+     "FGDC-1411",
+     "FGDC-1412",
+     "FGDC-1414",
+     "FGDC-1415",
+     "FGDC-1416",
+     "FGDC-1417",
+     "FGDC-1418",
+     "FGDC-1419",
+     "FGDC-1420",
+     "FGDC-1421",
+     "FGDC-1426",
+     "FGDC-1427",
+     "FGDC-1428",
+     "FGDC-1429",
+     "FGDC-1430",
+     "FGDC-1431",
+     "FGDC-1432",
+     "FGDC-1433",
+     "FGDC-1434",
+     "FGDC-1435"
+    ],
+    "metd": "20030530",
+    "range": "FGDC-1410 to FGDC-1435"
+   },
+   "question": "C2",
+   "reason": "A blank value. Brett decided on 2026-10-23 that the metadata date is 2003-05-30, the metd of all 21 neighbouring NOAA records FGDC-1410 to FGDC-1435, including FGDC-1421, also a 2002 survey.",
+   "source_sha256": "3e6506b58ffab3498f5a9c7411d6d25dc12101374d7c44ebc5c612d4d9804a58",
+   "source_value": ""
+  },
+  "FGDC-1423": {
+   "answer": "Yes, 2003-05-30",
+   "asked": "Use 2003-05-30, the metadata date of the 21 neighbouring NOAA records, as their metadata date?",
+   "corrected_value": "2003-05-30",
+   "neighbours": {
+    "count": 21,
+    "members": [
+     "FGDC-1410",
+     "FGDC-1411",
+     "FGDC-1412",
+     "FGDC-1414",
+     "FGDC-1415",
+     "FGDC-1416",
+     "FGDC-1417",
+     "FGDC-1418",
+     "FGDC-1419",
+     "FGDC-1420",
+     "FGDC-1421",
+     "FGDC-1426",
+     "FGDC-1427",
+     "FGDC-1428",
+     "FGDC-1429",
+     "FGDC-1430",
+     "FGDC-1431",
+     "FGDC-1432",
+     "FGDC-1433",
+     "FGDC-1434",
+     "FGDC-1435"
+    ],
+    "metd": "20030530",
+    "range": "FGDC-1410 to FGDC-1435"
+   },
+   "question": "C2",
+   "reason": "A blank value. Brett decided on 2026-10-23 that the metadata date is 2003-05-30, the metd of all 21 neighbouring NOAA records FGDC-1410 to FGDC-1435, including FGDC-1421, also a 2002 survey.",
+   "source_sha256": "872710e1c650b9a1d28b775bbc4e51466c0328849bd59d781ae127b2c1269890",
+   "source_value": ""
+  },
+  "FGDC-4139": {
+   "answer": "Yes, 2008-02-07",
+   "asked": "Is 2080207 a typo for 20080207 (7 Feb 2008)? The original files stay unchanged; the fix goes into a reviewed correction with a note.",
+   "corrected_value": "2008-02-07",
+   "neighbours": {
+    "count": 31,
+    "earliest": "20070418",
+    "exactly_20080207": [
+     "FGDC-4095",
+     "FGDC-4109",
+     "FGDC-4110",
+     "FGDC-4111",
+     "FGDC-4115",
+     "FGDC-4140",
+     "FGDC-4180"
+    ],
+    "latest": "20080211",
+    "origin": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+   },
+   "question": "C1",
+   "reason": "A seven-digit value. Brett confirmed on 2026-10-23 that it is a typo for 20080207. The other 31 DFO Ocean Science and Productivity records are dated 20070418 to 20080211, seven of them exactly 20080207, including the neighbouring records FGDC-4140 and FGDC-4180.",
+   "source_sha256": "be98473b278c4f4481040fb05f3e17db35d0b3d9e39e4369b569e7b0e0b14848",
+   "source_value": "2080207"
+  },
+  "FGDC-4161": {
+   "answer": "Yes, 2008-02-07",
+   "asked": "Is 2080207 a typo for 20080207 (7 Feb 2008)? The original files stay unchanged; the fix goes into a reviewed correction with a note.",
+   "corrected_value": "2008-02-07",
+   "neighbours": {
+    "count": 31,
+    "earliest": "20070418",
+    "exactly_20080207": [
+     "FGDC-4095",
+     "FGDC-4109",
+     "FGDC-4110",
+     "FGDC-4111",
+     "FGDC-4115",
+     "FGDC-4140",
+     "FGDC-4180"
+    ],
+    "latest": "20080211",
+    "origin": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+   },
+   "question": "C1",
+   "reason": "A seven-digit value. Brett confirmed on 2026-10-23 that it is a typo for 20080207. The other 31 DFO Ocean Science and Productivity records are dated 20070418 to 20080211, seven of them exactly 20080207, including the neighbouring records FGDC-4140 and FGDC-4180.",
+   "source_sha256": "65fb6d71a7ecc18dbf33757e9d4f45ea9a8a6d7822e5ffd4b64bc281324e4111",
+   "source_value": "2080207"
+  },
+  "FGDC-4181": {
+   "answer": "Yes, 2008-02-07",
+   "asked": "Is 2080207 a typo for 20080207 (7 Feb 2008)? The original files stay unchanged; the fix goes into a reviewed correction with a note.",
+   "corrected_value": "2008-02-07",
+   "neighbours": {
+    "count": 31,
+    "earliest": "20070418",
+    "exactly_20080207": [
+     "FGDC-4095",
+     "FGDC-4109",
+     "FGDC-4110",
+     "FGDC-4111",
+     "FGDC-4115",
+     "FGDC-4140",
+     "FGDC-4180"
+    ],
+    "latest": "20080211",
+    "origin": "Fisheries and Oceans Canada - Ocean Science And Productivity, Pacific"
+   },
+   "question": "C1",
+   "reason": "A seven-digit value. Brett confirmed on 2026-10-23 that it is a typo for 20080207. The other 31 DFO Ocean Science and Productivity records are dated 20070418 to 20080211, seven of them exactly 20080207, including the neighbouring records FGDC-4140 and FGDC-4180.",
+   "source_sha256": "e26d7f9bd812d07ef5c67d17edcd646856de32294369b56f9ca1746e0ecf4a79",
+   "source_value": "2080207"
+  }
+ },
+ "decided_at": "2026-10-23",
+ "decided_by": "Brett Johnson",
+ "evidence_type": "USER_DECIDED",
+ "grants_new_license": false,
+ "grants_rehosting": false,
+ "kind": "pices-metadata-date-corrections-v1",
+ "original_statement_references": [
+  {
+   "key": "held_sources_decisions",
+   "manifest_path": "docs/readiness/2026-10-23/held_sources_decisions.json",
+   "manifest_sha256": "47ec54fb08eb2748fac64a74b6b0728bb4869ffca5cef17f0c08921f53d2c7af"
+  },
+  {
+   "key": "held_sources_evidence_sheet",
+   "manifest_path": "docs/readiness/2026-10-22/held_sources_evidence.md",
+   "manifest_sha256": "66460b0fddd2bd0509f19bb56d59e2d54576f5086497ed4fb91b6768cda133a6"
+  }
+ ],
+ "originals_unchanged": "The FGDC files keep their source values. The corrected day is the prepared input's publication date, enters the artifact policy's date evidence, and is the v2 publication date when the citation gives no exact date, with a note that gives the source value, the corrected value, the reason and the decision.",
+ "publication_approved": false,
+ "schema_version": 1,
+ "source_xpath": "./metainfo/metd",
+ "status": "USER_DECIDED"
+}
