@@ -1030,7 +1030,8 @@ class BulkRouteTests(unittest.TestCase):
         self.assertIn('Bounding coordinates as given', texted['additional_descriptions'][-1]['description'])
         self.assertEqual({k: v for k, v in plain.items() if k not in ('locations', 'additional_descriptions')},
                          {k: v for k, v in texted.items() if k not in ('locations', 'additional_descriptions')})
-        self.assertEqual(len(bulk.map_as_text()), 19)
+        self.assertEqual(len(bulk.map_as_text()), 20)
+        self.assertIn('FGDC-4139', bulk.map_as_text())
 
     def test_a_lifted_exclusion_no_longer_bars_the_source_and_the_exclusion_stays(self):
         bulk.exclude(self.paths, SOURCES[0], 'held for source-text repair: test', 'Reviewer agent')

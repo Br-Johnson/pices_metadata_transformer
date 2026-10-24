@@ -1,0 +1,35 @@
+{
+ "kind": "pices-map-as-text-v1",
+ "decision": "Brett Johnson, 2026-10-23: records whose bounding box contradicts the record's own text are published with \"No map, box as text\": no map geometry; the XML box values stay visible as \"Bounding coordinates as given\". The original XML is unchanged.",
+ "found_by": "the independent bulk-020-v2 reviewer, 2026-10-23",
+ "sources": {
+  "FGDC-546": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-547": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-548": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-549": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-550": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-551": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-552": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-553": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-554": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-556": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-557": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-558": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-559": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-573": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-574": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-575": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-576": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-580": "Unaami point in the wrong hemisphere: the box gives a positive (east) longitude while the record's own text gives west (e.g. FGDC-546 \"St. Paul Isl. (57N,170W)\")",
+  "FGDC-542": "Donut Hole, central Bering Sea (about 175E to 173W): the box W -173 / E 175 has its bounds swapped, so it would draw a 348-degree band covering everything except the study area",
+  "FGDC-4139": "point in the wrong hemisphere: the box gives W=E=126.67 (east) and N=S=48.65, while the record's own text names La Perouse Bank, station P4, with the place keyword \"South Outer Coast (West Coast VI)\", off Vancouver Island at about 126.67 W"
+ },
+ "revision": 2,
+ "previous": {
+  "path": "docs/readiness/2026-10-23/map_as_text.json",
+  "sha256": "806aae568f7a365bd6e3f8bb3f6d02b7aaed6ff1cf2bc02573f325db358d3a96"
+ },
+ "amended": {
+  "FGDC-4139": "added 2026-10-24 under the same decision; found by the independent bulk-022-v2 reviewer"
+ }
+}

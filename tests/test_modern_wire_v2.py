@@ -158,6 +158,12 @@ class ContactRules(unittest.TestCase):
                 '</cntinfo></ptcontac>')
         self.assertEqual(wire_v2.contributors(root(role), [])[0]['person_or_org'],
                          {'type': 'organizational', 'name': 'NOAA Library'})
+        company = ('<ptcontac><cntinfo><cntperp><cntper>Resource Data, Inc.</cntper></cntperp></cntinfo></ptcontac>'
+                   '<distinfo><distrib><cntinfo><cntperp><cntper>Resource Data, Inc.</cntper></cntperp></cntinfo>'
+                   '</distrib></distinfo>')
+        self.assertEqual(wire_v2.contributors(root(company), []),
+                         [{'person_or_org': {'type': 'organizational', 'name': 'Resource Data, Inc.'},
+                           'role': {'id': 'contactperson'}}])
         garbled = '<ptcontac><cntinfo><cntperp><cntper>Br￼mmer, A.</cntper></cntperp></cntinfo></ptcontac>'
         self.assertEqual(wire_v2.contributors(root(garbled), []), [])
 

@@ -204,6 +204,9 @@ def box(west, east, north, south):
 
 # ---------------------------------------------------------------- contributors
 
+COMPANY_SUFFIX = re.compile(r'(?:inc|incorporated|ltd|limited|llc|corp|corporation|co|company|plc|gmbh)\.?', re.I)
+
+
 def person_or_org(name, organisation, primary):
     """The contributor an FGDC contact names, typed by the element that holds it.
 
@@ -212,12 +215,16 @@ def person_or_org(name, organisation, primary):
     order beside its organisation ('Rick Thomson' of DFO); without an organisation, a several-word
     value is an organisation in the person slot ('NOAA Central Library'), and a bare role word
     ('Librarian') stands for its organisation. All 82 such values in the collection follow this.
+    A company name whose part after the comma is a legal-form suffix ('Resource Data, Inc.', the only
+    one in the collection, FGDC-1318) is an organisation, not a person with the given name 'Inc.'.
     """
     if primary == 'organisation':
         return {'type': 'organizational', 'name': name}, []
     affiliations = [{'name': organisation}] if organisation else []
     if ',' in name:
         family, given = (part.strip() for part in name.split(',', 1))
+        if COMPANY_SUFFIX.fullmatch(given):
+            return {'type': 'organizational', 'name': name}, []
         if family and given:
             return {'type': 'personal', 'family_name': family, 'given_name': given}, affiliations
     tokens = name.split()

@@ -85,8 +85,8 @@ RESOURCE_TYPES_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026
 RESOURCE_TYPES_SHA = '950248823b091299be33277679c5e4080a7d3eecfdea9ccf9f3c7565e93c71d8'  # adds the 37 held sources Brett cleared on 2026-10-23; supersedes r5 ef0e8f2b...
 SOURCE_REPAIRS_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-22/source_repairs_r2.json'
 SOURCE_REPAIRS_SHA = 'eb2028e5e4fd949d6cc8541d7a349adc99ba8b889cf73392203d565828439719'  # adds U+0097 -> U+2014 for 885, 2674, 3808; supersedes 5d8f46aa...
-MAP_AS_TEXT_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-23/map_as_text.json'
-MAP_AS_TEXT_SHA = '806aae568f7a365bd6e3f8bb3f6d02b7aaed6ff1cf2bc02573f325db358d3a96'
+MAP_AS_TEXT_PATH = Path(__file__).resolve().parents[1] / 'docs/readiness/2026-10-24/map_as_text_r2.json'
+MAP_AS_TEXT_SHA = '4b36a39726da8170cb723b48dcc7b03ac54efedb0b49d4ba39ac7eb6ae3fcb6f'
 EXCLUSION_LIFT_KIND = 'modern-bulk-exclusion-lift-v1'
 LEGACY_RELEASE_KIND = 'modern-bulk-legacy-release-v1'
 LEGACY_RELEASE_FRESHNESS = timedelta(hours=24)
