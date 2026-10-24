@@ -113,14 +113,14 @@ CREATORS64_REVIEW_SHA = '4ae77e76d12e446150128901ed23b0f1ec515442b0d5a5583a878ab
 CREATORS64_POLICY = 'modern-xml-reviewed-creators64-v1'
 CREATORS64_APPROVED = 'approved'
 # The 37 held sources Brett cleared on 2026-10-23 (ADR 0016). The proposal binds his decisions file and the
-# three evidence manifests the classification read; the review file starts closed and admits nothing until
-# an independent reviewer replaces it and re-pins HELD37_REVIEW_SHA.
+# three evidence manifests the classification read; the review file started closed, and the independent
+# accuracy review of 2026-10-24 approved all 36 admitted members (FGDC-2817 stays held by its proposal).
 HELD37 = ROOT / 'docs/readiness/2026-10-23/modern_reviewed_held37.json'
 HELD37_SHA = '5f63983694a33ff6df365bbba79ce95e4fe473d5f484fe7d097b812fd656afe0'
 HELD37_PROPOSALS = ROOT / 'docs/readiness/2026-10-23/held37_proposals.json'
 HELD37_PROPOSALS_SHA = '3a543430de6f9ffe4ca7f30db3a135476c6a6735de45db08f490a5fbe7078b0d'
 HELD37_REVIEW = ROOT / 'docs/readiness/2026-10-23/modern_reviewed_held37_review.json'
-HELD37_REVIEW_SHA = 'd25bf58b29a396659b005bdb0e471a2e281cf83763fe667b7649a3f6574113a9'
+HELD37_REVIEW_SHA = 'a502e217bd88d1253ebdb26a0cdcbae7f831d400bb52dd765e0762316d587f6d'
 HELD37_DECISIONS = ROOT / 'docs/readiness/2026-10-23/held_sources_decisions.json'
 HELD37_DECISIONS_SHA = '47ec54fb08eb2748fac64a74b6b0728bb4869ffca5cef17f0c08921f53d2c7af'
 HELD37_CREDITS = ROOT / 'docs/readiness/2026-10-23/source_citation_credits_436.json'

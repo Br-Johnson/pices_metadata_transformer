@@ -1,7 +1,7 @@
 """Held37: the 37 sources Brett cleared on 2026-10-23, behind a proposal and a review that starts closed.
 
 The decisions file, the three classification evidence manifests (decided scope 926, source credits 436,
-metadata date corrections 5), the proposal, the mapping manifest and the pending review are read
+metadata date corrections 5), the proposal, the mapping manifest and the approved review are read
 statically. The 36 admitted sources are classified with the lane manifest set and freshly prepared only
 under a synthetic approved review; FGDC-2817, the six records Brett kept held, the two he retired, the
 protected records and every prior policy are checked to be unaffected. No transport.
@@ -35,7 +35,7 @@ REPO = mapping.ROOT
 DOCS = REPO / 'docs/readiness/2026-10-23'
 MANIFEST_SHA = '5f63983694a33ff6df365bbba79ce95e4fe473d5f484fe7d097b812fd656afe0'
 PROPOSALS_SHA = '3a543430de6f9ffe4ca7f30db3a135476c6a6735de45db08f490a5fbe7078b0d'
-PENDING_REVIEW_SHA = 'd25bf58b29a396659b005bdb0e471a2e281cf83763fe667b7649a3f6574113a9'
+REVIEW_SHA = 'a502e217bd88d1253ebdb26a0cdcbae7f831d400bb52dd765e0762316d587f6d'  # approved 2026-10-24: the 36 admitted
 DECISIONS_SHA = '47ec54fb08eb2748fac64a74b6b0728bb4869ffca5cef17f0c08921f53d2c7af'
 REVIEWED_AT = '2026-10-23T22:00:00+00:00'  # the lane's fixed classification time, after Brett's decisions
 ACCESS = tuple('FGDC-' + str(i) for i in (227, 288, 572, 648, 710, 711, 758, 759, 761, 766, 802, 862, 870, 1770, 1771,
@@ -135,7 +135,7 @@ class ModernReviewedHeld37Tests(unittest.TestCase):
     def test_pinned_files_decisions_scope_and_the_closed_review(self):
         for path, digest, expected in ((mapping.HELD37, mapping.HELD37_SHA, MANIFEST_SHA),
                                        (mapping.HELD37_PROPOSALS, mapping.HELD37_PROPOSALS_SHA, PROPOSALS_SHA),
-                                       (mapping.HELD37_REVIEW, mapping.HELD37_REVIEW_SHA, PENDING_REVIEW_SHA),
+                                       (mapping.HELD37_REVIEW, mapping.HELD37_REVIEW_SHA, REVIEW_SHA),
                                        (mapping.HELD37_DECISIONS, mapping.HELD37_DECISIONS_SHA, DECISIONS_SHA),
                                        (mapping.HELD37_CREDITS, credits.SOURCE_CREDIT_436_MANIFEST_SHA256, None),
                                        (mapping.HELD37_SCOPE, scope.DECIDED_MANIFEST_SHA256, None),
@@ -159,13 +159,19 @@ class ModernReviewedHeld37Tests(unittest.TestCase):
         self.assertEqual(self.manifest['hold_group_counts'], {'access': 22, 'creators': 9, 'metadata_date': 5})
         self.assertEqual(self.manifest['modern_creator_object_count'], 46)
         self.assertEqual(self.proposals['inputs'][str(mapping.HELD37_DECISIONS.relative_to(REPO))], DECISIONS_SHA)
-        self.assertEqual(self.review['status'], 'proposal pending independent review')
+        self.assertEqual(self.review['status'], 'approved')
+        self.assertIsNotNone(self.review['reviewer'])
+        self.assertEqual([row['source_id'] for row in self.review['approved_members']], list(ADMITTED))
+        self.assertEqual(self.review['held_members'], [])
         self.assertEqual(self.review['mapping_manifest_sha256'], MANIFEST_SHA)
         self.assertEqual(self.review['proposals_sha256'], PROPOSALS_SHA)
         self.assertEqual(self.review['members'], self.manifest['members'])
         self.assertEqual(set(self.review['decisions']), set(ADMITTED))
-        # A pending review admits nothing; the holds, the retired and the protected records are closed too.
-        for sid in (*MEMBERS, *STAY_HELD, *RETIRED, *mapping.PROTECTED, 'FGDC-2953'):
+        # The approved review admits exactly the 36; the hold, the retired and the protected records stay closed.
+        for sid in ADMITTED:
+            with self.subTest(admitted=sid):
+                mapping.source_policy(sid)
+        for sid in (*HELD, *STAY_HELD, *RETIRED, *mapping.PROTECTED, 'FGDC-2953'):
             with self.subTest(source=sid), self.assertRaises(mapping.Held):
                 mapping.source_policy(sid)
         self.assertEqual([mapping.source_policy(sid)[1]['schema_version'] for sid in OLD_SAMPLES], list(range(1, 12)))
