@@ -690,11 +690,17 @@ def check_file_entry(entry, expected, *, completed=True):
     if completed:
         check(entry.get('size') == expected['size'] and entry.get('checksum') == 'md5:' + expected['md5'],
               'file size or MD5 differs from the original')
+    else:  # initialized without content: zenodo.org lists it with size 0 and no checksum (FGDC-759, 2026-10-24)
+        check(not entry.get('size') and not entry.get('checksum'), 'pending file entry already has content')
 
 
 def check_draft(data, prepared, record, owner, *, files_complete, status='draft', bind_since=None,
-                foreign=frozenset(), compare=True):
-    """The draft as the provider holds it; binds the identity on the first validated response."""
+                foreign=frozenset(), compare=True, pending=frozenset()):
+    """The draft as the provider holds it; binds the identity on the first validated response.
+
+    `pending` names originals initialized but without content, listed with size 0 and no checksum;
+    only `observe` passes it, so every other caller still requires the files it expects complete.
+    """
     check(isinstance(data, dict) and data.get('is_published') is False and data.get('status') == status
           and data.get('pids') == {} and data.get('doi') in (None, '')
           and data.get('parent', {}).get('pids', {}) == {}
@@ -721,16 +727,21 @@ def check_draft(data, prepared, record, owner, *, files_complete, status='draft'
     files = data.get('files', {})
     expected = files_of(record)
     entries = files.get('entries') if isinstance(files.get('entries'), dict) else None
+    pending = {f['key'] for f in expected} & set(pending)
     if files_complete == 'partial':  # some originals completed, the rest not yet (a pair between uploads)
-        check(entries is not None and set(entries) < {f['key'] for f in expected}, 'draft files differ')
-        present = [f for f in expected if f['key'] in entries]
+        check(entries is not None and set(entries) - pending < {f['key'] for f in expected}, 'draft files differ')
+        present = [f for f in expected if f['key'] in entries and f['key'] not in pending]
     else:
         present = expected if files_complete else []
-    check(files.get('enabled') is True and entries is not None and set(entries) == {f['key'] for f in present}
-          and files.get('count') == len(present)
+    check(files.get('enabled') is True and entries is not None
+          and set(entries) == {f['key'] for f in present} | pending
+          and files.get('count') == len(present) + len(pending)
           and files.get('total_bytes') == sum(f['size'] for f in present), 'draft files differ')
     for f in present:
         check_file_entry(entries[f['key']], f)
+    for f in expected:
+        if f['key'] in pending:
+            check_file_entry(entries[f['key']], f, completed=False)
     if files_complete is True:
         check(data.get('errors', []) == [], 'draft reports validation errors')
     elif not present:
@@ -1696,11 +1707,18 @@ class Bulk:
         status = value.get('status')
         check(status in ('draft', 'draft_with_review'),
               f'draft status {status}: the submission awaits community action; inspect it on Zenodo')
-        listed = set(value.get('files', {}).get('entries', {}) or {})
+        files = value.get('files', {})
+        entries = files.get('entries') if isinstance(files.get('entries'), dict) else {}
+        pending = frozenset()
+        if status == 'draft':
+            # An initialized file whose content never arrived (FGDC-759: the PUT answered 502) stays listed
+            # without a checksum. It is not uploaded; the file listing below says which files completed.
+            pending = frozenset(k for k in keys if isinstance(entries.get(k), dict) and not entries[k].get('checksum'))
+        listed = set(entries) - pending
         complete = set(keys) <= listed
         check_draft(value, prepared, record, self.owner, files_complete=True if complete else
                     ('partial' if listed else False),
-                    status='draft_with_review' if status == 'draft_with_review' else 'draft')
+                    status='draft_with_review' if status == 'draft_with_review' else 'draft', pending=pending)
         if status == 'draft_with_review':
             review = value.get('parent', {}).get('review', {})
             check(review.get('receiver') == {'community': PICES_COMMUNITY}, 'review targets another community')

@@ -38,6 +38,8 @@ ADFG_TARGET = 'sha256:26fdd51ab6cf1a96245eb1609d7732dd34fe8a74ffe9b0ff3b780c8d75
 FOODHABITS_PAIR = ('FGDC-2837', 'FGDC-3065')
 FOODHABITS_TARGET = 'sha256:8bef14fd05c7b1ea1ab936bfeb4c5325c29c34f33b46d40b6f82f72055973237'
 PROPOSAL = bulk.RESOURCE_TYPES_PATH.parents[1] / '2026-10-22/resource_types_pairs25_proposal.json'
+GATEWAY_502 = (b'<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1>'
+               b'</center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n')  # as zenodo.org answered FGDC-759
 
 
 class Clock:
@@ -99,6 +101,11 @@ class Provider:
     def document(self, record, *, published=False):
         base = '/api/records/' + record['id'] + ('' if published else '/draft')
         done = {k: v for k, v in record['files'].items() if k not in record['pending']}
+        entries = {k: {'key': k, 'size': len(v), 'checksum': 'md5:' + hashlib.md5(v, usedforsecurity=False).hexdigest()}
+                   for k, v in done.items()}
+        # An initialized file without content is listed as zenodo.org lists it (FGDC-759, 2026-10-24):
+        # size 0 and no checksum, counted among the entries but adding no bytes.
+        entries.update({k: {'key': k, 'size': 0} for k in record['pending']})
         value = {'id': record['id'], 'created': record['created'], 'revision_id': record['revision'],
                  'metadata': copy.deepcopy(record['metadata']),
                  'access': copy.deepcopy(record.get('access') or {'record': 'public', 'files': 'restricted'}),
@@ -107,10 +114,8 @@ class Provider:
                  'parent': {'id': record['parent'], 'access': {'owned_by': {'user': OWNER}}, 'communities': {},
                             'pids': {}},
                  'links': {'self': draft.ORIGIN + base, 'files': draft.ORIGIN + base + '/files'},
-                 'files': {'enabled': True, 'entries': {k: {'key': k, 'size': len(v),
-                                                            'checksum': 'md5:' + hashlib.md5(v, usedforsecurity=False).hexdigest()}
-                                                        for k, v in done.items()},
-                           'count': len(done), 'total_bytes': sum(len(v) for v in done.values())}}
+                 'files': {'enabled': True, 'entries': entries, 'count': len(entries),
+                           'total_bytes': sum(len(v) for v in done.values())}}
         if not done:
             value['errors'] = [{'field': 'files.enabled', 'messages': ['Missing uploaded files.']}]
         if record['review'] and not published:
@@ -475,6 +480,90 @@ class BulkRouteTests(unittest.TestCase):
         self.assertEqual((record['counts']['content'], record['allowances']), (2, {'content': 1}))
         self.assertEqual([r['status'] for r in record['requests'] if r['kind'] == 'content'],
                          ['unanswered', 'answered'])
+
+    def test_upload_answered_502_is_reconciled_from_the_listed_pending_entry_and_resent_once(self):
+        # FGDC-759 (bulk-022-v2, 2026-10-24): the content PUT answered 502 from nginx and the draft then listed
+        # the initialized file with size 0 and no checksum, which `observe` once read as complete and held forever.
+        self.provider.reject = lambda index, method, path: (502, GATEWAY_502) if path.endswith('/content') else None
+        review_file = self.review('bulk-064', self.plan('bulk-064', ['FGDC-1915'])[1])
+        self.assertEqual(self.drafts(review_file)['status'], 'stopped')
+        record = bulk.load_record(self.paths, 'FGDC-1915')
+        self.assertEqual((record['phase'], record['counts']['content'], record['requests'][-1]['http_status']),
+                         ('initialized', 1, 502))
+        self.assertEqual(record['hold']['reason'], 'content answered 502 (text/html, complete True); stopping the run')
+        shown = self.provider.document(self.provider.records[record['identity']['id']])['files']
+        self.assertEqual(shown, {'enabled': True, 'entries': {'FGDC-1915.xml': {'key': 'FGDC-1915.xml', 'size': 0}},
+                                 'count': 1, 'total_bytes': 0})
+        self.provider.reject = None
+        before = len(self.provider.calls)
+        outcome = self.runner('reconcile').reconcile('FGDC-1915')
+        self.assertTrue(all(m == 'GET' for m, _ in self.provider.calls[before:]))
+        self.assertEqual((outcome['phase'], outcome['allowed_again']), ('initialized', ['content:FGDC-1915.xml']))
+        record = bulk.load_record(self.paths, 'FGDC-1915')
+        self.assertEqual((record['hold'], record['uploaded'], record['allowances'], record['resend']),
+                         (None, [], {'content': 1}, {'content': ['FGDC-1915.xml']}))
+        self.assertEqual(self.drafts(review_file)['counts'], {'drafted': 1})
+        record = bulk.load_record(self.paths, 'FGDC-1915')
+        self.assertEqual((record['phase'], record['counts']['content'], record['counts']['commit']),
+                         ('draft-verified', 2, 0))
+        self.assertEqual([p.rsplit('/', 2)[-2] for m, p in self.writes() if m == 'PUT'],
+                         ['FGDC-1915.xml', 'FGDC-1915.xml'])
+
+    def test_a_second_upload_answered_502_needs_a_separate_decision(self):
+        self.provider.reject = lambda index, method, path: (502, GATEWAY_502) if path.endswith('/content') else None
+        review_file = self.review('bulk-065', self.plan('bulk-065', ['FGDC-1915'])[1])
+        self.assertEqual(self.drafts(review_file)['status'], 'stopped')
+        self.assertEqual(self.runner('reconcile').reconcile('FGDC-1915')['allowed_again'], ['content:FGDC-1915.xml'])
+        self.assertEqual(self.drafts(review_file)['status'], 'stopped')  # the allowed resend answers 502 as well
+        record = bulk.load_record(self.paths, 'FGDC-1915')
+        self.assertEqual((record['phase'], record['counts']['content']), ('initialized', 2))
+        with self.assertRaises(Held) as held:
+            self.runner('reconcile').reconcile('FGDC-1915')
+        self.assertEqual(str(held.exception), 'content was already allowed again; needs a separate decision')
+        record = bulk.load_record(self.paths, 'FGDC-1915')
+        self.assertEqual((record['phase'], record['allowances']), ('initialized', {'content': 1}))
+        self.assertIsNotNone(record['hold'])
+        self.provider.reject = None
+        self.assertEqual(self.drafts(review_file)['counts'], {'held-earlier': 1})
+        self.assertEqual(len([m for m, _ in self.writes() if m == 'PUT']), 2)
+
+    def test_a_pending_entry_does_not_mask_a_metadata_difference(self):
+        self.provider.reject = lambda index, method, path: (502, GATEWAY_502) if path.endswith('/content') else None
+        review_file = self.review('bulk-066', self.plan('bulk-066', ['FGDC-1915'])[1])
+        self.assertEqual(self.drafts(review_file)['status'], 'stopped')
+        self.provider.reject = None
+        record = bulk.load_record(self.paths, 'FGDC-1915')
+        self.provider.records[record['identity']['id']]['metadata']['title'] = 'Changed by hand'
+        before = len(self.provider.calls)
+        with self.assertRaises(bulk.RecordHold) as held:
+            self.runner('reconcile').reconcile('FGDC-1915')
+        self.assertEqual(str(held.exception), 'provider metadata differs from the wire')
+        self.assertTrue(all(m == 'GET' for m, _ in self.provider.calls[before:]))
+        record = bulk.load_record(self.paths, 'FGDC-1915')
+        self.assertEqual((record['phase'], record['allowances'], record['resend']), ('initialized', {}, {}))
+        self.assertIsNotNone(record['hold'])
+        self.assertEqual(self.drafts(review_file)['counts'], {'held-earlier': 1})
+
+    def test_only_observe_tolerates_a_listed_pending_entry(self):
+        review_file = self.review('bulk-067', self.plan('bulk-067', ['FGDC-1915'])[1])
+        _, _, _, members = bulk.load_review(self.paths, review_file)
+        prepared = bulk.prepare_entry(self.paths, members['FGDC-1915'])
+        record_id = self.provider.add_draft(parse(prepared.body), 'FGDC-1915.xml', prepared.xml)
+        provider_record = self.provider.records[record_id]
+        provider_record['pending'].add('FGDC-1915.xml')
+        record = bulk.new_record('FGDC-1915', members['FGDC-1915'], 'bulk')
+        record['identity'] = {'id': record_id, 'parent_id': provider_record['parent'], 'owner': OWNER,
+                              'created': provider_record['created']}
+        document = self.provider.document(provider_record)
+        for files_complete in (True, False):  # every caller but `observe` holds on the listed pending entry
+            with self.assertRaises(bulk.RecordHold) as held:
+                bulk.check_draft(document, prepared, record, OWNER, files_complete=files_complete)
+            self.assertEqual(str(held.exception), 'draft files differ')
+        bulk.check_draft(document, prepared, record, OWNER, files_complete=False, pending={'FGDC-1915.xml'})
+        document['files']['entries']['FGDC-1915.xml']['checksum'] = 'md5:' + 'a' * 32  # content after all
+        with self.assertRaises(bulk.RecordHold) as held:
+            bulk.check_draft(document, prepared, record, OWNER, files_complete=False, pending={'FGDC-1915.xml'})
+        self.assertEqual(str(held.exception), 'pending file entry already has content')
 
     def test_lost_create_is_bound_from_the_inventory_and_blocks_others_until_then(self):
         review_file = self.review('bulk-019', self.plan('bulk-019', ['FGDC-1915', 'FGDC-1916'])[1])
