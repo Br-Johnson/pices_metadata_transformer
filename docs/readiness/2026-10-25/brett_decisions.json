@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "kind": "pices-owner-decisions-v1",
+  "decided_by": "Brett Johnson",
+  "decided_at": "2026-10-25",
+  "channel": "Claude Code chat, AskUserQuestion answers after the catalogue tail receipt (docs/readiness/2026-10-24/catalogue_tail_receipt.md)",
+  "decisions": [
+    {"question": "E1", "sources": ["FGDC-2817"],
+     "asked": "FGDC-2817 (urea in the Bering Sea, Okeanologiya 1993) is the last of the 37 records you cleared. It has a second hold that was not on the evidence sheet: access text \"Check with Contributor\" and use text \"Refer to webstite URL: http://www.csa.com/\" (CSA = Cambridge Scientific Abstracts). 15 sources carry this exact pair and 13 are already published. Do these texts restrict only the article/data, not the catalogue record?",
+     "answer": "Yes, data only", "effect": "access hold cleared; publish with the B2 creators Kavakina, S.V.; Sapozhnikov, V.V. after independent review"},
+    {"question": "E2", "sources": ["FGDC-4115", "FGDC-4140", "FGDC-4098", "FGDC-4159"],
+     "asked": "4 published records show a map point in the wrong hemisphere. Fix them by an in-place update with no map and the box as text?",
+     "answer": "Leave them as published", "effect": "no map change; recorded as a known source error"},
+    {"question": "E3", "sources": ["FGDC-287", "FGDC-411", "FGDC-771", "FGDC-2229", "FGDC-2235", "FGDC-2824", "FGDC-3786"],
+     "asked": "The 7 creators64 holds have compound, venue or unnamed credits. What do you want for them?",
+     "answer": "determine creators yourself, without my review and publish",
+     "effect": "the agent determines each creator from the record's own evidence; an independent AI accuracy review replaces Brett's review; publish the approved ones"},
+    {"question": "E4", "sources": ["FGDC-4089", "FGDC-4091", "FGDC-4092", "FGDC-4094", "FGDC-4095", "FGDC-4098", "FGDC-4109", "FGDC-4110", "FGDC-4111", "FGDC-4113", "FGDC-4114", "FGDC-4115", "FGDC-4116", "FGDC-4117", "FGDC-4124", "FGDC-4125", "FGDC-4132", "FGDC-4133", "FGDC-4136", "FGDC-4139", "FGDC-4140", "FGDC-4141", "FGDC-4146", "FGDC-4147", "FGDC-4148", "FGDC-4151", "FGDC-4155", "FGDC-4157", "FGDC-4160", "FGDC-4161", "FGDC-4170", "FGDC-4175", "FGDC-4176", "FGDC-4180", "FGDC-4181"],
+     "asked": "v2 maps only the first <stdorder> (ordering) block. 35 DFO Ocean Science and Productivity records have a second block (digital format, size, media, fees, data locations) that is only in the attached public XML. Map it too?",
+     "answer": "Map it", "effect": "change the v2 mapping to carry every ordering block, re-review, and update the published records in place (same DOI, new revision)"}
+  ]
+}
